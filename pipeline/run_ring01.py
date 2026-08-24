@@ -15,7 +15,13 @@ from cadrille import Cadrille, collate
 VIEW_NAMES = ("front", "side", "top", "angled", "back")
 
 
-def run(input_dir: Path, output: Path, checkpoint: str, max_new_tokens: int) -> None:
+def run(
+    input_dir: Path,
+    output: Path,
+    checkpoint: str,
+    max_new_tokens: int,
+    requested_device: str,
+) -> None:
     views = [Image.open(input_dir / f"ring01_{name}.png").convert("RGB") for name in VIEW_NAMES]
     batch = [{
         "video": views,
@@ -32,10 +38,14 @@ def run(input_dir: Path, output: Path, checkpoint: str, max_new_tokens: int) -> 
         max_pixels=512 * 28 * 28,
         padding_side="left",
     )
+    device = requested_device
+    if device == "auto":
+        device = "cuda" if torch.cuda.is_available() else "cpu"
+    dtype = torch.float16 if device == "cuda" else torch.float32
     model = Cadrille.from_pretrained(
         checkpoint,
-        torch_dtype=torch.float32,
-        device_map="cpu",
+        torch_dtype=dtype,
+        device_map="auto" if device == "cuda" else "cpu",
     )
     model.eval()
 
@@ -43,7 +53,7 @@ def run(input_dir: Path, output: Path, checkpoint: str, max_new_tokens: int) -> 
     model_inputs = {}
     for key, value in inputs.items():
         if isinstance(value, torch.Tensor):
-            model_inputs[key] = value.to("cpu")
+            model_inputs[key] = value.to(model.device)
         elif key not in {"file_name"}:
             model_inputs[key] = value
 
@@ -67,8 +77,9 @@ def main() -> None:
     parser.add_argument("--output", type=Path, default=Path("data/ring01_output.py"))
     parser.add_argument("--checkpoint", default="maksimko123/cadrille")
     parser.add_argument("--max-new-tokens", type=int, default=128)
+    parser.add_argument("--device", choices=("auto", "cuda", "cpu"), default="auto")
     args = parser.parse_args()
-    run(args.input_dir, args.output, args.checkpoint, args.max_new_tokens)
+    run(args.input_dir, args.output, args.checkpoint, args.max_new_tokens, args.device)
 
 
 if __name__ == "__main__":
