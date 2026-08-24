@@ -1,0 +1,5 @@
+# Runtime/model artifacts (keep these out of source control).
+hf_cache/
+ring01_inference.log
+__pycache__/
+*.py[cod]

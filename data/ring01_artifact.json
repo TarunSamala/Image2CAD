@@ -1,0 +1,45 @@
+{
+  "reference_image": "data/ring01_reference_images/ring01_front.png",
+  "vision": {
+    "object_type": "solitaire_ring",
+    "camera_pose": {},
+    "metal_mask_path": null,
+    "depth_path": null,
+    "normal_path": null,
+    "stones": [
+      {
+        "cut": "round_brilliant",
+        "center_mm": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "diameter_mm": null,
+        "dimensions_mm": null,
+        "confidence": 1.0,
+        "parameters": {
+          "count": 1.0
+        }
+      }
+    ],
+    "prong_count": 4,
+    "measurements_mm": {},
+    "confidence": 1.0
+  },
+  "components": [],
+  "master_geometry_path": null,
+  "exports": {},
+  "validation": null,
+  "metadata": {
+    "sample": "ring01",
+    "view_paths": {
+      "front": "data/ring01_reference_images/ring01_front.png",
+      "side": "data/ring01_reference_images/ring01_side.png",
+      "top": "data/ring01_reference_images/ring01_top.png",
+      "angled": "data/ring01_reference_images/ring01_angled.png",
+      "back": "data/ring01_reference_images/ring01_back.png"
+    },
+    "view_count": 5,
+    "notes": "Known reference labels; dimensions remain to be estimated."
+  }
+}
