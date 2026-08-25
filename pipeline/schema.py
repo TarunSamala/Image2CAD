@@ -20,6 +20,9 @@ class StoneSpec:
     dimensions_mm: tuple[float, float, float] | None = None
     confidence: float = 0.0
     parameters: dict[str, float] = field(default_factory=dict)
+    source: str = "unknown"
+    evidence: list[str] = field(default_factory=list)
+    uncertainty_mm: float | None = None
 
 
 @dataclass
@@ -33,6 +36,7 @@ class VisionEvidence:
     prong_count: int | None = None
     measurements_mm: dict[str, float] = field(default_factory=dict)
     confidence: float = 0.0
+    fields: dict[str, dict[str, Any]] = field(default_factory=dict)
 
 
 @dataclass
@@ -70,4 +74,3 @@ class ReconstructionArtifact:
     def save_json(self, path: str) -> None:
         with open(path, "w", encoding="utf-8") as handle:
             json.dump(self.to_dict(), handle, indent=2)
-

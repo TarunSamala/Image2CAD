@@ -1,0 +1,15 @@
+{
+  "metal": "/workspace/data/ring01_parametric/ring01_metal.step",
+  "stone": "/workspace/data/ring01_parametric/ring01_stone.step",
+  "assembly": "/workspace/data/ring01_parametric/ring01_parametric.step",
+  "stl": "/workspace/data/ring01_parametric/ring01_parametric.stl",
+  "cavity": "metal boolean cut below stone",
+  "prongs": "4",
+  "validation": {
+    "metal_solid_count": 1,
+    "stone_solid_count": 1,
+    "assembly_solid_count": 2,
+    "metal_is_single_solid": true,
+    "stone_is_single_solid": true
+  }
+}
