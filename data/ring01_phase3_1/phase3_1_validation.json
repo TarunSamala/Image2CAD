@@ -1,0 +1,64 @@
+{
+  "stage": "phase3_1_refinement_validation",
+  "passed": true,
+  "manufacturing_accuracy_validated": false,
+  "checks": {
+    "objective_improved_pass": true,
+    "all_view_jewelry_iou_nonregression_pass": true,
+    "all_view_jewelry_iou_minimum_pass": true,
+    "metal_single_solid_pass": true,
+    "stone_single_solid_pass": true,
+    "four_prongs_pass": true,
+    "cavity_pass": true,
+    "exported_cad_all_view_iou_pass": true,
+    "exported_cad_matches_proxy_pass": true
+  },
+  "objective": {
+    "initial": 0.470917,
+    "optimized": 0.51579,
+    "absolute_improvement": 0.044873,
+    "relative_improvement_percent": 9.529
+  },
+  "jewelry_iou": {
+    "front": {
+      "initial": 0.49216,
+      "optimized": 0.6276,
+      "delta": 0.13544
+    },
+    "side": {
+      "initial": 0.70277,
+      "optimized": 0.70955,
+      "delta": 0.00678
+    },
+    "top": {
+      "initial": 0.59199,
+      "optimized": 0.70999,
+      "delta": 0.118
+    },
+    "angled": {
+      "initial": 0.49199,
+      "optimized": 0.50004,
+      "delta": 0.00805
+    },
+    "back": {
+      "initial": 0.71824,
+      "optimized": 0.71891,
+      "delta": 0.00067
+    }
+  },
+  "exported_cad_jewelry_iou": {
+    "front": 0.71504,
+    "side": 0.76519,
+    "top": 0.78705,
+    "angled": 0.53339,
+    "back": 0.77577
+  },
+  "exported_cad_renders": {
+    "front": "data/ring01_phase3_1/renders/exported_cad/ring01_front_jewelry.png",
+    "side": "data/ring01_phase3_1/renders/exported_cad/ring01_side_jewelry.png",
+    "top": "data/ring01_phase3_1/renders/exported_cad/ring01_top_jewelry.png",
+    "angled": "data/ring01_phase3_1/renders/exported_cad/ring01_angled_jewelry.png",
+    "back": "data/ring01_phase3_1/renders/exported_cad/ring01_back_jewelry.png"
+  },
+  "remaining_gate": "Visual inspection and metric calibration remain required; image-space fitting does not establish millimetre accuracy."
+}

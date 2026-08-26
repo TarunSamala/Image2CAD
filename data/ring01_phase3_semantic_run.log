@@ -1,0 +1,56 @@
+{
+  "stage": "phase3_jewellery_aware_semantic_proxy",
+  "source_visual_hull": "data/ring01_phase3/phase3_reconstruction.json",
+  "scale_status": "provisional_uncalibrated_millimetre_assumption",
+  "assumptions": {
+    "hoop_major_radius_mm": 10.0,
+    "shank_radius_mm": 0.9,
+    "stone_diameter_mm": 6.75,
+    "warning": "These values are fitting seeds, not measured dimensions."
+  },
+  "topology": {
+    "one_shank": true,
+    "one_stone": true,
+    "prong_count": 4,
+    "stone_seat": true,
+    "boolean_cavity": true,
+    "prong_centers": [
+      [
+        2.5986,
+        2.5986,
+        10.8
+      ],
+      [
+        -2.5986,
+        2.5986,
+        10.8
+      ],
+      [
+        -2.5986,
+        -2.5986,
+        10.8
+      ],
+      [
+        2.5986,
+        -2.5986,
+        10.8
+      ]
+    ]
+  },
+  "validation": {
+    "metal_solid_count": 1,
+    "stone_solid_count": 1,
+    "assembly_solid_count": 2,
+    "metal_is_single_solid": true,
+    "stone_is_single_solid": true
+  },
+  "artifacts": {
+    "metal_step": "data/ring01_phase3/semantic/ring01_phase3_metal.step",
+    "stone_step": "data/ring01_phase3/semantic/ring01_phase3_stone.step",
+    "assembly_step": "data/ring01_phase3/semantic/ring01_phase3_semantic.step",
+    "assembly_stl": "data/ring01_phase3/semantic/ring01_phase3_semantic.stl",
+    "assembly_obj": "data/ring01_phase3/semantic/ring01_phase3_semantic.obj",
+    "assembly_glb": "data/ring01_phase3/semantic/ring01_phase3_semantic.glb",
+    "preview": "data/ring01_phase3/semantic/previews/ring01_phase3_mesh_preview.png"
+  }
+}

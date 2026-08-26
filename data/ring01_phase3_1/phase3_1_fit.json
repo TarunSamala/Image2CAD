@@ -1,0 +1,346 @@
+{
+  "sample": "ring01",
+  "stage": "phase3_1_component_render_compare_refinement",
+  "source_masks": "data/ring01_phase2_2/phase2_2_components.json",
+  "objective": "weighted multi-view IoU over jewelry, shank, stone, setting, and observable prongs",
+  "camera_fit": {
+    "angled": {
+      "tilt_degrees": 30,
+      "roll_degrees": 25,
+      "jewelry_iou": 0.49199,
+      "calibrated": false
+    },
+    "cameras": {
+      "front": {
+        "name": "front",
+        "right": [
+          1,
+          0,
+          0
+        ],
+        "up": [
+          0,
+          1,
+          0
+        ],
+        "direction": [
+          0,
+          0,
+          1
+        ],
+        "family": "gemstone_face",
+        "confidence": 0.82
+      },
+      "top": {
+        "name": "top",
+        "right": [
+          1,
+          0,
+          0
+        ],
+        "up": [
+          0,
+          1,
+          0
+        ],
+        "direction": [
+          0,
+          0,
+          1
+        ],
+        "family": "gemstone_face",
+        "confidence": 0.78
+      },
+      "side": {
+        "name": "side",
+        "right": [
+          1,
+          0,
+          0
+        ],
+        "up": [
+          0,
+          0,
+          1
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "family": "hoop_profile",
+        "confidence": 0.88
+      },
+      "back": {
+        "name": "back",
+        "right": [
+          -1,
+          0,
+          0
+        ],
+        "up": [
+          0,
+          0,
+          1
+        ],
+        "direction": [
+          0,
+          -1,
+          0
+        ],
+        "family": "hoop_profile",
+        "confidence": 0.84
+      },
+      "angled": {
+        "name": "angled",
+        "right": [
+          0.9063077870366499,
+          -0.36599815077066683,
+          0.2113091308703497
+        ],
+        "up": [
+          -0.42261826174069944,
+          -0.7848855672213958,
+          0.4531538935183249
+        ],
+        "direction": [
+          0.0,
+          0.49999999999999994,
+          0.8660254037844387
+        ],
+        "family": "semantic_silhouette_fit",
+        "confidence": 0.76
+      }
+    }
+  },
+  "initial": {
+    "score": 0.470917,
+    "parameters": {
+      "hoop_major_radius": 10.0,
+      "shank_radius": 0.9,
+      "stone_radius": 3.375,
+      "shoulder_end_x": 3.825,
+      "shoulder_radius": 0.85,
+      "seat_z": 10.65,
+      "seat_inner_inset": 0.38,
+      "seat_outer_extra": 1.05,
+      "seat_height": 1.25,
+      "prong_radius": 0.39,
+      "prong_offset": 0.3,
+      "prong_height": 4.4,
+      "prong_inset": 0.28,
+      "stone_bottom_z": 11.15,
+      "stone_depth": 3.35
+    },
+    "view_component_iou": {
+      "front": {
+        "jewelry": 0.49216,
+        "shank": 0.23498,
+        "stone_amodal": 0.44495,
+        "setting": 0.06759,
+        "prongs": 0.00427
+      },
+      "side": {
+        "jewelry": 0.70277,
+        "shank": 0.62181,
+        "stone_amodal": 0.47679,
+        "setting": 0.24514,
+        "prongs": 0.10669
+      },
+      "top": {
+        "jewelry": 0.59199,
+        "shank": 0.32983,
+        "stone_amodal": 0.53368,
+        "setting": 0.13281,
+        "prongs": 0.00765
+      },
+      "angled": {
+        "jewelry": 0.49199,
+        "shank": 0.39418,
+        "stone_amodal": 0.34851,
+        "setting": 0.19701,
+        "prongs": 0.00339
+      },
+      "back": {
+        "jewelry": 0.71824,
+        "shank": 0.65832,
+        "stone_amodal": 0.45789,
+        "setting": 0.22629,
+        "prongs": 0.09777
+      }
+    }
+  },
+  "optimized": {
+    "score": 0.51579,
+    "parameters": {
+      "hoop_major_radius": 10.0,
+      "shank_radius": 1.02187,
+      "stone_radius": 3.25188,
+      "shoulder_end_x": 3.63617,
+      "shoulder_radius": 1.11913,
+      "seat_z": 10.65,
+      "seat_inner_inset": 0.38,
+      "seat_outer_extra": 0.71359,
+      "seat_height": 1.60883,
+      "prong_radius": 0.45,
+      "prong_offset": 0.45699,
+      "prong_height": 4.74673,
+      "prong_inset": 0.28,
+      "stone_bottom_z": 11.33,
+      "stone_depth": 3.7064
+    },
+    "view_component_iou": {
+      "front": {
+        "jewelry": 0.6276,
+        "shank": 0.40355,
+        "stone_amodal": 0.4833,
+        "setting": 0.08824,
+        "prongs": 0.09109
+      },
+      "side": {
+        "jewelry": 0.70955,
+        "shank": 0.59637,
+        "stone_amodal": 0.49606,
+        "setting": 0.29123,
+        "prongs": 0.1148
+      },
+      "top": {
+        "jewelry": 0.70999,
+        "shank": 0.47681,
+        "stone_amodal": 0.56503,
+        "setting": 0.14308,
+        "prongs": 0.11987
+      },
+      "angled": {
+        "jewelry": 0.50004,
+        "shank": 0.4012,
+        "stone_amodal": 0.33938,
+        "setting": 0.20324,
+        "prongs": 0.00303
+      },
+      "back": {
+        "jewelry": 0.71891,
+        "shank": 0.61999,
+        "stone_amodal": 0.45673,
+        "setting": 0.26818,
+        "prongs": 0.10763
+      }
+    }
+  },
+  "improvement": 0.044873,
+  "optimization_history": [
+    {
+      "iteration": 0,
+      "score": 0.470917,
+      "parameters": {
+        "hoop_major_radius": 10.0,
+        "shank_radius": 0.9,
+        "stone_radius": 3.375,
+        "shoulder_end_x": 3.825,
+        "shoulder_radius": 0.85,
+        "seat_z": 10.65,
+        "seat_inner_inset": 0.38,
+        "seat_outer_extra": 1.05,
+        "seat_height": 1.25,
+        "prong_radius": 0.39,
+        "prong_offset": 0.3,
+        "prong_height": 4.4,
+        "prong_inset": 0.28,
+        "stone_bottom_z": 11.15,
+        "stone_depth": 3.35
+      }
+    },
+    {
+      "iteration": 1,
+      "score": 0.498734,
+      "parameters": {
+        "hoop_major_radius": 10.0,
+        "shank_radius": 1.06,
+        "stone_radius": 3.175,
+        "shoulder_end_x": 3.825,
+        "shoulder_radius": 0.97,
+        "seat_z": 10.65,
+        "seat_inner_inset": 0.38,
+        "seat_outer_extra": 0.9,
+        "seat_height": 1.41,
+        "prong_radius": 0.43,
+        "prong_offset": 0.37,
+        "prong_height": 4.68,
+        "prong_inset": 0.28,
+        "stone_bottom_z": 11.33,
+        "stone_depth": 3.57
+      }
+    },
+    {
+      "iteration": 2,
+      "score": 0.506015,
+      "parameters": {
+        "hoop_major_radius": 10.0,
+        "shank_radius": 1.06,
+        "stone_radius": 3.175,
+        "shoulder_end_x": 3.6886,
+        "shoulder_radius": 1.0444,
+        "seat_z": 10.65,
+        "seat_inner_inset": 0.38,
+        "seat_outer_extra": 0.807,
+        "seat_height": 1.5092,
+        "prong_radius": 0.45,
+        "prong_offset": 0.4134,
+        "prong_height": 4.68,
+        "prong_inset": 0.28,
+        "stone_bottom_z": 11.33,
+        "stone_depth": 3.7064
+      }
+    },
+    {
+      "iteration": 3,
+      "score": 0.510442,
+      "parameters": {
+        "hoop_major_radius": 10.0,
+        "shank_radius": 1.06,
+        "stone_radius": 3.25188,
+        "shoulder_end_x": 3.6886,
+        "shoulder_radius": 1.09053,
+        "seat_z": 10.65,
+        "seat_inner_inset": 0.38,
+        "seat_outer_extra": 0.74934,
+        "seat_height": 1.5707,
+        "prong_radius": 0.45,
+        "prong_offset": 0.44031,
+        "prong_height": 4.68,
+        "prong_inset": 0.28,
+        "stone_bottom_z": 11.33,
+        "stone_depth": 3.7064
+      }
+    },
+    {
+      "iteration": 4,
+      "score": 0.51579,
+      "parameters": {
+        "hoop_major_radius": 10.0,
+        "shank_radius": 1.02187,
+        "stone_radius": 3.25188,
+        "shoulder_end_x": 3.63617,
+        "shoulder_radius": 1.11913,
+        "seat_z": 10.65,
+        "seat_inner_inset": 0.38,
+        "seat_outer_extra": 0.71359,
+        "seat_height": 1.60883,
+        "prong_radius": 0.45,
+        "prong_offset": 0.45699,
+        "prong_height": 4.74673,
+        "prong_inset": 0.28,
+        "stone_bottom_z": 11.33,
+        "stone_depth": 3.7064
+      }
+    }
+  ],
+  "comparisons": {
+    "front": "data/ring01_phase3_1/comparisons/ring01_front_phase3_1_before_after.png",
+    "side": "data/ring01_phase3_1/comparisons/ring01_side_phase3_1_before_after.png",
+    "top": "data/ring01_phase3_1/comparisons/ring01_top_phase3_1_before_after.png",
+    "angled": "data/ring01_phase3_1/comparisons/ring01_angled_phase3_1_before_after.png",
+    "back": "data/ring01_phase3_1/comparisons/ring01_back_phase3_1_before_after.png"
+  },
+  "scale_status": "provisional; optimization fits normalized image shape, not measured millimetres"
+}

@@ -1,0 +1,41 @@
+{
+  "sample": "ring01",
+  "stage": "phase3_2_reference_driven_topology_rebuild",
+  "machine_validation": "passed",
+  "visual_validation": "accepted_as_improved_structural_baseline",
+  "manufacturing_accuracy": "not_validated",
+  "backtracking": {
+    "phase3_1_preserved": true,
+    "phase3_2_is_separate": true,
+    "reason": "Phase 3.1 matched coarse silhouettes but used a solid collar, heavy shoulders, cylindrical prongs, and a smooth gemstone proxy that did not resemble the reference setting."
+  },
+  "metrics": {
+    "mean_silhouette_iou": 0.59051,
+    "mean_external_boundary_f1_2px": 0.46662,
+    "front_iou": 0.59260,
+    "side_iou": 0.64120,
+    "top_iou": 0.62812,
+    "angled_iou": 0.43648,
+    "back_iou": 0.65417
+  },
+  "accepted_improvements": [
+    "solid cylindrical seat replaced by two separated gallery rails",
+    "four slender cathedral shoulder struts replace heavy wedges",
+    "open under-stone negative space is represented",
+    "four prongs taper inward and include separate tip beads",
+    "gemstone uses polygonal crown and pavilion facets instead of a smooth dome",
+    "shank thickness reduced to better match the reference",
+    "metal remains one solid and gemstone remains one separate solid",
+    "STEP, STL, OBJ, and GLB exports contain the complete hoop and head"
+  ],
+  "remaining_differences": [
+    "side/back head width remains narrower than the reference",
+    "prongs are straight tapered members rather than curved claw profiles",
+    "gallery rail and basket-strut positions need image-fitted adjustment",
+    "front shoulder silhouette remains more triangular than the reference",
+    "angled camera and asymmetric shoulder fit remain the weakest view",
+    "sixteen-sided gemstone is a faceted proxy, not a full round-brilliant facet arrangement",
+    "dimensions remain provisional until one physical measurement is supplied"
+  ],
+  "conclusion": "Phase 3.2 is a genuine structural improvement over Phase 3.1 even though the deliberately open/slender topology gives a lower filled-silhouette IoU than the overfilled Phase 3.1 proxy. It is the correct baseline for the next local fitting loop, but it is not final manufacturing CAD."
+}

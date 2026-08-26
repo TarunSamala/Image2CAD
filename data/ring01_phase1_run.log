@@ -1,0 +1,47 @@
+{
+  "front": {
+    "bbox_px": {
+      "x": 25,
+      "y": 61,
+      "width": 240,
+      "height": 101
+    },
+    "horizontal_symmetry_iou": 0.87378
+  },
+  "side": {
+    "bbox_px": {
+      "x": 67,
+      "y": 18,
+      "width": 144,
+      "height": 176
+    },
+    "horizontal_symmetry_iou": 0.94167
+  },
+  "top": {
+    "bbox_px": {
+      "x": 36,
+      "y": 72,
+      "width": 217,
+      "height": 85
+    },
+    "horizontal_symmetry_iou": 0.85833
+  },
+  "angled": {
+    "bbox_px": {
+      "x": 45,
+      "y": 23,
+      "width": 179,
+      "height": 174
+    },
+    "horizontal_symmetry_iou": 0.22468
+  },
+  "back": {
+    "bbox_px": {
+      "x": 61,
+      "y": 18,
+      "width": 147,
+      "height": 176
+    },
+    "horizontal_symmetry_iou": 0.9308
+  }
+}

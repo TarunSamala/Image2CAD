@@ -1,0 +1,40 @@
+{
+  "sample": "ring01",
+  "inspection_scope": [
+    "five Phase 2.2 reference masks",
+    "five Phase 3 visual-hull reprojections",
+    "four-view visual-hull mesh preview",
+    "four-view jewellery-aware semantic proxy preview"
+  ],
+  "coarse_phase3_status": "passed",
+  "manufacturing_accuracy_status": "not_validated",
+  "visual_hull": {
+    "status": "evidence_only",
+    "mean_silhouette_iou": 0.74492,
+    "watertight": true,
+    "body_count": 7,
+    "finding": "Camera-family carving follows all view families but remains fragmented because the product views are not calibrated projections of one rigid capture sequence."
+  },
+  "semantic_proxy": {
+    "status": "accepted_as_phase3_coarse_geometry",
+    "metal_solid_count": 1,
+    "stone_solid_count": 1,
+    "observed_strengths": [
+      "coherent hoop in the correct jewellery plane",
+      "one centered stone",
+      "four prongs",
+      "connected shoulders and setting",
+      "stone seat and boolean cavity",
+      "editable STEP plus STL, OBJ, and GLB exports"
+    ],
+    "remaining_refinements": [
+      "fit shank taper and shoulder profile to silhouettes",
+      "replace cylindrical prongs with image-fitted prong profiles",
+      "fit basket gallery and stone-seat depth",
+      "replace gemstone proxy with a faceted round-brilliant model",
+      "render the semantic proxy through fitted cameras and optimize cross-view error",
+      "replace provisional dimensions after a known measurement is supplied"
+    ]
+  },
+  "conclusion": "Phase 3 is implemented and ready for parametric render-and-compare refinement. The semantic proxy is coherent coarse geometry, not final manufacturing CAD."
+}

@@ -1,0 +1,69 @@
+{
+  "stage": "phase2_strict_semantic_validation",
+  "passed": false,
+  "machine_integrity": "passed",
+  "semantic_fidelity": "failed",
+  "views": {
+    "front": {
+      "stone_inside_jewelry": true,
+      "shank_setting_overlap_ratio": 0.17888,
+      "shank_setting_disjoint_pass": true,
+      "stone_mask_solidity": 0.672,
+      "stone_silhouette_pass": false,
+      "prong_connected_regions": 14,
+      "four_prong_separation_pass": false,
+      "shadow_area_px2": 1966,
+      "shadow_requires_manual_review": true
+    },
+    "side": {
+      "stone_inside_jewelry": true,
+      "shank_setting_overlap_ratio": 0.92759,
+      "shank_setting_disjoint_pass": false,
+      "stone_mask_solidity": 0.79583,
+      "stone_silhouette_pass": false,
+      "prong_connected_regions": 3,
+      "four_prong_separation_pass": null,
+      "shadow_area_px2": 556,
+      "shadow_requires_manual_review": true
+    },
+    "top": {
+      "stone_inside_jewelry": true,
+      "shank_setting_overlap_ratio": 0.03624,
+      "shank_setting_disjoint_pass": true,
+      "stone_mask_solidity": 0.7122,
+      "stone_silhouette_pass": false,
+      "prong_connected_regions": 14,
+      "four_prong_separation_pass": false,
+      "shadow_area_px2": 648,
+      "shadow_requires_manual_review": true
+    },
+    "angled": {
+      "stone_inside_jewelry": true,
+      "shank_setting_overlap_ratio": 0.94312,
+      "shank_setting_disjoint_pass": false,
+      "stone_mask_solidity": 0.67408,
+      "stone_silhouette_pass": false,
+      "prong_connected_regions": 7,
+      "four_prong_separation_pass": null,
+      "shadow_area_px2": 649,
+      "shadow_requires_manual_review": true
+    },
+    "back": {
+      "stone_inside_jewelry": true,
+      "shank_setting_overlap_ratio": 0.9162,
+      "shank_setting_disjoint_pass": false,
+      "stone_mask_solidity": 0.76371,
+      "stone_silhouette_pass": false,
+      "prong_connected_regions": 1,
+      "four_prong_separation_pass": null,
+      "shadow_area_px2": 552,
+      "shadow_requires_manual_review": true
+    }
+  },
+  "findings": [
+    "Gemstone masks contain facet/highlight holes and are not complete stone silhouettes.",
+    "Shank masks overlap the setting heavily in side, angled, and back views.",
+    "Prong proposals are fragmented and do not resolve into four components in front/top views.",
+    "Shadow proposals include reflective metal and require refinement or annotation."
+  ]
+}

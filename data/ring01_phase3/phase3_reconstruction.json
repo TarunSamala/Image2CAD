@@ -1,0 +1,261 @@
+{
+  "sample": "ring01",
+  "stage": "phase3_coarse_multiview_visual_hull",
+  "source_stage": "data/ring01_phase2_2/phase2_2_components.json",
+  "reversible": true,
+  "coordinate_system": "normalized object coordinates",
+  "metric_scale": false,
+  "reference_width_mm": null,
+  "camera_source": "explicit hypotheses; not calibrated or COLMAP-recovered",
+  "camera_warning": "Reference labels are product-view semantics, not verified orthogonal camera poses.",
+  "angled_pose_fit": {
+    "method": "constrained_orthographic_silhouette_search",
+    "tilt_degrees": 55,
+    "roll_degrees": -40,
+    "initial_iou": 0.37604,
+    "optimized_iou": 0.41052,
+    "calibrated": false
+  },
+  "algorithm": {
+    "method": "silhouette visual hull with independent camera-family constraints",
+    "resolution": 112,
+    "initial_pose_search_view_support": 4,
+    "required_camera_families": [
+      "front_or_top",
+      "side_or_back",
+      "angled"
+    ],
+    "views": [
+      "front",
+      "side",
+      "top",
+      "angled",
+      "back"
+    ]
+  },
+  "geometry": {
+    "occupied_voxels": 111180,
+    "occupancy_fraction": 0.0791357,
+    "vertices": 43122,
+    "faces": 86432,
+    "watertight": true,
+    "body_count": 7,
+    "bounds": [
+      [
+        -0.774775,
+        -0.990991,
+        -1.009009
+      ],
+      [
+        0.792793,
+        0.990991,
+        1.009009
+      ]
+    ],
+    "extents": [
+      1.567568,
+      1.981982,
+      2.018018
+    ],
+    "volume": 0.648665
+  },
+  "semantic_evidence": {
+    "stone_point_count": 78523,
+    "stone_point_cloud": "data/ring01_phase3/meshes/ring01_phase3_stone_evidence.ply",
+    "status": "evidence_only_pending_parametric_gemstone_fit"
+  },
+  "raw_projection_support": {
+    "front": 694400,
+    "side": 426832,
+    "top": 637168,
+    "angled": 453276,
+    "back": 424144
+  },
+  "raw_stone_support": {
+    "front": 325248,
+    "side": 68544,
+    "top": 298928,
+    "angled": 116931,
+    "back": 72240
+  },
+  "mesh_artifacts": {
+    "stl": "data/ring01_phase3/meshes/ring01_phase3_visual_hull.stl",
+    "obj": "data/ring01_phase3/meshes/ring01_phase3_visual_hull.obj",
+    "glb": "data/ring01_phase3/meshes/ring01_phase3_visual_hull.glb"
+  },
+  "mesh_preview": "data/ring01_phase3/previews/ring01_phase3_mesh_preview.png",
+  "reprojections": {
+    "front": {
+      "silhouette_iou": 0.76211,
+      "silhouette_precision": 0.95217,
+      "silhouette_recall": 0.79244,
+      "camera": {
+        "name": "front",
+        "right": [
+          1,
+          0,
+          0
+        ],
+        "up": [
+          0,
+          1,
+          0
+        ],
+        "direction": [
+          0,
+          0,
+          1
+        ],
+        "family": "gemstone_face",
+        "confidence": 0.82
+      },
+      "projection_frame_px": [
+        24,
+        61,
+        265,
+        147
+      ],
+      "rendered_mask": "data/ring01_phase3/reprojections/ring01_front_phase3_silhouette.png",
+      "comparison": "data/ring01_phase3/comparisons/ring01_front_phase3_compare.png"
+    },
+    "side": {
+      "silhouette_iou": 0.66946,
+      "silhouette_precision": 0.96182,
+      "silhouette_recall": 0.68773,
+      "camera": {
+        "name": "side",
+        "right": [
+          1,
+          0,
+          0
+        ],
+        "up": [
+          0,
+          0,
+          1
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "family": "hoop_profile",
+        "confidence": 0.88
+      },
+      "projection_frame_px": [
+        66,
+        16,
+        211,
+        193
+      ],
+      "rendered_mask": "data/ring01_phase3/reprojections/ring01_side_phase3_silhouette.png",
+      "comparison": "data/ring01_phase3/comparisons/ring01_side_phase3_compare.png"
+    },
+    "top": {
+      "silhouette_iou": 0.72038,
+      "silhouette_precision": 0.87638,
+      "silhouette_recall": 0.80185,
+      "camera": {
+        "name": "top",
+        "right": [
+          1,
+          0,
+          0
+        ],
+        "up": [
+          0,
+          1,
+          0
+        ],
+        "direction": [
+          0,
+          0,
+          1
+        ],
+        "family": "gemstone_face",
+        "confidence": 0.78
+      },
+      "projection_frame_px": [
+        34,
+        71,
+        253,
+        153
+      ],
+      "rendered_mask": "data/ring01_phase3/reprojections/ring01_top_phase3_silhouette.png",
+      "comparison": "data/ring01_phase3/comparisons/ring01_top_phase3_compare.png"
+    },
+    "angled": {
+      "silhouette_iou": 0.92178,
+      "silhouette_precision": 0.97959,
+      "silhouette_recall": 0.93982,
+      "camera": {
+        "name": "angled",
+        "right": [
+          0.766044443118978,
+          0.3686878264946124,
+          -0.5265407845183632
+        ],
+        "up": [
+          0.6427876096865393,
+          -0.4393850417707051,
+          0.6275068715971331
+        ],
+        "direction": [
+          0.0,
+          0.8191520442889918,
+          0.5735764363510462
+        ],
+        "family": "oblique_silhouette_fit",
+        "confidence": 0.72
+      },
+      "projection_frame_px": [
+        44,
+        22,
+        224,
+        189
+      ],
+      "rendered_mask": "data/ring01_phase3/reprojections/ring01_angled_phase3_silhouette.png",
+      "comparison": "data/ring01_phase3/comparisons/ring01_angled_phase3_compare.png"
+    },
+    "back": {
+      "silhouette_iou": 0.65086,
+      "silhouette_precision": 0.94333,
+      "silhouette_recall": 0.67734,
+      "camera": {
+        "name": "back",
+        "right": [
+          -1,
+          0,
+          0
+        ],
+        "up": [
+          0,
+          0,
+          1
+        ],
+        "direction": [
+          0,
+          -1,
+          0
+        ],
+        "family": "hoop_profile",
+        "confidence": 0.84
+      },
+      "projection_frame_px": [
+        60,
+        17,
+        207,
+        193
+      ],
+      "rendered_mask": "data/ring01_phase3/reprojections/ring01_back_phase3_silhouette.png",
+      "comparison": "data/ring01_phase3/comparisons/ring01_back_phase3_compare.png"
+    }
+  },
+  "limitations": [
+    "hidden surfaces are a visual-hull inference",
+    "camera intrinsics and extrinsics are not calibrated",
+    "normalized output has no manufacturing scale until a known dimension is supplied",
+    "concavities invisible in silhouettes cannot be recovered",
+    "stone evidence is not yet a faceted parametric gemstone"
+  ]
+}

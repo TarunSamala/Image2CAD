@@ -1,0 +1,74 @@
+{
+  "stage": "phase3_jewellery_aware_semantic_proxy",
+  "source_visual_hull": "data/ring01_phase3/phase3_reconstruction.json",
+  "scale_status": "provisional_uncalibrated_millimetre_assumption",
+  "fit_report": "data/ring01_phase3_1/phase3_1_fit.json",
+  "fitted_parameters": {
+    "hoop_major_radius": 10.0,
+    "shank_radius": 1.02187,
+    "stone_radius": 3.25188,
+    "shoulder_end_x": 3.63617,
+    "shoulder_radius": 1.11913,
+    "seat_z": 10.65,
+    "seat_inner_inset": 0.38,
+    "seat_outer_extra": 0.71359,
+    "seat_height": 1.60883,
+    "prong_radius": 0.45,
+    "prong_offset": 0.45699,
+    "prong_height": 4.74673,
+    "prong_inset": 0.28,
+    "stone_bottom_z": 11.33,
+    "stone_depth": 3.7064
+  },
+  "assumptions": {
+    "hoop_major_radius_mm": 10.0,
+    "shank_radius_mm": 1.02187,
+    "stone_diameter_mm": 6.50376,
+    "warning": "These values are fitting seeds, not measured dimensions."
+  },
+  "topology": {
+    "one_shank": true,
+    "one_stone": true,
+    "prong_count": 4,
+    "stone_seat": true,
+    "boolean_cavity": true,
+    "prong_centers": [
+      [
+        2.6226,
+        2.6226,
+        10.77
+      ],
+      [
+        -2.6226,
+        2.6226,
+        10.77
+      ],
+      [
+        -2.6226,
+        -2.6226,
+        10.77
+      ],
+      [
+        2.6226,
+        -2.6226,
+        10.77
+      ]
+    ]
+  },
+  "validation": {
+    "metal_solid_count": 1,
+    "stone_solid_count": 1,
+    "assembly_solid_count": 2,
+    "metal_is_single_solid": true,
+    "stone_is_single_solid": true
+  },
+  "artifacts": {
+    "metal_step": "data/ring01_phase3_1/semantic/ring01_phase3_metal.step",
+    "stone_step": "data/ring01_phase3_1/semantic/ring01_phase3_stone.step",
+    "assembly_step": "data/ring01_phase3_1/semantic/ring01_phase3_semantic.step",
+    "assembly_stl": "data/ring01_phase3_1/semantic/ring01_phase3_semantic.stl",
+    "assembly_obj": "data/ring01_phase3_1/semantic/ring01_phase3_semantic.obj",
+    "assembly_glb": "data/ring01_phase3_1/semantic/ring01_phase3_semantic.glb",
+    "preview": "data/ring01_phase3_1/semantic/previews/ring01_phase3_mesh_preview.png"
+  }
+}

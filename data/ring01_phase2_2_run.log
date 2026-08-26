@@ -1,0 +1,11 @@
+{
+  "output": "data/ring01_phase2_2",
+  "views": [
+    "front",
+    "side",
+    "top",
+    "angled",
+    "back"
+  ],
+  "reversible": true
+}

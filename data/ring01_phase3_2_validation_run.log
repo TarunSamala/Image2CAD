@@ -1,0 +1,74 @@
+{
+  "stage": "phase3_2_reference_and_topology_validation",
+  "passed": true,
+  "manufacturing_accuracy_validated": false,
+  "checks": {
+    "metal_single_solid_pass": true,
+    "stone_single_solid_pass": true,
+    "open_gallery_topology_pass": true,
+    "cathedral_topology_pass": true,
+    "tapered_prongs_pass": true,
+    "faceted_stone_pass": true,
+    "view_specific_silhouette_floor_pass": true,
+    "mean_boundary_pass": true,
+    "side_back_negative_space_pass": true
+  },
+  "mean_silhouette_iou": 0.59051,
+  "mean_boundary_f1_tolerance_2px": 0.46662,
+  "angled_camera_fit": {
+    "tilt_degrees": 30,
+    "roll_degrees": 24,
+    "jewelry_iou": 0.43648,
+    "calibrated": false,
+    "fine_search_step_degrees": 1
+  },
+  "views": {
+    "front": {
+      "silhouette_iou": 0.5926,
+      "boundary_f1_tolerance_2px": 0.34385,
+      "phase3_1_exported_iou": 0.71504,
+      "target_head_hole_count": 0,
+      "rendered_head_hole_count": 3,
+      "head_hole_iou": 0.0,
+      "comparison": "data/ring01_phase3_2/comparisons/ring01_front_reference_vs_cad.png"
+    },
+    "side": {
+      "silhouette_iou": 0.6412,
+      "boundary_f1_tolerance_2px": 0.57007,
+      "phase3_1_exported_iou": 0.76519,
+      "target_head_hole_count": 4,
+      "rendered_head_hole_count": 10,
+      "head_hole_iou": 0.05857,
+      "comparison": "data/ring01_phase3_2/comparisons/ring01_side_reference_vs_cad.png"
+    },
+    "top": {
+      "silhouette_iou": 0.62812,
+      "boundary_f1_tolerance_2px": 0.38026,
+      "phase3_1_exported_iou": 0.78705,
+      "target_head_hole_count": 2,
+      "rendered_head_hole_count": 6,
+      "head_hole_iou": 0.15358,
+      "comparison": "data/ring01_phase3_2/comparisons/ring01_top_reference_vs_cad.png"
+    },
+    "angled": {
+      "silhouette_iou": 0.43648,
+      "boundary_f1_tolerance_2px": 0.35026,
+      "phase3_1_exported_iou": 0.53339,
+      "target_head_hole_count": 3,
+      "rendered_head_hole_count": 15,
+      "head_hole_iou": 0.03349,
+      "comparison": "data/ring01_phase3_2/comparisons/ring01_angled_reference_vs_cad.png"
+    },
+    "back": {
+      "silhouette_iou": 0.65417,
+      "boundary_f1_tolerance_2px": 0.68868,
+      "phase3_1_exported_iou": 0.77577,
+      "target_head_hole_count": 3,
+      "rendered_head_hole_count": 15,
+      "head_hole_iou": 0.03261,
+      "comparison": "data/ring01_phase3_2/comparisons/ring01_back_reference_vs_cad.png"
+    }
+  },
+  "clean_preview": "data/ring01_phase3_2/previews/ring01_phase3_2_clean_preview.png",
+  "remaining_gate": "Manual visual review, asymmetry refinement, and metric calibration are still required."
+}
