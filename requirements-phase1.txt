@@ -1,0 +1,3 @@
+# Classical computer-vision stage; use the headless build to avoid GUI/Electron dependencies.
+opencv-python-headless==4.12.0.88
+numpy>=2.0,<2.3
