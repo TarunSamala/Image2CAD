@@ -82,7 +82,7 @@
   "validation": null,
   "metadata": {
     "sample": "ring01",
-    "engine": "evidence_first_v1",
+    "engine": "evidence_first_v2",
     "view_paths": {
       "front": "data/ring01_reference_images/ring01_front.png",
       "side": "data/ring01_reference_images/ring01_side.png",
@@ -92,25 +92,97 @@
     },
     "image_facts": {
       "front": {
-        "file_size_bytes": 62823
+        "width_px": 289,
+        "height_px": 212,
+        "mode": "RGB",
+        "foreground_bbox_px": {
+          "left": 24,
+          "top": 61,
+          "right": 264,
+          "bottom": 166,
+          "width_px": 241,
+          "height_px": 106
+        },
+        "foreground_fraction": 0.23105
       },
       "side": {
-        "file_size_bytes": 58673
+        "width_px": 270,
+        "height_px": 212,
+        "mode": "RGB",
+        "foreground_bbox_px": {
+          "left": 67,
+          "top": 17,
+          "right": 210,
+          "bottom": 194,
+          "width_px": 144,
+          "height_px": 178
+        },
+        "foreground_fraction": 0.13545
       },
       "top": {
-        "file_size_bytes": 59219
+        "width_px": 288,
+        "height_px": 212,
+        "mode": "RGB",
+        "foreground_bbox_px": {
+          "left": 35,
+          "top": 71,
+          "right": 252,
+          "bottom": 157,
+          "width_px": 218,
+          "height_px": 87
+        },
+        "foreground_fraction": 0.14452
       },
       "angled": {
-        "file_size_bytes": 67360
+        "width_px": 279,
+        "height_px": 212,
+        "mode": "RGB",
+        "foreground_bbox_px": {
+          "left": 45,
+          "top": 23,
+          "right": 223,
+          "bottom": 206,
+          "width_px": 179,
+          "height_px": 184
+        },
+        "foreground_fraction": 0.21022
       },
       "back": {
-        "file_size_bytes": 60763
+        "width_px": 284,
+        "height_px": 212,
+        "mode": "RGB",
+        "foreground_bbox_px": {
+          "left": 61,
+          "top": 17,
+          "right": 207,
+          "bottom": 196,
+          "width_px": 147,
+          "height_px": 180
+        },
+        "foreground_fraction": 0.13591
       }
     },
     "scale_mm_per_px": null,
+    "calibration": {
+      "status": "missing",
+      "reference_length_px": null,
+      "reference_length_mm": null,
+      "warning": "Do not treat normalized dimensions as measured millimetres."
+    },
+    "replication_readiness": {
+      "exact": false,
+      "reason": "Rendered views do not reveal hidden geometry, physical scale, lens calibration, or material construction.",
+      "required_for_high_fidelity": [
+        "known scale in at least one view",
+        "camera calibration",
+        "depth/structured-light scan",
+        "manual confirmation of hidden setting geometry"
+      ]
+    },
     "limitations": [
       "absolute dimensions require a scale reference or scan",
-      "hidden cavity is inferred"
+      "hidden cavity is inferred",
+      "silhouette bbox is not a semantic segmentation"
     ]
   }
 }
