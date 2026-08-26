@@ -1,4 +1,4 @@
-"""Build per-view visual audit sheets covering Ring01 stages 0 through 2.1."""
+"""Build per-view visual audit sheets covering Ring01 stages 0 through 2.2."""
 
 from __future__ import annotations
 
@@ -42,6 +42,7 @@ def build(data_dir: Path, output_dir: Path) -> None:
         phase1 = data_dir / "ring01_phase1"
         phase2 = data_dir / "ring01_phase2"
         refined = data_dir / "ring01_phase2_refined"
+        refined_22 = data_dir / "ring01_phase2_2"
         rows = [
             _row([
                 (source, "SOURCE"),
@@ -57,6 +58,10 @@ def build(data_dir: Path, output_dir: Path) -> None:
                 (refined / "masks" / component / f"ring01_{view}_{component}.png", f"P2.1 {component}")
                 for component in ("jewelry", "metal", "shank", "stone_visible", "stone_amodal", "setting", "prongs", "shadow")
             ] + [(refined / "overlays" / f"ring01_{view}_refined.png", "P2.1 overlay")]),
+            _row([(source, "SOURCE")] + [
+                (refined_22 / "masks" / component / f"ring01_{view}_{component}.png", f"P2.2 {component}")
+                for component in ("jewelry", "metal", "shank", "stone_visible", "stone_amodal", "setting", "prongs", "shadow")
+            ] + [(refined_22 / "review" / f"ring01_{view}_annotation_review.png", "P2.2 review")]),
         ]
         sheet = np.vstack(rows)
         cv2.imwrite(str(output_dir / f"ring01_{view}_audit.png"), sheet)

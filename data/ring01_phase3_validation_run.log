@@ -1,0 +1,45 @@
+{
+  "stage": "phase3_coarse_reconstruction_validation",
+  "coarse_reconstruction_passed": true,
+  "manufacturing_accuracy_validated": false,
+  "checks": {
+    "mesh_nonempty_pass": true,
+    "finite_bounds_pass": true,
+    "all_reprojection_iou_pass": true,
+    "all_reprojection_recall_pass": true,
+    "semantic_stone_evidence_pass": true,
+    "metric_claim_is_guarded_pass": true,
+    "semantic_metal_single_solid_pass": true,
+    "semantic_stone_single_solid_pass": true,
+    "semantic_topology_pass": true
+  },
+  "silhouette_iou": {
+    "front": 0.76211,
+    "side": 0.66946,
+    "top": 0.72038,
+    "angled": 0.92178,
+    "back": 0.65086
+  },
+  "silhouette_recall": {
+    "front": 0.79244,
+    "side": 0.68773,
+    "top": 0.80185,
+    "angled": 0.93982,
+    "back": 0.67734
+  },
+  "mean_silhouette_iou": 0.74492,
+  "mesh": {
+    "vertices": 43122,
+    "faces": 86432,
+    "watertight": true,
+    "body_count": 7
+  },
+  "semantic_proxy": {
+    "metal_solid_count": 1,
+    "stone_solid_count": 1,
+    "assembly_solid_count": 2,
+    "metal_is_single_solid": true,
+    "stone_is_single_solid": true
+  },
+  "next_gate": "Inspect all reprojections, then fit parametric shank, stone, setting, and prongs to the coarse evidence."
+}

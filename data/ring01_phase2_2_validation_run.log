@@ -1,0 +1,105 @@
+{
+  "stage": "phase2_2_validation",
+  "structural_and_consistency_passed": true,
+  "pixel_accuracy_validated": false,
+  "ground_truth_metrics_available": false,
+  "views": {
+    "front": {
+      "shank_setting_overlap_px2": 0,
+      "shank_setting_disjoint_pass": true,
+      "shadow_jewelry_overlap_px2": 0,
+      "shadow_disjoint_pass": true,
+      "stone_visible_outside_amodal_px2": 0,
+      "stone_containment_pass": true,
+      "metal_outside_jewelry_px2": 0,
+      "metal_containment_pass": true,
+      "closed_single_stone_pass": true,
+      "prong_connected_regions": 4,
+      "four_prong_pass": true,
+      "boundary_edge_support": {
+        "jewelry": 0.94125,
+        "stone_amodal": 0.91322,
+        "prongs": 0.98851
+      }
+    },
+    "side": {
+      "shank_setting_overlap_px2": 0,
+      "shank_setting_disjoint_pass": true,
+      "shadow_jewelry_overlap_px2": 0,
+      "shadow_disjoint_pass": true,
+      "stone_visible_outside_amodal_px2": 0,
+      "stone_containment_pass": true,
+      "metal_outside_jewelry_px2": 0,
+      "metal_containment_pass": true,
+      "closed_single_stone_pass": true,
+      "prong_connected_regions": 3,
+      "four_prong_pass": null,
+      "boundary_edge_support": {
+        "jewelry": 0.98482,
+        "stone_amodal": 0.95528,
+        "prongs": 0.97199
+      }
+    },
+    "top": {
+      "shank_setting_overlap_px2": 0,
+      "shank_setting_disjoint_pass": true,
+      "shadow_jewelry_overlap_px2": 0,
+      "shadow_disjoint_pass": true,
+      "stone_visible_outside_amodal_px2": 0,
+      "stone_containment_pass": true,
+      "metal_outside_jewelry_px2": 0,
+      "metal_containment_pass": true,
+      "closed_single_stone_pass": true,
+      "prong_connected_regions": 4,
+      "four_prong_pass": true,
+      "boundary_edge_support": {
+        "jewelry": 0.95003,
+        "stone_amodal": 0.89583,
+        "prongs": 0.98555
+      }
+    },
+    "angled": {
+      "shank_setting_overlap_px2": 0,
+      "shank_setting_disjoint_pass": true,
+      "shadow_jewelry_overlap_px2": 0,
+      "shadow_disjoint_pass": true,
+      "stone_visible_outside_amodal_px2": 0,
+      "stone_containment_pass": true,
+      "metal_outside_jewelry_px2": 0,
+      "metal_containment_pass": true,
+      "closed_single_stone_pass": true,
+      "prong_connected_regions": 7,
+      "four_prong_pass": null,
+      "boundary_edge_support": {
+        "jewelry": 0.92694,
+        "stone_amodal": 0.88462,
+        "prongs": 0.95585
+      }
+    },
+    "back": {
+      "shank_setting_overlap_px2": 0,
+      "shank_setting_disjoint_pass": true,
+      "shadow_jewelry_overlap_px2": 0,
+      "shadow_disjoint_pass": true,
+      "stone_visible_outside_amodal_px2": 0,
+      "stone_containment_pass": true,
+      "metal_outside_jewelry_px2": 0,
+      "metal_containment_pass": true,
+      "closed_single_stone_pass": true,
+      "prong_connected_regions": 1,
+      "four_prong_pass": null,
+      "boundary_edge_support": {
+        "jewelry": 0.98476,
+        "stone_amodal": 0.96484,
+        "prongs": 0.93699
+      }
+    }
+  },
+  "cross_view": {
+    "front_top_stone_width_fraction_delta": 0.0268,
+    "front_top_stone_height_fraction_delta": 0.03774,
+    "front_top_scale_consistency_pass": true,
+    "note": "This is a consistency check, not metric scale validation."
+  },
+  "blocking_manual_gate": "Human-reviewed masks are required before IoU, Dice, or boundary F1 can validate pixel accuracy."
+}

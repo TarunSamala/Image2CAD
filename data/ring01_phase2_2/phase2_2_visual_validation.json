@@ -1,0 +1,76 @@
+{
+  "sample": "ring01",
+  "reviewed_stage": "phase2_2_boundary_component_refinement",
+  "inspection_scope": [
+    "five original reference images",
+    "Phase 1 silhouettes, edges, and overlays",
+    "Phase 2 SAM component proposals",
+    "Phase 2.1 topology masks",
+    "Phase 2.2 masks and side-by-side review images"
+  ],
+  "machine_validation": "passed",
+  "visual_validation": "conditionally_passed_for_component_initialization",
+  "pixel_accuracy": "not_validated",
+  "cad_reconstruction_gate": "not_ready_for_dimensionally_exact_cad",
+  "views": {
+    "front": {
+      "improvements": [
+        "closed gemstone outline remains aligned with the visible stone perimeter",
+        "shank silhouette follows the left and right band",
+        "four separate prong regions are retained"
+      ],
+      "remaining_errors": [
+        "prong masks are oversized and rounded compared with the metal tips",
+        "setting and lower shadow ownership remains coarse",
+        "gemstone boundary is image-guided but not human-verified"
+      ]
+    },
+    "side": {
+      "improvements": [
+        "outer and inner shank boundaries align well with the reference",
+        "setting and shank are disjoint",
+        "basket cavity remains visually distinguishable"
+      ],
+      "remaining_errors": [
+        "shoulder-to-setting boundary is approximate",
+        "three visible prong fragments do not identify hidden prongs",
+        "small floor-shadow fragment remains"
+      ]
+    },
+    "top": {
+      "improvements": [
+        "four-prong topology and shank silhouette are stable",
+        "stone perimeter is closed and scale-consistent with the front view"
+      ],
+      "remaining_errors": [
+        "prong regions remain larger than the observed tips",
+        "small shadow/reflection fragments remain",
+        "setting boundary near the stone is not pixel-accurate"
+      ]
+    },
+    "angled": {
+      "improvements": [
+        "outer shank silhouette follows the oblique band",
+        "stone is represented by one closed region"
+      ],
+      "remaining_errors": [
+        "foreshortened stone outline is still too prior-driven",
+        "seven prong fragments are unresolved",
+        "setting absorbs part of the right shoulder",
+        "floor shadow is incomplete and semantically uncertain"
+      ]
+    },
+    "back": {
+      "improvements": [
+        "inner and outer shank contours align well",
+        "basket and shank remain structurally separated"
+      ],
+      "remaining_errors": [
+        "single visible prong aggregate cannot recover four hidden identities",
+        "stone depth and hidden seat cannot be validated from this image",
+        "small floor-shadow fragments remain"
+      ]
+    }
+  },
+  "conclusion": "Phase 2.2 is suitable as an annotation and reconstruction initializer, but not as ground truth. Human-reviewed component boundaries are the next required gate before reporting IoU, Dice, boundary F1, or manufacturing-level CAD accuracy."
+}

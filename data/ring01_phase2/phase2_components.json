@@ -21,7 +21,7 @@
   "views": {
     "front": {
       "view": "front",
-      "source": "/workspace/data/ring01_reference_images/ring01_front.png",
+      "source": "data/ring01_reference_images/ring01_front.png",
       "prompt_regions": {
         "whole_box": [
           25,
@@ -145,12 +145,12 @@
         "prongs_inside_setting": true
       },
       "artifacts": {
-        "overlay": "/workspace/data/ring01_phase2/overlays/ring01_front_components.png"
+        "overlay": "data/ring01_phase2/overlays/ring01_front_components.png"
       }
     },
     "side": {
       "view": "side",
-      "source": "/workspace/data/ring01_reference_images/ring01_side.png",
+      "source": "data/ring01_reference_images/ring01_side.png",
       "prompt_regions": {
         "whole_box": [
           67,
@@ -274,12 +274,12 @@
         "prongs_inside_setting": true
       },
       "artifacts": {
-        "overlay": "/workspace/data/ring01_phase2/overlays/ring01_side_components.png"
+        "overlay": "data/ring01_phase2/overlays/ring01_side_components.png"
       }
     },
     "top": {
       "view": "top",
-      "source": "/workspace/data/ring01_reference_images/ring01_top.png",
+      "source": "data/ring01_reference_images/ring01_top.png",
       "prompt_regions": {
         "whole_box": [
           36,
@@ -403,12 +403,12 @@
         "prongs_inside_setting": true
       },
       "artifacts": {
-        "overlay": "/workspace/data/ring01_phase2/overlays/ring01_top_components.png"
+        "overlay": "data/ring01_phase2/overlays/ring01_top_components.png"
       }
     },
     "angled": {
       "view": "angled",
-      "source": "/workspace/data/ring01_reference_images/ring01_angled.png",
+      "source": "data/ring01_reference_images/ring01_angled.png",
       "prompt_regions": {
         "whole_box": [
           45,
@@ -532,12 +532,12 @@
         "prongs_inside_setting": true
       },
       "artifacts": {
-        "overlay": "/workspace/data/ring01_phase2/overlays/ring01_angled_components.png"
+        "overlay": "data/ring01_phase2/overlays/ring01_angled_components.png"
       }
     },
     "back": {
       "view": "back",
-      "source": "/workspace/data/ring01_reference_images/ring01_back.png",
+      "source": "data/ring01_reference_images/ring01_back.png",
       "prompt_regions": {
         "whole_box": [
           61,
@@ -661,7 +661,7 @@
         "prongs_inside_setting": true
       },
       "artifacts": {
-        "overlay": "/workspace/data/ring01_phase2/overlays/ring01_back_components.png"
+        "overlay": "data/ring01_phase2/overlays/ring01_back_components.png"
       }
     }
   }

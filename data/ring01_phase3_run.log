@@ -1,0 +1,30 @@
+{
+  "output": "data/ring01_phase3",
+  "geometry": {
+    "occupied_voxels": 111180,
+    "occupancy_fraction": 0.0791357,
+    "vertices": 43122,
+    "faces": 86432,
+    "watertight": true,
+    "body_count": 7,
+    "bounds": [
+      [
+        -0.774775,
+        -0.990991,
+        -1.009009
+      ],
+      [
+        0.792793,
+        0.990991,
+        1.009009
+      ]
+    ],
+    "extents": [
+      1.567568,
+      1.981982,
+      2.018018
+    ],
+    "volume": 0.648665
+  },
+  "metric_scale": false
+}
