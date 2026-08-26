@@ -1,0 +1,103 @@
+{
+  "stage": "phase3_3_strict_exported_cad_validation",
+  "checkpoint_valid": true,
+  "phase3_exit_gate_passed": false,
+  "manufacturing_accuracy_validated": false,
+  "balanced_objective": 0.585782,
+  "mean_silhouette_iou": 0.726549,
+  "mean_detail_region_iou": 0.670565,
+  "mean_external_boundary_f1_2px": 0.681476,
+  "principal_view_floor": 0.724828,
+  "camera_fit": {
+    "angled": {
+      "tilt_degrees": 24,
+      "roll_degrees": 30,
+      "camera_distance_model_units": 36.0,
+      "silhouette_iou": 0.605317,
+      "projection": "perspective",
+      "calibrated": false,
+      "search": "cached local +/-4 degrees and three distances around proxy fit"
+    }
+  },
+  "topology_checks": {
+    "metal_single_closed_valid_brep": true,
+    "stone_single_closed_valid_brep": true,
+    "four_curved_prongs": true,
+    "open_two_rail_gallery": true,
+    "one_shank_four_shoulders": true,
+    "faceted_separate_stone": true,
+    "stl_watertight": false
+  },
+  "exit_checks": {
+    "mean_silhouette_iou_at_least_0_80": false,
+    "mean_detail_region_iou_at_least_0_75": false,
+    "mean_external_boundary_f1_at_least_0_75": false,
+    "principal_view_floor_at_least_0_70": true,
+    "angled_iou_at_least_0_70": false,
+    "topology_and_solids_all_pass": false,
+    "human_ground_truth_masks_available": false,
+    "metric_scale_calibrated": false
+  },
+  "views": {
+    "front": {
+      "objective": 0.614386,
+      "silhouette_iou": 0.750377,
+      "detail_region_iou": 0.790229,
+      "component_mean_iou": 0.340271,
+      "detail_boundary_f1": 0.457586,
+      "negative_space_iou": 0.694235,
+      "external_boundary_f1_2px": 0.564037
+    },
+    "side": {
+      "objective": 0.597161,
+      "silhouette_iou": 0.724828,
+      "detail_region_iou": 0.607568,
+      "component_mean_iou": 0.407227,
+      "detail_boundary_f1": 0.498009,
+      "negative_space_iou": 0.837119,
+      "external_boundary_f1_2px": 0.639653
+    },
+    "top": {
+      "objective": 0.660998,
+      "silhouette_iou": 0.799955,
+      "detail_region_iou": 0.805148,
+      "component_mean_iou": 0.384657,
+      "detail_boundary_f1": 0.548209,
+      "negative_space_iou": 0.763261,
+      "external_boundary_f1_2px": 0.80513
+    },
+    "angled": {
+      "objective": 0.476326,
+      "silhouette_iou": 0.609885,
+      "detail_region_iou": 0.550839,
+      "component_mean_iou": 0.30532,
+      "detail_boundary_f1": 0.34646,
+      "negative_space_iou": 0.50768,
+      "external_boundary_f1_2px": 0.661402
+    },
+    "back": {
+      "objective": 0.594711,
+      "silhouette_iou": 0.747701,
+      "detail_region_iou": 0.599042,
+      "component_mean_iou": 0.424457,
+      "detail_boundary_f1": 0.483637,
+      "negative_space_iou": 0.735509,
+      "external_boundary_f1_2px": 0.73716
+    }
+  },
+  "comparisons": {
+    "front": "data/ring01_phase3_3/comparisons/ring01_front_reference_vs_phase3_3.png",
+    "side": "data/ring01_phase3_3/comparisons/ring01_side_reference_vs_phase3_3.png",
+    "top": "data/ring01_phase3_3/comparisons/ring01_top_reference_vs_phase3_3.png",
+    "angled": "data/ring01_phase3_3/comparisons/ring01_angled_reference_vs_phase3_3.png",
+    "back": "data/ring01_phase3_3/comparisons/ring01_back_reference_vs_phase3_3.png"
+  },
+  "clean_preview": "data/ring01_phase3_3/previews/ring01_phase3_3_clean_preview.png",
+  "uncertainty": {
+    "hidden_geometry": "inferred",
+    "physical_scale": "uncalibrated",
+    "reference_masks": "machine-generated, not human ground truth",
+    "angled_camera": "estimated from silhouette"
+  },
+  "decision": "Remain in Phase 3 and refine; do not advance while any strict exit check fails."
+}

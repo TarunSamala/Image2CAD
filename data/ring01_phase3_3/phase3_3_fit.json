@@ -1,0 +1,507 @@
+{
+  "sample": "ring01",
+  "stage": "phase3_3_confidence_aware_detail_refinement",
+  "backtracked_from": "data/ring01_phase3_2",
+  "reversible": true,
+  "objective": {
+    "silhouette": 0.28,
+    "detail_region": 0.26,
+    "components": 0.22,
+    "boundary": 0.16,
+    "negative_space": 0.08
+  },
+  "visibility_confidence": {
+    "front": {
+      "shank": 1.0,
+      "stone_amodal": 1.0,
+      "setting": 0.85,
+      "prongs": 1.0,
+      "negative_space": 0.25
+    },
+    "side": {
+      "shank": 1.0,
+      "stone_amodal": 0.8,
+      "setting": 1.0,
+      "prongs": 0.35,
+      "negative_space": 1.0
+    },
+    "top": {
+      "shank": 1.0,
+      "stone_amodal": 1.0,
+      "setting": 0.85,
+      "prongs": 1.0,
+      "negative_space": 0.3
+    },
+    "angled": {
+      "shank": 0.95,
+      "stone_amodal": 0.75,
+      "setting": 0.85,
+      "prongs": 0.3,
+      "negative_space": 0.65
+    },
+    "back": {
+      "shank": 1.0,
+      "stone_amodal": 0.75,
+      "setting": 1.0,
+      "prongs": 0.2,
+      "negative_space": 1.0
+    }
+  },
+  "camera_fit": {
+    "angled": {
+      "tilt_degrees": 28,
+      "roll_degrees": -5,
+      "azimuth_degrees": 30,
+      "camera_distance_model_units": 68.0,
+      "silhouette_iou": 0.665523,
+      "projection": "perspective",
+      "calibrated": false
+    },
+    "principal_view_orientations_fixed": true,
+    "cameras": {
+      "front": {
+        "name": "front",
+        "right": [
+          1,
+          0,
+          0
+        ],
+        "up": [
+          0,
+          1,
+          0
+        ],
+        "direction": [
+          0,
+          0,
+          1
+        ],
+        "family": "gemstone_face",
+        "confidence": 0.82
+      },
+      "top": {
+        "name": "top",
+        "right": [
+          1,
+          0,
+          0
+        ],
+        "up": [
+          0,
+          1,
+          0
+        ],
+        "direction": [
+          0,
+          0,
+          1
+        ],
+        "family": "gemstone_face",
+        "confidence": 0.78
+      },
+      "side": {
+        "name": "side",
+        "right": [
+          1,
+          0,
+          0
+        ],
+        "up": [
+          0,
+          0,
+          1
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "family": "hoop_profile",
+        "confidence": 0.88
+      },
+      "back": {
+        "name": "back",
+        "right": [
+          -1,
+          0,
+          0
+        ],
+        "up": [
+          0,
+          0,
+          1
+        ],
+        "direction": [
+          0,
+          -1,
+          0
+        ],
+        "family": "hoop_profile",
+        "confidence": 0.84
+      },
+      "angled": {
+        "name": "angled",
+        "right": [
+          0.9012068922942593,
+          -0.43145327059858113,
+          -0.040917142753508155
+        ],
+        "up": [
+          -0.36431476804429275,
+          -0.8053231736957018,
+          0.4676850817521505
+        ],
+        "direction": [
+          0.23473578139294538,
+          0.4065742997269626,
+          0.882947592858927
+        ],
+        "family": "perspective_silhouette_fit",
+        "confidence": 0.76,
+        "distance": 68.0
+      }
+    }
+  },
+  "initial": {
+    "score": 0.551869,
+    "view_metrics": {
+      "front": {
+        "objective": 0.544622,
+        "silhouette_iou": 0.674108,
+        "detail_region_iou": 0.730209,
+        "component_mean_iou": 0.28974,
+        "detail_boundary_f1": 0.358514,
+        "negative_space_iou": 0.611782
+      },
+      "side": {
+        "objective": 0.512162,
+        "silhouette_iou": 0.673408,
+        "detail_region_iou": 0.558838,
+        "component_mean_iou": 0.369609,
+        "detail_boundary_f1": 0.250852,
+        "negative_space_iou": 0.710744
+      },
+      "top": {
+        "objective": 0.590268,
+        "silhouette_iou": 0.722836,
+        "detail_region_iou": 0.755372,
+        "component_mean_iou": 0.326129,
+        "detail_boundary_f1": 0.438704,
+        "negative_space_iou": 0.686708
+      },
+      "angled": {
+        "objective": 0.594208,
+        "silhouette_iou": 0.682827,
+        "detail_region_iou": 0.710193,
+        "component_mean_iou": 0.424595,
+        "detail_boundary_f1": 0.48181,
+        "negative_space_iou": 0.600527
+      },
+      "back": {
+        "objective": 0.515653,
+        "silhouette_iou": 0.683093,
+        "detail_region_iou": 0.538278,
+        "component_mean_iou": 0.384849,
+        "detail_boundary_f1": 0.303832,
+        "negative_space_iou": 0.639432
+      }
+    }
+  },
+  "optimized": {
+    "score": 0.620741,
+    "view_metrics": {
+      "front": {
+        "objective": 0.593493,
+        "silhouette_iou": 0.741497,
+        "detail_region_iou": 0.777214,
+        "component_mean_iou": 0.317882,
+        "detail_boundary_f1": 0.406198,
+        "negative_space_iou": 0.663147
+      },
+      "side": {
+        "objective": 0.600829,
+        "silhouette_iou": 0.731519,
+        "detail_region_iou": 0.624851,
+        "component_mean_iou": 0.403864,
+        "detail_boundary_f1": 0.483582,
+        "negative_space_iou": 0.841487
+      },
+      "top": {
+        "objective": 0.651289,
+        "silhouette_iou": 0.795161,
+        "detail_region_iou": 0.798965,
+        "component_mean_iou": 0.368095,
+        "detail_boundary_f1": 0.535629,
+        "negative_space_iou": 0.739979
+      },
+      "angled": {
+        "objective": 0.645735,
+        "silhouette_iou": 0.736432,
+        "detail_region_iou": 0.753913,
+        "component_mean_iou": 0.44397,
+        "detail_boundary_f1": 0.591933,
+        "negative_space_iou": 0.635634
+      },
+      "back": {
+        "objective": 0.610238,
+        "silhouette_iou": 0.757225,
+        "detail_region_iou": 0.618569,
+        "component_mean_iou": 0.429552,
+        "detail_boundary_f1": 0.512792,
+        "negative_space_iou": 0.760482
+      }
+    },
+    "parameters": {
+      "hoop_radius": 10.0,
+      "shank_radius": 0.86,
+      "shank_depth_radius": 1.11115,
+      "stone_radius": 3.2519,
+      "shoulder_start_x": 6.0,
+      "shoulder_start_y": 0.48,
+      "shoulder_start_z": 8.0,
+      "shoulder_control_x": 4.85502,
+      "shoulder_control_y": 0.72,
+      "shoulder_control_z": 10.09426,
+      "shoulder_end_x": 3.2128,
+      "shoulder_end_y": 1.1629,
+      "shoulder_radius": 0.47498,
+      "shoulder_tip_radius": 0.3,
+      "lower_gallery_z": 11.1183,
+      "gallery_gap": 1.40438,
+      "lower_inner_inset": 0.3,
+      "lower_outer_extra": 0.5622,
+      "lower_gallery_height": 0.32,
+      "upper_inner_inset": 0.18,
+      "upper_outer_extra": 0.40426,
+      "upper_gallery_height": 0.25,
+      "strut_base_extra": 0.22,
+      "strut_top_extra": 0.05,
+      "strut_radius": 0.22,
+      "prong_base_extra": 0.57226,
+      "prong_inset": 0.34685,
+      "prong_bow_extra": 0.27028,
+      "prong_top_z": 14.68627,
+      "prong_base_radius": 0.36,
+      "prong_tip_radius": 0.2,
+      "prong_bead_radius": 0.3748,
+      "stone_bottom_z": 11.13833,
+      "stone_girdle_z": 12.9388,
+      "stone_top_z": 14.4883
+    }
+  },
+  "optimization_history": [
+    {
+      "round": 0,
+      "score": 0.551869,
+      "parameters": {
+        "hoop_radius": 10.0,
+        "shank_radius": 0.72,
+        "shank_depth_radius": 0.9,
+        "stone_radius": 3.2519,
+        "shoulder_start_x": 6.0,
+        "shoulder_start_y": 0.48,
+        "shoulder_start_z": 8.0,
+        "shoulder_control_x": 4.7,
+        "shoulder_control_y": 0.72,
+        "shoulder_control_z": 9.75,
+        "shoulder_end_x": 3.28,
+        "shoulder_end_y": 1.35,
+        "shoulder_radius": 0.42,
+        "shoulder_tip_radius": 0.3,
+        "lower_gallery_z": 10.85,
+        "gallery_gap": 1.7,
+        "lower_inner_inset": 0.3,
+        "lower_outer_extra": 0.42,
+        "lower_gallery_height": 0.32,
+        "upper_inner_inset": 0.18,
+        "upper_outer_extra": 0.28,
+        "upper_gallery_height": 0.25,
+        "strut_base_extra": 0.22,
+        "strut_top_extra": 0.05,
+        "strut_radius": 0.22,
+        "prong_base_extra": 0.34,
+        "prong_inset": 0.3,
+        "prong_bow_extra": 0.15,
+        "prong_top_z": 14.42,
+        "prong_base_radius": 0.3,
+        "prong_tip_radius": 0.2,
+        "prong_bead_radius": 0.28,
+        "stone_bottom_z": 11.3,
+        "stone_girdle_z": 13.02,
+        "stone_top_z": 14.22
+      }
+    },
+    {
+      "round": 1,
+      "score": 0.588357,
+      "parameters": {
+        "hoop_radius": 10.0,
+        "shank_radius": 0.79,
+        "shank_depth_radius": 1.0,
+        "stone_radius": 3.2519,
+        "shoulder_start_x": 6.0,
+        "shoulder_start_y": 0.48,
+        "shoulder_start_z": 8.0,
+        "shoulder_control_x": 4.7,
+        "shoulder_control_y": 0.72,
+        "shoulder_control_z": 9.95,
+        "shoulder_end_x": 3.12,
+        "shoulder_end_y": 1.21,
+        "shoulder_radius": 0.42,
+        "shoulder_tip_radius": 0.3,
+        "lower_gallery_z": 10.99,
+        "gallery_gap": 1.56,
+        "lower_inner_inset": 0.3,
+        "lower_outer_extra": 0.51,
+        "lower_gallery_height": 0.32,
+        "upper_inner_inset": 0.18,
+        "upper_outer_extra": 0.35,
+        "upper_gallery_height": 0.25,
+        "strut_base_extra": 0.22,
+        "strut_top_extra": 0.05,
+        "strut_radius": 0.22,
+        "prong_base_extra": 0.45,
+        "prong_inset": 0.4,
+        "prong_bow_extra": 0.24,
+        "prong_top_z": 14.57,
+        "prong_base_radius": 0.335,
+        "prong_tip_radius": 0.2,
+        "prong_bead_radius": 0.34,
+        "stone_bottom_z": 11.17,
+        "stone_girdle_z": 13.02,
+        "stone_top_z": 14.36
+      }
+    },
+    {
+      "round": 2,
+      "score": 0.608754,
+      "parameters": {
+        "hoop_radius": 10.0,
+        "shank_radius": 0.8306,
+        "shank_depth_radius": 1.058,
+        "stone_radius": 3.2519,
+        "shoulder_start_x": 6.0,
+        "shoulder_start_y": 0.48,
+        "shoulder_start_z": 8.0,
+        "shoulder_control_x": 4.816,
+        "shoulder_control_y": 0.72,
+        "shoulder_control_z": 10.066,
+        "shoulder_end_x": 3.2128,
+        "shoulder_end_y": 1.21,
+        "shoulder_radius": 0.4548,
+        "shoulder_tip_radius": 0.3,
+        "lower_gallery_z": 11.0712,
+        "gallery_gap": 1.4788,
+        "lower_inner_inset": 0.3,
+        "lower_outer_extra": 0.5622,
+        "lower_gallery_height": 0.32,
+        "upper_inner_inset": 0.18,
+        "upper_outer_extra": 0.3906,
+        "upper_gallery_height": 0.25,
+        "strut_base_extra": 0.22,
+        "strut_top_extra": 0.05,
+        "strut_radius": 0.22,
+        "prong_base_extra": 0.5138,
+        "prong_inset": 0.4,
+        "prong_bow_extra": 0.24,
+        "prong_top_z": 14.657,
+        "prong_base_radius": 0.3553,
+        "prong_tip_radius": 0.2,
+        "prong_bead_radius": 0.3748,
+        "stone_bottom_z": 11.0946,
+        "stone_girdle_z": 12.9388,
+        "stone_top_z": 14.4412
+      }
+    },
+    {
+      "round": 3,
+      "score": 0.618466,
+      "parameters": {
+        "hoop_radius": 10.0,
+        "shank_radius": 0.85415,
+        "shank_depth_radius": 1.09164,
+        "stone_radius": 3.2519,
+        "shoulder_start_x": 6.0,
+        "shoulder_start_y": 0.48,
+        "shoulder_start_z": 8.0,
+        "shoulder_control_x": 4.816,
+        "shoulder_control_y": 0.72,
+        "shoulder_control_z": 10.13328,
+        "shoulder_end_x": 3.2128,
+        "shoulder_end_y": 1.1629,
+        "shoulder_radius": 0.47498,
+        "shoulder_tip_radius": 0.3,
+        "lower_gallery_z": 11.1183,
+        "gallery_gap": 1.4317,
+        "lower_inner_inset": 0.3,
+        "lower_outer_extra": 0.5622,
+        "lower_gallery_height": 0.32,
+        "upper_inner_inset": 0.18,
+        "upper_outer_extra": 0.3906,
+        "upper_gallery_height": 0.25,
+        "strut_base_extra": 0.22,
+        "strut_top_extra": 0.05,
+        "strut_radius": 0.22,
+        "prong_base_extra": 0.5508,
+        "prong_inset": 0.36636,
+        "prong_bow_extra": 0.27028,
+        "prong_top_z": 14.657,
+        "prong_base_radius": 0.36,
+        "prong_tip_radius": 0.2,
+        "prong_bead_radius": 0.3748,
+        "stone_bottom_z": 11.13833,
+        "stone_girdle_z": 12.9388,
+        "stone_top_z": 14.4883
+      }
+    },
+    {
+      "round": 4,
+      "score": 0.620741,
+      "parameters": {
+        "hoop_radius": 10.0,
+        "shank_radius": 0.86,
+        "shank_depth_radius": 1.11115,
+        "stone_radius": 3.2519,
+        "shoulder_start_x": 6.0,
+        "shoulder_start_y": 0.48,
+        "shoulder_start_z": 8.0,
+        "shoulder_control_x": 4.85502,
+        "shoulder_control_y": 0.72,
+        "shoulder_control_z": 10.09426,
+        "shoulder_end_x": 3.2128,
+        "shoulder_end_y": 1.1629,
+        "shoulder_radius": 0.47498,
+        "shoulder_tip_radius": 0.3,
+        "lower_gallery_z": 11.1183,
+        "gallery_gap": 1.40438,
+        "lower_inner_inset": 0.3,
+        "lower_outer_extra": 0.5622,
+        "lower_gallery_height": 0.32,
+        "upper_inner_inset": 0.18,
+        "upper_outer_extra": 0.40426,
+        "upper_gallery_height": 0.25,
+        "strut_base_extra": 0.22,
+        "strut_top_extra": 0.05,
+        "strut_radius": 0.22,
+        "prong_base_extra": 0.57226,
+        "prong_inset": 0.34685,
+        "prong_bow_extra": 0.27028,
+        "prong_top_z": 14.68627,
+        "prong_base_radius": 0.36,
+        "prong_tip_radius": 0.2,
+        "prong_bead_radius": 0.3748,
+        "stone_bottom_z": 11.13833,
+        "stone_girdle_z": 12.9388,
+        "stone_top_z": 14.4883
+      }
+    }
+  ],
+  "proxy_comparisons": {
+    "front": "data/ring01_phase3_3/proxy_comparisons/ring01_front_phase3_3_proxy.png",
+    "side": "data/ring01_phase3_3/proxy_comparisons/ring01_side_phase3_3_proxy.png",
+    "top": "data/ring01_phase3_3/proxy_comparisons/ring01_top_phase3_3_proxy.png",
+    "angled": "data/ring01_phase3_3/proxy_comparisons/ring01_angled_phase3_3_proxy.png",
+    "back": "data/ring01_phase3_3/proxy_comparisons/ring01_back_phase3_3_proxy.png"
+  },
+  "warning": "Proxy metrics are search guidance only; acceptance uses independently rendered exported CAD."
+}
