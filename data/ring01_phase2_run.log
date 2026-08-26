@@ -1,0 +1,471 @@
+/opt/conda/lib/python3.11/site-packages/sam2/sam2_image_predictor.py:431: UserWarning: cannot import name '_C' from 'sam2' (/opt/conda/lib/python3.11/site-packages/sam2/__init__.py)
+
+Skipping the post-processing step due to the error above. You can still use SAM 2 and it's OK to ignore the error above, although some post-processing functionality may be limited (which doesn't affect the results in most cases; see https://github.com/facebookresearch/sam2/blob/main/INSTALL.md).
+  masks = self._transforms.postprocess_masks(
+{
+  "front": {
+    "jewelry": {
+      "area_px2": 8797,
+      "bbox_px": {
+        "x": 25,
+        "y": 62,
+        "width": 240,
+        "height": 85
+      },
+      "confidence": 0.94922,
+      "source": "sam2_box_prompt",
+      "parent": null,
+      "status": "predicted"
+    },
+    "metal": {
+      "area_px2": 5523,
+      "bbox_px": {
+        "x": 25,
+        "y": 62,
+        "width": 240,
+        "height": 85
+      },
+      "confidence": 0.84,
+      "source": "derived_from_jewelry_minus_stone",
+      "parent": "jewelry",
+      "status": "derived_proposal"
+    },
+    "shank": {
+      "area_px2": 4380,
+      "bbox_px": {
+        "x": 25,
+        "y": 62,
+        "width": 240,
+        "height": 65
+      },
+      "confidence": 0.86328,
+      "source": "sam2_points_and_geometry",
+      "parent": "metal",
+      "status": "predicted"
+    },
+    "stone": {
+      "area_px2": 3274,
+      "bbox_px": {
+        "x": 107,
+        "y": 70,
+        "width": 77,
+        "height": 77
+      },
+      "confidence": 0.91406,
+      "source": "sam2_box_and_point_prompt",
+      "parent": "jewelry",
+      "status": "predicted"
+    },
+    "setting": {
+      "area_px2": 1392,
+      "bbox_px": {
+        "x": 102,
+        "y": 62,
+        "width": 87,
+        "height": 85
+      },
+      "confidence": 0.74953,
+      "source": "derived_head_region",
+      "parent": "metal",
+      "status": "derived_proposal"
+    },
+    "prongs": {
+      "area_px2": 588,
+      "bbox_px": {
+        "x": 103,
+        "y": 66,
+        "width": 85,
+        "height": 81
+      },
+      "confidence": 0.60328,
+      "source": "derived_setting_near_stone",
+      "parent": "setting",
+      "status": "derived_proposal"
+    },
+    "shadow": {
+      "area_px2": 1966,
+      "bbox_px": {
+        "x": 32,
+        "y": 61,
+        "width": 223,
+        "height": 101
+      },
+      "confidence": 0.55,
+      "source": "phase1_minus_sam2_jewelry",
+      "parent": null,
+      "status": "derived_proposal"
+    }
+  },
+  "side": {
+    "jewelry": {
+      "area_px2": 6900,
+      "bbox_px": {
+        "x": 67,
+        "y": 18,
+        "width": 144,
+        "height": 174
+      },
+      "confidence": 0.88281,
+      "source": "sam2_box_prompt",
+      "parent": null,
+      "status": "predicted"
+    },
+    "metal": {
+      "area_px2": 6060,
+      "bbox_px": {
+        "x": 67,
+        "y": 18,
+        "width": 144,
+        "height": 174
+      },
+      "confidence": 0.84,
+      "source": "derived_from_jewelry_minus_stone",
+      "parent": "jewelry",
+      "status": "derived_proposal"
+    },
+    "shank": {
+      "area_px2": 5923,
+      "bbox_px": {
+        "x": 67,
+        "y": 18,
+        "width": 144,
+        "height": 174
+      },
+      "confidence": 0.84375,
+      "source": "sam2_points_and_geometry",
+      "parent": "metal",
+      "status": "predicted"
+    },
+    "stone": {
+      "area_px2": 840,
+      "bbox_px": {
+        "x": 116,
+        "y": 19,
+        "width": 45,
+        "height": 32
+      },
+      "confidence": 0.87891,
+      "source": "sam2_box_and_point_prompt",
+      "parent": "jewelry",
+      "status": "predicted"
+    },
+    "setting": {
+      "area_px2": 1892,
+      "bbox_px": {
+        "x": 103,
+        "y": 18,
+        "width": 73,
+        "height": 55
+      },
+      "confidence": 0.7207,
+      "source": "derived_head_region",
+      "parent": "metal",
+      "status": "derived_proposal"
+    },
+    "prongs": {
+      "area_px2": 349,
+      "bbox_px": {
+        "x": 112,
+        "y": 19,
+        "width": 53,
+        "height": 36
+      },
+      "confidence": 0.58008,
+      "source": "derived_setting_near_stone",
+      "parent": "setting",
+      "status": "derived_proposal"
+    },
+    "shadow": {
+      "area_px2": 556,
+      "bbox_px": {
+        "x": 67,
+        "y": 18,
+        "width": 144,
+        "height": 176
+      },
+      "confidence": 0.55,
+      "source": "phase1_minus_sam2_jewelry",
+      "parent": null,
+      "status": "derived_proposal"
+    }
+  },
+  "top": {
+    "jewelry": {
+      "area_px2": 6868,
+      "bbox_px": {
+        "x": 36,
+        "y": 72,
+        "width": 217,
+        "height": 81
+      },
+      "confidence": 0.97266,
+      "source": "sam2_box_prompt",
+      "parent": null,
+      "status": "predicted"
+    },
+    "metal": {
+      "area_px2": 4188,
+      "bbox_px": {
+        "x": 36,
+        "y": 72,
+        "width": 217,
+        "height": 81
+      },
+      "confidence": 0.84,
+      "source": "derived_from_jewelry_minus_stone",
+      "parent": "jewelry",
+      "status": "derived_proposal"
+    },
+    "shank": {
+      "area_px2": 2938,
+      "bbox_px": {
+        "x": 36,
+        "y": 98,
+        "width": 217,
+        "height": 26
+      },
+      "confidence": 0.78906,
+      "source": "sam2_points_and_geometry",
+      "parent": "metal",
+      "status": "predicted"
+    },
+    "stone": {
+      "area_px2": 2680,
+      "bbox_px": {
+        "x": 110,
+        "y": 79,
+        "width": 70,
+        "height": 67
+      },
+      "confidence": 0.84375,
+      "source": "sam2_box_and_point_prompt",
+      "parent": "jewelry",
+      "status": "predicted"
+    },
+    "setting": {
+      "area_px2": 1297,
+      "bbox_px": {
+        "x": 105,
+        "y": 72,
+        "width": 80,
+        "height": 81
+      },
+      "confidence": 0.69187,
+      "source": "derived_head_region",
+      "parent": "metal",
+      "status": "derived_proposal"
+    },
+    "prongs": {
+      "area_px2": 590,
+      "bbox_px": {
+        "x": 106,
+        "y": 75,
+        "width": 78,
+        "height": 75
+      },
+      "confidence": 0.55688,
+      "source": "derived_setting_near_stone",
+      "parent": "setting",
+      "status": "derived_proposal"
+    },
+    "shadow": {
+      "area_px2": 648,
+      "bbox_px": {
+        "x": 46,
+        "y": 72,
+        "width": 203,
+        "height": 85
+      },
+      "confidence": 0.55,
+      "source": "phase1_minus_sam2_jewelry",
+      "parent": null,
+      "status": "derived_proposal"
+    }
+  },
+  "angled": {
+    "jewelry": {
+      "area_px2": 10217,
+      "bbox_px": {
+        "x": 45,
+        "y": 23,
+        "width": 179,
+        "height": 166
+      },
+      "confidence": 0.85156,
+      "source": "sam2_box_prompt",
+      "parent": null,
+      "status": "predicted"
+    },
+    "metal": {
+      "area_px2": 8610,
+      "bbox_px": {
+        "x": 45,
+        "y": 23,
+        "width": 179,
+        "height": 166
+      },
+      "confidence": 0.84,
+      "source": "derived_from_jewelry_minus_stone",
+      "parent": "jewelry",
+      "status": "derived_proposal"
+    },
+    "shank": {
+      "area_px2": 8460,
+      "bbox_px": {
+        "x": 45,
+        "y": 23,
+        "width": 179,
+        "height": 166
+      },
+      "confidence": 0.82812,
+      "source": "sam2_points_and_geometry",
+      "parent": "metal",
+      "status": "predicted"
+    },
+    "stone": {
+      "area_px2": 1607,
+      "bbox_px": {
+        "x": 108,
+        "y": 33,
+        "width": 60,
+        "height": 50
+      },
+      "confidence": 0.83203,
+      "source": "sam2_box_and_point_prompt",
+      "parent": "jewelry",
+      "status": "predicted"
+    },
+    "setting": {
+      "area_px2": 2637,
+      "bbox_px": {
+        "x": 90,
+        "y": 23,
+        "width": 96,
+        "height": 91
+      },
+      "confidence": 0.68227,
+      "source": "derived_head_region",
+      "parent": "metal",
+      "status": "derived_proposal"
+    },
+    "prongs": {
+      "area_px2": 466,
+      "bbox_px": {
+        "x": 104,
+        "y": 29,
+        "width": 68,
+        "height": 58
+      },
+      "confidence": 0.54914,
+      "source": "derived_setting_near_stone",
+      "parent": "setting",
+      "status": "derived_proposal"
+    },
+    "shadow": {
+      "area_px2": 649,
+      "bbox_px": {
+        "x": 76,
+        "y": 23,
+        "width": 143,
+        "height": 174
+      },
+      "confidence": 0.55,
+      "source": "phase1_minus_sam2_jewelry",
+      "parent": null,
+      "status": "derived_proposal"
+    }
+  },
+  "back": {
+    "jewelry": {
+      "area_px2": 7177,
+      "bbox_px": {
+        "x": 61,
+        "y": 18,
+        "width": 146,
+        "height": 174
+      },
+      "confidence": 0.92578,
+      "source": "sam2_box_prompt",
+      "parent": null,
+      "status": "predicted"
+    },
+    "metal": {
+      "area_px2": 6293,
+      "bbox_px": {
+        "x": 61,
+        "y": 18,
+        "width": 146,
+        "height": 174
+      },
+      "confidence": 0.84,
+      "source": "derived_from_jewelry_minus_stone",
+      "parent": "jewelry",
+      "status": "derived_proposal"
+    },
+    "shank": {
+      "area_px2": 6130,
+      "bbox_px": {
+        "x": 61,
+        "y": 18,
+        "width": 146,
+        "height": 174
+      },
+      "confidence": 0.85547,
+      "source": "sam2_points_and_geometry",
+      "parent": "metal",
+      "status": "predicted"
+    },
+    "stone": {
+      "area_px2": 884,
+      "bbox_px": {
+        "x": 112,
+        "y": 19,
+        "width": 46,
+        "height": 35
+      },
+      "confidence": 0.89453,
+      "source": "sam2_box_and_point_prompt",
+      "parent": "jewelry",
+      "status": "predicted"
+    },
+    "setting": {
+      "area_px2": 1945,
+      "bbox_px": {
+        "x": 98,
+        "y": 18,
+        "width": 74,
+        "height": 55
+      },
+      "confidence": 0.73352,
+      "source": "derived_head_region",
+      "parent": "metal",
+      "status": "derived_proposal"
+    },
+    "prongs": {
+      "area_px2": 401,
+      "bbox_px": {
+        "x": 108,
+        "y": 19,
+        "width": 54,
+        "height": 39
+      },
+      "confidence": 0.59039,
+      "source": "derived_setting_near_stone",
+      "parent": "setting",
+      "status": "derived_proposal"
+    },
+    "shadow": {
+      "area_px2": 552,
+      "bbox_px": {
+        "x": 61,
+        "y": 18,
+        "width": 147,
+        "height": 176
+      },
+      "confidence": 0.55,
+      "source": "phase1_minus_sam2_jewelry",
+      "parent": null,
+      "status": "derived_proposal"
+    }
+  }
+}

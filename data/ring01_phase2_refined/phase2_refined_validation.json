@@ -1,0 +1,61 @@
+{
+  "stage": "phase2_1_strict_validation",
+  "passed": true,
+  "views": {
+    "front": {
+      "shank_setting_overlap_px2": 0,
+      "shank_setting_disjoint_pass": true,
+      "amodal_stone_solidity": 0.98724,
+      "closed_stone_pass": true,
+      "prong_connected_regions": 4,
+      "four_prong_pass": true,
+      "shadow_jewelry_overlap_px2": 0,
+      "shadow_disjoint_pass": true
+    },
+    "side": {
+      "shank_setting_overlap_px2": 0,
+      "shank_setting_disjoint_pass": true,
+      "amodal_stone_solidity": 0.98339,
+      "closed_stone_pass": true,
+      "prong_connected_regions": 3,
+      "four_prong_pass": null,
+      "shadow_jewelry_overlap_px2": 0,
+      "shadow_disjoint_pass": true
+    },
+    "top": {
+      "shank_setting_overlap_px2": 0,
+      "shank_setting_disjoint_pass": true,
+      "amodal_stone_solidity": 0.98452,
+      "closed_stone_pass": true,
+      "prong_connected_regions": 4,
+      "four_prong_pass": true,
+      "shadow_jewelry_overlap_px2": 0,
+      "shadow_disjoint_pass": true
+    },
+    "angled": {
+      "shank_setting_overlap_px2": 0,
+      "shank_setting_disjoint_pass": true,
+      "amodal_stone_solidity": 0.98279,
+      "closed_stone_pass": true,
+      "prong_connected_regions": 7,
+      "four_prong_pass": null,
+      "shadow_jewelry_overlap_px2": 0,
+      "shadow_disjoint_pass": true
+    },
+    "back": {
+      "shank_setting_overlap_px2": 0,
+      "shank_setting_disjoint_pass": true,
+      "amodal_stone_solidity": 0.97227,
+      "closed_stone_pass": true,
+      "prong_connected_regions": 1,
+      "four_prong_pass": null,
+      "shadow_jewelry_overlap_px2": 0,
+      "shadow_disjoint_pass": true
+    }
+  },
+  "remaining_manual_checks": [
+    "pixel-accurate prong boundaries",
+    "shadow versus reflective underside",
+    "amodal stone shape against human annotation"
+  ]
+}
