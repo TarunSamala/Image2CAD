@@ -1,0 +1,35 @@
+{
+  "sample": "ring01",
+  "stage": "phase3_1_render_compare_refinement",
+  "inspection_scope": [
+    "five initial-versus-optimized proxy overlays",
+    "five exported-CAD rerender overlays",
+    "optimized four-view 3D mesh preview"
+  ],
+  "machine_validation": "passed",
+  "visual_validation": "passed_for_parametric_refinement_with_angled_view_residual",
+  "objective_improvement_percent": 9.529,
+  "exported_cad_iou": {
+    "front": 0.71504,
+    "side": 0.76519,
+    "top": 0.78705,
+    "angled": 0.53339,
+    "back": 0.77577
+  },
+  "accepted_changes": [
+    "shank radius increased moderately to match the observed band",
+    "stone diameter reduced from the initial seed and then fitted across front/top views",
+    "shoulders widened and moved inward",
+    "seat became narrower and taller",
+    "stone depth and vertical position were adjusted",
+    "prongs were constrained to jewellery-specific thickness and changed from cylinders to inward-tapered frustums"
+  ],
+  "visual_findings": {
+    "front": "Strong improvement in band width and central head scale; prong-tip masks remain coarser than the visible metal.",
+    "side": "Hoop aligns well; basket top and shoulder transition remain simplified.",
+    "top": "Best exported-CAD fit; band and stone scale are stable, while prong tips remain approximate.",
+    "angled": "Weakest view. One shoulder is over-projected and the opposite lower silhouette is under-projected, indicating remaining camera and asymmetric-geometry error.",
+    "back": "Hoop alignment is strong; basket and prong identity remain simplified."
+  },
+  "conclusion": "The refinement loop works and improved the coherent CAD without topology regression. The next loop should target oblique camera fitting, asymmetric shoulders, basket/gallery geometry, and human-corrected prong boundaries. Dimensional accuracy is still unvalidated without a known measurement."
+}

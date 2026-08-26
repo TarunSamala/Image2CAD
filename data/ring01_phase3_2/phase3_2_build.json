@@ -1,0 +1,158 @@
+{
+  "sample": "ring01",
+  "stage": "phase3_2_reference_driven_topology_rebuild",
+  "backtracked_from": "data/ring01_phase3_1/phase3_1_fit.json",
+  "reversible": true,
+  "scale_status": "provisional_uncalibrated_millimetre_assumption",
+  "parameters": {
+    "hoop_major_radius": 10.0,
+    "shank_radius": 0.72,
+    "stone_radius": 3.25188,
+    "lower_gallery_z": 10.85,
+    "upper_gallery_z": 12.55,
+    "stone_bottom_z": 11.3,
+    "stone_girdle_z": 13.02,
+    "stone_top_z": 14.22
+  },
+  "topology": {
+    "one_shank": true,
+    "cathedral_shoulder_count": 4,
+    "gallery_rail_count": 2,
+    "open_gallery": true,
+    "basket_strut_count": 4,
+    "prong_count": 4,
+    "prongs_tapered_and_inward": true,
+    "prong_tip_beads": true,
+    "faceted_stone": true,
+    "stone_sides": 16,
+    "shoulders": [
+      {
+        "start": [
+          -6.0,
+          -0.48,
+          8.0
+        ],
+        "end": [
+          -3.28,
+          -1.35,
+          11.15
+        ]
+      },
+      {
+        "start": [
+          -6.0,
+          0.48,
+          8.0
+        ],
+        "end": [
+          -3.28,
+          1.35,
+          11.15
+        ]
+      },
+      {
+        "start": [
+          6.0,
+          -0.48,
+          8.0
+        ],
+        "end": [
+          3.28,
+          -1.35,
+          11.15
+        ]
+      },
+      {
+        "start": [
+          6.0,
+          0.48,
+          8.0
+        ],
+        "end": [
+          3.28,
+          1.35,
+          11.15
+        ]
+      }
+    ],
+    "prongs": [
+      {
+        "angle_degrees": 45,
+        "start": [
+          2.5398,
+          2.5398,
+          10.95
+        ],
+        "end": [
+          2.0873,
+          2.0873,
+          14.42
+        ],
+        "base_radius": 0.3,
+        "tip_radius": 0.2
+      },
+      {
+        "angle_degrees": 135,
+        "start": [
+          -2.5398,
+          2.5398,
+          10.95
+        ],
+        "end": [
+          -2.0873,
+          2.0873,
+          14.42
+        ],
+        "base_radius": 0.3,
+        "tip_radius": 0.2
+      },
+      {
+        "angle_degrees": 225,
+        "start": [
+          -2.5398,
+          -2.5398,
+          10.95
+        ],
+        "end": [
+          -2.0873,
+          -2.0873,
+          14.42
+        ],
+        "base_radius": 0.3,
+        "tip_radius": 0.2
+      },
+      {
+        "angle_degrees": 315,
+        "start": [
+          2.5398,
+          -2.5398,
+          10.95
+        ],
+        "end": [
+          2.0873,
+          -2.0873,
+          14.42
+        ],
+        "base_radius": 0.3,
+        "tip_radius": 0.2
+      }
+    ]
+  },
+  "validation": {
+    "metal_solid_count": 1,
+    "stone_solid_count": 1,
+    "assembly_solid_count": 2,
+    "metal_is_single_solid": true,
+    "stone_is_single_solid": true
+  },
+  "artifacts": {
+    "metal_step": "data/ring01_phase3_2/ring01_phase3_2_metal.step",
+    "stone_step": "data/ring01_phase3_2/ring01_phase3_2_stone.step",
+    "assembly_step": "data/ring01_phase3_2/ring01_phase3_2.step",
+    "metal_stl": "data/ring01_phase3_2/ring01_phase3_2_metal.stl",
+    "stone_stl": "data/ring01_phase3_2/ring01_phase3_2_stone.stl",
+    "assembly_stl": "data/ring01_phase3_2/ring01_phase3_2.stl",
+    "assembly_obj": "data/ring01_phase3_2/ring01_phase3_2.obj",
+    "assembly_glb": "data/ring01_phase3_2/ring01_phase3_2.glb"
+  }
+}
