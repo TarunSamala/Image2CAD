@@ -1,0 +1,528 @@
+{
+  "sample": "ring01",
+  "stage": "phase2_1_topology_refinement",
+  "source_stage": "/workspace/data/ring01_phase2/phase2_components.json",
+  "reversible": true,
+  "rules": [
+    "closed amodal gemstone silhouette",
+    "disjoint shank and setting",
+    "four topology-guided prongs in front/top views",
+    "shadow excludes refined jewellery"
+  ],
+  "views": {
+    "front": {
+      "components": {
+        "jewelry": {
+          "area_px2": 10345,
+          "bbox_px": {
+            "x": 25,
+            "y": 61,
+            "width": 240,
+            "height": 87
+          }
+        },
+        "metal": {
+          "area_px2": 5702,
+          "bbox_px": {
+            "x": 25,
+            "y": 61,
+            "width": 240,
+            "height": 87
+          }
+        },
+        "shank": {
+          "area_px2": 4131,
+          "bbox_px": {
+            "x": 25,
+            "y": 90,
+            "width": 240,
+            "height": 37
+          }
+        },
+        "stone_visible": {
+          "area_px2": 4643,
+          "bbox_px": {
+            "x": 107,
+            "y": 70,
+            "width": 77,
+            "height": 77
+          }
+        },
+        "stone_amodal": {
+          "area_px2": 4643,
+          "bbox_px": {
+            "x": 107,
+            "y": 70,
+            "width": 77,
+            "height": 77
+          }
+        },
+        "setting": {
+          "area_px2": 1571,
+          "bbox_px": {
+            "x": 102,
+            "y": 61,
+            "width": 87,
+            "height": 87
+          }
+        },
+        "prongs": {
+          "area_px2": 693,
+          "bbox_px": {
+            "x": 103,
+            "y": 61,
+            "width": 84,
+            "height": 87
+          }
+        },
+        "shadow": {
+          "area_px2": 1918,
+          "bbox_px": {
+            "x": 32,
+            "y": 61,
+            "width": 223,
+            "height": 101
+          }
+        }
+      },
+      "prong_instances": [
+        {
+          "prong_id": 1,
+          "center_px": {
+            "x": 110.612,
+            "y": 70.203
+          },
+          "area_px2": 232,
+          "source": "setting_region_plus_four_prong_topology"
+        },
+        {
+          "prong_id": 2,
+          "center_px": {
+            "x": 179.005,
+            "y": 70.155
+          },
+          "area_px2": 219,
+          "source": "setting_region_plus_four_prong_topology"
+        },
+        {
+          "prong_id": 3,
+          "center_px": {
+            "x": 110.74,
+            "y": 142.317
+          },
+          "area_px2": 123,
+          "source": "setting_region_plus_four_prong_topology"
+        },
+        {
+          "prong_id": 4,
+          "center_px": {
+            "x": 178.84,
+            "y": 142.311
+          },
+          "area_px2": 119,
+          "source": "setting_region_plus_four_prong_topology"
+        }
+      ],
+      "artifacts": {
+        "jewelry": "/workspace/data/ring01_phase2_refined/masks/jewelry/ring01_front_jewelry.png",
+        "metal": "/workspace/data/ring01_phase2_refined/masks/metal/ring01_front_metal.png",
+        "shank": "/workspace/data/ring01_phase2_refined/masks/shank/ring01_front_shank.png",
+        "stone_visible": "/workspace/data/ring01_phase2_refined/masks/stone_visible/ring01_front_stone_visible.png",
+        "stone_amodal": "/workspace/data/ring01_phase2_refined/masks/stone_amodal/ring01_front_stone_amodal.png",
+        "setting": "/workspace/data/ring01_phase2_refined/masks/setting/ring01_front_setting.png",
+        "prongs": "/workspace/data/ring01_phase2_refined/masks/prongs/ring01_front_prongs.png",
+        "shadow": "/workspace/data/ring01_phase2_refined/masks/shadow/ring01_front_shadow.png",
+        "overlay": "/workspace/data/ring01_phase2_refined/overlays/ring01_front_refined.png"
+      }
+    },
+    "side": {
+      "components": {
+        "jewelry": {
+          "area_px2": 7160,
+          "bbox_px": {
+            "x": 67,
+            "y": 18,
+            "width": 144,
+            "height": 174
+          }
+        },
+        "metal": {
+          "area_px2": 6060,
+          "bbox_px": {
+            "x": 67,
+            "y": 18,
+            "width": 144,
+            "height": 174
+          }
+        },
+        "shank": {
+          "area_px2": 4168,
+          "bbox_px": {
+            "x": 67,
+            "y": 20,
+            "width": 144,
+            "height": 172
+          }
+        },
+        "stone_visible": {
+          "area_px2": 1100,
+          "bbox_px": {
+            "x": 116,
+            "y": 19,
+            "width": 45,
+            "height": 32
+          }
+        },
+        "stone_amodal": {
+          "area_px2": 1125,
+          "bbox_px": {
+            "x": 116,
+            "y": 19,
+            "width": 45,
+            "height": 32
+          }
+        },
+        "setting": {
+          "area_px2": 1892,
+          "bbox_px": {
+            "x": 103,
+            "y": 18,
+            "width": 73,
+            "height": 55
+          }
+        },
+        "prongs": {
+          "area_px2": 349,
+          "bbox_px": {
+            "x": 112,
+            "y": 19,
+            "width": 53,
+            "height": 36
+          }
+        },
+        "shadow": {
+          "area_px2": 550,
+          "bbox_px": {
+            "x": 67,
+            "y": 18,
+            "width": 144,
+            "height": 176
+          }
+        }
+      },
+      "prong_instances": [],
+      "artifacts": {
+        "jewelry": "/workspace/data/ring01_phase2_refined/masks/jewelry/ring01_side_jewelry.png",
+        "metal": "/workspace/data/ring01_phase2_refined/masks/metal/ring01_side_metal.png",
+        "shank": "/workspace/data/ring01_phase2_refined/masks/shank/ring01_side_shank.png",
+        "stone_visible": "/workspace/data/ring01_phase2_refined/masks/stone_visible/ring01_side_stone_visible.png",
+        "stone_amodal": "/workspace/data/ring01_phase2_refined/masks/stone_amodal/ring01_side_stone_amodal.png",
+        "setting": "/workspace/data/ring01_phase2_refined/masks/setting/ring01_side_setting.png",
+        "prongs": "/workspace/data/ring01_phase2_refined/masks/prongs/ring01_side_prongs.png",
+        "shadow": "/workspace/data/ring01_phase2_refined/masks/shadow/ring01_side_shadow.png",
+        "overlay": "/workspace/data/ring01_phase2_refined/overlays/ring01_side_refined.png"
+      }
+    },
+    "top": {
+      "components": {
+        "jewelry": {
+          "area_px2": 8081,
+          "bbox_px": {
+            "x": 36,
+            "y": 72,
+            "width": 217,
+            "height": 81
+          }
+        },
+        "metal": {
+          "area_px2": 4456,
+          "bbox_px": {
+            "x": 36,
+            "y": 72,
+            "width": 217,
+            "height": 81
+          }
+        },
+        "shank": {
+          "area_px2": 2891,
+          "bbox_px": {
+            "x": 36,
+            "y": 98,
+            "width": 217,
+            "height": 26
+          }
+        },
+        "stone_visible": {
+          "area_px2": 3625,
+          "bbox_px": {
+            "x": 110,
+            "y": 79,
+            "width": 69,
+            "height": 67
+          }
+        },
+        "stone_amodal": {
+          "area_px2": 3625,
+          "bbox_px": {
+            "x": 110,
+            "y": 79,
+            "width": 69,
+            "height": 67
+          }
+        },
+        "setting": {
+          "area_px2": 1565,
+          "bbox_px": {
+            "x": 105,
+            "y": 72,
+            "width": 80,
+            "height": 81
+          }
+        },
+        "prongs": {
+          "area_px2": 692,
+          "bbox_px": {
+            "x": 105,
+            "y": 72,
+            "width": 79,
+            "height": 81
+          }
+        },
+        "shadow": {
+          "area_px2": 606,
+          "bbox_px": {
+            "x": 46,
+            "y": 72,
+            "width": 203,
+            "height": 85
+          }
+        }
+      },
+      "prong_instances": [
+        {
+          "prong_id": 1,
+          "center_px": {
+            "x": 113.163,
+            "y": 78.612
+          },
+          "area_px2": 178,
+          "source": "setting_region_plus_four_prong_topology"
+        },
+        {
+          "prong_id": 2,
+          "center_px": {
+            "x": 175.017,
+            "y": 78.688
+          },
+          "area_px2": 176,
+          "source": "setting_region_plus_four_prong_topology"
+        },
+        {
+          "prong_id": 3,
+          "center_px": {
+            "x": 113.035,
+            "y": 145.202
+          },
+          "area_px2": 173,
+          "source": "setting_region_plus_four_prong_topology"
+        },
+        {
+          "prong_id": 4,
+          "center_px": {
+            "x": 174.891,
+            "y": 144.933
+          },
+          "area_px2": 165,
+          "source": "setting_region_plus_four_prong_topology"
+        }
+      ],
+      "artifacts": {
+        "jewelry": "/workspace/data/ring01_phase2_refined/masks/jewelry/ring01_top_jewelry.png",
+        "metal": "/workspace/data/ring01_phase2_refined/masks/metal/ring01_top_metal.png",
+        "shank": "/workspace/data/ring01_phase2_refined/masks/shank/ring01_top_shank.png",
+        "stone_visible": "/workspace/data/ring01_phase2_refined/masks/stone_visible/ring01_top_stone_visible.png",
+        "stone_amodal": "/workspace/data/ring01_phase2_refined/masks/stone_amodal/ring01_top_stone_amodal.png",
+        "setting": "/workspace/data/ring01_phase2_refined/masks/setting/ring01_top_setting.png",
+        "prongs": "/workspace/data/ring01_phase2_refined/masks/prongs/ring01_top_prongs.png",
+        "shadow": "/workspace/data/ring01_phase2_refined/masks/shadow/ring01_top_shadow.png",
+        "overlay": "/workspace/data/ring01_phase2_refined/overlays/ring01_top_refined.png"
+      }
+    },
+    "angled": {
+      "components": {
+        "jewelry": {
+          "area_px2": 10940,
+          "bbox_px": {
+            "x": 45,
+            "y": 23,
+            "width": 179,
+            "height": 166
+          }
+        },
+        "metal": {
+          "area_px2": 8700,
+          "bbox_px": {
+            "x": 45,
+            "y": 23,
+            "width": 179,
+            "height": 166
+          }
+        },
+        "shank": {
+          "area_px2": 5973,
+          "bbox_px": {
+            "x": 45,
+            "y": 59,
+            "width": 179,
+            "height": 130
+          }
+        },
+        "stone_visible": {
+          "area_px2": 2240,
+          "bbox_px": {
+            "x": 108,
+            "y": 34,
+            "width": 60,
+            "height": 49
+          }
+        },
+        "stone_amodal": {
+          "area_px2": 2341,
+          "bbox_px": {
+            "x": 108,
+            "y": 34,
+            "width": 61,
+            "height": 49
+          }
+        },
+        "setting": {
+          "area_px2": 2727,
+          "bbox_px": {
+            "x": 90,
+            "y": 23,
+            "width": 96,
+            "height": 91
+          }
+        },
+        "prongs": {
+          "area_px2": 466,
+          "bbox_px": {
+            "x": 104,
+            "y": 29,
+            "width": 68,
+            "height": 58
+          }
+        },
+        "shadow": {
+          "area_px2": 649,
+          "bbox_px": {
+            "x": 76,
+            "y": 23,
+            "width": 143,
+            "height": 174
+          }
+        }
+      },
+      "prong_instances": [],
+      "artifacts": {
+        "jewelry": "/workspace/data/ring01_phase2_refined/masks/jewelry/ring01_angled_jewelry.png",
+        "metal": "/workspace/data/ring01_phase2_refined/masks/metal/ring01_angled_metal.png",
+        "shank": "/workspace/data/ring01_phase2_refined/masks/shank/ring01_angled_shank.png",
+        "stone_visible": "/workspace/data/ring01_phase2_refined/masks/stone_visible/ring01_angled_stone_visible.png",
+        "stone_amodal": "/workspace/data/ring01_phase2_refined/masks/stone_amodal/ring01_angled_stone_amodal.png",
+        "setting": "/workspace/data/ring01_phase2_refined/masks/setting/ring01_angled_setting.png",
+        "prongs": "/workspace/data/ring01_phase2_refined/masks/prongs/ring01_angled_prongs.png",
+        "shadow": "/workspace/data/ring01_phase2_refined/masks/shadow/ring01_angled_shadow.png",
+        "overlay": "/workspace/data/ring01_phase2_refined/overlays/ring01_angled_refined.png"
+      }
+    },
+    "back": {
+      "components": {
+        "jewelry": {
+          "area_px2": 7474,
+          "bbox_px": {
+            "x": 61,
+            "y": 18,
+            "width": 146,
+            "height": 174
+          }
+        },
+        "metal": {
+          "area_px2": 6293,
+          "bbox_px": {
+            "x": 61,
+            "y": 18,
+            "width": 146,
+            "height": 174
+          }
+        },
+        "shank": {
+          "area_px2": 4348,
+          "bbox_px": {
+            "x": 61,
+            "y": 21,
+            "width": 146,
+            "height": 171
+          }
+        },
+        "stone_visible": {
+          "area_px2": 1181,
+          "bbox_px": {
+            "x": 112,
+            "y": 19,
+            "width": 46,
+            "height": 35
+          }
+        },
+        "stone_amodal": {
+          "area_px2": 1227,
+          "bbox_px": {
+            "x": 112,
+            "y": 19,
+            "width": 46,
+            "height": 35
+          }
+        },
+        "setting": {
+          "area_px2": 1945,
+          "bbox_px": {
+            "x": 98,
+            "y": 18,
+            "width": 74,
+            "height": 55
+          }
+        },
+        "prongs": {
+          "area_px2": 401,
+          "bbox_px": {
+            "x": 108,
+            "y": 19,
+            "width": 54,
+            "height": 39
+          }
+        },
+        "shadow": {
+          "area_px2": 552,
+          "bbox_px": {
+            "x": 61,
+            "y": 18,
+            "width": 147,
+            "height": 176
+          }
+        }
+      },
+      "prong_instances": [],
+      "artifacts": {
+        "jewelry": "/workspace/data/ring01_phase2_refined/masks/jewelry/ring01_back_jewelry.png",
+        "metal": "/workspace/data/ring01_phase2_refined/masks/metal/ring01_back_metal.png",
+        "shank": "/workspace/data/ring01_phase2_refined/masks/shank/ring01_back_shank.png",
+        "stone_visible": "/workspace/data/ring01_phase2_refined/masks/stone_visible/ring01_back_stone_visible.png",
+        "stone_amodal": "/workspace/data/ring01_phase2_refined/masks/stone_amodal/ring01_back_stone_amodal.png",
+        "setting": "/workspace/data/ring01_phase2_refined/masks/setting/ring01_back_setting.png",
+        "prongs": "/workspace/data/ring01_phase2_refined/masks/prongs/ring01_back_prongs.png",
+        "shadow": "/workspace/data/ring01_phase2_refined/masks/shadow/ring01_back_shadow.png",
+        "overlay": "/workspace/data/ring01_phase2_refined/overlays/ring01_back_refined.png"
+      }
+    }
+  }
+}

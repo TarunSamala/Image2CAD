@@ -1,0 +1,50 @@
+{
+  "sample": "ring01",
+  "review_scope": "Original references, Phase 1 masks/edges/overlays, Phase 2 component masks/overlays, and Phase 2.1 refined masks/overlays for all five views",
+  "machine_tests": "passed",
+  "phase1_visual_status": "conditionally_usable",
+  "phase2_visual_status": "failed",
+  "phase2_1_structural_status": "passed",
+  "phase2_1_pixel_accuracy_status": "not_validated",
+  "overall_research_readiness": "not_ready_for_ground_truth_or_exact_3d_fitting",
+  "views": {
+    "front": {
+      "phase1": "Contours and edges capture the ring, stone, and prongs, but the silhouette includes lower cast-shadow regions.",
+      "phase2": "Stone localization is correct but contains facet holes; prongs are fragmented; shadow includes underside regions.",
+      "phase2_1": "Closed stone and four-prong topology are correct. Prong masks are coarse rounded regions and the stone boundary is an idealized ellipse.",
+      "verdict": "best_view_but_requires_boundary_annotation"
+    },
+    "side": {
+      "phase1": "Ring opening and setting edges are captured; the bottom floor shadow is included in the silhouette.",
+      "phase2": "Stone is localized, but shank and setting are heavily merged and shadow traces reflective shank edges.",
+      "phase2_1": "Shank and setting are disjoint, but their shoulder boundary is a geometry-driven hard cut rather than an observed semantic boundary.",
+      "verdict": "structurally_useful_not_pixel_accurate"
+    },
+    "top": {
+      "phase1": "Strong silhouette and edge extraction with lower shadow contamination similar to front view.",
+      "phase2": "Stone is localized but perforated by highlights; prongs fragment into many regions.",
+      "phase2_1": "Four-prong topology and closed stone are correct; boundaries remain idealized and coarse.",
+      "verdict": "best_view_but_requires_boundary_annotation"
+    },
+    "angled": {
+      "phase1": "Outer ring and setting are captured, with reflections and floor shadow affecting the lower contour.",
+      "phase2": "Shank and setting are strongly merged; stone and prong masks are fragmented.",
+      "phase2_1": "Structural separation improves, but the amodal stone is overly elliptical, prongs remain fragmented, and part of the shoulder is assigned to setting by a fixed region rule.",
+      "verdict": "requires_major_refinement"
+    },
+    "back": {
+      "phase1": "Ring opening and basket edges are captured; bottom shadow contaminates the silhouette.",
+      "phase2": "Shank and setting merge; the single prong region represents an occluded aggregate rather than four instances.",
+      "phase2_1": "Head and shank are structurally separated, but the cut is coarse and visible/hidden prong identity is unresolved.",
+      "verdict": "structurally_useful_not_pixel_accurate"
+    }
+  },
+  "blocking_findings": [
+    "No human-verified component masks exist, so true IoU, Dice, and boundary F1 cannot be measured.",
+    "Phase 1 silhouettes include cast shadows in every view to varying degrees.",
+    "Phase 2.1 prong masks are topology-correct in front/top but not pixel-accurate.",
+    "The angled stone and side/back setting boundaries are geometry priors rather than fully observed boundaries.",
+    "Shadow masks still include reflective-metal edge responses."
+  ],
+  "recommended_next_gate": "Create five human-reviewed gold masks, then refine with GrabCut/HQ-SAM and report IoU, boundary F1, component count, and cross-view consistency."
+}
