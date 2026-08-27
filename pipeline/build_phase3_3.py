@@ -57,6 +57,23 @@ def _reject_impossible_triangles(mesh, maximum_edge=3.0):
     return removed
 
 
+def _watertight_print_mesh(mesh, pitch=0.05):
+    """Derive a closed STL from a valid B-rep tessellation.
+
+    OCCT may emit T-junctions in STL even when its source shell is valid and
+    closed.  A fine surface voxelization removes those tessellation-only seams;
+    Taubin smoothing reduces voxel stair-stepping without changing topology.
+    """
+    import trimesh
+
+    voxels = mesh.voxelized(pitch=pitch).fill()
+    result = voxels.marching_cubes
+    result.apply_transform(voxels.transform)
+    trimesh.smoothing.filter_taubin(result, lamb=0.45, nu=0.5, iterations=10)
+    result.process(validate=True)
+    return result
+
+
 def build(fit_path: Path, output_dir: Path) -> dict:
     import cadquery as cq
     import trimesh
@@ -132,6 +149,7 @@ def build(fit_path: Path, output_dir: Path) -> dict:
     paths = {
         "metal_step": Path(f"{prefix}_metal.step"), "stone_step": Path(f"{prefix}_stone.step"),
         "assembly_step": Path(f"{prefix}.step"), "metal_stl": Path(f"{prefix}_metal.stl"),
+        "metal_occt_stl": Path(f"{prefix}_metal_occt.stl"),
         "stone_stl": Path(f"{prefix}_stone.stl"), "assembly_stl": Path(f"{prefix}.stl"),
         "shank_stl": Path(f"{prefix}_shank.stl"), "setting_stl": Path(f"{prefix}_setting.stl"),
         "prongs_stl": Path(f"{prefix}_prongs.stl"),
@@ -143,15 +161,17 @@ def build(fit_path: Path, output_dir: Path) -> dict:
     verified_stone = cq.importers.importStep(str(paths["stone_step"])).solids().val()
     assembly = cq.Compound.makeCompound([verified_metal, verified_stone])
     cq.exporters.export(assembly, str(paths["assembly_step"]))
-    cq.exporters.export(cq.Workplane(obj=verified_metal), str(paths["metal_stl"]))
+    cq.exporters.export(cq.Workplane(obj=verified_metal), str(paths["metal_occt_stl"]))
     cq.exporters.export(cq.Workplane(obj=verified_stone), str(paths["stone_stl"]))
     setting_parts = shoulder_shapes + [lower_gallery.val(), upper_gallery.val()] + strut_shapes + prong_shapes
     verified_shank = cq.Workplane(obj=shank_base.transformGeometry(shank_matrix))
     cq.exporters.export(verified_shank, str(paths["shank_stl"]))
     cq.exporters.export(cq.Workplane(obj=cq.Compound.makeCompound(setting_parts)), str(paths["setting_stl"]))
     cq.exporters.export(cq.Workplane(obj=cq.Compound.makeCompound(prong_shapes)), str(paths["prongs_stl"]))
-    metal_mesh, stone_mesh = trimesh.load(paths["metal_stl"], force="mesh"), trimesh.load(paths["stone_stl"], force="mesh")
-    rejected_long_faces = _reject_impossible_triangles(metal_mesh)
+    metal_source_mesh = trimesh.load(paths["metal_occt_stl"], force="mesh")
+    stone_mesh = trimesh.load(paths["stone_stl"], force="mesh")
+    rejected_long_faces = _reject_impossible_triangles(metal_source_mesh)
+    metal_mesh = _watertight_print_mesh(metal_source_mesh, pitch=0.05)
     metal_mesh.export(paths["metal_stl"])
     for component_key in ("setting_stl", "prongs_stl"):
         component_mesh = trimesh.load(paths[component_key], force="mesh")
@@ -170,8 +190,10 @@ def build(fit_path: Path, output_dir: Path) -> dict:
         "validation": {"metal_solid_count": 1, "stone_solid_count": 1, "assembly_solid_count": len(assembly.Solids()),
                        "metal_is_single_solid": True, "stone_is_single_solid": True,
                        "metal_brep_valid": bool(verified_metal.isValid()), "stone_brep_valid": bool(verified_stone.isValid()),
-                       "mesh_watertight": bool(mesh.is_watertight), "mesh_body_count": int(mesh.body_count),
-                       "rejected_impossible_long_faces": rejected_long_faces},
+                       "mesh_watertight": bool(mesh.is_watertight), "metal_print_mesh_watertight": bool(metal_mesh.is_watertight),
+                       "mesh_body_count": int(mesh.body_count), "rejected_impossible_long_faces": rejected_long_faces,
+                       "print_mesh_derivation": {"source": "valid closed STEP B-rep", "method": "0.05-unit surface voxel remesh plus Taubin smoothing",
+                                                 "authoritative_geometry": "ring01_phase3_3.step"}},
         "artifacts": {key: str(value) for key, value in paths.items()},
     }
     (output_dir / "phase3_3_build.json").write_text(json.dumps(report, indent=2), encoding="utf-8")

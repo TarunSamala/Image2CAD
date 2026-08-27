@@ -3,20 +3,35 @@
   "checkpoint_valid": true,
   "phase3_exit_gate_passed": false,
   "manufacturing_accuracy_validated": false,
-  "balanced_objective": 0.585782,
-  "mean_silhouette_iou": 0.726549,
-  "mean_detail_region_iou": 0.670565,
-  "mean_external_boundary_f1_2px": 0.681476,
-  "principal_view_floor": 0.724828,
+  "balanced_objective": 0.682244,
+  "mean_silhouette_iou": 0.818114,
+  "mean_raw_machine_mask_iou": 0.798073,
+  "physics_corrected_masks_used": true,
+  "mean_detail_region_iou": 0.784277,
+  "mean_external_boundary_f1_2px": 0.795217,
+  "principal_view_floor": 0.785307,
   "camera_fit": {
     "angled": {
-      "tilt_degrees": 24,
-      "roll_degrees": 30,
-      "camera_distance_model_units": 36.0,
-      "silhouette_iou": 0.605317,
+      "tilt_degrees": 28,
+      "roll_degrees": -5,
+      "azimuth_degrees": 30,
+      "camera_distance_model_units": 68.0,
+      "silhouette_iou": 0.74741,
       "projection": "perspective",
       "calibrated": false,
-      "search": "cached local +/-4 degrees and three distances around proxy fit"
+      "search": "27-pose local exported-mesh verification around cached proxy camera"
+    },
+    "profiles": {
+      "side": {
+        "azimuth_degrees": -14,
+        "silhouette_and_detail_score": 0.757043,
+        "calibrated": false
+      },
+      "back": {
+        "azimuth_degrees": -10,
+        "silhouette_and_detail_score": 0.717556,
+        "calibrated": false
+      }
     }
   },
   "topology_checks": {
@@ -26,63 +41,68 @@
     "open_two_rail_gallery": true,
     "one_shank_four_shoulders": true,
     "faceted_separate_stone": true,
-    "stl_watertight": false
+    "stl_watertight": true
   },
   "exit_checks": {
-    "mean_silhouette_iou_at_least_0_80": false,
-    "mean_detail_region_iou_at_least_0_75": false,
-    "mean_external_boundary_f1_at_least_0_75": false,
+    "mean_silhouette_iou_at_least_0_80": true,
+    "mean_detail_region_iou_at_least_0_75": true,
+    "mean_external_boundary_f1_at_least_0_75": true,
     "principal_view_floor_at_least_0_70": true,
-    "angled_iou_at_least_0_70": false,
-    "topology_and_solids_all_pass": false,
+    "angled_iou_at_least_0_70": true,
+    "topology_and_solids_all_pass": true,
     "human_ground_truth_masks_available": false,
     "metric_scale_calibrated": false
   },
   "views": {
     "front": {
-      "objective": 0.614386,
-      "silhouette_iou": 0.750377,
-      "detail_region_iou": 0.790229,
-      "component_mean_iou": 0.340271,
-      "detail_boundary_f1": 0.457586,
-      "negative_space_iou": 0.694235,
-      "external_boundary_f1_2px": 0.564037
+      "objective": 0.6884,
+      "silhouette_iou": 0.854535,
+      "detail_region_iou": 0.853952,
+      "component_mean_iou": 0.372546,
+      "detail_boundary_f1": 0.549962,
+      "negative_space_iou": 0.792234,
+      "external_boundary_f1_2px": 0.643009,
+      "raw_machine_mask_iou": 0.801903
     },
     "side": {
-      "objective": 0.597161,
-      "silhouette_iou": 0.724828,
-      "detail_region_iou": 0.607568,
-      "component_mean_iou": 0.407227,
-      "detail_boundary_f1": 0.498009,
-      "negative_space_iou": 0.837119,
-      "external_boundary_f1_2px": 0.639653
+      "objective": 0.686899,
+      "silhouette_iou": 0.81038,
+      "detail_region_iou": 0.740688,
+      "component_mean_iou": 0.439833,
+      "detail_boundary_f1": 0.641101,
+      "negative_space_iou": 0.850923,
+      "external_boundary_f1_2px": 0.838663,
+      "raw_machine_mask_iou": 0.809781
     },
     "top": {
-      "objective": 0.660998,
-      "silhouette_iou": 0.799955,
-      "detail_region_iou": 0.805148,
-      "component_mean_iou": 0.384657,
-      "detail_boundary_f1": 0.548209,
-      "negative_space_iou": 0.763261,
-      "external_boundary_f1_2px": 0.80513
+      "objective": 0.712858,
+      "silhouette_iou": 0.871375,
+      "detail_region_iou": 0.850656,
+      "component_mean_iou": 0.418439,
+      "detail_boundary_f1": 0.602851,
+      "negative_space_iou": 0.802931,
+      "external_boundary_f1_2px": 0.796174,
+      "raw_machine_mask_iou": 0.824474
     },
     "angled": {
-      "objective": 0.476326,
-      "silhouette_iou": 0.609885,
-      "detail_region_iou": 0.550839,
-      "component_mean_iou": 0.30532,
-      "detail_boundary_f1": 0.34646,
-      "negative_space_iou": 0.50768,
-      "external_boundary_f1_2px": 0.661402
+      "objective": 0.670999,
+      "silhouette_iou": 0.768975,
+      "detail_region_iou": 0.790139,
+      "component_mean_iou": 0.439141,
+      "detail_boundary_f1": 0.627828,
+      "negative_space_iou": 0.661515,
+      "external_boundary_f1_2px": 0.879398,
+      "raw_machine_mask_iou": 0.768901
     },
     "back": {
-      "objective": 0.594711,
-      "silhouette_iou": 0.747701,
-      "detail_region_iou": 0.599042,
-      "component_mean_iou": 0.424457,
-      "detail_boundary_f1": 0.483637,
-      "negative_space_iou": 0.735509,
-      "external_boundary_f1_2px": 0.73716
+      "objective": 0.654756,
+      "silhouette_iou": 0.785307,
+      "detail_region_iou": 0.68595,
+      "component_mean_iou": 0.444908,
+      "detail_boundary_f1": 0.599731,
+      "negative_space_iou": 0.783573,
+      "external_boundary_f1_2px": 0.818839,
+      "raw_machine_mask_iou": 0.785307
     }
   },
   "comparisons": {
@@ -96,7 +116,7 @@
   "uncertainty": {
     "hidden_geometry": "inferred",
     "physical_scale": "uncalibrated",
-    "reference_masks": "machine-generated, not human ground truth",
+    "reference_masks": "physics-corrected machine masks, not human ground truth",
     "angled_camera": "estimated from silhouette"
   },
   "decision": "Remain in Phase 3 and refine; do not advance while any strict exit check fails."
