@@ -6,40 +6,40 @@
   "scale_status": "provisional_uncalibrated_millimetre_assumption",
   "parameters": {
     "hoop_radius": 10.0,
-    "shank_radius": 0.85415,
-    "shank_depth_radius": 1.11115,
-    "stone_radius": 3.2519,
+    "shank_radius": 0.86,
+    "shank_depth_radius": 1.3,
+    "stone_radius": 3.3447,
     "shoulder_start_x": 6.0,
     "shoulder_start_y": 0.48,
     "shoulder_start_z": 8.0,
-    "shoulder_control_x": 5.1223,
+    "shoulder_control_x": 5.332,
     "shoulder_control_y": 0.72,
-    "shoulder_control_z": 10.13328,
-    "shoulder_end_x": 3.29338,
-    "shoulder_end_y": 1.21,
-    "shoulder_radius": 0.50018,
+    "shoulder_control_z": 10.43958,
+    "shoulder_end_x": 3.45338,
+    "shoulder_end_y": 1.11732,
+    "shoulder_radius": 0.49526,
     "shoulder_tip_radius": 0.3,
-    "lower_gallery_z": 11.1183,
-    "gallery_gap": 1.6529,
+    "lower_gallery_z": 11.0488,
+    "gallery_gap": 1.4312,
     "lower_inner_inset": 0.3,
-    "lower_outer_extra": 0.47536,
+    "lower_outer_extra": 0.47958,
     "lower_gallery_height": 0.32,
     "upper_inner_inset": 0.18,
-    "upper_outer_extra": 0.25645,
+    "upper_outer_extra": 0.41415,
     "upper_gallery_height": 0.25,
     "strut_base_extra": 0.22,
     "strut_top_extra": 0.05,
     "strut_radius": 0.22,
-    "prong_base_extra": 0.57226,
-    "prong_inset": 0.43364,
-    "prong_bow_extra": 0.25272,
-    "prong_top_z": 14.657,
-    "prong_base_radius": 0.35317,
+    "prong_base_extra": 0.76752,
+    "prong_inset": 0.36636,
+    "prong_bow_extra": 0.34742,
+    "prong_top_z": 14.507,
+    "prong_base_radius": 0.36,
     "prong_tip_radius": 0.2,
-    "prong_bead_radius": 0.3748,
-    "stone_bottom_z": 11.02551,
-    "stone_girdle_z": 13.1012,
-    "stone_top_z": 14.4412
+    "prong_bead_radius": 0.5296,
+    "stone_bottom_z": 10.97536,
+    "stone_girdle_z": 12.84098,
+    "stone_top_z": 14.55
   },
   "topology": {
     "one_shank": true,
@@ -60,14 +60,14 @@
           8.0
         ],
         "control": [
-          -5.1223,
+          -5.332,
           -0.72,
-          10.13328
+          10.43958
         ],
         "end": [
-          -3.29338,
-          -1.21,
-          11.3683
+          -3.45338,
+          -1.11732,
+          11.2988
         ]
       },
       {
@@ -77,14 +77,14 @@
           8.0
         ],
         "control": [
-          -5.1223,
+          -5.332,
           0.72,
-          10.13328
+          10.43958
         ],
         "end": [
-          -3.29338,
-          1.21,
-          11.3683
+          -3.45338,
+          1.11732,
+          11.2988
         ]
       },
       {
@@ -94,14 +94,14 @@
           8.0
         ],
         "control": [
-          5.1223,
+          5.332,
           -0.72,
-          10.13328
+          10.43958
         ],
         "end": [
-          3.29338,
-          -1.21,
-          11.3683
+          3.45338,
+          -1.11732,
+          11.2988
         ]
       },
       {
@@ -111,14 +111,14 @@
           8.0
         ],
         "control": [
-          5.1223,
+          5.332,
           0.72,
-          10.13328
+          10.43958
         ],
         "end": [
-          3.29338,
-          1.21,
-          11.3683
+          3.45338,
+          1.11732,
+          11.2988
         ]
       }
     ],
@@ -126,73 +126,73 @@
       {
         "angle_degrees": 45,
         "start": [
-          2.7040894683423478,
-          2.7040894683423473,
-          11.1983
+          2.9077786477309444,
+          2.907778647730944,
+          11.1288
         ],
         "control": [
-          2.4781405674819985,
-          2.478140567481998,
-          12.92765
+          2.610723088954476,
+          2.6107230889544755,
+          12.8179
         ],
         "end": [
-          1.9928107571467994,
-          1.9928107571467992,
-          14.657
+          2.1060044106791422,
+          2.106004410679142,
+          14.507
         ]
       },
       {
         "angle_degrees": 135,
         "start": [
-          -2.7040894683423473,
-          2.7040894683423478,
-          11.1983
+          -2.907778647730944,
+          2.9077786477309444,
+          11.1288
         ],
         "control": [
-          -2.478140567481998,
-          2.4781405674819985,
-          12.92765
+          -2.6107230889544755,
+          2.610723088954476,
+          12.8179
         ],
         "end": [
-          -1.9928107571467992,
-          1.9928107571467994,
-          14.657
+          -2.106004410679142,
+          2.1060044106791422,
+          14.507
         ]
       },
       {
         "angle_degrees": 225,
         "start": [
-          -2.704089468342348,
-          -2.7040894683423473,
-          11.1983
+          -2.907778647730945,
+          -2.907778647730944,
+          11.1288
         ],
         "control": [
-          -2.478140567481999,
-          -2.478140567481998,
-          12.92765
+          -2.6107230889544764,
+          -2.6107230889544755,
+          12.8179
         ],
         "end": [
-          -1.9928107571468,
-          -1.9928107571467992,
-          14.657
+          -2.1060044106791427,
+          -2.106004410679142,
+          14.507
         ]
       },
       {
         "angle_degrees": 315,
         "start": [
-          2.704089468342347,
-          -2.704089468342348,
-          11.1983
+          2.9077786477309435,
+          -2.907778647730945,
+          11.1288
         ],
         "control": [
-          2.4781405674819976,
-          -2.478140567481999,
-          12.92765
+          2.6107230889544755,
+          -2.6107230889544764,
+          12.8179
         ],
         "end": [
-          1.992810757146799,
-          -1.9928107571468,
-          14.657
+          2.106004410679142,
+          -2.1060044106791427,
+          14.507
         ]
       }
     ]
@@ -205,15 +205,22 @@
     "stone_is_single_solid": true,
     "metal_brep_valid": true,
     "stone_brep_valid": true,
-    "mesh_watertight": false,
+    "mesh_watertight": true,
+    "metal_print_mesh_watertight": true,
     "mesh_body_count": 2,
-    "rejected_impossible_long_faces": 0
+    "rejected_impossible_long_faces": 1,
+    "print_mesh_derivation": {
+      "source": "valid closed STEP B-rep",
+      "method": "0.05-unit surface voxel remesh plus Taubin smoothing",
+      "authoritative_geometry": "ring01_phase3_3.step"
+    }
   },
   "artifacts": {
     "metal_step": "data/ring01_phase3_3/ring01_phase3_3_metal.step",
     "stone_step": "data/ring01_phase3_3/ring01_phase3_3_stone.step",
     "assembly_step": "data/ring01_phase3_3/ring01_phase3_3.step",
     "metal_stl": "data/ring01_phase3_3/ring01_phase3_3_metal.stl",
+    "metal_occt_stl": "data/ring01_phase3_3/ring01_phase3_3_metal_occt.stl",
     "stone_stl": "data/ring01_phase3_3/ring01_phase3_3_stone.stl",
     "assembly_stl": "data/ring01_phase3_3/ring01_phase3_3.stl",
     "shank_stl": "data/ring01_phase3_3/ring01_phase3_3_shank.stl",

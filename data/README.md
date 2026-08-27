@@ -1,39 +1,35 @@
+# Data and generated artifacts
 
-Ensure *git-lsf* is installed and *git clone* the datasets from our :hugs: HuggingFace.
+The Ring01 workflow keeps every major phase in a separate directory so results can be compared or backtracked without overwriting earlier geometry.
 
+## Active Ring01 files
 
-- DeepCAD [test](https://huggingface.co/datasets/maksimko123/deepcad_test_mesh). Meshes are produced by official DeepCAD [script](https://github.com/ChrisWu1997/DeepCAD/blob/master/dataset/json2pc.py) and normalized to the unit cube.
-- Fusion360 [test](https://huggingface.co/datasets/maksimko123/fusion360_test_mesh). Meshes are downloaded from [link](https://github.com/AutodeskAILab/Fusion360GalleryDataset/blob/master/docs/reconstruction.md#traintest-split) and normalized to unit cube.
-- Text2CAD [train / val / test](https://huggingface.co/datasets/maksimko123/text2cad). Text prompts are downloaded from [link](https://github.com/SadilKhan/Text2CAD?tab=readme-ov-file#-data-preparation) and shortened a bit. We also provide CadQuery codes for almost all DeepCAD examples.
-- CAD-Recode [train / val](https://huggingface.co/datasets/filapro/cad-recode-v1.5). To convert CadQuery programs to meshes before training run *cadrecode2mesh.py* script.
+| Path | Role |
+| --- | --- |
+| `ring01_reference_images/` | Normalized front, side, top, angled and back source images |
+| `ring01_artifact.json` | Prepared inference artifact |
+| `ring01_metadata.json` | Extracted jewellery metadata |
+| `ring01_output.py` | Generated CadQuery program |
+| `ring01_output_512.py` | Historical 512-token generated program |
+| `ring01_ring.step` / `.stl` | Early generated reconstruction retained for comparison |
+| `ring01_phase1/` | Initial vision measurements |
+| `ring01_phase2*` | Segmentation and feature extraction checkpoints |
+| `ring01_phase3*` | Reconstruction, refinement and CAD validation checkpoints |
+| `ring01_validation*` | Cross-phase validation artifacts |
+| `logs/` | Historical command output; new logs are ignored by Git |
 
-Overall data structure should be as follows:
-```
-data
-└── cad-recode-v1.5
-    ├── train
-        ├── batch_00
-            ├── 0.py
-            ├── 0.stl
-            └── ...
-        └── ...
-    ├── val
-        ├── 0.py
-        ├── 0.stl
-        └── ...
-    ├── train.pkl
-    └── val.pkl
-    ├── text2cad
-        ├── cadquery
-            ├── 0.py
-            └── ...
-        ├── train.pkl
-        ├── val.pkl
-        └── test.pkl
-    ├── deepcad_test_mesh
-        ├── 0.stl
-        └── ...
-    └── fusion360_test_mesh
-        ├── 0.stl
-        └── ...
-```
+## Phase-directory convention
+
+Each phase directory should contain its own reports, masks/renders, comparisons and exported geometry. New work should use a new versioned directory or an explicit resumable checkpoint.
+
+Do not silently replace an accepted earlier phase. Record experiments and validation results so a change can be evaluated and backtracked.
+
+## Authoritative formats
+
+- Source reference images are the visual input.
+- JSON reports are the machine-readable validation record.
+- STEP is the authoritative editable CAD representation.
+- STL, OBJ and GLB are derived print, exchange or preview formats.
+- Preview and comparison images support inspection but are not measurement ground truth.
+
+Information about datasets used by the original general-purpose research code is retained in [Upstream datasets](../docs/UPSTREAM_DATASETS.md).

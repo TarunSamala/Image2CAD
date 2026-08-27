@@ -1,0 +1,208 @@
+{
+  "stage": "phase3_physics_corrected_evaluation_masks",
+  "human_ground_truth": false,
+  "policy": "fill reviewed elongated band reflections in front/top plus enclosed non-detail artifacts below 1000 px; preserve major openings and head/gallery regions",
+  "views": {
+    "front": {
+      "filled_regions": [
+        {
+          "area_px2": 315,
+          "bbox_px": [
+            62,
+            96,
+            42,
+            9
+          ],
+          "overlaps_detail_region": true,
+          "reason": "reviewed elongated reflection inside opaque band"
+        },
+        {
+          "area_px2": 299,
+          "bbox_px": [
+            185,
+            96,
+            40,
+            9
+          ],
+          "overlaps_detail_region": true,
+          "reason": "reviewed elongated reflection inside opaque band"
+        }
+      ],
+      "preserved_regions": [],
+      "raw_area_px2": 10426,
+      "corrected_area_px2": 11040,
+      "mask": "data/ring01_phase3_3/evaluation_masks/jewelry/ring01_front_jewelry.png",
+      "review": "data/ring01_phase3_3/evaluation_masks/review/ring01_front_mask_review.png"
+    },
+    "side": {
+      "filled_regions": [
+        {
+          "area_px2": 2,
+          "bbox_px": [
+            160,
+            43,
+            2,
+            2
+          ],
+          "overlaps_detail_region": true,
+          "reason": "enclosed reflective/background artifact outside detail geometry"
+        },
+        {
+          "area_px2": 1,
+          "bbox_px": [
+            117,
+            45,
+            1,
+            1
+          ],
+          "overlaps_detail_region": true,
+          "reason": "enclosed reflective/background artifact outside detail geometry"
+        },
+        {
+          "area_px2": 2,
+          "bbox_px": [
+            158,
+            46,
+            2,
+            2
+          ],
+          "overlaps_detail_region": true,
+          "reason": "enclosed reflective/background artifact outside detail geometry"
+        }
+      ],
+      "preserved_regions": [
+        {
+          "area_px2": 11092,
+          "bbox_px": [
+            80,
+            62,
+            118,
+            119
+          ],
+          "overlaps_detail_region": true,
+          "reason": "major opening"
+        }
+      ],
+      "raw_area_px2": 7913,
+      "corrected_area_px2": 7918,
+      "mask": "data/ring01_phase3_3/evaluation_masks/jewelry/ring01_side_jewelry.png",
+      "review": "data/ring01_phase3_3/evaluation_masks/review/ring01_side_mask_review.png"
+    },
+    "top": {
+      "filled_regions": [
+        {
+          "area_px2": 248,
+          "bbox_px": [
+            67,
+            103,
+            37,
+            8
+          ],
+          "overlaps_detail_region": true,
+          "reason": "reviewed elongated reflection inside opaque band"
+        },
+        {
+          "area_px2": 187,
+          "bbox_px": [
+            191,
+            103,
+            27,
+            8
+          ],
+          "overlaps_detail_region": true,
+          "reason": "reviewed elongated reflection inside opaque band"
+        }
+      ],
+      "preserved_regions": [],
+      "raw_area_px2": 8302,
+      "corrected_area_px2": 8737,
+      "mask": "data/ring01_phase3_3/evaluation_masks/jewelry/ring01_top_jewelry.png",
+      "review": "data/ring01_phase3_3/evaluation_masks/review/ring01_top_mask_review.png"
+    },
+    "angled": {
+      "filled_regions": [
+        {
+          "area_px2": 1,
+          "bbox_px": [
+            121,
+            90,
+            1,
+            1
+          ],
+          "overlaps_detail_region": true,
+          "reason": "enclosed reflective/background artifact outside detail geometry"
+        }
+      ],
+      "preserved_regions": [
+        {
+          "area_px2": 197,
+          "bbox_px": [
+            106,
+            76,
+            21,
+            16
+          ],
+          "overlaps_detail_region": true,
+          "reason": "head/gallery negative space"
+        },
+        {
+          "area_px2": 5936,
+          "bbox_px": [
+            66,
+            84,
+            136,
+            93
+          ],
+          "overlaps_detail_region": true,
+          "reason": "major opening"
+        },
+        {
+          "area_px2": 270,
+          "bbox_px": [
+            158,
+            86,
+            34,
+            29
+          ],
+          "overlaps_detail_region": true,
+          "reason": "head/gallery negative space"
+        }
+      ],
+      "raw_area_px2": 11134,
+      "corrected_area_px2": 11135,
+      "mask": "data/ring01_phase3_3/evaluation_masks/jewelry/ring01_angled_jewelry.png",
+      "review": "data/ring01_phase3_3/evaluation_masks/review/ring01_angled_mask_review.png"
+    },
+    "back": {
+      "filled_regions": [],
+      "preserved_regions": [
+        {
+          "area_px2": 101,
+          "bbox_px": [
+            109,
+            42,
+            13,
+            14
+          ],
+          "overlaps_detail_region": true,
+          "reason": "head/gallery negative space"
+        },
+        {
+          "area_px2": 11169,
+          "bbox_px": [
+            74,
+            63,
+            120,
+            118
+          ],
+          "overlaps_detail_region": true,
+          "reason": "major opening"
+        }
+      ],
+      "raw_area_px2": 7962,
+      "corrected_area_px2": 7962,
+      "mask": "data/ring01_phase3_3/evaluation_masks/jewelry/ring01_back_jewelry.png",
+      "review": "data/ring01_phase3_3/evaluation_masks/review/ring01_back_mask_review.png"
+    }
+  }
+}

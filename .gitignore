@@ -1,6 +1,32 @@
-# Runtime/model artifacts (keep these out of source control).
-hf_cache/
-models/*.pt
-ring01_inference.log
+# Python
 __pycache__/
 *.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+
+# Editors and operating systems
+.vscode/
+.idea/
+.DS_Store
+
+# Runtime logs and temporary files
+*.log
+!data/logs/*.log
+data/logs/local/
+*.tmp
+*.bak
+
+# Downloaded model/cache artifacts
+hf_cache/
+models/*.pt
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example

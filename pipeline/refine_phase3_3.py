@@ -16,7 +16,7 @@ import cv2
 import numpy as np
 import trimesh
 
-from phase3_objective import bbox, detail_regions, evaluate_regions, read_component_masks
+from phase3_objective import bbox, crop, detail_regions, evaluate_regions, iou, read_component_masks
 from reconstruct_phase3 import CAMERAS, CameraHypothesis
 from refine_phase3_1 import _camera, _jewelry_transform, _render
 
@@ -195,6 +195,31 @@ def _camera_with_azimuth(tilt_degrees: float, roll_degrees: float, azimuth_degre
     return CameraHypothesis("angled", tuple(right), tuple(up), tuple(direction), "perspective_silhouette_fit", 0.76)
 
 
+def _profile_camera(view: str, azimuth_degrees: float) -> CameraHypothesis:
+    azimuth = np.deg2rad(azimuth_degrees)
+    if view == "side":
+        right = (np.cos(azimuth), -np.sin(azimuth), 0.0)
+        direction = (np.sin(azimuth), np.cos(azimuth), 0.0)
+    elif view == "back":
+        right = (-np.cos(azimuth), -np.sin(azimuth), 0.0)
+        direction = (np.sin(azimuth), -np.cos(azimuth), 0.0)
+    else:
+        raise ValueError(f"profile camera is not defined for {view}")
+    return CameraHypothesis(view, tuple(right), (0.0, 0.0, 1.0), tuple(direction), "profile_azimuth_fit", 0.80)
+
+
+def _fit_profile(mesh, target, frame, region, view):
+    best = (-1.0, 0, CAMERAS[view])
+    for azimuth in range(-18, 19, 2):
+        camera = _profile_camera(view, azimuth)
+        transform = _jewelry_transform(mesh, camera, frame)
+        rendered, _ = _render(mesh, camera, target.shape, transform)
+        score = 0.5 * iou(target, rendered) + 0.5 * iou(crop(target, region), crop(rendered, region))
+        if score > best[0]:
+            best = (score, azimuth, camera)
+    return best[2], {"azimuth_degrees": best[1], "silhouette_and_detail_score": round(best[0], 6), "calibrated": False}
+
+
 def _fit_angled(mesh, target, frame):
     best = (-1.0, 35, 25, 0, 60.0, CAMERAS["angled"])
     for tilt in range(20, 45, 4):
@@ -227,7 +252,7 @@ def defaults() -> dict[str, float]:
         "upper_inner_inset": 0.18, "upper_outer_extra": 0.28, "upper_gallery_height": 0.25,
         "strut_base_extra": 0.22, "strut_top_extra": 0.05, "strut_radius": 0.22,
         "prong_base_extra": 0.34, "prong_inset": 0.30, "prong_bow_extra": 0.15,
-        "prong_top_z": 14.42, "prong_base_radius": 0.30, "prong_tip_radius": 0.20, "prong_bead_radius": 0.28,
+        "prong_top_z": 14.42, "prong_base_radius": 0.30, "prong_tip_radius": 0.20, "prong_bead_radius": 0.46,
         "stone_bottom_z": 11.30, "stone_girdle_z": 13.02, "stone_top_z": 14.22,
     }
 
@@ -250,21 +275,45 @@ SEARCH = {
     "prong_base_extra": ((0.18, 0.82), 0.11),
     "prong_top_z": ((13.85, 14.75), 0.15),
     "prong_base_radius": ((0.21, 0.36), 0.035),
-    "prong_bead_radius": ((0.20, 0.56), 0.06),
+    "prong_bead_radius": ((0.25, 0.75), 0.12),
     "stone_bottom_z": ((10.95, 11.65), 0.13),
     "stone_girdle_z": ((12.55, 13.35), 0.14),
     "stone_top_z": ((13.75, 14.55), 0.14),
 }
 
 
-def run(input_dir: Path, masks_dir: Path, output_dir: Path, rounds: int = 4) -> dict[str, Any]:
+def run(input_dir: Path, masks_dir: Path, output_dir: Path, rounds: int = 4, resume: bool = False) -> dict[str, Any]:
     output_dir.mkdir(parents=True, exist_ok=True)
     targets = read_component_masks(masks_dir, "ring01", VIEWS)
+    reviewed_dir = output_dir / "evaluation_masks" / "jewelry"
+    reviewed_masks_used = reviewed_dir.is_dir()
+    if reviewed_masks_used:
+        for view in VIEWS:
+            path = reviewed_dir / f"ring01_{view}_jewelry.png"
+            reviewed = cv2.imread(str(path), cv2.IMREAD_GRAYSCALE)
+            if reviewed is None:
+                raise FileNotFoundError(path)
+            targets[view]["jewelry"] = np.where(reviewed > 127, 255, 0).astype(np.uint8)
     frames = {view: bbox(targets[view]["jewelry"]) for view in VIEWS}
     regions = detail_regions(targets)
     current = defaults()
+    fit_path = output_dir / "phase3_3_fit.json"
+    resumed_from = None
+    if resume and fit_path.is_file():
+        previous = json.loads(fit_path.read_text(encoding="utf-8"))
+        previous_parameters = previous.get("optimized", {}).get("parameters", {})
+        if not set(SEARCH).issubset(previous_parameters):
+            raise ValueError("Existing Phase 3.3 fit is missing searchable parameters")
+        current.update(previous_parameters)
+        checkpoint_path = output_dir / "phase3_3_fit_before_resume.json"
+        checkpoint_path.write_text(json.dumps(previous, indent=2), encoding="utf-8")
+        resumed_from = str(checkpoint_path)
     cameras = dict(CAMERAS)
-    cameras["angled"], camera_fit = _fit_angled(build_proxy(current)["jewelry"], targets["angled"]["jewelry"], frames["angled"])
+    initial_mesh = build_proxy(current)["jewelry"]
+    cameras["angled"], camera_fit = _fit_angled(initial_mesh, targets["angled"]["jewelry"], frames["angled"])
+    profile_fits = {}
+    for view in ("side", "back"):
+        cameras[view], profile_fits[view] = _fit_profile(initial_mesh, targets[view]["jewelry"], frames[view], regions[view], view)
 
     def evaluate(parameters, keep_masks=False):
         meshes = build_proxy(parameters)
@@ -297,13 +346,16 @@ def run(input_dir: Path, masks_dir: Path, output_dir: Path, rounds: int = 4) -> 
 
     # Refit only the uncertain oblique camera after geometry converges, then do
     # one short geometry pass.  Principal-view cameras remain fixed.
-    cameras["angled"], camera_fit = _fit_angled(build_proxy(current)["jewelry"], targets["angled"]["jewelry"], frames["angled"])
+    optimized_mesh = build_proxy(current)["jewelry"]
+    cameras["angled"], camera_fit = _fit_angled(optimized_mesh, targets["angled"]["jewelry"], frames["angled"])
+    for view in ("side", "back"):
+        cameras[view], profile_fits[view] = _fit_profile(optimized_mesh, targets[view]["jewelry"], frames[view], regions[view], view)
     optimized_score, optimized_metrics, optimized_masks = evaluate(current, True)
     render_paths = {}
     for view in VIEWS:
         image = cv2.imread(str(input_dir / f"ring01_{view}.png"), cv2.IMREAD_COLOR)
         cells = []
-        for title, mask in (("REFERENCE MASK", targets[view]["jewelry"]), ("PHASE 3.2 PROXY", initial_masks[view]["jewelry"]), ("PHASE 3.3 FIT", optimized_masks[view]["jewelry"])):
+        for title, mask in (("REFERENCE MASK", targets[view]["jewelry"]), ("BASELINE PROXY", initial_masks[view]["jewelry"]), ("PHASE 3.3 FIT", optimized_masks[view]["jewelry"])):
             cell = image.copy()
             contours, _ = cv2.findContours(mask, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
             cv2.drawContours(cell, contours, -1, (20, 30, 220), 1, cv2.LINE_AA)
@@ -325,9 +377,11 @@ def run(input_dir: Path, masks_dir: Path, output_dir: Path, rounds: int = 4) -> 
         "stage": "phase3_3_confidence_aware_detail_refinement",
         "backtracked_from": "data/ring01_phase3_2",
         "reversible": True,
+        "resumed_from": resumed_from,
+        "reviewed_evaluation_masks_used": reviewed_masks_used,
         "objective": asdict(__import__("phase3_objective").ObjectiveWeights()),
         "visibility_confidence": VISIBILITY,
-        "camera_fit": {"angled": camera_fit, "principal_view_orientations_fixed": True,
+        "camera_fit": {"angled": camera_fit, "profiles": profile_fits, "front_top_orientations_fixed": True,
                        "cameras": {k: (asdict(v[0]) | {"distance": v[1]} if isinstance(v, tuple) else asdict(v)) for k, v in cameras.items()}},
         "initial": {"score": round(initial_score, 6), "view_metrics": initial_metrics},
         "optimized": {"score": round(optimized_score, 6), "view_metrics": optimized_metrics, "parameters": current},
@@ -335,7 +389,7 @@ def run(input_dir: Path, masks_dir: Path, output_dir: Path, rounds: int = 4) -> 
         "proxy_comparisons": render_paths,
         "warning": "Proxy metrics are search guidance only; acceptance uses independently rendered exported CAD.",
     }
-    (output_dir / "phase3_3_fit.json").write_text(json.dumps(report, indent=2), encoding="utf-8")
+    fit_path.write_text(json.dumps(report, indent=2), encoding="utf-8")
     return report
 
 
@@ -345,8 +399,9 @@ def main() -> None:
     parser.add_argument("--masks-dir", type=Path, default=Path("data/ring01_phase2_2"))
     parser.add_argument("--output-dir", type=Path, default=Path("data/ring01_phase3_3"))
     parser.add_argument("--rounds", type=int, default=4)
+    parser.add_argument("--resume", action="store_true", help="continue from the current accepted Phase 3.3 fit")
     args = parser.parse_args()
-    report = run(args.input_dir, args.masks_dir, args.output_dir, args.rounds)
+    report = run(args.input_dir, args.masks_dir, args.output_dir, args.rounds, args.resume)
     print(json.dumps({"initial": report["initial"]["score"], "optimized": report["optimized"]["score"]}, indent=2))
 
 
