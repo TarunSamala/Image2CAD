@@ -1,0 +1,319 @@
+{
+  "sample": "ring01",
+  "stage": "phase3_3_1_exact_solid_rebuild",
+  "fit_source": "data/ring01_phase3_3_1/phase3_3_1_fit.json",
+  "reversible": true,
+  "scale_status": "provisional_uncalibrated_millimetre_assumption",
+  "parameters": {
+    "hoop_radius": 10.0,
+    "shank_radius": 0.86,
+    "shank_depth_radius": 1.3,
+    "stone_radius": 3.3447,
+    "shoulder_start_x": 6.0,
+    "shoulder_start_y": 0.48,
+    "shoulder_start_z": 8.0,
+    "shoulder_control_x": 5.332,
+    "shoulder_control_y": 0.72,
+    "shoulder_control_z": 10.43958,
+    "shoulder_end_x": 3.45338,
+    "shoulder_end_y": 1.11732,
+    "shoulder_radius": 0.49526,
+    "shoulder_tip_radius": 0.3,
+    "lower_gallery_z": 11.0488,
+    "gallery_gap": 1.4312,
+    "lower_inner_inset": 0.3,
+    "lower_outer_extra": 0.47958,
+    "lower_gallery_height": 0.32,
+    "upper_inner_inset": 0.18,
+    "upper_outer_extra": 0.41415,
+    "upper_gallery_height": 0.25,
+    "strut_base_extra": 0.22,
+    "strut_top_extra": 0.05,
+    "strut_radius": 0.22,
+    "prong_base_extra": 0.76752,
+    "prong_inset": 0.36636,
+    "prong_bow_extra": 0.34742,
+    "prong_top_z": 14.507,
+    "prong_base_radius": 0.36,
+    "prong_tip_radius": 0.2,
+    "prong_bead_radius": 0.5296,
+    "stone_bottom_z": 10.97536,
+    "stone_girdle_z": 12.84098,
+    "stone_top_z": 14.55,
+    "prong_curve_version": "cubic_claw_v1",
+    "prong_c1_extra": 0.48745,
+    "prong_c1_height_fraction": 0.33333,
+    "prong_c2_inset": -0.10943,
+    "prong_tip_inset": 0.36636,
+    "prong_tip_z": 14.507,
+    "prong_hook_drop": 0.24,
+    "prong_mid_radius": 0.30667,
+    "prong_neck_radius": 0.235,
+    "prong_cap_radius": 0.5296,
+    "prong_ne_angle_offset": 0.0,
+    "prong_ne_radial_offset": 0.0,
+    "prong_ne_height_offset": 0.0,
+    "prong_nw_angle_offset": 0.0,
+    "prong_nw_radial_offset": 0.0,
+    "prong_nw_height_offset": 0.0,
+    "prong_sw_angle_offset": 0.0,
+    "prong_sw_radial_offset": 0.0,
+    "prong_sw_height_offset": 0.0,
+    "prong_se_angle_offset": 0.0,
+    "prong_se_radial_offset": 0.0,
+    "prong_se_height_offset": 0.0
+  },
+  "topology": {
+    "one_shank": true,
+    "elliptical_shank_cross_section": true,
+    "cathedral_shoulder_count": 4,
+    "gallery_rail_count": 2,
+    "open_gallery": true,
+    "basket_strut_count": 4,
+    "prong_count": 4,
+    "curved_prongs": true,
+    "prong_curve_version": "cubic_claw_v1",
+    "individual_prong_ids": [
+      "prong_ne",
+      "prong_nw",
+      "prong_sw",
+      "prong_se"
+    ],
+    "faceted_stone": true,
+    "stone_sides": 32,
+    "shoulders": [
+      {
+        "start": [
+          -6.0,
+          -0.48,
+          8.0
+        ],
+        "control": [
+          -5.332,
+          -0.72,
+          10.43958
+        ],
+        "end": [
+          -3.45338,
+          -1.11732,
+          11.2988
+        ]
+      },
+      {
+        "start": [
+          -6.0,
+          0.48,
+          8.0
+        ],
+        "control": [
+          -5.332,
+          0.72,
+          10.43958
+        ],
+        "end": [
+          -3.45338,
+          1.11732,
+          11.2988
+        ]
+      },
+      {
+        "start": [
+          6.0,
+          -0.48,
+          8.0
+        ],
+        "control": [
+          5.332,
+          -0.72,
+          10.43958
+        ],
+        "end": [
+          3.45338,
+          -1.11732,
+          11.2988
+        ]
+      },
+      {
+        "start": [
+          6.0,
+          0.48,
+          8.0
+        ],
+        "control": [
+          5.332,
+          0.72,
+          10.43958
+        ],
+        "end": [
+          3.45338,
+          1.11732,
+          11.2988
+        ]
+      }
+    ],
+    "prongs": [
+      {
+        "prong_id": "prong_ne",
+        "angle_degrees": 45,
+        "start": [
+          2.9077786477309444,
+          2.907778647730944,
+          11.1288
+        ],
+        "control_1": [
+          2.709739251524028,
+          2.7097392515240277,
+          12.334854606
+        ],
+        "control_2": [
+          2.4424387460998895,
+          2.442438746099889,
+          14.747
+        ],
+        "tip": [
+          2.1060044106791422,
+          2.106004410679142,
+          14.507
+        ],
+        "radii": [
+          0.36,
+          0.30667,
+          0.235,
+          0.2
+        ]
+      },
+      {
+        "prong_id": "prong_nw",
+        "angle_degrees": 135,
+        "start": [
+          -2.907778647730944,
+          2.9077786477309444,
+          11.1288
+        ],
+        "control_1": [
+          -2.7097392515240277,
+          2.709739251524028,
+          12.334854606
+        ],
+        "control_2": [
+          -2.442438746099889,
+          2.4424387460998895,
+          14.747
+        ],
+        "tip": [
+          -2.106004410679142,
+          2.1060044106791422,
+          14.507
+        ],
+        "radii": [
+          0.36,
+          0.30667,
+          0.235,
+          0.2
+        ]
+      },
+      {
+        "prong_id": "prong_sw",
+        "angle_degrees": 225,
+        "start": [
+          -2.907778647730945,
+          -2.907778647730944,
+          11.1288
+        ],
+        "control_1": [
+          -2.7097392515240286,
+          -2.7097392515240277,
+          12.334854606
+        ],
+        "control_2": [
+          -2.44243874609989,
+          -2.442438746099889,
+          14.747
+        ],
+        "tip": [
+          -2.1060044106791427,
+          -2.106004410679142,
+          14.507
+        ],
+        "radii": [
+          0.36,
+          0.30667,
+          0.235,
+          0.2
+        ]
+      },
+      {
+        "prong_id": "prong_se",
+        "angle_degrees": 315,
+        "start": [
+          2.9077786477309435,
+          -2.907778647730945,
+          11.1288
+        ],
+        "control_1": [
+          2.7097392515240273,
+          -2.7097392515240286,
+          12.334854606
+        ],
+        "control_2": [
+          2.442438746099889,
+          -2.44243874609989,
+          14.747
+        ],
+        "tip": [
+          2.106004410679142,
+          -2.1060044106791427,
+          14.507
+        ],
+        "radii": [
+          0.36,
+          0.30667,
+          0.235,
+          0.2
+        ]
+      }
+    ]
+  },
+  "validation": {
+    "metal_solid_count": 1,
+    "stone_solid_count": 1,
+    "assembly_solid_count": 2,
+    "metal_is_single_solid": true,
+    "stone_is_single_solid": true,
+    "metal_brep_valid": true,
+    "stone_brep_valid": true,
+    "mesh_watertight": true,
+    "metal_print_mesh_watertight": true,
+    "mesh_body_count": 2,
+    "rejected_impossible_long_faces": 1,
+    "component_mesh_cleanup": {
+      "setting_stl": {
+        "long_triangles": 1,
+        "degenerate_triangles": 0
+      },
+      "prongs_stl": {
+        "long_triangles": 0,
+        "degenerate_triangles": 4
+      }
+    },
+    "print_mesh_derivation": {
+      "source": "valid closed STEP B-rep",
+      "method": "0.05-unit surface voxel remesh plus Taubin smoothing",
+      "authoritative_geometry": "ring01_phase3_3_1.step"
+    }
+  },
+  "artifacts": {
+    "metal_step": "data/ring01_phase3_3_1/ring01_phase3_3_1_metal.step",
+    "stone_step": "data/ring01_phase3_3_1/ring01_phase3_3_1_stone.step",
+    "assembly_step": "data/ring01_phase3_3_1/ring01_phase3_3_1.step",
+    "metal_stl": "data/ring01_phase3_3_1/ring01_phase3_3_1_metal.stl",
+    "metal_occt_stl": "data/ring01_phase3_3_1/ring01_phase3_3_1_metal_occt.stl",
+    "stone_stl": "data/ring01_phase3_3_1/ring01_phase3_3_1_stone.stl",
+    "assembly_stl": "data/ring01_phase3_3_1/ring01_phase3_3_1.stl",
+    "shank_stl": "data/ring01_phase3_3_1/ring01_phase3_3_1_shank.stl",
+    "setting_stl": "data/ring01_phase3_3_1/ring01_phase3_3_1_setting.stl",
+    "prongs_stl": "data/ring01_phase3_3_1/ring01_phase3_3_1_prongs.stl",
+    "assembly_obj": "data/ring01_phase3_3_1/ring01_phase3_3_1.obj",
+    "assembly_glb": "data/ring01_phase3_3_1/ring01_phase3_3_1.glb"
+  }
+}

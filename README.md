@@ -12,8 +12,10 @@ The implementation combines classical vision, segmentation, multi-view geometric
 | Phase 2/2.2 | Jewellery, stone, setting, prong and shank masks | Validated machine extraction |
 | Phase 3/3.2 | Coarse reconstruction and topology correction | Retained as checkpoints |
 | Phase 3.3 | Exact-solid multi-view refinement | Numerical and topology targets pass |
+| Phase 3.3.1 | Individually addressable smooth cubic claws | Valid connected B-rep; visual fit preserved |
+| Phase 3.3.2 | Four-claw visibility correction | Reference-fitted inspection views validated |
 
-Phase 3.3 currently reaches mean silhouette IoU `0.8181`, detail IoU `0.7843` and boundary F1 `0.7952`. It is not labelled manufacturing-accurate: physical scale is uncalibrated and the evaluation masks are reviewed machine masks rather than human ground truth.
+Phase 3.3.1 currently reaches mean silhouette IoU `0.8197`, detail IoU `0.7874` and boundary F1 `0.7960`. It replaces the straight segmented prong approximation with four named, smooth cubic claw lofts while preserving the accepted Phase 3.3 image fit. It is not labelled manufacturing-accurate: physical scale is uncalibrated, the evaluation masks are reviewed machine masks rather than human ground truth, and the `0.90` research target has not been reached. Phase 3.3.2 corrects the misleading 45-degree inspection camera so all four existing claws remain distinct in oblique previews; it does not modify the accepted STEP geometry.
 
 ## Repository layout
 
@@ -43,7 +45,7 @@ docker exec cadrille-gpu sh -lc \
   'cd /workspace && PYTHONPATH=pipeline python -m unittest discover -s tests -v'
 ```
 
-The current suite contains 28 tests.
+The current suite contains 42 tests.
 
 ## Rebuild Phase 3.3
 
@@ -64,6 +66,22 @@ Important outputs:
 - `data/ring01_phase3_3/phase3_3_validation.json` — strict validation report
 - `data/ring01_phase3_3/comparisons/` — per-view visual comparisons
 - `data/ring01_phase3_3/EXPERIMENTS.md` — accepted and rejected experiments
+
+## Rebuild Phase 3.3.1
+
+```bash
+docker run --rm --gpus all -v "$PWD:/workspace" -w /workspace image2cad-validation:local sh -lc '  PYTHONPATH=pipeline python pipeline/refine_phase3_3_1.py &&  PYTHONPATH=pipeline python pipeline/build_phase3_3_1.py &&  PYTHONPATH=pipeline python pipeline/validate_phase3_3_1.py'
+```
+
+The authoritative editable output is `data/ring01_phase3_3_1/ring01_phase3_3_1.step`. The validation report and five reference comparisons are in the same checkpoint directory.
+
+## Validate Phase 3.3.2 visibility
+
+```bash
+docker run --rm --gpus all -v "$PWD:/workspace" -w /workspace image2cad-validation:local sh -lc 'PYTHONPATH=pipeline python pipeline/correct_phase3_3_2.py'
+```
+
+The corrected four-claw preview and validation report are in `data/ring01_phase3_3_2/`. Phase 3.3.2 references the authoritative Phase 3.3.1 STEP instead of duplicating the 3D exports.
 
 ## Artifact policy
 

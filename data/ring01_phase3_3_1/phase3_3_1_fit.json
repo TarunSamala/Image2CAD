@@ -1,0 +1,502 @@
+{
+  "sample": "ring01",
+  "stage": "phase3_3_1_individual_cubic_claw_refinement",
+  "output_stage": "phase3_3_1",
+  "reversible": true,
+  "backtracked_from": "data/ring01_phase3_3",
+  "baseline_fit": "data/ring01_phase3_3/phase3_3_fit.json",
+  "prong_ids": [
+    "prong_ne",
+    "prong_nw",
+    "prong_sw",
+    "prong_se"
+  ],
+  "instance_supervision_views": [
+    "front",
+    "top"
+  ],
+  "objective": {
+    "regional": 1.0,
+    "individual_prongs_diagnostic_only": 0.0
+  },
+  "selection_policy": "projection-preserving cubic conversion; machine prong instances are diagnostic until human-reviewed masks exist",
+  "camera_fit": {
+    "angled": {
+      "tilt_degrees": 28,
+      "roll_degrees": -5,
+      "azimuth_degrees": 30,
+      "camera_distance_model_units": 68.0,
+      "silhouette_iou": 0.677449,
+      "projection": "perspective",
+      "calibrated": false
+    },
+    "profiles": {
+      "side": {
+        "azimuth_degrees": -18,
+        "silhouette_and_detail_score": 0.705746,
+        "calibrated": false
+      },
+      "back": {
+        "azimuth_degrees": -10,
+        "silhouette_and_detail_score": 0.683825,
+        "calibrated": false
+      }
+    },
+    "front_top_orientations_fixed": true,
+    "cameras": {
+      "front": {
+        "name": "front",
+        "right": [
+          1,
+          0,
+          0
+        ],
+        "up": [
+          0,
+          1,
+          0
+        ],
+        "direction": [
+          0,
+          0,
+          1
+        ],
+        "family": "gemstone_face",
+        "confidence": 0.82
+      },
+      "top": {
+        "name": "top",
+        "right": [
+          1,
+          0,
+          0
+        ],
+        "up": [
+          0,
+          1,
+          0
+        ],
+        "direction": [
+          0,
+          0,
+          1
+        ],
+        "family": "gemstone_face",
+        "confidence": 0.78
+      },
+      "side": {
+        "name": "side",
+        "right": [
+          0.9510565162951535,
+          0.3090169943749474,
+          0.0
+        ],
+        "up": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "direction": [
+          -0.3090169943749474,
+          0.9510565162951535,
+          0.0
+        ],
+        "family": "profile_azimuth_fit",
+        "confidence": 0.8
+      },
+      "back": {
+        "name": "back",
+        "right": [
+          -0.984807753012208,
+          0.17364817766693033,
+          0.0
+        ],
+        "up": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "direction": [
+          -0.17364817766693033,
+          -0.984807753012208,
+          0.0
+        ],
+        "family": "profile_azimuth_fit",
+        "confidence": 0.8
+      },
+      "angled": {
+        "name": "angled",
+        "right": [
+          0.9012068922942593,
+          -0.43145327059858113,
+          -0.040917142753508155
+        ],
+        "up": [
+          -0.36431476804429275,
+          -0.8053231736957018,
+          0.4676850817521505
+        ],
+        "direction": [
+          0.23473578139294538,
+          0.4065742997269626,
+          0.882947592858927
+        ],
+        "family": "perspective_silhouette_fit",
+        "confidence": 0.76,
+        "distance": 68.0
+      }
+    }
+  },
+  "initial": {
+    "score": 0.66363,
+    "metrics": {
+      "regional_objective": 0.663630340458597,
+      "instance_mean_iou": 0.0018601190476190475,
+      "instance_iou": {
+        "front": {
+          "prong_ne": 0.0,
+          "prong_nw": 0.01488095238095238,
+          "prong_sw": 0.0,
+          "prong_se": 0.0
+        },
+        "top": {
+          "prong_ne": 0.0,
+          "prong_nw": 0.0,
+          "prong_sw": 0.0,
+          "prong_se": 0.0
+        }
+      },
+      "views": {
+        "front": {
+          "objective": 0.650501,
+          "silhouette_iou": 0.831557,
+          "detail_region_iou": 0.820671,
+          "component_mean_iou": 0.349663,
+          "detail_boundary_f1": 0.461522,
+          "negative_space_iou": 0.724585
+        },
+        "side": {
+          "objective": 0.670369,
+          "silhouette_iou": 0.796428,
+          "detail_region_iou": 0.732988,
+          "component_mean_iou": 0.439932,
+          "detail_boundary_f1": 0.589742,
+          "negative_space_iou": 0.820611
+        },
+        "top": {
+          "objective": 0.695015,
+          "silhouette_iou": 0.85936,
+          "detail_region_iou": 0.831188,
+          "component_mean_iou": 0.398861,
+          "detail_boundary_f1": 0.581829,
+          "negative_space_iou": 0.771775
+        },
+        "angled": {
+          "objective": 0.656679,
+          "silhouette_iou": 0.754848,
+          "detail_region_iou": 0.771407,
+          "component_mean_iou": 0.44925,
+          "detail_boundary_f1": 0.584391,
+          "negative_space_iou": 0.654447
+        },
+        "back": {
+          "objective": 0.647048,
+          "silhouette_iou": 0.785109,
+          "detail_region_iou": 0.684198,
+          "component_mean_iou": 0.447708,
+          "detail_boundary_f1": 0.563877,
+          "negative_space_iou": 0.757628
+        }
+      }
+    }
+  },
+  "optimized": {
+    "score": 0.66363,
+    "metrics": {
+      "regional_objective": 0.663630340458597,
+      "instance_mean_iou": 0.0018601190476190475,
+      "instance_iou": {
+        "front": {
+          "prong_ne": 0.0,
+          "prong_nw": 0.01488095238095238,
+          "prong_sw": 0.0,
+          "prong_se": 0.0
+        },
+        "top": {
+          "prong_ne": 0.0,
+          "prong_nw": 0.0,
+          "prong_sw": 0.0,
+          "prong_se": 0.0
+        }
+      },
+      "views": {
+        "front": {
+          "objective": 0.650501,
+          "silhouette_iou": 0.831557,
+          "detail_region_iou": 0.820671,
+          "component_mean_iou": 0.349663,
+          "detail_boundary_f1": 0.461522,
+          "negative_space_iou": 0.724585
+        },
+        "side": {
+          "objective": 0.670369,
+          "silhouette_iou": 0.796428,
+          "detail_region_iou": 0.732988,
+          "component_mean_iou": 0.439932,
+          "detail_boundary_f1": 0.589742,
+          "negative_space_iou": 0.820611
+        },
+        "top": {
+          "objective": 0.695015,
+          "silhouette_iou": 0.85936,
+          "detail_region_iou": 0.831188,
+          "component_mean_iou": 0.398861,
+          "detail_boundary_f1": 0.581829,
+          "negative_space_iou": 0.771775
+        },
+        "angled": {
+          "objective": 0.656679,
+          "silhouette_iou": 0.754848,
+          "detail_region_iou": 0.771407,
+          "component_mean_iou": 0.44925,
+          "detail_boundary_f1": 0.584391,
+          "negative_space_iou": 0.654447
+        },
+        "back": {
+          "objective": 0.647048,
+          "silhouette_iou": 0.785109,
+          "detail_region_iou": 0.684198,
+          "component_mean_iou": 0.447708,
+          "detail_boundary_f1": 0.563877,
+          "negative_space_iou": 0.757628
+        }
+      }
+    },
+    "parameters": {
+      "hoop_radius": 10.0,
+      "shank_radius": 0.86,
+      "shank_depth_radius": 1.3,
+      "stone_radius": 3.3447,
+      "shoulder_start_x": 6.0,
+      "shoulder_start_y": 0.48,
+      "shoulder_start_z": 8.0,
+      "shoulder_control_x": 5.332,
+      "shoulder_control_y": 0.72,
+      "shoulder_control_z": 10.43958,
+      "shoulder_end_x": 3.45338,
+      "shoulder_end_y": 1.11732,
+      "shoulder_radius": 0.49526,
+      "shoulder_tip_radius": 0.3,
+      "lower_gallery_z": 11.0488,
+      "gallery_gap": 1.4312,
+      "lower_inner_inset": 0.3,
+      "lower_outer_extra": 0.47958,
+      "lower_gallery_height": 0.32,
+      "upper_inner_inset": 0.18,
+      "upper_outer_extra": 0.41415,
+      "upper_gallery_height": 0.25,
+      "strut_base_extra": 0.22,
+      "strut_top_extra": 0.05,
+      "strut_radius": 0.22,
+      "prong_base_extra": 0.76752,
+      "prong_inset": 0.36636,
+      "prong_bow_extra": 0.34742,
+      "prong_top_z": 14.507,
+      "prong_base_radius": 0.36,
+      "prong_tip_radius": 0.2,
+      "prong_bead_radius": 0.5296,
+      "stone_bottom_z": 10.97536,
+      "stone_girdle_z": 12.84098,
+      "stone_top_z": 14.55,
+      "prong_curve_version": "cubic_claw_v1",
+      "prong_c1_extra": 0.48745,
+      "prong_c1_height_fraction": 0.33333,
+      "prong_c2_inset": -0.10943,
+      "prong_tip_inset": 0.36636,
+      "prong_tip_z": 14.507,
+      "prong_hook_drop": 0.24,
+      "prong_mid_radius": 0.30667,
+      "prong_neck_radius": 0.235,
+      "prong_cap_radius": 0.5296,
+      "prong_ne_angle_offset": 0.0,
+      "prong_ne_radial_offset": 0.0,
+      "prong_ne_height_offset": 0.0,
+      "prong_nw_angle_offset": 0.0,
+      "prong_nw_radial_offset": 0.0,
+      "prong_nw_height_offset": 0.0,
+      "prong_sw_angle_offset": 0.0,
+      "prong_sw_radial_offset": 0.0,
+      "prong_sw_height_offset": 0.0,
+      "prong_se_angle_offset": 0.0,
+      "prong_se_radial_offset": 0.0,
+      "prong_se_height_offset": 0.0
+    }
+  },
+  "optimization_history": [
+    {
+      "round": 0,
+      "score": 0.66363,
+      "parameters": {
+        "hoop_radius": 10.0,
+        "shank_radius": 0.86,
+        "shank_depth_radius": 1.3,
+        "stone_radius": 3.3447,
+        "shoulder_start_x": 6.0,
+        "shoulder_start_y": 0.48,
+        "shoulder_start_z": 8.0,
+        "shoulder_control_x": 5.332,
+        "shoulder_control_y": 0.72,
+        "shoulder_control_z": 10.43958,
+        "shoulder_end_x": 3.45338,
+        "shoulder_end_y": 1.11732,
+        "shoulder_radius": 0.49526,
+        "shoulder_tip_radius": 0.3,
+        "lower_gallery_z": 11.0488,
+        "gallery_gap": 1.4312,
+        "lower_inner_inset": 0.3,
+        "lower_outer_extra": 0.47958,
+        "lower_gallery_height": 0.32,
+        "upper_inner_inset": 0.18,
+        "upper_outer_extra": 0.41415,
+        "upper_gallery_height": 0.25,
+        "strut_base_extra": 0.22,
+        "strut_top_extra": 0.05,
+        "strut_radius": 0.22,
+        "prong_base_extra": 0.76752,
+        "prong_inset": 0.36636,
+        "prong_bow_extra": 0.34742,
+        "prong_top_z": 14.507,
+        "prong_base_radius": 0.36,
+        "prong_tip_radius": 0.2,
+        "prong_bead_radius": 0.5296,
+        "stone_bottom_z": 10.97536,
+        "stone_girdle_z": 12.84098,
+        "stone_top_z": 14.55,
+        "prong_curve_version": "cubic_claw_v1",
+        "prong_c1_extra": 0.48745,
+        "prong_c1_height_fraction": 0.33333,
+        "prong_c2_inset": -0.10943,
+        "prong_tip_inset": 0.36636,
+        "prong_tip_z": 14.507,
+        "prong_hook_drop": 0.24,
+        "prong_mid_radius": 0.30667,
+        "prong_neck_radius": 0.235,
+        "prong_cap_radius": 0.5296,
+        "prong_ne_angle_offset": 0.0,
+        "prong_ne_radial_offset": 0.0,
+        "prong_ne_height_offset": 0.0,
+        "prong_nw_angle_offset": 0.0,
+        "prong_nw_radial_offset": 0.0,
+        "prong_nw_height_offset": 0.0,
+        "prong_sw_angle_offset": 0.0,
+        "prong_sw_radial_offset": 0.0,
+        "prong_sw_height_offset": 0.0,
+        "prong_se_angle_offset": 0.0,
+        "prong_se_radial_offset": 0.0,
+        "prong_se_height_offset": 0.0
+      }
+    },
+    {
+      "round": 1,
+      "score": 0.66363,
+      "parameters": {
+        "hoop_radius": 10.0,
+        "shank_radius": 0.86,
+        "shank_depth_radius": 1.3,
+        "stone_radius": 3.3447,
+        "shoulder_start_x": 6.0,
+        "shoulder_start_y": 0.48,
+        "shoulder_start_z": 8.0,
+        "shoulder_control_x": 5.332,
+        "shoulder_control_y": 0.72,
+        "shoulder_control_z": 10.43958,
+        "shoulder_end_x": 3.45338,
+        "shoulder_end_y": 1.11732,
+        "shoulder_radius": 0.49526,
+        "shoulder_tip_radius": 0.3,
+        "lower_gallery_z": 11.0488,
+        "gallery_gap": 1.4312,
+        "lower_inner_inset": 0.3,
+        "lower_outer_extra": 0.47958,
+        "lower_gallery_height": 0.32,
+        "upper_inner_inset": 0.18,
+        "upper_outer_extra": 0.41415,
+        "upper_gallery_height": 0.25,
+        "strut_base_extra": 0.22,
+        "strut_top_extra": 0.05,
+        "strut_radius": 0.22,
+        "prong_base_extra": 0.76752,
+        "prong_inset": 0.36636,
+        "prong_bow_extra": 0.34742,
+        "prong_top_z": 14.507,
+        "prong_base_radius": 0.36,
+        "prong_tip_radius": 0.2,
+        "prong_bead_radius": 0.5296,
+        "stone_bottom_z": 10.97536,
+        "stone_girdle_z": 12.84098,
+        "stone_top_z": 14.55,
+        "prong_curve_version": "cubic_claw_v1",
+        "prong_c1_extra": 0.48745,
+        "prong_c1_height_fraction": 0.33333,
+        "prong_c2_inset": -0.10943,
+        "prong_tip_inset": 0.36636,
+        "prong_tip_z": 14.507,
+        "prong_hook_drop": 0.24,
+        "prong_mid_radius": 0.30667,
+        "prong_neck_radius": 0.235,
+        "prong_cap_radius": 0.5296,
+        "prong_ne_angle_offset": 0.0,
+        "prong_ne_radial_offset": 0.0,
+        "prong_ne_height_offset": 0.0,
+        "prong_nw_angle_offset": 0.0,
+        "prong_nw_radial_offset": 0.0,
+        "prong_nw_height_offset": 0.0,
+        "prong_sw_angle_offset": 0.0,
+        "prong_sw_radial_offset": 0.0,
+        "prong_sw_height_offset": 0.0,
+        "prong_se_angle_offset": 0.0,
+        "prong_se_radial_offset": 0.0,
+        "prong_se_height_offset": 0.0
+      }
+    }
+  ],
+  "instance_masks": {
+    "front": {
+      "prong_ne": {
+        "target": "data/ring01_phase3_3_1/instance_masks/targets/front/prong_ne.png",
+        "render": "data/ring01_phase3_3_1/instance_masks/renders/front/prong_ne.png"
+      },
+      "prong_nw": {
+        "target": "data/ring01_phase3_3_1/instance_masks/targets/front/prong_nw.png",
+        "render": "data/ring01_phase3_3_1/instance_masks/renders/front/prong_nw.png"
+      },
+      "prong_sw": {
+        "target": "data/ring01_phase3_3_1/instance_masks/targets/front/prong_sw.png",
+        "render": "data/ring01_phase3_3_1/instance_masks/renders/front/prong_sw.png"
+      },
+      "prong_se": {
+        "target": "data/ring01_phase3_3_1/instance_masks/targets/front/prong_se.png",
+        "render": "data/ring01_phase3_3_1/instance_masks/renders/front/prong_se.png"
+      }
+    },
+    "top": {
+      "prong_ne": {
+        "target": "data/ring01_phase3_3_1/instance_masks/targets/top/prong_ne.png",
+        "render": "data/ring01_phase3_3_1/instance_masks/renders/top/prong_ne.png"
+      },
+      "prong_nw": {
+        "target": "data/ring01_phase3_3_1/instance_masks/targets/top/prong_nw.png",
+        "render": "data/ring01_phase3_3_1/instance_masks/renders/top/prong_nw.png"
+      },
+      "prong_sw": {
+        "target": "data/ring01_phase3_3_1/instance_masks/targets/top/prong_sw.png",
+        "render": "data/ring01_phase3_3_1/instance_masks/renders/top/prong_sw.png"
+      },
+      "prong_se": {
+        "target": "data/ring01_phase3_3_1/instance_masks/targets/top/prong_se.png",
+        "render": "data/ring01_phase3_3_1/instance_masks/renders/top/prong_se.png"
+      }
+    }
+  },
+  "warning": "Proxy scores guide search only; acceptance requires exported exact-solid validation."
+}

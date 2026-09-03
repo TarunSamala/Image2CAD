@@ -1,0 +1,108 @@
+{
+  "stage": "phase3_3_2_prong_visibility_correction",
+  "correction_type": "inspection_camera_and_visibility_validation",
+  "geometry_changed": false,
+  "geometry_reason": "The exact model already contains four symmetric claws; rotating them would regress the front and top references.",
+  "source_step": "data/ring01_phase3_3_1/ring01_phase3_3_1.step",
+  "source_step_sha256": "22f4ce51f26531deffc2af646832c522f2039c589633a09c748e2cff23fc5dea",
+  "camera_correction": {
+    "previous_isometric_azimuth_degrees": -45.0,
+    "reference_tilt_from_stone_axis_degrees": 28.0,
+    "reference_roll_degrees": -5.0,
+    "isometric_azimuth_degrees": 30.0,
+    "opposite_azimuth_degrees": 210.0
+  },
+  "visibility": {
+    "isometric": {
+      "projected_tip_positions": {
+        "prong_ne": [
+          0.989303,
+          -2.463263
+        ],
+        "prong_nw": [
+          -2.806588,
+          -0.928766
+        ],
+        "prong_sw": [
+          -0.989303,
+          2.463263
+        ],
+        "prong_se": [
+          2.806588,
+          0.928766
+        ]
+      },
+      "minimum_pair_separation": 3.848166,
+      "minimum_pair_separation_cap_diameters": 3.633087,
+      "minimum_center_axis_clearance_cap_radii": 1.86802,
+      "four_distinct_tip_positions": true,
+      "no_tip_on_center_axis": true
+    },
+    "opposite": {
+      "projected_tip_positions": {
+        "prong_ne": [
+          -0.989303,
+          2.463263
+        ],
+        "prong_nw": [
+          2.806588,
+          0.928766
+        ],
+        "prong_sw": [
+          0.989303,
+          -2.463263
+        ],
+        "prong_se": [
+          -2.806588,
+          -0.928766
+        ]
+      },
+      "minimum_pair_separation": 3.848166,
+      "minimum_pair_separation_cap_diameters": 3.633087,
+      "minimum_center_axis_clearance_cap_radii": 1.86802,
+      "four_distinct_tip_positions": true,
+      "no_tip_on_center_axis": true
+    },
+    "gem_face": {
+      "projected_tip_positions": {
+        "prong_ne": [
+          2.106004,
+          2.106004
+        ],
+        "prong_nw": [
+          -2.106004,
+          2.106004
+        ],
+        "prong_sw": [
+          -2.106004,
+          -2.106004
+        ],
+        "prong_se": [
+          2.106004,
+          -2.106004
+        ]
+      },
+      "minimum_pair_separation": 4.212009,
+      "minimum_pair_separation_cap_diameters": 3.976594,
+      "minimum_center_axis_clearance_cap_radii": 3.976594,
+      "four_distinct_tip_positions": true,
+      "no_tip_on_center_axis": true
+    }
+  },
+  "checks": {
+    "four_prong_records": true,
+    "four_prong_topology": true,
+    "single_valid_metal_brep": true,
+    "all_inspection_views_have_distinct_tips": true,
+    "oblique_views_avoid_center_axis_occlusion": true,
+    "phase331_visual_metrics_preserved": true
+  },
+  "checkpoint_valid": true,
+  "preserved_exact_metrics": {
+    "mean_silhouette_iou": 0.819726,
+    "mean_detail_region_iou": 0.787388,
+    "mean_external_boundary_f1_2px": 0.795969
+  },
+  "preview": "data/ring01_phase3_3_2/ring01_phase3_3_2_visibility_preview.png",
+  "manufacturing_accuracy_validated": false
+}

@@ -1,0 +1,134 @@
+{
+  "stage": "phase3_3_1_strict_exported_cad_validation",
+  "checkpoint_valid": true,
+  "phase3_exit_gate_passed": false,
+  "manufacturing_accuracy_validated": false,
+  "balanced_objective": 0.683888,
+  "mean_silhouette_iou": 0.819726,
+  "mean_raw_machine_mask_iou": 0.799685,
+  "physics_corrected_masks_used": true,
+  "mean_detail_region_iou": 0.787388,
+  "mean_external_boundary_f1_2px": 0.795969,
+  "principal_view_floor": 0.788398,
+  "camera_fit": {
+    "angled": {
+      "tilt_degrees": 28,
+      "roll_degrees": -5,
+      "azimuth_degrees": 30,
+      "camera_distance_model_units": 68.0,
+      "silhouette_iou": 0.748982,
+      "projection": "perspective",
+      "calibrated": false,
+      "search": "27-pose local exported-mesh verification around cached proxy camera"
+    },
+    "profiles": {
+      "side": {
+        "azimuth_degrees": -14,
+        "silhouette_and_detail_score": 0.762199,
+        "calibrated": false
+      },
+      "back": {
+        "azimuth_degrees": -10,
+        "silhouette_and_detail_score": 0.722186,
+        "calibrated": false
+      }
+    }
+  },
+  "topology_checks": {
+    "metal_single_closed_valid_brep": true,
+    "stone_single_closed_valid_brep": true,
+    "four_curved_prongs": true,
+    "four_stable_prong_ids": true,
+    "cubic_claw_geometry": true,
+    "open_two_rail_gallery": true,
+    "one_shank_four_shoulders": true,
+    "faceted_separate_stone": true,
+    "stl_watertight": true
+  },
+  "exit_checks": {
+    "mean_silhouette_iou_at_least_0_80": true,
+    "mean_detail_region_iou_at_least_0_75": true,
+    "mean_external_boundary_f1_at_least_0_75": true,
+    "principal_view_floor_at_least_0_70": true,
+    "angled_iou_at_least_0_70": true,
+    "topology_and_solids_all_pass": true,
+    "human_ground_truth_masks_available": false,
+    "metric_scale_calibrated": false
+  },
+  "target_90_checks": {
+    "mean_silhouette_iou_at_least_0_90": false,
+    "every_principal_view_at_least_0_85": false,
+    "angled_iou_at_least_0_82": false,
+    "mean_detail_iou_at_least_0_85": false,
+    "mean_boundary_f1_at_least_0_88": false,
+    "topology_and_solids_all_pass": true
+  },
+  "target_90_reached": false,
+  "views": {
+    "front": {
+      "objective": 0.688368,
+      "silhouette_iou": 0.854535,
+      "detail_region_iou": 0.853952,
+      "component_mean_iou": 0.372409,
+      "detail_boundary_f1": 0.549962,
+      "negative_space_iou": 0.792234,
+      "external_boundary_f1_2px": 0.643009,
+      "raw_machine_mask_iou": 0.801903
+    },
+    "side": {
+      "objective": 0.690144,
+      "silhouette_iou": 0.813976,
+      "detail_region_iou": 0.74776,
+      "component_mean_iou": 0.441648,
+      "detail_boundary_f1": 0.641101,
+      "negative_space_iou": 0.850923,
+      "external_boundary_f1_2px": 0.838663,
+      "raw_machine_mask_iou": 0.813376
+    },
+    "top": {
+      "objective": 0.712731,
+      "silhouette_iou": 0.871267,
+      "detail_region_iou": 0.850496,
+      "component_mean_iou": 0.418659,
+      "detail_boundary_f1": 0.602292,
+      "negative_space_iou": 0.802621,
+      "external_boundary_f1_2px": 0.796052,
+      "raw_machine_mask_iou": 0.824367
+    },
+    "angled": {
+      "objective": 0.672933,
+      "silhouette_iou": 0.770454,
+      "detail_region_iou": 0.792642,
+      "component_mean_iou": 0.441372,
+      "detail_boundary_f1": 0.629852,
+      "negative_space_iou": 0.661515,
+      "external_boundary_f1_2px": 0.881545,
+      "raw_machine_mask_iou": 0.77038
+    },
+    "back": {
+      "objective": 0.657774,
+      "silhouette_iou": 0.788398,
+      "detail_region_iou": 0.69209,
+      "component_mean_iou": 0.447325,
+      "detail_boundary_f1": 0.599885,
+      "negative_space_iou": 0.783573,
+      "external_boundary_f1_2px": 0.820575,
+      "raw_machine_mask_iou": 0.788398
+    }
+  },
+  "comparisons": {
+    "front": "data/ring01_phase3_3_1/comparisons/ring01_front_reference_vs_phase3_3_1.png",
+    "side": "data/ring01_phase3_3_1/comparisons/ring01_side_reference_vs_phase3_3_1.png",
+    "top": "data/ring01_phase3_3_1/comparisons/ring01_top_reference_vs_phase3_3_1.png",
+    "angled": "data/ring01_phase3_3_1/comparisons/ring01_angled_reference_vs_phase3_3_1.png",
+    "back": "data/ring01_phase3_3_1/comparisons/ring01_back_reference_vs_phase3_3_1.png"
+  },
+  "clean_preview": "data/ring01_phase3_3_1/previews/ring01_phase3_3_1_clean_preview.png",
+  "uncertainty": {
+    "hidden_geometry": "inferred",
+    "physical_scale": "uncalibrated",
+    "reference_masks": "physics-corrected machine masks, not human ground truth",
+    "angled_camera": "estimated from silhouette"
+  },
+  "decision": "Remain in Phase 3 and refine; do not advance while any strict exit check fails."
+}
