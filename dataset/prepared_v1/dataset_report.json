@@ -1,0 +1,47 @@
+{
+  "schema_version": "jewellery_multiview_v1",
+  "source_dir": "dataset/STL-1",
+  "output_dir": "dataset/prepared_v1",
+  "object_count": 24,
+  "image_count": 120,
+  "views": [
+    "front",
+    "top",
+    "iso",
+    "lsv",
+    "rsv"
+  ],
+  "image_size": 768,
+  "split_counts": {
+    "train": 18,
+    "val": 3,
+    "test": 3
+  },
+  "mask_occupancy_min_mean_max": [
+    0.07691786,
+    0.18164818,
+    0.36155362
+  ],
+  "checks": {
+    "twenty_four_objects": true,
+    "five_views_per_object": true,
+    "all_source_images_unique": true,
+    "object_splits_disjoint": true,
+    "all_masks_nonempty": true,
+    "no_unavailable_ground_truth_fabricated": true
+  },
+  "dataset_valid": true,
+  "training_readiness": {
+    "multi_view_vision_pretraining": true,
+    "silhouette_and_edge_experiments": true,
+    "supervised_image_to_cad": false,
+    "quantitative_3d_evaluation": false
+  },
+  "limitations": [
+    "Only 24 independent objects are available; 120 views are not 120 independent samples.",
+    "No mesh, CAD program, physical scale, camera calibration, or component ground truth is available.",
+    "Pseudo-silhouettes require manual review before being treated as evaluation ground truth.",
+    "All samples are blue renders of rings, so material and jewellery-category diversity is limited.",
+    "Dataset provenance and redistribution licence are not recorded."
+  ]
+}

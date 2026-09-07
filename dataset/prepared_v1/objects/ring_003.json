@@ -1,0 +1,243 @@
+{
+  "schema_version": "jewellery_multiview_v1",
+  "object_id": "ring_003",
+  "source_object_name": "Ring 3",
+  "category": "ring",
+  "split": "train",
+  "views": {
+    "front": {
+      "source_path": "dataset/STL-1/Ring 3/R3 - Front View.png",
+      "image_path": "dataset/prepared_v1/images/ring_003/front.png",
+      "jewelry_mask_path": "dataset/prepared_v1/masks/jewelry/ring_003/front.png",
+      "edge_path": "dataset/prepared_v1/edges/ring_003/front.png",
+      "source_sha256": "e65647af1f35b3cf7703eff86d26075bf2f79b61e8394e4e8ac8cbf937959edf",
+      "source_size_wh": [
+        1377,
+        1110
+      ],
+      "prepared_size_wh": [
+        768,
+        768
+      ],
+      "background_rgb": [
+        167,
+        173,
+        182
+      ],
+      "mask_occupancy": 0.30477397,
+      "transform": {
+        "source_foreground_bbox_xywh": [
+          427,
+          246,
+          512,
+          627
+        ],
+        "source_crop_xyxy": [
+          364,
+          183,
+          1002,
+          936
+        ],
+        "resize_scale": 0.89243028,
+        "placement_xywh": [
+          99,
+          48,
+          569,
+          672
+        ]
+      },
+      "camera_semantic": "front",
+      "camera_calibrated": false
+    },
+    "top": {
+      "source_path": "dataset/STL-1/Ring 3/R3 - Top View.png",
+      "image_path": "dataset/prepared_v1/images/ring_003/top.png",
+      "jewelry_mask_path": "dataset/prepared_v1/masks/jewelry/ring_003/top.png",
+      "edge_path": "dataset/prepared_v1/edges/ring_003/top.png",
+      "source_sha256": "60d3088fe949a8e96a8ead94930f759e0adc71768741acc308aa8030b5ed9749",
+      "source_size_wh": [
+        865,
+        1110
+      ],
+      "prepared_size_wh": [
+        768,
+        768
+      ],
+      "background_rgb": [
+        167,
+        173,
+        182
+      ],
+      "mask_occupancy": 0.11348809,
+      "transform": {
+        "source_foreground_bbox_xywh": [
+          161,
+          185,
+          518,
+          749
+        ],
+        "source_crop_xyxy": [
+          86,
+          110,
+          754,
+          1009
+        ],
+        "resize_scale": 0.74749722,
+        "placement_xywh": [
+          134,
+          48,
+          499,
+          672
+        ]
+      },
+      "camera_semantic": "top",
+      "camera_calibrated": false
+    },
+    "iso": {
+      "source_path": "dataset/STL-1/Ring 3/R3 - Iso.png",
+      "image_path": "dataset/prepared_v1/images/ring_003/iso.png",
+      "jewelry_mask_path": "dataset/prepared_v1/masks/jewelry/ring_003/iso.png",
+      "edge_path": "dataset/prepared_v1/edges/ring_003/iso.png",
+      "source_sha256": "2b61d2f14bd715c7265d9e991e8b26432b17dabc282982db50c5f4fe97ea613f",
+      "source_size_wh": [
+        1307,
+        1110
+      ],
+      "prepared_size_wh": [
+        768,
+        768
+      ],
+      "background_rgb": [
+        167,
+        173,
+        182
+      ],
+      "mask_occupancy": 0.26126099,
+      "transform": {
+        "source_foreground_bbox_xywh": [
+          436,
+          395,
+          527,
+          462
+        ],
+        "source_crop_xyxy": [
+          383,
+          342,
+          1016,
+          910
+        ],
+        "resize_scale": 1.06161137,
+        "placement_xywh": [
+          48,
+          82,
+          672,
+          603
+        ]
+      },
+      "camera_semantic": "iso",
+      "camera_calibrated": false
+    },
+    "lsv": {
+      "source_path": "dataset/STL-1/Ring 3/R3 - LSV.png",
+      "image_path": "dataset/prepared_v1/images/ring_003/lsv.png",
+      "jewelry_mask_path": "dataset/prepared_v1/masks/jewelry/ring_003/lsv.png",
+      "edge_path": "dataset/prepared_v1/edges/ring_003/lsv.png",
+      "source_sha256": "0389bc07bc29ae1a189e7b628d94103d93a544e6f3e6630b104fb94cda0d9fff",
+      "source_size_wh": [
+        1230,
+        1110
+      ],
+      "prepared_size_wh": [
+        768,
+        768
+      ],
+      "background_rgb": [
+        167,
+        173,
+        182
+      ],
+      "mask_occupancy": 0.13068305,
+      "transform": {
+        "source_foreground_bbox_xywh": [
+          216,
+          289,
+          732,
+          538
+        ],
+        "source_crop_xyxy": [
+          143,
+          216,
+          1021,
+          900
+        ],
+        "resize_scale": 0.76537585,
+        "placement_xywh": [
+          48,
+          122,
+          672,
+          524
+        ]
+      },
+      "camera_semantic": "lsv",
+      "camera_calibrated": false
+    },
+    "rsv": {
+      "source_path": "dataset/STL-1/Ring 3/R3 - RSV.png",
+      "image_path": "dataset/prepared_v1/images/ring_003/rsv.png",
+      "jewelry_mask_path": "dataset/prepared_v1/masks/jewelry/ring_003/rsv.png",
+      "edge_path": "dataset/prepared_v1/edges/ring_003/rsv.png",
+      "source_sha256": "048b638f0a95d265bf35849b7a4b2c86fc13ff73ae1f0b28139748bb3ebc9f90",
+      "source_size_wh": [
+        1253,
+        1110
+      ],
+      "prepared_size_wh": [
+        768,
+        768
+      ],
+      "background_rgb": [
+        167,
+        173,
+        182
+      ],
+      "mask_occupancy": 0.12331814,
+      "transform": {
+        "source_foreground_bbox_xywh": [
+          297,
+          294,
+          742,
+          527
+        ],
+        "source_crop_xyxy": [
+          223,
+          220,
+          1113,
+          895
+        ],
+        "resize_scale": 0.75505618,
+        "placement_xywh": [
+          48,
+          129,
+          672,
+          510
+        ]
+      },
+      "camera_semantic": "rsv",
+      "camera_calibrated": false
+    }
+  },
+  "supervision": {
+    "jewelry_silhouette": "pseudo_background_difference",
+    "edge_map": "opencv_canny",
+    "individual_stones": null,
+    "metal_components": null,
+    "prongs": null,
+    "stone_seats": null,
+    "cavities": null,
+    "camera_intrinsics": null,
+    "camera_extrinsics": null,
+    "physical_scale": null,
+    "mesh_target": null,
+    "cad_target": null
+  }
+}

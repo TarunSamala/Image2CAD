@@ -23,6 +23,7 @@ Phase 3.3.1 currently reaches mean silhouette IoU `0.8197`, detail IoU `0.7874` 
 .
 ├── pipeline/       Phase extraction, reconstruction, refinement and validation
 ├── tests/          Regression tests for every retained phase
+├── dataset/        Source jewellery views and prepared object-level dataset
 ├── data/
 │   ├── ring01_reference_images/   Five source views
 │   ├── ring01_phase*/             Immutable/iterative phase checkpoints
@@ -45,7 +46,20 @@ docker exec cadrille-gpu sh -lc \
   'cd /workspace && PYTHONPATH=pipeline python -m unittest discover -s tests -v'
 ```
 
-The current suite contains 42 tests.
+The current suite contains 49 tests.
+
+## Jewellery dataset
+
+`dataset/STL-1` contains the only available training and test source: 24 jewellery objects with five views each. The preparation pipeline standardizes the images, extracts conservative jewellery masks and edge maps, and splits by object so views of the same item cannot leak between training and evaluation.
+
+```bash
+docker run --rm --user "$(id -u):$(id -g)" \
+  -v "$PWD:/workspace" -w /workspace \
+  image2cad-validation:local sh -lc \
+  'PYTHONPATH=pipeline python pipeline/prepare_jewellery_dataset.py'
+```
+
+The generated `dataset/prepared_v1` split contains 18 training, 3 validation and 3 test objects. It is suitable for image preprocessing, silhouette, edge and multi-view representation experiments. It does not contain CAD geometry, metric dimensions, calibrated cameras or per-component labels, so supervised CAD reconstruction and quantitative 3D accuracy evaluation are deliberately disabled. See `dataset/README.md` for the format and loader example.
 
 ## Rebuild Phase 3.3
 
