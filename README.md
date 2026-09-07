@@ -36,6 +36,7 @@ Phase 3.3.1 currently reaches mean silhouette IoU `0.8197`, detail IoU `0.7874` 
 ```
 
 Each phase writes to its own directory. New refinement work should create or resume a versioned phase instead of overwriting an earlier checkpoint.
+See [Repository structure](docs/REPOSITORY_STRUCTURE.md) for the dataset-run layout and file-placement conventions.
 
 ## Validate the project
 

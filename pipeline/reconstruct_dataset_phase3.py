@@ -397,7 +397,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--dataset-dir", type=Path, default=Path("dataset/prepared_v1"))
     parser.add_argument("--phase-run-dir", type=Path, default=Path("dataset/phase_runs/v1"))
-    parser.add_argument("--output-dir", type=Path, default=Path("dataset/phase_runs/v1/phase3_visual_hull"))
+    parser.add_argument("--output-dir", type=Path, default=Path("dataset/phase_runs/v1/phase3/visual_hull"))
     parser.add_argument("--resolution", type=int, default=128)
     parser.add_argument("--nominal-size-mm", type=float, default=30.0)
     parser.add_argument("--device", choices=("auto", "cpu", "cuda"), default="auto")

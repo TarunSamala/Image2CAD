@@ -80,4 +80,4 @@ The output contains one all-phase sheet and five detailed view audits per ring. 
 
 ## Experimental Phase 3 exports
 
-`phase_runs/v1/phase3_visual_hull/` contains one STL, one 3MF, one comparison image, and one validation report for each of the 24 rings. Shared-axis scale alignment improves cross-view consistency, but the files remain non-metric visual hulls. Do not use their nominal 3MF display size for jewellery manufacturing.
+`phase_runs/v1/phase3/visual_hull/` contains one STL, one 3MF, one comparison image, and one validation report for each of the 24 rings. Shared-axis scale alignment improves cross-view consistency, but the files remain non-metric visual hulls. Do not use their nominal 3MF display size for jewellery manufacturing.

@@ -14,7 +14,7 @@ import trimesh
 class DatasetPhase3VisualHullTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
-        cls.root = Path("dataset/phase_runs/v1/phase3_visual_hull")
+        cls.root = Path("dataset/phase_runs/v1/phase3/visual_hull")
         cls.report = json.loads((cls.root / "phase3_batch_report.json").read_text(encoding="utf-8"))
 
     def test_all_dataset_objects_have_exports(self) -> None:
