@@ -1,0 +1,22 @@
+FROM pytorch/pytorch:2.5.1-cuda12.4-cudnn9-runtime
+
+WORKDIR /workspace
+
+COPY requirements-app.txt /workspace/requirements-app.txt
+COPY requirements-phase1.txt /workspace/requirements-phase1.txt
+COPY requirements-phase2.txt /workspace/requirements-phase2.txt
+
+RUN pip install --no-cache-dir -r requirements-app.txt
+
+COPY app.py /workspace/app.py
+COPY pipeline/ /workspace/pipeline/
+COPY models/sam2.1_hiera_tiny.pt /workspace/models/sam2.1_hiera_tiny.pt
+COPY dataset/phase_runs/v1/checkpoints/whole_jewellery_unet.pt \
+    /workspace/dataset/phase_runs/v1/checkpoints/whole_jewellery_unet.pt
+
+ENV IMAGE2CAD_SERVER_NAME=0.0.0.0
+ENV IMAGE2CAD_SERVER_PORT=7860
+
+EXPOSE 7860
+
+CMD ["python", "app.py"]

@@ -37,6 +37,7 @@ Phase 3.3.1 currently reaches mean silhouette IoU `0.8197`, detail IoU `0.7874` 
 
 Each phase writes to its own directory. New refinement work should create or resume a versioned phase instead of overwriting an earlier checkpoint.
 See [Repository structure](docs/REPOSITORY_STRUCTURE.md) for the dataset-run layout and file-placement conventions.
+See [Jewellery Phase Auditor](docs/UPLOAD_AUDITOR.md) for the one-image and five-view upload program.
 
 ## Validate the project
 
@@ -47,7 +48,7 @@ docker exec cadrille-gpu sh -lc \
   'cd /workspace && PYTHONPATH=pipeline python -m unittest discover -s tests -v'
 ```
 
-The current suite contains 71 tests.
+The current suite contains 74 tests.
 
 ## Jewellery dataset
 

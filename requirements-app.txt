@@ -1,0 +1,5 @@
+-r requirements-phase2.txt
+https://github.com/facebookresearch/sam2/archive/refs/heads/main.zip
+gradio>=5,<7
+scikit-image>=0.25,<0.27
+trimesh>=4.5,<5

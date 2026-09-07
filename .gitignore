@@ -16,6 +16,7 @@ venv/
 .DS_Store
 
 # Runtime logs and temporary files
+runs/uploads/
 *.log
 !data/logs/*.log
 data/logs/local/
