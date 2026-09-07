@@ -1,0 +1,20 @@
+{
+  "experiment": "prepared_v1_dataset_phase_coverage",
+  "latest_project_checkpoint": "phase3_3_2",
+  "executed": {
+    "phase1": "features extracted for all 24 objects and 120 views",
+    "phase2": "whole-jewellery foreground model trained on 18 objects and selected on 3 validation objects",
+    "phase2_2": "fixed selected model tested on 3 unseen objects"
+  },
+  "not_trainable_from_this_dataset": {
+    "phase2_components": "no individual stone, metal, shank, setting, or prong labels",
+    "phase3": "no paired mesh/CAD target, camera calibration, or physical scale",
+    "phase3_3": "no exact-solid target or human-reviewed multi-view masks",
+    "phase3_3_1": "no individual prong instance ground truth",
+    "phase3_3_2": "visibility correction requires an existing validated four-prong CAD model"
+  },
+  "important_scope": "The Ring01 Phase 3.3.2 CAD checkpoint remains valid only for Ring01 and was not copied onto unrelated rings.",
+  "dataset_reaches_latest_phase_gate": false,
+  "highest_executed_dataset_phase": "phase2_2",
+  "manufacturing_accuracy_validated": false
+}

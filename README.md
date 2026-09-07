@@ -46,7 +46,7 @@ docker exec cadrille-gpu sh -lc \
   'cd /workspace && PYTHONPATH=pipeline python -m unittest discover -s tests -v'
 ```
 
-The current suite contains 49 tests.
+The current suite contains 63 tests.
 
 ## Jewellery dataset
 
@@ -60,6 +60,18 @@ docker run --rm --user "$(id -u):$(id -g)" \
 ```
 
 The generated `dataset/prepared_v1` split contains 18 training, 3 validation and 3 test objects. It is suitable for image preprocessing, silhouette, edge and multi-view representation experiments. It does not contain CAD geometry, metric dimensions, calibrated cameras or per-component labels, so supervised CAD reconstruction and quantitative 3D accuracy evaluation are deliberately disabled. See `dataset/README.md` for the format and loader example.
+
+Run the versioned dataset phase experiment:
+
+```bash
+docker run --rm --gpus all --user "$(id -u):$(id -g)" \
+  -e PYTHONPYCACHEPREFIX=/tmp/pycache \
+  -v "$PWD:/workspace" -w /workspace \
+  image2cad-validation:local sh -lc \
+  'PYTHONPATH=pipeline python pipeline/train_dataset_phases.py --device cuda'
+```
+
+The `dataset/phase_runs/v1` checkpoint processes all 120 views in Phase 1, trains on the 18 training objects, selects its threshold using only the validation objects, and evaluates 15 views from three unseen test objects. It reaches test pseudo-silhouette IoU `0.9776`. Dataset-wide progress stops honestly at Phase 2.2: Phase 3 through Phase 3.3.2 require CAD targets, calibrated cameras, physical scale, component instances, or an existing validated CAD model that this dataset does not provide.
 
 ## Rebuild Phase 3.3
 

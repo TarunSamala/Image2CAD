@@ -39,3 +39,41 @@ print(sample["images"].shape)  # (5, 3, 768, 768)
 The source contains no STL/STEP/3DM mesh, CadQuery program, physical dimensions, calibrated cameras, component masks, or individual stone annotations. The prepared silhouette and edge outputs are pseudo-labels for experimentation, not human-reviewed evaluation truth.
 
 The loader rejects `require_cad_target=True` so this image-only set cannot accidentally be presented as supervised image-to-CAD training data. It is suitable for multi-view representation learning, vision preprocessing, pseudo-label experiments, and qualitative reconstruction tests.
+
+## Dataset phase experiment
+
+The versioned `phase_runs/v1` experiment uses a 66,229-parameter U-Net that fits within the 4 GB laptop GPU:
+
+- Phase 1 extracts deterministic silhouette, edge, contour, hole, occupancy, and symmetry measurements for all 120 views.
+- Phase 2 trains whole-jewellery foreground segmentation on 18 rings.
+- Phase 2.2 selects the threshold on 3 validation rings and tests it once on 3 unseen rings.
+- The held-out pseudo-silhouette result is IoU `0.977586`, Dice `0.988646`, and boundary F1 `0.999753`.
+- Phase 3 and later dataset training are blocked because this source has no paired CAD, cameras, scale, or component-instance truth.
+
+Green areas in the test review sheets are target/prediction agreement. Blue and grey fringes show disagreement. These metrics measure reproduction of the prepared pseudo-masks, not manufacturing accuracy or performance on real jewellery photographs.
+
+## Comparison previews
+
+Generate the high-resolution comparison sheets with:
+
+```bash
+docker run --rm --user "$(id -u):$(id -g)" \
+  -v "$PWD:/workspace" -w /workspace \
+  image2cad-validation:local sh -lc \
+  'PYTHONPATH=pipeline python pipeline/build_dataset_comparison_previews.py'
+```
+
+The sheets under `phase_runs/v1/comparisons/` show all multi-view objects and splits, source-to-preprocessing changes, and held-out prediction errors. In the prediction sheet, green is agreement, red is prediction-only, and blue is target-only.
+
+## Ring-style phase audits
+
+Generate the Ring01-style audit set for every dataset object:
+
+```bash
+docker run --rm --gpus all --user "$(id -u):$(id -g)" \
+  -v "$PWD:/workspace" -w /workspace \
+  image2cad-validation:local sh -lc \
+  'PYTHONPATH=pipeline python pipeline/build_dataset_phase_audits.py --device cuda'
+```
+
+The output contains one all-phase sheet and five detailed view audits per ring. Reference, Phase 1, Phase 2, and Phase 2.2 columns contain real dataset artifacts. Phase 3 through Phase 3.3.2 are visibly marked as not generated because this dataset contains no paired CAD, calibrated scale, cameras, or component-instance ground truth.

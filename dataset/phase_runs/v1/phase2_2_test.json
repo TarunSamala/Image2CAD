@@ -1,0 +1,149 @@
+{
+  "stage": "dataset_phase2_2_held_out_test",
+  "selection_source": "validation split only",
+  "threshold": 0.5,
+  "morphological_refinement": false,
+  "target_status": "pseudo-silhouette agreement, not independent pixel accuracy",
+  "metrics": {
+    "sample_count": 15,
+    "mean": {
+      "iou": 0.977586,
+      "dice": 0.988646,
+      "boundary_f1_2px": 0.999753
+    },
+    "by_view": {
+      "front": {
+        "iou": 0.988665,
+        "dice": 0.9943,
+        "boundary_f1_2px": 0.998765
+      },
+      "iso": {
+        "iou": 0.98469,
+        "dice": 0.992286,
+        "boundary_f1_2px": 1.0
+      },
+      "lsv": {
+        "iou": 0.976504,
+        "dice": 0.988112,
+        "boundary_f1_2px": 1.0
+      },
+      "rsv": {
+        "iou": 0.973316,
+        "dice": 0.986474,
+        "boundary_f1_2px": 1.0
+      },
+      "top": {
+        "iou": 0.964753,
+        "dice": 0.982059,
+        "boundary_f1_2px": 1.0
+      }
+    },
+    "samples": [
+      {
+        "object_id": "ring_007",
+        "view": "front",
+        "iou": 0.98866,
+        "dice": 0.994298,
+        "boundary_f1_2px": 1.0
+      },
+      {
+        "object_id": "ring_007",
+        "view": "top",
+        "iou": 0.964748,
+        "dice": 0.982058,
+        "boundary_f1_2px": 1.0
+      },
+      {
+        "object_id": "ring_007",
+        "view": "iso",
+        "iou": 0.985843,
+        "dice": 0.992871,
+        "boundary_f1_2px": 1.0
+      },
+      {
+        "object_id": "ring_007",
+        "view": "lsv",
+        "iou": 0.976362,
+        "dice": 0.98804,
+        "boundary_f1_2px": 1.0
+      },
+      {
+        "object_id": "ring_007",
+        "view": "rsv",
+        "iou": 0.96969,
+        "dice": 0.984612,
+        "boundary_f1_2px": 1.0
+      },
+      {
+        "object_id": "ring_015",
+        "view": "front",
+        "iou": 0.990797,
+        "dice": 0.995377,
+        "boundary_f1_2px": 0.996296
+      },
+      {
+        "object_id": "ring_015",
+        "view": "top",
+        "iou": 0.962605,
+        "dice": 0.980946,
+        "boundary_f1_2px": 1.0
+      },
+      {
+        "object_id": "ring_015",
+        "view": "iso",
+        "iou": 0.982947,
+        "dice": 0.9914,
+        "boundary_f1_2px": 1.0
+      },
+      {
+        "object_id": "ring_015",
+        "view": "lsv",
+        "iou": 0.978203,
+        "dice": 0.988982,
+        "boundary_f1_2px": 1.0
+      },
+      {
+        "object_id": "ring_015",
+        "view": "rsv",
+        "iou": 0.971304,
+        "dice": 0.985443,
+        "boundary_f1_2px": 1.0
+      },
+      {
+        "object_id": "ring_023",
+        "view": "front",
+        "iou": 0.98654,
+        "dice": 0.993224,
+        "boundary_f1_2px": 1.0
+      },
+      {
+        "object_id": "ring_023",
+        "view": "top",
+        "iou": 0.966905,
+        "dice": 0.983174,
+        "boundary_f1_2px": 1.0
+      },
+      {
+        "object_id": "ring_023",
+        "view": "iso",
+        "iou": 0.985281,
+        "dice": 0.992586,
+        "boundary_f1_2px": 1.0
+      },
+      {
+        "object_id": "ring_023",
+        "view": "lsv",
+        "iou": 0.974948,
+        "dice": 0.987315,
+        "boundary_f1_2px": 1.0
+      },
+      {
+        "object_id": "ring_023",
+        "view": "rsv",
+        "iou": 0.978955,
+        "dice": 0.989366,
+        "boundary_f1_2px": 1.0
+      }
+    ]
+  }
+}

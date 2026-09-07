@@ -1,0 +1,16 @@
+{
+  "phase1_passed": true,
+  "validation": {
+    "iou": 0.978183,
+    "dice": 0.988953,
+    "boundary_f1_2px": 0.999269
+  },
+  "test": {
+    "iou": 0.977586,
+    "dice": 0.988646,
+    "boundary_f1_2px": 0.999753
+  },
+  "selected_threshold": 0.5,
+  "selected_refinement": false,
+  "highest_executed_dataset_phase": "phase2_2"
+}

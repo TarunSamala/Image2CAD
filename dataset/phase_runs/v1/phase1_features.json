@@ -1,0 +1,1214 @@
+{
+  "stage": "dataset_phase1_features",
+  "object_count": 24,
+  "view_count": 120,
+  "measurements_are_metric": false,
+  "checks": {
+    "all_24_objects_processed": true,
+    "all_120_views_processed": true,
+    "all_masks_nonempty": true,
+    "all_edges_nonempty": true
+  },
+  "views": [
+    {
+      "object_id": "ring_001",
+      "split": "train",
+      "view": "front",
+      "foreground_fraction": 0.331833,
+      "edge_fraction": 0.074807,
+      "contour_count": 7,
+      "hole_count": 6,
+      "horizontal_symmetry_iou": 0.992781
+    },
+    {
+      "object_id": "ring_001",
+      "split": "train",
+      "view": "top",
+      "foreground_fraction": 0.122804,
+      "edge_fraction": 0.015588,
+      "contour_count": 2,
+      "hole_count": 1,
+      "horizontal_symmetry_iou": 0.978719
+    },
+    {
+      "object_id": "ring_001",
+      "split": "train",
+      "view": "iso",
+      "foreground_fraction": 0.253927,
+      "edge_fraction": 0.049901,
+      "contour_count": 7,
+      "hole_count": 6,
+      "horizontal_symmetry_iou": 0.58226
+    },
+    {
+      "object_id": "ring_001",
+      "split": "train",
+      "view": "lsv",
+      "foreground_fraction": 0.142059,
+      "edge_fraction": 0.021252,
+      "contour_count": 1,
+      "hole_count": 0,
+      "horizontal_symmetry_iou": 0.21903
+    },
+    {
+      "object_id": "ring_001",
+      "split": "train",
+      "view": "rsv",
+      "foreground_fraction": 0.134576,
+      "edge_fraction": 0.024144,
+      "contour_count": 1,
+      "hole_count": 0,
+      "horizontal_symmetry_iou": 0.219574
+    },
+    {
+      "object_id": "ring_002",
+      "split": "train",
+      "view": "front",
+      "foreground_fraction": 0.309496,
+      "edge_fraction": 0.064084,
+      "contour_count": 6,
+      "hole_count": 5,
+      "horizontal_symmetry_iou": 0.997112
+    },
+    {
+      "object_id": "ring_002",
+      "split": "train",
+      "view": "top",
+      "foreground_fraction": 0.096895,
+      "edge_fraction": 0.014189,
+      "contour_count": 2,
+      "hole_count": 1,
+      "horizontal_symmetry_iou": 0.958568
+    },
+    {
+      "object_id": "ring_002",
+      "split": "train",
+      "view": "iso",
+      "foreground_fraction": 0.181886,
+      "edge_fraction": 0.030104,
+      "contour_count": 2,
+      "hole_count": 1,
+      "horizontal_symmetry_iou": 0.306441
+    },
+    {
+      "object_id": "ring_002",
+      "split": "train",
+      "view": "lsv",
+      "foreground_fraction": 0.092968,
+      "edge_fraction": 0.008986,
+      "contour_count": 1,
+      "hole_count": 0,
+      "horizontal_symmetry_iou": 0.300239
+    },
+    {
+      "object_id": "ring_002",
+      "split": "train",
+      "view": "rsv",
+      "foreground_fraction": 0.08912,
+      "edge_fraction": 0.010598,
+      "contour_count": 1,
+      "hole_count": 0,
+      "horizontal_symmetry_iou": 0.314256
+    },
+    {
+      "object_id": "ring_003",
+      "split": "train",
+      "view": "front",
+      "foreground_fraction": 0.304774,
+      "edge_fraction": 0.061405,
+      "contour_count": 20,
+      "hole_count": 19,
+      "horizontal_symmetry_iou": 0.994154
+    },
+    {
+      "object_id": "ring_003",
+      "split": "train",
+      "view": "top",
+      "foreground_fraction": 0.113488,
+      "edge_fraction": 0.014304,
+      "contour_count": 2,
+      "hole_count": 1,
+      "horizontal_symmetry_iou": 0.998865
+    },
+    {
+      "object_id": "ring_003",
+      "split": "train",
+      "view": "iso",
+      "foreground_fraction": 0.261261,
+      "edge_fraction": 0.036065,
+      "contour_count": 5,
+      "hole_count": 4,
+      "horizontal_symmetry_iou": 0.403813
+    },
+    {
+      "object_id": "ring_003",
+      "split": "train",
+      "view": "lsv",
+      "foreground_fraction": 0.130683,
+      "edge_fraction": 0.010478,
+      "contour_count": 2,
+      "hole_count": 1,
+      "horizontal_symmetry_iou": 0.193263
+    },
+    {
+      "object_id": "ring_003",
+      "split": "train",
+      "view": "rsv",
+      "foreground_fraction": 0.123318,
+      "edge_fraction": 0.013072,
+      "contour_count": 2,
+      "hole_count": 1,
+      "horizontal_symmetry_iou": 0.179382
+    },
+    {
+      "object_id": "ring_004",
+      "split": "val",
+      "view": "front",
+      "foreground_fraction": 0.294666,
+      "edge_fraction": 0.06268,
+      "contour_count": 23,
+      "hole_count": 22,
+      "horizontal_symmetry_iou": 0.990483
+    },
+    {
+      "object_id": "ring_004",
+      "split": "val",
+      "view": "top",
+      "foreground_fraction": 0.134308,
+      "edge_fraction": 0.019306,
+      "contour_count": 2,
+      "hole_count": 1,
+      "horizontal_symmetry_iou": 0.97492
+    },
+    {
+      "object_id": "ring_004",
+      "split": "val",
+      "view": "iso",
+      "foreground_fraction": 0.260393,
+      "edge_fraction": 0.043952,
+      "contour_count": 8,
+      "hole_count": 7,
+      "horizontal_symmetry_iou": 0.712238
+    },
+    {
+      "object_id": "ring_004",
+      "split": "val",
+      "view": "lsv",
+      "foreground_fraction": 0.135639,
+      "edge_fraction": 0.015428,
+      "contour_count": 2,
+      "hole_count": 1,
+      "horizontal_symmetry_iou": 0.223699
+    },
+    {
+      "object_id": "ring_004",
+      "split": "val",
+      "view": "rsv",
+      "foreground_fraction": 0.124407,
+      "edge_fraction": 0.020292,
+      "contour_count": 2,
+      "hole_count": 1,
+      "horizontal_symmetry_iou": 0.232063
+    },
+    {
+      "object_id": "ring_005",
+      "split": "train",
+      "view": "front",
+      "foreground_fraction": 0.301768,
+      "edge_fraction": 0.059599,
+      "contour_count": 5,
+      "hole_count": 4,
+      "horizontal_symmetry_iou": 0.993839
+    },
+    {
+      "object_id": "ring_005",
+      "split": "train",
+      "view": "top",
+      "foreground_fraction": 0.119149,
+      "edge_fraction": 0.015276,
+      "contour_count": 2,
+      "hole_count": 1,
+      "horizontal_symmetry_iou": 0.975627
+    },
+    {
+      "object_id": "ring_005",
+      "split": "train",
+      "view": "iso",
+      "foreground_fraction": 0.225379,
+      "edge_fraction": 0.034566,
+      "contour_count": 4,
+      "hole_count": 3,
+      "horizontal_symmetry_iou": 0.46279
+    },
+    {
+      "object_id": "ring_005",
+      "split": "train",
+      "view": "lsv",
+      "foreground_fraction": 0.106778,
+      "edge_fraction": 0.010691,
+      "contour_count": 2,
+      "hole_count": 1,
+      "horizontal_symmetry_iou": 0.24079
+    },
+    {
+      "object_id": "ring_005",
+      "split": "train",
+      "view": "rsv",
+      "foreground_fraction": 0.100852,
+      "edge_fraction": 0.012363,
+      "contour_count": 1,
+      "hole_count": 0,
+      "horizontal_symmetry_iou": 0.250578
+    },
+    {
+      "object_id": "ring_006",
+      "split": "train",
+      "view": "front",
+      "foreground_fraction": 0.350859,
+      "edge_fraction": 0.066203,
+      "contour_count": 14,
+      "hole_count": 13,
+      "horizontal_symmetry_iou": 0.983239
+    },
+    {
+      "object_id": "ring_006",
+      "split": "train",
+      "view": "top",
+      "foreground_fraction": 0.11746,
+      "edge_fraction": 0.018444,
+      "contour_count": 2,
+      "hole_count": 1,
+      "horizontal_symmetry_iou": 0.9941
+    },
+    {
+      "object_id": "ring_006",
+      "split": "train",
+      "view": "iso",
+      "foreground_fraction": 0.240735,
+      "edge_fraction": 0.042099,
+      "contour_count": 9,
+      "hole_count": 8,
+      "horizontal_symmetry_iou": 0.452133
+    },
+    {
+      "object_id": "ring_006",
+      "split": "train",
+      "view": "lsv",
+      "foreground_fraction": 0.124851,
+      "edge_fraction": 0.016193,
+      "contour_count": 2,
+      "hole_count": 1,
+      "horizontal_symmetry_iou": 0.198412
+    },
+    {
+      "object_id": "ring_006",
+      "split": "train",
+      "view": "rsv",
+      "foreground_fraction": 0.115234,
+      "edge_fraction": 0.018762,
+      "contour_count": 1,
+      "hole_count": 0,
+      "horizontal_symmetry_iou": 0.207333
+    },
+    {
+      "object_id": "ring_007",
+      "split": "test",
+      "view": "front",
+      "foreground_fraction": 0.257587,
+      "edge_fraction": 0.060255,
+      "contour_count": 4,
+      "hole_count": 3,
+      "horizontal_symmetry_iou": 0.992877
+    },
+    {
+      "object_id": "ring_007",
+      "split": "test",
+      "view": "top",
+      "foreground_fraction": 0.119254,
+      "edge_fraction": 0.017563,
+      "contour_count": 2,
+      "hole_count": 1,
+      "horizontal_symmetry_iou": 0.97637
+    },
+    {
+      "object_id": "ring_007",
+      "split": "test",
+      "view": "iso",
+      "foreground_fraction": 0.276476,
+      "edge_fraction": 0.050207,
+      "contour_count": 2,
+      "hole_count": 1,
+      "horizontal_symmetry_iou": 0.382857
+    },
+    {
+      "object_id": "ring_007",
+      "split": "test",
+      "view": "lsv",
+      "foreground_fraction": 0.12767,
+      "edge_fraction": 0.016013,
+      "contour_count": 1,
+      "hole_count": 0,
+      "horizontal_symmetry_iou": 0.171922
+    },
+    {
+      "object_id": "ring_007",
+      "split": "test",
+      "view": "rsv",
+      "foreground_fraction": 0.129359,
+      "edge_fraction": 0.021184,
+      "contour_count": 1,
+      "hole_count": 0,
+      "horizontal_symmetry_iou": 0.190925
+    },
+    {
+      "object_id": "ring_008",
+      "split": "train",
+      "view": "front",
+      "foreground_fraction": 0.290241,
+      "edge_fraction": 0.059464,
+      "contour_count": 15,
+      "hole_count": 14,
+      "horizontal_symmetry_iou": 0.991658
+    },
+    {
+      "object_id": "ring_008",
+      "split": "train",
+      "view": "top",
+      "foreground_fraction": 0.152737,
+      "edge_fraction": 0.020891,
+      "contour_count": 2,
+      "hole_count": 1,
+      "horizontal_symmetry_iou": 0.978174
+    },
+    {
+      "object_id": "ring_008",
+      "split": "train",
+      "view": "iso",
+      "foreground_fraction": 0.310187,
+      "edge_fraction": 0.050791,
+      "contour_count": 4,
+      "hole_count": 3,
+      "horizontal_symmetry_iou": 0.736155
+    },
+    {
+      "object_id": "ring_008",
+      "split": "train",
+      "view": "lsv",
+      "foreground_fraction": 0.144518,
+      "edge_fraction": 0.015299,
+      "contour_count": 1,
+      "hole_count": 0,
+      "horizontal_symmetry_iou": 0.284509
+    },
+    {
+      "object_id": "ring_008",
+      "split": "train",
+      "view": "rsv",
+      "foreground_fraction": 0.15025,
+      "edge_fraction": 0.023271,
+      "contour_count": 1,
+      "hole_count": 0,
+      "horizontal_symmetry_iou": 0.292624
+    },
+    {
+      "object_id": "ring_009",
+      "split": "train",
+      "view": "front",
+      "foreground_fraction": 0.361554,
+      "edge_fraction": 0.071843,
+      "contour_count": 2,
+      "hole_count": 1,
+      "horizontal_symmetry_iou": 0.999372
+    },
+    {
+      "object_id": "ring_009",
+      "split": "train",
+      "view": "top",
+      "foreground_fraction": 0.114553,
+      "edge_fraction": 0.015323,
+      "contour_count": 2,
+      "hole_count": 1,
+      "horizontal_symmetry_iou": 0.998639
+    },
+    {
+      "object_id": "ring_009",
+      "split": "train",
+      "view": "iso",
+      "foreground_fraction": 0.231696,
+      "edge_fraction": 0.034529,
+      "contour_count": 3,
+      "hole_count": 2,
+      "horizontal_symmetry_iou": 0.416239
+    },
+    {
+      "object_id": "ring_009",
+      "split": "train",
+      "view": "lsv",
+      "foreground_fraction": 0.120541,
+      "edge_fraction": 0.011781,
+      "contour_count": 2,
+      "hole_count": 1,
+      "horizontal_symmetry_iou": 0.282108
+    },
+    {
+      "object_id": "ring_009",
+      "split": "train",
+      "view": "rsv",
+      "foreground_fraction": 0.113195,
+      "edge_fraction": 0.011853,
+      "contour_count": 2,
+      "hole_count": 1,
+      "horizontal_symmetry_iou": 0.282857
+    },
+    {
+      "object_id": "ring_010",
+      "split": "train",
+      "view": "front",
+      "foreground_fraction": 0.252808,
+      "edge_fraction": 0.059441,
+      "contour_count": 3,
+      "hole_count": 2,
+      "horizontal_symmetry_iou": 0.998392
+    },
+    {
+      "object_id": "ring_010",
+      "split": "train",
+      "view": "top",
+      "foreground_fraction": 0.122008,
+      "edge_fraction": 0.017278,
+      "contour_count": 2,
+      "hole_count": 1,
+      "horizontal_symmetry_iou": 0.9763
+    },
+    {
+      "object_id": "ring_010",
+      "split": "train",
+      "view": "iso",
+      "foreground_fraction": 0.277328,
+      "edge_fraction": 0.045252,
+      "contour_count": 3,
+      "hole_count": 2,
+      "horizontal_symmetry_iou": 0.398029
+    },
+    {
+      "object_id": "ring_010",
+      "split": "train",
+      "view": "lsv",
+      "foreground_fraction": 0.130361,
+      "edge_fraction": 0.011525,
+      "contour_count": 2,
+      "hole_count": 1,
+      "horizontal_symmetry_iou": 0.206231
+    },
+    {
+      "object_id": "ring_010",
+      "split": "train",
+      "view": "rsv",
+      "foreground_fraction": 0.128043,
+      "edge_fraction": 0.015745,
+      "contour_count": 2,
+      "hole_count": 1,
+      "horizontal_symmetry_iou": 0.208929
+    },
+    {
+      "object_id": "ring_011",
+      "split": "train",
+      "view": "front",
+      "foreground_fraction": 0.341697,
+      "edge_fraction": 0.067217,
+      "contour_count": 2,
+      "hole_count": 1,
+      "horizontal_symmetry_iou": 0.995989
+    },
+    {
+      "object_id": "ring_011",
+      "split": "train",
+      "view": "top",
+      "foreground_fraction": 0.1143,
+      "edge_fraction": 0.015037,
+      "contour_count": 2,
+      "hole_count": 1,
+      "horizontal_symmetry_iou": 0.960309
+    },
+    {
+      "object_id": "ring_011",
+      "split": "train",
+      "view": "iso",
+      "foreground_fraction": 0.222717,
+      "edge_fraction": 0.036502,
+      "contour_count": 2,
+      "hole_count": 1,
+      "horizontal_symmetry_iou": 0.406587
+    },
+    {
+      "object_id": "ring_011",
+      "split": "train",
+      "view": "lsv",
+      "foreground_fraction": 0.115497,
+      "edge_fraction": 0.011882,
+      "contour_count": 1,
+      "hole_count": 0,
+      "horizontal_symmetry_iou": 0.22815
+    },
+    {
+      "object_id": "ring_011",
+      "split": "train",
+      "view": "rsv",
+      "foreground_fraction": 0.10809,
+      "edge_fraction": 0.015025,
+      "contour_count": 1,
+      "hole_count": 0,
+      "horizontal_symmetry_iou": 0.235686
+    },
+    {
+      "object_id": "ring_012",
+      "split": "val",
+      "view": "front",
+      "foreground_fraction": 0.311957,
+      "edge_fraction": 0.068066,
+      "contour_count": 2,
+      "hole_count": 1,
+      "horizontal_symmetry_iou": 0.994126
+    },
+    {
+      "object_id": "ring_012",
+      "split": "val",
+      "view": "top",
+      "foreground_fraction": 0.116375,
+      "edge_fraction": 0.014491,
+      "contour_count": 2,
+      "hole_count": 1,
+      "horizontal_symmetry_iou": 0.982125
+    },
+    {
+      "object_id": "ring_012",
+      "split": "val",
+      "view": "iso",
+      "foreground_fraction": 0.235143,
+      "edge_fraction": 0.040814,
+      "contour_count": 4,
+      "hole_count": 3,
+      "horizontal_symmetry_iou": 0.430031
+    },
+    {
+      "object_id": "ring_012",
+      "split": "val",
+      "view": "lsv",
+      "foreground_fraction": 0.119592,
+      "edge_fraction": 0.011858,
+      "contour_count": 1,
+      "hole_count": 0,
+      "horizontal_symmetry_iou": 0.214685
+    },
+    {
+      "object_id": "ring_012",
+      "split": "val",
+      "view": "rsv",
+      "foreground_fraction": 0.114034,
+      "edge_fraction": 0.015952,
+      "contour_count": 1,
+      "hole_count": 0,
+      "horizontal_symmetry_iou": 0.212067
+    },
+    {
+      "object_id": "ring_013",
+      "split": "train",
+      "view": "front",
+      "foreground_fraction": 0.331146,
+      "edge_fraction": 0.064236,
+      "contour_count": 10,
+      "hole_count": 9,
+      "horizontal_symmetry_iou": 0.992614
+    },
+    {
+      "object_id": "ring_013",
+      "split": "train",
+      "view": "top",
+      "foreground_fraction": 0.123008,
+      "edge_fraction": 0.012965,
+      "contour_count": 2,
+      "hole_count": 1,
+      "horizontal_symmetry_iou": 0.99832
+    },
+    {
+      "object_id": "ring_013",
+      "split": "train",
+      "view": "iso",
+      "foreground_fraction": 0.234582,
+      "edge_fraction": 0.03212,
+      "contour_count": 2,
+      "hole_count": 1,
+      "horizontal_symmetry_iou": 0.430986
+    },
+    {
+      "object_id": "ring_013",
+      "split": "train",
+      "view": "lsv",
+      "foreground_fraction": 0.107203,
+      "edge_fraction": 0.008855,
+      "contour_count": 1,
+      "hole_count": 0,
+      "horizontal_symmetry_iou": 0.26202
+    },
+    {
+      "object_id": "ring_013",
+      "split": "train",
+      "view": "rsv",
+      "foreground_fraction": 0.10523,
+      "edge_fraction": 0.01177,
+      "contour_count": 1,
+      "hole_count": 0,
+      "horizontal_symmetry_iou": 0.262114
+    },
+    {
+      "object_id": "ring_014",
+      "split": "train",
+      "view": "front",
+      "foreground_fraction": 0.323293,
+      "edge_fraction": 0.064324,
+      "contour_count": 6,
+      "hole_count": 5,
+      "horizontal_symmetry_iou": 0.993768
+    },
+    {
+      "object_id": "ring_014",
+      "split": "train",
+      "view": "top",
+      "foreground_fraction": 0.129049,
+      "edge_fraction": 0.015233,
+      "contour_count": 2,
+      "hole_count": 1,
+      "horizontal_symmetry_iou": 0.987778
+    },
+    {
+      "object_id": "ring_014",
+      "split": "train",
+      "view": "iso",
+      "foreground_fraction": 0.257724,
+      "edge_fraction": 0.040485,
+      "contour_count": 3,
+      "hole_count": 2,
+      "horizontal_symmetry_iou": 0.497803
+    },
+    {
+      "object_id": "ring_014",
+      "split": "train",
+      "view": "lsv",
+      "foreground_fraction": 0.116714,
+      "edge_fraction": 0.01299,
+      "contour_count": 2,
+      "hole_count": 1,
+      "horizontal_symmetry_iou": 0.205939
+    },
+    {
+      "object_id": "ring_014",
+      "split": "train",
+      "view": "rsv",
+      "foreground_fraction": 0.108346,
+      "edge_fraction": 0.013604,
+      "contour_count": 1,
+      "hole_count": 0,
+      "horizontal_symmetry_iou": 0.246732
+    },
+    {
+      "object_id": "ring_015",
+      "split": "test",
+      "view": "front",
+      "foreground_fraction": 0.314702,
+      "edge_fraction": 0.06886,
+      "contour_count": 4,
+      "hole_count": 3,
+      "horizontal_symmetry_iou": 0.994745
+    },
+    {
+      "object_id": "ring_015",
+      "split": "test",
+      "view": "top",
+      "foreground_fraction": 0.10926,
+      "edge_fraction": 0.011702,
+      "contour_count": 2,
+      "hole_count": 1,
+      "horizontal_symmetry_iou": 0.989197
+    },
+    {
+      "object_id": "ring_015",
+      "split": "test",
+      "view": "iso",
+      "foreground_fraction": 0.215556,
+      "edge_fraction": 0.037221,
+      "contour_count": 2,
+      "hole_count": 1,
+      "horizontal_symmetry_iou": 0.434034
+    },
+    {
+      "object_id": "ring_015",
+      "split": "test",
+      "view": "lsv",
+      "foreground_fraction": 0.097198,
+      "edge_fraction": 0.010198,
+      "contour_count": 1,
+      "hole_count": 0,
+      "horizontal_symmetry_iou": 0.287331
+    },
+    {
+      "object_id": "ring_015",
+      "split": "test",
+      "view": "rsv",
+      "foreground_fraction": 0.095879,
+      "edge_fraction": 0.0121,
+      "contour_count": 2,
+      "hole_count": 1,
+      "horizontal_symmetry_iou": 0.292735
+    },
+    {
+      "object_id": "ring_016",
+      "split": "train",
+      "view": "front",
+      "foreground_fraction": 0.280989,
+      "edge_fraction": 0.065664,
+      "contour_count": 2,
+      "hole_count": 1,
+      "horizontal_symmetry_iou": 0.994152
+    },
+    {
+      "object_id": "ring_016",
+      "split": "train",
+      "view": "top",
+      "foreground_fraction": 0.104424,
+      "edge_fraction": 0.013112,
+      "contour_count": 2,
+      "hole_count": 1,
+      "horizontal_symmetry_iou": 0.968047
+    },
+    {
+      "object_id": "ring_016",
+      "split": "train",
+      "view": "iso",
+      "foreground_fraction": 0.192449,
+      "edge_fraction": 0.032818,
+      "contour_count": 2,
+      "hole_count": 1,
+      "horizontal_symmetry_iou": 0.37967
+    },
+    {
+      "object_id": "ring_016",
+      "split": "train",
+      "view": "lsv",
+      "foreground_fraction": 0.096258,
+      "edge_fraction": 0.009854,
+      "contour_count": 1,
+      "hole_count": 0,
+      "horizontal_symmetry_iou": 0.303105
+    },
+    {
+      "object_id": "ring_016",
+      "split": "train",
+      "view": "rsv",
+      "foreground_fraction": 0.091902,
+      "edge_fraction": 0.011185,
+      "contour_count": 1,
+      "hole_count": 0,
+      "horizontal_symmetry_iou": 0.307839
+    },
+    {
+      "object_id": "ring_017",
+      "split": "train",
+      "view": "front",
+      "foreground_fraction": 0.27464,
+      "edge_fraction": 0.065611,
+      "contour_count": 16,
+      "hole_count": 15,
+      "horizontal_symmetry_iou": 0.989964
+    },
+    {
+      "object_id": "ring_017",
+      "split": "train",
+      "view": "top",
+      "foreground_fraction": 0.141869,
+      "edge_fraction": 0.014747,
+      "contour_count": 2,
+      "hole_count": 1,
+      "horizontal_symmetry_iou": 0.997613
+    },
+    {
+      "object_id": "ring_017",
+      "split": "train",
+      "view": "iso",
+      "foreground_fraction": 0.321415,
+      "edge_fraction": 0.052602,
+      "contour_count": 5,
+      "hole_count": 4,
+      "horizontal_symmetry_iou": 0.517024
+    },
+    {
+      "object_id": "ring_017",
+      "split": "train",
+      "view": "lsv",
+      "foreground_fraction": 0.156891,
+      "edge_fraction": 0.013341,
+      "contour_count": 1,
+      "hole_count": 0,
+      "horizontal_symmetry_iou": 0.176939
+    },
+    {
+      "object_id": "ring_017",
+      "split": "train",
+      "view": "rsv",
+      "foreground_fraction": 0.155728,
+      "edge_fraction": 0.017458,
+      "contour_count": 1,
+      "hole_count": 0,
+      "horizontal_symmetry_iou": 0.178859
+    },
+    {
+      "object_id": "ring_018",
+      "split": "train",
+      "view": "front",
+      "foreground_fraction": 0.337553,
+      "edge_fraction": 0.070584,
+      "contour_count": 1,
+      "hole_count": 0,
+      "horizontal_symmetry_iou": 0.99476
+    },
+    {
+      "object_id": "ring_018",
+      "split": "train",
+      "view": "top",
+      "foreground_fraction": 0.122813,
+      "edge_fraction": 0.015167,
+      "contour_count": 2,
+      "hole_count": 1,
+      "horizontal_symmetry_iou": 0.975295
+    },
+    {
+      "object_id": "ring_018",
+      "split": "train",
+      "view": "iso",
+      "foreground_fraction": 0.233059,
+      "edge_fraction": 0.036779,
+      "contour_count": 4,
+      "hole_count": 3,
+      "horizontal_symmetry_iou": 0.432305
+    },
+    {
+      "object_id": "ring_018",
+      "split": "train",
+      "view": "lsv",
+      "foreground_fraction": 0.118352,
+      "edge_fraction": 0.011339,
+      "contour_count": 1,
+      "hole_count": 0,
+      "horizontal_symmetry_iou": 0.222754
+    },
+    {
+      "object_id": "ring_018",
+      "split": "train",
+      "view": "rsv",
+      "foreground_fraction": 0.117616,
+      "edge_fraction": 0.012763,
+      "contour_count": 1,
+      "hole_count": 0,
+      "horizontal_symmetry_iou": 0.243779
+    },
+    {
+      "object_id": "ring_019",
+      "split": "train",
+      "view": "front",
+      "foreground_fraction": 0.264219,
+      "edge_fraction": 0.05535,
+      "contour_count": 22,
+      "hole_count": 21,
+      "horizontal_symmetry_iou": 0.987641
+    },
+    {
+      "object_id": "ring_019",
+      "split": "train",
+      "view": "top",
+      "foreground_fraction": 0.107405,
+      "edge_fraction": 0.013309,
+      "contour_count": 3,
+      "hole_count": 2,
+      "horizontal_symmetry_iou": 0.967941
+    },
+    {
+      "object_id": "ring_019",
+      "split": "train",
+      "view": "iso",
+      "foreground_fraction": 0.194583,
+      "edge_fraction": 0.028627,
+      "contour_count": 6,
+      "hole_count": 5,
+      "horizontal_symmetry_iou": 0.397946
+    },
+    {
+      "object_id": "ring_019",
+      "split": "train",
+      "view": "lsv",
+      "foreground_fraction": 0.093443,
+      "edge_fraction": 0.007026,
+      "contour_count": 1,
+      "hole_count": 0,
+      "horizontal_symmetry_iou": 0.314672
+    },
+    {
+      "object_id": "ring_019",
+      "split": "train",
+      "view": "rsv",
+      "foreground_fraction": 0.091819,
+      "edge_fraction": 0.00788,
+      "contour_count": 1,
+      "hole_count": 0,
+      "horizontal_symmetry_iou": 0.313884
+    },
+    {
+      "object_id": "ring_020",
+      "split": "val",
+      "view": "front",
+      "foreground_fraction": 0.333552,
+      "edge_fraction": 0.063519,
+      "contour_count": 20,
+      "hole_count": 19,
+      "horizontal_symmetry_iou": 0.986219
+    },
+    {
+      "object_id": "ring_020",
+      "split": "val",
+      "view": "top",
+      "foreground_fraction": 0.124013,
+      "edge_fraction": 0.012293,
+      "contour_count": 2,
+      "hole_count": 1,
+      "horizontal_symmetry_iou": 0.975851
+    },
+    {
+      "object_id": "ring_020",
+      "split": "val",
+      "view": "iso",
+      "foreground_fraction": 0.28538,
+      "edge_fraction": 0.037879,
+      "contour_count": 5,
+      "hole_count": 4,
+      "horizontal_symmetry_iou": 0.422124
+    },
+    {
+      "object_id": "ring_020",
+      "split": "val",
+      "view": "lsv",
+      "foreground_fraction": 0.13661,
+      "edge_fraction": 0.008301,
+      "contour_count": 1,
+      "hole_count": 0,
+      "horizontal_symmetry_iou": 0.165083
+    },
+    {
+      "object_id": "ring_020",
+      "split": "val",
+      "view": "rsv",
+      "foreground_fraction": 0.134654,
+      "edge_fraction": 0.011229,
+      "contour_count": 1,
+      "hole_count": 0,
+      "horizontal_symmetry_iou": 0.161922
+    },
+    {
+      "object_id": "ring_021",
+      "split": "train",
+      "view": "front",
+      "foreground_fraction": 0.279594,
+      "edge_fraction": 0.064233,
+      "contour_count": 2,
+      "hole_count": 1,
+      "horizontal_symmetry_iou": 0.98882
+    },
+    {
+      "object_id": "ring_021",
+      "split": "train",
+      "view": "top",
+      "foreground_fraction": 0.123488,
+      "edge_fraction": 0.013457,
+      "contour_count": 2,
+      "hole_count": 1,
+      "horizontal_symmetry_iou": 0.998244
+    },
+    {
+      "object_id": "ring_021",
+      "split": "train",
+      "view": "iso",
+      "foreground_fraction": 0.262585,
+      "edge_fraction": 0.037381,
+      "contour_count": 2,
+      "hole_count": 1,
+      "horizontal_symmetry_iou": 0.452572
+    },
+    {
+      "object_id": "ring_021",
+      "split": "train",
+      "view": "lsv",
+      "foreground_fraction": 0.131839,
+      "edge_fraction": 0.008442,
+      "contour_count": 1,
+      "hole_count": 0,
+      "horizontal_symmetry_iou": 0.185324
+    },
+    {
+      "object_id": "ring_021",
+      "split": "train",
+      "view": "rsv",
+      "foreground_fraction": 0.127652,
+      "edge_fraction": 0.011276,
+      "contour_count": 1,
+      "hole_count": 0,
+      "horizontal_symmetry_iou": 0.199567
+    },
+    {
+      "object_id": "ring_022",
+      "split": "train",
+      "view": "front",
+      "foreground_fraction": 0.36151,
+      "edge_fraction": 0.081924,
+      "contour_count": 4,
+      "hole_count": 3,
+      "horizontal_symmetry_iou": 0.999466
+    },
+    {
+      "object_id": "ring_022",
+      "split": "train",
+      "view": "top",
+      "foreground_fraction": 0.137433,
+      "edge_fraction": 0.014008,
+      "contour_count": 2,
+      "hole_count": 1,
+      "horizontal_symmetry_iou": 0.99894
+    },
+    {
+      "object_id": "ring_022",
+      "split": "train",
+      "view": "iso",
+      "foreground_fraction": 0.267044,
+      "edge_fraction": 0.039729,
+      "contour_count": 2,
+      "hole_count": 1,
+      "horizontal_symmetry_iou": 0.565494
+    },
+    {
+      "object_id": "ring_022",
+      "split": "train",
+      "view": "lsv",
+      "foreground_fraction": 0.138458,
+      "edge_fraction": 0.005759,
+      "contour_count": 1,
+      "hole_count": 0,
+      "horizontal_symmetry_iou": 0.179718
+    },
+    {
+      "object_id": "ring_022",
+      "split": "train",
+      "view": "rsv",
+      "foreground_fraction": 0.137753,
+      "edge_fraction": 0.008552,
+      "contour_count": 1,
+      "hole_count": 0,
+      "horizontal_symmetry_iou": 0.181939
+    },
+    {
+      "object_id": "ring_023",
+      "split": "test",
+      "view": "front",
+      "foreground_fraction": 0.349772,
+      "edge_fraction": 0.071306,
+      "contour_count": 17,
+      "hole_count": 16,
+      "horizontal_symmetry_iou": 0.991851
+    },
+    {
+      "object_id": "ring_023",
+      "split": "test",
+      "view": "top",
+      "foreground_fraction": 0.129315,
+      "edge_fraction": 0.013231,
+      "contour_count": 2,
+      "hole_count": 1,
+      "horizontal_symmetry_iou": 0.985397
+    },
+    {
+      "object_id": "ring_023",
+      "split": "test",
+      "view": "iso",
+      "foreground_fraction": 0.261483,
+      "edge_fraction": 0.040085,
+      "contour_count": 8,
+      "hole_count": 7,
+      "horizontal_symmetry_iou": 0.503984
+    },
+    {
+      "object_id": "ring_023",
+      "split": "test",
+      "view": "lsv",
+      "foreground_fraction": 0.122284,
+      "edge_fraction": 0.008174,
+      "contour_count": 1,
+      "hole_count": 0,
+      "horizontal_symmetry_iou": 0.186244
+    },
+    {
+      "object_id": "ring_023",
+      "split": "test",
+      "view": "rsv",
+      "foreground_fraction": 0.119666,
+      "edge_fraction": 0.01112,
+      "contour_count": 1,
+      "hole_count": 0,
+      "horizontal_symmetry_iou": 0.181506
+    },
+    {
+      "object_id": "ring_024",
+      "split": "train",
+      "view": "front",
+      "foreground_fraction": 0.179109,
+      "edge_fraction": 0.037308,
+      "contour_count": 21,
+      "hole_count": 20,
+      "horizontal_symmetry_iou": 0.980893
+    },
+    {
+      "object_id": "ring_024",
+      "split": "train",
+      "view": "top",
+      "foreground_fraction": 0.101964,
+      "edge_fraction": 0.011468,
+      "contour_count": 2,
+      "hole_count": 1,
+      "horizontal_symmetry_iou": 0.993074
+    },
+    {
+      "object_id": "ring_024",
+      "split": "train",
+      "view": "iso",
+      "foreground_fraction": 0.179574,
+      "edge_fraction": 0.022946,
+      "contour_count": 6,
+      "hole_count": 5,
+      "horizontal_symmetry_iou": 0.372195
+    },
+    {
+      "object_id": "ring_024",
+      "split": "train",
+      "view": "lsv",
+      "foreground_fraction": 0.078479,
+      "edge_fraction": 0.004968,
+      "contour_count": 1,
+      "hole_count": 0,
+      "horizontal_symmetry_iou": 0.381926
+    },
+    {
+      "object_id": "ring_024",
+      "split": "train",
+      "view": "rsv",
+      "foreground_fraction": 0.076918,
+      "edge_fraction": 0.006331,
+      "contour_count": 1,
+      "hole_count": 0,
+      "horizontal_symmetry_iou": 0.378422
+    }
+  ]
+}

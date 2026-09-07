@@ -1,0 +1,321 @@
+{
+  "stage": "dataset_phase2_training",
+  "device": "cuda",
+  "epochs": 16,
+  "image_size": 256,
+  "batch_size": 4,
+  "parameter_count": 66229,
+  "split_view_counts": {
+    "train": 90,
+    "val": 15,
+    "test": 15
+  },
+  "split_policy": "object-level; no ring appears in more than one split",
+  "target_status": "automatically generated pseudo-silhouette; not human ground truth",
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.647788
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.573447
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.530308
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.491522
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.450032
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.41676
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.37825
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.344212
+    },
+    {
+      "epoch": 9,
+      "train_loss": 0.315876
+    },
+    {
+      "epoch": 10,
+      "train_loss": 0.284709
+    },
+    {
+      "epoch": 11,
+      "train_loss": 0.255586
+    },
+    {
+      "epoch": 12,
+      "train_loss": 0.227958
+    },
+    {
+      "epoch": 13,
+      "train_loss": 0.201901
+    },
+    {
+      "epoch": 14,
+      "train_loss": 0.179818
+    },
+    {
+      "epoch": 15,
+      "train_loss": 0.158827
+    },
+    {
+      "epoch": 16,
+      "train_loss": 0.140534
+    }
+  ],
+  "validation_selection": {
+    "threshold": 0.5,
+    "refine": false,
+    "mean_iou": 0.978183,
+    "candidates": [
+      {
+        "threshold": 0.3,
+        "refine": false,
+        "mean_iou": 0.975552
+      },
+      {
+        "threshold": 0.3,
+        "refine": true,
+        "mean_iou": 0.974255
+      },
+      {
+        "threshold": 0.35,
+        "refine": false,
+        "mean_iou": 0.977264
+      },
+      {
+        "threshold": 0.35,
+        "refine": true,
+        "mean_iou": 0.976097
+      },
+      {
+        "threshold": 0.4,
+        "refine": false,
+        "mean_iou": 0.978046
+      },
+      {
+        "threshold": 0.4,
+        "refine": true,
+        "mean_iou": 0.976961
+      },
+      {
+        "threshold": 0.45,
+        "refine": false,
+        "mean_iou": 0.978136
+      },
+      {
+        "threshold": 0.45,
+        "refine": true,
+        "mean_iou": 0.977057
+      },
+      {
+        "threshold": 0.5,
+        "refine": false,
+        "mean_iou": 0.978183
+      },
+      {
+        "threshold": 0.5,
+        "refine": true,
+        "mean_iou": 0.977237
+      },
+      {
+        "threshold": 0.55,
+        "refine": false,
+        "mean_iou": 0.977933
+      },
+      {
+        "threshold": 0.55,
+        "refine": true,
+        "mean_iou": 0.977211
+      },
+      {
+        "threshold": 0.6,
+        "refine": false,
+        "mean_iou": 0.977792
+      },
+      {
+        "threshold": 0.6,
+        "refine": true,
+        "mean_iou": 0.977138
+      },
+      {
+        "threshold": 0.65,
+        "refine": false,
+        "mean_iou": 0.977435
+      },
+      {
+        "threshold": 0.65,
+        "refine": true,
+        "mean_iou": 0.976897
+      },
+      {
+        "threshold": 0.7,
+        "refine": false,
+        "mean_iou": 0.977296
+      },
+      {
+        "threshold": 0.7,
+        "refine": true,
+        "mean_iou": 0.977031
+      }
+    ],
+    "metrics": {
+      "sample_count": 15,
+      "mean": {
+        "iou": 0.978183,
+        "dice": 0.988953,
+        "boundary_f1_2px": 0.999269
+      },
+      "by_view": {
+        "front": {
+          "iou": 0.986594,
+          "dice": 0.99325,
+          "boundary_f1_2px": 0.998219
+        },
+        "iso": {
+          "iou": 0.98307,
+          "dice": 0.991462,
+          "boundary_f1_2px": 0.998126
+        },
+        "lsv": {
+          "iou": 0.9794,
+          "dice": 0.989592,
+          "boundary_f1_2px": 1.0
+        },
+        "rsv": {
+          "iou": 0.978772,
+          "dice": 0.989269,
+          "boundary_f1_2px": 1.0
+        },
+        "top": {
+          "iou": 0.963081,
+          "dice": 0.981193,
+          "boundary_f1_2px": 1.0
+        }
+      },
+      "samples": [
+        {
+          "object_id": "ring_004",
+          "view": "front",
+          "iou": 0.985167,
+          "dice": 0.992528,
+          "boundary_f1_2px": 0.997033
+        },
+        {
+          "object_id": "ring_004",
+          "view": "top",
+          "iou": 0.961479,
+          "dice": 0.980361,
+          "boundary_f1_2px": 1.0
+        },
+        {
+          "object_id": "ring_004",
+          "view": "iso",
+          "iou": 0.982128,
+          "dice": 0.990984,
+          "boundary_f1_2px": 0.995883
+        },
+        {
+          "object_id": "ring_004",
+          "view": "lsv",
+          "iou": 0.979215,
+          "dice": 0.989499,
+          "boundary_f1_2px": 1.0
+        },
+        {
+          "object_id": "ring_004",
+          "view": "rsv",
+          "iou": 0.980683,
+          "dice": 0.990247,
+          "boundary_f1_2px": 1.0
+        },
+        {
+          "object_id": "ring_012",
+          "view": "front",
+          "iou": 0.98975,
+          "dice": 0.994849,
+          "boundary_f1_2px": 0.997625
+        },
+        {
+          "object_id": "ring_012",
+          "view": "top",
+          "iou": 0.962498,
+          "dice": 0.980891,
+          "boundary_f1_2px": 1.0
+        },
+        {
+          "object_id": "ring_012",
+          "view": "iso",
+          "iou": 0.982264,
+          "dice": 0.991053,
+          "boundary_f1_2px": 1.0
+        },
+        {
+          "object_id": "ring_012",
+          "view": "lsv",
+          "iou": 0.977204,
+          "dice": 0.988471,
+          "boundary_f1_2px": 1.0
+        },
+        {
+          "object_id": "ring_012",
+          "view": "rsv",
+          "iou": 0.974278,
+          "dice": 0.986972,
+          "boundary_f1_2px": 1.0
+        },
+        {
+          "object_id": "ring_020",
+          "view": "front",
+          "iou": 0.984864,
+          "dice": 0.992374,
+          "boundary_f1_2px": 1.0
+        },
+        {
+          "object_id": "ring_020",
+          "view": "top",
+          "iou": 0.965265,
+          "dice": 0.982326,
+          "boundary_f1_2px": 1.0
+        },
+        {
+          "object_id": "ring_020",
+          "view": "iso",
+          "iou": 0.984817,
+          "dice": 0.992351,
+          "boundary_f1_2px": 0.998496
+        },
+        {
+          "object_id": "ring_020",
+          "view": "lsv",
+          "iou": 0.981782,
+          "dice": 0.990807,
+          "boundary_f1_2px": 1.0
+        },
+        {
+          "object_id": "ring_020",
+          "view": "rsv",
+          "iou": 0.981353,
+          "dice": 0.990589,
+          "boundary_f1_2px": 1.0
+        }
+      ]
+    }
+  },
+  "checkpoint": "dataset/phase_runs/v1/checkpoints/whole_jewellery_unet.pt"
+}

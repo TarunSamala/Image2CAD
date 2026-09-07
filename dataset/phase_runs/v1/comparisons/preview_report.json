@@ -1,0 +1,28 @@
+{
+  "stage": "dataset_comparison_previews",
+  "object_count": 24,
+  "view_count": 120,
+  "previews": {
+    "dataset_overview": "dataset/phase_runs/v1/comparisons/dataset_multiview_overview.png",
+    "processing_comparison": "dataset/phase_runs/v1/comparisons/dataset_processing_comparison.png",
+    "held_out_predictions": "dataset/phase_runs/v1/comparisons/held_out_prediction_comparison.png"
+  },
+  "prediction_color_key_bgr": {
+    "target_and_prediction": [
+      75,
+      180,
+      90
+    ],
+    "prediction_only": [
+      55,
+      65,
+      225
+    ],
+    "target_only": [
+      225,
+      110,
+      45
+    ]
+  },
+  "evaluation_target": "prepared_v1 pseudo-silhouettes"
+}
