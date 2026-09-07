@@ -46,7 +46,7 @@ docker exec cadrille-gpu sh -lc \
   'cd /workspace && PYTHONPATH=pipeline python -m unittest discover -s tests -v'
 ```
 
-The current suite contains 63 tests.
+The current suite contains 67 tests.
 
 ## Jewellery dataset
 
@@ -120,3 +120,16 @@ The corrected four-claw preview and validation report are in `data/ring01_phase3
 ## Next acceptance requirement
 
 Before Phase 3 can be approved as scale-aware, provide at least one known physical measurement, preferably gemstone diameter or inner ring diameter. Human-reviewed masks are also required for a defensible final visual score.
+
+## Validate a real-photo sample
+
+Run Phase 1 normalization and Phase 2 silhouette, shadow, edge, and support refinement on the validation-only sample:
+
+```bash
+docker run --rm --gpus all --user "$(id -u):$(id -g)" \
+  -v "$PWD:/workspace" -w /workspace \
+  image2cad-validation:local sh -lc \
+  'PYTHONPATH=pipeline python pipeline/validate_sample_ring.py --device cuda'
+```
+
+The sample has one uncalibrated view, so its outputs are qualitative machine proposals. The four outer structures are recorded as support proposals rather than confirmed gemstone prongs, and pixel accuracy cannot be scored without a human-reviewed mask.

@@ -1,0 +1,84 @@
+{
+  "sample": "ring_02_real_photo",
+  "source": "dataset/Sample_test/ring_02.jpeg",
+  "source_sha256": "b549581d12c72d0c44d90bb4ef1bc81a90985741fa85f344c6d49432a0078793",
+  "source_preserved": true,
+  "input_view_count": 1,
+  "device": "cuda",
+  "phase1": {
+    "method": "SAM 2.1 Tiny prompted silhouette plus normalization",
+    "sam_score": 0.925781,
+    "prompt_box_xyxy": [
+      152,
+      133,
+      1053,
+      665
+    ],
+    "normalization": {
+      "source_bbox_xywh": [
+        192,
+        203,
+        804,
+        406
+      ],
+      "crop_xyxy": [
+        128,
+        139,
+        1060,
+        673
+      ],
+      "scale": 0.7381974,
+      "placement_xywh": [
+        40,
+        187,
+        688,
+        394
+      ]
+    }
+  },
+  "phase2": {
+    "method": "narrow-band GrabCut, masked Canny edges, local shadow proposal, prompted support instances",
+    "initial_area_px2": 231269,
+    "refined_area_px2": 231419,
+    "refined_to_initial_area_ratio": 1.000649,
+    "shadow_area_px2": 23595,
+    "shadow_gray_threshold": 65.0,
+    "support_instance_count": 4,
+    "support_sam_scores": {
+      "support_nw": 0.59375,
+      "support_ne": 0.671875,
+      "support_sw": 0.621094,
+      "support_se": 0.820312
+    }
+  },
+  "validation": {
+    "silhouette_nonempty": true,
+    "normalization_complete": true,
+    "four_support_proposals_present": true,
+    "shadow_disjoint_from_jewelry": true,
+    "pixel_accuracy_validated": false,
+    "multi_view_consistency_validated": false
+  },
+  "interpretation": {
+    "prongs": "Four outer corner structures are support proposals, not confirmed gemstone prongs.",
+    "shadow": "Low-confidence local cast-shadow proposal requiring manual review.",
+    "silhouette": "Prompted machine prediction; no human mask exists for IoU validation."
+  },
+  "artifacts": {
+    "phase1_silhouette": "dataset/Sample_test/phase_validation/phase1_silhouette.png",
+    "phase1_edges": "dataset/Sample_test/phase_validation/phase1_edges.png",
+    "phase1_normalized": "dataset/Sample_test/phase_validation/phase1_normalized.png",
+    "phase1_normalized_mask": "dataset/Sample_test/phase_validation/phase1_normalized_mask.png",
+    "phase2_refined_silhouette": "dataset/Sample_test/phase_validation/phase2_refined_silhouette.png",
+    "phase2_shadow_proposal": "dataset/Sample_test/phase_validation/phase2_shadow_proposal.png",
+    "phase2_support_overlay": "dataset/Sample_test/phase_validation/phase2_support_overlay.png",
+    "phase2_final_overlay": "dataset/Sample_test/phase_validation/phase2_final_overlay.png",
+    "comparison": "dataset/Sample_test/phase_validation/sample_ring_phase_comparison.png",
+    "support_instances": {
+      "support_nw": "dataset/Sample_test/phase_validation/support_instances/support_nw.png",
+      "support_ne": "dataset/Sample_test/phase_validation/support_instances/support_ne.png",
+      "support_sw": "dataset/Sample_test/phase_validation/support_instances/support_sw.png",
+      "support_se": "dataset/Sample_test/phase_validation/support_instances/support_se.png"
+    }
+  }
+}
