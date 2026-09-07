@@ -77,3 +77,7 @@ docker run --rm --gpus all --user "$(id -u):$(id -g)" \
 ```
 
 The output contains one all-phase sheet and five detailed view audits per ring. Reference, Phase 1, Phase 2, and Phase 2.2 columns contain real dataset artifacts. Phase 3 through Phase 3.3.2 are visibly marked as not generated because this dataset contains no paired CAD, calibrated scale, cameras, or component-instance ground truth.
+
+## Experimental Phase 3 exports
+
+`phase_runs/v1/phase3_visual_hull/` contains one STL, one 3MF, one comparison image, and one validation report for each of the 24 rings. Shared-axis scale alignment improves cross-view consistency, but the files remain non-metric visual hulls. Do not use their nominal 3MF display size for jewellery manufacturing.

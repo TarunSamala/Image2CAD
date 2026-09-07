@@ -46,7 +46,7 @@ docker exec cadrille-gpu sh -lc \
   'cd /workspace && PYTHONPATH=pipeline python -m unittest discover -s tests -v'
 ```
 
-The current suite contains 67 tests.
+The current suite contains 71 tests.
 
 ## Jewellery dataset
 
@@ -133,3 +133,16 @@ docker run --rm --gpus all --user "$(id -u):$(id -g)" \
 ```
 
 The sample has one uncalibrated view, so its outputs are qualitative machine proposals. The four outer structures are recorded as support proposals rather than confirmed gemstone prongs, and pixel accuracy cannot be scored without a human-reviewed mask.
+
+## Dataset Phase 3 visual hulls
+
+Generate experimental non-metric STL and 3MF visual hulls for all 24 five-view rings:
+
+```bash
+docker run --rm --gpus all --user "$(id -u):$(id -g)" \
+  -v "$PWD:/workspace" -w /workspace \
+  image2cad-validation:local sh -lc \
+  'PYTHONPATH=pipeline python pipeline/reconstruct_dataset_phase3.py --device cuda'
+```
+
+The reconstruction first aligns shared X, Y, and Z silhouette extents across independently normalized views, then carves a 128-voxel visual hull. The outputs are watertight research meshes and are explicitly named `non_metric`. They are not editable parametric CAD or manufacturing geometry: hidden concavities, semantic components, camera calibration, and physical scale remain unavailable. Phase 3.3 is therefore not claimed.

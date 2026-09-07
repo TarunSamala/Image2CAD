@@ -1,0 +1,1990 @@
+{
+  "stage": "dataset_phase3_visual_hull_batch",
+  "object_count": 24,
+  "device": "cuda",
+  "resolution": 128,
+  "exports": [
+    "STL",
+    "3MF"
+  ],
+  "all_meshes_watertight": true,
+  "all_exports_readable": true,
+  "mean_reprojection_iou_by_split": {
+    "test": 0.961753,
+    "train": 0.948832,
+    "val": 0.946122
+  },
+  "phase3_status": "experimental_non_metric_pass",
+  "phase3_3_status": "not_eligible_missing_semantic_components_cameras_scale_and_cad_targets",
+  "manufacturing_accuracy_validated": false,
+  "objects": [
+    {
+      "object_id": "ring_001",
+      "split": "train",
+      "stage": "dataset_phase3_visual_hull",
+      "source_stage": "trained Phase 2 whole-jewellery silhouettes",
+      "resolution": 128,
+      "selected_side_consensus": "union",
+      "volume_voxels": 105790,
+      "mesh": {
+        "vertices": 28702,
+        "faces": 57432,
+        "watertight": true,
+        "body_count": 1
+      },
+      "reprojection": {
+        "mean_iou": 0.937474,
+        "views": {
+          "front": {
+            "iou": 0.988346,
+            "boundary_f1_2px": 1.0
+          },
+          "top": {
+            "iou": 0.968534,
+            "boundary_f1_2px": 0.989499
+          },
+          "lsv": {
+            "iou": 0.906882,
+            "boundary_f1_2px": 0.87584
+          },
+          "rsv": {
+            "iou": 0.886135,
+            "boundary_f1_2px": 0.869008
+          }
+        },
+        "selection_objective": 0.937474,
+        "candidate_objectives": {
+          "intersection": 0.933396,
+          "union": 0.937474,
+          "left": 0.937004,
+          "mirrored_right": 0.934504
+        },
+        "selected_projection_iou": {
+          "front": 0.988346,
+          "top": 0.968534,
+          "lsv": 0.906882,
+          "rsv": 0.886135
+        },
+        "axis_alignment": {
+          "method": "least_squares_shared_axis_scale_v1",
+          "warp_scales_input_px_to_voxel": {
+            "front": 0.45321874,
+            "top": 0.59576782,
+            "lsv": 0.64171123,
+            "rsv": 0.64171123
+          },
+          "relative_view_scales": {
+            "front": 0.81295469,
+            "top": 1.06865009,
+            "side": 1.15106044
+          },
+          "log_constraint_residual": 0.01538398,
+          "calibrated": false
+        }
+      },
+      "exports": {
+        "stl": "dataset/phase_runs/v1/phase3_visual_hull/ring_001/ring_001_phase3_visual_hull_non_metric.stl",
+        "3mf": "dataset/phase_runs/v1/phase3_visual_hull/ring_001/ring_001_phase3_visual_hull_non_metric.3mf",
+        "preview": "dataset/phase_runs/v1/phase3_visual_hull/ring_001/ring_001_phase3_comparison.png"
+      },
+      "export_checks": {
+        "stl_readable": true,
+        "3mf_package_valid": true
+      },
+      "scale": {
+        "calibrated": false,
+        "nominal_display_size_mm": 30.0
+      },
+      "camera_calibrated": false,
+      "phase3_3_eligible": false,
+      "manufacturing_accuracy_validated": false,
+      "warning": "Coarse visual hull from assumed orthographic views. Hidden concavities and component topology are unresolved."
+    },
+    {
+      "object_id": "ring_002",
+      "split": "train",
+      "stage": "dataset_phase3_visual_hull",
+      "source_stage": "trained Phase 2 whole-jewellery silhouettes",
+      "resolution": 128,
+      "selected_side_consensus": "union",
+      "volume_voxels": 55150,
+      "mesh": {
+        "vertices": 17978,
+        "faces": 35976,
+        "watertight": true,
+        "body_count": 1
+      },
+      "reprojection": {
+        "mean_iou": 0.892887,
+        "views": {
+          "front": {
+            "iou": 0.97265,
+            "boundary_f1_2px": 0.994652
+          },
+          "top": {
+            "iou": 0.909511,
+            "boundary_f1_2px": 0.950461
+          },
+          "lsv": {
+            "iou": 0.873536,
+            "boundary_f1_2px": 0.84921
+          },
+          "rsv": {
+            "iou": 0.815851,
+            "boundary_f1_2px": 0.832958
+          }
+        },
+        "selection_objective": 0.892887,
+        "candidate_objectives": {
+          "intersection": 0.881197,
+          "union": 0.892887,
+          "left": 0.89113,
+          "mirrored_right": 0.883626
+        },
+        "selected_projection_iou": {
+          "front": 0.97265,
+          "top": 0.909511,
+          "lsv": 0.873536,
+          "rsv": 0.815851
+        },
+        "axis_alignment": {
+          "method": "least_squares_shared_axis_scale_v1",
+          "warp_scales_input_px_to_voxel": {
+            "front": 0.37944701,
+            "top": 0.57707519,
+            "lsv": 0.64171123,
+            "rsv": 0.64171123
+          },
+          "relative_view_scales": {
+            "front": 0.72986646,
+            "top": 1.11000434,
+            "side": 1.23433179
+          },
+          "log_constraint_residual": 0.03381355,
+          "calibrated": false
+        }
+      },
+      "exports": {
+        "stl": "dataset/phase_runs/v1/phase3_visual_hull/ring_002/ring_002_phase3_visual_hull_non_metric.stl",
+        "3mf": "dataset/phase_runs/v1/phase3_visual_hull/ring_002/ring_002_phase3_visual_hull_non_metric.3mf",
+        "preview": "dataset/phase_runs/v1/phase3_visual_hull/ring_002/ring_002_phase3_comparison.png"
+      },
+      "export_checks": {
+        "stl_readable": true,
+        "3mf_package_valid": true
+      },
+      "scale": {
+        "calibrated": false,
+        "nominal_display_size_mm": 30.0
+      },
+      "camera_calibrated": false,
+      "phase3_3_eligible": false,
+      "manufacturing_accuracy_validated": false,
+      "warning": "Coarse visual hull from assumed orthographic views. Hidden concavities and component topology are unresolved."
+    },
+    {
+      "object_id": "ring_003",
+      "split": "train",
+      "stage": "dataset_phase3_visual_hull",
+      "source_stage": "trained Phase 2 whole-jewellery silhouettes",
+      "resolution": 128,
+      "selected_side_consensus": "union",
+      "volume_voxels": 109775,
+      "mesh": {
+        "vertices": 33694,
+        "faces": 67484,
+        "watertight": true,
+        "body_count": 2
+      },
+      "reprojection": {
+        "mean_iou": 0.945909,
+        "views": {
+          "front": {
+            "iou": 0.964256,
+            "boundary_f1_2px": 0.941037
+          },
+          "top": {
+            "iou": 0.960315,
+            "boundary_f1_2px": 0.987456
+          },
+          "lsv": {
+            "iou": 0.955162,
+            "boundary_f1_2px": 0.987437
+          },
+          "rsv": {
+            "iou": 0.903905,
+            "boundary_f1_2px": 0.963308
+          }
+        },
+        "selection_objective": 0.945909,
+        "candidate_objectives": {
+          "intersection": 0.938213,
+          "union": 0.945909,
+          "left": 0.945431,
+          "mirrored_right": 0.940122
+        },
+        "selected_projection_iou": {
+          "front": 0.964256,
+          "top": 0.960315,
+          "lsv": 0.955162,
+          "rsv": 0.903905
+        },
+        "axis_alignment": {
+          "method": "least_squares_shared_axis_scale_v1",
+          "warp_scales_input_px_to_voxel": {
+            "front": 0.48613902,
+            "top": 0.60828504,
+            "lsv": 0.63829787,
+            "rsv": 0.63829787
+          },
+          "relative_view_scales": {
+            "front": 0.84748134,
+            "top": 1.06041728,
+            "side": 1.11273836
+          },
+          "log_constraint_residual": 0.00859427,
+          "calibrated": false
+        }
+      },
+      "exports": {
+        "stl": "dataset/phase_runs/v1/phase3_visual_hull/ring_003/ring_003_phase3_visual_hull_non_metric.stl",
+        "3mf": "dataset/phase_runs/v1/phase3_visual_hull/ring_003/ring_003_phase3_visual_hull_non_metric.3mf",
+        "preview": "dataset/phase_runs/v1/phase3_visual_hull/ring_003/ring_003_phase3_comparison.png"
+      },
+      "export_checks": {
+        "stl_readable": true,
+        "3mf_package_valid": true
+      },
+      "scale": {
+        "calibrated": false,
+        "nominal_display_size_mm": 30.0
+      },
+      "camera_calibrated": false,
+      "phase3_3_eligible": false,
+      "manufacturing_accuracy_validated": false,
+      "warning": "Coarse visual hull from assumed orthographic views. Hidden concavities and component topology are unresolved."
+    },
+    {
+      "object_id": "ring_004",
+      "split": "val",
+      "stage": "dataset_phase3_visual_hull",
+      "source_stage": "trained Phase 2 whole-jewellery silhouettes",
+      "resolution": 128,
+      "selected_side_consensus": "union",
+      "volume_voxels": 109037,
+      "mesh": {
+        "vertices": 33378,
+        "faces": 66876,
+        "watertight": true,
+        "body_count": 1
+      },
+      "reprojection": {
+        "mean_iou": 0.934965,
+        "views": {
+          "front": {
+            "iou": 0.996715,
+            "boundary_f1_2px": 1.0
+          },
+          "top": {
+            "iou": 0.967083,
+            "boundary_f1_2px": 0.998591
+          },
+          "lsv": {
+            "iou": 0.895399,
+            "boundary_f1_2px": 0.86961
+          },
+          "rsv": {
+            "iou": 0.880663,
+            "boundary_f1_2px": 0.878014
+          }
+        },
+        "selection_objective": 0.934965,
+        "candidate_objectives": {
+          "intersection": 0.929305,
+          "union": 0.934965,
+          "left": 0.934278,
+          "mirrored_right": 0.930848
+        },
+        "selected_projection_iou": {
+          "front": 0.996715,
+          "top": 0.967083,
+          "lsv": 0.895399,
+          "rsv": 0.880663
+        },
+        "axis_alignment": {
+          "method": "least_squares_shared_axis_scale_v1",
+          "warp_scales_input_px_to_voxel": {
+            "front": 0.48535269,
+            "top": 0.60714273,
+            "lsv": 0.63829787,
+            "rsv": 0.63829787
+          },
+          "relative_view_scales": {
+            "front": 0.84709781,
+            "top": 1.05966093,
+            "side": 1.11403675
+          },
+          "log_constraint_residual": 0.00919901,
+          "calibrated": false
+        }
+      },
+      "exports": {
+        "stl": "dataset/phase_runs/v1/phase3_visual_hull/ring_004/ring_004_phase3_visual_hull_non_metric.stl",
+        "3mf": "dataset/phase_runs/v1/phase3_visual_hull/ring_004/ring_004_phase3_visual_hull_non_metric.3mf",
+        "preview": "dataset/phase_runs/v1/phase3_visual_hull/ring_004/ring_004_phase3_comparison.png"
+      },
+      "export_checks": {
+        "stl_readable": true,
+        "3mf_package_valid": true
+      },
+      "scale": {
+        "calibrated": false,
+        "nominal_display_size_mm": 30.0
+      },
+      "camera_calibrated": false,
+      "phase3_3_eligible": false,
+      "manufacturing_accuracy_validated": false,
+      "warning": "Coarse visual hull from assumed orthographic views. Hidden concavities and component topology are unresolved."
+    },
+    {
+      "object_id": "ring_005",
+      "split": "train",
+      "stage": "dataset_phase3_visual_hull",
+      "source_stage": "trained Phase 2 whole-jewellery silhouettes",
+      "resolution": 128,
+      "selected_side_consensus": "union",
+      "volume_voxels": 92252,
+      "mesh": {
+        "vertices": 23310,
+        "faces": 46640,
+        "watertight": true,
+        "body_count": 1
+      },
+      "reprojection": {
+        "mean_iou": 0.97172,
+        "views": {
+          "front": {
+            "iou": 0.998383,
+            "boundary_f1_2px": 1.0
+          },
+          "top": {
+            "iou": 0.974061,
+            "boundary_f1_2px": 1.0
+          },
+          "lsv": {
+            "iou": 0.979188,
+            "boundary_f1_2px": 0.992343
+          },
+          "rsv": {
+            "iou": 0.935249,
+            "boundary_f1_2px": 0.952338
+          }
+        },
+        "selection_objective": 0.97172,
+        "candidate_objectives": {
+          "intersection": 0.969984,
+          "union": 0.97172,
+          "left": 0.971703,
+          "mirrored_right": 0.97043
+        },
+        "selected_projection_iou": {
+          "front": 0.998383,
+          "top": 0.974061,
+          "lsv": 0.979188,
+          "rsv": 0.935249
+        },
+        "axis_alignment": {
+          "method": "least_squares_shared_axis_scale_v1",
+          "warp_scales_input_px_to_voxel": {
+            "front": 0.4327287,
+            "top": 0.61626982,
+            "lsv": 0.63829787,
+            "rsv": 0.63829787
+          },
+          "relative_view_scales": {
+            "front": 0.78081061,
+            "top": 1.11199005,
+            "side": 1.15173721
+          },
+          "log_constraint_residual": 0.00370028,
+          "calibrated": false
+        }
+      },
+      "exports": {
+        "stl": "dataset/phase_runs/v1/phase3_visual_hull/ring_005/ring_005_phase3_visual_hull_non_metric.stl",
+        "3mf": "dataset/phase_runs/v1/phase3_visual_hull/ring_005/ring_005_phase3_visual_hull_non_metric.3mf",
+        "preview": "dataset/phase_runs/v1/phase3_visual_hull/ring_005/ring_005_phase3_comparison.png"
+      },
+      "export_checks": {
+        "stl_readable": true,
+        "3mf_package_valid": true
+      },
+      "scale": {
+        "calibrated": false,
+        "nominal_display_size_mm": 30.0
+      },
+      "camera_calibrated": false,
+      "phase3_3_eligible": false,
+      "manufacturing_accuracy_validated": false,
+      "warning": "Coarse visual hull from assumed orthographic views. Hidden concavities and component topology are unresolved."
+    },
+    {
+      "object_id": "ring_006",
+      "split": "train",
+      "stage": "dataset_phase3_visual_hull",
+      "source_stage": "trained Phase 2 whole-jewellery silhouettes",
+      "resolution": 128,
+      "selected_side_consensus": "union",
+      "volume_voxels": 103594,
+      "mesh": {
+        "vertices": 30400,
+        "faces": 60852,
+        "watertight": true,
+        "body_count": 1
+      },
+      "reprojection": {
+        "mean_iou": 0.963828,
+        "views": {
+          "front": {
+            "iou": 0.996992,
+            "boundary_f1_2px": 1.0
+          },
+          "top": {
+            "iou": 0.984321,
+            "boundary_f1_2px": 1.0
+          },
+          "lsv": {
+            "iou": 0.97255,
+            "boundary_f1_2px": 0.990061
+          },
+          "rsv": {
+            "iou": 0.90145,
+            "boundary_f1_2px": 0.892183
+          }
+        },
+        "selection_objective": 0.963828,
+        "candidate_objectives": {
+          "intersection": 0.961808,
+          "union": 0.963828,
+          "left": 0.963772,
+          "mirrored_right": 0.96249
+        },
+        "selected_projection_iou": {
+          "front": 0.996992,
+          "top": 0.984321,
+          "lsv": 0.97255,
+          "rsv": 0.90145
+        },
+        "axis_alignment": {
+          "method": "least_squares_shared_axis_scale_v1",
+          "warp_scales_input_px_to_voxel": {
+            "front": 0.41588172,
+            "top": 0.60476438,
+            "lsv": 0.63829787,
+            "rsv": 0.63829787
+          },
+          "relative_view_scales": {
+            "front": 0.76520305,
+            "top": 1.11273836,
+            "side": 1.17443842
+          },
+          "log_constraint_residual": 0.00873703,
+          "calibrated": false
+        }
+      },
+      "exports": {
+        "stl": "dataset/phase_runs/v1/phase3_visual_hull/ring_006/ring_006_phase3_visual_hull_non_metric.stl",
+        "3mf": "dataset/phase_runs/v1/phase3_visual_hull/ring_006/ring_006_phase3_visual_hull_non_metric.3mf",
+        "preview": "dataset/phase_runs/v1/phase3_visual_hull/ring_006/ring_006_phase3_comparison.png"
+      },
+      "export_checks": {
+        "stl_readable": true,
+        "3mf_package_valid": true
+      },
+      "scale": {
+        "calibrated": false,
+        "nominal_display_size_mm": 30.0
+      },
+      "camera_calibrated": false,
+      "phase3_3_eligible": false,
+      "manufacturing_accuracy_validated": false,
+      "warning": "Coarse visual hull from assumed orthographic views. Hidden concavities and component topology are unresolved."
+    },
+    {
+      "object_id": "ring_007",
+      "split": "test",
+      "stage": "dataset_phase3_visual_hull",
+      "source_stage": "trained Phase 2 whole-jewellery silhouettes",
+      "resolution": 128,
+      "selected_side_consensus": "union",
+      "volume_voxels": 128676,
+      "mesh": {
+        "vertices": 26940,
+        "faces": 53892,
+        "watertight": true,
+        "body_count": 1
+      },
+      "reprojection": {
+        "mean_iou": 0.968463,
+        "views": {
+          "front": {
+            "iou": 0.995297,
+            "boundary_f1_2px": 1.0
+          },
+          "top": {
+            "iou": 0.977167,
+            "boundary_f1_2px": 1.0
+          },
+          "lsv": {
+            "iou": 0.946752,
+            "boundary_f1_2px": 0.98412
+          },
+          "rsv": {
+            "iou": 0.954634,
+            "boundary_f1_2px": 0.983697
+          }
+        },
+        "selection_objective": 0.968463,
+        "candidate_objectives": {
+          "intersection": 0.966033,
+          "union": 0.968463,
+          "left": 0.96844,
+          "mirrored_right": 0.967111
+        },
+        "selected_projection_iou": {
+          "front": 0.995297,
+          "top": 0.977167,
+          "lsv": 0.946752,
+          "rsv": 0.954634
+        },
+        "axis_alignment": {
+          "method": "least_squares_shared_axis_scale_v1",
+          "warp_scales_input_px_to_voxel": {
+            "front": 0.5257383,
+            "top": 0.61661421,
+            "lsv": 0.63829787,
+            "rsv": 0.63829787
+          },
+          "relative_view_scales": {
+            "front": 0.88886152,
+            "top": 1.04250468,
+            "side": 1.07916508
+          },
+          "log_constraint_residual": 0.0047748,
+          "calibrated": false
+        }
+      },
+      "exports": {
+        "stl": "dataset/phase_runs/v1/phase3_visual_hull/ring_007/ring_007_phase3_visual_hull_non_metric.stl",
+        "3mf": "dataset/phase_runs/v1/phase3_visual_hull/ring_007/ring_007_phase3_visual_hull_non_metric.3mf",
+        "preview": "dataset/phase_runs/v1/phase3_visual_hull/ring_007/ring_007_phase3_comparison.png"
+      },
+      "export_checks": {
+        "stl_readable": true,
+        "3mf_package_valid": true
+      },
+      "scale": {
+        "calibrated": false,
+        "nominal_display_size_mm": 30.0
+      },
+      "camera_calibrated": false,
+      "phase3_3_eligible": false,
+      "manufacturing_accuracy_validated": false,
+      "warning": "Coarse visual hull from assumed orthographic views. Hidden concavities and component topology are unresolved."
+    },
+    {
+      "object_id": "ring_008",
+      "split": "train",
+      "stage": "dataset_phase3_visual_hull",
+      "source_stage": "trained Phase 2 whole-jewellery silhouettes",
+      "resolution": 128,
+      "selected_side_consensus": "union",
+      "volume_voxels": 147921,
+      "mesh": {
+        "vertices": 35272,
+        "faces": 70596,
+        "watertight": true,
+        "body_count": 1
+      },
+      "reprojection": {
+        "mean_iou": 0.965672,
+        "views": {
+          "front": {
+            "iou": 0.994967,
+            "boundary_f1_2px": 1.0
+          },
+          "top": {
+            "iou": 0.980251,
+            "boundary_f1_2px": 0.987825
+          },
+          "lsv": {
+            "iou": 0.932283,
+            "boundary_f1_2px": 0.946015
+          },
+          "rsv": {
+            "iou": 0.955188,
+            "boundary_f1_2px": 0.919627
+          }
+        },
+        "selection_objective": 0.965672,
+        "candidate_objectives": {
+          "intersection": 0.963544,
+          "union": 0.965672,
+          "left": 0.963637,
+          "mirrored_right": 0.965633
+        },
+        "selected_projection_iou": {
+          "front": 0.994967,
+          "top": 0.980251,
+          "lsv": 0.932283,
+          "rsv": 0.955188
+        },
+        "axis_alignment": {
+          "method": "least_squares_shared_axis_scale_v1",
+          "warp_scales_input_px_to_voxel": {
+            "front": 0.52084916,
+            "top": 0.60913083,
+            "lsv": 0.64171123,
+            "rsv": 0.64171123
+          },
+          "relative_view_scales": {
+            "front": 0.88536953,
+            "top": 1.03543582,
+            "side": 1.09081786
+          },
+          "log_constraint_residual": 0.0090058,
+          "calibrated": false
+        }
+      },
+      "exports": {
+        "stl": "dataset/phase_runs/v1/phase3_visual_hull/ring_008/ring_008_phase3_visual_hull_non_metric.stl",
+        "3mf": "dataset/phase_runs/v1/phase3_visual_hull/ring_008/ring_008_phase3_visual_hull_non_metric.3mf",
+        "preview": "dataset/phase_runs/v1/phase3_visual_hull/ring_008/ring_008_phase3_comparison.png"
+      },
+      "export_checks": {
+        "stl_readable": true,
+        "3mf_package_valid": true
+      },
+      "scale": {
+        "calibrated": false,
+        "nominal_display_size_mm": 30.0
+      },
+      "camera_calibrated": false,
+      "phase3_3_eligible": false,
+      "manufacturing_accuracy_validated": false,
+      "warning": "Coarse visual hull from assumed orthographic views. Hidden concavities and component topology are unresolved."
+    },
+    {
+      "object_id": "ring_009",
+      "split": "train",
+      "stage": "dataset_phase3_visual_hull",
+      "source_stage": "trained Phase 2 whole-jewellery silhouettes",
+      "resolution": 128,
+      "selected_side_consensus": "union",
+      "volume_voxels": 95811,
+      "mesh": {
+        "vertices": 25686,
+        "faces": 51384,
+        "watertight": true,
+        "body_count": 1
+      },
+      "reprojection": {
+        "mean_iou": 0.946036,
+        "views": {
+          "front": {
+            "iou": 0.981005,
+            "boundary_f1_2px": 0.987724
+          },
+          "top": {
+            "iou": 0.968129,
+            "boundary_f1_2px": 1.0
+          },
+          "lsv": {
+            "iou": 0.95475,
+            "boundary_f1_2px": 0.979023
+          },
+          "rsv": {
+            "iou": 0.880261,
+            "boundary_f1_2px": 0.908245
+          }
+        },
+        "selection_objective": 0.946036,
+        "candidate_objectives": {
+          "intersection": 0.939946,
+          "union": 0.946036,
+          "left": 0.946019,
+          "mirrored_right": 0.941646
+        },
+        "selected_projection_iou": {
+          "front": 0.981005,
+          "top": 0.968129,
+          "lsv": 0.95475,
+          "rsv": 0.880261
+        },
+        "axis_alignment": {
+          "method": "least_squares_shared_axis_scale_v1",
+          "warp_scales_input_px_to_voxel": {
+            "front": 0.4104289,
+            "top": 0.59146769,
+            "lsv": 0.63829787,
+            "rsv": 0.63829787
+          },
+          "relative_view_scales": {
+            "front": 0.76414154,
+            "top": 1.10120179,
+            "side": 1.1883908
+          },
+          "log_constraint_residual": 0.00998905,
+          "calibrated": false
+        }
+      },
+      "exports": {
+        "stl": "dataset/phase_runs/v1/phase3_visual_hull/ring_009/ring_009_phase3_visual_hull_non_metric.stl",
+        "3mf": "dataset/phase_runs/v1/phase3_visual_hull/ring_009/ring_009_phase3_visual_hull_non_metric.3mf",
+        "preview": "dataset/phase_runs/v1/phase3_visual_hull/ring_009/ring_009_phase3_comparison.png"
+      },
+      "export_checks": {
+        "stl_readable": true,
+        "3mf_package_valid": true
+      },
+      "scale": {
+        "calibrated": false,
+        "nominal_display_size_mm": 30.0
+      },
+      "camera_calibrated": false,
+      "phase3_3_eligible": false,
+      "manufacturing_accuracy_validated": false,
+      "warning": "Coarse visual hull from assumed orthographic views. Hidden concavities and component topology are unresolved."
+    },
+    {
+      "object_id": "ring_010",
+      "split": "train",
+      "stage": "dataset_phase3_visual_hull",
+      "source_stage": "trained Phase 2 whole-jewellery silhouettes",
+      "resolution": 128,
+      "selected_side_consensus": "union",
+      "volume_voxels": 113866,
+      "mesh": {
+        "vertices": 27186,
+        "faces": 54388,
+        "watertight": true,
+        "body_count": 1
+      },
+      "reprojection": {
+        "mean_iou": 0.964829,
+        "views": {
+          "front": {
+            "iou": 0.985027,
+            "boundary_f1_2px": 0.990945
+          },
+          "top": {
+            "iou": 0.969377,
+            "boundary_f1_2px": 1.0
+          },
+          "lsv": {
+            "iou": 0.956378,
+            "boundary_f1_2px": 0.979155
+          },
+          "rsv": {
+            "iou": 0.948533,
+            "boundary_f1_2px": 0.981145
+          }
+        },
+        "selection_objective": 0.964829,
+        "candidate_objectives": {
+          "intersection": 0.961552,
+          "union": 0.964829,
+          "left": 0.964379,
+          "mirrored_right": 0.962366
+        },
+        "selected_projection_iou": {
+          "front": 0.985027,
+          "top": 0.969377,
+          "lsv": 0.956378,
+          "rsv": 0.948533
+        },
+        "axis_alignment": {
+          "method": "least_squares_shared_axis_scale_v1",
+          "warp_scales_input_px_to_voxel": {
+            "front": 0.53337641,
+            "top": 0.58454418,
+            "lsv": 0.64171123,
+            "rsv": 0.64171123
+          },
+          "relative_view_scales": {
+            "front": 0.91194828,
+            "top": 0.99943314,
+            "side": 1.09717536
+          },
+          "log_constraint_residual": 0.01447568,
+          "calibrated": false
+        }
+      },
+      "exports": {
+        "stl": "dataset/phase_runs/v1/phase3_visual_hull/ring_010/ring_010_phase3_visual_hull_non_metric.stl",
+        "3mf": "dataset/phase_runs/v1/phase3_visual_hull/ring_010/ring_010_phase3_visual_hull_non_metric.3mf",
+        "preview": "dataset/phase_runs/v1/phase3_visual_hull/ring_010/ring_010_phase3_comparison.png"
+      },
+      "export_checks": {
+        "stl_readable": true,
+        "3mf_package_valid": true
+      },
+      "scale": {
+        "calibrated": false,
+        "nominal_display_size_mm": 30.0
+      },
+      "camera_calibrated": false,
+      "phase3_3_eligible": false,
+      "manufacturing_accuracy_validated": false,
+      "warning": "Coarse visual hull from assumed orthographic views. Hidden concavities and component topology are unresolved."
+    },
+    {
+      "object_id": "ring_011",
+      "split": "train",
+      "stage": "dataset_phase3_visual_hull",
+      "source_stage": "trained Phase 2 whole-jewellery silhouettes",
+      "resolution": 128,
+      "selected_side_consensus": "union",
+      "volume_voxels": 105612,
+      "mesh": {
+        "vertices": 25230,
+        "faces": 50464,
+        "watertight": true,
+        "body_count": 1
+      },
+      "reprojection": {
+        "mean_iou": 0.940324,
+        "views": {
+          "front": {
+            "iou": 0.985517,
+            "boundary_f1_2px": 0.998081
+          },
+          "top": {
+            "iou": 0.969236,
+            "boundary_f1_2px": 1.0
+          },
+          "lsv": {
+            "iou": 0.924004,
+            "boundary_f1_2px": 0.923472
+          },
+          "rsv": {
+            "iou": 0.882537,
+            "boundary_f1_2px": 0.879101
+          }
+        },
+        "selection_objective": 0.940324,
+        "candidate_objectives": {
+          "intersection": 0.932195,
+          "union": 0.940324,
+          "left": 0.939727,
+          "mirrored_right": 0.935651
+        },
+        "selected_projection_iou": {
+          "front": 0.985517,
+          "top": 0.969236,
+          "lsv": 0.924004,
+          "rsv": 0.882537
+        },
+        "axis_alignment": {
+          "method": "least_squares_shared_axis_scale_v1",
+          "warp_scales_input_px_to_voxel": {
+            "front": 0.43698092,
+            "top": 0.59581388,
+            "lsv": 0.63829787,
+            "rsv": 0.63829787
+          },
+          "relative_view_scales": {
+            "front": 0.7948106,
+            "top": 1.08370676,
+            "side": 1.16097954
+          },
+          "log_constraint_residual": 0.01423201,
+          "calibrated": false
+        }
+      },
+      "exports": {
+        "stl": "dataset/phase_runs/v1/phase3_visual_hull/ring_011/ring_011_phase3_visual_hull_non_metric.stl",
+        "3mf": "dataset/phase_runs/v1/phase3_visual_hull/ring_011/ring_011_phase3_visual_hull_non_metric.3mf",
+        "preview": "dataset/phase_runs/v1/phase3_visual_hull/ring_011/ring_011_phase3_comparison.png"
+      },
+      "export_checks": {
+        "stl_readable": true,
+        "3mf_package_valid": true
+      },
+      "scale": {
+        "calibrated": false,
+        "nominal_display_size_mm": 30.0
+      },
+      "camera_calibrated": false,
+      "phase3_3_eligible": false,
+      "manufacturing_accuracy_validated": false,
+      "warning": "Coarse visual hull from assumed orthographic views. Hidden concavities and component topology are unresolved."
+    },
+    {
+      "object_id": "ring_012",
+      "split": "val",
+      "stage": "dataset_phase3_visual_hull",
+      "source_stage": "trained Phase 2 whole-jewellery silhouettes",
+      "resolution": 128,
+      "selected_side_consensus": "union",
+      "volume_voxels": 103469,
+      "mesh": {
+        "vertices": 24968,
+        "faces": 49936,
+        "watertight": true,
+        "body_count": 1
+      },
+      "reprojection": {
+        "mean_iou": 0.948013,
+        "views": {
+          "front": {
+            "iou": 0.994916,
+            "boundary_f1_2px": 1.0
+          },
+          "top": {
+            "iou": 0.966547,
+            "boundary_f1_2px": 1.0
+          },
+          "lsv": {
+            "iou": 0.921388,
+            "boundary_f1_2px": 0.962249
+          },
+          "rsv": {
+            "iou": 0.909199,
+            "boundary_f1_2px": 0.919708
+          }
+        },
+        "selection_objective": 0.948013,
+        "candidate_objectives": {
+          "intersection": 0.943613,
+          "union": 0.948013,
+          "left": 0.94767,
+          "mirrored_right": 0.946453
+        },
+        "selected_projection_iou": {
+          "front": 0.994916,
+          "top": 0.966547,
+          "lsv": 0.921388,
+          "rsv": 0.909199
+        },
+        "axis_alignment": {
+          "method": "least_squares_shared_axis_scale_v1",
+          "warp_scales_input_px_to_voxel": {
+            "front": 0.44892329,
+            "top": 0.59937691,
+            "lsv": 0.63829787,
+            "rsv": 0.63829787
+          },
+          "relative_view_scales": {
+            "front": 0.8076198,
+            "top": 1.07828814,
+            "side": 1.14830754
+          },
+          "log_constraint_residual": 0.01187468,
+          "calibrated": false
+        }
+      },
+      "exports": {
+        "stl": "dataset/phase_runs/v1/phase3_visual_hull/ring_012/ring_012_phase3_visual_hull_non_metric.stl",
+        "3mf": "dataset/phase_runs/v1/phase3_visual_hull/ring_012/ring_012_phase3_visual_hull_non_metric.3mf",
+        "preview": "dataset/phase_runs/v1/phase3_visual_hull/ring_012/ring_012_phase3_comparison.png"
+      },
+      "export_checks": {
+        "stl_readable": true,
+        "3mf_package_valid": true
+      },
+      "scale": {
+        "calibrated": false,
+        "nominal_display_size_mm": 30.0
+      },
+      "camera_calibrated": false,
+      "phase3_3_eligible": false,
+      "manufacturing_accuracy_validated": false,
+      "warning": "Coarse visual hull from assumed orthographic views. Hidden concavities and component topology are unresolved."
+    },
+    {
+      "object_id": "ring_013",
+      "split": "train",
+      "stage": "dataset_phase3_visual_hull",
+      "source_stage": "trained Phase 2 whole-jewellery silhouettes",
+      "resolution": 128,
+      "selected_side_consensus": "union",
+      "volume_voxels": 99736,
+      "mesh": {
+        "vertices": 26710,
+        "faces": 53460,
+        "watertight": true,
+        "body_count": 1
+      },
+      "reprojection": {
+        "mean_iou": 0.932682,
+        "views": {
+          "front": {
+            "iou": 0.98049,
+            "boundary_f1_2px": 0.994056
+          },
+          "top": {
+            "iou": 0.960481,
+            "boundary_f1_2px": 0.987948
+          },
+          "lsv": {
+            "iou": 0.903895,
+            "boundary_f1_2px": 0.943781
+          },
+          "rsv": {
+            "iou": 0.885861,
+            "boundary_f1_2px": 0.919771
+          }
+        },
+        "selection_objective": 0.932682,
+        "candidate_objectives": {
+          "intersection": 0.923891,
+          "union": 0.932682,
+          "left": 0.929768,
+          "mirrored_right": 0.931017
+        },
+        "selected_projection_iou": {
+          "front": 0.98049,
+          "top": 0.960481,
+          "lsv": 0.903895,
+          "rsv": 0.885861
+        },
+        "axis_alignment": {
+          "method": "least_squares_shared_axis_scale_v1",
+          "warp_scales_input_px_to_voxel": {
+            "front": 0.45144795,
+            "top": 0.59761863,
+            "lsv": 0.63829787,
+            "rsv": 0.63829787
+          },
+          "relative_view_scales": {
+            "front": 0.81143913,
+            "top": 1.07416845,
+            "side": 1.14728591
+          },
+          "log_constraint_residual": 0.01408599,
+          "calibrated": false
+        }
+      },
+      "exports": {
+        "stl": "dataset/phase_runs/v1/phase3_visual_hull/ring_013/ring_013_phase3_visual_hull_non_metric.stl",
+        "3mf": "dataset/phase_runs/v1/phase3_visual_hull/ring_013/ring_013_phase3_visual_hull_non_metric.3mf",
+        "preview": "dataset/phase_runs/v1/phase3_visual_hull/ring_013/ring_013_phase3_comparison.png"
+      },
+      "export_checks": {
+        "stl_readable": true,
+        "3mf_package_valid": true
+      },
+      "scale": {
+        "calibrated": false,
+        "nominal_display_size_mm": 30.0
+      },
+      "camera_calibrated": false,
+      "phase3_3_eligible": false,
+      "manufacturing_accuracy_validated": false,
+      "warning": "Coarse visual hull from assumed orthographic views. Hidden concavities and component topology are unresolved."
+    },
+    {
+      "object_id": "ring_014",
+      "split": "train",
+      "stage": "dataset_phase3_visual_hull",
+      "source_stage": "trained Phase 2 whole-jewellery silhouettes",
+      "resolution": 128,
+      "selected_side_consensus": "union",
+      "volume_voxels": 125239,
+      "mesh": {
+        "vertices": 30926,
+        "faces": 61880,
+        "watertight": true,
+        "body_count": 1
+      },
+      "reprojection": {
+        "mean_iou": 0.959631,
+        "views": {
+          "front": {
+            "iou": 0.99874,
+            "boundary_f1_2px": 1.0
+          },
+          "top": {
+            "iou": 0.995156,
+            "boundary_f1_2px": 1.0
+          },
+          "lsv": {
+            "iou": 0.956936,
+            "boundary_f1_2px": 0.961372
+          },
+          "rsv": {
+            "iou": 0.887692,
+            "boundary_f1_2px": 0.89073
+          }
+        },
+        "selection_objective": 0.959631,
+        "candidate_objectives": {
+          "intersection": 0.956573,
+          "union": 0.959631,
+          "left": 0.959585,
+          "mirrored_right": 0.958888
+        },
+        "selected_projection_iou": {
+          "front": 0.99874,
+          "top": 0.995156,
+          "lsv": 0.956936,
+          "rsv": 0.887692
+        },
+        "axis_alignment": {
+          "method": "least_squares_shared_axis_scale_v1",
+          "warp_scales_input_px_to_voxel": {
+            "front": 0.47423065,
+            "top": 0.62182243,
+            "lsv": 0.63829787,
+            "rsv": 0.63829787
+          },
+          "relative_view_scales": {
+            "front": 0.82749076,
+            "top": 1.08502543,
+            "side": 1.11377362
+          },
+          "log_constraint_residual": 0.0024919,
+          "calibrated": false
+        }
+      },
+      "exports": {
+        "stl": "dataset/phase_runs/v1/phase3_visual_hull/ring_014/ring_014_phase3_visual_hull_non_metric.stl",
+        "3mf": "dataset/phase_runs/v1/phase3_visual_hull/ring_014/ring_014_phase3_visual_hull_non_metric.3mf",
+        "preview": "dataset/phase_runs/v1/phase3_visual_hull/ring_014/ring_014_phase3_comparison.png"
+      },
+      "export_checks": {
+        "stl_readable": true,
+        "3mf_package_valid": true
+      },
+      "scale": {
+        "calibrated": false,
+        "nominal_display_size_mm": 30.0
+      },
+      "camera_calibrated": false,
+      "phase3_3_eligible": false,
+      "manufacturing_accuracy_validated": false,
+      "warning": "Coarse visual hull from assumed orthographic views. Hidden concavities and component topology are unresolved."
+    },
+    {
+      "object_id": "ring_015",
+      "split": "test",
+      "stage": "dataset_phase3_visual_hull",
+      "source_stage": "trained Phase 2 whole-jewellery silhouettes",
+      "resolution": 128,
+      "selected_side_consensus": "union",
+      "volume_voxels": 74256,
+      "mesh": {
+        "vertices": 21124,
+        "faces": 42260,
+        "watertight": true,
+        "body_count": 1
+      },
+      "reprojection": {
+        "mean_iou": 0.943083,
+        "views": {
+          "front": {
+            "iou": 0.993972,
+            "boundary_f1_2px": 1.0
+          },
+          "top": {
+            "iou": 0.94374,
+            "boundary_f1_2px": 0.977338
+          },
+          "lsv": {
+            "iou": 0.913043,
+            "boundary_f1_2px": 0.949854
+          },
+          "rsv": {
+            "iou": 0.921576,
+            "boundary_f1_2px": 0.923949
+          }
+        },
+        "selection_objective": 0.943083,
+        "candidate_objectives": {
+          "intersection": 0.939682,
+          "union": 0.943083,
+          "left": 0.942598,
+          "mirrored_right": 0.940882
+        },
+        "selected_projection_iou": {
+          "front": 0.993972,
+          "top": 0.94374,
+          "lsv": 0.913043,
+          "rsv": 0.921576
+        },
+        "axis_alignment": {
+          "method": "least_squares_shared_axis_scale_v1",
+          "warp_scales_input_px_to_voxel": {
+            "front": 0.39909795,
+            "top": 0.59104194,
+            "lsv": 0.63829787,
+            "rsv": 0.63829787
+          },
+          "relative_view_scales": {
+            "front": 0.75019201,
+            "top": 1.11099277,
+            "side": 1.19982065
+          },
+          "log_constraint_residual": 0.0190029,
+          "calibrated": false
+        }
+      },
+      "exports": {
+        "stl": "dataset/phase_runs/v1/phase3_visual_hull/ring_015/ring_015_phase3_visual_hull_non_metric.stl",
+        "3mf": "dataset/phase_runs/v1/phase3_visual_hull/ring_015/ring_015_phase3_visual_hull_non_metric.3mf",
+        "preview": "dataset/phase_runs/v1/phase3_visual_hull/ring_015/ring_015_phase3_comparison.png"
+      },
+      "export_checks": {
+        "stl_readable": true,
+        "3mf_package_valid": true
+      },
+      "scale": {
+        "calibrated": false,
+        "nominal_display_size_mm": 30.0
+      },
+      "camera_calibrated": false,
+      "phase3_3_eligible": false,
+      "manufacturing_accuracy_validated": false,
+      "warning": "Coarse visual hull from assumed orthographic views. Hidden concavities and component topology are unresolved."
+    },
+    {
+      "object_id": "ring_016",
+      "split": "train",
+      "stage": "dataset_phase3_visual_hull",
+      "source_stage": "trained Phase 2 whole-jewellery silhouettes",
+      "resolution": 128,
+      "selected_side_consensus": "union",
+      "volume_voxels": 72185,
+      "mesh": {
+        "vertices": 20660,
+        "faces": 41324,
+        "watertight": true,
+        "body_count": 1
+      },
+      "reprojection": {
+        "mean_iou": 0.921459,
+        "views": {
+          "front": {
+            "iou": 0.995152,
+            "boundary_f1_2px": 1.0
+          },
+          "top": {
+            "iou": 0.945499,
+            "boundary_f1_2px": 0.9801
+          },
+          "lsv": {
+            "iou": 0.870417,
+            "boundary_f1_2px": 0.891539
+          },
+          "rsv": {
+            "iou": 0.87477,
+            "boundary_f1_2px": 0.901242
+          }
+        },
+        "selection_objective": 0.921459,
+        "candidate_objectives": {
+          "intersection": 0.911618,
+          "union": 0.921459,
+          "left": 0.91984,
+          "mirrored_right": 0.91579
+        },
+        "selected_projection_iou": {
+          "front": 0.995152,
+          "top": 0.945499,
+          "lsv": 0.870417,
+          "rsv": 0.87477
+        },
+        "axis_alignment": {
+          "method": "least_squares_shared_axis_scale_v1",
+          "warp_scales_input_px_to_voxel": {
+            "front": 0.42251238,
+            "top": 0.59718295,
+            "lsv": 0.63829787,
+            "rsv": 0.63829787
+          },
+          "relative_view_scales": {
+            "front": 0.77657372,
+            "top": 1.09761657,
+            "side": 1.17318541
+          },
+          "log_constraint_residual": 0.01438742,
+          "calibrated": false
+        }
+      },
+      "exports": {
+        "stl": "dataset/phase_runs/v1/phase3_visual_hull/ring_016/ring_016_phase3_visual_hull_non_metric.stl",
+        "3mf": "dataset/phase_runs/v1/phase3_visual_hull/ring_016/ring_016_phase3_visual_hull_non_metric.3mf",
+        "preview": "dataset/phase_runs/v1/phase3_visual_hull/ring_016/ring_016_phase3_comparison.png"
+      },
+      "export_checks": {
+        "stl_readable": true,
+        "3mf_package_valid": true
+      },
+      "scale": {
+        "calibrated": false,
+        "nominal_display_size_mm": 30.0
+      },
+      "camera_calibrated": false,
+      "phase3_3_eligible": false,
+      "manufacturing_accuracy_validated": false,
+      "warning": "Coarse visual hull from assumed orthographic views. Hidden concavities and component topology are unresolved."
+    },
+    {
+      "object_id": "ring_017",
+      "split": "train",
+      "stage": "dataset_phase3_visual_hull",
+      "source_stage": "trained Phase 2 whole-jewellery silhouettes",
+      "resolution": 128,
+      "selected_side_consensus": "union",
+      "volume_voxels": 171757,
+      "mesh": {
+        "vertices": 37642,
+        "faces": 75344,
+        "watertight": true,
+        "body_count": 1
+      },
+      "reprojection": {
+        "mean_iou": 0.976127,
+        "views": {
+          "front": {
+            "iou": 0.997366,
+            "boundary_f1_2px": 1.0
+          },
+          "top": {
+            "iou": 0.990667,
+            "boundary_f1_2px": 1.0
+          },
+          "lsv": {
+            "iou": 0.95732,
+            "boundary_f1_2px": 0.993033
+          },
+          "rsv": {
+            "iou": 0.959156,
+            "boundary_f1_2px": 0.985266
+          }
+        },
+        "selection_objective": 0.976127,
+        "candidate_objectives": {
+          "intersection": 0.975526,
+          "union": 0.976127,
+          "left": 0.976025,
+          "mirrored_right": 0.976031
+        },
+        "selected_projection_iou": {
+          "front": 0.997366,
+          "top": 0.990667,
+          "lsv": 0.95732,
+          "rsv": 0.959156
+        },
+        "axis_alignment": {
+          "method": "least_squares_shared_axis_scale_v1",
+          "warp_scales_input_px_to_voxel": {
+            "front": 0.59719945,
+            "top": 0.61414649,
+            "lsv": 0.64171123,
+            "rsv": 0.64171123
+          },
+          "relative_view_scales": {
+            "front": 0.96725815,
+            "top": 0.99470653,
+            "side": 1.03935195
+          },
+          "log_constraint_residual": 0.00509913,
+          "calibrated": false
+        }
+      },
+      "exports": {
+        "stl": "dataset/phase_runs/v1/phase3_visual_hull/ring_017/ring_017_phase3_visual_hull_non_metric.stl",
+        "3mf": "dataset/phase_runs/v1/phase3_visual_hull/ring_017/ring_017_phase3_visual_hull_non_metric.3mf",
+        "preview": "dataset/phase_runs/v1/phase3_visual_hull/ring_017/ring_017_phase3_comparison.png"
+      },
+      "export_checks": {
+        "stl_readable": true,
+        "3mf_package_valid": true
+      },
+      "scale": {
+        "calibrated": false,
+        "nominal_display_size_mm": 30.0
+      },
+      "camera_calibrated": false,
+      "phase3_3_eligible": false,
+      "manufacturing_accuracy_validated": false,
+      "warning": "Coarse visual hull from assumed orthographic views. Hidden concavities and component topology are unresolved."
+    },
+    {
+      "object_id": "ring_018",
+      "split": "train",
+      "stage": "dataset_phase3_visual_hull",
+      "source_stage": "trained Phase 2 whole-jewellery silhouettes",
+      "resolution": 128,
+      "selected_side_consensus": "left",
+      "volume_voxels": 114535,
+      "mesh": {
+        "vertices": 25654,
+        "faces": 51320,
+        "watertight": true,
+        "body_count": 1
+      },
+      "reprojection": {
+        "mean_iou": 0.968576,
+        "views": {
+          "front": {
+            "iou": 0.99824,
+            "boundary_f1_2px": 1.0
+          },
+          "top": {
+            "iou": 0.97561,
+            "boundary_f1_2px": 1.0
+          },
+          "lsv": {
+            "iou": 1.0,
+            "boundary_f1_2px": 1.0
+          },
+          "rsv": {
+            "iou": 0.900455,
+            "boundary_f1_2px": 0.971507
+          }
+        },
+        "selection_objective": 0.968576,
+        "candidate_objectives": {
+          "intersection": 0.967284,
+          "union": 0.968568,
+          "left": 0.968576,
+          "mirrored_right": 0.968554
+        },
+        "selected_projection_iou": {
+          "front": 0.99824,
+          "top": 0.97561,
+          "lsv": 1.0,
+          "rsv": 0.900455
+        },
+        "axis_alignment": {
+          "method": "least_squares_shared_axis_scale_v1",
+          "warp_scales_input_px_to_voxel": {
+            "front": 0.4237697,
+            "top": 0.62862618,
+            "lsv": 0.63829787,
+            "rsv": 0.63829787
+          },
+          "relative_view_scales": {
+            "front": 0.76491759,
+            "top": 1.13468996,
+            "side": 1.15214766
+          },
+          "log_constraint_residual": 0.00069936,
+          "calibrated": false
+        }
+      },
+      "exports": {
+        "stl": "dataset/phase_runs/v1/phase3_visual_hull/ring_018/ring_018_phase3_visual_hull_non_metric.stl",
+        "3mf": "dataset/phase_runs/v1/phase3_visual_hull/ring_018/ring_018_phase3_visual_hull_non_metric.3mf",
+        "preview": "dataset/phase_runs/v1/phase3_visual_hull/ring_018/ring_018_phase3_comparison.png"
+      },
+      "export_checks": {
+        "stl_readable": true,
+        "3mf_package_valid": true
+      },
+      "scale": {
+        "calibrated": false,
+        "nominal_display_size_mm": 30.0
+      },
+      "camera_calibrated": false,
+      "phase3_3_eligible": false,
+      "manufacturing_accuracy_validated": false,
+      "warning": "Coarse visual hull from assumed orthographic views. Hidden concavities and component topology are unresolved."
+    },
+    {
+      "object_id": "ring_019",
+      "split": "train",
+      "stage": "dataset_phase3_visual_hull",
+      "source_stage": "trained Phase 2 whole-jewellery silhouettes",
+      "resolution": 128,
+      "selected_side_consensus": "union",
+      "volume_voxels": 67769,
+      "mesh": {
+        "vertices": 23732,
+        "faces": 47572,
+        "watertight": true,
+        "body_count": 1
+      },
+      "reprojection": {
+        "mean_iou": 0.937792,
+        "views": {
+          "front": {
+            "iou": 0.995628,
+            "boundary_f1_2px": 1.0
+          },
+          "top": {
+            "iou": 0.959984,
+            "boundary_f1_2px": 0.985041
+          },
+          "lsv": {
+            "iou": 0.901163,
+            "boundary_f1_2px": 0.971011
+          },
+          "rsv": {
+            "iou": 0.894391,
+            "boundary_f1_2px": 0.966513
+          }
+        },
+        "selection_objective": 0.937791,
+        "candidate_objectives": {
+          "intersection": 0.933124,
+          "union": 0.937791,
+          "left": 0.93725,
+          "mirrored_right": 0.934299
+        },
+        "selected_projection_iou": {
+          "front": 0.995628,
+          "top": 0.959984,
+          "lsv": 0.901163,
+          "rsv": 0.894391
+        },
+        "axis_alignment": {
+          "method": "least_squares_shared_axis_scale_v1",
+          "warp_scales_input_px_to_voxel": {
+            "front": 0.42883514,
+            "top": 0.6003815,
+            "lsv": 0.63829787,
+            "rsv": 0.63829787
+          },
+          "relative_view_scales": {
+            "front": 0.7829067,
+            "top": 1.09609185,
+            "side": 1.1653142
+          },
+          "log_constraint_residual": 0.01329594,
+          "calibrated": false
+        }
+      },
+      "exports": {
+        "stl": "dataset/phase_runs/v1/phase3_visual_hull/ring_019/ring_019_phase3_visual_hull_non_metric.stl",
+        "3mf": "dataset/phase_runs/v1/phase3_visual_hull/ring_019/ring_019_phase3_visual_hull_non_metric.3mf",
+        "preview": "dataset/phase_runs/v1/phase3_visual_hull/ring_019/ring_019_phase3_comparison.png"
+      },
+      "export_checks": {
+        "stl_readable": true,
+        "3mf_package_valid": true
+      },
+      "scale": {
+        "calibrated": false,
+        "nominal_display_size_mm": 30.0
+      },
+      "camera_calibrated": false,
+      "phase3_3_eligible": false,
+      "manufacturing_accuracy_validated": false,
+      "warning": "Coarse visual hull from assumed orthographic views. Hidden concavities and component topology are unresolved."
+    },
+    {
+      "object_id": "ring_020",
+      "split": "val",
+      "stage": "dataset_phase3_visual_hull",
+      "source_stage": "trained Phase 2 whole-jewellery silhouettes",
+      "resolution": 128,
+      "selected_side_consensus": "union",
+      "volume_voxels": 133099,
+      "mesh": {
+        "vertices": 33018,
+        "faces": 66100,
+        "watertight": true,
+        "body_count": 1
+      },
+      "reprojection": {
+        "mean_iou": 0.955389,
+        "views": {
+          "front": {
+            "iou": 0.982337,
+            "boundary_f1_2px": 1.0
+          },
+          "top": {
+            "iou": 0.959839,
+            "boundary_f1_2px": 0.98469
+          },
+          "lsv": {
+            "iou": 0.935989,
+            "boundary_f1_2px": 0.943931
+          },
+          "rsv": {
+            "iou": 0.943391,
+            "boundary_f1_2px": 0.962129
+          }
+        },
+        "selection_objective": 0.955389,
+        "candidate_objectives": {
+          "intersection": 0.953806,
+          "union": 0.955389,
+          "left": 0.954469,
+          "mirrored_right": 0.95501
+        },
+        "selected_projection_iou": {
+          "front": 0.982337,
+          "top": 0.959839,
+          "lsv": 0.935989,
+          "rsv": 0.943391
+        },
+        "axis_alignment": {
+          "method": "least_squares_shared_axis_scale_v1",
+          "warp_scales_input_px_to_voxel": {
+            "front": 0.46325877,
+            "top": 0.60199309,
+            "lsv": 0.63829787,
+            "rsv": 0.63829787
+          },
+          "relative_view_scales": {
+            "front": 0.82352629,
+            "top": 1.07015164,
+            "side": 1.13468996
+          },
+          "log_constraint_residual": 0.0102875,
+          "calibrated": false
+        }
+      },
+      "exports": {
+        "stl": "dataset/phase_runs/v1/phase3_visual_hull/ring_020/ring_020_phase3_visual_hull_non_metric.stl",
+        "3mf": "dataset/phase_runs/v1/phase3_visual_hull/ring_020/ring_020_phase3_visual_hull_non_metric.3mf",
+        "preview": "dataset/phase_runs/v1/phase3_visual_hull/ring_020/ring_020_phase3_comparison.png"
+      },
+      "export_checks": {
+        "stl_readable": true,
+        "3mf_package_valid": true
+      },
+      "scale": {
+        "calibrated": false,
+        "nominal_display_size_mm": 30.0
+      },
+      "camera_calibrated": false,
+      "phase3_3_eligible": false,
+      "manufacturing_accuracy_validated": false,
+      "warning": "Coarse visual hull from assumed orthographic views. Hidden concavities and component topology are unresolved."
+    },
+    {
+      "object_id": "ring_021",
+      "split": "train",
+      "stage": "dataset_phase3_visual_hull",
+      "source_stage": "trained Phase 2 whole-jewellery silhouettes",
+      "resolution": 128,
+      "selected_side_consensus": "union",
+      "volume_voxels": 122377,
+      "mesh": {
+        "vertices": 30536,
+        "faces": 61076,
+        "watertight": true,
+        "body_count": 1
+      },
+      "reprojection": {
+        "mean_iou": 0.962056,
+        "views": {
+          "front": {
+            "iou": 0.998298,
+            "boundary_f1_2px": 1.0
+          },
+          "top": {
+            "iou": 0.974593,
+            "boundary_f1_2px": 1.0
+          },
+          "lsv": {
+            "iou": 0.950305,
+            "boundary_f1_2px": 0.979989
+          },
+          "rsv": {
+            "iou": 0.925028,
+            "boundary_f1_2px": 0.936114
+          }
+        },
+        "selection_objective": 0.962056,
+        "candidate_objectives": {
+          "intersection": 0.95736,
+          "union": 0.962056,
+          "left": 0.961873,
+          "mirrored_right": 0.960161
+        },
+        "selected_projection_iou": {
+          "front": 0.998298,
+          "top": 0.974593,
+          "lsv": 0.950305,
+          "rsv": 0.925028
+        },
+        "axis_alignment": {
+          "method": "least_squares_shared_axis_scale_v1",
+          "warp_scales_input_px_to_voxel": {
+            "front": 0.50563004,
+            "top": 0.61350814,
+            "lsv": 0.63829787,
+            "rsv": 0.63829787
+          },
+          "relative_view_scales": {
+            "front": 0.86750902,
+            "top": 1.0525954,
+            "side": 1.09512712
+          },
+          "log_constraint_residual": 0.00536324,
+          "calibrated": false
+        }
+      },
+      "exports": {
+        "stl": "dataset/phase_runs/v1/phase3_visual_hull/ring_021/ring_021_phase3_visual_hull_non_metric.stl",
+        "3mf": "dataset/phase_runs/v1/phase3_visual_hull/ring_021/ring_021_phase3_visual_hull_non_metric.3mf",
+        "preview": "dataset/phase_runs/v1/phase3_visual_hull/ring_021/ring_021_phase3_comparison.png"
+      },
+      "export_checks": {
+        "stl_readable": true,
+        "3mf_package_valid": true
+      },
+      "scale": {
+        "calibrated": false,
+        "nominal_display_size_mm": 30.0
+      },
+      "camera_calibrated": false,
+      "phase3_3_eligible": false,
+      "manufacturing_accuracy_validated": false,
+      "warning": "Coarse visual hull from assumed orthographic views. Hidden concavities and component topology are unresolved."
+    },
+    {
+      "object_id": "ring_022",
+      "split": "train",
+      "stage": "dataset_phase3_visual_hull",
+      "source_stage": "trained Phase 2 whole-jewellery silhouettes",
+      "resolution": 128,
+      "selected_side_consensus": "union",
+      "volume_voxels": 156679,
+      "mesh": {
+        "vertices": 31406,
+        "faces": 62824,
+        "watertight": true,
+        "body_count": 1
+      },
+      "reprojection": {
+        "mean_iou": 0.971511,
+        "views": {
+          "front": {
+            "iou": 0.991731,
+            "boundary_f1_2px": 1.0
+          },
+          "top": {
+            "iou": 0.981504,
+            "boundary_f1_2px": 1.0
+          },
+          "lsv": {
+            "iou": 0.960862,
+            "boundary_f1_2px": 0.98175
+          },
+          "rsv": {
+            "iou": 0.951946,
+            "boundary_f1_2px": 0.987171
+          }
+        },
+        "selection_objective": 0.97151,
+        "candidate_objectives": {
+          "intersection": 0.968634,
+          "union": 0.97151,
+          "left": 0.971414,
+          "mirrored_right": 0.969121
+        },
+        "selected_projection_iou": {
+          "front": 0.991731,
+          "top": 0.981504,
+          "lsv": 0.960862,
+          "rsv": 0.951946
+        },
+        "axis_alignment": {
+          "method": "least_squares_shared_axis_scale_v1",
+          "warp_scales_input_px_to_voxel": {
+            "front": 0.47983662,
+            "top": 0.60778885,
+            "lsv": 0.63829787,
+            "rsv": 0.63829787
+          },
+          "relative_view_scales": {
+            "front": 0.84036938,
+            "top": 1.06446051,
+            "side": 1.11789297
+          },
+          "log_constraint_residual": 0.00800247,
+          "calibrated": false
+        }
+      },
+      "exports": {
+        "stl": "dataset/phase_runs/v1/phase3_visual_hull/ring_022/ring_022_phase3_visual_hull_non_metric.stl",
+        "3mf": "dataset/phase_runs/v1/phase3_visual_hull/ring_022/ring_022_phase3_visual_hull_non_metric.3mf",
+        "preview": "dataset/phase_runs/v1/phase3_visual_hull/ring_022/ring_022_phase3_comparison.png"
+      },
+      "export_checks": {
+        "stl_readable": true,
+        "3mf_package_valid": true
+      },
+      "scale": {
+        "calibrated": false,
+        "nominal_display_size_mm": 30.0
+      },
+      "camera_calibrated": false,
+      "phase3_3_eligible": false,
+      "manufacturing_accuracy_validated": false,
+      "warning": "Coarse visual hull from assumed orthographic views. Hidden concavities and component topology are unresolved."
+    },
+    {
+      "object_id": "ring_023",
+      "split": "test",
+      "stage": "dataset_phase3_visual_hull",
+      "source_stage": "trained Phase 2 whole-jewellery silhouettes",
+      "resolution": 128,
+      "selected_side_consensus": "union",
+      "volume_voxels": 120410,
+      "mesh": {
+        "vertices": 29656,
+        "faces": 59368,
+        "watertight": true,
+        "body_count": 1
+      },
+      "reprojection": {
+        "mean_iou": 0.973715,
+        "views": {
+          "front": {
+            "iou": 0.99804,
+            "boundary_f1_2px": 1.0
+          },
+          "top": {
+            "iou": 0.979129,
+            "boundary_f1_2px": 1.0
+          },
+          "lsv": {
+            "iou": 0.963647,
+            "boundary_f1_2px": 0.971331
+          },
+          "rsv": {
+            "iou": 0.954044,
+            "boundary_f1_2px": 0.973971
+          }
+        },
+        "selection_objective": 0.973715,
+        "candidate_objectives": {
+          "intersection": 0.9722,
+          "union": 0.973715,
+          "left": 0.97365,
+          "mirrored_right": 0.972874
+        },
+        "selected_projection_iou": {
+          "front": 0.99804,
+          "top": 0.979129,
+          "lsv": 0.963647,
+          "rsv": 0.954044
+        },
+        "axis_alignment": {
+          "method": "least_squares_shared_axis_scale_v1",
+          "warp_scales_input_px_to_voxel": {
+            "front": 0.42147016,
+            "top": 0.6189949,
+            "lsv": 0.63829787,
+            "rsv": 0.63829787
+          },
+          "relative_view_scales": {
+            "front": 0.76608048,
+            "top": 1.12510911,
+            "side": 1.16019493
+          },
+          "log_constraint_residual": 0.0051427,
+          "calibrated": false
+        }
+      },
+      "exports": {
+        "stl": "dataset/phase_runs/v1/phase3_visual_hull/ring_023/ring_023_phase3_visual_hull_non_metric.stl",
+        "3mf": "dataset/phase_runs/v1/phase3_visual_hull/ring_023/ring_023_phase3_visual_hull_non_metric.3mf",
+        "preview": "dataset/phase_runs/v1/phase3_visual_hull/ring_023/ring_023_phase3_comparison.png"
+      },
+      "export_checks": {
+        "stl_readable": true,
+        "3mf_package_valid": true
+      },
+      "scale": {
+        "calibrated": false,
+        "nominal_display_size_mm": 30.0
+      },
+      "camera_calibrated": false,
+      "phase3_3_eligible": false,
+      "manufacturing_accuracy_validated": false,
+      "warning": "Coarse visual hull from assumed orthographic views. Hidden concavities and component topology are unresolved."
+    },
+    {
+      "object_id": "ring_024",
+      "split": "train",
+      "stage": "dataset_phase3_visual_hull",
+      "source_stage": "trained Phase 2 whole-jewellery silhouettes",
+      "resolution": 128,
+      "selected_side_consensus": "union",
+      "volume_voxels": 46892,
+      "mesh": {
+        "vertices": 21902,
+        "faces": 43884,
+        "watertight": true,
+        "body_count": 1
+      },
+      "reprojection": {
+        "mean_iou": 0.920454,
+        "views": {
+          "front": {
+            "iou": 0.985968,
+            "boundary_f1_2px": 1.0
+          },
+          "top": {
+            "iou": 0.949257,
+            "boundary_f1_2px": 0.984091
+          },
+          "lsv": {
+            "iou": 0.880617,
+            "boundary_f1_2px": 0.924219
+          },
+          "rsv": {
+            "iou": 0.865975,
+            "boundary_f1_2px": 0.976611
+          }
+        },
+        "selection_objective": 0.920454,
+        "candidate_objectives": {
+          "intersection": 0.914788,
+          "union": 0.920454,
+          "left": 0.919835,
+          "mirrored_right": 0.915952
+        },
+        "selected_projection_iou": {
+          "front": 0.985968,
+          "top": 0.949257,
+          "lsv": 0.880617,
+          "rsv": 0.865975
+        },
+        "axis_alignment": {
+          "method": "least_squares_shared_axis_scale_v1",
+          "warp_scales_input_px_to_voxel": {
+            "front": 0.42604726,
+            "top": 0.59745142,
+            "lsv": 0.64516129,
+            "rsv": 0.64516129
+          },
+          "relative_view_scales": {
+            "front": 0.77800351,
+            "top": 1.09100407,
+            "side": 1.17812691
+          },
+          "log_constraint_residual": 0.01770733,
+          "calibrated": false
+        }
+      },
+      "exports": {
+        "stl": "dataset/phase_runs/v1/phase3_visual_hull/ring_024/ring_024_phase3_visual_hull_non_metric.stl",
+        "3mf": "dataset/phase_runs/v1/phase3_visual_hull/ring_024/ring_024_phase3_visual_hull_non_metric.3mf",
+        "preview": "dataset/phase_runs/v1/phase3_visual_hull/ring_024/ring_024_phase3_comparison.png"
+      },
+      "export_checks": {
+        "stl_readable": true,
+        "3mf_package_valid": true
+      },
+      "scale": {
+        "calibrated": false,
+        "nominal_display_size_mm": 30.0
+      },
+      "camera_calibrated": false,
+      "phase3_3_eligible": false,
+      "manufacturing_accuracy_validated": false,
+      "warning": "Coarse visual hull from assumed orthographic views. Hidden concavities and component topology are unresolved."
+    }
+  ]
+}
