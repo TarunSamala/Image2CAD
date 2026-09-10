@@ -10,6 +10,7 @@ The implementation combines classical vision, segmentation, multi-view geometric
 | --- | --- | --- |
 | Phase 1 | Reference-image preparation and geometric observations | Validated |
 | Phase 2/2.2 | Jewellery, stone, setting, prong and shank masks | Validated machine extraction |
+| Phase 2.3 | Universal detail evidence, cross-view instances and semantic review gate | Implemented; dataset review pending |
 | Phase 3/3.2 | Coarse reconstruction and topology correction | Retained as checkpoints |
 | Phase 3.3 | Exact-solid multi-view refinement | Numerical and topology targets pass |
 | Phase 3.3.1 | Individually addressable smooth cubic claws | Valid connected B-rep; visual fit preserved |
@@ -38,6 +39,9 @@ Phase 3.3.1 currently reaches mean silhouette IoU `0.8197`, detail IoU `0.7874` 
 Each phase writes to its own directory. New refinement work should create or resume a versioned phase instead of overwriting an earlier checkpoint.
 See [Repository structure](docs/REPOSITORY_STRUCTURE.md) for the dataset-run layout and file-placement conventions.
 See [Jewellery Phase Auditor](docs/UPLOAD_AUDITOR.md) for the one-image and five-view upload program.
+See [Phase workflow](docs/images/image2cad-phase-flowchart-v1.png) for the complete visual pipeline.
+
+Phase 2.3 adds category-independent internal-edge, ridge, valley, relief, negative-space and reflection evidence. Every local detail proposal receives an addressable observation ID and an editable review decision. Cross-view IDs remain hypotheses until reviewed or confirmed by calibrated geometry; the stage does not automatically label bright regions as gemstones.
 
 ## Validate the project
 
@@ -48,7 +52,7 @@ docker exec cadrille-gpu sh -lc \
   'cd /workspace && PYTHONPATH=pipeline python -m unittest discover -s tests -v'
 ```
 
-The current suite contains 74 tests.
+The current suite contains 81 tests.
 
 ## Jewellery dataset
 

@@ -15,7 +15,7 @@ from audit_jewellery import FIVE_VIEWS, run_audit
 
 
 class UploadedJewelleryAuditTest(unittest.TestCase):
-    def test_single_image_runs_through_phase22(self) -> None:
+    def test_single_image_runs_through_phase23(self) -> None:
         source = Path("dataset/STL-1/Ring 1/R1 - Front.png")
         with tempfile.TemporaryDirectory() as directory:
             output = Path(directory) / "single"
@@ -23,6 +23,10 @@ class UploadedJewelleryAuditTest(unittest.TestCase):
             self.assertEqual(report["input_mode"], "single_image")
             self.assertEqual(report["phase3"]["status"], "not_run_single_image")
             self.assertTrue(Path(report["artifacts"]["summary"]).is_file())
+            self.assertEqual(report["phase2_3"]["status"], "machine_proposals_pending_review")
+            self.assertGreater(report["phase2_3"]["observation_count"], 0)
+            self.assertTrue(Path(report["phase2_3"]["evidence_graph"]).is_file())
+            self.assertTrue(Path(report["phase2_3"]["review_manifest"]).is_file())
             self.assertEqual(report["views"]["single"]["source_sha256"], report["views"]["single"]["copied_sha256"])
             self.assertFalse(report["accuracy_scope"]["manufacturing_accuracy_validated"])
 
@@ -45,6 +49,7 @@ class UploadedJewelleryAuditTest(unittest.TestCase):
             self.assertIsNotNone(preview)
             loaded = json.loads((output / "audit_report.json").read_text(encoding="utf-8"))
             self.assertEqual(set(loaded["views"]), set(FIVE_VIEWS))
+            self.assertGreater(loaded["phase2_3"]["cross_view_track_count"], 0)
 
     def test_partial_multiview_set_is_rejected(self) -> None:
         source = Path("dataset/STL-1/Ring 1/R1 - Front.png")

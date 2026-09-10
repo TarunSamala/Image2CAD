@@ -37,7 +37,7 @@ def process(name: str, segmenter: str, front: str | None, top: str | None, iso: 
 
 
 with gr.Blocks(title="Jewellery Phase Auditor") as demo:
-    gr.Markdown("# Jewellery Phase Auditor\nUpload one image for Phase 1-2.2, or all five views to include an experimental Phase 3 visual hull.")
+    gr.Markdown("# Jewellery Phase Auditor\nUpload one image for Phase 1-2.3, or all five views to include an experimental Phase 3 visual hull.")
     with gr.Row():
         name = gr.Textbox(label="Audit name", value="jewellery")
         segmenter = gr.Dropdown(("auto", "sam", "unet", "opencv"), value="auto", label="Segmentation backend")

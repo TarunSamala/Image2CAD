@@ -26,6 +26,7 @@ from reconstruct_dataset_phase3 import (
     _validate_3mf,
     _write_3mf,
 )
+from extract_phase2_3 import extract_phase2_3
 from train_dataset_phases import TinyJewelleryUNet, _binary_iou, _boundary_f1
 
 
@@ -305,6 +306,11 @@ def _audit_sheet(view: str, values: dict[str, np.ndarray], metrics: dict[str, fl
         _cell(values["refined"], "PHASE 2 - REFINED"),
         _cell(values["overlay"], "PHASE 2 - PROPOSALS", "yellow detail / purple shadow"),
         _cell(values["agreement"], "PHASE 2.2 - COMPARE", f'IoU {metrics["phase_agreement_iou"]:.3f} (not accuracy)'),
+        _cell(
+            values["phase2_3"],
+            "PHASE 2.3 - EVIDENCE",
+            "generic instances / edges / voids" if metrics.get("phase2_3_input_mask_pass", True) else "INPUT MASK REVIEW REQUIRED",
+        ),
     ]
     if phase3 is None:
         unavailable = np.full((250, 300, 3), 242, np.uint8)
@@ -344,6 +350,10 @@ GrabCut refines the Phase 1 silhouette in a narrow band. OpenCV then records a c
 ## Phase 2.2 - comparison
 
 The initial and refined silhouettes are compared with IoU, Dice and boundary F1. These scores measure agreement between two machine stages. They are not accuracy scores because no human ground-truth mask was uploaded.
+
+## Phase 2.3 - universal evidence extraction
+
+Internal edges, multi-scale ridges and valleys, relief responses, negative spaces and likely highlight interference are preserved as separate evidence maps. Local detail regions receive stable observation IDs and conservative cross-view track hypotheses. They remain generic machine proposals until reviewed; bright regions are not automatically called gemstones.
 
 ## Phase 3 - multi-view geometry
 
@@ -474,6 +484,20 @@ def run_audit(
         }
         projections["iso"] = _mesh_preview(mesh)
 
+    phase2_3_inputs = {
+        view: {
+            "image": Path(record["artifacts"]["normalized"]),
+            "foreground": Path(record["artifacts"]["phase2_refined_silhouette"]),
+        }
+        for view, record in records.items()
+    }
+    phase2_3_report = extract_phase2_3(phase2_3_inputs, output_dir / "phase2_3")
+    for view, record in records.items():
+        record["images"]["phase2_3"] = _read(
+            Path(phase2_3_report["views"][view]["artifacts"]["review_overlay"])
+        )
+        record["phase2_2"]["phase2_3_input_mask_pass"] = phase2_3_report["views"][view]["input_mask_quality"]["passed"]
+
     audit_paths = []
     for view, record in records.items():
         projection = projections.get(view)
@@ -492,6 +516,21 @@ def run_audit(
         "input_mode": "five_view" if len(inputs) == 5 else "single_image",
         "view_count": len(inputs),
         "views": records,
+        "phase2_3": {
+            "status": (
+                "machine_proposals_pending_review"
+                if phase2_3_report["validation"]["ready_for_human_instance_review"]
+                else "input_mask_review_required"
+            ),
+            "evidence_graph": str(output_dir / "phase2_3" / "evidence_graph.json"),
+            "review_manifest": phase2_3_report["review_manifest"],
+            "observation_count": sum(
+                view["counts"]["machine_detail_proposals"]
+                for view in phase2_3_report["views"].values()
+            ),
+            "cross_view_track_count": len(phase2_3_report["cross_view_tracks"]),
+            "human_review_complete": False,
+        },
         "phase3": phase3_report,
         "later_phases": {"status": "not_run", "reason": "Need reviewed semantic components, calibrated cameras, physical scale and topology-specific CAD fitting."},
         "accuracy_scope": {"human_ground_truth_masks": False, "metric_scale": False, "manufacturing_accuracy_validated": False},

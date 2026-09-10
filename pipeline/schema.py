@@ -49,6 +49,20 @@ class ComponentProposal:
 
 
 @dataclass
+class ImageEvidenceObservation:
+    """One addressable image-space observation awaiting semantic review."""
+
+    observation_id: str
+    view: str
+    kind: str = "generic_detail"
+    state: Literal["machine_proposal", "human_reviewed", "rejected"] = "machine_proposal"
+    mask_path: str | None = None
+    track_id: str | None = None
+    confidence: float = 0.0
+    uncertainty: list[str] = field(default_factory=list)
+
+
+@dataclass
 class ValidationReport:
     passed: bool
     checks: dict[str, bool] = field(default_factory=dict)

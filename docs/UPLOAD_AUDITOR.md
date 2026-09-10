@@ -54,7 +54,21 @@ Results are versioned under `runs/uploads/` by default. Use `--output-dir` for a
 - Phase 1 normalizes the image and extracts a whole-object silhouette, edges, contours, holes, occupancy and symmetry.
 - Phase 2 refines the silhouette and records bright-detail and shadow proposals without pretending that reflections are confirmed stones or prongs.
 - Phase 2.2 compares the two machine masks. Its IoU is stage agreement, not accuracy against human ground truth.
+- Phase 2.3 preserves internal edges, ridges, valleys, relief responses and negative spaces, then creates addressable generic detail proposals and conservative cross-view tracks. Review decisions are stored in `phase2_3/review_manifest.json`. A foreground-quality gate marks implausibly solid or oversized masks for correction before instance review.
 - Phase 3 runs only with all five named views. It exports a watertight non-metric visual hull as STL and 3MF and compares its reprojections with the refined masks.
 - Later exact-CAD phases are reported as unavailable until component masks, camera calibration, physical scale and topology-specific fitting are supplied.
+
+## Review Phase 2.3 instances
+
+Edit `phase2_3/review_manifest.json` and set each proposal to `accept`, `reject`, or `relabel`. Accepted observations must use an actionable semantic such as `stone`, `prong`, `relief`, `engraving`, `filigree`, `hole`, `chain_link`, `clasp`, or `bail`. Then materialize the reviewed component graph without changing the machine evidence:
+
+```bash
+PYTHONPATH=pipeline python pipeline/review_phase2_3.py \
+  --evidence-graph runs/uploads/<run>/phase2_3/evidence_graph.json \
+  --review-manifest runs/uploads/<run>/phase2_3/review_manifest.json \
+  --output-dir runs/uploads/<run>/phase2_3_reviewed_v1
+```
+
+Observations sharing one cross-view track become one component ID, for example `stone_001`. Conflicting semantics, pending decisions, split/merge requests, unknown labels, and missing observations block geometry handoff.
 
 `auto` prefers SAM 2.1 Tiny when its checkpoint and package are available, otherwise uses the trained Tiny Jewellery U-Net, then OpenCV as the final fallback. Select `opencv` for a lightweight run or `sam` when processing difficult real photographs.
