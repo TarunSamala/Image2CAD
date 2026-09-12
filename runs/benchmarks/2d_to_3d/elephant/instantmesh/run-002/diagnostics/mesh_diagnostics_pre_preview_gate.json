@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-09-12T05:15:10.917674+00:00",
+  "model": {
+    "id": "instantmesh",
+    "name": "InstantMesh",
+    "official_repo": "https://github.com/TencentARC/InstantMesh",
+    "license": "Apache-2.0 code; verify checkpoints",
+    "license_review_required": true
+  },
+  "input_mode": "single_image",
+  "source_images": {
+    "original_multiview_sheet": "input/Elephant.jpeg",
+    "model_input": "input/elephant_left_side.png",
+    "generated_multiviews": "generated/instantmesh_multiviews.webp"
+  },
+  "mesh": {
+    "path": "/tmp/image2cad-instantmesh-elephant-run-002/raw_output/elephant_instantmesh.glb",
+    "sha256": "f93f5ad6ed9e1d52577922059f8e0fd6d87748fec26f31da6dc6836f2478a64e",
+    "bytes": 2012636,
+    "vertices": 50312,
+    "faces": 100552,
+    "connected_bodies": 18,
+    "finite_vertices": true,
+    "watertight": false,
+    "winding_consistent": true,
+    "degenerate_faces": 0,
+    "bounds": [
+      [
+        -0.9631273746490479,
+        -1.040281891822815,
+        -0.5744914412498474
+      ],
+      [
+        0.9047020077705383,
+        1.043426752090454,
+        0.5909255743026733
+      ]
+    ],
+    "extents": [
+      1.8678293824195862,
+      2.083708643913269,
+      1.1654170155525208
+    ],
+    "volume": null
+  },
+  "scale": {
+    "target_height_mm": null,
+    "source_height_model_units": 1.1654170155525208,
+    "uniform_scale_factor": null,
+    "metric_calibrated": false
+  },
+  "ground_truth_kind": "none",
+  "human_ground_truth": false,
+  "views": {},
+  "summary": {
+    "mean_silhouette_iou": null,
+    "principal_view_floor": null,
+    "mean_external_boundary_f1_2px": null,
+    "numerical_visual_gate_passed": false
+  },
+  "geometry_checks": {
+    "mesh_nonempty": true,
+    "finite_vertices": true,
+    "no_degenerate_faces": true,
+    "watertight": false,
+    "winding_consistent": true
+  },
+  "validation": {
+    "mesh_import_passed": true,
+    "topology_passed": false,
+    "visual_accuracy_validated": false,
+    "manufacturing_accuracy_validated": false
+  },
+  "warnings": [
+    "A generated mesh is a reconstruction proposal, not editable CAD or manufacturing truth.",
+    "Scores against machine or pseudo masks do not validate visual accuracy."
+  ]
+}

@@ -59,6 +59,8 @@ runs/benchmarks/2d_to_3d/<asset>/<model>/<run_id>/
 ├── raw_output/
 ├── mesh.obj|glb|ply|stl
 ├── renders/
+├── previews/
+├── inspection.json
 ├── manifest.json
 └── validation.json
 ```
@@ -73,6 +75,12 @@ The manifest passed to the independent validator uses this structure:
   "source_images": {
     "front": "input/front.png"
   },
+  "preview_review": {
+    "status": "approved",
+    "preview_path": "previews/six_view.png",
+    "reviewed_by": "human",
+    "notes": "The surface render is complete enough to continue."
+  },
   "target_height_mm": 431.8,
   "metric_calibrated": true,
   "ground_truth_kind": "human_reviewed",
@@ -86,6 +94,14 @@ The manifest passed to the independent validator uses this structure:
 ```
 
 Accepted `ground_truth_kind` values should identify the real evidence source, for example `human_reviewed`, `machine_pseudo_mask` or `none`. Only `human_reviewed` targets can validate visible-view accuracy.
+
+## Preview gate
+
+Every generated OBJ or GLB must be rendered independently from at least six fixed views before numerical validation. The preview must be a depth-buffered surface render of the actual exported file, not a sparse point sample and not the generator website's screenshot.
+
+The reviewer records `approved` or `rejected` in `preview_review`. A rejected model stops here and is retained as failed research evidence. The command-line validator rejects missing, pending or rejected preview reviews by default. `--allow-unreviewed-preview` exists only for explicitly labelled legacy diagnostics.
+
+The preview gate checks for catastrophic failures that metrics should never legitimise: duplicated or stretched limbs, torn surfaces, collapsed depth, severe holes, texture projection errors, missing primary components and obvious cross-view fusion.
 
 ## Common validation
 
@@ -153,8 +169,9 @@ Only runs using the same source images, reviewed masks, camera-registration meth
 7. Run CRM, Wonder3D, Unique3D and InstantMesh in separate pinned environments.
 8. Run LGM, DreamGaussian, TRELLIS, TRELLIS.2 and Hunyuan variants remotely.
 9. Run PartCrafter to evaluate whether generated part separation helps component recovery.
-10. Independently render, validate and rank every successful output.
-11. Use the strongest mesh only as Phase 3 evidence; continue with reviewed components, exact scale and CAD reconstruction.
+10. Independently render the actual exported model and record the preview decision.
+11. Validate and rank only outputs whose preview review is approved.
+12. Use the strongest mesh only as Phase 3 evidence; continue with reviewed components, exact scale and CAD reconstruction.
 
 ## Decision rule
 

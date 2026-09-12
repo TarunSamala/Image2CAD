@@ -10,7 +10,14 @@ from pathlib import Path
 import cv2
 import numpy as np
 
-from benchmark_2d_to_3d import Hardware, build_plan, load_registry, rank_reports, validate_manifest
+from benchmark_2d_to_3d import (
+    Hardware,
+    _connected_body_count,
+    build_plan,
+    load_registry,
+    rank_reports,
+    validate_manifest,
+)
 
 
 class TwoDToThreeDBenchmarkTest(unittest.TestCase):
@@ -35,6 +42,53 @@ class TwoDToThreeDBenchmarkTest(unittest.TestCase):
         self.assertEqual(statuses["triposr"], "cpu_fallback_or_remote")
         self.assertEqual(statuses["trellis2"], "remote_gpu_required")
         self.assertEqual(plan["model_count"], len(self.registry["models"]))
+
+    def test_connected_body_count_uses_compact_vertex_union(self) -> None:
+        faces = np.asarray(
+            [
+                [0, 1, 2],
+                [2, 1, 3],
+                [4, 5, 6],
+            ],
+            dtype=np.int64,
+        )
+        self.assertEqual(_connected_body_count(faces, vertex_count=7), 2)
+
+    def test_connected_body_count_ignores_unused_vertices(self) -> None:
+        faces = np.asarray([[2, 3, 4]], dtype=np.int64)
+        self.assertEqual(_connected_body_count(faces, vertex_count=20), 1)
+
+    def test_validation_requires_an_approved_existing_preview_when_requested(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "triangle.obj").write_text(
+                "v 0 0 0\nv 1 0 0\nv 0 1 0\nf 1 2 3\n",
+                encoding="utf-8",
+            )
+            preview = np.full((32, 32, 3), 180, np.uint8)
+            cv2.imwrite(str(root / "preview.png"), preview)
+            manifest = root / "manifest.json"
+            record = {
+                "model_id": "triposr",
+                "mesh_path": "triangle.obj",
+                "ground_truth_kind": "none",
+                "target_masks": {},
+                "rendered_masks": {},
+            }
+            manifest.write_text(json.dumps(record), encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "preview_review is missing"):
+                validate_manifest(manifest, self.registry_path, require_preview_approval=True)
+
+            record["preview_review"] = {"status": "rejected", "preview_path": "preview.png"}
+            manifest.write_text(json.dumps(record), encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "must be approved"):
+                validate_manifest(manifest, self.registry_path, require_preview_approval=True)
+
+            record["preview_review"] = {"status": "approved", "preview_path": "preview.png"}
+            manifest.write_text(json.dumps(record), encoding="utf-8")
+            report = validate_manifest(manifest, self.registry_path, require_preview_approval=True)
+            self.assertEqual(report["preview_review"]["status"], "approved")
+            self.assertTrue(Path(report["preview_review"]["preview_path"]).is_file())
 
     def test_mesh_and_human_mask_bundle_is_validated_independently(self) -> None:
         with tempfile.TemporaryDirectory() as directory:

@@ -1,0 +1,13 @@
+{
+  "status": "approved_for_research_validation",
+  "review_basis": "Independent six-view depth-buffered PBR render of the exported GLB",
+  "reviewed_preview": "previews/instantmesh_elephant_actual_glb_preview.png",
+  "observations": [
+    "The elephant body, head, trunk and four legs are recognisable and substantially coherent.",
+    "The rear and hidden surfaces are inferred from a single image.",
+    "Fine ornamental relief and material separation are blurred.",
+    "Small floating or disconnected fragments remain.",
+    "The output is not suitable for client delivery, exact scaling, printing or manufacturing."
+  ],
+  "validation_decision": "approved_for_non_metric_research_diagnostics_only"
+}

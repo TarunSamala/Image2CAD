@@ -170,6 +170,52 @@ def _model(registry: dict[str, Any], model_id: str) -> dict[str, Any]:
     return matches[0]
 
 
+def _connected_body_count(faces: Any, vertex_count: int) -> int:
+    """Count vertex-connected bodies without constructing a Python graph.
+
+    ``trimesh.Trimesh.split`` may build a NetworkX graph with one node per
+    face. For high-resolution generated meshes that representation can require
+    several gigabytes of RAM. A compact union-find over vertex indices instead
+    uses memory proportional to the vertex count.
+    """
+    import numpy as np
+
+    if len(faces) == 0:
+        return 0
+    parent = np.arange(vertex_count, dtype=np.int64)
+    rank = np.zeros(vertex_count, dtype=np.uint8)
+
+    def find(item: int) -> int:
+        while parent[item] != item:
+            parent[item] = parent[parent[item]]
+            item = int(parent[item])
+        return item
+
+    def union(left: int, right: int) -> None:
+        left_root = find(left)
+        right_root = find(right)
+        if left_root == right_root:
+            return
+        if rank[left_root] < rank[right_root]:
+            left_root, right_root = right_root, left_root
+        parent[right_root] = left_root
+        if rank[left_root] == rank[right_root]:
+            rank[left_root] += 1
+
+    for first, second, third in faces:
+        first = int(first)
+        union(first, int(second))
+        union(first, int(third))
+
+    used_vertices = np.unique(faces.reshape(-1))
+    roots = np.fromiter(
+        (find(int(vertex)) for vertex in used_vertices),
+        dtype=np.int64,
+        count=len(used_vertices),
+    )
+    return int(len(np.unique(roots)))
+
+
 def _load_mesh(path: Path):
     try:
         import numpy as np
@@ -180,17 +226,17 @@ def _load_mesh(path: Path):
     geometries = [geometry for geometry in loaded.geometry.values() if len(geometry.vertices) and len(geometry.faces)]
     if not geometries:
         raise ValueError(f"no triangle geometry found in {path}")
-    mesh = trimesh.util.concatenate(geometries)
+    mesh = geometries[0] if len(geometries) == 1 else trimesh.util.concatenate(geometries)
     vertices = np.asarray(mesh.vertices)
     faces = np.asarray(mesh.faces)
     finite = bool(np.isfinite(vertices).all())
     nondegenerate = mesh.nondegenerate_faces() if hasattr(mesh, "nondegenerate_faces") else np.ones(len(faces), dtype=bool)
-    bodies = mesh.split(only_watertight=False)
+    body_count = _connected_body_count(faces, len(vertices))
     extents = [float(value) for value in mesh.extents]
     return mesh, {
         "vertices": int(len(vertices)),
         "faces": int(len(faces)),
-        "connected_bodies": int(len(bodies)),
+        "connected_bodies": body_count,
         "finite_vertices": finite,
         "watertight": bool(mesh.is_watertight),
         "winding_consistent": bool(mesh.is_winding_consistent),
@@ -224,8 +270,34 @@ def _mask_metrics(target_path: Path, rendered_path: Path) -> dict[str, float]:
     }
 
 
-def validate_manifest(manifest_path: Path, registry_path: Path = DEFAULT_REGISTRY) -> dict[str, Any]:
+def _require_approved_preview(manifest: dict[str, Any], manifest_path: Path) -> dict[str, Any]:
+    review = manifest.get("preview_review")
+    if not isinstance(review, dict):
+        raise ValueError("render and review the generated 3D file before validation; preview_review is missing")
+    status = review.get("status")
+    if status != "approved":
+        raise ValueError(f"preview review must be approved before validation; got {status!r}")
+    preview_value = review.get("preview_path")
+    if not isinstance(preview_value, str) or not preview_value.strip():
+        raise ValueError("approved preview_review requires preview_path")
+    preview_path = Path(preview_value)
+    if not preview_path.is_absolute():
+        preview_path = (manifest_path.parent / preview_path).resolve()
+    if not preview_path.is_file():
+        raise FileNotFoundError(preview_path)
+    return {**review, "preview_path": str(preview_path)}
+
+
+def validate_manifest(
+    manifest_path: Path,
+    registry_path: Path = DEFAULT_REGISTRY,
+    require_preview_approval: bool = False,
+) -> dict[str, Any]:
     manifest = _read_json(manifest_path)
+    if require_preview_approval:
+        preview_review = _require_approved_preview(manifest, manifest_path)
+    else:
+        preview_review = manifest.get("preview_review")
     registry = load_registry(registry_path)
     model = _model(registry, manifest.get("model_id", ""))
     mesh_path = Path(manifest["mesh_path"])
@@ -292,6 +364,7 @@ def validate_manifest(manifest_path: Path, registry_path: Path = DEFAULT_REGISTR
             "license_review_required": model["license_review_required"],
         },
         "input_mode": manifest.get("input_mode", "unspecified"),
+        "preview_review": preview_review or {"status": "not_recorded"},
         "source_images": manifest.get("source_images", {}),
         "mesh": {
             "path": str(mesh_path),
@@ -382,6 +455,11 @@ def main() -> None:
     validate_parser.add_argument("--registry", type=Path, default=DEFAULT_REGISTRY)
     validate_parser.add_argument("--manifest", type=Path, required=True)
     validate_parser.add_argument("--output", type=Path, required=True)
+    validate_parser.add_argument(
+        "--allow-unreviewed-preview",
+        action="store_true",
+        help="legacy diagnostic override; normal validation requires an approved preview_review",
+    )
 
     rank_parser = subparsers.add_parser("rank", help="rank comparable validation reports")
     rank_parser.add_argument("reports", nargs="+", type=Path)
@@ -393,7 +471,11 @@ def main() -> None:
         result = build_plan(load_registry(args.registry), detect_hardware(args.output.parent))
         _write_json(args.output, result)
     elif args.command == "validate":
-        result = validate_manifest(args.manifest, args.registry)
+        result = validate_manifest(
+            args.manifest,
+            args.registry,
+            require_preview_approval=not args.allow_unreviewed_preview,
+        )
         _write_json(args.output, result)
     else:
         result = rank_reports(args.reports)

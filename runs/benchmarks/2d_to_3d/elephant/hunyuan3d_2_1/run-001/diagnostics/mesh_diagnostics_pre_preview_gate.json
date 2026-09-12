@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-09-12T05:36:56.202329+00:00",
+  "model": {
+    "id": "hunyuan3d_2_1",
+    "name": "Hunyuan3D 2.1",
+    "official_repo": "https://github.com/Tencent-Hunyuan/Hunyuan3D-2.1",
+    "license": "Tencent Hunyuan community license",
+    "license_review_required": true
+  },
+  "input_mode": "one_to_four_views",
+  "source_images": {
+    "original_multiview_sheet": "input/Elephant.jpeg",
+    "primary": "input/elephant_left.png",
+    "front": "input/elephant_front.png",
+    "back": "input/elephant_back.png",
+    "left": "input/elephant_left.png",
+    "right": "input/elephant_right.png",
+    "unused_top": "input/elephant_top.png",
+    "unused_bottom": "input/elephant_bottom.png"
+  },
+  "mesh": {
+    "path": "/home/satvara/Github/Image2CAD/runs/benchmarks/2d_to_3d/elephant/hunyuan3d_2_1/run-001/raw_output/elephant_hunyuan3d_2_1_textured.glb",
+    "sha256": "3d2a6a4a31867ddc123fc14f2f9110dff17ae116e65bb25bdf35fa45f048160a",
+    "bytes": 9407548,
+    "vertices": 34210,
+    "faces": 40000,
+    "connected_bodies": 1780,
+    "finite_vertices": true,
+    "watertight": false,
+    "winding_consistent": true,
+    "degenerate_faces": 0,
+    "bounds": [
+      [
+        -0.9978520274162292,
+        -0.9901189804077148,
+        -0.5917400121688843
+      ],
+      [
+        0.9456530213356018,
+        0.9915059804916382,
+        0.6110579967498779
+      ]
+    ],
+    "extents": [
+      1.943505048751831,
+      1.981624960899353,
+      1.2027980089187622
+    ],
+    "volume": null
+  },
+  "scale": {
+    "target_height_mm": null,
+    "source_height_model_units": 1.2027980089187622,
+    "uniform_scale_factor": null,
+    "metric_calibrated": false
+  },
+  "ground_truth_kind": "none",
+  "human_ground_truth": false,
+  "views": {},
+  "summary": {
+    "mean_silhouette_iou": null,
+    "principal_view_floor": null,
+    "mean_external_boundary_f1_2px": null,
+    "numerical_visual_gate_passed": false
+  },
+  "geometry_checks": {
+    "mesh_nonempty": true,
+    "finite_vertices": true,
+    "no_degenerate_faces": true,
+    "watertight": false,
+    "winding_consistent": true
+  },
+  "validation": {
+    "mesh_import_passed": true,
+    "topology_passed": false,
+    "visual_accuracy_validated": false,
+    "manufacturing_accuracy_validated": false
+  },
+  "warnings": [
+    "A generated mesh is a reconstruction proposal, not editable CAD or manufacturing truth.",
+    "Scores against machine or pseudo masks do not validate visual accuracy."
+  ]
+}

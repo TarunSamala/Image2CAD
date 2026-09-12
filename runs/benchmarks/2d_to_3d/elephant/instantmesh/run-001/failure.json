@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "model_id": "instantmesh",
+  "status": "partial_zero_gpu_quota_exhausted",
+  "input": "input/elephant_left_side.png",
+  "generated_multiviews": "generated/instantmesh_multiviews.webp",
+  "sample_steps": 75,
+  "seed": 42,
+  "mesh_stage": "not completed",
+  "mesh_produced": false,
+  "quality_evaluated": false,
+  "error": "Final reconstruction requested 60 GPU-seconds after the anonymous ZeroGPU quota reached zero."
+}

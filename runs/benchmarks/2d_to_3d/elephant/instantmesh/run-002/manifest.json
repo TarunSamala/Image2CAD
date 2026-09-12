@@ -1,0 +1,25 @@
+{
+  "model_id": "instantmesh",
+  "input_mode": "single_image",
+  "mesh_path": "raw_output/elephant_instantmesh.glb",
+  "source_images": {
+    "original_multiview_sheet": "input/Elephant.jpeg",
+    "model_input": "input/elephant_left_side.png",
+    "generated_multiviews": "generated/instantmesh_multiviews.webp"
+  },
+  "metric_calibrated": false,
+  "ground_truth_kind": "none",
+  "target_masks": {},
+  "rendered_masks": {},
+  "previews": {
+    "actual_surface": "previews/instantmesh_elephant_actual_glb_preview.png",
+    "legacy_preview": "previews/instantmesh_elephant_preview.png"
+  },
+  "preview_review": {
+    "status": "approved",
+    "preview_path": "previews/instantmesh_elephant_actual_glb_preview.png",
+    "reviewed_by": "assistant_visual_inspection",
+    "reviewed_at": "2026-09-12T05:58:00Z",
+    "notes": "Recognisable coherent elephant suitable for research validation only; inferred back, blurred ornament and disconnected fragments prevent delivery use."
+  }
+}

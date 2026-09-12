@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "model_id": "stable_fast_3d",
+  "status": "hosted_api_failed",
+  "input": "input/elephant_left_side.png",
+  "attempts": [
+    {
+      "texture_size": 2048,
+      "remesh": "None",
+      "result": "upstream Gradio application error"
+    },
+    {
+      "texture_size": 1024,
+      "remesh": "None",
+      "result": "upstream Gradio application error"
+    }
+  ],
+  "mesh_produced": false,
+  "quality_evaluated": false
+}

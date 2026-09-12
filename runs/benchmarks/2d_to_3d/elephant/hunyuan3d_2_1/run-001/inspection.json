@@ -1,0 +1,19 @@
+{
+  "status": "rejected_as_geometry_baseline",
+  "review_basis": "Independent six-view depth-buffered PBR render of the exported GLB",
+  "observations": [
+    "The generated object is not a coherent elephant.",
+    "Large sections are stretched, torn, duplicated and collapsed across depth.",
+    "The legs, trunk, body and decorative shell do not form reliable connected anatomy.",
+    "Texture detail is projected onto incorrect geometry and cannot compensate for the shape failure.",
+    "The model must not be scaled or delivered as a 17-inch or 21-inch OBJ."
+  ],
+  "accepted_uses": [
+    "Research comparison against other open-source image-to-3D baselines",
+    "Coarse visual concept inspection"
+  ],
+  "next_action": "Do not scale this mesh for delivery. Continue with geometry-aware multi-view reconstruction and separate relief/detail recovery.",
+  "reviewed_preview": "previews/hunyuan3d_2_1_elephant_actual_glb_preview.png",
+  "preview_method": "Independent six-view depth-buffered PBR render of the exported GLB",
+  "validation_decision": "stopped_before_numerical_validation"
+}

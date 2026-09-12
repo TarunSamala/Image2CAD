@@ -1,0 +1,42 @@
+{
+  "model_id": "hunyuan3d_2_1",
+  "input_mode": "one_to_four_views",
+  "mesh_path": "raw_output/elephant_hunyuan3d_2_1_textured.glb",
+  "source_images": {
+    "original_multiview_sheet": "input/Elephant.jpeg",
+    "primary": "input/elephant_left.png",
+    "front": "input/elephant_front.png",
+    "back": "input/elephant_back.png",
+    "left": "input/elephant_left.png",
+    "right": "input/elephant_right.png",
+    "unused_top": "input/elephant_top.png",
+    "unused_bottom": "input/elephant_bottom.png"
+  },
+  "generation": {
+    "service": "public Hugging Face ZeroGPU Space",
+    "shape_mode": "Standard",
+    "steps": 5,
+    "octree_resolution": 256,
+    "reported_generation_seconds": 137.01,
+    "reported_pre_reduction_faces": 971480,
+    "exported_faces": 40000,
+    "paid_services_used": false
+  },
+  "metric_calibrated": false,
+  "ground_truth_kind": "none",
+  "target_masks": {},
+  "rendered_masks": {},
+  "previews": {
+    "actual_surface": "previews/hunyuan3d_2_1_elephant_actual_glb_preview.png",
+    "legacy_point_sample_unreliable": "previews/hunyuan3d_2_1_elephant_preview.png",
+    "legacy_software_texture_unreliable": "previews/hunyuan3d_2_1_elephant_textured_six_axis.jpg"
+  },
+  "inspection_report": "inspection.json",
+  "preview_review": {
+    "status": "rejected",
+    "preview_path": "previews/hunyuan3d_2_1_elephant_actual_glb_preview.png",
+    "reviewed_by": "assistant_visual_inspection",
+    "reviewed_at": "2026-09-12T05:45:00Z",
+    "notes": "Actual depth-buffered GLB render shows catastrophic stretched, torn and duplicated geometry; stop before numerical validation."
+  }
+}
