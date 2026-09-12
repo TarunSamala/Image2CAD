@@ -1,0 +1,13 @@
+{
+  "model_id": "triposr",
+  "input_mode": "single_image",
+  "mesh_path": "raw_output/elephant_triposr.glb",
+  "source_images": {
+    "original_multiview_sheet": "input/Elephant.jpeg",
+    "model_input": "input/elephant_left_side.png"
+  },
+  "metric_calibrated": false,
+  "ground_truth_kind": "none",
+  "target_masks": {},
+  "rendered_masks": {}
+}

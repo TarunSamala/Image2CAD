@@ -1,0 +1,28 @@
+{
+  "model_id": "image2cad_visual_hull",
+  "input_mode": "five_view",
+  "mesh_path": "../../data/ring01_phase3/meshes/ring01_phase3_visual_hull.stl",
+  "source_images": {
+    "front": "../../data/ring01_reference_images/ring01_front.png",
+    "side": "../../data/ring01_reference_images/ring01_side.png",
+    "top": "../../data/ring01_reference_images/ring01_top.png",
+    "angled": "../../data/ring01_reference_images/ring01_angled.png",
+    "back": "../../data/ring01_reference_images/ring01_back.png"
+  },
+  "metric_calibrated": false,
+  "ground_truth_kind": "machine_pseudo_mask",
+  "target_masks": {
+    "front": "../../data/ring01_phase2_2/masks/jewelry/ring01_front_jewelry.png",
+    "side": "../../data/ring01_phase2_2/masks/jewelry/ring01_side_jewelry.png",
+    "top": "../../data/ring01_phase2_2/masks/jewelry/ring01_top_jewelry.png",
+    "angled": "../../data/ring01_phase2_2/masks/jewelry/ring01_angled_jewelry.png",
+    "back": "../../data/ring01_phase2_2/masks/jewelry/ring01_back_jewelry.png"
+  },
+  "rendered_masks": {
+    "front": "../../data/ring01_phase3/reprojections/ring01_front_phase3_silhouette.png",
+    "side": "../../data/ring01_phase3/reprojections/ring01_side_phase3_silhouette.png",
+    "top": "../../data/ring01_phase3/reprojections/ring01_top_phase3_silhouette.png",
+    "angled": "../../data/ring01_phase3/reprojections/ring01_angled_phase3_silhouette.png",
+    "back": "../../data/ring01_phase3/reprojections/ring01_back_phase3_silhouette.png"
+  }
+}
