@@ -128,6 +128,9 @@ class DatasetRepository:
             / "image_only_phase2_metric_depth_consensus_v1"
             / "report.json"
         )
+        self.surface_normal_evidence = self._read_json(
+            self.phase_root / "surface_normal_evidence_v1" / "report.json"
+        )
         self.external_ring_report = self._read_json(
             self.repo_root / "dataset" / "external_ring_v1" / "report.json"
         )
@@ -407,6 +410,30 @@ class DatasetRepository:
                         self.metric_depth_consensus.get("visualization", {})
                     ),
                     "decision": self.metric_depth_consensus.get("decision"),
+                },
+                "surface_normal_evidence": {
+                    "stage": self.surface_normal_evidence.get("stage"),
+                    "sample_count": self.surface_normal_evidence.get("sample_count", 0),
+                    "object_count": self.surface_normal_evidence.get("object_count", 0),
+                    "backends": deepcopy(
+                        self.surface_normal_evidence.get("backends", {})
+                    ),
+                    "coordinate_contract": deepcopy(
+                        self.surface_normal_evidence.get("coordinate_contract", {})
+                    ),
+                    "summary": deepcopy(
+                        self.surface_normal_evidence.get("summary", {})
+                    ),
+                    "claims": deepcopy(
+                        self.surface_normal_evidence.get("claims", {})
+                    ),
+                    "visualization": deepcopy(
+                        self.surface_normal_evidence.get("visualization", {})
+                    ),
+                    "limitations": deepcopy(
+                        self.surface_normal_evidence.get("limitations", [])
+                    ),
+                    "decision": self.surface_normal_evidence.get("decision"),
                 },
             },
             "phase2_paired": {
@@ -1474,6 +1501,17 @@ class DatasetRepository:
             / self.metric_depth_consensus["review_sheets"]["ring_004"],
             "metric_depth_ring_007_preview": self.repo_root
             / self.metric_depth_consensus["review_sheets"]["ring_007"],
+            "surface_normal_report": self.phase_root
+            / "surface_normal_evidence_v1"
+            / "report.json",
+            "surface_normal_ring01_preview": self.repo_root
+            / self.surface_normal_evidence["review_sheets"]["ring01_reference"],
+            "surface_normal_ring_001_preview": self.repo_root
+            / self.surface_normal_evidence["review_sheets"]["ring_001"],
+            "surface_normal_ring_004_preview": self.repo_root
+            / self.surface_normal_evidence["review_sheets"]["ring_004"],
+            "surface_normal_ring_007_preview": self.repo_root
+            / self.surface_normal_evidence["review_sheets"]["ring_007"],
             "external_ring_report": self.repo_root
             / "dataset"
             / "external_ring_v1"

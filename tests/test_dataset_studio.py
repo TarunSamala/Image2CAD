@@ -127,6 +127,11 @@ class DatasetStudioServiceTest(unittest.TestCase):
         self.assertFalse(
             metric_depth["geometry_alignment"]["cross_view_metric_alignment_complete"]
         )
+        normals = phase2["surface_normal_evidence"]
+        self.assertEqual(normals["sample_count"], 20)
+        self.assertTrue(normals["claims"]["per_pixel_normal_hypotheses_available"])
+        self.assertFalse(normals["claims"]["normal_accuracy_measured"])
+        self.assertEqual(normals["backends"]["dsine"]["status"], "not_run")
         self.assertEqual(
             phase2["ring01_carryover"]["open_issues"][0]["status"],
             "correction_proposed_pending_human_review",
@@ -304,6 +309,8 @@ class DatasetStudioApiTest(unittest.TestCase):
             'id="phase1-depth-status"',
             'id="phase1-deep-summary"',
             'id="metric-depth-consensus-summary"',
+            'id="surface-normal-evidence"',
+            'id="surface-normal-summary"',
             'id="dataset-depth-summary"',
             'id="dataset-complete-summary"',
             'id="stl1-review-summary"',
@@ -356,6 +363,7 @@ class DatasetStudioApiTest(unittest.TestCase):
         self.assertIn('$("#phase1-complete-audit")', javascript)
         self.assertIn('$("#phase2-paired-summary")', javascript)
         self.assertIn('$("#metric-depth-consensus-summary")', javascript)
+        self.assertIn('$("#surface-normal-summary")', javascript)
         self.assertIn("phase2.machine_review", javascript)
         self.assertIn("summary.phase1.complete_features", javascript)
         audit = self.client.get("/api/artifacts/phase2_reflection_audit")
@@ -374,6 +382,14 @@ class DatasetStudioApiTest(unittest.TestCase):
         self.assertEqual(metric_preview.status_code, 200)
         self.assertEqual(metric_preview.mimetype, "image/png")
         metric_preview.close()
+        normal_report = self.client.get("/api/artifacts/surface_normal_report")
+        self.assertEqual(normal_report.status_code, 200)
+        self.assertEqual(normal_report.mimetype, "application/json")
+        normal_report.close()
+        normal_preview = self.client.get("/api/artifacts/surface_normal_ring01_preview")
+        self.assertEqual(normal_preview.status_code, 200)
+        self.assertEqual(normal_preview.mimetype, "image/png")
+        normal_preview.close()
         external_preview = self.client.get("/api/artifacts/external_syr_preview")
         self.assertEqual(external_preview.status_code, 200)
         self.assertEqual(external_preview.mimetype, "image/jpeg")

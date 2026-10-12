@@ -22,6 +22,8 @@ Lalitha Studio is a lightweight Flask evidence console for `dataset/STL-1`, its 
 - Versioned corrected silhouettes without overwriting machine proposals.
 - Dataset-wide Depth Anything V2 evidence and selected-view agreement from
   Depth Anything V2 Metric, UniDepth V2, Metric3D V2 and Depth Pro.
+- Surface-normal hypotheses from Metric3D and depth-derived normal consensus,
+  including per-pixel angular disagreement for selected Ring01/STL-1 views.
 - External-ring generalisation evidence, provenance and review state.
 - A restrained black, white and grey interface, with pink reserved for focus,
   warnings and selected evidence.

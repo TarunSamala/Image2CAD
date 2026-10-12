@@ -1,0 +1,644 @@
+{
+  "schema_version": "image2cad_surface_normal_evidence_v1",
+  "created_at_utc": "2026-10-12T16:11:42.426617+00:00",
+  "code_commit": null,
+  "stage": "camera_depth_normal_evidence_benchmark",
+  "execution_profile": "images_only",
+  "source_depth_report": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/report.json",
+  "source_depth_report_sha256": "eda5495170226b4f1eca795981a9dba9e82c99d377115d6a7c7ba1959bb400db",
+  "sample_count": 20,
+  "object_count": 4,
+  "backends": {
+    "metric3d_direct_normal": {
+      "model_id": "JUGGHM/Metric3D metric_depth_vit_small_800k",
+      "revision": "Metric3D code eb5b6fac0dc155e4e52f576e304fbf11655ff339",
+      "license": "BSD-2-Clause code; checkpoint terms require separate review",
+      "checkpoint_role": "metric-depth and surface-normal hypothesis",
+      "status": "available",
+      "role": "direct_camera_space_normal_hypothesis"
+    },
+    "depth_gradient_proxies": {
+      "status": "available",
+      "backends": [
+        "depth_anything_v2_metric",
+        "metric3d_v2",
+        "unidepth_v2"
+      ],
+      "role": "screen_space_orientation_and_disagreement"
+    },
+    "dsine": {
+      "model_id": "baegwangbin/DSINE exp001_cvpr2024",
+      "status": "not_run",
+      "blockers": [
+        "code_and_checkpoint_not_installed"
+      ],
+      "role": "independent_surface_normal_comparator"
+    }
+  },
+  "coordinate_contract": {
+    "direct_normal_source": "metric3d_camera_space_model_output",
+    "comparison_orientation": "positive_camera_z_after_recorded_global_sign_alignment",
+    "depth_normal_proxy": "non_metric_screen_space_gradient_after_masked_p02_p98_depth_normalization",
+    "cross_view_frame_alignment": false
+  },
+  "summary": {
+    "mean_depth_proxy_disagreement_deg": 7.9467061996459964,
+    "mean_direct_vs_depth_consensus_deg": 19.62733998298645,
+    "normal_ground_truth_available": false,
+    "normal_accuracy_measured": false,
+    "cross_view_normal_fusion_complete": false
+  },
+  "visualization": {
+    "normal_rgb": {
+      "red": "+x",
+      "green": "+y",
+      "blue": "+z"
+    },
+    "disagreement_color_legend": {
+      "blue": "low",
+      "red": "high"
+    }
+  },
+  "review_sheets": {
+    "ring01_reference": "dataset/phase_runs/v1/surface_normal_evidence_v1/previews/ring01_reference_surface_normal_evidence.png",
+    "ring_001": "dataset/phase_runs/v1/surface_normal_evidence_v1/previews/ring_001_surface_normal_evidence.png",
+    "ring_004": "dataset/phase_runs/v1/surface_normal_evidence_v1/previews/ring_004_surface_normal_evidence.png",
+    "ring_007": "dataset/phase_runs/v1/surface_normal_evidence_v1/previews/ring_007_surface_normal_evidence.png"
+  },
+  "samples": [
+    {
+      "sample_key": "ring01_reference:front",
+      "object_id": "ring01_reference",
+      "split": "reference",
+      "view": "front",
+      "status": "machine_normal_hypothesis_only",
+      "source_sha256": "a564f0be433b01639ae981c493e6cddea11b04ef2fea0411804cc3b8cc553a74",
+      "direct_normal": {
+        "backend": "metric3d_v2",
+        "source_path": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/metric3d_v2/ring01_reference/front_normals.npy",
+        "sign_flipped_for_positive_camera_z": true,
+        "source_file_sha256": "73709457246ee5383939ff9240393445b6dbb9d58adf1dc055d90f3b36820025",
+        "oriented_array_sha256": "4ca73507cd99f2e296e397613f80c3e5680ab5a2360e498698e929e58a41b76a"
+      },
+      "depth_normal_proxy_sources": {
+        "depth_anything_v2_metric": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/depth_anything_v2_metric/ring01_reference/front_depth_m.npy",
+        "metric3d_v2": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/metric3d_v2/ring01_reference/front_depth_m.npy",
+        "unidepth_v2": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/unidepth_v2/ring01_reference/front_depth_m.npy"
+      },
+      "depth_normal_consensus_sha256": "808df89cd82f32b4b6d96fe0eb8a46c8c5d3cc91ed99690ee3fd5475c1d8af62",
+      "normal_disagreement_sha256": "d5bd601b834836b62b9ce6b8ce33796f4ab402be366ec395cae3026cc47db766",
+      "metrics": {
+        "mean_depth_proxy_disagreement_deg": 5.250173091888428,
+        "p95_depth_proxy_disagreement_deg": 13.614078521728516,
+        "mean_direct_vs_depth_consensus_deg": 15.218000411987305,
+        "p95_direct_vs_depth_consensus_deg": 43.83037185668945
+      }
+    },
+    {
+      "sample_key": "ring01_reference:side",
+      "object_id": "ring01_reference",
+      "split": "reference",
+      "view": "side",
+      "status": "machine_normal_hypothesis_only",
+      "source_sha256": "3a6d9ca7fb4f2d7390b8fd573d2f9e6624543d38b4fdb66bb356c90f3598cf14",
+      "direct_normal": {
+        "backend": "metric3d_v2",
+        "source_path": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/metric3d_v2/ring01_reference/side_normals.npy",
+        "sign_flipped_for_positive_camera_z": true,
+        "source_file_sha256": "d87fd107716a433e04bee025cead6f277f6e93dbd6373b4bca47dce330c89d7f",
+        "oriented_array_sha256": "2ef2c6030b378389ddd3189701ff3780a55deb6ed198d832653d2d12177849ff"
+      },
+      "depth_normal_proxy_sources": {
+        "depth_anything_v2_metric": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/depth_anything_v2_metric/ring01_reference/side_depth_m.npy",
+        "metric3d_v2": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/metric3d_v2/ring01_reference/side_depth_m.npy",
+        "unidepth_v2": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/unidepth_v2/ring01_reference/side_depth_m.npy"
+      },
+      "depth_normal_consensus_sha256": "13c6469f8c770fd19a542e41725674ca8230d35e7751af6ce47b3a64be4239e5",
+      "normal_disagreement_sha256": "05b231f3e984a203dd97ede3191993f4ba8ffbb56ab7225721f4e4a29c198ae6",
+      "metrics": {
+        "mean_depth_proxy_disagreement_deg": 8.47634220123291,
+        "p95_depth_proxy_disagreement_deg": 18.699554443359375,
+        "mean_direct_vs_depth_consensus_deg": 13.491241455078125,
+        "p95_direct_vs_depth_consensus_deg": 28.17572021484375
+      }
+    },
+    {
+      "sample_key": "ring01_reference:top",
+      "object_id": "ring01_reference",
+      "split": "reference",
+      "view": "top",
+      "status": "machine_normal_hypothesis_only",
+      "source_sha256": "fd2b70e7ade09adcc41ac0e9ff5cbccc2e77543d7ccbb2831fb14285a9bf70c7",
+      "direct_normal": {
+        "backend": "metric3d_v2",
+        "source_path": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/metric3d_v2/ring01_reference/top_normals.npy",
+        "sign_flipped_for_positive_camera_z": true,
+        "source_file_sha256": "b4ddaeb8775b92cba4eaef7ee6f2481eaad3846e795e8ea9925252676b323117",
+        "oriented_array_sha256": "241f918df513b1a0c16ba9bd0308b74450a171a5a709295f52af539a558b6fc6"
+      },
+      "depth_normal_proxy_sources": {
+        "depth_anything_v2_metric": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/depth_anything_v2_metric/ring01_reference/top_depth_m.npy",
+        "metric3d_v2": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/metric3d_v2/ring01_reference/top_depth_m.npy",
+        "unidepth_v2": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/unidepth_v2/ring01_reference/top_depth_m.npy"
+      },
+      "depth_normal_consensus_sha256": "10b0987f0ae01dad896740e11f61999b033daa5b7eeed03beaffca914237ace0",
+      "normal_disagreement_sha256": "d6f31a2e91a07222b3770743f6bb2f7218dadc716803f0ee997f53ff2383412e",
+      "metrics": {
+        "mean_depth_proxy_disagreement_deg": 6.4001312255859375,
+        "p95_depth_proxy_disagreement_deg": 16.086578369140625,
+        "mean_direct_vs_depth_consensus_deg": 14.210156440734863,
+        "p95_direct_vs_depth_consensus_deg": 50.2001953125
+      }
+    },
+    {
+      "sample_key": "ring01_reference:angled",
+      "object_id": "ring01_reference",
+      "split": "reference",
+      "view": "angled",
+      "status": "machine_normal_hypothesis_only",
+      "source_sha256": "4df18b5051d962f5fe4c5d9eab3e2818fd5d2dc3047df866b7207ab1b3aaa9c6",
+      "direct_normal": {
+        "backend": "metric3d_v2",
+        "source_path": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/metric3d_v2/ring01_reference/angled_normals.npy",
+        "sign_flipped_for_positive_camera_z": true,
+        "source_file_sha256": "d38197b5b5d5f642ecd18dde11f3792aa3664b94f6f34efa7a9f09aeed5f319b",
+        "oriented_array_sha256": "6e6449a210b6582f9b23235b17ff051940f22ee7298d7df2a2c31e0e8bc79c41"
+      },
+      "depth_normal_proxy_sources": {
+        "depth_anything_v2_metric": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/depth_anything_v2_metric/ring01_reference/angled_depth_m.npy",
+        "metric3d_v2": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/metric3d_v2/ring01_reference/angled_depth_m.npy",
+        "unidepth_v2": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/unidepth_v2/ring01_reference/angled_depth_m.npy"
+      },
+      "depth_normal_consensus_sha256": "fec643cfa2e194ee4a55bd0ac4a90c76bd5cda4177d3647d14d55b3a34485271",
+      "normal_disagreement_sha256": "291a702ac4e96883363ac745e6af8c41626309d18c812678efd36ff595206a8d",
+      "metrics": {
+        "mean_depth_proxy_disagreement_deg": 4.74827241897583,
+        "p95_depth_proxy_disagreement_deg": 12.508001327514648,
+        "mean_direct_vs_depth_consensus_deg": 12.761650085449219,
+        "p95_direct_vs_depth_consensus_deg": 28.43189811706543
+      }
+    },
+    {
+      "sample_key": "ring01_reference:back",
+      "object_id": "ring01_reference",
+      "split": "reference",
+      "view": "back",
+      "status": "machine_normal_hypothesis_only",
+      "source_sha256": "20b24762e3fc9acaa4a1523b6bf4439cea8c66a222378aec994c9256d51f6551",
+      "direct_normal": {
+        "backend": "metric3d_v2",
+        "source_path": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/metric3d_v2/ring01_reference/back_normals.npy",
+        "sign_flipped_for_positive_camera_z": true,
+        "source_file_sha256": "60294db346767918dcb26d1f475d4436541c37b6d897fd02544f8e1b39c3d87d",
+        "oriented_array_sha256": "70949b7189caae96b9bf374c0ef73e0ae6c73fecb29b51031630573af419f7f0"
+      },
+      "depth_normal_proxy_sources": {
+        "depth_anything_v2_metric": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/depth_anything_v2_metric/ring01_reference/back_depth_m.npy",
+        "metric3d_v2": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/metric3d_v2/ring01_reference/back_depth_m.npy",
+        "unidepth_v2": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/unidepth_v2/ring01_reference/back_depth_m.npy"
+      },
+      "depth_normal_consensus_sha256": "fc3502076499eefd10147130748060a5123f21fd4e12932c86e91c7c99e75250",
+      "normal_disagreement_sha256": "d6ee2eb9c86c50b1ecf52792214b07d9c475ea3a8960221c6a8cf7277a59a350",
+      "metrics": {
+        "mean_depth_proxy_disagreement_deg": 8.432104110717773,
+        "p95_depth_proxy_disagreement_deg": 17.517004013061523,
+        "mean_direct_vs_depth_consensus_deg": 13.08491325378418,
+        "p95_direct_vs_depth_consensus_deg": 28.715612411499023
+      }
+    },
+    {
+      "sample_key": "ring_001:front",
+      "object_id": "ring_001",
+      "split": "train",
+      "view": "front",
+      "status": "machine_normal_hypothesis_only",
+      "source_sha256": "958e32f547d19aa55756153690927306c1c60562fb8fdf72a24dfa4ae0bcb51b",
+      "direct_normal": {
+        "backend": "metric3d_v2",
+        "source_path": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/metric3d_v2/ring_001/front_normals.npy",
+        "sign_flipped_for_positive_camera_z": true,
+        "source_file_sha256": "93e09097e9ee399a0ca00605bbeb2b4f8ab508dcb380245466bd7f37fb7b59f2",
+        "oriented_array_sha256": "1817d496433a13eb6a98027a3e044f7f636677900dc54ebe55db51c746b1ac64"
+      },
+      "depth_normal_proxy_sources": {
+        "depth_anything_v2_metric": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/depth_anything_v2_metric/ring_001/front_depth_m.npy",
+        "metric3d_v2": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/metric3d_v2/ring_001/front_depth_m.npy",
+        "unidepth_v2": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/unidepth_v2/ring_001/front_depth_m.npy"
+      },
+      "depth_normal_consensus_sha256": "3501c9a8336f91b179952d6a159e859288520df978148c398258135a144f4fda",
+      "normal_disagreement_sha256": "1af6ba80c286a19c558285f7c82821a4bac43f8f2820846331fe6dc9e11009ba",
+      "metrics": {
+        "mean_depth_proxy_disagreement_deg": 10.705950736999512,
+        "p95_depth_proxy_disagreement_deg": 22.82086181640625,
+        "mean_direct_vs_depth_consensus_deg": 17.07811737060547,
+        "p95_direct_vs_depth_consensus_deg": 38.5238037109375
+      }
+    },
+    {
+      "sample_key": "ring_001:top",
+      "object_id": "ring_001",
+      "split": "train",
+      "view": "top",
+      "status": "machine_normal_hypothesis_only",
+      "source_sha256": "70a65e7a2dff0f0306f5d7ae764e24015508c114903b94d769db3356f3679d98",
+      "direct_normal": {
+        "backend": "metric3d_v2",
+        "source_path": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/metric3d_v2/ring_001/top_normals.npy",
+        "sign_flipped_for_positive_camera_z": true,
+        "source_file_sha256": "4e9eec0dd269e181640815ccab0d4a9912a3f7f8b3d61bfd77a65e471230b722",
+        "oriented_array_sha256": "bbf790c0deb93e24331a026b07752cf5dc4803ecec79b0ad9046dfeb5597df87"
+      },
+      "depth_normal_proxy_sources": {
+        "depth_anything_v2_metric": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/depth_anything_v2_metric/ring_001/top_depth_m.npy",
+        "metric3d_v2": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/metric3d_v2/ring_001/top_depth_m.npy",
+        "unidepth_v2": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/unidepth_v2/ring_001/top_depth_m.npy"
+      },
+      "depth_normal_consensus_sha256": "6cb0c121cfddfc2e953fd97354dc7086a4d4c76b800d743fa644ec81195799a7",
+      "normal_disagreement_sha256": "bf5f557a721936263c2f91d31ec9d85c05b0cc44973819d476a152b95fbbfc2e",
+      "metrics": {
+        "mean_depth_proxy_disagreement_deg": 8.07615852355957,
+        "p95_depth_proxy_disagreement_deg": 17.95945167541504,
+        "mean_direct_vs_depth_consensus_deg": 26.783842086791992,
+        "p95_direct_vs_depth_consensus_deg": 47.631717681884766
+      }
+    },
+    {
+      "sample_key": "ring_001:iso",
+      "object_id": "ring_001",
+      "split": "train",
+      "view": "iso",
+      "status": "machine_normal_hypothesis_only",
+      "source_sha256": "779a812333c1832eac0d6b2cfce23bd695c151f0b9be3dd4a4e1ff7725309863",
+      "direct_normal": {
+        "backend": "metric3d_v2",
+        "source_path": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/metric3d_v2/ring_001/iso_normals.npy",
+        "sign_flipped_for_positive_camera_z": true,
+        "source_file_sha256": "24d2d6a554a9f042df57b6c4ecd66a9f7d56b1e388eda710bf07e4210d88ec39",
+        "oriented_array_sha256": "fd8d1253a8e35ca075634d22781752d6daba522d118259589f8c61ef64031c98"
+      },
+      "depth_normal_proxy_sources": {
+        "depth_anything_v2_metric": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/depth_anything_v2_metric/ring_001/iso_depth_m.npy",
+        "metric3d_v2": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/metric3d_v2/ring_001/iso_depth_m.npy",
+        "unidepth_v2": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/unidepth_v2/ring_001/iso_depth_m.npy"
+      },
+      "depth_normal_consensus_sha256": "4f2f19b2e56b062dd35438fd849897c1894d58fbd425f49b7e6617fcf831b465",
+      "normal_disagreement_sha256": "8862cb7ea924541c8771103069af5db69b02e8cae795b4a6421e701b5562d7de",
+      "metrics": {
+        "mean_depth_proxy_disagreement_deg": 8.504201889038086,
+        "p95_depth_proxy_disagreement_deg": 18.050832748413086,
+        "mean_direct_vs_depth_consensus_deg": 22.259445190429688,
+        "p95_direct_vs_depth_consensus_deg": 47.07937240600586
+      }
+    },
+    {
+      "sample_key": "ring_001:lsv",
+      "object_id": "ring_001",
+      "split": "train",
+      "view": "lsv",
+      "status": "machine_normal_hypothesis_only",
+      "source_sha256": "07bc65ac68158ca9bf03bede6faa5459950fc6713b8bf3edfaa885726e389741",
+      "direct_normal": {
+        "backend": "metric3d_v2",
+        "source_path": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/metric3d_v2/ring_001/lsv_normals.npy",
+        "sign_flipped_for_positive_camera_z": true,
+        "source_file_sha256": "6a140227397d14d16bf1f2902bfd584ef7413a1cc7a59609f9b3a793525946a4",
+        "oriented_array_sha256": "36d92febf6a8cbb55e0e67d808f2103e1be12325bac5d9c931cbe69b237ad361"
+      },
+      "depth_normal_proxy_sources": {
+        "depth_anything_v2_metric": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/depth_anything_v2_metric/ring_001/lsv_depth_m.npy",
+        "metric3d_v2": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/metric3d_v2/ring_001/lsv_depth_m.npy",
+        "unidepth_v2": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/unidepth_v2/ring_001/lsv_depth_m.npy"
+      },
+      "depth_normal_consensus_sha256": "82b728302cbb30d76adc5ce9cbb59148fa5e08e90e159cc3136deb920954ac3f",
+      "normal_disagreement_sha256": "b0692822752e32d8dd27298b2af37a5b5756ba44fb88f2d80e9445682afc749d",
+      "metrics": {
+        "mean_depth_proxy_disagreement_deg": 7.452625751495361,
+        "p95_depth_proxy_disagreement_deg": 18.31124496459961,
+        "mean_direct_vs_depth_consensus_deg": 18.658432006835938,
+        "p95_direct_vs_depth_consensus_deg": 42.235877990722656
+      }
+    },
+    {
+      "sample_key": "ring_001:rsv",
+      "object_id": "ring_001",
+      "split": "train",
+      "view": "rsv",
+      "status": "machine_normal_hypothesis_only",
+      "source_sha256": "8708130bfb6710ce44d565aba6a28f366a7bd448da3ccf0dcdfa6e14934c3cd2",
+      "direct_normal": {
+        "backend": "metric3d_v2",
+        "source_path": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/metric3d_v2/ring_001/rsv_normals.npy",
+        "sign_flipped_for_positive_camera_z": true,
+        "source_file_sha256": "5776ed9367c398c936b9085dc3cd346fa71445638e2b73b75dad20039a2275e6",
+        "oriented_array_sha256": "53b73ed2bd65a229f81152d78081cb3250e21066a1b0240919bbafcab7919d58"
+      },
+      "depth_normal_proxy_sources": {
+        "depth_anything_v2_metric": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/depth_anything_v2_metric/ring_001/rsv_depth_m.npy",
+        "metric3d_v2": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/metric3d_v2/ring_001/rsv_depth_m.npy",
+        "unidepth_v2": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/unidepth_v2/ring_001/rsv_depth_m.npy"
+      },
+      "depth_normal_consensus_sha256": "4510560eb89a75be9550845cac0d9c93b4c8c842ed90e739ec70b5d2f5c47fee",
+      "normal_disagreement_sha256": "b0eb5bf4cc1263eb2b81e161a402d9900c285355015c00493e0b22aaf13eb2ec",
+      "metrics": {
+        "mean_depth_proxy_disagreement_deg": 7.244614124298096,
+        "p95_depth_proxy_disagreement_deg": 17.60995864868164,
+        "mean_direct_vs_depth_consensus_deg": 19.268999099731445,
+        "p95_direct_vs_depth_consensus_deg": 42.50718307495117
+      }
+    },
+    {
+      "sample_key": "ring_004:front",
+      "object_id": "ring_004",
+      "split": "val",
+      "view": "front",
+      "status": "machine_normal_hypothesis_only",
+      "source_sha256": "028fc8d1e7eea4a4d3ed507a4fb9a9dc78b5a94a7c863a91639d5e6dc95c3e30",
+      "direct_normal": {
+        "backend": "metric3d_v2",
+        "source_path": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/metric3d_v2/ring_004/front_normals.npy",
+        "sign_flipped_for_positive_camera_z": true,
+        "source_file_sha256": "8e6cc4a3a2d41e7b4d658b2fd341e1e8881029a4df4924cfd924721cef37eaac",
+        "oriented_array_sha256": "dc444f078cc8dadbf897c3fafc8eefc36229b9bb6853df4825dadf4187b272e9"
+      },
+      "depth_normal_proxy_sources": {
+        "depth_anything_v2_metric": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/depth_anything_v2_metric/ring_004/front_depth_m.npy",
+        "metric3d_v2": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/metric3d_v2/ring_004/front_depth_m.npy",
+        "unidepth_v2": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/unidepth_v2/ring_004/front_depth_m.npy"
+      },
+      "depth_normal_consensus_sha256": "cb02b0bf1947c861fe3560589b48f6eb6fdb11a4e522dbdd236b4690b2090367",
+      "normal_disagreement_sha256": "7bffb1a4cd6cf07d4f69ff57fff59bfbc178f0a15d97ae2df0fda80ccd14564e",
+      "metrics": {
+        "mean_depth_proxy_disagreement_deg": 12.81163501739502,
+        "p95_depth_proxy_disagreement_deg": 23.87476921081543,
+        "mean_direct_vs_depth_consensus_deg": 12.19558334350586,
+        "p95_direct_vs_depth_consensus_deg": 27.47272491455078
+      }
+    },
+    {
+      "sample_key": "ring_004:top",
+      "object_id": "ring_004",
+      "split": "val",
+      "view": "top",
+      "status": "machine_normal_hypothesis_only",
+      "source_sha256": "ddf4c248bf394d310d51de018d8b71d20f8d62f68f3aeb85842ebcd32ff18612",
+      "direct_normal": {
+        "backend": "metric3d_v2",
+        "source_path": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/metric3d_v2/ring_004/top_normals.npy",
+        "sign_flipped_for_positive_camera_z": true,
+        "source_file_sha256": "6526db443ee5b46ba14fed4fd202dd89394bd49f7e80e827e8cadba0d1817e6c",
+        "oriented_array_sha256": "602e453cd0c1c4ab53569fe05641adb93e285dafe2c7833fd3e1b5fb17cb71fd"
+      },
+      "depth_normal_proxy_sources": {
+        "depth_anything_v2_metric": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/depth_anything_v2_metric/ring_004/top_depth_m.npy",
+        "metric3d_v2": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/metric3d_v2/ring_004/top_depth_m.npy",
+        "unidepth_v2": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/unidepth_v2/ring_004/top_depth_m.npy"
+      },
+      "depth_normal_consensus_sha256": "a3650a06f070e0413e266fc9ede9afcc9f33d21cdbd50800839cc855f7cf239e",
+      "normal_disagreement_sha256": "3a0e3710a1087ba5392e3b61cd823d66e9cb838bf8453d657702e3571dd2f62e",
+      "metrics": {
+        "mean_depth_proxy_disagreement_deg": 9.329792976379395,
+        "p95_depth_proxy_disagreement_deg": 22.826215744018555,
+        "mean_direct_vs_depth_consensus_deg": 25.030048370361328,
+        "p95_direct_vs_depth_consensus_deg": 49.04722595214844
+      }
+    },
+    {
+      "sample_key": "ring_004:iso",
+      "object_id": "ring_004",
+      "split": "val",
+      "view": "iso",
+      "status": "machine_normal_hypothesis_only",
+      "source_sha256": "30753c14902b55caaf5216bd42c4e3fbc2213b93ac104627c39facb50d03dd4f",
+      "direct_normal": {
+        "backend": "metric3d_v2",
+        "source_path": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/metric3d_v2/ring_004/iso_normals.npy",
+        "sign_flipped_for_positive_camera_z": true,
+        "source_file_sha256": "2198dec75d2ac08f3c8a49183389fd62be9b730c5253a3fdab93eede7a05c421",
+        "oriented_array_sha256": "476cb1ca0d71357a2df09d43c3709381418b4f684531045f756069b4004b5bf9"
+      },
+      "depth_normal_proxy_sources": {
+        "depth_anything_v2_metric": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/depth_anything_v2_metric/ring_004/iso_depth_m.npy",
+        "metric3d_v2": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/metric3d_v2/ring_004/iso_depth_m.npy",
+        "unidepth_v2": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/unidepth_v2/ring_004/iso_depth_m.npy"
+      },
+      "depth_normal_consensus_sha256": "36ef98bf606b7251c6689b703b7fbd1700f7d619a4b5ea94a4a7fb4a6de4b3ca",
+      "normal_disagreement_sha256": "92ce0795f08f9d91c66424d792890438f7b9149a0ad20d00790156df8dbb6dac",
+      "metrics": {
+        "mean_depth_proxy_disagreement_deg": 7.653711318969727,
+        "p95_depth_proxy_disagreement_deg": 18.046405792236328,
+        "mean_direct_vs_depth_consensus_deg": 22.699058532714844,
+        "p95_direct_vs_depth_consensus_deg": 47.987022399902344
+      }
+    },
+    {
+      "sample_key": "ring_004:lsv",
+      "object_id": "ring_004",
+      "split": "val",
+      "view": "lsv",
+      "status": "machine_normal_hypothesis_only",
+      "source_sha256": "1316e5e81c1747778ada5691c9b5a30ed84e6855f2adfd089f41ecae5338bad7",
+      "direct_normal": {
+        "backend": "metric3d_v2",
+        "source_path": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/metric3d_v2/ring_004/lsv_normals.npy",
+        "sign_flipped_for_positive_camera_z": true,
+        "source_file_sha256": "9e6faa7544376af2963781de151d332484f27ec4e93fbb7d5b252299b23329b0",
+        "oriented_array_sha256": "f3c2f6c9b9748481257565372e5eedbe26ced61de933db3deae26cdb08fd0220"
+      },
+      "depth_normal_proxy_sources": {
+        "depth_anything_v2_metric": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/depth_anything_v2_metric/ring_004/lsv_depth_m.npy",
+        "metric3d_v2": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/metric3d_v2/ring_004/lsv_depth_m.npy",
+        "unidepth_v2": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/unidepth_v2/ring_004/lsv_depth_m.npy"
+      },
+      "depth_normal_consensus_sha256": "3c10b0de8481da6d6c625f79022cec57946d3926fed40e26a358b6b252f39002",
+      "normal_disagreement_sha256": "9456eed681e9de246dae22013bb294a48f08ed261fa24556efe67f7cd882d006",
+      "metrics": {
+        "mean_depth_proxy_disagreement_deg": 6.580730438232422,
+        "p95_depth_proxy_disagreement_deg": 16.141923904418945,
+        "mean_direct_vs_depth_consensus_deg": 19.49030876159668,
+        "p95_direct_vs_depth_consensus_deg": 34.83888244628906
+      }
+    },
+    {
+      "sample_key": "ring_004:rsv",
+      "object_id": "ring_004",
+      "split": "val",
+      "view": "rsv",
+      "status": "machine_normal_hypothesis_only",
+      "source_sha256": "cb663aee7952a44d9435a18ffb15b7aaff74d83a252e6c820c36ccc6edaa3c0b",
+      "direct_normal": {
+        "backend": "metric3d_v2",
+        "source_path": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/metric3d_v2/ring_004/rsv_normals.npy",
+        "sign_flipped_for_positive_camera_z": true,
+        "source_file_sha256": "984db769d5e43a07158d67cd7a8fc0dc14ff29fb2226332d200f0f620509cdea",
+        "oriented_array_sha256": "3c6af518f54f269cabcb6bae55393fcad5392b461f28ae520f7cc2873045d27d"
+      },
+      "depth_normal_proxy_sources": {
+        "depth_anything_v2_metric": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/depth_anything_v2_metric/ring_004/rsv_depth_m.npy",
+        "metric3d_v2": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/metric3d_v2/ring_004/rsv_depth_m.npy",
+        "unidepth_v2": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/unidepth_v2/ring_004/rsv_depth_m.npy"
+      },
+      "depth_normal_consensus_sha256": "a0e4370175d5dce4dc6c53f9f2b35698ac0925f78df56ea41ce32a4778bbb133",
+      "normal_disagreement_sha256": "b6885c4b607d677b03fb0d3f6ab829f1480eda6b69d37c17c83663a638879833",
+      "metrics": {
+        "mean_depth_proxy_disagreement_deg": 6.3111796379089355,
+        "p95_depth_proxy_disagreement_deg": 15.861560821533203,
+        "mean_direct_vs_depth_consensus_deg": 28.878787994384766,
+        "p95_direct_vs_depth_consensus_deg": 51.027099609375
+      }
+    },
+    {
+      "sample_key": "ring_007:front",
+      "object_id": "ring_007",
+      "split": "test",
+      "view": "front",
+      "status": "machine_normal_hypothesis_only",
+      "source_sha256": "7edef361ed397f71181811a750d380806be98229d1f61bf5c59c99df23a55aa5",
+      "direct_normal": {
+        "backend": "metric3d_v2",
+        "source_path": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/metric3d_v2/ring_007/front_normals.npy",
+        "sign_flipped_for_positive_camera_z": true,
+        "source_file_sha256": "8c352ae2f3059304686be30f6fbf55aa330a7db535f6d5f1005e56de155d35c8",
+        "oriented_array_sha256": "4e9182ccd53e3a066cb9dee13ad173dec74b7cf346f2e0afa2c21730655983e7"
+      },
+      "depth_normal_proxy_sources": {
+        "depth_anything_v2_metric": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/depth_anything_v2_metric/ring_007/front_depth_m.npy",
+        "metric3d_v2": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/metric3d_v2/ring_007/front_depth_m.npy",
+        "unidepth_v2": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/unidepth_v2/ring_007/front_depth_m.npy"
+      },
+      "depth_normal_consensus_sha256": "b6c996badec4e8d6d599380ff7eb64ff9b9d3234ed8adb12c629e5c6381daaa9",
+      "normal_disagreement_sha256": "88310feb6b468d38f043f279636cff0177efb0c4ec28b21ccde34e4eb2f1e000",
+      "metrics": {
+        "mean_depth_proxy_disagreement_deg": 10.617287635803223,
+        "p95_depth_proxy_disagreement_deg": 21.607925415039062,
+        "mean_direct_vs_depth_consensus_deg": 15.698944091796875,
+        "p95_direct_vs_depth_consensus_deg": 34.94995880126953
+      }
+    },
+    {
+      "sample_key": "ring_007:top",
+      "object_id": "ring_007",
+      "split": "test",
+      "view": "top",
+      "status": "machine_normal_hypothesis_only",
+      "source_sha256": "f1f548faf56deda463975344713d6901c98f596bbe72dabc8882cb51c2b17460",
+      "direct_normal": {
+        "backend": "metric3d_v2",
+        "source_path": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/metric3d_v2/ring_007/top_normals.npy",
+        "sign_flipped_for_positive_camera_z": true,
+        "source_file_sha256": "3985b68a549ee93be9df1f93f2145aab0344ff0565d9e897980a4497f538539a",
+        "oriented_array_sha256": "cb5c55d29bf499bdb6a219cfce31a062af35fc7e259531e61251eb5c7985725e"
+      },
+      "depth_normal_proxy_sources": {
+        "depth_anything_v2_metric": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/depth_anything_v2_metric/ring_007/top_depth_m.npy",
+        "metric3d_v2": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/metric3d_v2/ring_007/top_depth_m.npy",
+        "unidepth_v2": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/unidepth_v2/ring_007/top_depth_m.npy"
+      },
+      "depth_normal_consensus_sha256": "57af8b939df45a928aad5e867caac94ade95f375847ea9d965a613f27cfe8e20",
+      "normal_disagreement_sha256": "210d11f17bc4dfa0742e419ccedbd20ec9d96766862ed4bfee25e41736dce18c",
+      "metrics": {
+        "mean_depth_proxy_disagreement_deg": 7.3739399909973145,
+        "p95_depth_proxy_disagreement_deg": 16.233444213867188,
+        "mean_direct_vs_depth_consensus_deg": 26.593881607055664,
+        "p95_direct_vs_depth_consensus_deg": 50.214176177978516
+      }
+    },
+    {
+      "sample_key": "ring_007:iso",
+      "object_id": "ring_007",
+      "split": "test",
+      "view": "iso",
+      "status": "machine_normal_hypothesis_only",
+      "source_sha256": "238f6793bdefeeeff3e6f42e34bba308c5346f2369a162ac90db6e818acca210",
+      "direct_normal": {
+        "backend": "metric3d_v2",
+        "source_path": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/metric3d_v2/ring_007/iso_normals.npy",
+        "sign_flipped_for_positive_camera_z": true,
+        "source_file_sha256": "a39989ee86e1b3b811eb3b8d7ea33c140a85a8a16fab8f6368a2dee2bb73854e",
+        "oriented_array_sha256": "5cb689595d893957c886ed2ec6464a6c90d64feb5ad855b72e441d43a1f7a836"
+      },
+      "depth_normal_proxy_sources": {
+        "depth_anything_v2_metric": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/depth_anything_v2_metric/ring_007/iso_depth_m.npy",
+        "metric3d_v2": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/metric3d_v2/ring_007/iso_depth_m.npy",
+        "unidepth_v2": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/unidepth_v2/ring_007/iso_depth_m.npy"
+      },
+      "depth_normal_consensus_sha256": "ab660cbec15ec8b4da4e0991217efae760722c98c00714850f185dce3114d28d",
+      "normal_disagreement_sha256": "f842d709fa51dd049dad2a27b8745ae8af6667c74a7acb63ae92acd2cae9e097",
+      "metrics": {
+        "mean_depth_proxy_disagreement_deg": 8.149084091186523,
+        "p95_depth_proxy_disagreement_deg": 18.458276748657227,
+        "mean_direct_vs_depth_consensus_deg": 24.32151985168457,
+        "p95_direct_vs_depth_consensus_deg": 47.11330032348633
+      }
+    },
+    {
+      "sample_key": "ring_007:lsv",
+      "object_id": "ring_007",
+      "split": "test",
+      "view": "lsv",
+      "status": "machine_normal_hypothesis_only",
+      "source_sha256": "5054e1ad301c88eaa1d9750d150f31a1d8d81b7978b487c910d6da93149ca7e3",
+      "direct_normal": {
+        "backend": "metric3d_v2",
+        "source_path": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/metric3d_v2/ring_007/lsv_normals.npy",
+        "sign_flipped_for_positive_camera_z": true,
+        "source_file_sha256": "f671aaa0ecb185824a6f55761bd083d6e89e3629d6da7cd3725005a5f75fcf2f",
+        "oriented_array_sha256": "f86c127de466e55f074f0695d5247f2d05132c9f732b444500dc79c4f27ac9af"
+      },
+      "depth_normal_proxy_sources": {
+        "depth_anything_v2_metric": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/depth_anything_v2_metric/ring_007/lsv_depth_m.npy",
+        "metric3d_v2": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/metric3d_v2/ring_007/lsv_depth_m.npy",
+        "unidepth_v2": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/unidepth_v2/ring_007/lsv_depth_m.npy"
+      },
+      "depth_normal_consensus_sha256": "0d784a2e937332d7eb84fb48878051855caa8279e818e74ec49e0e118c6b142f",
+      "normal_disagreement_sha256": "3f80e10cf5b7d0eda6d6e496404aa66b5e956758e36839be746a7ae1f4815af6",
+      "metrics": {
+        "mean_depth_proxy_disagreement_deg": 7.557191371917725,
+        "p95_depth_proxy_disagreement_deg": 17.88661003112793,
+        "mean_direct_vs_depth_consensus_deg": 20.676076889038086,
+        "p95_direct_vs_depth_consensus_deg": 41.01191711425781
+      }
+    },
+    {
+      "sample_key": "ring_007:rsv",
+      "object_id": "ring_007",
+      "split": "test",
+      "view": "rsv",
+      "status": "machine_normal_hypothesis_only",
+      "source_sha256": "41f705eab9ee7042510f14ec5991861fed2ae0ded2778e440715c5b928bb143d",
+      "direct_normal": {
+        "backend": "metric3d_v2",
+        "source_path": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/metric3d_v2/ring_007/rsv_normals.npy",
+        "sign_flipped_for_positive_camera_z": true,
+        "source_file_sha256": "4dcaa769375ea722450e8fb78cacad6171aaa7b0aecbcbf304d5d241dee96002",
+        "oriented_array_sha256": "1de9e8d232f11b555a16db8ac90735d385290d8fe37096bca9a345165457d62e"
+      },
+      "depth_normal_proxy_sources": {
+        "depth_anything_v2_metric": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/depth_anything_v2_metric/ring_007/rsv_depth_m.npy",
+        "metric3d_v2": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/metric3d_v2/ring_007/rsv_depth_m.npy",
+        "unidepth_v2": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/unidepth_v2/ring_007/rsv_depth_m.npy"
+      },
+      "depth_normal_consensus_sha256": "84f9a6540bf212a68ee73dfdf51940e7085ea4bd1ad63caadd0fc50eb06f88f4",
+      "normal_disagreement_sha256": "db3adbbc3cf447fccba850bad54e59933c29f6fa8218147c8559cc49801f894d",
+      "metrics": {
+        "mean_depth_proxy_disagreement_deg": 7.258997440338135,
+        "p95_depth_proxy_disagreement_deg": 16.86754608154297,
+        "mean_direct_vs_depth_consensus_deg": 24.14779281616211,
+        "p95_direct_vs_depth_consensus_deg": 41.58369445800781
+      }
+    }
+  ],
+  "claims": {
+    "per_pixel_normal_hypotheses_available": true,
+    "multi_depth_normal_disagreement_measured": true,
+    "normal_accuracy_measured": false,
+    "metric_surface_orientation_validated": false,
+    "manufacturing_accuracy_validated": false
+  },
+  "limitations": [
+    "No surface-normal ground truth is available for Ring01 or STL-1.",
+    "Depth-derived normals are screen-space proxies because camera intrinsics and metric scale are unknown.",
+    "Polished metal, gemstones, shadows and highlights can bias both depth and direct-normal models.",
+    "DSINE remains an unexecuted independent comparator until pinned code and checkpoint evidence are installed."
+  ],
+  "decision": "research_only_continue_to_independent_normal_and_cross_view_benchmark"
+}
