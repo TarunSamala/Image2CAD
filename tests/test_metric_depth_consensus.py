@@ -11,11 +11,30 @@ import cv2
 import numpy as np
 
 from pipeline.infer_metric_depth_backend import BACKEND_MODELS, sha256
-from pipeline.run_metric_depth_consensus import aggregate, build_input_manifest
+from pipeline.run_metric_depth_consensus import (
+    aggregate,
+    build_input_manifest,
+    colorize_depth,
+    colorize_magnitude,
+)
 
 
 class MetricDepthConsensusTest(unittest.TestCase):
     root = Path.cwd()
+
+    def test_depth_and_disagreement_legends_have_distinct_orientation(self) -> None:
+        values = np.asarray([[0.0, 1.0]], dtype=np.float32)
+        mask = np.ones((1, 2), dtype=bool)
+        depth = colorize_depth(values, mask)
+        disagreement = colorize_magnitude(values, mask)
+        self.assertGreater(int(depth[0, 0, 2]), int(depth[0, 0, 0]))
+        self.assertGreater(int(depth[0, 1, 0]), int(depth[0, 1, 2]))
+        self.assertGreater(
+            int(disagreement[0, 0, 0]), int(disagreement[0, 0, 2])
+        )
+        self.assertGreater(
+            int(disagreement[0, 1, 2]), int(disagreement[0, 1, 0])
+        )
 
     def test_real_input_manifest_selects_ring01_and_split_representatives(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
@@ -109,6 +128,17 @@ class MetricDepthConsensusTest(unittest.TestCase):
             )
             self.assertEqual(
                 result["samples"][0]["status"], "cross_model_stability_only"
+            )
+            self.assertEqual(
+                result["visualization"]["depth_color_legend"],
+                {"red": "near", "blue": "far"},
+            )
+            self.assertEqual(
+                result["visualization"]["disagreement_color_legend"],
+                {"red": "high_disagreement", "blue": "low_disagreement"},
+            )
+            self.assertFalse(
+                result["visualization"]["numeric_depth_or_consensus_modified"]
             )
             self.assertTrue(
                 (root / result["review_sheets"]["object"]).is_file()

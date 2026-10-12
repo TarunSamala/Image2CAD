@@ -4,6 +4,8 @@ Lalitha Studio is a lightweight Flask evidence console for `dataset/STL-1`, its 
 
 ## What it shows
 
+- A focused computer-vision evidence index for normalization, shape, detail,
+  depth and uncertainty extraction.
 - All 24 rings and their five source views.
 - The normalized 768 px images, pseudo-silhouettes and OpenCV edge maps.
 - Per-view legacy Phase 2 IoU, Dice and boundary-F1 measurements.
@@ -18,6 +20,13 @@ Lalitha Studio is a lightweight Flask evidence console for `dataset/STL-1`, its 
 - Dataset-wide review for all 24 STL-1 rings, 120 views and 840 evidence items.
 - Per-ring cross-view inventories for visible stones, prongs and sculptural relief.
 - Versioned corrected silhouettes without overwriting machine proposals.
+- Dataset-wide Depth Anything V2 evidence and selected-view agreement from
+  Depth Anything V2 Metric, UniDepth V2, Metric3D V2 and Depth Pro.
+- External-ring generalisation evidence, provenance and review state.
+- A restrained black, white and grey interface, with pink reserved for focus,
+  warnings and selected evidence.
+- Explicit depth-preview colour semantics: red is near and blue is far for
+  depth/consensus; blue is low and red is high for model disagreement.
 
 The interface labels Phase 3 correctly: these are watertight research meshes at nominal display scale. The dataset has no calibrated cameras, physical dimensions, component ground truth or CAD targets, so the outputs are not manufacturing-validated CAD.
 

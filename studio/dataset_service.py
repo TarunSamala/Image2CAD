@@ -403,6 +403,9 @@ class DatasetRepository:
                     "claims": deepcopy(
                         self.metric_depth_consensus.get("claims", {})
                     ),
+                    "visualization": deepcopy(
+                        self.metric_depth_consensus.get("visualization", {})
+                    ),
                     "decision": self.metric_depth_consensus.get("decision"),
                 },
             },
@@ -454,6 +457,282 @@ class DatasetRepository:
                 },
             },
             "limitations": deepcopy(self.dataset_report.get("limitations", [])),
+        }
+
+    def capabilities(self) -> dict[str, Any]:
+        """Return the working Studio feature set with evidence-backed coverage."""
+
+        complete = self.phase1_complete
+        complete_coverage = complete.get("coverage", {})
+        complete_contract = complete.get("feature_contract", {})
+        roundtrip = complete.get("reconstruction_contract", {})
+        metric = self.metric_depth_consensus
+        metric_coverage = metric.get("backend_coverage", {})
+        phase3_objects = list(self._phase3_objects.values())
+        geometry = self.phase3_geometry
+        geometry_colmap = geometry.get("colmap", {})
+        geometry_backends = geometry.get("backends", {})
+        machine_claims = self.phase2_machine_review.get("claims", {})
+        stl1_gate = self._stl1_phase1_review_summary().get("gate", {})
+
+        cards = [
+            {
+                "id": "reproducibility",
+                "title": "Reproducible software baseline",
+                "phase": "Bible Phase 0",
+                "status": "complete",
+                "coverage": self.phase0_environment.get("regression", {}).get(
+                    "result", "unknown"
+                ),
+                "summary": "Pinned environment, dependency inventory and automated regression evidence are retained.",
+                "functions": [
+                    "Inspect the environment and dependency manifests",
+                    "Re-run the repository validation suite in the pinned container",
+                    "Keep model and dataset claims tied to versioned evidence",
+                ],
+                "limitations": deepcopy(
+                    self.phase0_environment.get("known_limits", [])[:2]
+                ),
+                "actions": [
+                    {"label": "Environment", "href": "/api/artifacts/phase0_environment"},
+                    {"label": "Gate report", "href": "/api/artifacts/phase0_status"},
+                ],
+            },
+            {
+                "id": "intake_and_audit",
+                "title": "Single and five-view intake auditor",
+                "phase": "Image intake",
+                "status": "implemented",
+                "coverage": "1 image or 5 named views",
+                "summary": "The reusable local auditor validates inputs and produces normalized, segmentation, feature and phase-audit evidence without modifying source files.",
+                "functions": [
+                    "Reject corrupt or incomplete view sets",
+                    "Retain source and copied-image hashes",
+                    "Generate a self-contained audit report and comparison sheet",
+                ],
+                "limitations": [
+                    "The auditor currently runs as a local command, outside the Flask request lifecycle."
+                ],
+                "actions": [
+                    {"label": "Usage", "href": "/api/artifacts/upload_auditor_doc"}
+                ],
+            },
+            {
+                "id": "feature_extraction",
+                "title": "Complete image feature extraction",
+                "phase": "Image-only Phase 1",
+                "status": "implemented",
+                "coverage": (
+                    f"{int(complete_coverage.get('view_count', 0))} views · "
+                    f"{int(complete_contract.get('stored_array_count_per_view', 0))} arrays/view"
+                ),
+                "summary": "Normalized pixels, silhouettes, negative-space proposals, edges, colour matrices and differential features are retained per view.",
+                "functions": [
+                    "Inspect reference, normalized, mask and edge layers",
+                    "Compare per-view contours, holes, occupancy and symmetry",
+                    "Reconstruct retained source pixels exactly",
+                ],
+                "limitations": [
+                    "Semantic feature matrices alone are not an invertible replacement for retained RGB pixels."
+                ],
+                "checks": {
+                    "all_views_processed": int(complete_coverage.get("view_count", 0))
+                    == len(self.records) * len(VIEW_ORDER),
+                    "source_pixel_roundtrip_exact": bool(
+                        roundtrip.get("source_pixel_roundtrip_exact", False)
+                    ),
+                },
+                "actions": [
+                    {"label": "Open object evidence", "href": "#object-workspace"},
+                    {"label": "Feature report", "href": "/api/artifacts/dataset_complete_phase1_report"},
+                ],
+            },
+            {
+                "id": "human_review",
+                "title": "Evidence review and mask correction",
+                "phase": "Image-only Phase 1",
+                "status": "implemented",
+                "coverage": f"{int(stl1_gate.get('evidence_review_count', 0))} review decisions",
+                "summary": "Ring01 and STL-1 review controls record identified decisions without overwriting machine proposals.",
+                "functions": [
+                    "Approve, reject or flag masks, edges and depth evidence",
+                    "Record cross-view stones, prongs and relief inventory",
+                    "Upload a corrected binary silhouette as a separate artifact",
+                ],
+                "limitations": [
+                    f"{int(stl1_gate.get('pending_evidence_count', 0))} STL-1 evidence decisions remain pending."
+                ],
+                "actions": [
+                    {"label": "Ring01 review", "href": "#phase1-title"},
+                    {"label": "STL-1 review", "href": "#object-workspace"},
+                ],
+            },
+            {
+                "id": "depth_evidence",
+                "title": "Relative and multi-model depth evidence",
+                "phase": "Image-only Phase 1/2",
+                "status": "partial",
+                "coverage": (
+                    f"Depth Anything V2: {int(self.phase1_depth.get('coverage', {}).get('view_count', 0))} views · "
+                    f"consensus: {int(metric.get('sample_count', 0))} samples"
+                ),
+                "summary": "Depth Anything V2, UniDepth V2 and Metric3D V2 have complete selected-sample coverage; Depth Pro has representative coverage and disagreement maps are retained.",
+                "functions": [
+                    "Inspect relative depth, flip ensemble and uncertainty layers",
+                    "Compare same-view predictions across four depth backends",
+                    "Identify stable and appearance-sensitive depth regions",
+                ],
+                "limitations": [
+                    f"Depth Pro coverage is {int(metric_coverage.get('depth_pro', {}).get('sample_count', 0))}/{int(metric_coverage.get('depth_pro', {}).get('requested_sample_count', 0))} because of host-memory limits.",
+                    "Cross-view metric alignment is incomplete; model agreement is not physical-depth accuracy.",
+                ],
+                "actions": [
+                    {"label": "Depth evidence", "href": "#metric-depth-evidence"},
+                    {"label": "Consensus report", "href": "/api/artifacts/metric_depth_consensus_report"},
+                ],
+            },
+            {
+                "id": "reflection_resilience",
+                "title": "Reflection-sensitive silhouette correction",
+                "phase": "Image-only Phase 2",
+                "status": "partial",
+                "coverage": "Ring01 angled view",
+                "summary": "A topology-aware correction prevents bright inner-shank reflections from being treated as metal foreground.",
+                "functions": [
+                    "Compare source, legacy mask, corrected mask and uncertainty",
+                    "Preserve the baseline proposal for auditability",
+                    "Carry the correction into machine-reviewed image-only research",
+                ],
+                "limitations": [
+                    "The correction is machine-validated but still awaits identified human approval."
+                ],
+                "checks": {
+                    "machine_evidence_validated": bool(
+                        machine_claims.get("machine_evidence_validated", False)
+                    ),
+                    "human_review_performed": bool(
+                        machine_claims.get("human_review_performed", False)
+                    ),
+                },
+                "actions": [
+                    {"label": "Inspect correction", "href": "#phase2-paired-title"},
+                    {"label": "Machine report", "href": "/api/artifacts/phase2_machine_review"},
+                ],
+            },
+            {
+                "id": "generalisation",
+                "title": "External real-image generalisation audit",
+                "phase": "Phase 1/2 validation",
+                "status": "partial",
+                "coverage": f"{int(self.external_ring_report.get('sample_count', 0))} external images",
+                "summary": "OrnAsia and Segment Your Ring inputs exercise preprocessing and segmentation outside STL-1.",
+                "functions": [
+                    "Audit segmentation on complex real-image backgrounds",
+                    "Compare ten predictions with supplied whole-ring masks",
+                    "Track source licences and review state",
+                ],
+                "limitations": [
+                    f"{int(self.external_ring_report.get('review_required_mask_count', 0))} masks remain review-gated.",
+                    "The sources contain no camera, scale, component or CAD truth.",
+                ],
+                "actions": [
+                    {"label": "Open generalisation", "href": "#external-ring-title"},
+                    {"label": "Intake report", "href": "/api/artifacts/external_ring_report"},
+                ],
+            },
+            {
+                "id": "multiview_geometry",
+                "title": "Experimental multi-view geometry",
+                "phase": "Geometry evidence",
+                "status": "partial",
+                "coverage": f"{len(phase3_objects)} coarse meshes · {int(geometry.get('selected_object_count', 0))} COLMAP probes",
+                "summary": "Visual-hull research meshes are available for STL-1, and COLMAP feature databases were evaluated across all five-view objects.",
+                "functions": [
+                    "Inspect five-view reprojection and research-mesh previews",
+                    "Download watertight experimental STL and 3MF meshes",
+                    "Inspect COLMAP feature and match evidence per object",
+                ],
+                "limitations": [
+                    f"COLMAP produced {int(geometry_colmap.get('completed_sparse_model_count', 0))} verified sparse models.",
+                    f"VGGT status: {geometry_backends.get('vggt', {}).get('status', 'unknown')}; MASt3R is not installed.",
+                ],
+                "checks": {
+                    "research_meshes_watertight": bool(
+                        self.phase3_report.get("all_meshes_watertight", False)
+                    ),
+                    "cross_view_metric_alignment": False,
+                },
+                "actions": [
+                    {"label": "Open experimental 3D", "href": "#object-workspace"},
+                    {"label": "Geometry report", "href": "/api/artifacts/phase3_geometry_report"},
+                ],
+            },
+            {
+                "id": "parametric_cad",
+                "title": "Editable structural CAD",
+                "phase": "Bible Phase 4+",
+                "status": "blocked",
+                "coverage": "Not implemented",
+                "summary": "The universal component graph, independently editable stones, prongs, seats, cavities and exact STEP construction remain future work.",
+                "functions": [],
+                "limitations": [
+                    "Current STL and 3MF outputs are research meshes, not authoritative editable CAD.",
+                    "Image-only inputs do not verify absolute millimetres without a known scale reference.",
+                ],
+                "actions": [],
+            },
+        ]
+
+        remaining_gates = [
+            {
+                "id": "cross_view_alignment",
+                "title": "Cross-view camera and depth alignment",
+                "status": "next",
+                "evidence": "Same-view depth consensus exists; COLMAP did not form verified sparse models.",
+                "requirement": "Evaluate MASt3R/VGGT within hardware and licence limits, then fuse only geometrically consistent pixels.",
+            },
+            {
+                "id": "component_graph",
+                "title": "Universal jewellery component graph",
+                "status": "not_implemented",
+                "evidence": "Image-space masks and reviewer inventories exist.",
+                "requirement": "Create persistent identities and constraints for metal, stones, prongs, seats, cavities, chains and sculptural relief.",
+            },
+            {
+                "id": "exact_cad",
+                "title": "Parametric CAD reconstruction",
+                "status": "not_implemented",
+                "evidence": "Coarse watertight STL/3MF research meshes exist.",
+                "requirement": "Fit editable dimensions and topology, generate exact B-rep/STEP, and validate renders against every supplied view.",
+            },
+            {
+                "id": "image_only_scale",
+                "title": "Absolute scale and manufacturing claims",
+                "status": "unavailable_from_images_alone",
+                "evidence": "Relative geometry and uncertainty can be estimated.",
+                "requirement": "Keep dimensions scale-normalized unless an image contains a reliable known dimension; do not claim verified millimetres otherwise.",
+            },
+        ]
+
+        status_counts = {
+            status: sum(card["status"] == status for card in cards)
+            for status in ("complete", "implemented", "partial", "blocked")
+        }
+        return {
+            "schema_version": "studio_capabilities_v1",
+            "execution_profile": "images_only",
+            "source_of_truth": "checked_in_reports_and_runtime_contracts",
+            "summary": {
+                "capability_count": len(cards),
+                "working_count": status_counts["complete"]
+                + status_counts["implemented"],
+                "partial_count": status_counts["partial"],
+                "blocked_count": status_counts["blocked"],
+                "status_counts": status_counts,
+            },
+            "capabilities": cards,
+            "remaining_gates": remaining_gates,
+            "claim_boundary": "High-fidelity image and structural evidence is supported; exact metric or manufacturing accuracy is not validated from the available images alone.",
         }
 
     def _reload_phase1_ground_truth(self) -> dict[str, Any]:
@@ -1213,6 +1492,10 @@ class DatasetRepository:
             / "external_ring_v1"
             / "previews"
             / "segment_your_ring_phase1_phase2_preview.jpg",
+            "upload_auditor_doc": self.repo_root
+            / "docs"
+            / "legacy_pipeline"
+            / "UPLOAD_AUDITOR.md",
         }
         if name in reproducibility:
             return self._safe_path(reproducibility[name])

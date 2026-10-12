@@ -116,6 +116,14 @@ class DatasetStudioServiceTest(unittest.TestCase):
         )
         self.assertTrue(metric_depth["claims"]["cross_model_stability_measured"])
         self.assertFalse(metric_depth["claims"]["depth_accuracy_measured"])
+        self.assertEqual(
+            metric_depth["visualization"]["depth_color_legend"],
+            {"red": "near", "blue": "far"},
+        )
+        self.assertEqual(
+            metric_depth["visualization"]["disagreement_color_legend"],
+            {"red": "high_disagreement", "blue": "low_disagreement"},
+        )
         self.assertFalse(
             metric_depth["geometry_alignment"]["cross_view_metric_alignment_complete"]
         )
@@ -138,6 +146,25 @@ class DatasetStudioServiceTest(unittest.TestCase):
         self.assertEqual(len(self.repository.list_objects("val")), 3)
         self.assertEqual(len(self.repository.list_objects("test")), 3)
         self.assertEqual(len(self.repository.list_objects("all")), 24)
+
+    def test_capability_console_reports_working_and_open_functionality(self) -> None:
+        payload = self.repository.capabilities()
+        self.assertEqual(payload["schema_version"], "studio_capabilities_v1")
+        self.assertEqual(payload["execution_profile"], "images_only")
+        self.assertEqual(payload["summary"]["capability_count"], 9)
+        self.assertEqual(payload["summary"]["working_count"], 4)
+        self.assertEqual(payload["summary"]["partial_count"], 4)
+        self.assertEqual(payload["summary"]["blocked_count"], 1)
+        indexed = {item["id"]: item for item in payload["capabilities"]}
+        self.assertEqual(indexed["feature_extraction"]["status"], "implemented")
+        self.assertIn("120 views", indexed["feature_extraction"]["coverage"])
+        self.assertTrue(
+            indexed["feature_extraction"]["checks"]["source_pixel_roundtrip_exact"]
+        )
+        self.assertEqual(indexed["depth_evidence"]["status"], "partial")
+        self.assertIn("4/20", indexed["depth_evidence"]["limitations"][0])
+        self.assertEqual(indexed["parametric_cad"]["status"], "blocked")
+        self.assertEqual(len(payload["remaining_gates"]), 4)
 
     def test_every_object_exposes_real_view_and_phase_artifacts(self) -> None:
         for item in self.repository.list_objects():
@@ -247,6 +274,12 @@ class DatasetStudioApiTest(unittest.TestCase):
         summary = self.client.get("/api/summary")
         self.assertEqual(summary.status_code, 200)
         self.assertEqual(summary.get_json()["dataset"]["image_count"], 120)
+        capabilities = self.client.get("/api/capabilities")
+        self.assertEqual(capabilities.status_code, 200)
+        self.assertEqual(
+            capabilities.get_json()["summary"]["capability_count"], 9
+        )
+        capabilities.close()
         environment = self.client.get("/api/artifacts/phase0_environment")
         self.assertEqual(environment.status_code, 200)
         self.assertRegex(
@@ -259,6 +292,9 @@ class DatasetStudioApiTest(unittest.TestCase):
         self.assertEqual(page.status_code, 200)
         markup = page.get_data(as_text=True)
         for marker in (
+            'id="cv-index-title"',
+            'class="cv-layer-grid"',
+            'id="metric-depth-color-convention"',
             'id="phase0-summary"',
             'id="phase0-limits"',
             'id="phase1-summary"',
@@ -296,10 +332,15 @@ class DatasetStudioApiTest(unittest.TestCase):
             'id="depth-rows"',
         ):
             self.assertIn(marker, markup)
+        self.assertNotIn("LIVE IMPLEMENTATION STATUS", markup)
+        self.assertNotIn('id="implementation-console"', markup)
         script = self.client.get("/static/studio.js")
         self.assertEqual(script.status_code, 200)
         javascript = script.get_data(as_text=True)
         self.assertIn('$("#phase0-summary")', javascript)
+        self.assertNotIn('api("/api/capabilities")', javascript)
+        self.assertNotIn("renderCapabilities", javascript)
+        self.assertIn('$("#metric-depth-color-convention")', javascript)
         self.assertIn('$("#feature-rows")', javascript)
         self.assertIn('$("#phase1-summary")', javascript)
         self.assertIn("loadPhase1Review()", javascript)
@@ -316,7 +357,7 @@ class DatasetStudioApiTest(unittest.TestCase):
         self.assertIn('$("#phase2-paired-summary")', javascript)
         self.assertIn('$("#metric-depth-consensus-summary")', javascript)
         self.assertIn("phase2.machine_review", javascript)
-        self.assertIn("summary.legacy_phase2.test", javascript)
+        self.assertIn("summary.phase1.complete_features", javascript)
         audit = self.client.get("/api/artifacts/phase2_reflection_audit")
         self.assertEqual(audit.status_code, 200)
         self.assertEqual(audit.mimetype, "image/png")
@@ -337,6 +378,10 @@ class DatasetStudioApiTest(unittest.TestCase):
         self.assertEqual(external_preview.status_code, 200)
         self.assertEqual(external_preview.mimetype, "image/jpeg")
         external_preview.close()
+        upload_doc = self.client.get("/api/artifacts/upload_auditor_doc")
+        self.assertEqual(upload_doc.status_code, 200)
+        self.assertEqual(upload_doc.mimetype, "text/markdown")
+        upload_doc.close()
         script.close()
         page.close()
 

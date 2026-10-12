@@ -16,6 +16,15 @@ The comparison performs robust per-object normalization, pairwise shape
 correlation, median absolute disagreement and pixelwise median consensus. Model
 agreement is evidence of **stability**, not evidence of correct depth.
 
+Preview colour conventions are explicit and intentionally different by panel:
+
+- model depth and median consensus: **red = near, blue = far**;
+- model disagreement: **red = high disagreement, blue = low disagreement**.
+
+Metric arrays retain their native distance direction, where larger depth means
+farther from the camera. Only the display transform uses
+`1 - normalized_depth`; no stored depth or consensus values are inverted.
+
 ## Retained run
 
 The retained experiment uses one immutable 20-view manifest:

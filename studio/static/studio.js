@@ -44,13 +44,13 @@ function showError(error) {
 function clearError() { $("#error-banner").classList.add("hidden"); }
 
 function renderSummary(summary) {
-  const test = summary.legacy_phase2.test || {};
-  const phase3Test = summary.phase3.mean_reprojection_iou_by_split?.test;
+  const featureContract = summary.phase1.complete_features?.feature_contract || {};
+  const metricDepth = summary.phase2.metric_depth_consensus || {};
   $("#dataset-metrics").innerHTML = `
-    <article class="metric"><span>Dataset objects</span><strong>${summary.dataset.object_count}</strong><small>${summary.dataset.image_count} source images · five views each</small></article>
-    <article class="metric"><span>Legacy Phase 2 IoU</span><strong>${score(test.iou)}</strong><small>Machine pseudo-label target · not human GT</small></article>
-    <article class="metric"><span>Legacy Phase 3 IoU</span><strong>${score(phase3Test)}</strong><small>Non-metric reprojection score</small></article>
-    <article class="metric"><span>Manufacturing validated</span><strong>${summary.phase3.manufacturing_accuracy_validated ? "Yes" : "No"}</strong><small>Scale and cameras are uncalibrated</small></article>`;
+    <article class="metric"><span>Source images</span><strong>${summary.dataset.image_count}</strong><small>${summary.dataset.object_count} objects · immutable image evidence</small></article>
+    <article class="metric"><span>Synchronized views</span><strong>${summary.dataset.views?.length ?? "—"}</strong><small>Front · top · isometric · left · right</small></article>
+    <article class="metric"><span>Feature matrices</span><strong>${featureContract.stored_array_count_per_view ?? "—"}</strong><small>Stored per view for pixel-level inspection</small></article>
+    <article class="metric"><span>Depth backends</span><strong>${metricDepth.available_backends?.length ?? 0}</strong><small>Consensus and disagreement evidence</small></article>`;
   const governance = summary.governance;
   $("#governance-summary").innerHTML = `
     <article class="metric"><span>Capture contract</span><strong>Tier ${escapeHtml(governance.capture_tier)}</strong><small>Five-view exploratory research</small></article>
@@ -152,6 +152,12 @@ function renderSummary(summary) {
     <article class="metric"><span>Selected views</span><strong>${metricConsensus.sample_count ?? "—"}</strong><small>Ring01 plus train, validation and test objects</small></article>
     <article class="metric"><span>Mean stability</span><strong>${score(metricSummary.mean_cross_model_stability, 4)}</strong><small>Cross-model agreement only · not depth accuracy</small></article>
     <article class="metric"><span>Cross-view alignment</span><strong class="compact-value">${metricAlignment.cross_view_metric_alignment_complete ? "Complete" : "Blocked"}</strong><small>VGGT / MASt3R evidence not available</small></article>`;
+  const depthLegend = metricConsensus.visualization?.depth_color_legend || {};
+  const disagreementLegend = metricConsensus.visualization?.disagreement_color_legend || {};
+  $("#metric-depth-color-convention").textContent =
+    `Depth and consensus: red = ${depthLegend.red || "near"}, blue = ${depthLegend.blue || "far"}. ` +
+    `Disagreement: blue = ${(disagreementLegend.blue || "low disagreement").replaceAll("_", " ")}, ` +
+    `red = ${(disagreementLegend.red || "high disagreement").replaceAll("_", " ")}.`;
   $("#phase2-blockers").innerHTML = (phase2.limitations || [])
     .map((item) => `<li>${escapeHtml(item)}</li>`).join("");
   $("#ring01-carryover-note").textContent = carryover.overall_observation || "No carry-over note recorded.";

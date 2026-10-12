@@ -68,32 +68,87 @@ def masked_correlation(left: np.ndarray, right: np.ndarray, mask: np.ndarray) ->
     return float(np.corrcoef(x, y)[0, 1])
 
 
-def colorize(normalized: np.ndarray, mask: np.ndarray) -> np.ndarray:
+def _colorize(normalized: np.ndarray, mask: np.ndarray) -> np.ndarray:
     gray = np.round(np.clip(normalized, 0, 1) * 255).astype(np.uint8)
     color = cv2.applyColorMap(gray, cv2.COLORMAP_TURBO)
     color[~mask] = (242, 242, 242)
     return color
 
 
-def panel(image: np.ndarray, title: str, width: int = 210) -> np.ndarray:
+def colorize_depth(normalized_depth: np.ndarray, mask: np.ndarray) -> np.ndarray:
+    """Render metric depth with the project convention: red near, blue far."""
+
+    return _colorize(1.0 - np.clip(normalized_depth, 0, 1), mask)
+
+
+def colorize_magnitude(normalized_magnitude: np.ndarray, mask: np.ndarray) -> np.ndarray:
+    """Render an error magnitude with blue low and red high."""
+
+    return _colorize(normalized_magnitude, mask)
+
+
+def panel(
+    image: np.ndarray,
+    title: str,
+    width: int = 210,
+    legend: str | None = None,
+) -> np.ndarray:
     scale = width / image.shape[1]
     resized = cv2.resize(
         image,
         (width, max(1, int(round(image.shape[0] * scale)))),
         interpolation=cv2.INTER_AREA,
     )
-    canvas = np.full((resized.shape[0] + 30, width, 3), 246, np.uint8)
-    canvas[30:] = resized
+    header_height = 52
+    canvas = np.full((resized.shape[0] + header_height, width, 3), 246, np.uint8)
+    canvas[header_height:] = resized
     cv2.putText(
         canvas,
         title,
-        (7, 20),
+        (7, 18),
         cv2.FONT_HERSHEY_SIMPLEX,
         0.43,
         (24, 31, 40),
         1,
         cv2.LINE_AA,
     )
+    if legend:
+        if legend not in {"depth", "magnitude"}:
+            raise ValueError(f"Unknown panel legend: {legend}")
+        left_label, right_label = (
+            ("NEAR", "FAR") if legend == "depth" else ("LOW", "HIGH")
+        )
+        gradient_width = max(1, width - 90)
+        gradient = np.linspace(0.0, 1.0, gradient_width, dtype=np.float32)
+        if legend == "depth":
+            gradient = 1.0 - gradient
+        gradient_u8 = np.round(gradient * 255).astype(np.uint8)[None]
+        gradient_bgr = cv2.applyColorMap(gradient_u8, cv2.COLORMAP_TURBO)
+        gradient_bgr = cv2.resize(
+            gradient_bgr, (gradient_width, 8), interpolation=cv2.INTER_NEAREST
+        )
+        x0 = 45
+        canvas[30:38, x0 : x0 + gradient_width] = gradient_bgr
+        cv2.putText(
+            canvas,
+            left_label,
+            (7, 39),
+            cv2.FONT_HERSHEY_SIMPLEX,
+            0.29,
+            (65, 65, 65),
+            1,
+            cv2.LINE_AA,
+        )
+        cv2.putText(
+            canvas,
+            right_label,
+            (width - 37, 39),
+            cv2.FONT_HERSHEY_SIMPLEX,
+            0.29,
+            (65, 65, 65),
+            1,
+            cv2.LINE_AA,
+        )
     return canvas
 
 
@@ -276,7 +331,13 @@ def aggregate(root: Path, experiment: Path, manifest: dict[str, Any]) -> dict[st
         artifacts: dict[str, str] = {}
         panel_parts = [panel(source, f"{sample['view'].upper()} SOURCE")]
         for name in names:
-            panel_parts.append(panel(colorize(normalized[name], mask), name.replace("_", " ").upper()))
+            panel_parts.append(
+                panel(
+                    colorize_depth(normalized[name], mask),
+                    name.replace("_", " ").upper(),
+                    legend="depth",
+                )
+            )
         if len(normalized) >= 2:
             stack = np.stack([normalized[name] for name in names], axis=0)
             consensus = np.median(stack, axis=0).astype(np.float32)
@@ -297,8 +358,16 @@ def aggregate(root: Path, experiment: Path, manifest: dict[str, Any]) -> dict[st
             }
             panel_parts.extend(
                 [
-                    panel(colorize(consensus, mask), "MEDIAN CONSENSUS"),
-                    panel(colorize(disagreement, mask), "MODEL DISAGREEMENT"),
+                    panel(
+                        colorize_depth(consensus, mask),
+                        "MEDIAN CONSENSUS",
+                        legend="depth",
+                    ),
+                    panel(
+                        colorize_magnitude(disagreement, mask),
+                        "MODEL DISAGREEMENT",
+                        legend="magnitude",
+                    ),
                 ]
             )
             stability = float(1.0 - np.mean(disagreement[mask]))
@@ -379,6 +448,19 @@ def aggregate(root: Path, experiment: Path, manifest: dict[str, Any]) -> dict[st
             "aggregation": "pixelwise_median_normalized_depth",
             "uncertainty": "median_absolute_deviation_from_consensus",
             "complete": completed >= 2,
+        },
+        "visualization": {
+            "depth_array_convention": "larger_metric_depth_is_farther",
+            "depth_display_transform": "display_proximity_equals_one_minus_normalized_depth",
+            "depth_color_legend": {
+                "red": "near",
+                "blue": "far",
+            },
+            "disagreement_color_legend": {
+                "red": "high_disagreement",
+                "blue": "low_disagreement",
+            },
+            "numeric_depth_or_consensus_modified": False,
         },
         "geometry_alignment": {
             "colmap_status": "failed_to_form_sparse_models_on_retained_STL1_run",

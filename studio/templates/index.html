@@ -14,7 +14,7 @@
           <div class="brand-mark" aria-hidden="true">L</div>
           <div>
             <strong>Lalitha Studio</strong>
-            <span>Evidence and review console</span>
+            <span>Image and feature workspace</span>
           </div>
         </div>
 
@@ -45,11 +45,14 @@
       <main class="main-content">
         <header class="topbar">
           <div>
-            <p class="eyebrow">LALITHA / STL-1 / TIER A</p>
-            <h1>Evidence and benchmark console</h1>
-            <p class="subtitle">Inspect immutable source views, derived evidence and research-only geometry without silently promoting inference to CAD truth.</p>
+            <p class="eyebrow">LALITHA / IMAGE EVIDENCE</p>
+            <h1>Images and feature extraction</h1>
+            <p class="subtitle">Compare synchronized source views with normalization, silhouettes, edges, depth and uncertainty.</p>
           </div>
-          <a id="report-download" class="button secondary disabled" href="#" download>Download evidence record</a>
+          <div class="topbar-actions">
+            <a class="button primary" href="#object-workspace">Open image workspace</a>
+            <a id="report-download" class="button secondary disabled" href="#" download>Download evidence record</a>
+          </div>
         </header>
 
         <div id="error-banner" class="error-banner hidden" role="alert"></div>
@@ -64,6 +67,21 @@
           </div>
         </section>
         <section id="governance-summary" class="metric-grid governance-grid" aria-label="Project Bible status"></section>
+
+        <section class="baseline-section cv-index" aria-labelledby="cv-index-title">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">COMPUTER VISION EVIDENCE</p>
+              <h2 id="cv-index-title">Extracted from every synchronized view</h2>
+            </div>
+          </div>
+          <div class="cv-layer-grid">
+            <article><strong>Image normalization</strong><span>Background separation · illumination normalization · source-pixel retention</span></article>
+            <article><strong>Shape evidence</strong><span>Silhouette · contours · holes · symmetry · negative space</span></article>
+            <article><strong>Detail evidence</strong><span>Edges · stones · prongs · settings · sculptural relief proposals</span></article>
+            <article><strong>Depth evidence</strong><span>Relative depth · metric-model consensus · uncertainty · disagreement</span></article>
+          </div>
+        </section>
 
         <section class="baseline-section" aria-labelledby="phase0-title">
           <div class="section-heading">
@@ -211,7 +229,7 @@
             </div>
             <img class="wide-evidence" src="/api/artifacts/ring01_all_views_depth_validation" alt="Ring01 all-view depth validation" loading="lazy">
           </article>
-          <article class="evidence-card">
+          <article id="metric-depth-evidence" class="evidence-card">
             <div class="card-heading">
               <div>
                 <p class="eyebrow">METRIC-DEPTH MODEL AGREEMENT</p>
@@ -220,6 +238,7 @@
               <a class="button secondary" href="/api/artifacts/metric_depth_consensus_report">Agreement report</a>
             </div>
             <p class="subtle">The maps compare model stability after robust per-object normalization. They do not validate physical scale, millimetres or depth accuracy.</p>
+            <p id="metric-depth-color-convention" class="depth-legend-note">Depth and consensus: red = near, blue = far. Disagreement: blue = low, red = high.</p>
             <div id="metric-depth-consensus-summary" class="metric-grid baseline-grid"></div>
             <img class="wide-evidence" src="/api/artifacts/metric_depth_ring01_preview" alt="Ring01 multi-model metric-depth agreement and disagreement" loading="lazy">
             <div class="two-column phase1-evidence-grid">

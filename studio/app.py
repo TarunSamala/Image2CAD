@@ -42,6 +42,10 @@ def create_app(repo_root: str | Path | None = None) -> Flask:
     def summary():
         return jsonify(repository.summary())
 
+    @app.get("/api/capabilities")
+    def capabilities():
+        return jsonify(repository.capabilities())
+
     @app.get("/api/phase1/review")
     def phase1_review():
         return jsonify(repository.phase1_review_manifest())
@@ -157,7 +161,9 @@ def create_app(repo_root: str | Path | None = None) -> Flask:
 
     @app.get("/api/artifacts/<name>")
     def global_asset(name: str):
-        return send_file(repository.global_asset_path(name), conditional=True)
+        path = repository.global_asset_path(name)
+        mimetype = "text/markdown" if path.suffix.lower() == ".md" else None
+        return send_file(path, conditional=True, mimetype=mimetype)
 
     @app.errorhandler(ObjectNotFoundError)
     @app.errorhandler(AssetNotFoundError)

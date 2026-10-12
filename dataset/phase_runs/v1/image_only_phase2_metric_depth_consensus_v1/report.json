@@ -1,6 +1,6 @@
 {
   "schema_version": "image2cad_metric_depth_consensus_v1",
-  "created_at_utc": "2026-10-12T11:08:25.407276+00:00",
+  "created_at_utc": "2026-10-12T15:11:51.751891+00:00",
   "stage": "image_only_phase2_metric_depth_consensus",
   "input_manifest": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/input_manifest.json",
   "input_manifest_sha256": "3bdad11898a305a139170f753762e5895e9a245b7dac5551ef3c3d0a1f49e45c",
@@ -1408,6 +1408,19 @@
     "aggregation": "pixelwise_median_normalized_depth",
     "uncertainty": "median_absolute_deviation_from_consensus",
     "complete": true
+  },
+  "visualization": {
+    "depth_array_convention": "larger_metric_depth_is_farther",
+    "depth_display_transform": "display_proximity_equals_one_minus_normalized_depth",
+    "depth_color_legend": {
+      "red": "near",
+      "blue": "far"
+    },
+    "disagreement_color_legend": {
+      "red": "high_disagreement",
+      "blue": "low_disagreement"
+    },
+    "numeric_depth_or_consensus_modified": false
   },
   "geometry_alignment": {
     "colmap_status": "failed_to_form_sparse_models_on_retained_STL1_run",
