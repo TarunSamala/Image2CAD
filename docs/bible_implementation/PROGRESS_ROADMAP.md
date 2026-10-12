@@ -19,9 +19,10 @@ replace or renumber the canonical [Project Bible roadmap](../bible_v1_0/19_DEVEL
 
 ## Remaining implementation
 
-1. Add DSINE as a pinned independent normal comparator.
-2. Recover camera poses and reliable cross-view correspondences.
-3. Fuse consistent multi-view depth and normals while retaining uncertain pixels.
+1. Recover camera poses and reliable cross-view correspondences.
+2. Fuse consistent multi-view depth and normals while retaining uncertain pixels.
+3. Select a public-deployment-compatible independent normal comparator; DSINE
+   remains blocked without a separate site/commercial licence.
 4. Build the universal jewellery component and constraint graph.
 5. Support independently editable stones, prongs, seats, cavities and relief geometry.
 6. Generate parametric CAD and refine it through render-and-compare validation.

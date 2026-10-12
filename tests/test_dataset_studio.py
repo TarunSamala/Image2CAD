@@ -131,7 +131,10 @@ class DatasetStudioServiceTest(unittest.TestCase):
         self.assertEqual(normals["sample_count"], 20)
         self.assertTrue(normals["claims"]["per_pixel_normal_hypotheses_available"])
         self.assertFalse(normals["claims"]["normal_accuracy_measured"])
-        self.assertEqual(normals["backends"]["dsine"]["status"], "not_run")
+        self.assertEqual(
+            normals["backends"]["dsine"]["status"],
+            "blocked_license_public_deployment",
+        )
         self.assertEqual(
             phase2["ring01_carryover"]["open_issues"][0]["status"],
             "correction_proposed_pending_human_review",

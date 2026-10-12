@@ -161,11 +161,14 @@ function renderSummary(summary) {
   const normalEvidence = phase2.surface_normal_evidence || {};
   const normalSummary = normalEvidence.summary || {};
   const dsine = normalEvidence.backends?.dsine || {};
+  const dsineNote = dsine.status === "blocked_license_public_deployment"
+    ? "Official licence blocks public/commercial integration without separate permission"
+    : "No normal ground truth or calibrated cross-view frame";
   $("#surface-normal-summary").innerHTML = `
     <article class="metric"><span>Normal-map views</span><strong>${normalEvidence.sample_count ?? "—"}</strong><small>${normalEvidence.object_count ?? "—"} objects · direct and depth-derived evidence</small></article>
     <article class="metric"><span>Depth-proxy disagreement</span><strong>${score(normalSummary.mean_depth_proxy_disagreement_deg, 2)}°</strong><small>Mean angular disagreement · consistency only</small></article>
     <article class="metric"><span>Direct / depth delta</span><strong>${score(normalSummary.mean_direct_vs_depth_consensus_deg, 2)}°</strong><small>Metric3D direct normal versus depth consensus</small></article>
-    <article class="metric"><span>Independent comparator</span><strong class="compact-value">DSINE ${escapeHtml(humanize(dsine.status || "not run"))}</strong><small>No normal ground truth or calibrated cross-view frame</small></article>`;
+    <article class="metric"><span>Independent comparator</span><strong class="compact-value">DSINE ${escapeHtml(humanize(dsine.status || "not run"))}</strong><small>${escapeHtml(dsineNote)}</small></article>`;
   $("#phase2-blockers").innerHTML = (phase2.limitations || [])
     .map((item) => `<li>${escapeHtml(item)}</li>`).join("");
   $("#ring01-carryover-note").textContent = carryover.overall_observation || "No carry-over note recorded.";

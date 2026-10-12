@@ -275,8 +275,15 @@ def run(root: Path, depth_experiment: Path, output: Path, force: bool = False) -
             },
             "dsine": {
                 "model_id": "baegwangbin/DSINE exp001_cvpr2024",
-                "status": "not_run",
-                "blockers": ["code_and_checkpoint_not_installed"],
+                "source_revision": "ef0c2afa32b4dd19cb8ca4567c652802cd92591c",
+                "license_sha256": "ec5c61024c3ce6fc3cb3e4b66592971921a679941150846dc9cd60154bff9844",
+                "license_scope": "non_commercial_internal_or_academic_research_only",
+                "status": "blocked_license_public_deployment",
+                "blockers": [
+                    "official_license_restricts_use_to_non_commercial_internal_or_academic_research",
+                    "official_license_restricts_third_party_access_without_separate_permission",
+                    "checkpoint_not_installed",
+                ],
                 "role": "independent_surface_normal_comparator",
             },
         },
@@ -310,9 +317,9 @@ def run(root: Path, depth_experiment: Path, output: Path, force: bool = False) -
             "No surface-normal ground truth is available for Ring01 or STL-1.",
             "Depth-derived normals are screen-space proxies because camera intrinsics and metric scale are unknown.",
             "Polished metal, gemstones, shadows and highlights can bias both depth and direct-normal models.",
-            "DSINE remains an unexecuted independent comparator until pinned code and checkpoint evidence are installed.",
+            "DSINE is not integrated because its official licence is incompatible with public or commercial deployment without separate permission.",
         ],
-        "decision": "research_only_continue_to_independent_normal_and_cross_view_benchmark",
+        "decision": "continue_to_cross_view_benchmark_without_dsine_public_integration",
     }
     report_path.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
     return report

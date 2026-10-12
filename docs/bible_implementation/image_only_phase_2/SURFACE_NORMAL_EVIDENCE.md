@@ -40,11 +40,18 @@ reliable.
 
 ## DSINE position
 
-[DSINE](https://github.com/baegwangbin/DSINE) remains the planned independent
-normal comparator. Its code and checkpoint are not silently downloaded by this
-checkpoint. A future run must pin the source revision, checkpoint hash, licence
-evidence, camera-intrinsic assumptions and runtime before its output can enter
-the retained comparison.
+[DSINE](https://github.com/baegwangbin/DSINE) was audited at source revision
+`ef0c2afa32b4dd19cb8ca4567c652802cd92591c`. Its official licence restricts the
+software to non-commercial internal or academic research and restricts
+third-party access without separate permission. That is not compatible with
+silently integrating it into a public or potentially commercial Studio.
+
+DSINE therefore remains documented as a research candidate, but its code and
+checkpoint are not installed, redistributed or served. A future DSINE run
+requires separate permission or an appropriate site/commercial licence, plus a
+pinned checkpoint hash and recorded camera-intrinsic assumptions. The active
+pipeline proceeds to cross-view geometry using the already retained normal
+evidence.
 
 ## Claims and limits
 

@@ -44,7 +44,13 @@ class SurfaceNormalEvidenceTest(unittest.TestCase):
             report["backends"]["depth_gradient_proxies"]["backends"],
             list(COMPLETE_DEPTH_BACKENDS),
         )
-        self.assertEqual(report["backends"]["dsine"]["status"], "not_run")
+        dsine = report["backends"]["dsine"]
+        self.assertEqual(dsine["status"], "blocked_license_public_deployment")
+        self.assertEqual(
+            dsine["source_revision"],
+            "ef0c2afa32b4dd19cb8ca4567c652802cd92591c",
+        )
+        self.assertRegex(dsine["license_sha256"], r"^[0-9a-f]{64}$")
         self.assertTrue(report["claims"]["per_pixel_normal_hypotheses_available"])
         self.assertTrue(report["claims"]["multi_depth_normal_disagreement_measured"])
         self.assertFalse(report["claims"]["normal_accuracy_measured"])
