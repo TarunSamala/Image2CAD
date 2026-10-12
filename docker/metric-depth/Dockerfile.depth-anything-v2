@@ -1,0 +1,16 @@
+FROM image2cad-validation:phase0
+
+ARG DEPTH_ANYTHING_COMMIT=a561b849ebae10a6f5ef49e26c83cbbcd36c71bf
+
+RUN apt-get update \
+    && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends git ca-certificates \
+    && rm -rf /var/lib/apt/lists/* \
+    && git clone https://github.com/DepthAnything/Depth-Anything-V2.git /opt/depth-anything-v2 \
+    && git -C /opt/depth-anything-v2 checkout "${DEPTH_ANYTHING_COMMIT}"
+
+ENV PYTHONPATH=/opt/depth-anything-v2/metric_depth:/workspace
+ENV PYTHONDONTWRITEBYTECODE=1
+WORKDIR /workspace
+
+LABEL org.opencontainers.image.title="Image2CAD Depth Anything V2 metric benchmark"
+LABEL org.opencontainers.image.description="Pinned small Hypersim metric-depth research backend"

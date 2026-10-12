@@ -9,12 +9,38 @@ import zipfile
 from pathlib import Path
 
 import cv2
+import numpy as np
 import trimesh
 
-from audit_jewellery import FIVE_VIEWS, run_audit
+from audit_jewellery import FIVE_VIEWS, _expects_central_void, _small_object_prompt, run_audit
 
 
 class UploadedJewelleryAuditTest(unittest.TestCase):
+    def test_small_object_prompt_rejects_long_background_fold(self) -> None:
+        image = np.full((420, 620, 3), 215, np.uint8)
+        cv2.line(image, (0, 360), (619, 300), (165, 165, 165), 22, cv2.LINE_AA)
+        cv2.circle(image, (320, 190), 62, (45, 65, 85), 16, cv2.LINE_AA)
+        cv2.circle(image, (320, 120), 22, (55, 75, 95), -1, cv2.LINE_AA)
+        proposal = _small_object_prompt(image)
+        self.assertIsNotNone(proposal)
+        points = cv2.findNonZero(proposal)
+        self.assertIsNotNone(points)
+        x, y, width, height = cv2.boundingRect(points)
+        self.assertLess(width, image.shape[1] * 0.55)
+        self.assertLess(height, image.shape[0] * 0.55)
+        self.assertLess(abs((x + width / 2) - 320), 90)
+        self.assertLess(abs((y + height / 2) - 170), 90)
+
+    def test_central_void_detector_distinguishes_hole_from_solid_centre(self) -> None:
+        background = np.full((240, 240, 3), 205, np.uint8)
+        proposal = np.zeros((240, 240), np.uint8)
+        cv2.circle(proposal, (120, 120), 66, 255, 12, cv2.LINE_AA)
+        box = np.asarray([40, 40, 200, 200], np.float32)
+        self.assertTrue(_expects_central_void(background, proposal, box))
+        solid = background.copy()
+        cv2.circle(solid, (120, 120), 28, (40, 60, 80), -1, cv2.LINE_AA)
+        self.assertFalse(_expects_central_void(solid, proposal, box))
+
     def test_single_image_runs_through_phase23(self) -> None:
         source = Path("dataset/STL-1/Ring 1/R1 - Front.png")
         with tempfile.TemporaryDirectory() as directory:

@@ -1,0 +1,151 @@
+{
+  "schema_version": "image2cad_metric_depth_backend_v1",
+  "created_at_utc": "2026-10-12T10:54:49.315695+00:00",
+  "backend": "depth_pro",
+  "model": {
+    "model_id": "apple/DepthPro-hf",
+    "revision": "de816c8ce7168afcb231f96d501d72b869d0beda",
+    "license": "Apple-ASCL",
+    "checkpoint_role": "metric-depth and focal-length hypothesis"
+  },
+  "device": "cpu",
+  "checkpoint": "/workspace/models/metric_depth/depth_pro_hf",
+  "checkpoint_evidence": {
+    "kind": "directory",
+    "sha256": "b4db858b6eef5de85b3353ad7730e46676d95f32670c38ebacd1eb95886ad51d",
+    "size_bytes": 1904188688,
+    "files": [
+      {
+        "path": "config.json",
+        "sha256": "995993be477aefdf41468ca51e171afd26b59aeee4b0afc4ef16957f0b622222",
+        "size_bytes": 2916
+      },
+      {
+        "path": "model.safetensors",
+        "sha256": "9c6811e3165485b9a94a204329860cb333a79877e757eb795a179a4ea34bbcf7",
+        "size_bytes": 1904185492
+      },
+      {
+        "path": "preprocessor_config.json",
+        "sha256": "88c3e95c10d3780840674bfd52581de03c547cf0a4976b9c4779dd8e2fc5af05",
+        "size_bytes": 280
+      }
+    ]
+  },
+  "input_manifest": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/input_manifest.json",
+  "input_manifest_sha256": "3bdad11898a305a139170f753762e5895e9a245b7dac5551ef3c3d0a1f49e45c",
+  "sample_count": 4,
+  "requested_sample_count": 20,
+  "coverage_complete": false,
+  "records": [
+    {
+      "sample_key": "ring01_reference:front",
+      "object_id": "ring01_reference",
+      "view": "front",
+      "source_sha256": "a564f0be433b01639ae981c493e6cddea11b04ef2fea0411804cc3b8cc553a74",
+      "artifacts": {
+        "depth_m": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/depth_pro/ring01_reference/front_depth_m.npy"
+      },
+      "depth_sha256": "985d8f2c85407cc8a6c773e7ad0bba2819f0f3e223af4d5a0422b78f24e500d7",
+      "depth_shape": [
+        212,
+        289
+      ],
+      "depth_unit": "metre_model_hypothesis",
+      "masked_depth_m": {
+        "p02": 0.8023976683616638,
+        "median": 0.8164719939231873,
+        "p98": 0.9012895822525024
+      },
+      "runtime_seconds": 53.498419,
+      "auxiliary": {
+        "focal_length": 649.78662109375,
+        "field_of_view": 25.074920654296875
+      }
+    },
+    {
+      "sample_key": "ring_001:front",
+      "object_id": "ring_001",
+      "view": "front",
+      "source_sha256": "958e32f547d19aa55756153690927306c1c60562fb8fdf72a24dfa4ae0bcb51b",
+      "artifacts": {
+        "depth_m": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/depth_pro/ring_001/front_depth_m.npy"
+      },
+      "depth_sha256": "4730086725f0e3b58a79b82a7d4720d0170d0dada65d9a4fad092a4d87c81130",
+      "depth_shape": [
+        768,
+        768
+      ],
+      "depth_unit": "metre_model_hypothesis",
+      "masked_depth_m": {
+        "p02": 2.358116626739502,
+        "median": 2.6017441749572754,
+        "p98": 2.8259665966033936
+      },
+      "runtime_seconds": 53.254425,
+      "auxiliary": {
+        "focal_length": 2798.259765625,
+        "field_of_view": 15.62757682800293
+      }
+    },
+    {
+      "sample_key": "ring_004:front",
+      "object_id": "ring_004",
+      "view": "front",
+      "source_sha256": "028fc8d1e7eea4a4d3ed507a4fb9a9dc78b5a94a7c863a91639d5e6dc95c3e30",
+      "artifacts": {
+        "depth_m": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/depth_pro/ring_004/front_depth_m.npy"
+      },
+      "depth_sha256": "b2628ae4336c4af061d656065f7fa3cb94c9fee42a19a9e2ecaa34c8128a45fd",
+      "depth_shape": [
+        768,
+        768
+      ],
+      "depth_unit": "metre_model_hypothesis",
+      "masked_depth_m": {
+        "p02": 2.289597749710083,
+        "median": 2.394304037094116,
+        "p98": 2.4856507778167725
+      },
+      "runtime_seconds": 51.90109,
+      "auxiliary": {
+        "focal_length": 2097.19091796875,
+        "field_of_view": 20.752077102661133
+      }
+    },
+    {
+      "sample_key": "ring_007:front",
+      "object_id": "ring_007",
+      "view": "front",
+      "source_sha256": "7edef361ed397f71181811a750d380806be98229d1f61bf5c59c99df23a55aa5",
+      "artifacts": {
+        "depth_m": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/depth_pro/ring_007/front_depth_m.npy"
+      },
+      "depth_sha256": "64cfe2c3696f01cbefe404df23c747c01c6d8cd992713c64e81eb64a6c63aeaa",
+      "depth_shape": [
+        768,
+        768
+      ],
+      "depth_unit": "metre_model_hypothesis",
+      "masked_depth_m": {
+        "p02": 2.0817220211029053,
+        "median": 2.3144848346710205,
+        "p98": 2.590622663497925
+      },
+      "runtime_seconds": 51.564662,
+      "auxiliary": {
+        "focal_length": 3158.4873046875,
+        "field_of_view": 13.863679885864258
+      }
+    }
+  ],
+  "runtime_seconds": 214.046937,
+  "peak_gpu_memory_bytes": 0,
+  "claims": {
+    "model_outputs_metric_units": true,
+    "metric_accuracy_validated_on_jewellery": false,
+    "physical_scale_validated": false,
+    "manufacturing_measurements_validated": false
+  },
+  "decision": "research_only_model_hypothesis"
+}

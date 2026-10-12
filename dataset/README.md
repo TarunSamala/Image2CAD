@@ -72,6 +72,20 @@ Phase 2 because it has no paired production CAD or metric dimensions.
 
 Green areas in the test review sheets are target/prediction agreement. Blue and grey fringes show disagreement. These metrics measure reproduction of the prepared pseudo-masks, not manufacturing accuracy or performance on real jewellery photographs.
 
+## External real-image ring intake
+
+`external_sources/registry.json` keeps OrnAsia and Segment Your Ring separate
+from STL-1 with their licences, revisions, hashes and supervision limits.
+`external_ring_v1/` contains the reproducible Phase 1/2 intake manifest, report
+and compact previews. Raw downloads and per-image artifacts are ignored; the
+evidence report and previews are versioned.
+
+The current external intake is `review_required`: 206 images were processed,
+but only one of ten human-labelled masks clears the strict mask gate, and all
+196 OrnAsia outputs lack independent mask truth. This dataset therefore expands
+real-image failure coverage; it does not prove CAD, depth or manufacturing
+accuracy.
+
 ## Comparison previews
 
 Generate the high-resolution comparison sheets with:

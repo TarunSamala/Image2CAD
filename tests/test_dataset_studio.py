@@ -86,12 +86,39 @@ class DatasetStudioServiceTest(unittest.TestCase):
         self.assertEqual(stl1_review["gate"]["evidence_review_count"], 840)
         self.assertEqual(stl1_review["gate"]["pending_evidence_count"], 840)
         self.assertEqual(stl1_review["gate"]["pending_object_review_count"], 24)
+        external = summary["external_ring_datasets"]
+        self.assertEqual(external["status"], "review_required")
+        self.assertEqual(external["sample_count"], 206)
+        self.assertEqual(external["dataset_counts"]["ornasia"], 196)
+        self.assertEqual(external["ground_truth_mask_count"], 10)
+        self.assertEqual(external["approved_mask_count"], 1)
+        self.assertEqual(external["review_required_mask_count"], 205)
+        self.assertFalse(external["checks"]["all_segmentation_outputs_approved"])
         phase2 = summary["phase2"]
         self.assertEqual(
             phase2["status"], "correction_proposed_pending_human_review"
         )
         self.assertEqual(phase2["input_contract"], "images_only")
         self.assertTrue(phase2["checkpoint_valid"])
+        machine_review = phase2["machine_review"]
+        self.assertTrue(machine_review["claims"]["machine_evidence_validated"])
+        self.assertTrue(
+            machine_review["claims"]["image_only_phase2_research_may_continue"]
+        )
+        self.assertFalse(machine_review["claims"]["human_review_performed"])
+        self.assertFalse(machine_review["claims"]["bible_phase1_complete"])
+        metric_depth = phase2["metric_depth_consensus"]
+        self.assertGreaterEqual(len(metric_depth["available_backends"]), 3)
+        self.assertEqual(metric_depth["sample_count"], 20)
+        self.assertEqual(
+            metric_depth["incomplete_backends"]["depth_pro"]["missing_sample_count"],
+            16,
+        )
+        self.assertTrue(metric_depth["claims"]["cross_model_stability_measured"])
+        self.assertFalse(metric_depth["claims"]["depth_accuracy_measured"])
+        self.assertFalse(
+            metric_depth["geometry_alignment"]["cross_view_metric_alignment_complete"]
+        )
         self.assertEqual(
             phase2["ring01_carryover"]["open_issues"][0]["status"],
             "correction_proposed_pending_human_review",
@@ -240,9 +267,11 @@ class DatasetStudioApiTest(unittest.TestCase):
             'id="phase1-proposal-preview"',
             'id="phase1-depth-status"',
             'id="phase1-deep-summary"',
+            'id="metric-depth-consensus-summary"',
             'id="dataset-depth-summary"',
             'id="dataset-complete-summary"',
             'id="stl1-review-summary"',
+            'id="external-ring-summary"',
             'id="panel-phase1-review"',
             'id="stl1-reviewer"',
             'id="stl1-review-evidence-image"',
@@ -278,17 +307,36 @@ class DatasetStudioApiTest(unittest.TestCase):
         self.assertIn('$("#phase1-deep-summary")', javascript)
         self.assertIn('$("#dataset-depth-summary")', javascript)
         self.assertIn('$("#dataset-complete-summary")', javascript)
+        self.assertIn('$("#external-ring-summary")', javascript)
         self.assertIn("loadStl1ReviewSummary()", javascript)
         self.assertIn("/api/phase1/stl1/reviews/evidence", javascript)
         self.assertIn("/api/phase1/stl1/reviews/view", javascript)
         self.assertIn("/api/phase1/stl1/corrections/silhouette", javascript)
         self.assertIn('$("#phase1-complete-audit")', javascript)
         self.assertIn('$("#phase2-paired-summary")', javascript)
+        self.assertIn('$("#metric-depth-consensus-summary")', javascript)
+        self.assertIn("phase2.machine_review", javascript)
         self.assertIn("summary.legacy_phase2.test", javascript)
         audit = self.client.get("/api/artifacts/phase2_reflection_audit")
         self.assertEqual(audit.status_code, 200)
         self.assertEqual(audit.mimetype, "image/png")
         audit.close()
+        machine_review = self.client.get("/api/artifacts/phase2_machine_review")
+        self.assertEqual(machine_review.status_code, 200)
+        self.assertEqual(machine_review.mimetype, "application/json")
+        machine_review.close()
+        metric_depth = self.client.get("/api/artifacts/metric_depth_consensus_report")
+        self.assertEqual(metric_depth.status_code, 200)
+        self.assertEqual(metric_depth.mimetype, "application/json")
+        metric_depth.close()
+        metric_preview = self.client.get("/api/artifacts/metric_depth_ring01_preview")
+        self.assertEqual(metric_preview.status_code, 200)
+        self.assertEqual(metric_preview.mimetype, "image/png")
+        metric_preview.close()
+        external_preview = self.client.get("/api/artifacts/external_syr_preview")
+        self.assertEqual(external_preview.status_code, 200)
+        self.assertEqual(external_preview.mimetype, "image/jpeg")
+        external_preview.close()
         script.close()
         page.close()
 

@@ -122,15 +122,36 @@ function renderSummary(summary) {
     <article class="metric"><span>Evidence pending</span><strong>${reviewGate.pending_evidence_count ?? "—"}</strong><small>Seven review categories per view</small></article>
     <article class="metric"><span>Object inventories pending</span><strong>${reviewGate.pending_object_review_count ?? "—"}</strong><small>Cross-view stones, prongs and relief</small></article>`;
 
+  const external = summary.external_ring_datasets || {};
+  const externalMetrics = external.metrics?.syr_phase2_refined_vs_human_mask || {};
+  $("#external-ring-summary").innerHTML = `
+    <article class="metric"><span>External images</span><strong>${external.sample_count ?? "—"}</strong><small>${external.source_count ?? "—"} provenance-tracked sources</small></article>
+    <article class="metric"><span>Human-mask baseline</span><strong>${score(externalMetrics.iou)}</strong><small>Mean refined IoU on ${external.ground_truth_mask_count ?? 0} labelled images</small></article>
+    <article class="metric"><span>Strict masks approved</span><strong>${external.approved_mask_count ?? 0}</strong><small>IoU ≥ ${score(external.mask_exit_gate?.iou, 2)} and boundary F1 ≥ ${score(external.mask_exit_gate?.boundary_f1_2px, 2)}</small></article>
+    <article class="metric"><span>Review required</span><strong>${external.review_required_mask_count ?? "—"}</strong><small>${escapeHtml(humanize(external.status || "unavailable"))} · no metric/CAD claim</small></article>`;
+
   const phase2 = summary.phase2 || {};
   const phase2Method = phase2.method || {};
+  const phase2Machine = phase2.machine_review || {};
+  const phase2Claims = phase2Machine.claims || {};
   const carryover = phase2.ring01_carryover || {};
   const openIssues = carryover.open_issues || [];
   $("#phase2-paired-summary").innerHTML = `
     <article class="metric"><span>Image-only Phase 2</span><strong class="compact-value">${escapeHtml(humanize(phase2.status || "not started"))}</strong><small>No CAD, scans, dimensions or calibration used</small></article>
+    <article class="metric"><span>Machine audit</span><strong class="compact-value">${phase2Claims.machine_evidence_validated ? "Validated" : "Blocked"}</strong><small>Human review performed: ${phase2Claims.human_review_performed ? "yes" : "no"}</small></article>
     <article class="metric"><span>Corrected pixels</span><strong>${phase2Method.correction_pixel_count ?? 0}</strong><small>Topology-inferred · pending human review</small></article>
     <article class="metric"><span>Inner-boundary consistency</span><strong>${score(phase2Method.corrected_opening_ellipse_iou, 4)}</strong><small>Before: ${score(phase2Method.baseline_opening_ellipse_iou, 4)}</small></article>
     <article class="metric"><span>Ring01 carry-over</span><strong>${openIssues.length}</strong><small>${openIssues.length ? "Correction proposed" : "No recorded issue"}</small></article>`;
+  const metricConsensus = phase2.metric_depth_consensus || {};
+  const metricSummary = metricConsensus.summary || {};
+  const metricAlignment = metricConsensus.geometry_alignment || {};
+  const completeMetricBackends = Object.values(metricConsensus.backend_coverage || {})
+    .filter((item) => item.coverage_complete).length;
+  $("#metric-depth-consensus-summary").innerHTML = `
+    <article class="metric"><span>Completed backends</span><strong>${completeMetricBackends}</strong><small>${metricConsensus.available_backends?.length ?? 0} available · four requested</small></article>
+    <article class="metric"><span>Selected views</span><strong>${metricConsensus.sample_count ?? "—"}</strong><small>Ring01 plus train, validation and test objects</small></article>
+    <article class="metric"><span>Mean stability</span><strong>${score(metricSummary.mean_cross_model_stability, 4)}</strong><small>Cross-model agreement only · not depth accuracy</small></article>
+    <article class="metric"><span>Cross-view alignment</span><strong class="compact-value">${metricAlignment.cross_view_metric_alignment_complete ? "Complete" : "Blocked"}</strong><small>VGGT / MASt3R evidence not available</small></article>`;
   $("#phase2-blockers").innerHTML = (phase2.limitations || [])
     .map((item) => `<li>${escapeHtml(item)}</li>`).join("");
   $("#ring01-carryover-note").textContent = carryover.overall_observation || "No carry-over note recorded.";

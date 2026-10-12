@@ -1,0 +1,54 @@
+{
+  "schema_version": "external_ring_source_registry_v1",
+  "sources": [
+    {
+      "id": "ornasia",
+      "name": "OrnAsia: Asian Ornament Image Dataset",
+      "version": 1,
+      "doi": "10.17632/sfrd2bzdgb.1",
+      "landing_page": "https://data.mendeley.com/datasets/sfrd2bzdgb/1",
+      "download_url": "https://data.mendeley.com/public-api/zip/sfrd2bzdgb/download/1",
+      "license": "CC BY 4.0",
+      "published_ring_image_count": 196,
+      "archive_bytes": 816961740,
+      "archive_sha256": "1fac9a5f21ee2a7a6ff95e533a7574b3039078eae2e301e6bb9f030f8d599754",
+      "role": "real-image evaluation and domain robustness",
+      "training_policy": "evaluation_only_until_object_identity_groups_are_available",
+      "available_labels": ["jewellery category"],
+      "unavailable_labels": [
+        "human silhouette mask",
+        "view semantic",
+        "physical object identity",
+        "camera calibration",
+        "metric scale",
+        "depth ground truth",
+        "mesh",
+        "CAD"
+      ]
+    },
+    {
+      "id": "segment_your_ring",
+      "name": "Segment Your Ring / Sam_LoRA",
+      "repository": "https://github.com/MathieuNlp/Sam_LoRA",
+      "revision": "788decc0551307b3806928dbe48651a2d4383407",
+      "license": "MIT",
+      "license_sha256": "71022e5767b5aba53caf13c208174bf51dfb50e9b2132441f03ab5389143b5ec",
+      "published_train_count": 8,
+      "published_test_count": 2,
+      "role": "whole-ring silhouette and reflection-boundary benchmark",
+      "training_policy": "publisher_split_preserved_test_never_used_for_training",
+      "available_labels": ["whole-ring binary mask", "publisher train/test split"],
+      "unavailable_labels": [
+        "individual stones",
+        "prongs",
+        "cavities",
+        "view semantic",
+        "camera calibration",
+        "metric scale",
+        "depth ground truth",
+        "mesh",
+        "CAD"
+      ]
+    }
+  ]
+}

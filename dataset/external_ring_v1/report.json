@@ -1,0 +1,80 @@
+{
+  "schema_version": "external_ring_dataset_intake_v1",
+  "created_at": "2026-10-09T10:17:57.233693+00:00",
+  "status": "review_required",
+  "input_contract": "images_only",
+  "image_size": 512,
+  "workers": 4,
+  "sample_count": 206,
+  "dataset_counts": {
+    "ornasia": 196,
+    "segment_your_ring": 10
+  },
+  "split_counts": {
+    "ornasia": {
+      "evaluation_unassigned": 196
+    },
+    "segment_your_ring": {
+      "train": 8,
+      "test": 2
+    }
+  },
+  "ground_truth_mask_count": 10,
+  "failure_count": 0,
+  "failures": [],
+  "mask_quality_counts": {
+    "review_required_no_ground_truth": 196,
+    "review_required": 9,
+    "approved": 1
+  },
+  "approved_mask_count": 1,
+  "review_required_mask_count": 205,
+  "mask_exit_gate": {
+    "iou": 0.8,
+    "boundary_f1_2px": 0.5
+  },
+  "checks": {
+    "all_images_decoded": true,
+    "all_masks_nonempty": true,
+    "all_sources_unique": true,
+    "syr_all_pairs_have_ground_truth_masks": true,
+    "ornasia_never_enabled_for_training": true,
+    "published_counts_match": true,
+    "no_metric_or_cad_claims": true,
+    "all_segmentation_outputs_approved": false
+  },
+  "metrics": {
+    "syr_phase1_initial_vs_human_mask": {
+      "iou": 0.712214,
+      "dice": 0.827118,
+      "boundary_f1_2px": 0.298983
+    },
+    "syr_phase2_refined_vs_human_mask": {
+      "iou": 0.734473,
+      "dice": 0.84306,
+      "boundary_f1_2px": 0.308597
+    }
+  },
+  "split_policy": {
+    "segment_your_ring": "Preserve publisher train/test directories exactly.",
+    "ornasia": "Evaluation-only because physical-object identities and leakage-safe groups are unavailable."
+  },
+  "claim_limits": [
+    "OrnAsia has category labels but no human masks, view semantics, camera calibration, scale, mesh, or CAD.",
+    "Segment Your Ring supplies whole-ring masks only; it has no stones, prongs, cavities, cameras, scale, mesh, or CAD labels.",
+    "Phase 1-to-Phase 2 agreement is not accuracy. Only Segment Your Ring rows have mask-ground-truth metrics.",
+    "Every OrnAsia mask remains review-required until a human mask or equivalent independent ground truth exists.",
+    "SAM confidence is model confidence, not segmentation accuracy; it cannot approve a mask without ground truth."
+  ],
+  "algorithms": {
+    "phase1_silhouette": "OpenCV border-background difference",
+    "phase1_edges": "OpenCV Canny constrained by foreground",
+    "phase2_refinement": "OpenCV GrabCut initialized from Phase 1",
+    "phase2_proposals": "brightness detail and local cast-shadow heuristics"
+  },
+  "manifest": "dataset/external_ring_v1/manifest.jsonl",
+  "previews": {
+    "ornasia": "dataset/external_ring_v1/previews/ornasia_phase1_phase2_preview.jpg",
+    "segment_your_ring": "dataset/external_ring_v1/previews/segment_your_ring_phase1_phase2_preview.jpg"
+  }
+}

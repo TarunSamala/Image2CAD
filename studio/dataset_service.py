@@ -116,6 +116,24 @@ class DatasetRepository:
             / "reflection_correction_v1"
             / "report.json"
         )
+        self.phase2_machine_review = self._read_json(
+            self.repo_root
+            / "data"
+            / "ring01_image_only"
+            / "machine_review_v1"
+            / "report.json"
+        )
+        self.metric_depth_consensus = self._read_json(
+            self.phase_root
+            / "image_only_phase2_metric_depth_consensus_v1"
+            / "report.json"
+        )
+        self.external_ring_report = self._read_json(
+            self.repo_root / "dataset" / "external_ring_v1" / "report.json"
+        )
+        self.external_ring_registry = self._read_json(
+            self.repo_root / "dataset" / "external_sources" / "registry.json"
+        )
         self.stl1_phase1_review_path, self.stl1_phase1_review = (
             load_stl1_phase1_manifest(self.repo_root)
         )
@@ -328,9 +346,65 @@ class DatasetRepository:
             },
             "phase1_ground_truth": self._phase1_ground_truth_summary(),
             "stl1_phase1_review": self._stl1_phase1_review_summary(),
+            "external_ring_datasets": {
+                "status": self.external_ring_report.get("status"),
+                "sample_count": int(self.external_ring_report.get("sample_count", 0)),
+                "dataset_counts": deepcopy(
+                    self.external_ring_report.get("dataset_counts", {})
+                ),
+                "ground_truth_mask_count": int(
+                    self.external_ring_report.get("ground_truth_mask_count", 0)
+                ),
+                "approved_mask_count": int(
+                    self.external_ring_report.get("approved_mask_count", 0)
+                ),
+                "review_required_mask_count": int(
+                    self.external_ring_report.get("review_required_mask_count", 0)
+                ),
+                "mask_quality_counts": deepcopy(
+                    self.external_ring_report.get("mask_quality_counts", {})
+                ),
+                "mask_exit_gate": deepcopy(
+                    self.external_ring_report.get("mask_exit_gate", {})
+                ),
+                "metrics": deepcopy(self.external_ring_report.get("metrics", {})),
+                "checks": deepcopy(self.external_ring_report.get("checks", {})),
+                "source_count": len(self.external_ring_registry.get("sources", [])),
+                "decision": "research_only_review_required",
+            },
             "phase2": {
                 **deepcopy(self.phase2_image_only),
                 "ring01_carryover": deepcopy(self.ring01_review_notes),
+                "machine_review": deepcopy(self.phase2_machine_review),
+                "metric_depth_consensus": {
+                    "stage": self.metric_depth_consensus.get("stage"),
+                    "available_backends": deepcopy(
+                        self.metric_depth_consensus.get("available_backends", [])
+                    ),
+                    "blocked_backends": deepcopy(
+                        self.metric_depth_consensus.get("blocked_backends", {})
+                    ),
+                    "incomplete_backends": deepcopy(
+                        self.metric_depth_consensus.get("incomplete_backends", {})
+                    ),
+                    "backend_coverage": deepcopy(
+                        self.metric_depth_consensus.get("backend_coverage", {})
+                    ),
+                    "sample_count": self.metric_depth_consensus.get("sample_count", 0),
+                    "summary": deepcopy(
+                        self.metric_depth_consensus.get("summary", {})
+                    ),
+                    "same_view_alignment": deepcopy(
+                        self.metric_depth_consensus.get("same_view_alignment", {})
+                    ),
+                    "geometry_alignment": deepcopy(
+                        self.metric_depth_consensus.get("geometry_alignment", {})
+                    ),
+                    "claims": deepcopy(
+                        self.metric_depth_consensus.get("claims", {})
+                    ),
+                    "decision": self.metric_depth_consensus.get("decision"),
+                },
             },
             "phase2_paired": {
                 **deepcopy(self.phase2_paired),
@@ -1100,6 +1174,45 @@ class DatasetRepository:
             / "ring01_image_only"
             / "reflection_correction_v1"
             / "ring01_angled_reflection_audit.png",
+            "phase2_machine_review": self.repo_root
+            / "data"
+            / "ring01_image_only"
+            / "machine_review_v1"
+            / "report.json",
+            "phase2_machine_review_notes": self.repo_root
+            / "data"
+            / "ring01_image_only"
+            / "machine_review_v1"
+            / "MACHINE_REVIEW.md",
+            "metric_depth_consensus_report": self.phase_root
+            / "image_only_phase2_metric_depth_consensus_v1"
+            / "report.json",
+            "metric_depth_ring01_preview": self.repo_root
+            / self.metric_depth_consensus["review_sheets"]["ring01_reference"],
+            "metric_depth_ring_001_preview": self.repo_root
+            / self.metric_depth_consensus["review_sheets"]["ring_001"],
+            "metric_depth_ring_004_preview": self.repo_root
+            / self.metric_depth_consensus["review_sheets"]["ring_004"],
+            "metric_depth_ring_007_preview": self.repo_root
+            / self.metric_depth_consensus["review_sheets"]["ring_007"],
+            "external_ring_report": self.repo_root
+            / "dataset"
+            / "external_ring_v1"
+            / "report.json",
+            "external_ring_registry": self.repo_root
+            / "dataset"
+            / "external_sources"
+            / "registry.json",
+            "external_ornasia_preview": self.repo_root
+            / "dataset"
+            / "external_ring_v1"
+            / "previews"
+            / "ornasia_phase1_phase2_preview.jpg",
+            "external_syr_preview": self.repo_root
+            / "dataset"
+            / "external_ring_v1"
+            / "previews"
+            / "segment_your_ring_phase1_phase2_preview.jpg",
         }
         if name in reproducibility:
             return self._safe_path(reproducibility[name])

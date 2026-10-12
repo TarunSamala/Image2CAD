@@ -1,0 +1,10 @@
+FROM image2cad-validation:phase0
+
+RUN python -m pip install --no-cache-dir \
+    "transformers==4.57.1" "accelerate==1.11.0" "safetensors==0.6.2"
+
+ENV PYTHONDONTWRITEBYTECODE=1
+WORKDIR /workspace
+
+LABEL org.opencontainers.image.title="Image2CAD Depth Pro benchmark"
+LABEL org.opencontainers.image.description="Pinned Transformers Depth Pro metric-depth research backend"

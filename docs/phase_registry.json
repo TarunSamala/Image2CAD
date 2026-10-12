@@ -5,7 +5,7 @@
   "execution_profiles": {
     "image_only_reconstruction_v1": {
       "input_contract": "images_only",
-      "active_stage": "image_only_phase2_reflection_resilient_evidence",
+      "active_stage": "image_only_phase2_metric_depth_consensus",
       "allowed_inputs": ["one_to_many_reference_images"],
       "unavailable_inputs": [
         "production_cad",

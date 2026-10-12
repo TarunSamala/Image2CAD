@@ -26,6 +26,12 @@ data/logs/local/
 # Downloaded model/cache artifacts
 hf_cache/
 models/*.pt
+models/metric_depth/
+
+# Reproducible metric-depth tensors and model-side auxiliaries.
+# Content hashes, backend reports and visual review sheets remain versioned.
+dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/**/*.npy
+dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/consensus/**/*.npy
 
 # Reproducible high-volume STL-1 Phase 1 matrices.
 # The extractor, SHA-256 report and review sheets remain versioned.
@@ -40,6 +46,12 @@ dataset/phase_runs/v1/phase3_geometry_benchmark_v1/colmap/*/*_sparse_points.ply
 dataset/phase_runs/v1/phase3_geometry_benchmark_v1/vggt/*/*.npz
 models/vggt/
 third_party/vggt/
+
+# Re-downloadable external research datasets and generated image artifacts.
+# Provenance registries, manifests, reports, and compact previews stay versioned.
+dataset/external_sources/raw/
+dataset/external_sources/archives/
+dataset/external_ring_v1/artifacts/
 
 # Local environment and secrets
 .env

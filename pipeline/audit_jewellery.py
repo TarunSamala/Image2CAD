@@ -138,6 +138,130 @@ def _opencv_mask(image: np.ndarray) -> np.ndarray:
         return mask
 
 
+def _small_object_prompt(image: np.ndarray) -> np.ndarray | None:
+    """Find a compact, high-detail object when background differencing floods.
+
+    This is a prompt proposal, not a segmentation result.  It deliberately
+    favours compact high-frequency structure near the image centre and rejects
+    long fabric folds before SAM sees the image.
+    """
+
+    height, width = image.shape[:2]
+    scale = min(1.0, 640.0 / max(height, width))
+    work = cv2.resize(image, None, fx=scale, fy=scale, interpolation=cv2.INTER_AREA)
+    gray = cv2.cvtColor(work, cv2.COLOR_BGR2GRAY)
+    smooth = cv2.GaussianBlur(gray, (0, 0), 11.0)
+    local_contrast = cv2.absdiff(gray, smooth).astype(np.float32)
+    gradient_x = cv2.Sobel(gray, cv2.CV_32F, 1, 0, ksize=3)
+    gradient_y = cv2.Sobel(gray, cv2.CV_32F, 0, 1, ksize=3)
+    gradient = cv2.magnitude(gradient_x, gradient_y)
+    saturation = cv2.cvtColor(work, cv2.COLOR_BGR2HSV)[:, :, 1].astype(np.float32)
+
+    def robust_unit(values: np.ndarray) -> np.ndarray:
+        low, high = np.percentile(values, (50, 99))
+        return np.clip((values - low) / max(1.0, high - low), 0.0, 1.0)
+
+    response = (
+        robust_unit(local_contrast)
+        + 0.65 * robust_unit(gradient)
+        + 0.35 * robust_unit(saturation)
+    )
+    work_height, work_width = gray.shape
+    yy, xx = np.mgrid[:work_height, :work_width]
+    center_distance = np.sqrt(
+        ((xx - work_width / 2) / max(1.0, work_width / 2)) ** 2
+        + ((yy - work_height / 2) / max(1.0, work_height / 2)) ** 2
+    )
+    response *= np.clip(1.15 - 0.45 * center_distance, 0.55, 1.15)
+    threshold = float(np.percentile(response, 91.5))
+    seeds = np.where(response >= threshold, 255, 0).astype(np.uint8)
+    margin_y, margin_x = max(2, work_height // 40), max(2, work_width // 40)
+    seeds[:margin_y] = 0
+    seeds[-margin_y:] = 0
+    seeds[:, :margin_x] = 0
+    seeds[:, -margin_x:] = 0
+    seeds = cv2.morphologyEx(seeds, cv2.MORPH_OPEN, np.ones((3, 3), np.uint8))
+    grouped = cv2.dilate(
+        seeds,
+        cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (17, 17)),
+        iterations=1,
+    )
+    grouped = cv2.morphologyEx(
+        grouped,
+        cv2.MORPH_CLOSE,
+        cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (25, 25)),
+    )
+
+    count, labels, stats, centroids = cv2.connectedComponentsWithStats(grouped)
+    image_area = work_height * work_width
+    best_label = 0
+    best_score = -float("inf")
+    for label in range(1, count):
+        x, y, box_width, box_height, area = stats[label]
+        area_fraction = area / image_area
+        if area_fraction < 0.0005 or area_fraction > 0.22:
+            continue
+        aspect = max(box_width / max(1, box_height), box_height / max(1, box_width))
+        if aspect > 4.0:
+            continue
+        component = labels == label
+        response_mean = float(response[component].mean())
+        center_x, center_y = centroids[label]
+        distance = np.hypot(
+            (center_x - work_width / 2) / max(1.0, work_width / 2),
+            (center_y - work_height / 2) / max(1.0, work_height / 2),
+        )
+        compactness = area / max(1, box_width * box_height)
+        score = response_mean + 0.55 * (1.0 - min(1.0, distance)) + 0.30 * compactness
+        if score > best_score:
+            best_score = score
+            best_label = label
+    if not best_label:
+        return None
+
+    x, y, box_width, box_height, _ = stats[best_label]
+    padding = round(max(box_width, box_height) * 0.22)
+    x0, y0 = max(0, x - padding), max(0, y - padding)
+    x1 = min(work_width, x + box_width + padding)
+    y1 = min(work_height, y + box_height + padding)
+    source_x0, source_y0 = round(x0 / scale), round(y0 / scale)
+    source_x1, source_y1 = round(x1 / scale), round(y1 / scale)
+    proposal = np.zeros((height, width), np.uint8)
+    selected_seeds = np.where(labels == best_label, seeds, 0)
+    selected_seeds = cv2.resize(selected_seeds, (width, height), interpolation=cv2.INTER_NEAREST)
+    proposal[selected_seeds > 0] = 255
+    if np.count_nonzero(proposal) < 20:
+        proposal[source_y0:source_y1, source_x0:source_x1] = 255
+    return proposal
+
+
+def _expects_central_void(
+    image: np.ndarray,
+    proposal: np.ndarray,
+    box_xyxy: np.ndarray,
+) -> bool:
+    x0, y0, x1, y1 = (int(value) for value in box_xyxy)
+    width, height = max(1, x1 - x0), max(1, y1 - y0)
+    inset_x, inset_y = max(2, round(width * 0.38)), max(2, round(height * 0.38))
+    center = image[y0 + inset_y:y1 - inset_y, x0 + inset_x:x1 - inset_x]
+    center_prompt = proposal[y0 + inset_y:y1 - inset_y, x0 + inset_x:x1 - inset_x]
+    if not center.size or not center_prompt.size or np.count_nonzero(center_prompt) / center_prompt.size > 0.12:
+        return False
+
+    corner_width, corner_height = max(2, round(width * 0.16)), max(2, round(height * 0.16))
+    corners = np.concatenate(
+        (
+            image[y0:y0 + corner_height, x0:x0 + corner_width].reshape(-1, 3),
+            image[y0:y0 + corner_height, x1 - corner_width:x1].reshape(-1, 3),
+            image[y1 - corner_height:y1, x0:x0 + corner_width].reshape(-1, 3),
+            image[y1 - corner_height:y1, x1 - corner_width:x1].reshape(-1, 3),
+        )
+    )
+    center_colour = np.median(center.reshape(-1, 3), axis=0)
+    corner_colour = np.median(corners, axis=0)
+    return float(np.linalg.norm(center_colour - corner_colour)) <= 24.0
+
+
 class Segmenter:
     def __init__(self, method: str, device_name: str, sam_checkpoint: Path, unet_checkpoint: Path) -> None:
         self.device_name = "cuda" if device_name == "auto" and torch.cuda.is_available() else device_name
@@ -208,21 +332,42 @@ class Segmenter:
             raise ValueError("SAM prompting failed because the OpenCV proposal is empty")
         x, y, width, height = cv2.boundingRect(points)
         h, w = image.shape[:2]
+        proposal_fraction = np.count_nonzero(proposal) / proposal.size
+        prompt_strategy = "opencv_foreground"
+        if (
+            proposal_fraction > 0.35
+            or width * height > round(w * h * 0.70)
+            or width >= round(w * 0.94)
+            or height >= round(h * 0.94)
+        ):
+            compact = _small_object_prompt(image)
+            if compact is not None and np.any(compact):
+                proposal = compact
+                points = cv2.findNonZero(proposal)
+                assert points is not None
+                x, y, width, height = cv2.boundingRect(points)
+                prompt_strategy = "compact_high_detail_object"
         if width >= round(w * 0.94) or height >= round(h * 0.94):
             x, y = round(w * 0.10), round(h * 0.10)
             width, height = round(w * 0.80), round(h * 0.80)
             proposal = np.zeros((h, w), np.uint8)
             proposal[y:y + height, x:x + width] = 255
-        positives = [(x + width // 2, y + height // 2)]
+            prompt_strategy = "central_fallback"
+        positives: list[tuple[int, int]] = []
         distance = cv2.distanceTransform((proposal > 0).astype(np.uint8), cv2.DIST_L2, 5)
         for x0, x1, y0, y1 in ((x, x + width // 2, y, y + height // 2), (x + width // 2, x + width, y, y + height // 2), (x, x + width // 2, y + height // 2, y + height), (x + width // 2, x + width, y + height // 2, y + height)):
             region = distance[y0:y1, x0:x1]
             if region.size and region.max() > 0:
                 py, px = np.unravel_index(int(np.argmax(region)), region.shape)
                 positives.append((x0 + int(px), y0 + int(py)))
+        if not positives:
+            positives.append((x + width // 2, y + height // 2))
         negatives = [(5, 5), (w - 6, 5), (5, h - 6), (w - 6, h - 6)]
         margin = round(max(width, height) * 0.08)
         box = np.asarray([max(0, x - margin), max(0, y - margin), min(w - 1, x + width + margin), min(h - 1, y + height + margin)], np.float32)
+        expects_central_void = _expects_central_void(image, proposal, box)
+        if expects_central_void:
+            negatives.append((int((box[0] + box[2]) / 2), int((box[1] + box[3]) / 2)))
         self.predictor.set_image(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
         context = torch.autocast("cuda", dtype=torch.bfloat16) if self.device_name == "cuda" else nullcontext()
         with context:
@@ -232,11 +377,39 @@ class Segmenter:
                 box=box,
                 multimask_output=True,
             )
-        index = int(np.argmax(scores))
+        x0, y0, x1, y1 = (int(value) for value in box)
+        center_x0 = x0 + round((x1 - x0) * 0.38)
+        center_x1 = x0 + round((x1 - x0) * 0.62)
+        center_y0 = y0 + round((y1 - y0) * 0.38)
+        center_y1 = y0 + round((y1 - y0) * 0.62)
+        candidate_diagnostics = []
+        objectives = []
+        for candidate, score in zip(masks, scores):
+            positive_support = float(np.mean([candidate[py, px] for px, py in positives]))
+            center_region = candidate[center_y0:center_y1, center_x0:center_x1]
+            center_fill = float(center_region.mean()) if center_region.size else 0.0
+            objective = float(score) + 0.08 * positive_support
+            if expects_central_void:
+                objective -= 0.28 * center_fill
+            candidate_diagnostics.append(
+                {
+                    "sam_score": round(float(score), 6),
+                    "positive_support": round(positive_support, 6),
+                    "center_fill": round(center_fill, 6),
+                    "selection_objective": round(objective, 6),
+                }
+            )
+            objectives.append(objective)
+        index = int(np.argmax(objectives))
         return masks[index].astype(np.uint8) * 255, {
-            "method": "SAM 2.1 Tiny with OpenCV-derived prompts",
+            "method": "SAM 2.1 Tiny with adaptive OpenCV-derived prompts",
             "confidence": round(float(scores[index]), 6),
             "prompt_box_xyxy": [int(value) for value in box],
+            "prompt_strategy": prompt_strategy,
+            "expects_central_void": expects_central_void,
+            "central_negative_prompt_used": expects_central_void,
+            "selected_candidate": index,
+            "candidate_diagnostics": candidate_diagnostics,
         }
 
 

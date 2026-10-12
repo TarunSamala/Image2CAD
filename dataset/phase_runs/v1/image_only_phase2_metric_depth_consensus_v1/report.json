@@ -1,0 +1,1426 @@
+{
+  "schema_version": "image2cad_metric_depth_consensus_v1",
+  "created_at_utc": "2026-10-12T11:08:25.407276+00:00",
+  "stage": "image_only_phase2_metric_depth_consensus",
+  "input_manifest": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/input_manifest.json",
+  "input_manifest_sha256": "3bdad11898a305a139170f753762e5895e9a245b7dac5551ef3c3d0a1f49e45c",
+  "available_backends": [
+    "depth_anything_v2_metric",
+    "depth_pro",
+    "metric3d_v2",
+    "unidepth_v2"
+  ],
+  "blocked_backends": {},
+  "incomplete_backends": {
+    "depth_pro": {
+      "status": "partial_coverage",
+      "sample_count": 4,
+      "requested_sample_count": 20,
+      "missing_sample_count": 16,
+      "reason": "cpu_memory_safety_probe_only_on_four_front_views"
+    }
+  },
+  "backend_count": 4,
+  "backend_coverage": {
+    "depth_anything_v2_metric": {
+      "sample_count": 20,
+      "requested_sample_count": 20,
+      "coverage_complete": true
+    },
+    "unidepth_v2": {
+      "sample_count": 20,
+      "requested_sample_count": 20,
+      "coverage_complete": true
+    },
+    "metric3d_v2": {
+      "sample_count": 20,
+      "requested_sample_count": 20,
+      "coverage_complete": true
+    },
+    "depth_pro": {
+      "sample_count": 4,
+      "requested_sample_count": 20,
+      "coverage_complete": false
+    }
+  },
+  "sample_count": 20,
+  "samples": [
+    {
+      "sample_key": "ring01_reference:front",
+      "object_id": "ring01_reference",
+      "view": "front",
+      "model_count": 4,
+      "models": [
+        "depth_anything_v2_metric",
+        "depth_pro",
+        "metric3d_v2",
+        "unidepth_v2"
+      ],
+      "metric_depth_summaries": {
+        "depth_anything_v2_metric": {
+          "p02_m": 0.6808760762214661,
+          "median_m": 0.7847234010696411,
+          "p98_m": 0.9615855741500853,
+          "span_m": 0.2807094979286192,
+          "metric_status": "unvalidated_model_hypothesis"
+        },
+        "unidepth_v2": {
+          "p02_m": 1.03625422000885,
+          "median_m": 1.0416560173034668,
+          "p98_m": 1.0652873229980468,
+          "span_m": 0.029033102989196813,
+          "metric_status": "unvalidated_model_hypothesis"
+        },
+        "metric3d_v2": {
+          "p02_m": 1.0893477296829224,
+          "median_m": 1.1583375930786133,
+          "p98_m": 1.375559878349304,
+          "span_m": 0.28621214866638156,
+          "metric_status": "unvalidated_model_hypothesis"
+        },
+        "depth_pro": {
+          "p02_m": 0.8023976612091065,
+          "median_m": 0.8164719939231873,
+          "p98_m": 0.9012894916534416,
+          "span_m": 0.09889183044433514,
+          "metric_status": "unvalidated_model_hypothesis"
+        }
+      },
+      "pairwise": [
+        {
+          "left": "depth_anything_v2_metric",
+          "right": "depth_pro",
+          "pearson_shape_correlation": 0.5710155126560545,
+          "median_absolute_normalized_difference": 0.19904574751853943
+        },
+        {
+          "left": "depth_anything_v2_metric",
+          "right": "metric3d_v2",
+          "pearson_shape_correlation": 0.4138174753053888,
+          "median_absolute_normalized_difference": 0.23225119709968567
+        },
+        {
+          "left": "depth_anything_v2_metric",
+          "right": "unidepth_v2",
+          "pearson_shape_correlation": 0.814080521699193,
+          "median_absolute_normalized_difference": 0.15741783380508423
+        },
+        {
+          "left": "depth_pro",
+          "right": "metric3d_v2",
+          "pearson_shape_correlation": 0.7753961723326402,
+          "median_absolute_normalized_difference": 0.07094767689704895
+        },
+        {
+          "left": "depth_pro",
+          "right": "unidepth_v2",
+          "pearson_shape_correlation": 0.6460251374151852,
+          "median_absolute_normalized_difference": 0.08783268928527832
+        },
+        {
+          "left": "metric3d_v2",
+          "right": "unidepth_v2",
+          "pearson_shape_correlation": 0.6047135108423154,
+          "median_absolute_normalized_difference": 0.11507396399974823
+        }
+      ],
+      "stability_score": 0.6896662712097168,
+      "status": "cross_model_stability_only",
+      "artifacts": {
+        "normalized_consensus": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/consensus/ring01_reference/front_normalized_consensus.npy",
+        "normalized_disagreement": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/consensus/ring01_reference/front_normalized_disagreement.npy",
+        "consensus_sha256": "0a931c692e899f0bc6c5691f41a94d29dd5fc1c471d3017ba9a6c9265bcd7cfd",
+        "disagreement_sha256": "42aec28ddbd53409a2bbf82fd3340ae8f18bc56c502d1fb9a9975a05d8331fb3"
+      }
+    },
+    {
+      "sample_key": "ring01_reference:side",
+      "object_id": "ring01_reference",
+      "view": "side",
+      "model_count": 3,
+      "models": [
+        "depth_anything_v2_metric",
+        "metric3d_v2",
+        "unidepth_v2"
+      ],
+      "metric_depth_summaries": {
+        "depth_anything_v2_metric": {
+          "p02_m": 0.6136823070049285,
+          "median_m": 0.7154846787452698,
+          "p98_m": 0.8307915365695954,
+          "span_m": 0.21710922956466683,
+          "metric_status": "unvalidated_model_hypothesis"
+        },
+        "unidepth_v2": {
+          "p02_m": 0.9525357592105865,
+          "median_m": 0.9719710350036621,
+          "p98_m": 0.99403533577919,
+          "span_m": 0.04149957656860348,
+          "metric_status": "unvalidated_model_hypothesis"
+        },
+        "metric3d_v2": {
+          "p02_m": 0.5883338761329651,
+          "median_m": 0.6521002054214478,
+          "p98_m": 0.6913822066783905,
+          "span_m": 0.10304833054542539,
+          "metric_status": "unvalidated_model_hypothesis"
+        }
+      },
+      "pairwise": [
+        {
+          "left": "depth_anything_v2_metric",
+          "right": "metric3d_v2",
+          "pearson_shape_correlation": 0.7766122919738092,
+          "median_absolute_normalized_difference": 0.09533663094043732
+        },
+        {
+          "left": "depth_anything_v2_metric",
+          "right": "unidepth_v2",
+          "pearson_shape_correlation": 0.8840976172032695,
+          "median_absolute_normalized_difference": 0.08400318026542664
+        },
+        {
+          "left": "metric3d_v2",
+          "right": "unidepth_v2",
+          "pearson_shape_correlation": 0.7143546932772059,
+          "median_absolute_normalized_difference": 0.12212330102920532
+        }
+      ],
+      "stability_score": 0.7254530787467957,
+      "status": "cross_model_stability_only",
+      "artifacts": {
+        "normalized_consensus": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/consensus/ring01_reference/side_normalized_consensus.npy",
+        "normalized_disagreement": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/consensus/ring01_reference/side_normalized_disagreement.npy",
+        "consensus_sha256": "cda701a7d44cb95f05c91c4be80f425896ae5043ce5780030f2412b08d361ed1",
+        "disagreement_sha256": "8c93270a3fb7827ae812951c35097b9b2a7346737ffb81d11d4e5e1f39ec0707"
+      }
+    },
+    {
+      "sample_key": "ring01_reference:top",
+      "object_id": "ring01_reference",
+      "view": "top",
+      "model_count": 3,
+      "models": [
+        "depth_anything_v2_metric",
+        "metric3d_v2",
+        "unidepth_v2"
+      ],
+      "metric_depth_summaries": {
+        "depth_anything_v2_metric": {
+          "p02_m": 0.7862764239311218,
+          "median_m": 0.8437601923942566,
+          "p98_m": 0.925774335861206,
+          "span_m": 0.1394979119300842,
+          "metric_status": "unvalidated_model_hypothesis"
+        },
+        "unidepth_v2": {
+          "p02_m": 1.0565328121185302,
+          "median_m": 1.0633952617645264,
+          "p98_m": 1.078632402420044,
+          "span_m": 0.02209959030151376,
+          "metric_status": "unvalidated_model_hypothesis"
+        },
+        "metric3d_v2": {
+          "p02_m": 1.258199691772461,
+          "median_m": 1.2903505563735962,
+          "p98_m": 1.567438459396362,
+          "span_m": 0.309238767623901,
+          "metric_status": "unvalidated_model_hypothesis"
+        }
+      },
+      "pairwise": [
+        {
+          "left": "depth_anything_v2_metric",
+          "right": "metric3d_v2",
+          "pearson_shape_correlation": 0.11067811091628653,
+          "median_absolute_normalized_difference": 0.3221665024757385
+        },
+        {
+          "left": "depth_anything_v2_metric",
+          "right": "unidepth_v2",
+          "pearson_shape_correlation": 0.6544958417873225,
+          "median_absolute_normalized_difference": 0.1283891648054123
+        },
+        {
+          "left": "metric3d_v2",
+          "right": "unidepth_v2",
+          "pearson_shape_correlation": 0.3493218000526608,
+          "median_absolute_normalized_difference": 0.24547532200813293
+        }
+      ],
+      "stability_score": 0.6275016069412231,
+      "status": "cross_model_stability_only",
+      "artifacts": {
+        "normalized_consensus": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/consensus/ring01_reference/top_normalized_consensus.npy",
+        "normalized_disagreement": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/consensus/ring01_reference/top_normalized_disagreement.npy",
+        "consensus_sha256": "a64196ff4a3cd3cf28cd2f2bc994252bdc7152aee8a8afbb07dd8965be9bc7b2",
+        "disagreement_sha256": "17fe3512564c863aa6c457f9cf3364899c15fe29aa9df775fcf7b81efe83e809"
+      }
+    },
+    {
+      "sample_key": "ring01_reference:angled",
+      "object_id": "ring01_reference",
+      "view": "angled",
+      "model_count": 3,
+      "models": [
+        "depth_anything_v2_metric",
+        "metric3d_v2",
+        "unidepth_v2"
+      ],
+      "metric_depth_summaries": {
+        "depth_anything_v2_metric": {
+          "p02_m": 0.451259531378746,
+          "median_m": 0.5567195415496826,
+          "p98_m": 0.838138313293457,
+          "span_m": 0.386878781914711,
+          "metric_status": "unvalidated_model_hypothesis"
+        },
+        "unidepth_v2": {
+          "p02_m": 0.9556083965301514,
+          "median_m": 0.9770118594169617,
+          "p98_m": 1.055433418750763,
+          "span_m": 0.09982502222061163,
+          "metric_status": "unvalidated_model_hypothesis"
+        },
+        "metric3d_v2": {
+          "p02_m": 0.4564175081253052,
+          "median_m": 0.49482282996177673,
+          "p98_m": 0.5622590911388398,
+          "span_m": 0.10584158301353458,
+          "metric_status": "unvalidated_model_hypothesis"
+        }
+      },
+      "pairwise": [
+        {
+          "left": "depth_anything_v2_metric",
+          "right": "metric3d_v2",
+          "pearson_shape_correlation": 0.5171949432839392,
+          "median_absolute_normalized_difference": 0.18489080667495728
+        },
+        {
+          "left": "depth_anything_v2_metric",
+          "right": "unidepth_v2",
+          "pearson_shape_correlation": 0.9206091576838581,
+          "median_absolute_normalized_difference": 0.09659281373023987
+        },
+        {
+          "left": "metric3d_v2",
+          "right": "unidepth_v2",
+          "pearson_shape_correlation": 0.63630032140415,
+          "median_absolute_normalized_difference": 0.1235128790140152
+        }
+      ],
+      "stability_score": 0.6923948526382446,
+      "status": "cross_model_stability_only",
+      "artifacts": {
+        "normalized_consensus": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/consensus/ring01_reference/angled_normalized_consensus.npy",
+        "normalized_disagreement": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/consensus/ring01_reference/angled_normalized_disagreement.npy",
+        "consensus_sha256": "39c6151d7a9d86f8244449337247a2f2d9fb29fc4576a14a7e37f128fd9950df",
+        "disagreement_sha256": "a5b4fd4560e357be8d3324b07849d959ae38b504a8c37e666ce2db33a4865434"
+      }
+    },
+    {
+      "sample_key": "ring01_reference:back",
+      "object_id": "ring01_reference",
+      "view": "back",
+      "model_count": 3,
+      "models": [
+        "depth_anything_v2_metric",
+        "metric3d_v2",
+        "unidepth_v2"
+      ],
+      "metric_depth_summaries": {
+        "depth_anything_v2_metric": {
+          "p02_m": 0.5933953857421875,
+          "median_m": 0.677748441696167,
+          "p98_m": 0.7793289232254028,
+          "span_m": 0.18593353748321528,
+          "metric_status": "unvalidated_model_hypothesis"
+        },
+        "unidepth_v2": {
+          "p02_m": 0.9657397210597992,
+          "median_m": 0.9871108531951904,
+          "p98_m": 1.0090885424613953,
+          "span_m": 0.04334882140159613,
+          "metric_status": "unvalidated_model_hypothesis"
+        },
+        "metric3d_v2": {
+          "p02_m": 0.6341432762145996,
+          "median_m": 0.6882259249687195,
+          "p98_m": 0.7285802745819092,
+          "span_m": 0.09443699836730957,
+          "metric_status": "unvalidated_model_hypothesis"
+        }
+      },
+      "pairwise": [
+        {
+          "left": "depth_anything_v2_metric",
+          "right": "metric3d_v2",
+          "pearson_shape_correlation": 0.7768535653762548,
+          "median_absolute_normalized_difference": 0.0906505286693573
+        },
+        {
+          "left": "depth_anything_v2_metric",
+          "right": "unidepth_v2",
+          "pearson_shape_correlation": 0.8270211181455144,
+          "median_absolute_normalized_difference": 0.11785048246383667
+        },
+        {
+          "left": "metric3d_v2",
+          "right": "unidepth_v2",
+          "pearson_shape_correlation": 0.6908194999840679,
+          "median_absolute_normalized_difference": 0.12349013984203339
+        }
+      ],
+      "stability_score": 0.7323306798934937,
+      "status": "cross_model_stability_only",
+      "artifacts": {
+        "normalized_consensus": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/consensus/ring01_reference/back_normalized_consensus.npy",
+        "normalized_disagreement": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/consensus/ring01_reference/back_normalized_disagreement.npy",
+        "consensus_sha256": "ad33508f8f2f41d93b77ec7a002e82cd394328c089343d3180b8697b49c66e27",
+        "disagreement_sha256": "e586e1c08d583f55312a3360aaa91adc7fe8db7447606349ebc2c27544135c75"
+      }
+    },
+    {
+      "sample_key": "ring_001:front",
+      "object_id": "ring_001",
+      "view": "front",
+      "model_count": 4,
+      "models": [
+        "depth_anything_v2_metric",
+        "depth_pro",
+        "metric3d_v2",
+        "unidepth_v2"
+      ],
+      "metric_depth_summaries": {
+        "depth_anything_v2_metric": {
+          "p02_m": 1.2691840267181396,
+          "median_m": 1.4386085271835327,
+          "p98_m": 1.6491267824172973,
+          "span_m": 0.3799427556991577,
+          "metric_status": "unvalidated_model_hypothesis"
+        },
+        "unidepth_v2": {
+          "p02_m": 83.75466796875,
+          "median_m": 93.49696350097656,
+          "p98_m": 100.76237487792969,
+          "span_m": 17.00770690917969,
+          "metric_status": "unvalidated_model_hypothesis"
+        },
+        "metric3d_v2": {
+          "p02_m": 0.36315205931663513,
+          "median_m": 0.4059210419654846,
+          "p98_m": 0.4656924295425415,
+          "span_m": 0.10254037022590634,
+          "metric_status": "unvalidated_model_hypothesis"
+        },
+        "depth_pro": {
+          "p02_m": 2.3581166076660156,
+          "median_m": 2.6017441749572754,
+          "p98_m": 2.825966491699219,
+          "span_m": 0.46784988403320327,
+          "metric_status": "unvalidated_model_hypothesis"
+        }
+      },
+      "pairwise": [
+        {
+          "left": "depth_anything_v2_metric",
+          "right": "depth_pro",
+          "pearson_shape_correlation": 0.1600587179343762,
+          "median_absolute_normalized_difference": 0.2812846899032593
+        },
+        {
+          "left": "depth_anything_v2_metric",
+          "right": "metric3d_v2",
+          "pearson_shape_correlation": -0.26744242744874014,
+          "median_absolute_normalized_difference": 0.2987495958805084
+        },
+        {
+          "left": "depth_anything_v2_metric",
+          "right": "unidepth_v2",
+          "pearson_shape_correlation": 0.16827931993291967,
+          "median_absolute_normalized_difference": 0.28050369024276733
+        },
+        {
+          "left": "depth_pro",
+          "right": "metric3d_v2",
+          "pearson_shape_correlation": 0.34287717366964954,
+          "median_absolute_normalized_difference": 0.22142279148101807
+        },
+        {
+          "left": "depth_pro",
+          "right": "unidepth_v2",
+          "pearson_shape_correlation": 0.8780986475450268,
+          "median_absolute_normalized_difference": 0.09314393997192383
+        },
+        {
+          "left": "metric3d_v2",
+          "right": "unidepth_v2",
+          "pearson_shape_correlation": 0.31134372405796956,
+          "median_absolute_normalized_difference": 0.2104407548904419
+        }
+      ],
+      "stability_score": 0.5733258128166199,
+      "status": "cross_model_stability_only",
+      "artifacts": {
+        "normalized_consensus": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/consensus/ring_001/front_normalized_consensus.npy",
+        "normalized_disagreement": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/consensus/ring_001/front_normalized_disagreement.npy",
+        "consensus_sha256": "6312e239c8be7e6b359d48f993175c572fb62807a4a12ea83e15d456a29d134e",
+        "disagreement_sha256": "0375b75251099194a49ed81e9a19747dec0c2dfc1f777aafe9e8ce6bbd305cdc"
+      }
+    },
+    {
+      "sample_key": "ring_001:top",
+      "object_id": "ring_001",
+      "view": "top",
+      "model_count": 3,
+      "models": [
+        "depth_anything_v2_metric",
+        "metric3d_v2",
+        "unidepth_v2"
+      ],
+      "metric_depth_summaries": {
+        "depth_anything_v2_metric": {
+          "p02_m": 0.6462493968009949,
+          "median_m": 0.7708480954170227,
+          "p98_m": 1.0103102827072143,
+          "span_m": 0.36406088590621943,
+          "metric_status": "unvalidated_model_hypothesis"
+        },
+        "unidepth_v2": {
+          "p02_m": 0.8098950719833374,
+          "median_m": 0.8433135747909546,
+          "p98_m": 0.8611152148246766,
+          "span_m": 0.051220142841339134,
+          "metric_status": "unvalidated_model_hypothesis"
+        },
+        "metric3d_v2": {
+          "p02_m": 0.3434695780277252,
+          "median_m": 0.3995693027973175,
+          "p98_m": 0.4462351953983307,
+          "span_m": 0.10276561737060547,
+          "metric_status": "unvalidated_model_hypothesis"
+        }
+      },
+      "pairwise": [
+        {
+          "left": "depth_anything_v2_metric",
+          "right": "metric3d_v2",
+          "pearson_shape_correlation": 0.565162689929935,
+          "median_absolute_normalized_difference": 0.17365902662277222
+        },
+        {
+          "left": "depth_anything_v2_metric",
+          "right": "unidepth_v2",
+          "pearson_shape_correlation": 0.712382144306908,
+          "median_absolute_normalized_difference": 0.18040549755096436
+        },
+        {
+          "left": "metric3d_v2",
+          "right": "unidepth_v2",
+          "pearson_shape_correlation": 0.4815261415909802,
+          "median_absolute_normalized_difference": 0.2152295708656311
+        }
+      ],
+      "stability_score": 0.6655207276344299,
+      "status": "cross_model_stability_only",
+      "artifacts": {
+        "normalized_consensus": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/consensus/ring_001/top_normalized_consensus.npy",
+        "normalized_disagreement": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/consensus/ring_001/top_normalized_disagreement.npy",
+        "consensus_sha256": "3b5e99b8308535f6ede5f40dc8b61bdd6b7bf6341540e921c0cf184df5879289",
+        "disagreement_sha256": "840bb16e658f3868fafba731ac266950e37afacdb323b597808ef5972248fedb"
+      }
+    },
+    {
+      "sample_key": "ring_001:iso",
+      "object_id": "ring_001",
+      "view": "iso",
+      "model_count": 3,
+      "models": [
+        "depth_anything_v2_metric",
+        "metric3d_v2",
+        "unidepth_v2"
+      ],
+      "metric_depth_summaries": {
+        "depth_anything_v2_metric": {
+          "p02_m": 0.5795446372032166,
+          "median_m": 0.6548469066619873,
+          "p98_m": 0.8205791091918945,
+          "span_m": 0.2410344719886779,
+          "metric_status": "unvalidated_model_hypothesis"
+        },
+        "unidepth_v2": {
+          "p02_m": 0.9265683758258819,
+          "median_m": 0.9792188405990601,
+          "p98_m": 1.0588871884346007,
+          "span_m": 0.1323188126087188,
+          "metric_status": "unvalidated_model_hypothesis"
+        },
+        "metric3d_v2": {
+          "p02_m": 0.26984077990055083,
+          "median_m": 0.31352728605270386,
+          "p98_m": 0.40172759950160974,
+          "span_m": 0.1318868196010589,
+          "metric_status": "unvalidated_model_hypothesis"
+        }
+      },
+      "pairwise": [
+        {
+          "left": "depth_anything_v2_metric",
+          "right": "metric3d_v2",
+          "pearson_shape_correlation": 0.7064238217417894,
+          "median_absolute_normalized_difference": 0.11281213164329529
+        },
+        {
+          "left": "depth_anything_v2_metric",
+          "right": "unidepth_v2",
+          "pearson_shape_correlation": 0.6965464996765802,
+          "median_absolute_normalized_difference": 0.11621835827827454
+        },
+        {
+          "left": "metric3d_v2",
+          "right": "unidepth_v2",
+          "pearson_shape_correlation": 0.6221787676076569,
+          "median_absolute_normalized_difference": 0.13759461045265198
+        }
+      ],
+      "stability_score": 0.7276427745819092,
+      "status": "cross_model_stability_only",
+      "artifacts": {
+        "normalized_consensus": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/consensus/ring_001/iso_normalized_consensus.npy",
+        "normalized_disagreement": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/consensus/ring_001/iso_normalized_disagreement.npy",
+        "consensus_sha256": "8a924a7d07d63a3e18f6a4f29d2e856e5f5da80b53d65fd8643033edcbf7e4f9",
+        "disagreement_sha256": "9fe087939d0a4ac1f28313eb898f7b1cd17b985718c2628a621153a3859c3955"
+      }
+    },
+    {
+      "sample_key": "ring_001:lsv",
+      "object_id": "ring_001",
+      "view": "lsv",
+      "model_count": 3,
+      "models": [
+        "depth_anything_v2_metric",
+        "metric3d_v2",
+        "unidepth_v2"
+      ],
+      "metric_depth_summaries": {
+        "depth_anything_v2_metric": {
+          "p02_m": 0.44648692607879636,
+          "median_m": 0.47668951749801636,
+          "p98_m": 0.5754148197174073,
+          "span_m": 0.1289278936386109,
+          "metric_status": "unvalidated_model_hypothesis"
+        },
+        "unidepth_v2": {
+          "p02_m": 0.6837839913368225,
+          "median_m": 0.7369081974029541,
+          "p98_m": 0.9123797845840455,
+          "span_m": 0.2285957932472229,
+          "metric_status": "unvalidated_model_hypothesis"
+        },
+        "metric3d_v2": {
+          "p02_m": 0.31895598888397214,
+          "median_m": 0.358864963054657,
+          "p98_m": 0.4870178645849228,
+          "span_m": 0.16806187570095066,
+          "metric_status": "unvalidated_model_hypothesis"
+        }
+      },
+      "pairwise": [
+        {
+          "left": "depth_anything_v2_metric",
+          "right": "metric3d_v2",
+          "pearson_shape_correlation": 0.7397878483956624,
+          "median_absolute_normalized_difference": 0.11121822893619537
+        },
+        {
+          "left": "depth_anything_v2_metric",
+          "right": "unidepth_v2",
+          "pearson_shape_correlation": 0.5418993175658959,
+          "median_absolute_normalized_difference": 0.0941774919629097
+        },
+        {
+          "left": "metric3d_v2",
+          "right": "unidepth_v2",
+          "pearson_shape_correlation": 0.5901425803176061,
+          "median_absolute_normalized_difference": 0.14556147158145905
+        }
+      ],
+      "stability_score": 0.7595477104187012,
+      "status": "cross_model_stability_only",
+      "artifacts": {
+        "normalized_consensus": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/consensus/ring_001/lsv_normalized_consensus.npy",
+        "normalized_disagreement": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/consensus/ring_001/lsv_normalized_disagreement.npy",
+        "consensus_sha256": "b2598672ebdc71696ccfa2937a4e01951a05a95604958a54f3b5f0d58271df78",
+        "disagreement_sha256": "d32c9ba8e269b6120840a6efaacf423e52f38f29e1da2a1281a2c3d1a7b999d7"
+      }
+    },
+    {
+      "sample_key": "ring_001:rsv",
+      "object_id": "ring_001",
+      "view": "rsv",
+      "model_count": 3,
+      "models": [
+        "depth_anything_v2_metric",
+        "metric3d_v2",
+        "unidepth_v2"
+      ],
+      "metric_depth_summaries": {
+        "depth_anything_v2_metric": {
+          "p02_m": 0.3924400210380554,
+          "median_m": 0.43065735697746277,
+          "p98_m": 0.6127829253673553,
+          "span_m": 0.22034290432929993,
+          "metric_status": "unvalidated_model_hypothesis"
+        },
+        "unidepth_v2": {
+          "p02_m": 1.0267188549041748,
+          "median_m": 1.0592304468154907,
+          "p98_m": 1.1085802912712097,
+          "span_m": 0.08186143636703491,
+          "metric_status": "unvalidated_model_hypothesis"
+        },
+        "metric3d_v2": {
+          "p02_m": 0.2629229426383972,
+          "median_m": 0.31582939624786377,
+          "p98_m": 0.394380658864975,
+          "span_m": 0.13145771622657776,
+          "metric_status": "unvalidated_model_hypothesis"
+        }
+      },
+      "pairwise": [
+        {
+          "left": "depth_anything_v2_metric",
+          "right": "metric3d_v2",
+          "pearson_shape_correlation": 0.7055076336185877,
+          "median_absolute_normalized_difference": 0.1910158097743988
+        },
+        {
+          "left": "depth_anything_v2_metric",
+          "right": "unidepth_v2",
+          "pearson_shape_correlation": 0.7264566887852082,
+          "median_absolute_normalized_difference": 0.14503870904445648
+        },
+        {
+          "left": "metric3d_v2",
+          "right": "unidepth_v2",
+          "pearson_shape_correlation": 0.8917637298320709,
+          "median_absolute_normalized_difference": 0.09538635611534119
+        }
+      ],
+      "stability_score": 0.71031653881073,
+      "status": "cross_model_stability_only",
+      "artifacts": {
+        "normalized_consensus": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/consensus/ring_001/rsv_normalized_consensus.npy",
+        "normalized_disagreement": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/consensus/ring_001/rsv_normalized_disagreement.npy",
+        "consensus_sha256": "0293bda6c161d784739d3805bad491a230aabc2e8ba8182657697c17e8287287",
+        "disagreement_sha256": "82d136c1deb394faba682e33020f0d4569379fef4ba6c7b5df6884dd12235e29"
+      }
+    },
+    {
+      "sample_key": "ring_004:front",
+      "object_id": "ring_004",
+      "view": "front",
+      "model_count": 4,
+      "models": [
+        "depth_anything_v2_metric",
+        "depth_pro",
+        "metric3d_v2",
+        "unidepth_v2"
+      ],
+      "metric_depth_summaries": {
+        "depth_anything_v2_metric": {
+          "p02_m": 1.3412004709243774,
+          "median_m": 1.4441543817520142,
+          "p98_m": 1.5233266353607178,
+          "span_m": 0.18212616443634033,
+          "metric_status": "unvalidated_model_hypothesis"
+        },
+        "unidepth_v2": {
+          "p02_m": 4.628131866455078,
+          "median_m": 5.051535606384277,
+          "p98_m": 5.522500991821289,
+          "span_m": 0.8943691253662109,
+          "metric_status": "unvalidated_model_hypothesis"
+        },
+        "metric3d_v2": {
+          "p02_m": 0.505332350730896,
+          "median_m": 0.5515223145484924,
+          "p98_m": 0.6123486161231995,
+          "span_m": 0.10701626539230347,
+          "metric_status": "unvalidated_model_hypothesis"
+        },
+        "depth_pro": {
+          "p02_m": 2.289597749710083,
+          "median_m": 2.394304037094116,
+          "p98_m": 2.4856507778167725,
+          "span_m": 0.19605302810668945,
+          "metric_status": "unvalidated_model_hypothesis"
+        }
+      },
+      "pairwise": [
+        {
+          "left": "depth_anything_v2_metric",
+          "right": "depth_pro",
+          "pearson_shape_correlation": -0.08066312792058988,
+          "median_absolute_normalized_difference": 0.2913355827331543
+        },
+        {
+          "left": "depth_anything_v2_metric",
+          "right": "metric3d_v2",
+          "pearson_shape_correlation": -0.38203719051787416,
+          "median_absolute_normalized_difference": 0.3446812927722931
+        },
+        {
+          "left": "depth_anything_v2_metric",
+          "right": "unidepth_v2",
+          "pearson_shape_correlation": 0.7452041217193038,
+          "median_absolute_normalized_difference": 0.1285104751586914
+        },
+        {
+          "left": "depth_pro",
+          "right": "metric3d_v2",
+          "pearson_shape_correlation": 0.15500598103310215,
+          "median_absolute_normalized_difference": 0.23786672949790955
+        },
+        {
+          "left": "depth_pro",
+          "right": "unidepth_v2",
+          "pearson_shape_correlation": -0.036102425865502434,
+          "median_absolute_normalized_difference": 0.24141237139701843
+        },
+        {
+          "left": "metric3d_v2",
+          "right": "unidepth_v2",
+          "pearson_shape_correlation": -0.3168690693350302,
+          "median_absolute_normalized_difference": 0.2855541706085205
+        }
+      ],
+      "stability_score": 0.5983927249908447,
+      "status": "cross_model_stability_only",
+      "artifacts": {
+        "normalized_consensus": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/consensus/ring_004/front_normalized_consensus.npy",
+        "normalized_disagreement": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/consensus/ring_004/front_normalized_disagreement.npy",
+        "consensus_sha256": "feda1f45828100e8a40bb95b9031df3073a59d36f61e470cb31885c17c103431",
+        "disagreement_sha256": "d907ef7650fc412c279acd7e025a7b78d535190193bf8d15368b0ace2f302cf5"
+      }
+    },
+    {
+      "sample_key": "ring_004:top",
+      "object_id": "ring_004",
+      "view": "top",
+      "model_count": 3,
+      "models": [
+        "depth_anything_v2_metric",
+        "metric3d_v2",
+        "unidepth_v2"
+      ],
+      "metric_depth_summaries": {
+        "depth_anything_v2_metric": {
+          "p02_m": 0.8375642633438111,
+          "median_m": 0.9121806621551514,
+          "p98_m": 1.0723011827468876,
+          "span_m": 0.2347369194030765,
+          "metric_status": "unvalidated_model_hypothesis"
+        },
+        "unidepth_v2": {
+          "p02_m": 0.3153162807226181,
+          "median_m": 0.32363027334213257,
+          "p98_m": 0.33660213112831117,
+          "span_m": 0.021285850405693085,
+          "metric_status": "unvalidated_model_hypothesis"
+        },
+        "metric3d_v2": {
+          "p02_m": 0.42549508094787597,
+          "median_m": 0.4643068313598633,
+          "p98_m": 0.5454061257839203,
+          "span_m": 0.11991104483604437,
+          "metric_status": "unvalidated_model_hypothesis"
+        }
+      },
+      "pairwise": [
+        {
+          "left": "depth_anything_v2_metric",
+          "right": "metric3d_v2",
+          "pearson_shape_correlation": -0.46819714674132,
+          "median_absolute_normalized_difference": 0.3944115936756134
+        },
+        {
+          "left": "depth_anything_v2_metric",
+          "right": "unidepth_v2",
+          "pearson_shape_correlation": -0.6163167570325161,
+          "median_absolute_normalized_difference": 0.3877793550491333
+        },
+        {
+          "left": "metric3d_v2",
+          "right": "unidepth_v2",
+          "pearson_shape_correlation": 0.6825269077792411,
+          "median_absolute_normalized_difference": 0.1325731873512268
+        }
+      ],
+      "stability_score": 0.6783151030540466,
+      "status": "cross_model_stability_only",
+      "artifacts": {
+        "normalized_consensus": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/consensus/ring_004/top_normalized_consensus.npy",
+        "normalized_disagreement": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/consensus/ring_004/top_normalized_disagreement.npy",
+        "consensus_sha256": "58e2d247e46a3368295eac68374cfd68f016eafc870785fe3cc635cab67e231c",
+        "disagreement_sha256": "0199150f23bb2163c1c1e0f1e980b9ed13defe05cef4264153e2933bc44d4a8f"
+      }
+    },
+    {
+      "sample_key": "ring_004:iso",
+      "object_id": "ring_004",
+      "view": "iso",
+      "model_count": 3,
+      "models": [
+        "depth_anything_v2_metric",
+        "metric3d_v2",
+        "unidepth_v2"
+      ],
+      "metric_depth_summaries": {
+        "depth_anything_v2_metric": {
+          "p02_m": 0.5986552953720092,
+          "median_m": 0.7318949699401855,
+          "p98_m": 1.1182161688804624,
+          "span_m": 0.5195608735084531,
+          "metric_status": "unvalidated_model_hypothesis"
+        },
+        "unidepth_v2": {
+          "p02_m": 0.8606755852699279,
+          "median_m": 0.9276769161224365,
+          "p98_m": 1.010727083683014,
+          "span_m": 0.15005149841308607,
+          "metric_status": "unvalidated_model_hypothesis"
+        },
+        "metric3d_v2": {
+          "p02_m": 0.24669721424579621,
+          "median_m": 0.2921023368835449,
+          "p98_m": 0.3696725696325302,
+          "span_m": 0.12297535538673399,
+          "metric_status": "unvalidated_model_hypothesis"
+        }
+      },
+      "pairwise": [
+        {
+          "left": "depth_anything_v2_metric",
+          "right": "metric3d_v2",
+          "pearson_shape_correlation": 0.8389682561732733,
+          "median_absolute_normalized_difference": 0.0952756255865097
+        },
+        {
+          "left": "depth_anything_v2_metric",
+          "right": "unidepth_v2",
+          "pearson_shape_correlation": 0.8089194618336099,
+          "median_absolute_normalized_difference": 0.11973625421524048
+        },
+        {
+          "left": "metric3d_v2",
+          "right": "unidepth_v2",
+          "pearson_shape_correlation": 0.8286778769548532,
+          "median_absolute_normalized_difference": 0.09623083472251892
+        }
+      ],
+      "stability_score": 0.7666764259338379,
+      "status": "cross_model_stability_only",
+      "artifacts": {
+        "normalized_consensus": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/consensus/ring_004/iso_normalized_consensus.npy",
+        "normalized_disagreement": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/consensus/ring_004/iso_normalized_disagreement.npy",
+        "consensus_sha256": "1bddbc36a1ed024bf4a1253090c5efd43ec11a6eec58c183c51bcb0fe4f69141",
+        "disagreement_sha256": "2bb4e60624a00b9188530dc3ada9eaf76af0cab911d62998926f0db0e3c82ed4"
+      }
+    },
+    {
+      "sample_key": "ring_004:lsv",
+      "object_id": "ring_004",
+      "view": "lsv",
+      "model_count": 3,
+      "models": [
+        "depth_anything_v2_metric",
+        "metric3d_v2",
+        "unidepth_v2"
+      ],
+      "metric_depth_summaries": {
+        "depth_anything_v2_metric": {
+          "p02_m": 0.6414640402793884,
+          "median_m": 0.6863947510719299,
+          "p98_m": 0.7611767125129695,
+          "span_m": 0.11971267223358106,
+          "metric_status": "unvalidated_model_hypothesis"
+        },
+        "unidepth_v2": {
+          "p02_m": 0.9851541638374328,
+          "median_m": 1.0048540830612183,
+          "p98_m": 1.0285295867919921,
+          "span_m": 0.04337542295455932,
+          "metric_status": "unvalidated_model_hypothesis"
+        },
+        "metric3d_v2": {
+          "p02_m": 0.3715289556980133,
+          "median_m": 0.46084922552108765,
+          "p98_m": 0.6434236001968383,
+          "span_m": 0.271894644498825,
+          "metric_status": "unvalidated_model_hypothesis"
+        }
+      },
+      "pairwise": [
+        {
+          "left": "depth_anything_v2_metric",
+          "right": "metric3d_v2",
+          "pearson_shape_correlation": 0.28625085675229694,
+          "median_absolute_normalized_difference": 0.13371729850769043
+        },
+        {
+          "left": "depth_anything_v2_metric",
+          "right": "unidepth_v2",
+          "pearson_shape_correlation": 0.1518507771810939,
+          "median_absolute_normalized_difference": 0.1982715129852295
+        },
+        {
+          "left": "metric3d_v2",
+          "right": "unidepth_v2",
+          "pearson_shape_correlation": 0.37639610614141233,
+          "median_absolute_normalized_difference": 0.18213266134262085
+        }
+      ],
+      "stability_score": 0.6855467557907104,
+      "status": "cross_model_stability_only",
+      "artifacts": {
+        "normalized_consensus": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/consensus/ring_004/lsv_normalized_consensus.npy",
+        "normalized_disagreement": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/consensus/ring_004/lsv_normalized_disagreement.npy",
+        "consensus_sha256": "4172390ef52842d42de080c226223b3928be27243515dac966f641cf3d50b255",
+        "disagreement_sha256": "bd8f7d994ec72022863839677a57460d6e3a0fa0d5f4b41b8eea6fe333a906bc"
+      }
+    },
+    {
+      "sample_key": "ring_004:rsv",
+      "object_id": "ring_004",
+      "view": "rsv",
+      "model_count": 3,
+      "models": [
+        "depth_anything_v2_metric",
+        "metric3d_v2",
+        "unidepth_v2"
+      ],
+      "metric_depth_summaries": {
+        "depth_anything_v2_metric": {
+          "p02_m": 0.5108617317676544,
+          "median_m": 0.5825749039649963,
+          "p98_m": 0.6482705318927762,
+          "span_m": 0.1374088001251218,
+          "metric_status": "unvalidated_model_hypothesis"
+        },
+        "unidepth_v2": {
+          "p02_m": 1.0554999780654908,
+          "median_m": 1.0812816619873047,
+          "p98_m": 1.1090595436096191,
+          "span_m": 0.05355956554412833,
+          "metric_status": "unvalidated_model_hypothesis"
+        },
+        "metric3d_v2": {
+          "p02_m": 0.24754135221242904,
+          "median_m": 0.39597493410110474,
+          "p98_m": 0.5968586897850034,
+          "span_m": 0.34931733757257444,
+          "metric_status": "unvalidated_model_hypothesis"
+        }
+      },
+      "pairwise": [
+        {
+          "left": "depth_anything_v2_metric",
+          "right": "metric3d_v2",
+          "pearson_shape_correlation": 0.5442284051122813,
+          "median_absolute_normalized_difference": 0.15059971809387207
+        },
+        {
+          "left": "depth_anything_v2_metric",
+          "right": "unidepth_v2",
+          "pearson_shape_correlation": -0.027574558301494564,
+          "median_absolute_normalized_difference": 0.23971641063690186
+        },
+        {
+          "left": "metric3d_v2",
+          "right": "unidepth_v2",
+          "pearson_shape_correlation": 0.2787472925145712,
+          "median_absolute_normalized_difference": 0.2069511115550995
+        }
+      ],
+      "stability_score": 0.6671910285949707,
+      "status": "cross_model_stability_only",
+      "artifacts": {
+        "normalized_consensus": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/consensus/ring_004/rsv_normalized_consensus.npy",
+        "normalized_disagreement": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/consensus/ring_004/rsv_normalized_disagreement.npy",
+        "consensus_sha256": "833090abde81bfc3142a1937fb7cd3385a8b4828c740b52a330b0406339b3bd5",
+        "disagreement_sha256": "680920c872328d5641d7bf0ab0ff7be07ef54faa66f3fe3ceb6e6190464c46b2"
+      }
+    },
+    {
+      "sample_key": "ring_007:front",
+      "object_id": "ring_007",
+      "view": "front",
+      "model_count": 4,
+      "models": [
+        "depth_anything_v2_metric",
+        "depth_pro",
+        "metric3d_v2",
+        "unidepth_v2"
+      ],
+      "metric_depth_summaries": {
+        "depth_anything_v2_metric": {
+          "p02_m": 0.8602757334709168,
+          "median_m": 0.9073992967605591,
+          "p98_m": 0.9850017666816712,
+          "span_m": 0.12472603321075437,
+          "metric_status": "unvalidated_model_hypothesis"
+        },
+        "unidepth_v2": {
+          "p02_m": 153.46512756347656,
+          "median_m": 160.73345947265625,
+          "p98_m": 179.22390747070312,
+          "span_m": 25.758779907226568,
+          "metric_status": "unvalidated_model_hypothesis"
+        },
+        "metric3d_v2": {
+          "p02_m": 0.5296915531158447,
+          "median_m": 0.5692890882492065,
+          "p98_m": 0.6346681237220764,
+          "span_m": 0.10497657060623167,
+          "metric_status": "unvalidated_model_hypothesis"
+        },
+        "depth_pro": {
+          "p02_m": 2.0817219257354735,
+          "median_m": 2.3144848346710205,
+          "p98_m": 2.590622282028198,
+          "span_m": 0.5089003562927243,
+          "metric_status": "unvalidated_model_hypothesis"
+        }
+      },
+      "pairwise": [
+        {
+          "left": "depth_anything_v2_metric",
+          "right": "depth_pro",
+          "pearson_shape_correlation": 0.7947543511251297,
+          "median_absolute_normalized_difference": 0.09762662649154663
+        },
+        {
+          "left": "depth_anything_v2_metric",
+          "right": "metric3d_v2",
+          "pearson_shape_correlation": 0.40901813176825297,
+          "median_absolute_normalized_difference": 0.16881057620048523
+        },
+        {
+          "left": "depth_anything_v2_metric",
+          "right": "unidepth_v2",
+          "pearson_shape_correlation": 0.804208014007345,
+          "median_absolute_normalized_difference": 0.11619847267866135
+        },
+        {
+          "left": "depth_pro",
+          "right": "metric3d_v2",
+          "pearson_shape_correlation": 0.5027428731186372,
+          "median_absolute_normalized_difference": 0.18309885263442993
+        },
+        {
+          "left": "depth_pro",
+          "right": "unidepth_v2",
+          "pearson_shape_correlation": 0.7917066945502764,
+          "median_absolute_normalized_difference": 0.12010347843170166
+        },
+        {
+          "left": "metric3d_v2",
+          "right": "unidepth_v2",
+          "pearson_shape_correlation": 0.516459278299904,
+          "median_absolute_normalized_difference": 0.14174145460128784
+        }
+      ],
+      "stability_score": 0.6119195222854614,
+      "status": "cross_model_stability_only",
+      "artifacts": {
+        "normalized_consensus": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/consensus/ring_007/front_normalized_consensus.npy",
+        "normalized_disagreement": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/consensus/ring_007/front_normalized_disagreement.npy",
+        "consensus_sha256": "36aafae5f37b74d71a6c01429f0b50ef70596d49e8bdcd73aac1f7dfa261cb74",
+        "disagreement_sha256": "76154d9d90945c98d492b17ce4d50e4ded402e92ba574340e02c952f4f2ab5c8"
+      }
+    },
+    {
+      "sample_key": "ring_007:top",
+      "object_id": "ring_007",
+      "view": "top",
+      "model_count": 3,
+      "models": [
+        "depth_anything_v2_metric",
+        "metric3d_v2",
+        "unidepth_v2"
+      ],
+      "metric_depth_summaries": {
+        "depth_anything_v2_metric": {
+          "p02_m": 0.7627659678459168,
+          "median_m": 0.8064960837364197,
+          "p98_m": 0.9524527382850648,
+          "span_m": 0.18968677043914806,
+          "metric_status": "unvalidated_model_hypothesis"
+        },
+        "unidepth_v2": {
+          "p02_m": 0.2529411649703979,
+          "median_m": 0.264222651720047,
+          "p98_m": 0.26914396762847903,
+          "span_m": 0.016202802658081106,
+          "metric_status": "unvalidated_model_hypothesis"
+        },
+        "metric3d_v2": {
+          "p02_m": 0.2980225229263306,
+          "median_m": 0.3415396511554718,
+          "p98_m": 0.39538485169410714,
+          "span_m": 0.09736232876777656,
+          "metric_status": "unvalidated_model_hypothesis"
+        }
+      },
+      "pairwise": [
+        {
+          "left": "depth_anything_v2_metric",
+          "right": "metric3d_v2",
+          "pearson_shape_correlation": -0.20782721354570535,
+          "median_absolute_normalized_difference": 0.3299556374549866
+        },
+        {
+          "left": "depth_anything_v2_metric",
+          "right": "unidepth_v2",
+          "pearson_shape_correlation": 0.45619828358281717,
+          "median_absolute_normalized_difference": 0.33002960681915283
+        },
+        {
+          "left": "metric3d_v2",
+          "right": "unidepth_v2",
+          "pearson_shape_correlation": -0.22231672566465244,
+          "median_absolute_normalized_difference": 0.342881977558136
+        }
+      ],
+      "stability_score": 0.6511756181716919,
+      "status": "cross_model_stability_only",
+      "artifacts": {
+        "normalized_consensus": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/consensus/ring_007/top_normalized_consensus.npy",
+        "normalized_disagreement": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/consensus/ring_007/top_normalized_disagreement.npy",
+        "consensus_sha256": "e20c79b3f66866f886a7bb7d9ee9b6d18633b1f42a0eb8d0a847a3661f27767b",
+        "disagreement_sha256": "9305f500a1566aaa1e8ea0a4df2e80c4c58ca699f5ab39f0790d4dae2300baaf"
+      }
+    },
+    {
+      "sample_key": "ring_007:iso",
+      "object_id": "ring_007",
+      "view": "iso",
+      "model_count": 3,
+      "models": [
+        "depth_anything_v2_metric",
+        "metric3d_v2",
+        "unidepth_v2"
+      ],
+      "metric_depth_summaries": {
+        "depth_anything_v2_metric": {
+          "p02_m": 0.6002671730518341,
+          "median_m": 0.6561912894248962,
+          "p98_m": 0.9170971596240995,
+          "span_m": 0.31682998657226547,
+          "metric_status": "unvalidated_model_hypothesis"
+        },
+        "unidepth_v2": {
+          "p02_m": 0.917091052532196,
+          "median_m": 0.9916157722473145,
+          "p98_m": 1.1219826030731201,
+          "span_m": 0.20489155054092412,
+          "metric_status": "unvalidated_model_hypothesis"
+        },
+        "metric3d_v2": {
+          "p02_m": 0.2516954791545868,
+          "median_m": 0.2893519997596741,
+          "p98_m": 0.37941799879074084,
+          "span_m": 0.12772251963615405,
+          "metric_status": "unvalidated_model_hypothesis"
+        }
+      },
+      "pairwise": [
+        {
+          "left": "depth_anything_v2_metric",
+          "right": "metric3d_v2",
+          "pearson_shape_correlation": 0.8497883934885692,
+          "median_absolute_normalized_difference": 0.09967469424009323
+        },
+        {
+          "left": "depth_anything_v2_metric",
+          "right": "unidepth_v2",
+          "pearson_shape_correlation": 0.8615126219064727,
+          "median_absolute_normalized_difference": 0.13004396855831146
+        },
+        {
+          "left": "metric3d_v2",
+          "right": "unidepth_v2",
+          "pearson_shape_correlation": 0.8628193575278409,
+          "median_absolute_normalized_difference": 0.08624595403671265
+        }
+      ],
+      "stability_score": 0.7313092947006226,
+      "status": "cross_model_stability_only",
+      "artifacts": {
+        "normalized_consensus": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/consensus/ring_007/iso_normalized_consensus.npy",
+        "normalized_disagreement": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/consensus/ring_007/iso_normalized_disagreement.npy",
+        "consensus_sha256": "6f48f49a81143b3cd5316bb81507bec82d5174688a3962a082ff7d8d4756cd3b",
+        "disagreement_sha256": "003987062e3c4826c0139e394b91ab9c92ef8d2dc9531b17d9bf563eb4019290"
+      }
+    },
+    {
+      "sample_key": "ring_007:lsv",
+      "object_id": "ring_007",
+      "view": "lsv",
+      "model_count": 3,
+      "models": [
+        "depth_anything_v2_metric",
+        "metric3d_v2",
+        "unidepth_v2"
+      ],
+      "metric_depth_summaries": {
+        "depth_anything_v2_metric": {
+          "p02_m": 0.5561239171028137,
+          "median_m": 0.6570042371749878,
+          "p98_m": 0.7129715704917896,
+          "span_m": 0.15684765338897588,
+          "metric_status": "unvalidated_model_hypothesis"
+        },
+        "unidepth_v2": {
+          "p02_m": 0.9940217709541321,
+          "median_m": 1.0219736099243164,
+          "p98_m": 1.039145941734314,
+          "span_m": 0.04512417078018194,
+          "metric_status": "unvalidated_model_hypothesis"
+        },
+        "metric3d_v2": {
+          "p02_m": 0.2572564697265625,
+          "median_m": 0.2914782464504242,
+          "p98_m": 0.3695949470996856,
+          "span_m": 0.11233847737312308,
+          "metric_status": "unvalidated_model_hypothesis"
+        }
+      },
+      "pairwise": [
+        {
+          "left": "depth_anything_v2_metric",
+          "right": "metric3d_v2",
+          "pearson_shape_correlation": -0.1521456121896778,
+          "median_absolute_normalized_difference": 0.42186588048934937
+        },
+        {
+          "left": "depth_anything_v2_metric",
+          "right": "unidepth_v2",
+          "pearson_shape_correlation": 0.2798862263547459,
+          "median_absolute_normalized_difference": 0.23064130544662476
+        },
+        {
+          "left": "metric3d_v2",
+          "right": "unidepth_v2",
+          "pearson_shape_correlation": 0.6478887503973443,
+          "median_absolute_normalized_difference": 0.1702791452407837
+        }
+      ],
+      "stability_score": 0.6337927579879761,
+      "status": "cross_model_stability_only",
+      "artifacts": {
+        "normalized_consensus": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/consensus/ring_007/lsv_normalized_consensus.npy",
+        "normalized_disagreement": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/consensus/ring_007/lsv_normalized_disagreement.npy",
+        "consensus_sha256": "269e35ac4c1d87fd0087b57402edc215ed4fa335dd29d6cdacaf5e3e3ae1e36a",
+        "disagreement_sha256": "c60bf3b929c2630e2b199795f938649d0e47d922097b924f632f2dfd5860e82e"
+      }
+    },
+    {
+      "sample_key": "ring_007:rsv",
+      "object_id": "ring_007",
+      "view": "rsv",
+      "model_count": 3,
+      "models": [
+        "depth_anything_v2_metric",
+        "metric3d_v2",
+        "unidepth_v2"
+      ],
+      "metric_depth_summaries": {
+        "depth_anything_v2_metric": {
+          "p02_m": 0.3794149446487427,
+          "median_m": 0.47285085916519165,
+          "p98_m": 0.5468157553672783,
+          "span_m": 0.16740081071853563,
+          "metric_status": "unvalidated_model_hypothesis"
+        },
+        "unidepth_v2": {
+          "p02_m": 1.057097749710083,
+          "median_m": 1.076737642288208,
+          "p98_m": 1.1000696802139283,
+          "span_m": 0.04297193050384518,
+          "metric_status": "unvalidated_model_hypothesis"
+        },
+        "metric3d_v2": {
+          "p02_m": 0.24336234509944915,
+          "median_m": 0.28384628891944885,
+          "p98_m": 0.32975941538810727,
+          "span_m": 0.08639707028865812,
+          "metric_status": "unvalidated_model_hypothesis"
+        }
+      },
+      "pairwise": [
+        {
+          "left": "depth_anything_v2_metric",
+          "right": "metric3d_v2",
+          "pearson_shape_correlation": 0.31879639928614945,
+          "median_absolute_normalized_difference": 0.2218264639377594
+        },
+        {
+          "left": "depth_anything_v2_metric",
+          "right": "unidepth_v2",
+          "pearson_shape_correlation": 0.13193834240185376,
+          "median_absolute_normalized_difference": 0.26989272236824036
+        },
+        {
+          "left": "metric3d_v2",
+          "right": "unidepth_v2",
+          "pearson_shape_correlation": 0.6469558091181702,
+          "median_absolute_normalized_difference": 0.12689626216888428
+        }
+      ],
+      "stability_score": 0.647879958152771,
+      "status": "cross_model_stability_only",
+      "artifacts": {
+        "normalized_consensus": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/consensus/ring_007/rsv_normalized_consensus.npy",
+        "normalized_disagreement": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/consensus/ring_007/rsv_normalized_disagreement.npy",
+        "consensus_sha256": "5bd12ace2fd945f2a2277bc99220f38b4a6df3ee443f6f2539d4bf735eb0664d",
+        "disagreement_sha256": "381a97eb65540f9ec39f72cc20f32aa9d03fd17518dabc56badd63833026cbff"
+      }
+    }
+  ],
+  "review_sheets": {
+    "ring01_reference": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/previews/ring01_reference_metric_depth_consensus.png",
+    "ring_001": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/previews/ring_001_metric_depth_consensus.png",
+    "ring_004": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/previews/ring_004_metric_depth_consensus.png",
+    "ring_007": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/previews/ring_007_metric_depth_consensus.png"
+  },
+  "summary": {
+    "consensus_ready": true,
+    "requested_four_model_ensemble_complete": false,
+    "mean_cross_model_stability": 0.6787949621677398,
+    "minimum_cross_model_stability": 0.5733258128166199
+  },
+  "same_view_alignment": {
+    "spatial_registration": "source_pixel_grid_after_resize_to_source_mask",
+    "normalization": "per_model_masked_p02_p98",
+    "aggregation": "pixelwise_median_normalized_depth",
+    "uncertainty": "median_absolute_deviation_from_consensus",
+    "complete": true
+  },
+  "geometry_alignment": {
+    "colmap_status": "failed_to_form_sparse_models_on_retained_STL1_run",
+    "vggt_status": "blocked_checkpoint_and_4_gib_vram",
+    "mast3r_status": "not_installed",
+    "cross_view_metric_alignment_complete": false
+  },
+  "claims": {
+    "cross_model_stability_measured": true,
+    "depth_accuracy_measured": false,
+    "absolute_scale_validated": false,
+    "millimetre_measurements_validated": false,
+    "manufacturing_accuracy_validated": false
+  },
+  "decision": "research_only"
+}

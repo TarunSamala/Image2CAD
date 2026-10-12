@@ -21,7 +21,20 @@ predate it, so this index prevents similarly numbered stages from being mixed.
 - `prepare_jewellery_dataset.py`, `jewellery_multiview_dataset.py`
 - `extract_dataset_complete_phase1.py`, `infer_dataset_depth_anything_v2.py`
 - `audit_jewellery.py`, comparison and audit builders
+- `intake_external_ring_datasets.py` - provenance-safe OrnAsia and Segment Your
+  Ring intake with strict human-mask gates; unlabelled masks remain
+  review-required.
+- `bible_image_only_phase2_machine_review.py` - deterministic and AI-assisted
+  audit that permits image-only Phase 2 research without modifying or
+  impersonating the human Phase 1 review gate.
 - metadata, schema, validation-sheet and camera/depth support modules
+
+`audit_jewellery.py` includes an experimental compact-object SAM prompt for
+small jewellery on non-uniform backgrounds. It rejects long background folds,
+records the prompt strategy and candidate diagnostics, and adds a negative
+centre prompt when local colour evidence indicates a central opening. These
+heuristics improve representative real-image rings but do not replace human
+mask validation.
 
 Some shared filenames contain old phase labels because their generated
 artifacts are immutable legacy evidence.

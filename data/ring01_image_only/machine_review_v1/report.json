@@ -1,0 +1,723 @@
+{
+  "schema_version": "lalitha_image_only_phase2_machine_review_v1",
+  "created_at_utc": "2026-10-12T09:37:15.417670+00:00",
+  "status": "research_continuation_allowed_with_blocked_human_gate",
+  "execution_profile": "image_only_reconstruction_v1",
+  "authority": "ai_assisted_machine_audit_not_human_ground_truth",
+  "phase1_gate": {
+    "status": "blocked_human_review_not_performed",
+    "ring01_pending_label_reviews": 35,
+    "ring01_pending_component_identities": 7,
+    "ring01_pending_camera_records": 5,
+    "stl1_pending_evidence_count": 840,
+    "stl1_pending_object_review_count": 24,
+    "human_ground_truth_complete": false
+  },
+  "ring01": {
+    "view_count": 5,
+    "proposal_count": 35,
+    "source_hashes_valid": true,
+    "proposal_hashes_valid": true,
+    "all_masks_binary": true,
+    "all_masks_nonempty": true,
+    "all_masks_not_full_frame": true,
+    "all_mask_sizes_match_sources": true,
+    "mask_checks": [
+      {
+        "path": "data/ring01_phase2_refined/masks/jewelry/ring01_front_jewelry.png",
+        "size_wh": [
+          289,
+          212
+        ],
+        "size_matches_source": true,
+        "binary": true,
+        "nonempty": true,
+        "not_full_frame": true,
+        "foreground_fraction": 0.16884834,
+        "values": [
+          0,
+          255
+        ],
+        "view": "front",
+        "label": "jewelry"
+      },
+      {
+        "path": "data/ring01_phase2_refined/masks/metal/ring01_front_metal.png",
+        "size_wh": [
+          289,
+          212
+        ],
+        "size_matches_source": true,
+        "binary": true,
+        "nonempty": true,
+        "not_full_frame": true,
+        "foreground_fraction": 0.09306653,
+        "values": [
+          0,
+          255
+        ],
+        "view": "front",
+        "label": "metal"
+      },
+      {
+        "path": "data/ring01_phase2_refined/masks/shank/ring01_front_shank.png",
+        "size_wh": [
+          289,
+          212
+        ],
+        "size_matches_source": true,
+        "binary": true,
+        "nonempty": true,
+        "not_full_frame": true,
+        "foreground_fraction": 0.06742508,
+        "values": [
+          0,
+          255
+        ],
+        "view": "front",
+        "label": "shank"
+      },
+      {
+        "path": "data/ring01_phase2_refined/masks/stone_visible/ring01_front_stone_visible.png",
+        "size_wh": [
+          289,
+          212
+        ],
+        "size_matches_source": true,
+        "binary": true,
+        "nonempty": true,
+        "not_full_frame": true,
+        "foreground_fraction": 0.07578181,
+        "values": [
+          0,
+          255
+        ],
+        "view": "front",
+        "label": "stone_visible"
+      },
+      {
+        "path": "data/ring01_phase2_refined/masks/setting/ring01_front_setting.png",
+        "size_wh": [
+          289,
+          212
+        ],
+        "size_matches_source": true,
+        "binary": true,
+        "nonempty": true,
+        "not_full_frame": true,
+        "foreground_fraction": 0.02564144,
+        "values": [
+          0,
+          255
+        ],
+        "view": "front",
+        "label": "setting"
+      },
+      {
+        "path": "data/ring01_phase2_refined/masks/prongs/ring01_front_prongs.png",
+        "size_wh": [
+          289,
+          212
+        ],
+        "size_matches_source": true,
+        "binary": true,
+        "nonempty": true,
+        "not_full_frame": true,
+        "foreground_fraction": 0.01131096,
+        "values": [
+          0,
+          255
+        ],
+        "view": "front",
+        "label": "prongs"
+      },
+      {
+        "path": "data/ring01_ground_truth_v1/proposals/negative_space/ring01_front_negative_space_proposal.png",
+        "size_wh": [
+          289,
+          212
+        ],
+        "size_matches_source": true,
+        "binary": true,
+        "nonempty": true,
+        "not_full_frame": true,
+        "foreground_fraction": 0.00484756,
+        "values": [
+          0,
+          255
+        ],
+        "view": "front",
+        "label": "negative_space"
+      },
+      {
+        "path": "data/ring01_phase2_refined/masks/jewelry/ring01_side_jewelry.png",
+        "size_wh": [
+          270,
+          212
+        ],
+        "size_matches_source": true,
+        "binary": true,
+        "nonempty": true,
+        "not_full_frame": true,
+        "foreground_fraction": 0.12508735,
+        "values": [
+          0,
+          255
+        ],
+        "view": "side",
+        "label": "jewelry"
+      },
+      {
+        "path": "data/ring01_phase2_refined/masks/metal/ring01_side_metal.png",
+        "size_wh": [
+          270,
+          212
+        ],
+        "size_matches_source": true,
+        "binary": true,
+        "nonempty": true,
+        "not_full_frame": true,
+        "foreground_fraction": 0.10587002,
+        "values": [
+          0,
+          255
+        ],
+        "view": "side",
+        "label": "metal"
+      },
+      {
+        "path": "data/ring01_phase2_refined/masks/shank/ring01_side_shank.png",
+        "size_wh": [
+          270,
+          212
+        ],
+        "size_matches_source": true,
+        "binary": true,
+        "nonempty": true,
+        "not_full_frame": true,
+        "foreground_fraction": 0.07281621,
+        "values": [
+          0,
+          255
+        ],
+        "view": "side",
+        "label": "shank"
+      },
+      {
+        "path": "data/ring01_phase2_refined/masks/stone_visible/ring01_side_stone_visible.png",
+        "size_wh": [
+          270,
+          212
+        ],
+        "size_matches_source": true,
+        "binary": true,
+        "nonempty": true,
+        "not_full_frame": true,
+        "foreground_fraction": 0.01921733,
+        "values": [
+          0,
+          255
+        ],
+        "view": "side",
+        "label": "stone_visible"
+      },
+      {
+        "path": "data/ring01_phase2_refined/masks/setting/ring01_side_setting.png",
+        "size_wh": [
+          270,
+          212
+        ],
+        "size_matches_source": true,
+        "binary": true,
+        "nonempty": true,
+        "not_full_frame": true,
+        "foreground_fraction": 0.03305381,
+        "values": [
+          0,
+          255
+        ],
+        "view": "side",
+        "label": "setting"
+      },
+      {
+        "path": "data/ring01_phase2_refined/masks/prongs/ring01_side_prongs.png",
+        "size_wh": [
+          270,
+          212
+        ],
+        "size_matches_source": true,
+        "binary": true,
+        "nonempty": true,
+        "not_full_frame": true,
+        "foreground_fraction": 0.00609713,
+        "values": [
+          0,
+          255
+        ],
+        "view": "side",
+        "label": "prongs"
+      },
+      {
+        "path": "data/ring01_ground_truth_v1/proposals/negative_space/ring01_side_negative_space_proposal.png",
+        "size_wh": [
+          270,
+          212
+        ],
+        "size_matches_source": true,
+        "binary": true,
+        "nonempty": true,
+        "not_full_frame": true,
+        "foreground_fraction": 0.20398323,
+        "values": [
+          0,
+          255
+        ],
+        "view": "side",
+        "label": "negative_space"
+      },
+      {
+        "path": "data/ring01_phase2_refined/masks/jewelry/ring01_top_jewelry.png",
+        "size_wh": [
+          288,
+          212
+        ],
+        "size_matches_source": true,
+        "binary": true,
+        "nonempty": true,
+        "not_full_frame": true,
+        "foreground_fraction": 0.1323539,
+        "values": [
+          0,
+          255
+        ],
+        "view": "top",
+        "label": "jewelry"
+      },
+      {
+        "path": "data/ring01_phase2_refined/masks/metal/ring01_top_metal.png",
+        "size_wh": [
+          288,
+          212
+        ],
+        "size_matches_source": true,
+        "binary": true,
+        "nonempty": true,
+        "not_full_frame": true,
+        "foreground_fraction": 0.07298218,
+        "values": [
+          0,
+          255
+        ],
+        "view": "top",
+        "label": "metal"
+      },
+      {
+        "path": "data/ring01_phase2_refined/masks/shank/ring01_top_shank.png",
+        "size_wh": [
+          288,
+          212
+        ],
+        "size_matches_source": true,
+        "binary": true,
+        "nonempty": true,
+        "not_full_frame": true,
+        "foreground_fraction": 0.04734997,
+        "values": [
+          0,
+          255
+        ],
+        "view": "top",
+        "label": "shank"
+      },
+      {
+        "path": "data/ring01_phase2_refined/masks/stone_visible/ring01_top_stone_visible.png",
+        "size_wh": [
+          288,
+          212
+        ],
+        "size_matches_source": true,
+        "binary": true,
+        "nonempty": true,
+        "not_full_frame": true,
+        "foreground_fraction": 0.05937172,
+        "values": [
+          0,
+          255
+        ],
+        "view": "top",
+        "label": "stone_visible"
+      },
+      {
+        "path": "data/ring01_phase2_refined/masks/setting/ring01_top_setting.png",
+        "size_wh": [
+          288,
+          212
+        ],
+        "size_matches_source": true,
+        "binary": true,
+        "nonempty": true,
+        "not_full_frame": true,
+        "foreground_fraction": 0.02563221,
+        "values": [
+          0,
+          255
+        ],
+        "view": "top",
+        "label": "setting"
+      },
+      {
+        "path": "data/ring01_phase2_refined/masks/prongs/ring01_top_prongs.png",
+        "size_wh": [
+          288,
+          212
+        ],
+        "size_matches_source": true,
+        "binary": true,
+        "nonempty": true,
+        "not_full_frame": true,
+        "foreground_fraction": 0.01133386,
+        "values": [
+          0,
+          255
+        ],
+        "view": "top",
+        "label": "prongs"
+      },
+      {
+        "path": "data/ring01_ground_truth_v1/proposals/negative_space/ring01_top_negative_space_proposal.png",
+        "size_wh": [
+          288,
+          212
+        ],
+        "size_matches_source": true,
+        "binary": true,
+        "nonempty": true,
+        "not_full_frame": true,
+        "foreground_fraction": 0.0059945,
+        "values": [
+          0,
+          255
+        ],
+        "view": "top",
+        "label": "negative_space"
+      },
+      {
+        "path": "data/ring01_phase2_refined/masks/jewelry/ring01_angled_jewelry.png",
+        "size_wh": [
+          279,
+          212
+        ],
+        "size_matches_source": true,
+        "binary": true,
+        "nonempty": true,
+        "not_full_frame": true,
+        "foreground_fraction": 0.18495976,
+        "values": [
+          0,
+          255
+        ],
+        "view": "angled",
+        "label": "jewelry"
+      },
+      {
+        "path": "data/ring01_phase2_refined/masks/metal/ring01_angled_metal.png",
+        "size_wh": [
+          279,
+          212
+        ],
+        "size_matches_source": true,
+        "binary": true,
+        "nonempty": true,
+        "not_full_frame": true,
+        "foreground_fraction": 0.14708866,
+        "values": [
+          0,
+          255
+        ],
+        "view": "angled",
+        "label": "metal"
+      },
+      {
+        "path": "data/ring01_phase2_refined/masks/shank/ring01_angled_shank.png",
+        "size_wh": [
+          279,
+          212
+        ],
+        "size_matches_source": true,
+        "binary": true,
+        "nonempty": true,
+        "not_full_frame": true,
+        "foreground_fraction": 0.10098397,
+        "values": [
+          0,
+          255
+        ],
+        "view": "angled",
+        "label": "shank"
+      },
+      {
+        "path": "data/ring01_phase2_refined/masks/stone_visible/ring01_angled_stone_visible.png",
+        "size_wh": [
+          279,
+          212
+        ],
+        "size_matches_source": true,
+        "binary": true,
+        "nonempty": true,
+        "not_full_frame": true,
+        "foreground_fraction": 0.0378711,
+        "values": [
+          0,
+          255
+        ],
+        "view": "angled",
+        "label": "stone_visible"
+      },
+      {
+        "path": "data/ring01_phase2_refined/masks/setting/ring01_angled_setting.png",
+        "size_wh": [
+          279,
+          212
+        ],
+        "size_matches_source": true,
+        "binary": true,
+        "nonempty": true,
+        "not_full_frame": true,
+        "foreground_fraction": 0.04610469,
+        "values": [
+          0,
+          255
+        ],
+        "view": "angled",
+        "label": "setting"
+      },
+      {
+        "path": "data/ring01_phase2_refined/masks/prongs/ring01_angled_prongs.png",
+        "size_wh": [
+          279,
+          212
+        ],
+        "size_matches_source": true,
+        "binary": true,
+        "nonempty": true,
+        "not_full_frame": true,
+        "foreground_fraction": 0.00787854,
+        "values": [
+          0,
+          255
+        ],
+        "view": "angled",
+        "label": "prongs"
+      },
+      {
+        "path": "data/ring01_ground_truth_v1/proposals/negative_space/ring01_angled_negative_space_proposal.png",
+        "size_wh": [
+          279,
+          212
+        ],
+        "size_matches_source": true,
+        "binary": true,
+        "nonempty": true,
+        "not_full_frame": true,
+        "foreground_fraction": 0.1085751,
+        "values": [
+          0,
+          255
+        ],
+        "view": "angled",
+        "label": "negative_space"
+      },
+      {
+        "path": "data/ring01_phase2_refined/masks/jewelry/ring01_back_jewelry.png",
+        "size_wh": [
+          284,
+          212
+        ],
+        "size_matches_source": true,
+        "binary": true,
+        "nonempty": true,
+        "not_full_frame": true,
+        "foreground_fraction": 0.12413633,
+        "values": [
+          0,
+          255
+        ],
+        "view": "back",
+        "label": "jewelry"
+      },
+      {
+        "path": "data/ring01_phase2_refined/masks/metal/ring01_back_metal.png",
+        "size_wh": [
+          284,
+          212
+        ],
+        "size_matches_source": true,
+        "binary": true,
+        "nonempty": true,
+        "not_full_frame": true,
+        "foreground_fraction": 0.10452099,
+        "values": [
+          0,
+          255
+        ],
+        "view": "back",
+        "label": "metal"
+      },
+      {
+        "path": "data/ring01_phase2_refined/masks/shank/ring01_back_shank.png",
+        "size_wh": [
+          284,
+          212
+        ],
+        "size_matches_source": true,
+        "binary": true,
+        "nonempty": true,
+        "not_full_frame": true,
+        "foreground_fraction": 0.07221632,
+        "values": [
+          0,
+          255
+        ],
+        "view": "back",
+        "label": "shank"
+      },
+      {
+        "path": "data/ring01_phase2_refined/masks/stone_visible/ring01_back_stone_visible.png",
+        "size_wh": [
+          284,
+          212
+        ],
+        "size_matches_source": true,
+        "binary": true,
+        "nonempty": true,
+        "not_full_frame": true,
+        "foreground_fraction": 0.01961533,
+        "values": [
+          0,
+          255
+        ],
+        "view": "back",
+        "label": "stone_visible"
+      },
+      {
+        "path": "data/ring01_phase2_refined/masks/setting/ring01_back_setting.png",
+        "size_wh": [
+          284,
+          212
+        ],
+        "size_matches_source": true,
+        "binary": true,
+        "nonempty": true,
+        "not_full_frame": true,
+        "foreground_fraction": 0.03230468,
+        "values": [
+          0,
+          255
+        ],
+        "view": "back",
+        "label": "setting"
+      },
+      {
+        "path": "data/ring01_phase2_refined/masks/prongs/ring01_back_prongs.png",
+        "size_wh": [
+          284,
+          212
+        ],
+        "size_matches_source": true,
+        "binary": true,
+        "nonempty": true,
+        "not_full_frame": true,
+        "foreground_fraction": 0.00666024,
+        "values": [
+          0,
+          255
+        ],
+        "view": "back",
+        "label": "prongs"
+      },
+      {
+        "path": "data/ring01_ground_truth_v1/proposals/negative_space/ring01_back_negative_space_proposal.png",
+        "size_wh": [
+          284,
+          212
+        ],
+        "size_matches_source": true,
+        "binary": true,
+        "nonempty": true,
+        "not_full_frame": true,
+        "foreground_fraction": 0.19421007,
+        "values": [
+          0,
+          255
+        ],
+        "view": "back",
+        "label": "negative_space"
+      }
+    ],
+    "visual_findings": [
+      "All five whole-jewellery silhouettes preserve the visible ring body, head and principal negative spaces.",
+      "Front and top proposals preserve the visible four-prong arrangement, but gemstone facets and prong boundaries remain reflection-sensitive.",
+      "Side and back proposals preserve the shank opening and gallery silhouette; thin gallery and setting boundaries remain uncertain at source resolution.",
+      "The angled legacy mask contains reflection-induced inner-shank gaps; the separate correction improves continuity without changing the exterior silhouette.",
+      "Relative-depth ordering is visually plausible at coarse scale but uncertainty is high around gemstone facets, prongs and polished metal, so it is non-metric evidence only."
+    ]
+  },
+  "stl1": {
+    "object_count": 24,
+    "view_count": 120,
+    "evidence_count": 840,
+    "automated_checks": {
+      "twenty_four_objects": true,
+      "five_views_per_object": true,
+      "all_120_views_present": true,
+      "all_source_roundtrips_and_feature_contracts_pass": true
+    },
+    "all_automated_checks_pass": true,
+    "all_evidence_paths_exist": true,
+    "all_active_hashes_valid": true,
+    "missing_paths": [],
+    "hash_mismatches": [],
+    "visual_findings": [
+      "The 24-object, five-view overview is complete and view assignments are visually consistent with the source filenames.",
+      "Normalization retains the full visible objects across the representative train, validation and test examples.",
+      "Pseudo-silhouettes preserve outer jewellery contours but do not provide individual stones, prongs, cavities or sculptural-relief instances.",
+      "OpenCV edge evidence retains substantial relief detail, including deity faces and ornament boundaries, but edge presence is not semantic reconstruction.",
+      "Held-out overlap scores measure reproduction of machine pseudo-masks and are not human-ground-truth accuracy."
+    ]
+  },
+  "reflection_correction": {
+    "status": "correction_proposed_pending_human_review",
+    "authority": "topology_informed_machine_proposal",
+    "checks": {
+      "source_unchanged": true,
+      "exterior_silhouette_unchanged": true,
+      "no_foreground_removed": true,
+      "central_opening_preserved": true,
+      "inner_boundary_consistency_improved": true,
+      "correction_local_to_observed_shank": true
+    },
+    "checkpoint_valid": true,
+    "machine_checks_pass": true
+  },
+  "deterministic_checks": {
+    "ring01_source_hashes_valid": true,
+    "ring01_proposal_hashes_valid": true,
+    "ring01_masks_binary": true,
+    "ring01_masks_nonempty": true,
+    "ring01_mask_sizes_match_sources": true,
+    "stl1_automated_checks_pass": true,
+    "stl1_evidence_paths_exist": true,
+    "stl1_active_hashes_valid": true,
+    "reflection_checkpoint_checks_pass": true
+  },
+  "claims": {
+    "machine_evidence_validated": true,
+    "human_review_performed": false,
+    "bible_phase1_complete": false,
+    "canonical_bible_phase2_complete": false,
+    "metric_depth_validated": false,
+    "manufacturing_accuracy_validated": false,
+    "image_only_phase2_research_may_continue": true
+  },
+  "next_stage": "image_only_phase2_reflection_and_component_evidence"
+}

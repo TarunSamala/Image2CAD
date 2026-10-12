@@ -211,6 +211,23 @@
             </div>
             <img class="wide-evidence" src="/api/artifacts/ring01_all_views_depth_validation" alt="Ring01 all-view depth validation" loading="lazy">
           </article>
+          <article class="evidence-card">
+            <div class="card-heading">
+              <div>
+                <p class="eyebrow">METRIC-DEPTH MODEL AGREEMENT</p>
+                <h3>Ring01 and selected STL-1 comparison</h3>
+              </div>
+              <a class="button secondary" href="/api/artifacts/metric_depth_consensus_report">Agreement report</a>
+            </div>
+            <p class="subtle">The maps compare model stability after robust per-object normalization. They do not validate physical scale, millimetres or depth accuracy.</p>
+            <div id="metric-depth-consensus-summary" class="metric-grid baseline-grid"></div>
+            <img class="wide-evidence" src="/api/artifacts/metric_depth_ring01_preview" alt="Ring01 multi-model metric-depth agreement and disagreement" loading="lazy">
+            <div class="two-column phase1-evidence-grid">
+              <img class="wide-evidence" src="/api/artifacts/metric_depth_ring_001_preview" alt="STL-1 ring 001 metric-depth agreement" loading="lazy">
+              <img class="wide-evidence" src="/api/artifacts/metric_depth_ring_004_preview" alt="STL-1 ring 004 metric-depth agreement" loading="lazy">
+              <img class="wide-evidence" src="/api/artifacts/metric_depth_ring_007_preview" alt="STL-1 ring 007 metric-depth agreement" loading="lazy">
+            </div>
+          </article>
         </section>
 
         <section class="baseline-section" aria-labelledby="phase2-paired-title">
@@ -221,6 +238,7 @@
             </div>
             <div class="baseline-actions">
               <a class="button secondary" href="/api/artifacts/phase2_image_only_report">Correction report</a>
+              <a class="button secondary" href="/api/artifacts/phase2_machine_review">Machine-review report</a>
               <a class="button secondary" href="/api/artifacts/phase2_paired_report">Unavailable paired gate</a>
               <a class="button secondary" href="/api/artifacts/phase1_ring01_review_notes">Ring01 review note</a>
             </div>
@@ -292,6 +310,43 @@
             </div>
             <img class="wide-evidence" src="/api/artifacts/dataset_complete_phase1_overview" alt="STL-1 complete Phase 1 source and depth overview" loading="lazy">
           </article>
+        </section>
+
+        <section class="baseline-section" aria-labelledby="external-ring-title">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">EXTERNAL REAL-IMAGE RING INTAKE</p>
+              <h2 id="external-ring-title">Phase 1/2 generalisation evidence</h2>
+            </div>
+            <div class="baseline-actions">
+              <a class="button secondary" href="/api/artifacts/external_ring_report">Intake report</a>
+              <a class="button secondary" href="/api/artifacts/external_ring_registry">Source registry</a>
+            </div>
+          </div>
+          <div id="external-ring-summary" class="metric-grid baseline-grid"></div>
+          <article class="truth-banner phase1-authority-banner">
+            <div class="truth-icon">!</div>
+            <div>
+              <strong>These sources test generalisation; they do not provide CAD or metric truth.</strong>
+              <p>OrnAsia remains evaluation-only and review-gated. Segment Your Ring provides ten whole-ring masks, but no stones, prongs, cavities, cameras, physical scale, mesh or STEP supervision.</p>
+            </div>
+          </article>
+          <div class="two-column phase1-evidence-grid">
+            <article class="evidence-card">
+              <div class="card-heading">
+                <div><p class="eyebrow">ORNASIA / 196 IMAGES</p><h3>Background failure audit</h3></div>
+                <span class="pill warning">Review required</span>
+              </div>
+              <img class="wide-evidence" src="/api/artifacts/external_ornasia_preview" alt="OrnAsia Phase 1 and Phase 2 segmentation audit" loading="lazy">
+            </article>
+            <article class="evidence-card">
+              <div class="card-heading">
+                <div><p class="eyebrow">SEGMENT YOUR RING / 10 MASKS</p><h3>Human-mask comparison</h3></div>
+                <span class="pill warning">Measured baseline</span>
+              </div>
+              <img class="wide-evidence" src="/api/artifacts/external_syr_preview" alt="Segment Your Ring human-mask comparison" loading="lazy">
+            </article>
+          </div>
         </section>
 
         <section id="object-workspace" class="workspace hidden">
