@@ -33,8 +33,9 @@ test) and `ring_023` (floral geometry, test). All 15 views completed below
 by at least two views, then excludes the target view before reprojecting into
 it. Mean leave-one-view-out silhouette IoU was `0.156287`, `0.158126` and
 `0.105821`; all three were rejected at the `0.80` mean / `0.70` minimum gate.
-The previews confirm camera/view disagreement rather than a small cloud-noise
-problem.
+That score is a surface-completion diagnostic: it combines camera alignment
+with the inability of four visible-surface maps to reconstruct geometry hidden
+from those views. It must not be reported as an isolated camera-pose score.
 
 An object-centric reframing refinement was then run on the same three objects
 with identical model, resolution and validation settings. It improved
@@ -43,6 +44,17 @@ with identical model, resolution and validation settings. It improved
 the candidate was rejected and the full-frame result remains the selected
 baseline. Both attempts and their transform manifests are retained; neither is
 approved geometry.
+
+A semantic-view diagnostic compared VGGT optical-axis relationships with the
+named front, top, isometric, left-side and right-side directions. Across the
+three-ring cohort, mean pairwise angular error was `7.744514` degrees. A
+leak-reduced named-axis silhouette holdout reached `0.705611` mean IoU, but its
+minimum was only `0.273760`, so it was not accepted as calibrated camera
+initialization. Directly snapping VGGT cameras to the nominal axes made the
+surface-completion score worse (`0.140078` to `0.068415`) and was rejected.
+The retained conclusion is narrower: VGGT's relative camera layout is broadly
+plausible, while hidden-surface completion, reflective detail and several side
+view relationships remain unresolved.
 
 External real-image intake remains part of Phase 1/2 generalisation testing:
 206 OrnAsia and Segment Your Ring images have been processed. They are not fed
@@ -99,6 +111,16 @@ docker run --rm --user "$(id -u):$(id -g)" \
   -v "$PWD:/workspace" -w /workspace \
   image2cad-validation:phase0 \
   python -m pipeline.validate_vggt_multiring_experiment
+
+docker run --rm --user "$(id -u):$(id -g)" \
+  -v "$PWD:/workspace" -w /workspace \
+  image2cad-validation:phase0 \
+  python -m pipeline.validate_semantic_camera_priors
+
+docker run --rm --user "$(id -u):$(id -g)" \
+  -v "$PWD:/workspace" -w /workspace \
+  image2cad-validation:phase0 \
+  python -m pipeline.refine_vggt_semantic_cameras
 ```
 
 ## Gate

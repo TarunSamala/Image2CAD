@@ -8,6 +8,8 @@
       "split": "train",
       "mean_leave_one_view_out_iou": 0.156287,
       "minimum_leave_one_view_out_iou": 0.027439,
+      "mean_partial_surface_precision": 0.563359,
+      "mean_surface_completion_recall": 0.17418,
       "retention_fraction": 0.347117,
       "decision": "rejected_as_cross_view_reconstruction_geometry",
       "artifacts": {
@@ -21,6 +23,8 @@
       "split": "test",
       "mean_leave_one_view_out_iou": 0.158126,
       "minimum_leave_one_view_out_iou": 0.078213,
+      "mean_partial_surface_precision": 0.476176,
+      "mean_surface_completion_recall": 0.189049,
       "retention_fraction": 0.659944,
       "decision": "rejected_as_cross_view_reconstruction_geometry",
       "artifacts": {
@@ -34,6 +38,8 @@
       "split": "test",
       "mean_leave_one_view_out_iou": 0.105821,
       "minimum_leave_one_view_out_iou": 0.046675,
+      "mean_partial_surface_precision": 0.459084,
+      "mean_surface_completion_recall": 0.121199,
       "retention_fraction": 0.461069,
       "decision": "rejected_as_cross_view_reconstruction_geometry",
       "artifacts": {

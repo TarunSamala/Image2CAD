@@ -29,20 +29,26 @@ replace or renumber the canonical [Project Bible roadmap](../bible_v1_0/19_DEVEL
 - Object-centric reframing was tested on the same three VGGT objects and
   rejected: cohort mean leave-one-view-out IoU decreased from `0.140` to
   `0.126`. The failed refinement and comparison preview are retained.
+- VGGT's pairwise optical-axis relationships are within `7.745` degrees of the
+  named-view priors on average, but the semantic holdout minimum is only
+  `0.274`. Naive semantic camera snapping reduced mean completion IoU to
+  `0.068`, so the original learned cameras remain the baseline.
 
 ## Remaining implementation
 
-1. Correct the learned camera/view alignment failure exposed by independent
-   leave-one-view-out reprojection; do not generate CAD from the current clouds.
-2. Evaluate object-centric framing and a resolution ladder on the representative
-   cohort before extending the GPU run to all 24 rings.
-3. Fuse consistent multi-view depth and normals while retaining uncertain pixels.
-4. Select a public-deployment-compatible independent normal comparator; DSINE
+1. Add model-aware visible-surface fusion and hidden-surface completion; do not
+   generate CAD from the current partial clouds.
+2. Use pairwise camera-angle diagnostics, projected-surface precision and
+   completion recall separately instead of treating IoU as camera accuracy.
+3. Evaluate a resolution ladder on the representative cohort only after the
+   revised diagnostics show that added pixels can address the remaining error.
+4. Fuse consistent multi-view depth and normals while retaining uncertain pixels.
+5. Select a public-deployment-compatible independent normal comparator; DSINE
    remains blocked without a separate site/commercial licence.
-5. Build the universal jewellery component and constraint graph.
-6. Support independently editable stones, prongs, seats, cavities and relief geometry.
-7. Generate parametric CAD and refine it through render-and-compare validation.
-8. Export editable STEP plus derived STL and 3MF artifacts with explicit validation reports.
+6. Build the universal jewellery component and constraint graph.
+7. Support independently editable stones, prongs, seats, cavities and relief geometry.
+8. Generate parametric CAD and refine it through render-and-compare validation.
+9. Export editable STEP plus derived STL and 3MF artifacts with explicit validation reports.
 
 The target is a high-fidelity, structurally editable reconstruction. Under the
 images-only constraint, verified millimetres and manufacturing accuracy cannot

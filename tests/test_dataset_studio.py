@@ -360,6 +360,7 @@ class DatasetStudioApiTest(unittest.TestCase):
             'id="surface-normal-evidence"',
             'id="surface-normal-summary"',
             'id="cross-view-readiness"',
+            'id="semantic-camera-status"',
             'id="dataset-depth-summary"',
             'id="dataset-complete-summary"',
             'id="stl1-review-summary"',
@@ -415,6 +416,7 @@ class DatasetStudioApiTest(unittest.TestCase):
         self.assertIn('$("#surface-normal-summary")', javascript)
         self.assertIn('$("#cross-view-readiness")', javascript)
         self.assertIn('$("#ring01-vggt-status")', javascript)
+        self.assertIn('$("#semantic-camera-status")', javascript)
         self.assertIn("phase2.machine_review", javascript)
         self.assertIn("summary.phase1.complete_features", javascript)
         audit = self.client.get("/api/artifacts/phase2_reflection_audit")
@@ -610,6 +612,18 @@ class DatasetStudioApiTest(unittest.TestCase):
         self.assertEqual(refinement_preview.status_code, 200)
         self.assertEqual(refinement_preview.mimetype, "image/jpeg")
         refinement_preview.close()
+        semantic_report = self.client.get(
+            "/api/artifacts/semantic_camera_priors_report"
+        )
+        self.assertEqual(semantic_report.status_code, 200)
+        self.assertEqual(semantic_report.mimetype, "application/json")
+        semantic_report.close()
+        semantic_preview = self.client.get(
+            "/api/artifacts/semantic_ring_023_holdout"
+        )
+        self.assertEqual(semantic_preview.status_code, 200)
+        self.assertEqual(semantic_preview.mimetype, "image/png")
+        semantic_preview.close()
 
     def test_invalid_routes_fail_closed(self) -> None:
         self.assertEqual(self.client.get("/api/objects/ring_999").status_code, 404)
