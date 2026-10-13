@@ -1,0 +1,26 @@
+{
+  "schema_version": "machine_visual_review_v1",
+  "reviewed_at_utc": "2026-10-13T16:04:39Z",
+  "reviewer": "Codex visual inspection",
+  "authority": "ai_assisted_review_not_human_ground_truth",
+  "reviewed_artifact": "dataset/phase_runs/v1/ring01_vggt_dense_224_v1/ring01_vggt_fused_points_review.png",
+  "reviewed_artifact_sha256": "84e18c7618ff75387b8b426af1c0c082d927989edbe9967496289431d64dbcdc",
+  "decision": "rejected_as_cross_view_reconstruction_geometry",
+  "observations": [
+    "A ring-like central structure is recognizable in the fused world points.",
+    "The shank and shoulder surfaces are duplicated and visibly ghosted across views.",
+    "Floating strip-like outliers remain around the head and upper setting.",
+    "The five independently framed product views are not aligned well enough to form one clean surface."
+  ],
+  "accepted_uses": [
+    "camera hypothesis research",
+    "relative depth evidence",
+    "low-VRAM runtime feasibility evidence"
+  ],
+  "rejected_uses": [
+    "CAD surface generation",
+    "metric measurement",
+    "manufacturing validation"
+  ],
+  "next_action": "Add confidence and silhouette filtering, estimate per-view framing transforms, and compare higher-resolution or commercially licensed VGGT output before geometry fusion."
+}

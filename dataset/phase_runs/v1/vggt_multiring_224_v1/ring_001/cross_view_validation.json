@@ -1,0 +1,113 @@
+{
+  "schema_version": "vggt_cross_view_validation_v1",
+  "object_id": "ring_001",
+  "dataset": "STL-1",
+  "split": "train",
+  "image_size": 224,
+  "input_preprocessing": "prepared_v1_full_frame",
+  "filter": {
+    "confidence_quantile": 0.5,
+    "confidence_thresholds": [
+      1.360764,
+      1.000175,
+      1.000026,
+      1.0,
+      1.001171
+    ],
+    "support_radius_fraction_of_robust_diagonal": 0.025,
+    "support_radius": 0.01333688,
+    "minimum_supported_views": 2,
+    "candidate_points": 28342,
+    "supported_points": 9838,
+    "retention_fraction": 0.347117,
+    "support_histograms": [
+      {
+        "1": 5681,
+        "2": 2429,
+        "3": 202,
+        "4": 22
+      },
+      {
+        "1": 1347,
+        "2": 1439,
+        "3": 311
+      },
+      {
+        "1": 3467,
+        "2": 2158,
+        "3": 743,
+        "4": 2
+      },
+      {
+        "1": 6014,
+        "2": 1134,
+        "3": 7
+      },
+      {
+        "1": 1995,
+        "2": 1008,
+        "3": 383
+      }
+    ]
+  },
+  "leave_one_view_out_reprojection": {
+    "views": [
+      {
+        "view": "front",
+        "iou": 0.223669,
+        "precision": 0.922722,
+        "recall": 0.227939
+      },
+      {
+        "view": "top",
+        "iou": 0.178389,
+        "precision": 0.510369,
+        "recall": 0.215223
+      },
+      {
+        "view": "iso",
+        "iou": 0.179823,
+        "precision": 0.698256,
+        "recall": 0.194974
+      },
+      {
+        "view": "lsv",
+        "iou": 0.027439,
+        "precision": 0.121347,
+        "recall": 0.034242
+      },
+      {
+        "view": "rsv",
+        "iou": 0.172117,
+        "precision": 0.564103,
+        "recall": 0.198521
+      }
+    ],
+    "mean_iou": 0.156287,
+    "minimum_iou": 0.027439
+  },
+  "checks": {
+    "all_five_views_scored": true,
+    "supported_cloud_nonempty": true,
+    "filter_reduces_points": true,
+    "no_self_view_in_reprojection": true,
+    "cross_view_exit_gate_passed": false
+  },
+  "artifacts": {
+    "supported_cloud": "dataset/phase_runs/v1/vggt_multiring_224_v1/ring_001/ring_001_cross_view_supported.ply",
+    "filter_preview": "dataset/phase_runs/v1/vggt_multiring_224_v1/ring_001/ring_001_cross_view_filter_review.png",
+    "reprojection_preview": "dataset/phase_runs/v1/vggt_multiring_224_v1/ring_001/ring_001_cross_view_reprojection.png"
+  },
+  "decision": "rejected_as_cross_view_reconstruction_geometry",
+  "claims": {
+    "metric_scale_validated": false,
+    "camera_pose_accuracy_validated": false,
+    "cross_view_geometry_validated": false,
+    "manufacturing_accuracy_validated": false
+  },
+  "limitations": [
+    "The target view is excluded from each reprojection score, but the masks remain machine proposals.",
+    "VGGT coordinates are relative and cannot provide millimetres without scale evidence.",
+    "Independently rendered product views can violate photogrammetric scene assumptions."
+  ]
+}

@@ -518,6 +518,21 @@ function renderPhase3(detail) {
   const database = geometry.database || {};
   const globalGeometry = state.summary?.phase3?.geometry_benchmark || {};
   const vggt = globalGeometry.backends?.vggt || {};
+  const readiness = globalGeometry.cross_view_readiness || {};
+  const readinessSummary = readiness.summary || {};
+  const runtime = readiness.runtime || {};
+  const candidates = readiness.candidates || {};
+  const experiment = globalGeometry.ring01_vggt_low_vram || {};
+  const experimentRun = experiment.experiment || {};
+  const experimentReview = experiment.machine_visual_review || {};
+  const multiring = globalGeometry.vggt_multiring_low_vram || {};
+  const multiringObjects = multiring.objects || [];
+  const multiringRefinement = globalGeometry.vggt_multiring_refinement || {};
+  const refinementCohort = multiringRefinement.cohort || {};
+  const semanticPriors = globalGeometry.semantic_camera_priors || {};
+  const semanticPriorCohort = semanticPriors.cohort || {};
+  const semanticRefinement = globalGeometry.semantic_camera_refinement || {};
+  const semanticRefinementCohort = semanticRefinement.cohort || {};
   $("#phase3-geometry").innerHTML = `
     <div class="key-value"><span>COLMAP object status</span><strong class="${geometry.status === "completed_with_sparse_model" ? "good" : "bad"}">${escapeHtml(humanize(geometry.status || "not run"))}</strong></div>
     <div class="key-value"><span>SIFT keypoints</span><strong>${database.keypoints_rows?.toLocaleString() ?? "—"}</strong></div>
@@ -525,6 +540,38 @@ function renderPhase3(detail) {
     <div class="key-value"><span>Sparse reconstruction</span><strong class="${geometry.sparse_model ? "good" : "bad"}">${geometry.sparse_model ? `${geometry.sparse_model.registered_images} / 5 views` : "Not formed"}</strong></div>
     <div class="key-value"><span>VGGT</span><strong class="${vggt.status === "ready" ? "good" : "bad"}">${escapeHtml(humanize(vggt.status || "not run"))}</strong></div>
     <div class="key-value"><span>Bible gate</span><strong class="bad">Research only</strong></div>`;
+  $("#cross-view-readiness").innerHTML = `
+    <div class="key-value"><span>Public-product candidates</span><strong>${readinessSummary.public_product_candidate_count ?? "—"} / ${readinessSummary.candidate_count ?? "—"}</strong><small>${escapeHtml((readinessSummary.public_product_candidates || []).map(humanize).join(", ") || "None")}</small></div>
+    <div class="key-value"><span>Locally ready</span><strong class="${readinessSummary.locally_ready_count ? "good" : "bad"}">${readinessSummary.locally_ready_count ?? "—"}</strong></div>
+    <div class="key-value"><span>Local GPU</span><strong class="${(runtime.gpu_total_gib || 0) >= 8 ? "good" : "bad"}">${escapeHtml(runtime.gpu_name || "Unavailable")} · ${score(runtime.gpu_total_gib, 2)} GiB</strong></div>
+    <div class="key-value"><span>VGGT commercial checkpoint</span><strong class="${candidates.vggt?.local_checkpoint_present ? "good" : "bad"}">${candidates.vggt?.local_checkpoint_present ? "Present" : "Required"}</strong></div>
+    <div class="key-value"><span>DUSt3R / MASt3R</span><strong class="bad">Research-only licences</strong></div>
+    <div class="key-value"><span>Decision</span><strong class="bad">${escapeHtml(humanize(readiness.decision || "blocked"))}</strong></div>`;
+  $("#ring01-vggt-status").innerHTML = `
+    <div class="key-value"><span>Execution</span><strong class="${experiment.checks?.run_completed ? "good" : "bad"}">${experiment.checks?.run_completed ? "Completed" : "Unavailable"}</strong></div>
+    <div class="key-value"><span>Five-view dense output</span><strong class="${experiment.checks?.dense_shapes_valid ? "good" : "bad"}">${experiment.checks?.dense_shapes_valid ? "Generated" : "Failed"}</strong></div>
+    <div class="key-value"><span>Resolution</span><strong>${experimentRun.image_size || "—"} px · ${escapeHtml(experimentRun.dtype || "—")}</strong></div>
+    <div class="key-value"><span>Peak CUDA memory</span><strong>${experimentRun.peak_cuda_bytes ? `${score(experimentRun.peak_cuda_bytes / (1024 ** 3), 2)} GiB` : "—"}</strong></div>
+    <div class="key-value"><span>Fusion inspection</span><strong class="bad">${escapeHtml(humanize(experimentReview.decision || "pending"))}</strong></div>
+    <div class="key-value"><span>Authority</span><strong class="bad">Research hypothesis only</strong></div>`;
+  const multiringIous = multiringObjects.map((item) => item.mean_leave_one_view_out_iou);
+  const meanMultiringIou = multiringIous.length
+    ? multiringIous.reduce((total, value) => total + value, 0) / multiringIous.length
+    : null;
+  $("#vggt-multiring-status").innerHTML = `
+    <div class="key-value"><span>Objects tested</span><strong>${multiring.object_count ?? "—"}</strong><small>1 train · 2 held-out test</small></div>
+    <div class="key-value"><span>Surface-completion mean IoU</span><strong class="bad">${score(meanMultiringIou, 3)}</strong><small>Target view excluded; measures camera alignment and missing-surface completion</small></div>
+    <div class="key-value"><span>Cross-view gate accepted</span><strong class="bad">${multiring.accepted_object_count ?? "—"} / ${multiring.object_count ?? "—"}</strong></div>
+    <div class="key-value"><span>Object-centric refinement</span><strong class="bad">${score(refinementCohort.delta, 3)} IoU</strong><small>${escapeHtml(humanize(multiringRefinement.decision || "not run"))}</small></div>
+    <div class="key-value"><span>Decision</span><strong class="bad">Rejected as reconstruction geometry</strong></div>
+    <div class="key-value"><span>External real-image sets</span><strong class="bad">Single-view only</strong><small>Used for Phase 1/2, not false multi-view fusion</small></div>`;
+  $("#semantic-camera-status").innerHTML = `
+    <div class="key-value"><span>VGGT optical-axis error</span><strong>${score(semanticPriorCohort.mean_vggt_pairwise_angle_error_deg, 2)}°</strong><small>Mean pairwise error against named-view directions</small></div>
+    <div class="key-value"><span>Semantic-axis holdout IoU</span><strong>${score(semanticPriorCohort.mean_semantic_holdout_iou, 3)}</strong><small>Minimum ${score(semanticPriorCohort.minimum_semantic_holdout_iou, 3)}</small></div>
+    <div class="key-value"><span>Naive camera snap delta</span><strong class="bad">${score(semanticRefinementCohort.mean_iou_delta, 3)}</strong><small>Original VGGT cameras retained</small></div>
+    <div class="key-value"><span>Accepted camera initializations</span><strong class="bad">${semanticPriorCohort.accepted_initialization_count ?? "—"} / ${semanticPriors.object_count ?? "—"}</strong></div>
+    <div class="key-value"><span>Interpretation</span><strong class="bad">Visible surfaces incomplete</strong><small>Camera layout is broadly plausible, but it does not complete hidden geometry</small></div>
+    <div class="key-value"><span>Authority</span><strong class="bad">Diagnostic only</strong></div>`;
   if (!phase3) {
     preview.removeAttribute("src");
     metrics.innerHTML = "<p>No experimental Phase 3 artifact is available.</p>";

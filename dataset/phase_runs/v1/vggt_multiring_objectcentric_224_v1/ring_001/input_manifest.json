@@ -1,0 +1,98 @@
+{
+  "schema_version": "vggt_object_centric_inputs_v1",
+  "object_id": "ring_001",
+  "image_size": 224,
+  "margin_fraction": 0.12,
+  "views": {
+    "front": {
+      "source_image": "dataset/prepared_v1/images/ring_001/front.png",
+      "source_mask": "dataset/prepared_v1/masks/jewelry/ring_001/front.png",
+      "image": "dataset/phase_runs/v1/vggt_multiring_objectcentric_224_v1/ring_001/inputs/front.png",
+      "mask": "dataset/phase_runs/v1/vggt_multiring_objectcentric_224_v1/ring_001/inputs/front_mask.png",
+      "source_foreground_bbox_xywh": [
+        104,
+        112,
+        561,
+        545
+      ],
+      "crop_xyxy": [
+        36,
+        36,
+        732,
+        732
+      ]
+    },
+    "top": {
+      "source_image": "dataset/prepared_v1/images/ring_001/top.png",
+      "source_mask": "dataset/prepared_v1/masks/jewelry/ring_001/top.png",
+      "image": "dataset/phase_runs/v1/vggt_multiring_objectcentric_224_v1/ring_001/inputs/top.png",
+      "mask": "dataset/phase_runs/v1/vggt_multiring_objectcentric_224_v1/ring_001/inputs/top_mask.png",
+      "source_foreground_bbox_xywh": [
+        157,
+        105,
+        454,
+        559
+      ],
+      "crop_xyxy": [
+        38,
+        38,
+        731,
+        731
+      ]
+    },
+    "iso": {
+      "source_image": "dataset/prepared_v1/images/ring_001/iso.png",
+      "source_mask": "dataset/prepared_v1/masks/jewelry/ring_001/iso.png",
+      "image": "dataset/phase_runs/v1/vggt_multiring_objectcentric_224_v1/ring_001/inputs/iso.png",
+      "mask": "dataset/phase_runs/v1/vggt_multiring_objectcentric_224_v1/ring_001/inputs/iso_mask.png",
+      "source_foreground_bbox_xywh": [
+        105,
+        166,
+        559,
+        437
+      ],
+      "crop_xyxy": [
+        38,
+        38,
+        731,
+        731
+      ]
+    },
+    "lsv": {
+      "source_image": "dataset/prepared_v1/images/ring_001/lsv.png",
+      "source_mask": "dataset/prepared_v1/masks/jewelry/ring_001/lsv.png",
+      "image": "dataset/phase_runs/v1/vggt_multiring_objectcentric_224_v1/ring_001/inputs/lsv.png",
+      "mask": "dataset/phase_runs/v1/vggt_multiring_objectcentric_224_v1/ring_001/inputs/lsv_mask.png",
+      "source_foreground_bbox_xywh": [
+        105,
+        202,
+        559,
+        365
+      ],
+      "crop_xyxy": [
+        38,
+        38,
+        731,
+        731
+      ]
+    },
+    "rsv": {
+      "source_image": "dataset/prepared_v1/images/ring_001/rsv.png",
+      "source_mask": "dataset/prepared_v1/masks/jewelry/ring_001/rsv.png",
+      "image": "dataset/phase_runs/v1/vggt_multiring_objectcentric_224_v1/ring_001/inputs/rsv.png",
+      "mask": "dataset/phase_runs/v1/vggt_multiring_objectcentric_224_v1/ring_001/inputs/rsv_mask.png",
+      "source_foreground_bbox_xywh": [
+        105,
+        208,
+        559,
+        352
+      ],
+      "crop_xyxy": [
+        38,
+        38,
+        731,
+        731
+      ]
+    }
+  }
+}

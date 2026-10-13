@@ -1,0 +1,195 @@
+{
+  "schema_version": "semantic_camera_prior_validation_v1",
+  "object_id": "ring_023",
+  "split": "test",
+  "resolution": 128,
+  "vggt_camera_diagnostic": {
+    "view_order": [
+      "front",
+      "top",
+      "iso",
+      "lsv",
+      "rsv"
+    ],
+    "expected_pairwise_optical_axis_angles_deg": [
+      [
+        0.0,
+        90.0,
+        54.736,
+        90.0,
+        90.0
+      ],
+      [
+        90.0,
+        0.0,
+        54.736,
+        90.0,
+        90.0
+      ],
+      [
+        54.736,
+        54.736,
+        0.0,
+        125.264,
+        54.736
+      ],
+      [
+        90.0,
+        90.0,
+        125.264,
+        0.0,
+        180.0
+      ],
+      [
+        90.0,
+        90.0,
+        54.736,
+        180.0,
+        0.0
+      ]
+    ],
+    "predicted_pairwise_optical_axis_angles_deg": [
+      [
+        0.0,
+        80.584,
+        63.504,
+        61.702,
+        96.46
+      ],
+      [
+        80.584,
+        0.0,
+        59.759,
+        87.023,
+        93.016
+      ],
+      [
+        63.504,
+        59.759,
+        0.0,
+        119.174,
+        44.722
+      ],
+      [
+        61.702,
+        87.023,
+        119.174,
+        0.0,
+        157.884
+      ],
+      [
+        96.46,
+        93.016,
+        44.722,
+        157.884,
+        0.0
+      ]
+    ],
+    "absolute_error_deg": [
+      [
+        0.0,
+        9.416,
+        8.769,
+        28.298,
+        6.46
+      ],
+      [
+        9.416,
+        0.0,
+        5.023,
+        2.977,
+        3.016
+      ],
+      [
+        8.769,
+        5.023,
+        0.0,
+        6.09,
+        10.013
+      ],
+      [
+        28.298,
+        2.977,
+        6.09,
+        0.0,
+        22.116
+      ],
+      [
+        6.46,
+        3.016,
+        10.013,
+        22.116,
+        0.0
+      ]
+    ],
+    "mean_pairwise_error_deg": 10.217774,
+    "maximum_pairwise_error_deg": 28.297954
+  },
+  "semantic_axis_holdout": {
+    "views": [
+      {
+        "view": "front",
+        "iou": 0.724996,
+        "boundary_f1_2px": 0.274771,
+        "volume_voxels_without_target": 148981
+      },
+      {
+        "view": "top",
+        "iou": 0.339371,
+        "boundary_f1_2px": 0.285991,
+        "volume_voxels_without_target": 221124
+      },
+      {
+        "view": "lsv",
+        "iou": 0.917155,
+        "boundary_f1_2px": 0.956727,
+        "volume_voxels_without_target": 118685
+      },
+      {
+        "view": "rsv",
+        "iou": 0.919038,
+        "boundary_f1_2px": 0.956688,
+        "volume_voxels_without_target": 118353
+      }
+    ],
+    "mean_iou": 0.72514,
+    "minimum_iou": 0.339371,
+    "axis_alignment": {
+      "method": "least_squares_shared_axis_scale_v1",
+      "warp_scales_input_px_to_voxel": {
+        "front": 0.48114835,
+        "top": 0.70856746,
+        "lsv": 0.73619632,
+        "rsv": 0.73619632
+      },
+      "relative_view_scales": {
+        "front": 0.76277137,
+        "top": 1.12330214,
+        "side": 1.16710258
+      },
+      "log_constraint_residual": 0.00438954,
+      "calibrated": false
+    }
+  },
+  "checks": {
+    "all_principal_views_omitted_and_scored": true,
+    "no_omitted_mask_used_as_volume_constraint": true,
+    "semantic_prior_beats_vggt_reprojection_floor": true,
+    "semantic_prior_ready_as_initialization": false
+  },
+  "decision": "rejected_as_camera_initialization",
+  "artifacts": {
+    "holdout_preview": "dataset/phase_runs/v1/semantic_camera_priors_v1/ring_023/ring_023_semantic_camera_holdout.png"
+  },
+  "claims": {
+    "camera_calibration_validated": false,
+    "metric_geometry_validated": false,
+    "manufacturing_accuracy_validated": false
+  },
+  "limitations": [
+    "View names are treated as orthographic axis hypotheses, not calibrated camera measurements.",
+    "Shared-axis scale fitting uses silhouette bounding boxes, including the omitted target extent.",
+    "Opposite side evidence remains available when one side is omitted.",
+    "The isometric view is used only in the VGGT camera-angle diagnostic, not the axis holdout score."
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "schema_version": "vggt_multiring_refinement_comparison_v1",
+  "dataset": "STL-1",
+  "object_count": 3,
+  "objects": [
+    {
+      "object_id": "ring_001",
+      "split": "train",
+      "full_frame_mean_iou": 0.156287,
+      "object_centric_mean_iou": 0.093395,
+      "delta": -0.062892,
+      "full_frame_decision": "rejected_as_cross_view_reconstruction_geometry",
+      "object_centric_decision": "rejected_as_cross_view_reconstruction_geometry"
+    },
+    {
+      "object_id": "ring_007",
+      "split": "test",
+      "full_frame_mean_iou": 0.158126,
+      "object_centric_mean_iou": 0.16073,
+      "delta": 0.002604,
+      "full_frame_decision": "rejected_as_cross_view_reconstruction_geometry",
+      "object_centric_decision": "rejected_as_cross_view_reconstruction_geometry"
+    },
+    {
+      "object_id": "ring_023",
+      "split": "test",
+      "full_frame_mean_iou": 0.105821,
+      "object_centric_mean_iou": 0.122874,
+      "delta": 0.017053,
+      "full_frame_decision": "rejected_as_cross_view_reconstruction_geometry",
+      "object_centric_decision": "rejected_as_cross_view_reconstruction_geometry"
+    }
+  ],
+  "cohort": {
+    "full_frame_mean_iou": 0.140078,
+    "object_centric_mean_iou": 0.125666,
+    "delta": -0.014412,
+    "full_frame_accepted_count": 0,
+    "object_centric_accepted_count": 0
+  },
+  "decision": "object_centric_rejected_no_cohort_improvement",
+  "selected_configuration": "prepared_v1_full_frame",
+  "artifacts": {
+    "comparison_preview": "dataset/phase_runs/v1/vggt_multiring_refinement_comparison_v1/vggt_refinement_comparison.jpg"
+  },
+  "claims": {
+    "cross_view_geometry_validated": false,
+    "dataset_generalization_validated": false,
+    "manufacturing_accuracy_validated": false
+  }
+}

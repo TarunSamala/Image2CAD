@@ -8,6 +8,8 @@ are retained in the benchmark record instead of being hidden.
 from __future__ import annotations
 
 import json
+import gc
+import hashlib
 import time
 from pathlib import Path
 from typing import Any
@@ -24,8 +26,10 @@ def probe_vggt(
     checkpoint: str | Path | None,
     checkpoint_license_id: str | None,
     allow_noncommercial_research: bool = False,
+    allow_low_vram_attempt: bool = False,
 ) -> dict[str, Any]:
     blockers: list[str] = []
+    warnings: list[str] = []
     checkpoint_path = Path(checkpoint).resolve() if checkpoint else None
     if checkpoint_path is None:
         blockers.append("local_checkpoint_not_supplied")
@@ -69,7 +73,10 @@ def probe_vggt(
     if not cuda_available:
         blockers.append("cuda_not_available")
     elif total_bytes and total_bytes < 8 * 1024**3:
-        blockers.append("gpu_memory_below_conservative_8_gib_probe_gate")
+        if allow_low_vram_attempt:
+            warnings.append("gpu_memory_below_conservative_8_gib_probe_gate")
+        else:
+            blockers.append("gpu_memory_below_conservative_8_gib_probe_gate")
 
     return {
         "backend": "vggt",
@@ -81,6 +88,7 @@ def probe_vggt(
         "checkpoint": str(checkpoint_path) if checkpoint_path else None,
         "checkpoint_license_id": checkpoint_license_id,
         "noncommercial_research_override": bool(allow_noncommercial_research),
+        "low_vram_attempt": bool(allow_low_vram_attempt),
         "code_available": code_available,
         "runtime": {
             "torch_version": torch_version,
@@ -90,6 +98,7 @@ def probe_vggt(
             "gpu_total_bytes": int(total_bytes),
         },
         "blockers": sorted(set(blockers)),
+        "warnings": sorted(set(warnings)),
     }
 
 
@@ -97,6 +106,14 @@ def _numpy(value: Any) -> np.ndarray:
     if hasattr(value, "detach"):
         value = value.detach().float().cpu().numpy()
     return np.asarray(value)
+
+
+def _sha256(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as stream:
+        for chunk in iter(lambda: stream.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
 
 
 def run_vggt_object(
@@ -107,14 +124,27 @@ def run_vggt_object(
     device: str = "cuda",
     save_dense: bool = False,
     allow_noncommercial_research: bool = False,
+    allow_low_vram_attempt: bool = False,
+    camera_only: bool = False,
+    image_size: int = 518,
 ) -> dict[str, Any]:
-    probe = probe_vggt(checkpoint, checkpoint_license_id, allow_noncommercial_research)
+    probe = probe_vggt(
+        checkpoint,
+        checkpoint_license_id,
+        allow_noncommercial_research,
+        allow_low_vram_attempt,
+    )
     if probe["status"] != "ready":
         return probe
 
+    if image_size < 56 or image_size % 14:
+        raise ValueError("VGGT image_size must be at least 56 and divisible by 14")
+    if camera_only and save_dense:
+        raise ValueError("Dense evidence is unavailable in camera-only mode")
+
     import torch
     from vggt.models.vggt import VGGT
-    from vggt.utils.load_fn import load_and_preprocess_images
+    from vggt.utils.load_fn import load_and_preprocess_images_square
     from vggt.utils.pose_enc import pose_encoding_to_extri_intri
 
     if device == "cuda" and not torch.cuda.is_available():
@@ -123,24 +153,104 @@ def run_vggt_object(
     output_dir.mkdir(parents=True, exist_ok=True)
     started = time.perf_counter()
     if device == "cuda":
+        torch.cuda.empty_cache()
         torch.cuda.reset_peak_memory_stats()
     checkpoint_path = Path(checkpoint)
-    if checkpoint_path.is_dir():
-        model = VGGT.from_pretrained(str(checkpoint_path), local_files_only=True)
-    else:
-        model = VGGT()
-        state = torch.load(checkpoint_path, map_location="cpu", weights_only=True)
-        model.load_state_dict(state)
-    model = model.to(device).eval()
-    images = load_and_preprocess_images([str(path) for path in image_paths]).to(device)
-    autocast_enabled = device == "cuda"
-    with torch.inference_mode(), torch.autocast(
-        device_type=device, dtype=torch.bfloat16, enabled=autocast_enabled
-    ):
-        predictions = model(images)
-    extrinsic, intrinsic = pose_encoding_to_extri_intri(
-        predictions["pose_enc"], images.shape[-2:]
-    )
+    checkpoint_sha256 = None if checkpoint_path.is_dir() else _sha256(checkpoint_path)
+    dtype = torch.float16 if device == "cuda" and allow_low_vram_attempt else torch.float32
+    model = None
+    images = None
+    try:
+        torch.manual_seed(0)
+        if device == "cuda":
+            torch.cuda.manual_seed_all(0)
+        if checkpoint_path.is_dir():
+            if camera_only:
+                raise ValueError("Camera-only low-VRAM mode requires a local checkpoint file")
+            model = VGGT.from_pretrained(str(checkpoint_path), local_files_only=True)
+        else:
+            model = VGGT(
+                enable_point=not camera_only,
+                enable_depth=not camera_only,
+                enable_track=not camera_only,
+            )
+            if dtype == torch.float16:
+                model = model.half()
+            load_options: dict[str, Any] = {
+                "map_location": "cpu",
+                "weights_only": True,
+            }
+            if allow_low_vram_attempt:
+                load_options["mmap"] = True
+            state = torch.load(checkpoint_path, **load_options)
+            incompatible = model.load_state_dict(state, strict=not camera_only)
+            del state
+            gc.collect()
+            if camera_only and incompatible.missing_keys:
+                raise RuntimeError(
+                    f"Camera-only checkpoint is missing required keys: {incompatible.missing_keys[:5]}"
+                )
+        model = model.to(device).eval()
+        images, _ = load_and_preprocess_images_square(
+            [str(path) for path in image_paths], target_size=image_size
+        )
+        images = images.to(device=device, dtype=dtype)
+        autocast_enabled = device == "cuda"
+        autocast_dtype = torch.float16 if dtype == torch.float16 else torch.bfloat16
+        with torch.inference_mode(), torch.autocast(
+            device_type=device,
+            dtype=autocast_dtype,
+            enabled=autocast_enabled,
+        ):
+            batched_images = images.unsqueeze(0)
+            aggregated_tokens, patch_start_idx = model.aggregator(batched_images)
+            pose_enc = model.camera_head(aggregated_tokens)[-1]
+            predictions = {"pose_enc": pose_enc}
+            if not camera_only:
+                depth, depth_conf = model.depth_head(
+                    aggregated_tokens,
+                    images=batched_images,
+                    patch_start_idx=patch_start_idx,
+                    frames_chunk_size=1,
+                )
+                predictions["depth"] = depth
+                predictions["depth_conf"] = depth_conf
+                world_points, world_points_conf = model.point_head(
+                    aggregated_tokens,
+                    images=batched_images,
+                    patch_start_idx=patch_start_idx,
+                    frames_chunk_size=1,
+                )
+                predictions["world_points"] = world_points
+                predictions["world_points_conf"] = world_points_conf
+        extrinsic, intrinsic = pose_encoding_to_extri_intri(
+            predictions["pose_enc"].float(), images.shape[-2:]
+        )
+    except torch.cuda.OutOfMemoryError as exc:
+        peak_cuda_bytes = int(torch.cuda.max_memory_allocated())
+        model = None
+        images = None
+        gc.collect()
+        torch.cuda.empty_cache()
+        report = {
+            **probe,
+            "status": "failed_out_of_memory",
+            "image_count": len(image_paths),
+            "image_names": [path.name for path in image_paths],
+            "camera_only": bool(camera_only),
+            "image_size": image_size,
+            "dtype": str(dtype),
+            "checkpoint_sha256": checkpoint_sha256,
+            "elapsed_seconds": round(time.perf_counter() - started, 4),
+            "peak_cuda_bytes": peak_cuda_bytes,
+            "error_type": type(exc).__name__,
+            "error": str(exc),
+            "warning": "Low-VRAM research attempt failed safely; no camera or geometry accuracy is claimed.",
+        }
+        (output_dir / "vggt_report.json").write_text(
+            json.dumps(report, indent=2), encoding="utf-8"
+        )
+        return report
     cameras_path = output_dir / "vggt_cameras.npz"
     np.savez_compressed(
         cameras_path,
@@ -169,6 +279,10 @@ def run_vggt_object(
             "intrinsic": list(_numpy(intrinsic).shape),
         },
         "dense_shapes": dense_shapes,
+        "camera_only": bool(camera_only),
+        "image_size": image_size,
+        "dtype": str(dtype),
+        "checkpoint_sha256": checkpoint_sha256,
         "artifacts": {
             "cameras": str(cameras_path),
             "dense": str(dense_path) if dense_path else None,
@@ -178,5 +292,8 @@ def run_vggt_object(
         "warning": "VGGT outputs are uncalibrated machine hypotheses until compared with reviewed camera and geometry truth.",
     }
     (output_dir / "vggt_report.json").write_text(json.dumps(report, indent=2), encoding="utf-8")
+    del predictions, images, model
+    gc.collect()
+    if device == "cuda":
+        torch.cuda.empty_cache()
     return report
-

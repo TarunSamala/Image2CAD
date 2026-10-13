@@ -1,0 +1,105 @@
+{
+  "schema_version": "ring01_vggt_low_vram_validation_v1",
+  "source_report": "dataset/phase_runs/v1/ring01_vggt_dense_224_v1/vggt_report.json",
+  "experiment": {
+    "image_count": 5,
+    "image_size": 224,
+    "dtype": "torch.float16",
+    "peak_cuda_bytes": 2724175360,
+    "elapsed_seconds": 27.4731
+  },
+  "checks": {
+    "run_completed": true,
+    "five_views_present": true,
+    "all_arrays_finite": true,
+    "camera_rotation_determinants_valid": true,
+    "intrinsics_positive": true,
+    "dense_shapes_valid": true,
+    "noncommercial_research_only": true,
+    "accuracy_not_claimed": true
+  },
+  "view_metrics": [
+    {
+      "view": "front",
+      "masked_pixel_count": 6193,
+      "depth_p02": 0.755024,
+      "depth_median": 0.782613,
+      "depth_p98": 0.934114,
+      "depth_confidence_median": 1.992702,
+      "world_point_confidence_median": 1.012393,
+      "rotation_determinant": 1.0
+    },
+    {
+      "view": "side",
+      "masked_pixel_count": 4942,
+      "depth_p02": 0.781276,
+      "depth_median": 0.815977,
+      "depth_p98": 0.943638,
+      "depth_confidence_median": 2.105211,
+      "world_point_confidence_median": 1.0,
+      "rotation_determinant": 1.0
+    },
+    {
+      "view": "top",
+      "masked_pixel_count": 4929,
+      "depth_p02": 0.753102,
+      "depth_median": 0.779181,
+      "depth_p98": 0.929457,
+      "depth_confidence_median": 1.928242,
+      "world_point_confidence_median": 1.002659,
+      "rotation_determinant": 1.0
+    },
+    {
+      "view": "angled",
+      "masked_pixel_count": 7080,
+      "depth_p02": 0.75872,
+      "depth_median": 0.801857,
+      "depth_p98": 0.973469,
+      "depth_confidence_median": 2.468553,
+      "world_point_confidence_median": 1.000001,
+      "rotation_determinant": 1.0
+    },
+    {
+      "view": "back",
+      "masked_pixel_count": 4647,
+      "depth_p02": 0.779752,
+      "depth_median": 0.817772,
+      "depth_p98": 0.970979,
+      "depth_confidence_median": 2.130799,
+      "world_point_confidence_median": 1.0,
+      "rotation_determinant": 1.0
+    }
+  ],
+  "fused_point_cloud": {
+    "point_count": 27791,
+    "bounds_min": [
+      -0.124811,
+      -0.174984,
+      0.752486
+    ],
+    "bounds_max": [
+      0.08801,
+      0.074875,
+      1.044865
+    ],
+    "units": "model_relative_non_metric"
+  },
+  "artifacts": {
+    "review_preview": "dataset/phase_runs/v1/ring01_vggt_dense_224_v1/ring01_vggt_dense_review.png",
+    "fused_point_cloud": "dataset/phase_runs/v1/ring01_vggt_dense_224_v1/ring01_vggt_fused_points.ply",
+    "fused_point_cloud_preview": "dataset/phase_runs/v1/ring01_vggt_dense_224_v1/ring01_vggt_fused_points_review.png"
+  },
+  "decision": "ready_for_visual_review",
+  "claims": {
+    "camera_pose_accuracy_validated": false,
+    "metric_depth_validated": false,
+    "cross_view_geometry_validated": false,
+    "manufacturing_accuracy_validated": false
+  },
+  "limitations": [
+    "The 224 px low-VRAM run is below the official 518 px preprocessing path.",
+    "Input views are independently framed product renders without calibrated cameras.",
+    "Jewellery masks are unreviewed machine proposals used only to limit visual statistics.",
+    "Finite matrices and valid rotations prove numerical integrity, not camera accuracy."
+  ]
+}

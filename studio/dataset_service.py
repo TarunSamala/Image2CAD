@@ -131,6 +131,31 @@ class DatasetRepository:
         self.surface_normal_evidence = self._read_json(
             self.phase_root / "surface_normal_evidence_v1" / "report.json"
         )
+        self.cross_view_readiness = self._read_json(
+            self.phase_root / "cross_view_backend_readiness_v1" / "report.json"
+        )
+        self.ring01_vggt_validation = self._read_json(
+            self.phase_root / "ring01_vggt_dense_224_v1" / "validation_report.json"
+        )
+        self.ring01_vggt_visual_review = self._read_json(
+            self.phase_root / "ring01_vggt_dense_224_v1" / "machine_visual_review.json"
+        )
+        self.vggt_multiring_validation = self._read_json(
+            self.phase_root / "vggt_multiring_224_v1" / "validation_report.json"
+        )
+        self.vggt_multiring_refinement = self._read_json(
+            self.phase_root
+            / "vggt_multiring_refinement_comparison_v1"
+            / "report.json"
+        )
+        self.semantic_camera_priors = self._read_json(
+            self.phase_root / "semantic_camera_priors_v1" / "report.json"
+        )
+        self.semantic_camera_refinement = self._read_json(
+            self.phase_root
+            / "vggt_semantic_camera_refinement_v1"
+            / "report.json"
+        )
         self.external_ring_report = self._read_json(
             self.repo_root / "dataset" / "external_ring_v1" / "report.json"
         )
@@ -479,6 +504,25 @@ class DatasetRepository:
                         ),
                     },
                     "backends": deepcopy(self.phase3_geometry.get("backends", {})),
+                    "cross_view_readiness": deepcopy(self.cross_view_readiness),
+                    "ring01_vggt_low_vram": {
+                        **deepcopy(self.ring01_vggt_validation),
+                        "machine_visual_review": deepcopy(
+                            self.ring01_vggt_visual_review
+                        ),
+                    },
+                    "vggt_multiring_low_vram": deepcopy(
+                        self.vggt_multiring_validation
+                    ),
+                    "vggt_multiring_refinement": deepcopy(
+                        self.vggt_multiring_refinement
+                    ),
+                    "semantic_camera_priors": deepcopy(
+                        self.semantic_camera_priors
+                    ),
+                    "semantic_camera_refinement": deepcopy(
+                        self.semantic_camera_refinement
+                    ),
                     "bible_gate": deepcopy(self.phase3_geometry.get("bible_gate", {})),
                     "claims": deepcopy(self.phase3_geometry.get("claims", {})),
                 },
@@ -672,8 +716,8 @@ class DatasetRepository:
                 "title": "Experimental multi-view geometry",
                 "phase": "Geometry evidence",
                 "status": "partial",
-                "coverage": f"{len(phase3_objects)} coarse meshes · {int(geometry.get('selected_object_count', 0))} COLMAP probes",
-                "summary": "Visual-hull research meshes are available for STL-1, and COLMAP feature databases were evaluated across all five-view objects.",
+                "coverage": f"{len(phase3_objects)} coarse meshes · {int(geometry.get('selected_object_count', 0))} COLMAP probes · {int(self.vggt_multiring_validation.get('object_count', 0))} VGGT ring tests",
+                "summary": "Visual-hull research meshes and COLMAP probes cover STL-1; VGGT dense geometry now includes one training ring and two held-out test rings.",
                 "functions": [
                     "Inspect five-view reprojection and research-mesh previews",
                     "Download watertight experimental STL and 3MF meshes",
@@ -681,7 +725,8 @@ class DatasetRepository:
                 ],
                 "limitations": [
                     f"COLMAP produced {int(geometry_colmap.get('completed_sparse_model_count', 0))} verified sparse models.",
-                    f"VGGT status: {geometry_backends.get('vggt', {}).get('status', 'unknown')}; MASt3R is not installed.",
+                    f"VGGT accepted {int(self.vggt_multiring_validation.get('accepted_object_count', 0))} of {int(self.vggt_multiring_validation.get('object_count', 0))} tested STL-1 objects at the cross-view geometry gate.",
+                    "External real-image sets are single-view or identity-unassigned and cannot be treated as multi-view geometry inputs.",
                 ],
                 "checks": {
                     "research_meshes_watertight": bool(
@@ -1439,6 +1484,70 @@ class DatasetRepository:
             "phase3_geometry_report": self.phase_root
             / "phase3_geometry_benchmark_v1"
             / "report.json",
+            "cross_view_readiness_report": self.phase_root
+            / "cross_view_backend_readiness_v1"
+            / "report.json",
+            "ring01_vggt_report": self.phase_root
+            / "ring01_vggt_dense_224_v1"
+            / "vggt_report.json",
+            "ring01_vggt_validation": self.phase_root
+            / "ring01_vggt_dense_224_v1"
+            / "validation_report.json",
+            "ring01_vggt_visual_review": self.phase_root
+            / "ring01_vggt_dense_224_v1"
+            / "machine_visual_review.json",
+            "ring01_vggt_depth_preview": self.phase_root
+            / "ring01_vggt_dense_224_v1"
+            / "ring01_vggt_dense_review.png",
+            "ring01_vggt_cloud_preview": self.phase_root
+            / "ring01_vggt_dense_224_v1"
+            / "ring01_vggt_fused_points_review.png",
+            "ring01_vggt_point_cloud": self.phase_root
+            / "ring01_vggt_dense_224_v1"
+            / "ring01_vggt_fused_points.ply",
+            "vggt_multiring_validation": self.phase_root
+            / "vggt_multiring_224_v1"
+            / "validation_report.json",
+            "vggt_multiring_refinement_report": self.phase_root
+            / "vggt_multiring_refinement_comparison_v1"
+            / "report.json",
+            "vggt_multiring_refinement_preview": self.phase_root
+            / "vggt_multiring_refinement_comparison_v1"
+            / "vggt_refinement_comparison.jpg",
+            "semantic_camera_priors_report": self.phase_root
+            / "semantic_camera_priors_v1"
+            / "report.json",
+            "semantic_camera_refinement_report": self.phase_root
+            / "vggt_semantic_camera_refinement_v1"
+            / "report.json",
+            "vggt_ring_001_reprojection": self.phase_root
+            / "vggt_multiring_224_v1"
+            / "ring_001"
+            / "ring_001_cross_view_reprojection.png",
+            "vggt_ring_007_reprojection": self.phase_root
+            / "vggt_multiring_224_v1"
+            / "ring_007"
+            / "ring_007_cross_view_reprojection.png",
+            "vggt_ring_023_reprojection": self.phase_root
+            / "vggt_multiring_224_v1"
+            / "ring_023"
+            / "ring_023_cross_view_reprojection.png",
+            "semantic_ring_001_holdout": self.phase_root
+            / "semantic_camera_priors_v1"
+            / "ring_001"
+            / "ring_001_semantic_camera_holdout.png",
+            "semantic_ring_007_holdout": self.phase_root
+            / "semantic_camera_priors_v1"
+            / "ring_007"
+            / "ring_007_semantic_camera_holdout.png",
+            "semantic_ring_023_holdout": self.phase_root
+            / "semantic_camera_priors_v1"
+            / "ring_023"
+            / "ring_023_semantic_camera_holdout.png",
+            "semantic_ring_001_reprojection": self.phase_root
+            / "vggt_semantic_camera_refinement_v1"
+            / "ring_001"
+            / "ring_001_semantic_camera_reprojection.png",
             "ring01_depth_validation_report": self.repo_root
             / "data"
             / "ring01_ground_truth_v1"

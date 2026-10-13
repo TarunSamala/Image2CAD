@@ -570,9 +570,71 @@
                   <p class="eyebrow">PHASE 3 / B2 CAMERA + GEOMETRY EVIDENCE</p>
                   <h3>COLMAP baseline and VGGT readiness</h3>
                 </div>
-                <a id="phase3-geometry-report" class="button secondary" href="/api/artifacts/phase3_geometry_report">B2 report</a>
+                <div class="button-row">
+                  <a id="phase3-geometry-report" class="button secondary" href="/api/artifacts/phase3_geometry_report">B2 report</a>
+                  <a class="button secondary" href="/api/artifacts/cross_view_readiness_report">Backend readiness</a>
+                </div>
               </div>
               <div id="phase3-geometry" class="key-value-list"></div>
+              <div id="cross-view-readiness" class="key-value-list"></div>
+            </article>
+            <article class="evidence-card">
+              <div class="card-heading">
+                <div>
+                  <p class="eyebrow">RING01 / VGGT LOW-VRAM EXPERIMENT</p>
+                  <h3>Five-view depth and world-point evidence</h3>
+                </div>
+                <div class="button-row">
+                  <a class="button secondary" href="/api/artifacts/ring01_vggt_validation">Validation report</a>
+                  <a class="button secondary" href="/api/artifacts/ring01_vggt_visual_review">Visual review</a>
+                  <a class="button secondary" href="/api/artifacts/ring01_vggt_point_cloud">Point cloud</a>
+                </div>
+              </div>
+              <div id="ring01-vggt-status" class="key-value-list"></div>
+              <div class="two-column">
+                <figure><img class="wide-evidence" src="/api/artifacts/ring01_vggt_depth_preview" alt="Ring01 VGGT source depth confidence and world-point review"><figcaption>Depth and confidence evidence · red closer, blue farther</figcaption></figure>
+                <figure><img class="wide-evidence" src="/api/artifacts/ring01_vggt_cloud_preview" alt="Ring01 fused VGGT world-point inspection"><figcaption>Fused world points · rejected as reconstruction geometry</figcaption></figure>
+              </div>
+            </article>
+            <article class="evidence-card">
+              <div class="card-heading">
+                <div>
+                  <p class="eyebrow">STL-1 / VGGT MULTI-RING VALIDATION</p>
+                  <h3>One training ring and two held-out test rings</h3>
+                </div>
+                <div class="button-row">
+                  <a class="button secondary" href="/api/artifacts/vggt_multiring_validation">Validation report</a>
+                  <a class="button secondary" href="/api/artifacts/vggt_multiring_refinement_report">Refinement report</a>
+                </div>
+              </div>
+              <p class="subtle">Each score excludes the target view and reprojects geometry inferred from the other four views. This avoids self-view leakage.</p>
+              <div id="vggt-multiring-status" class="key-value-list"></div>
+              <div class="two-column phase1-evidence-grid">
+                <figure><img class="wide-evidence" src="/api/artifacts/vggt_ring_001_reprojection" alt="Ring 001 VGGT leave-one-view-out reprojection"><figcaption>Ring 001 · sculptural face · train split</figcaption></figure>
+                <figure><img class="wide-evidence" src="/api/artifacts/vggt_ring_007_reprojection" alt="Ring 007 VGGT leave-one-view-out reprojection"><figcaption>Ring 007 · complex ornament · test split</figcaption></figure>
+                <figure><img class="wide-evidence" src="/api/artifacts/vggt_ring_023_reprojection" alt="Ring 023 VGGT leave-one-view-out reprojection"><figcaption>Ring 023 · floral geometry · test split</figcaption></figure>
+              </div>
+              <figure><img class="wide-evidence" src="/api/artifacts/vggt_multiring_refinement_preview" alt="VGGT full-frame and object-centric refinement comparison"><figcaption>Full-frame baseline versus object-centric reframing · candidate rejected</figcaption></figure>
+            </article>
+            <article class="evidence-card">
+              <div class="card-heading">
+                <div>
+                  <p class="eyebrow">PHASE 3 / CAMERA SEMANTIC DIAGNOSTIC</p>
+                  <h3>Named-view priors and camera-snap experiment</h3>
+                </div>
+                <div class="button-row">
+                  <a class="button secondary" href="/api/artifacts/semantic_camera_priors_report">Prior report</a>
+                  <a class="button secondary" href="/api/artifacts/semantic_camera_refinement_report">Snap report</a>
+                </div>
+              </div>
+              <p class="subtle">The named front, top and side axes are useful diagnostics, but they are not calibrated cameras. Snapping VGGT rotations directly to those axes reduced cross-view agreement, so the candidate was rejected.</p>
+              <div id="semantic-camera-status" class="key-value-list"></div>
+              <div class="two-column phase1-evidence-grid">
+                <figure><img class="wide-evidence" src="/api/artifacts/semantic_ring_001_holdout" alt="Ring 001 semantic-axis holdout"><figcaption>Ring 001 · semantic-axis holdout</figcaption></figure>
+                <figure><img class="wide-evidence" src="/api/artifacts/semantic_ring_007_holdout" alt="Ring 007 semantic-axis holdout"><figcaption>Ring 007 · semantic-axis holdout</figcaption></figure>
+                <figure><img class="wide-evidence" src="/api/artifacts/semantic_ring_023_holdout" alt="Ring 023 semantic-axis holdout"><figcaption>Ring 023 · semantic-axis holdout</figcaption></figure>
+                <figure><img class="wide-evidence" src="/api/artifacts/semantic_ring_001_reprojection" alt="Rejected Ring 001 semantic camera snap"><figcaption>Naive semantic snap · rejected after visual and metric validation</figcaption></figure>
+              </div>
             </article>
           </div>
 

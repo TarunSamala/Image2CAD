@@ -1,0 +1,53 @@
+{
+  "schema_version": "vggt_multiring_cross_view_validation_v1",
+  "dataset": "STL-1",
+  "object_count": 3,
+  "objects": [
+    {
+      "object_id": "ring_001",
+      "split": "train",
+      "mean_leave_one_view_out_iou": 0.093395,
+      "minimum_leave_one_view_out_iou": 0.0,
+      "retention_fraction": 0.304676,
+      "decision": "rejected_as_cross_view_reconstruction_geometry",
+      "artifacts": {
+        "supported_cloud": "dataset/phase_runs/v1/vggt_multiring_objectcentric_224_v1/ring_001/ring_001_cross_view_supported.ply",
+        "filter_preview": "dataset/phase_runs/v1/vggt_multiring_objectcentric_224_v1/ring_001/ring_001_cross_view_filter_review.png",
+        "reprojection_preview": "dataset/phase_runs/v1/vggt_multiring_objectcentric_224_v1/ring_001/ring_001_cross_view_reprojection.png"
+      }
+    },
+    {
+      "object_id": "ring_007",
+      "split": "test",
+      "mean_leave_one_view_out_iou": 0.16073,
+      "minimum_leave_one_view_out_iou": 0.067024,
+      "retention_fraction": 0.650811,
+      "decision": "rejected_as_cross_view_reconstruction_geometry",
+      "artifacts": {
+        "supported_cloud": "dataset/phase_runs/v1/vggt_multiring_objectcentric_224_v1/ring_007/ring_007_cross_view_supported.ply",
+        "filter_preview": "dataset/phase_runs/v1/vggt_multiring_objectcentric_224_v1/ring_007/ring_007_cross_view_filter_review.png",
+        "reprojection_preview": "dataset/phase_runs/v1/vggt_multiring_objectcentric_224_v1/ring_007/ring_007_cross_view_reprojection.png"
+      }
+    },
+    {
+      "object_id": "ring_023",
+      "split": "test",
+      "mean_leave_one_view_out_iou": 0.122874,
+      "minimum_leave_one_view_out_iou": 0.042203,
+      "retention_fraction": 0.510118,
+      "decision": "rejected_as_cross_view_reconstruction_geometry",
+      "artifacts": {
+        "supported_cloud": "dataset/phase_runs/v1/vggt_multiring_objectcentric_224_v1/ring_023/ring_023_cross_view_supported.ply",
+        "filter_preview": "dataset/phase_runs/v1/vggt_multiring_objectcentric_224_v1/ring_023/ring_023_cross_view_filter_review.png",
+        "reprojection_preview": "dataset/phase_runs/v1/vggt_multiring_objectcentric_224_v1/ring_023/ring_023_cross_view_reprojection.png"
+      }
+    }
+  ],
+  "accepted_object_count": 0,
+  "decision": "research_only",
+  "claims": {
+    "dataset_generalization_validated": false,
+    "cross_view_geometry_validated": false,
+    "manufacturing_accuracy_validated": false
+  }
+}

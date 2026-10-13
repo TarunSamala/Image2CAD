@@ -52,6 +52,12 @@ class Phase3GeometryBenchmarkContractTest(unittest.TestCase):
         self.assertEqual(probe["status"], "blocked")
         self.assertIn("local_checkpoint_not_found", probe["blockers"])
 
+    def test_low_vram_override_is_never_implicit(self) -> None:
+        probe = probe_vggt(None, None, allow_low_vram_attempt=True)
+        self.assertTrue(probe["low_vram_attempt"])
+        self.assertEqual(probe["status"], "blocked")
+        self.assertIn("local_checkpoint_not_supplied", probe["blockers"])
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -16,17 +16,33 @@ replace or renumber the canonical [Project Bible roadmap](../bible_v1_0/19_DEVEL
 - Metric3D direct surface normals and three-model depth-derived normal proxies
   are retained for 20 selected views, with angular disagreement maps.
 - Cross-view camera and geometry alignment through MASt3R/VGGT remains the next gate.
+- The public-deployment audit leaves VGGT with its gated commercial checkpoint
+  as the only eligible learned cross-view candidate; no backend is product-ready.
+- A noncommercial Ring01 VGGT run completed locally at 224 px on the 4 GiB GPU,
+  but its fused point cloud failed visual review because of ghosting and outliers.
+- Three more STL-1 rings now have dense VGGT runs: one training object and two
+  held-out test objects. All ran below 4 GiB, but all failed leak-free
+  leave-one-view-out reprojection (`0.106–0.158` mean IoU).
+- External real-image coverage includes 206 images for Phase 1/2. These images
+  cannot be used as multi-view geometry evidence without verified same-object
+  identities and view semantics.
+- Object-centric reframing was tested on the same three VGGT objects and
+  rejected: cohort mean leave-one-view-out IoU decreased from `0.140` to
+  `0.126`. The failed refinement and comparison preview are retained.
 
 ## Remaining implementation
 
-1. Recover camera poses and reliable cross-view correspondences.
-2. Fuse consistent multi-view depth and normals while retaining uncertain pixels.
-3. Select a public-deployment-compatible independent normal comparator; DSINE
+1. Correct the learned camera/view alignment failure exposed by independent
+   leave-one-view-out reprojection; do not generate CAD from the current clouds.
+2. Evaluate object-centric framing and a resolution ladder on the representative
+   cohort before extending the GPU run to all 24 rings.
+3. Fuse consistent multi-view depth and normals while retaining uncertain pixels.
+4. Select a public-deployment-compatible independent normal comparator; DSINE
    remains blocked without a separate site/commercial licence.
-4. Build the universal jewellery component and constraint graph.
-5. Support independently editable stones, prongs, seats, cavities and relief geometry.
-6. Generate parametric CAD and refine it through render-and-compare validation.
-7. Export editable STEP plus derived STL and 3MF artifacts with explicit validation reports.
+5. Build the universal jewellery component and constraint graph.
+6. Support independently editable stones, prongs, seats, cavities and relief geometry.
+7. Generate parametric CAD and refine it through render-and-compare validation.
+8. Export editable STEP plus derived STL and 3MF artifacts with explicit validation reports.
 
 The target is a high-fidelity, structurally editable reconstruction. Under the
 images-only constraint, verified millimetres and manufacturing accuracy cannot

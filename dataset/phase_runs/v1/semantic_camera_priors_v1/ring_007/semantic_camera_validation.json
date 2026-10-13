@@ -1,0 +1,195 @@
+{
+  "schema_version": "semantic_camera_prior_validation_v1",
+  "object_id": "ring_007",
+  "split": "test",
+  "resolution": 128,
+  "vggt_camera_diagnostic": {
+    "view_order": [
+      "front",
+      "top",
+      "iso",
+      "lsv",
+      "rsv"
+    ],
+    "expected_pairwise_optical_axis_angles_deg": [
+      [
+        0.0,
+        90.0,
+        54.736,
+        90.0,
+        90.0
+      ],
+      [
+        90.0,
+        0.0,
+        54.736,
+        90.0,
+        90.0
+      ],
+      [
+        54.736,
+        54.736,
+        0.0,
+        125.264,
+        54.736
+      ],
+      [
+        90.0,
+        90.0,
+        125.264,
+        0.0,
+        180.0
+      ],
+      [
+        90.0,
+        90.0,
+        54.736,
+        180.0,
+        0.0
+      ]
+    ],
+    "predicted_pairwise_optical_axis_angles_deg": [
+      [
+        0.0,
+        89.588,
+        60.31,
+        73.866,
+        104.073
+      ],
+      [
+        89.588,
+        0.0,
+        64.207,
+        88.081,
+        97.405
+      ],
+      [
+        60.31,
+        64.207,
+        0.0,
+        124.934,
+        56.654
+      ],
+      [
+        73.866,
+        88.081,
+        124.934,
+        0.0,
+        174.167
+      ],
+      [
+        104.073,
+        97.405,
+        56.654,
+        174.167,
+        0.0
+      ]
+    ],
+    "absolute_error_deg": [
+      [
+        0.0,
+        0.412,
+        5.574,
+        16.134,
+        14.073
+      ],
+      [
+        0.412,
+        0.0,
+        9.472,
+        1.919,
+        7.405
+      ],
+      [
+        5.574,
+        9.472,
+        0.0,
+        0.331,
+        1.918
+      ],
+      [
+        16.134,
+        1.919,
+        0.331,
+        0.0,
+        5.833
+      ],
+      [
+        14.073,
+        7.405,
+        1.918,
+        5.833,
+        0.0
+      ]
+    ],
+    "mean_pairwise_error_deg": 6.307186,
+    "maximum_pairwise_error_deg": 16.133764
+  },
+  "semantic_axis_holdout": {
+    "views": [
+      {
+        "view": "front",
+        "iou": 0.730663,
+        "boundary_f1_2px": 0.320069,
+        "volume_voxels_without_target": 146697
+      },
+      {
+        "view": "top",
+        "iou": 0.330322,
+        "boundary_f1_2px": 0.258322,
+        "volume_voxels_without_target": 216697
+      },
+      {
+        "view": "lsv",
+        "iou": 0.917782,
+        "boundary_f1_2px": 0.966676,
+        "volume_voxels_without_target": 127461
+      },
+      {
+        "view": "rsv",
+        "iou": 0.916031,
+        "boundary_f1_2px": 0.966753,
+        "volume_voxels_without_target": 127213
+      }
+    ],
+    "mean_iou": 0.723699,
+    "minimum_iou": 0.330322,
+    "axis_alignment": {
+      "method": "least_squares_shared_axis_scale_v1",
+      "warp_scales_input_px_to_voxel": {
+        "front": 0.61175286,
+        "top": 0.70930689,
+        "lsv": 0.73619632,
+        "rsv": 0.73619632
+      },
+      "relative_view_scales": {
+        "front": 0.89490046,
+        "top": 1.03760702,
+        "side": 1.07694212
+      },
+      "log_constraint_residual": 0.00415343,
+      "calibrated": false
+    }
+  },
+  "checks": {
+    "all_principal_views_omitted_and_scored": true,
+    "no_omitted_mask_used_as_volume_constraint": true,
+    "semantic_prior_beats_vggt_reprojection_floor": true,
+    "semantic_prior_ready_as_initialization": false
+  },
+  "decision": "rejected_as_camera_initialization",
+  "artifacts": {
+    "holdout_preview": "dataset/phase_runs/v1/semantic_camera_priors_v1/ring_007/ring_007_semantic_camera_holdout.png"
+  },
+  "claims": {
+    "camera_calibration_validated": false,
+    "metric_geometry_validated": false,
+    "manufacturing_accuracy_validated": false
+  },
+  "limitations": [
+    "View names are treated as orthographic axis hypotheses, not calibrated camera measurements.",
+    "Shared-axis scale fitting uses silhouette bounding boxes, including the omitted target extent.",
+    "Opposite side evidence remains available when one side is omitted.",
+    "The isometric view is used only in the VGGT camera-angle diagnostic, not the axis holdout score."
+  ]
+}

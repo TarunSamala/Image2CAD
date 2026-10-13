@@ -1,0 +1,52 @@
+{
+  "schema_version": "semantic_camera_prior_multiring_v1",
+  "dataset": "STL-1",
+  "object_count": 3,
+  "objects": [
+    {
+      "object_id": "ring_001",
+      "split": "train",
+      "vggt_mean_pairwise_angle_error_deg": 6.708583,
+      "semantic_holdout_mean_iou": 0.667994,
+      "semantic_holdout_minimum_iou": 0.27376,
+      "decision": "rejected_as_camera_initialization",
+      "artifacts": {
+        "holdout_preview": "dataset/phase_runs/v1/semantic_camera_priors_v1/ring_001/ring_001_semantic_camera_holdout.png"
+      }
+    },
+    {
+      "object_id": "ring_007",
+      "split": "test",
+      "vggt_mean_pairwise_angle_error_deg": 6.307186,
+      "semantic_holdout_mean_iou": 0.723699,
+      "semantic_holdout_minimum_iou": 0.330322,
+      "decision": "rejected_as_camera_initialization",
+      "artifacts": {
+        "holdout_preview": "dataset/phase_runs/v1/semantic_camera_priors_v1/ring_007/ring_007_semantic_camera_holdout.png"
+      }
+    },
+    {
+      "object_id": "ring_023",
+      "split": "test",
+      "vggt_mean_pairwise_angle_error_deg": 10.217774,
+      "semantic_holdout_mean_iou": 0.72514,
+      "semantic_holdout_minimum_iou": 0.339371,
+      "decision": "rejected_as_camera_initialization",
+      "artifacts": {
+        "holdout_preview": "dataset/phase_runs/v1/semantic_camera_priors_v1/ring_023/ring_023_semantic_camera_holdout.png"
+      }
+    }
+  ],
+  "cohort": {
+    "mean_vggt_pairwise_angle_error_deg": 7.744514,
+    "mean_semantic_holdout_iou": 0.705611,
+    "minimum_semantic_holdout_iou": 0.27376,
+    "accepted_initialization_count": 0
+  },
+  "decision": "research_only",
+  "claims": {
+    "camera_calibration_validated": false,
+    "cross_view_geometry_validated": false,
+    "manufacturing_accuracy_validated": false
+  }
+}

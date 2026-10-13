@@ -135,6 +135,51 @@ class DatasetStudioServiceTest(unittest.TestCase):
             normals["backends"]["dsine"]["status"],
             "blocked_license_public_deployment",
         )
+        readiness = summary["phase3"]["geometry_benchmark"]["cross_view_readiness"]
+        self.assertEqual(readiness["summary"]["candidate_count"], 4)
+        self.assertEqual(readiness["summary"]["public_product_candidates"], ["vggt"])
+        self.assertEqual(readiness["summary"]["locally_ready_count"], 0)
+        vggt_experiment = summary["phase3"]["geometry_benchmark"][
+            "ring01_vggt_low_vram"
+        ]
+        self.assertTrue(vggt_experiment["checks"]["run_completed"])
+        self.assertEqual(vggt_experiment["experiment"]["image_count"], 5)
+        self.assertEqual(
+            vggt_experiment["machine_visual_review"]["decision"],
+            "rejected_as_cross_view_reconstruction_geometry",
+        )
+        multiring_vggt = summary["phase3"]["geometry_benchmark"][
+            "vggt_multiring_low_vram"
+        ]
+        self.assertEqual(multiring_vggt["object_count"], 3)
+        self.assertEqual(multiring_vggt["accepted_object_count"], 0)
+        self.assertEqual(
+            [item["object_id"] for item in multiring_vggt["objects"]],
+            ["ring_001", "ring_007", "ring_023"],
+        )
+        multiring_refinement = summary["phase3"]["geometry_benchmark"][
+            "vggt_multiring_refinement"
+        ]
+        self.assertLess(multiring_refinement["cohort"]["delta"], 0)
+        self.assertEqual(
+            multiring_refinement["selected_configuration"],
+            "prepared_v1_full_frame",
+        )
+        semantic_priors = summary["phase3"]["geometry_benchmark"][
+            "semantic_camera_priors"
+        ]
+        self.assertEqual(semantic_priors["object_count"], 3)
+        self.assertLess(
+            semantic_priors["cohort"]["mean_vggt_pairwise_angle_error_deg"],
+            15.0,
+        )
+        semantic_refinement = summary["phase3"]["geometry_benchmark"][
+            "semantic_camera_refinement"
+        ]
+        self.assertLess(semantic_refinement["cohort"]["mean_iou_delta"], 0)
+        self.assertEqual(
+            semantic_refinement["cohort"]["accepted_initialization_count"], 0
+        )
         self.assertEqual(
             phase2["ring01_carryover"]["open_issues"][0]["status"],
             "correction_proposed_pending_human_review",
@@ -314,6 +359,7 @@ class DatasetStudioApiTest(unittest.TestCase):
             'id="metric-depth-consensus-summary"',
             'id="surface-normal-evidence"',
             'id="surface-normal-summary"',
+            'id="cross-view-readiness"',
             'id="dataset-depth-summary"',
             'id="dataset-complete-summary"',
             'id="stl1-review-summary"',
@@ -367,6 +413,8 @@ class DatasetStudioApiTest(unittest.TestCase):
         self.assertIn('$("#phase2-paired-summary")', javascript)
         self.assertIn('$("#metric-depth-consensus-summary")', javascript)
         self.assertIn('$("#surface-normal-summary")', javascript)
+        self.assertIn('$("#cross-view-readiness")', javascript)
+        self.assertIn('$("#ring01-vggt-status")', javascript)
         self.assertIn("phase2.machine_review", javascript)
         self.assertIn("summary.phase1.complete_features", javascript)
         audit = self.client.get("/api/artifacts/phase2_reflection_audit")
@@ -393,6 +441,22 @@ class DatasetStudioApiTest(unittest.TestCase):
         self.assertEqual(normal_preview.status_code, 200)
         self.assertEqual(normal_preview.mimetype, "image/png")
         normal_preview.close()
+        readiness_report = self.client.get("/api/artifacts/cross_view_readiness_report")
+        self.assertEqual(readiness_report.status_code, 200)
+        self.assertEqual(readiness_report.mimetype, "application/json")
+        readiness_report.close()
+        vggt_preview = self.client.get("/api/artifacts/ring01_vggt_depth_preview")
+        self.assertEqual(vggt_preview.status_code, 200)
+        self.assertEqual(vggt_preview.mimetype, "image/png")
+        vggt_preview.close()
+        vggt_cloud = self.client.get("/api/artifacts/ring01_vggt_cloud_preview")
+        self.assertEqual(vggt_cloud.status_code, 200)
+        self.assertEqual(vggt_cloud.mimetype, "image/png")
+        vggt_cloud.close()
+        vggt_review = self.client.get("/api/artifacts/ring01_vggt_visual_review")
+        self.assertEqual(vggt_review.status_code, 200)
+        self.assertEqual(vggt_review.mimetype, "application/json")
+        vggt_review.close()
         external_preview = self.client.get("/api/artifacts/external_syr_preview")
         self.assertEqual(external_preview.status_code, 200)
         self.assertEqual(external_preview.mimetype, "image/jpeg")
@@ -529,6 +593,23 @@ class DatasetStudioApiTest(unittest.TestCase):
         self.assertEqual(complete_overview.status_code, 200)
         self.assertEqual(complete_overview.mimetype, "image/png")
         complete_overview.close()
+        multiring_report = self.client.get(
+            "/api/artifacts/vggt_multiring_validation"
+        )
+        self.assertEqual(multiring_report.status_code, 200)
+        multiring_report.close()
+        multiring_preview = self.client.get(
+            "/api/artifacts/vggt_ring_007_reprojection"
+        )
+        self.assertEqual(multiring_preview.status_code, 200)
+        self.assertEqual(multiring_preview.mimetype, "image/png")
+        multiring_preview.close()
+        refinement_preview = self.client.get(
+            "/api/artifacts/vggt_multiring_refinement_preview"
+        )
+        self.assertEqual(refinement_preview.status_code, 200)
+        self.assertEqual(refinement_preview.mimetype, "image/jpeg")
+        refinement_preview.close()
 
     def test_invalid_routes_fail_closed(self) -> None:
         self.assertEqual(self.client.get("/api/objects/ring_999").status_code, 404)

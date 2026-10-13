@@ -1,0 +1,174 @@
+{
+  "schema_version": "vggt_semantic_camera_refinement_multiring_v1",
+  "dataset": "STL-1",
+  "object_count": 3,
+  "objects": [
+    {
+      "object_id": "ring_001",
+      "split": "train",
+      "comparison": {
+        "baseline_mean_iou": 0.156287,
+        "corrected_mean_iou": 0.076983,
+        "iou_delta": -0.079304,
+        "baseline_mean_precision": 0.563359,
+        "corrected_mean_precision": 0.540597,
+        "precision_delta": -0.022763,
+        "corrected_views": [
+          {
+            "view": "front",
+            "iou": 0.105057,
+            "precision": 0.81426,
+            "recall": 0.107636
+          },
+          {
+            "view": "top",
+            "iou": 0.008974,
+            "precision": 0.043588,
+            "recall": 0.011174
+          },
+          {
+            "view": "iso",
+            "iou": 0.053191,
+            "precision": 0.467878,
+            "recall": 0.056616
+          },
+          {
+            "view": "lsv",
+            "iou": 0.115457,
+            "precision": 0.750874,
+            "recall": 0.120056
+          },
+          {
+            "view": "rsv",
+            "iou": 0.102236,
+            "precision": 0.626383,
+            "recall": 0.108876
+          }
+        ]
+      },
+      "decision": "semantic_camera_snap_rejected",
+      "artifacts": {
+        "corrected_cameras": "dataset/phase_runs/v1/vggt_semantic_camera_refinement_v1/ring_001/semantic_corrected_cameras.npz",
+        "corrected_cloud": "dataset/phase_runs/v1/vggt_semantic_camera_refinement_v1/ring_001/ring_001_semantic_corrected_points.ply",
+        "cloud_preview": "dataset/phase_runs/v1/vggt_semantic_camera_refinement_v1/ring_001/ring_001_semantic_corrected_cloud.png",
+        "reprojection_preview": "dataset/phase_runs/v1/vggt_semantic_camera_refinement_v1/ring_001/ring_001_semantic_camera_reprojection.png"
+      }
+    },
+    {
+      "object_id": "ring_007",
+      "split": "test",
+      "comparison": {
+        "baseline_mean_iou": 0.158126,
+        "corrected_mean_iou": 0.083743,
+        "iou_delta": -0.074383,
+        "baseline_mean_precision": 0.476176,
+        "corrected_mean_precision": 0.447779,
+        "precision_delta": -0.028397,
+        "corrected_views": [
+          {
+            "view": "front",
+            "iou": 0.133473,
+            "precision": 0.788012,
+            "recall": 0.138444
+          },
+          {
+            "view": "top",
+            "iou": 0.05634,
+            "precision": 0.246517,
+            "recall": 0.06806
+          },
+          {
+            "view": "iso",
+            "iou": 0.087621,
+            "precision": 0.62089,
+            "recall": 0.092574
+          },
+          {
+            "view": "lsv",
+            "iou": 0.070139,
+            "precision": 0.304027,
+            "recall": 0.083554
+          },
+          {
+            "view": "rsv",
+            "iou": 0.071142,
+            "precision": 0.279448,
+            "recall": 0.087124
+          }
+        ]
+      },
+      "decision": "semantic_camera_snap_rejected",
+      "artifacts": {
+        "corrected_cameras": "dataset/phase_runs/v1/vggt_semantic_camera_refinement_v1/ring_007/semantic_corrected_cameras.npz",
+        "corrected_cloud": "dataset/phase_runs/v1/vggt_semantic_camera_refinement_v1/ring_007/ring_007_semantic_corrected_points.ply",
+        "cloud_preview": "dataset/phase_runs/v1/vggt_semantic_camera_refinement_v1/ring_007/ring_007_semantic_corrected_cloud.png",
+        "reprojection_preview": "dataset/phase_runs/v1/vggt_semantic_camera_refinement_v1/ring_007/ring_007_semantic_camera_reprojection.png"
+      }
+    },
+    {
+      "object_id": "ring_023",
+      "split": "test",
+      "comparison": {
+        "baseline_mean_iou": 0.105821,
+        "corrected_mean_iou": 0.044518,
+        "iou_delta": -0.061302,
+        "baseline_mean_precision": 0.459084,
+        "corrected_mean_precision": 0.449506,
+        "precision_delta": -0.009578,
+        "corrected_views": [
+          {
+            "view": "front",
+            "iou": 0.072017,
+            "precision": 0.971626,
+            "recall": 0.072169
+          },
+          {
+            "view": "top",
+            "iou": 0.045068,
+            "precision": 0.292185,
+            "recall": 0.050592
+          },
+          {
+            "view": "iso",
+            "iou": 0.058758,
+            "precision": 0.650327,
+            "recall": 0.060675
+          },
+          {
+            "view": "lsv",
+            "iou": 0.027878,
+            "precision": 0.192423,
+            "recall": 0.031572
+          },
+          {
+            "view": "rsv",
+            "iou": 0.018871,
+            "precision": 0.140969,
+            "recall": 0.021323
+          }
+        ]
+      },
+      "decision": "semantic_camera_snap_rejected",
+      "artifacts": {
+        "corrected_cameras": "dataset/phase_runs/v1/vggt_semantic_camera_refinement_v1/ring_023/semantic_corrected_cameras.npz",
+        "corrected_cloud": "dataset/phase_runs/v1/vggt_semantic_camera_refinement_v1/ring_023/ring_023_semantic_corrected_points.ply",
+        "cloud_preview": "dataset/phase_runs/v1/vggt_semantic_camera_refinement_v1/ring_023/ring_023_semantic_corrected_cloud.png",
+        "reprojection_preview": "dataset/phase_runs/v1/vggt_semantic_camera_refinement_v1/ring_023/ring_023_semantic_camera_reprojection.png"
+      }
+    }
+  ],
+  "cohort": {
+    "mean_baseline_iou": 0.140078,
+    "mean_corrected_iou": 0.068415,
+    "mean_iou_delta": -0.071663,
+    "mean_precision_delta": -0.020246,
+    "accepted_initialization_count": 0,
+    "geometry_exit_gate_count": 0
+  },
+  "decision": "research_only",
+  "claims": {
+    "camera_calibration_validated": false,
+    "cross_view_geometry_validated": false,
+    "manufacturing_accuracy_validated": false
+  }
+}

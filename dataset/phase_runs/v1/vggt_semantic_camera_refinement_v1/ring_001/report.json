@@ -1,0 +1,91 @@
+{
+  "schema_version": "vggt_semantic_camera_refinement_v1",
+  "object_id": "ring_001",
+  "split": "train",
+  "snap": {
+    "global_gauge_alignment_rmsd": 1.953133,
+    "camera_distance_median": 1.210195,
+    "roll_adjustment_deg": [
+      5.501237,
+      3.492944,
+      1.631727,
+      6.026601,
+      8.799147
+    ],
+    "method": "semantic_optical_axis_snap_preserve_predicted_roll_v1"
+  },
+  "filter": {
+    "confidence_quantile": 0.5,
+    "confidence_thresholds": [
+      1.360764,
+      1.000175,
+      1.000026,
+      1.0,
+      1.001171
+    ],
+    "support_radius_fraction": 0.025,
+    "support_radius": 0.02023139,
+    "minimum_supported_views": 2,
+    "candidate_points": 28342,
+    "supported_points": 3819
+  },
+  "comparison": {
+    "baseline_mean_iou": 0.156287,
+    "corrected_mean_iou": 0.076983,
+    "iou_delta": -0.079304,
+    "baseline_mean_precision": 0.563359,
+    "corrected_mean_precision": 0.540597,
+    "precision_delta": -0.022763,
+    "corrected_views": [
+      {
+        "view": "front",
+        "iou": 0.105057,
+        "precision": 0.81426,
+        "recall": 0.107636
+      },
+      {
+        "view": "top",
+        "iou": 0.008974,
+        "precision": 0.043588,
+        "recall": 0.011174
+      },
+      {
+        "view": "iso",
+        "iou": 0.053191,
+        "precision": 0.467878,
+        "recall": 0.056616
+      },
+      {
+        "view": "lsv",
+        "iou": 0.115457,
+        "precision": 0.750874,
+        "recall": 0.120056
+      },
+      {
+        "view": "rsv",
+        "iou": 0.102236,
+        "precision": 0.626383,
+        "recall": 0.108876
+      }
+    ]
+  },
+  "checks": {
+    "all_five_views_scored": true,
+    "corrected_cloud_nonempty": true,
+    "iou_improved": false,
+    "precision_improved": false,
+    "geometry_exit_gate_passed": false
+  },
+  "decision": "semantic_camera_snap_rejected",
+  "artifacts": {
+    "corrected_cameras": "dataset/phase_runs/v1/vggt_semantic_camera_refinement_v1/ring_001/semantic_corrected_cameras.npz",
+    "corrected_cloud": "dataset/phase_runs/v1/vggt_semantic_camera_refinement_v1/ring_001/ring_001_semantic_corrected_points.ply",
+    "cloud_preview": "dataset/phase_runs/v1/vggt_semantic_camera_refinement_v1/ring_001/ring_001_semantic_corrected_cloud.png",
+    "reprojection_preview": "dataset/phase_runs/v1/vggt_semantic_camera_refinement_v1/ring_001/ring_001_semantic_camera_reprojection.png"
+  },
+  "claims": {
+    "camera_calibration_validated": false,
+    "cross_view_geometry_validated": false,
+    "manufacturing_accuracy_validated": false
+  }
+}

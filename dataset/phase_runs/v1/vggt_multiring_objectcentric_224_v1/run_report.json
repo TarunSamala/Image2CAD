@@ -1,0 +1,45 @@
+{
+  "schema_version": "vggt_multiring_low_vram_run_v1",
+  "dataset": "STL-1",
+  "object_count": 3,
+  "view_count": 15,
+  "image_size": 224,
+  "input_preprocessing": "object_centric_mask_bbox",
+  "objects": [
+    {
+      "object_id": "ring_001",
+      "split": "train",
+      "status": "completed_machine_hypothesis",
+      "peak_cuda_bytes": 2724175360,
+      "elapsed_seconds": 25.0445,
+      "report": "dataset/phase_runs/v1/vggt_multiring_objectcentric_224_v1/ring_001/vggt_report.json"
+    },
+    {
+      "object_id": "ring_007",
+      "split": "test",
+      "status": "completed_machine_hypothesis",
+      "peak_cuda_bytes": 2776013824,
+      "elapsed_seconds": 23.7162,
+      "report": "dataset/phase_runs/v1/vggt_multiring_objectcentric_224_v1/ring_007/vggt_report.json"
+    },
+    {
+      "object_id": "ring_023",
+      "split": "test",
+      "status": "completed_machine_hypothesis",
+      "peak_cuda_bytes": 2776013824,
+      "elapsed_seconds": 18.3531,
+      "report": "dataset/phase_runs/v1/vggt_multiring_objectcentric_224_v1/ring_023/vggt_report.json"
+    }
+  ],
+  "selection_basis": {
+    "ring_001": "dense face and sculptural detail",
+    "ring_007": "complex held-out test object",
+    "ring_023": "different held-out floral geometry"
+  },
+  "decision": "research_only",
+  "claims": {
+    "cross_view_geometry_validated": false,
+    "dataset_generalization_validated": false,
+    "manufacturing_accuracy_validated": false
+  }
+}
