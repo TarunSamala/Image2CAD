@@ -7,8 +7,15 @@ predate it, so this index prevents similarly numbered stages from being mixed.
 
 - `phase1_ground_truth.py`, `phase1_review.py`, `stl1_phase1_review.py` - Bible
   Phase 1 evidence and identified human review.
-- `run_phase3_geometry_benchmark.py`, `vggt_geometry_adapter.py` - Bible
-  Phase 3 research benchmark infrastructure.
+- `run_phase3_geometry_benchmark.py`, `vggt_geometry_adapter.py`,
+  `run_vggt_multiring_experiment.py`, `validate_vggt_multiring_experiment.py`,
+  `compare_vggt_resolution_ladder.py`, `evaluate_vggt_view_transfer.py`, and
+  `evaluate_vggt_visual_hull_completion.py`,
+  `evaluate_vggt_surface_aware_hull.py`, and
+  `evaluate_vggt_signed_depth_carving.py` - Bible Phase 3 research benchmark,
+  low-VRAM execution, source-view transfer, camera-space silhouette completion,
+  source-surface constrained hull validation, and signed-depth free-space
+  carving infrastructure.
 - `bible_phase_2_paired_benchmark.py` - Bible Phase 2 guided-capture,
   production-STEP, measurement, component-graph, split and provenance guardrail;
   inactive under the image-only execution profile.

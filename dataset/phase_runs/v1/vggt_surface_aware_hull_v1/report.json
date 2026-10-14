@@ -1,0 +1,494 @@
+{
+  "schema_version": "vggt_surface_aware_visual_hull_v1",
+  "dataset": "STL-1",
+  "authority": "non_metric_machine_surface_hypothesis",
+  "input_resolution": 518,
+  "voxel_resolution": 96,
+  "validation_selection": {
+    "object_ids": [
+      "ring_004",
+      "ring_012",
+      "ring_020"
+    ],
+    "thickness_candidates": {
+      "0.01": {
+        "mean_iou": 0.628159,
+        "minimum_iou": 0.342853,
+        "mean_precision": 0.885485,
+        "mean_recall": 0.679836
+      },
+      "0.02": {
+        "mean_iou": 0.72002,
+        "minimum_iou": 0.472139,
+        "mean_precision": 0.865824,
+        "mean_recall": 0.808007
+      },
+      "0.03": {
+        "mean_iou": 0.749646,
+        "minimum_iou": 0.538869,
+        "mean_precision": 0.850583,
+        "mean_recall": 0.864058
+      },
+      "0.04": {
+        "mean_iou": 0.75689,
+        "minimum_iou": 0.565569,
+        "mean_precision": 0.835895,
+        "mean_recall": 0.891799
+      },
+      "0.06": {
+        "mean_iou": 0.75463,
+        "minimum_iou": 0.557805,
+        "mean_precision": 0.81246,
+        "mean_recall": 0.917706
+      },
+      "0.08": {
+        "mean_iou": 0.75206,
+        "minimum_iou": 0.510176,
+        "mean_precision": 0.800113,
+        "mean_recall": 0.929979
+      },
+      "0.12": {
+        "mean_iou": 0.747859,
+        "minimum_iou": 0.451867,
+        "mean_precision": 0.788403,
+        "mean_recall": 0.938598
+      }
+    },
+    "selected_surface_distance_fraction": 0.04,
+    "selection_rule": "highest pooled validation mean IoU"
+  },
+  "validation": {
+    "mean_iou": 0.75689,
+    "minimum_iou": 0.565569,
+    "mean_precision": 0.835895,
+    "mean_recall": 0.891799
+  },
+  "test_evaluation": {
+    "object_ids": [
+      "ring_007",
+      "ring_015",
+      "ring_023"
+    ],
+    "mean_iou": 0.757313,
+    "minimum_iou": 0.503804,
+    "mean_precision": 0.84015,
+    "mean_recall": 0.879965,
+    "mean_delta_over_visual_hull": 0.019249,
+    "mean_delta_over_point_baseline": 0.291666
+  },
+  "objects": [
+    {
+      "object_id": "ring_004",
+      "split": "val",
+      "mean_iou": 0.766708,
+      "minimum_iou": 0.637684,
+      "mean_precision": 0.816954,
+      "mean_recall": 0.931987,
+      "visual_hull_mean_iou": 0.710548,
+      "delta_over_visual_hull": 0.05616,
+      "point_baseline_mean_iou": 0.502093,
+      "delta_over_point_baseline": 0.264615,
+      "views": [
+        {
+          "view": "front",
+          "iou": 0.775196,
+          "precision": 0.889603,
+          "recall": 0.857707,
+          "retained_voxels": 112463,
+          "maximum_surface_distance": 0.0395488
+        },
+        {
+          "view": "top",
+          "iou": 0.637684,
+          "precision": 0.649576,
+          "recall": 0.972093,
+          "retained_voxels": 125373,
+          "maximum_surface_distance": 0.03988913
+        },
+        {
+          "view": "iso",
+          "iou": 0.842913,
+          "precision": 0.874902,
+          "recall": 0.958427,
+          "retained_voxels": 114726,
+          "maximum_surface_distance": 0.04038668
+        },
+        {
+          "view": "lsv",
+          "iou": 0.79314,
+          "precision": 0.86128,
+          "recall": 0.909299,
+          "retained_voxels": 116807,
+          "maximum_surface_distance": 0.03914392
+        },
+        {
+          "view": "rsv",
+          "iou": 0.784607,
+          "precision": 0.809411,
+          "recall": 0.962411,
+          "retained_voxels": 119843,
+          "maximum_surface_distance": 0.03986071
+        }
+      ],
+      "exit_gate_passed": false,
+      "preview": "dataset/phase_runs/v1/vggt_surface_aware_hull_v1/ring_004_surface_aware_hull.png"
+    },
+    {
+      "object_id": "ring_012",
+      "split": "val",
+      "mean_iou": 0.75314,
+      "minimum_iou": 0.617983,
+      "mean_precision": 0.81118,
+      "mean_recall": 0.914453,
+      "visual_hull_mean_iou": 0.746451,
+      "delta_over_visual_hull": 0.006689,
+      "point_baseline_mean_iou": 0.502757,
+      "delta_over_point_baseline": 0.250383,
+      "views": [
+        {
+          "view": "front",
+          "iou": 0.617983,
+          "precision": 0.792279,
+          "recall": 0.73747,
+          "retained_voxels": 67091,
+          "maximum_surface_distance": 0.04383639
+        },
+        {
+          "view": "top",
+          "iou": 0.649124,
+          "precision": 0.662007,
+          "recall": 0.970894,
+          "retained_voxels": 88278,
+          "maximum_surface_distance": 0.04368892
+        },
+        {
+          "view": "iso",
+          "iou": 0.842995,
+          "precision": 0.884003,
+          "recall": 0.947842,
+          "retained_voxels": 76334,
+          "maximum_surface_distance": 0.04397563
+        },
+        {
+          "view": "lsv",
+          "iou": 0.848559,
+          "precision": 0.877259,
+          "recall": 0.962877,
+          "retained_voxels": 73445,
+          "maximum_surface_distance": 0.04326896
+        },
+        {
+          "view": "rsv",
+          "iou": 0.807039,
+          "precision": 0.840352,
+          "recall": 0.95318,
+          "retained_voxels": 75289,
+          "maximum_surface_distance": 0.0436919
+        }
+      ],
+      "exit_gate_passed": false,
+      "preview": "dataset/phase_runs/v1/vggt_surface_aware_hull_v1/ring_012_surface_aware_hull.png"
+    },
+    {
+      "object_id": "ring_020",
+      "split": "val",
+      "mean_iou": 0.750821,
+      "minimum_iou": 0.565569,
+      "mean_precision": 0.87955,
+      "mean_recall": 0.828957,
+      "visual_hull_mean_iou": 0.753964,
+      "delta_over_visual_hull": -0.003144,
+      "point_baseline_mean_iou": 0.440958,
+      "delta_over_point_baseline": 0.309863,
+      "views": [
+        {
+          "view": "front",
+          "iou": 0.700594,
+          "precision": 0.855797,
+          "recall": 0.79437,
+          "retained_voxels": 114701,
+          "maximum_surface_distance": 0.03916484
+        },
+        {
+          "view": "top",
+          "iou": 0.565569,
+          "precision": 0.74717,
+          "recall": 0.699424,
+          "retained_voxels": 111018,
+          "maximum_surface_distance": 0.03830286
+        },
+        {
+          "view": "iso",
+          "iou": 0.827038,
+          "precision": 0.952558,
+          "recall": 0.862567,
+          "retained_voxels": 121993,
+          "maximum_surface_distance": 0.03935625
+        },
+        {
+          "view": "lsv",
+          "iou": 0.781695,
+          "precision": 0.920418,
+          "recall": 0.838358,
+          "retained_voxels": 111657,
+          "maximum_surface_distance": 0.03851534
+        },
+        {
+          "view": "rsv",
+          "iou": 0.879208,
+          "precision": 0.921807,
+          "recall": 0.950064,
+          "retained_voxels": 119682,
+          "maximum_surface_distance": 0.03952022
+        }
+      ],
+      "exit_gate_passed": false,
+      "preview": "dataset/phase_runs/v1/vggt_surface_aware_hull_v1/ring_020_surface_aware_hull.png"
+    },
+    {
+      "object_id": "ring_001",
+      "split": "train",
+      "mean_iou": 0.781919,
+      "minimum_iou": 0.604678,
+      "mean_precision": 0.820321,
+      "mean_recall": 0.946423,
+      "visual_hull_mean_iou": 0.727277,
+      "delta_over_visual_hull": 0.054641,
+      "point_baseline_mean_iou": 0.581174,
+      "delta_over_point_baseline": 0.200745,
+      "views": [
+        {
+          "view": "front",
+          "iou": 0.783311,
+          "precision": 0.85417,
+          "recall": 0.904237,
+          "retained_voxels": 90019,
+          "maximum_surface_distance": 0.04408588
+        },
+        {
+          "view": "top",
+          "iou": 0.604678,
+          "precision": 0.616782,
+          "recall": 0.968566,
+          "retained_voxels": 105442,
+          "maximum_surface_distance": 0.04394071
+        },
+        {
+          "view": "iso",
+          "iou": 0.845009,
+          "precision": 0.886944,
+          "recall": 0.947012,
+          "retained_voxels": 88471,
+          "maximum_surface_distance": 0.0442091
+        },
+        {
+          "view": "lsv",
+          "iou": 0.832457,
+          "precision": 0.873612,
+          "recall": 0.946441,
+          "retained_voxels": 87377,
+          "maximum_surface_distance": 0.04311204
+        },
+        {
+          "view": "rsv",
+          "iou": 0.844138,
+          "precision": 0.870099,
+          "recall": 0.96586,
+          "retained_voxels": 89394,
+          "maximum_surface_distance": 0.04383194
+        }
+      ],
+      "exit_gate_passed": false,
+      "preview": "dataset/phase_runs/v1/vggt_surface_aware_hull_v1/ring_001_surface_aware_hull.png"
+    },
+    {
+      "object_id": "ring_007",
+      "split": "test",
+      "mean_iou": 0.785757,
+      "minimum_iou": 0.68191,
+      "mean_precision": 0.84995,
+      "mean_recall": 0.911511,
+      "visual_hull_mean_iou": 0.735848,
+      "delta_over_visual_hull": 0.049908,
+      "point_baseline_mean_iou": 0.508414,
+      "delta_over_point_baseline": 0.277343,
+      "views": [
+        {
+          "view": "front",
+          "iou": 0.8078,
+          "precision": 0.877598,
+          "recall": 0.910369,
+          "retained_voxels": 81347,
+          "maximum_surface_distance": 0.04142882
+        },
+        {
+          "view": "top",
+          "iou": 0.68191,
+          "precision": 0.75216,
+          "recall": 0.879535,
+          "retained_voxels": 81526,
+          "maximum_surface_distance": 0.04137526
+        },
+        {
+          "view": "iso",
+          "iou": 0.83532,
+          "precision": 0.911749,
+          "recall": 0.908799,
+          "retained_voxels": 84935,
+          "maximum_surface_distance": 0.04228765
+        },
+        {
+          "view": "lsv",
+          "iou": 0.781935,
+          "precision": 0.856715,
+          "recall": 0.899581,
+          "retained_voxels": 87437,
+          "maximum_surface_distance": 0.04081977
+        },
+        {
+          "view": "rsv",
+          "iou": 0.821818,
+          "precision": 0.851529,
+          "recall": 0.959272,
+          "retained_voxels": 86099,
+          "maximum_surface_distance": 0.04160756
+        }
+      ],
+      "exit_gate_passed": false,
+      "preview": "dataset/phase_runs/v1/vggt_surface_aware_hull_v1/ring_007_surface_aware_hull.png"
+    },
+    {
+      "object_id": "ring_015",
+      "split": "test",
+      "mean_iou": 0.733347,
+      "minimum_iou": 0.503804,
+      "mean_precision": 0.829872,
+      "mean_recall": 0.854936,
+      "visual_hull_mean_iou": 0.731972,
+      "delta_over_visual_hull": 0.001374,
+      "point_baseline_mean_iou": 0.413225,
+      "delta_over_point_baseline": 0.320122,
+      "views": [
+        {
+          "view": "front",
+          "iou": 0.743831,
+          "precision": 0.895802,
+          "recall": 0.814284,
+          "retained_voxels": 84837,
+          "maximum_surface_distance": 0.04681385
+        },
+        {
+          "view": "top",
+          "iou": 0.503804,
+          "precision": 0.60154,
+          "recall": 0.756143,
+          "retained_voxels": 97938,
+          "maximum_surface_distance": 0.04465984
+        },
+        {
+          "view": "iso",
+          "iou": 0.838443,
+          "precision": 0.894205,
+          "recall": 0.930774,
+          "retained_voxels": 94518,
+          "maximum_surface_distance": 0.04655649
+        },
+        {
+          "view": "lsv",
+          "iou": 0.770966,
+          "precision": 0.873492,
+          "recall": 0.867872,
+          "retained_voxels": 88532,
+          "maximum_surface_distance": 0.04427376
+        },
+        {
+          "view": "rsv",
+          "iou": 0.809689,
+          "precision": 0.88432,
+          "recall": 0.905608,
+          "retained_voxels": 87688,
+          "maximum_surface_distance": 0.04557901
+        }
+      ],
+      "exit_gate_passed": false,
+      "preview": "dataset/phase_runs/v1/vggt_surface_aware_hull_v1/ring_015_surface_aware_hull.png"
+    },
+    {
+      "object_id": "ring_023",
+      "split": "test",
+      "mean_iou": 0.752835,
+      "minimum_iou": 0.607,
+      "mean_precision": 0.840627,
+      "mean_recall": 0.873448,
+      "visual_hull_mean_iou": 0.746371,
+      "delta_over_visual_hull": 0.006464,
+      "point_baseline_mean_iou": 0.475301,
+      "delta_over_point_baseline": 0.277534,
+      "views": [
+        {
+          "view": "front",
+          "iou": 0.629554,
+          "precision": 0.834763,
+          "recall": 0.719175,
+          "retained_voxels": 85823,
+          "maximum_surface_distance": 0.03917406
+        },
+        {
+          "view": "top",
+          "iou": 0.607,
+          "precision": 0.693035,
+          "recall": 0.830208,
+          "retained_voxels": 112225,
+          "maximum_surface_distance": 0.03836941
+        },
+        {
+          "view": "iso",
+          "iou": 0.881856,
+          "precision": 0.912145,
+          "recall": 0.963712,
+          "retained_voxels": 97179,
+          "maximum_surface_distance": 0.03900766
+        },
+        {
+          "view": "lsv",
+          "iou": 0.832833,
+          "precision": 0.915423,
+          "recall": 0.902259,
+          "retained_voxels": 90363,
+          "maximum_surface_distance": 0.03880558
+        },
+        {
+          "view": "rsv",
+          "iou": 0.812934,
+          "precision": 0.84777,
+          "recall": 0.951884,
+          "retained_voxels": 99558,
+          "maximum_surface_distance": 0.03914934
+        }
+      ],
+      "exit_gate_passed": false,
+      "preview": "dataset/phase_runs/v1/vggt_surface_aware_hull_v1/ring_023_surface_aware_hull.png"
+    }
+  ],
+  "checks": {
+    "selection_uses_validation_split_only": true,
+    "target_mask_and_points_excluded_from_reconstruction": true,
+    "all_objects_improve_over_point_baseline": true,
+    "all_validation_objects_improve_over_visual_hull": false,
+    "geometry_exit_gate_passed": false
+  },
+  "decision": "retained_as_surface_completion_prior_not_approved_geometry",
+  "claims": {
+    "strict_target_image_holdout": false,
+    "metric_scale_validated": false,
+    "hidden_surface_truth_validated": false,
+    "component_topology_validated": false,
+    "manufacturing_accuracy_validated": false
+  },
+  "limitations": [
+    "The target mask and target point map are excluded, but VGGT camera hypotheses are jointly conditioned on all five images.",
+    "Nearest-surface support reduces unsupported volume but does not infer geometry absent from every source view.",
+    "The shell remains a voxelized non-metric hypothesis without component identities, cavities or exact topology.",
+    "STL-1 masks are machine proposals and the two test identities were observed in earlier exploratory work."
+  ]
+}

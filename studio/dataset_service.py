@@ -156,6 +156,21 @@ class DatasetRepository:
             / "vggt_semantic_camera_refinement_v1"
             / "report.json"
         )
+        self.vggt_view_transfer = self._read_json(
+            self.phase_root / "vggt_view_transfer_v1" / "report.json"
+        )
+        self.vggt_resolution_ladder = self._read_json(
+            self.phase_root / "vggt_resolution_ladder_v1" / "report.json"
+        )
+        self.vggt_visual_hull_completion = self._read_json(
+            self.phase_root / "vggt_visual_hull_completion_v1" / "report.json"
+        )
+        self.vggt_surface_aware_hull = self._read_json(
+            self.phase_root / "vggt_surface_aware_hull_v1" / "report.json"
+        )
+        self.vggt_signed_depth_carving = self._read_json(
+            self.phase_root / "vggt_signed_depth_carving_v1" / "report.json"
+        )
         self.external_ring_report = self._read_json(
             self.repo_root / "dataset" / "external_ring_v1" / "report.json"
         )
@@ -522,6 +537,19 @@ class DatasetRepository:
                     ),
                     "semantic_camera_refinement": deepcopy(
                         self.semantic_camera_refinement
+                    ),
+                    "vggt_view_transfer": deepcopy(self.vggt_view_transfer),
+                    "vggt_resolution_ladder": deepcopy(
+                        self.vggt_resolution_ladder
+                    ),
+                    "vggt_visual_hull_completion": deepcopy(
+                        self.vggt_visual_hull_completion
+                    ),
+                    "vggt_surface_aware_hull": deepcopy(
+                        self.vggt_surface_aware_hull
+                    ),
+                    "vggt_signed_depth_carving": deepcopy(
+                        self.vggt_signed_depth_carving
                     ),
                     "bible_gate": deepcopy(self.phase3_geometry.get("bible_gate", {})),
                     "claims": deepcopy(self.phase3_geometry.get("claims", {})),
@@ -1520,6 +1548,88 @@ class DatasetRepository:
             "semantic_camera_refinement_report": self.phase_root
             / "vggt_semantic_camera_refinement_v1"
             / "report.json",
+            "vggt_view_transfer_report": self.phase_root
+            / "vggt_view_transfer_v1"
+            / "report.json",
+            "vggt_view_transfer_ring_007": self.phase_root
+            / "vggt_view_transfer_v1"
+            / "ring_007"
+            / "ring_007_view_transfer.png",
+            "vggt_resolution_ladder_report": self.phase_root
+            / "vggt_resolution_ladder_v1"
+            / "report.json",
+            "vggt_resolution_ladder_chart": self.phase_root
+            / "vggt_resolution_ladder_v1"
+            / "vggt_resolution_ladder.png",
+            "vggt_resolution_visual_comparison": self.phase_root
+            / "vggt_resolution_ladder_v1"
+            / "vggt_224_vs_518_reprojection.jpg",
+            "vggt_518_ring_001_reprojection": self.phase_root
+            / "vggt_resolution_518_v1"
+            / "ring_001"
+            / "ring_001_cross_view_reprojection.png",
+            "vggt_518_ring_007_reprojection": self.phase_root
+            / "vggt_resolution_518_v1"
+            / "ring_007"
+            / "ring_007_cross_view_reprojection.png",
+            "vggt_518_ring_023_reprojection": self.phase_root
+            / "vggt_resolution_518_v1"
+            / "ring_023"
+            / "ring_023_cross_view_reprojection.png",
+            "vggt_visual_hull_completion_report": self.phase_root
+            / "vggt_visual_hull_completion_v1"
+            / "report.json",
+            "vggt_visual_hull_ring_004": self.phase_root
+            / "vggt_visual_hull_completion_v1"
+            / "ring_004_visual_hull_completion.png",
+            "vggt_visual_hull_ring_020": self.phase_root
+            / "vggt_visual_hull_completion_v1"
+            / "ring_020_visual_hull_completion.png",
+            "vggt_visual_hull_ring_007": self.phase_root
+            / "vggt_visual_hull_completion_v1"
+            / "ring_007_visual_hull_completion.png",
+            "vggt_visual_hull_ring_015": self.phase_root
+            / "vggt_visual_hull_completion_v1"
+            / "ring_015_visual_hull_completion.png",
+            "vggt_visual_hull_ring_023": self.phase_root
+            / "vggt_visual_hull_completion_v1"
+            / "ring_023_visual_hull_completion.png",
+            "vggt_surface_aware_hull_report": self.phase_root
+            / "vggt_surface_aware_hull_v1"
+            / "report.json",
+            "vggt_surface_hull_ring_004": self.phase_root
+            / "vggt_surface_aware_hull_v1"
+            / "ring_004_surface_aware_hull.png",
+            "vggt_surface_hull_ring_020": self.phase_root
+            / "vggt_surface_aware_hull_v1"
+            / "ring_020_surface_aware_hull.png",
+            "vggt_surface_hull_ring_007": self.phase_root
+            / "vggt_surface_aware_hull_v1"
+            / "ring_007_surface_aware_hull.png",
+            "vggt_surface_hull_ring_015": self.phase_root
+            / "vggt_surface_aware_hull_v1"
+            / "ring_015_surface_aware_hull.png",
+            "vggt_surface_hull_ring_023": self.phase_root
+            / "vggt_surface_aware_hull_v1"
+            / "ring_023_surface_aware_hull.png",
+            "vggt_signed_depth_carving_report": self.phase_root
+            / "vggt_signed_depth_carving_v1"
+            / "report.json",
+            "vggt_signed_depth_ring_004": self.phase_root
+            / "vggt_signed_depth_carving_v1"
+            / "ring_004_signed_depth_carving.png",
+            "vggt_signed_depth_ring_020": self.phase_root
+            / "vggt_signed_depth_carving_v1"
+            / "ring_020_signed_depth_carving.png",
+            "vggt_signed_depth_ring_007": self.phase_root
+            / "vggt_signed_depth_carving_v1"
+            / "ring_007_signed_depth_carving.png",
+            "vggt_signed_depth_ring_015": self.phase_root
+            / "vggt_signed_depth_carving_v1"
+            / "ring_015_signed_depth_carving.png",
+            "vggt_signed_depth_ring_023": self.phase_root
+            / "vggt_signed_depth_carving_v1"
+            / "ring_023_signed_depth_carving.png",
             "vggt_ring_001_reprojection": self.phase_root
             / "vggt_multiring_224_v1"
             / "ring_001"

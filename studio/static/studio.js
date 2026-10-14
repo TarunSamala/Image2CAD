@@ -533,6 +533,23 @@ function renderPhase3(detail) {
   const semanticPriorCohort = semanticPriors.cohort || {};
   const semanticRefinement = globalGeometry.semantic_camera_refinement || {};
   const semanticRefinementCohort = semanticRefinement.cohort || {};
+  const viewTransfer = globalGeometry.vggt_view_transfer || {};
+  const viewTransferHeldout = viewTransfer.heldout || {};
+  const resolutionLadder = globalGeometry.vggt_resolution_ladder || {};
+  const resolutionHeldoutChange = resolutionLadder.heldout_change_from_224 || {};
+  const selectedResolution = (resolutionLadder.resolutions || []).find(
+    (item) => item.resolution === resolutionLadder.selected_resolution
+  ) || {};
+  const visualHull = globalGeometry.vggt_visual_hull_completion || {};
+  const visualHullValidation = visualHull.validation || {};
+  const visualHullTest = visualHull.test_evaluation || {};
+  const surfaceHull = globalGeometry.vggt_surface_aware_hull || {};
+  const surfaceHullValidation = surfaceHull.validation || {};
+  const surfaceHullTest = surfaceHull.test_evaluation || {};
+  const signedDepth = globalGeometry.vggt_signed_depth_carving || {};
+  const signedDepthValidation = signedDepth.validation || {};
+  const signedDepthTest = signedDepth.test_evaluation || {};
+  const signedDepthSelection = signedDepth.validation_selection || {};
   $("#phase3-geometry").innerHTML = `
     <div class="key-value"><span>COLMAP object status</span><strong class="${geometry.status === "completed_with_sparse_model" ? "good" : "bad"}">${escapeHtml(humanize(geometry.status || "not run"))}</strong></div>
     <div class="key-value"><span>SIFT keypoints</span><strong>${database.keypoints_rows?.toLocaleString() ?? "—"}</strong></div>
@@ -572,6 +589,35 @@ function renderPhase3(detail) {
     <div class="key-value"><span>Accepted camera initializations</span><strong class="bad">${semanticPriorCohort.accepted_initialization_count ?? "—"} / ${semanticPriors.object_count ?? "—"}</strong></div>
     <div class="key-value"><span>Interpretation</span><strong class="bad">Visible surfaces incomplete</strong><small>Camera layout is broadly plausible, but it does not complete hidden geometry</small></div>
     <div class="key-value"><span>Authority</span><strong class="bad">Diagnostic only</strong></div>`;
+  $("#vggt-resolution-status").innerHTML = `
+    <div class="key-value"><span>Selected research resolution</span><strong class="good">${resolutionLadder.selected_resolution ?? "—"} px</strong><small>Selected on three validation-split rings</small></div>
+    <div class="key-value"><span>Held-out mean IoU gain</span><strong class="good">+${score(resolutionHeldoutChange.mean_iou, 3)}</strong><small>Compared with the 224 px baseline</small></div>
+    <div class="key-value"><span>Held-out precision gain</span><strong class="good">+${score(resolutionHeldoutChange.mean_precision, 3)}</strong></div>
+    <div class="key-value"><span>Held-out recall gain</span><strong class="good">+${score(resolutionHeldoutChange.mean_recall, 3)}</strong></div>
+    <div class="key-value"><span>Peak CUDA memory</span><strong>${score(selectedResolution.peak_cuda_gib, 2)} GiB</strong><small>Sequential tensor cleanup verified</small></div>
+    <div class="key-value"><span>Geometry exit gate</span><strong class="bad">Not passed</strong><small>518 px is a research baseline, not approved geometry</small></div>
+    <div class="key-value"><span>Train-learned view policy</span><strong class="bad">Rejected</strong><small>Held-out IoU ${score(viewTransferHeldout.mean_iou_delta, 4)}</small></div>`;
+  $("#vggt-visual-hull-status").innerHTML = `
+    <div class="key-value"><span>Validation mean IoU</span><strong class="good">${score(visualHullValidation.mean_iou, 3)}</strong><small>Selected using validation-split rings only</small></div>
+    <div class="key-value"><span>Test mean IoU</span><strong class="good">${score(visualHullTest.mean_iou, 3)}</strong><small>Point-baseline delta +${score(visualHullTest.mean_iou_delta_over_point_baseline, 3)}</small></div>
+    <div class="key-value"><span>Weakest test view</span><strong class="bad">${score(visualHullTest.minimum_iou, 3)}</strong><small>Top-view completion remains below gate</small></div>
+    <div class="key-value"><span>Mean test recall</span><strong class="good">${score(visualHullTest.mean_recall, 3)}</strong></div>
+    <div class="key-value"><span>Geometry exit gate</span><strong class="bad">Not passed</strong><small>Silhouette completion is retained only as a prior</small></div>
+    <div class="key-value"><span>Recoverable geometry</span><strong class="bad">Outer visual hull only</strong><small>No cavities, undercuts, relief, engraving or component topology</small></div>`;
+  $("#vggt-surface-hull-status").innerHTML = `
+    <div class="key-value"><span>Selected surface shell</span><strong>4% of robust 3D diagonal</strong><small>Selected using validation rings only</small></div>
+    <div class="key-value"><span>Validation mean / minimum IoU</span><strong>${score(surfaceHullValidation.mean_iou, 3)} / ${score(surfaceHullValidation.minimum_iou, 3)}</strong></div>
+    <div class="key-value"><span>Test mean / minimum IoU</span><strong class="good">${score(surfaceHullTest.mean_iou, 3)} / ${score(surfaceHullTest.minimum_iou, 3)}</strong></div>
+    <div class="key-value"><span>Gain over visual hull</span><strong class="good">+${score(surfaceHullTest.mean_delta_over_visual_hull, 3)}</strong></div>
+    <div class="key-value"><span>Gain over point baseline</span><strong class="good">+${score(surfaceHullTest.mean_delta_over_point_baseline, 3)}</strong></div>
+    <div class="key-value"><span>Geometry exit gate</span><strong class="bad">Not passed</strong><small>Weakest test view is still below 0.70</small></div>`;
+  $("#vggt-signed-depth-status").innerHTML = `
+    <div class="key-value"><span>Selected depth tolerance</span><strong>${score(signedDepthSelection.selected_depth_tolerance_fraction, 4)} of robust diagonal</strong><small>At most ${signedDepthSelection.selected_allowed_source_contradictions ?? "—"} source contradiction</small></div>
+    <div class="key-value"><span>Validation mean / minimum IoU</span><strong>${score(signedDepthValidation.mean_iou, 3)} / ${score(signedDepthValidation.minimum_iou, 3)}</strong></div>
+    <div class="key-value"><span>Full test mean / minimum IoU</span><strong class="good">${score(signedDepthTest.mean_iou, 3)} / ${score(signedDepthTest.minimum_iou, 3)}</strong></div>
+    <div class="key-value"><span>Gain over surface-aware hull</span><strong class="good">+${score(signedDepthTest.mean_delta_over_surface_aware_hull, 3)}</strong></div>
+    <div class="key-value"><span>Gain over point baseline</span><strong class="good">+${score(signedDepthTest.mean_delta_over_point_baseline, 3)}</strong></div>
+    <div class="key-value"><span>Geometry exit gate</span><strong class="bad">Not passed</strong><small>Mean is approaching 0.80; weakest view remains below 0.70</small></div>`;
   if (!phase3) {
     preview.removeAttribute("src");
     metrics.innerHTML = "<p>No experimental Phase 3 artifact is available.</p>";

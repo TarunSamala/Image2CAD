@@ -1,0 +1,59 @@
+{
+  "schema_version": "vggt_multiring_cross_view_validation_v1",
+  "dataset": "STL-1",
+  "object_count": 3,
+  "objects": [
+    {
+      "object_id": "ring_004",
+      "split": "val",
+      "mean_leave_one_view_out_iou": 0.463859,
+      "minimum_leave_one_view_out_iou": 0.347209,
+      "mean_partial_surface_precision": 0.846469,
+      "mean_surface_completion_recall": 0.507737,
+      "retention_fraction": 0.741696,
+      "decision": "rejected_as_cross_view_reconstruction_geometry",
+      "artifacts": {
+        "supported_cloud": "dataset/phase_runs/v1/vggt_resolution_448_validation_v1/ring_004/ring_004_cross_view_supported.ply",
+        "filter_preview": "dataset/phase_runs/v1/vggt_resolution_448_validation_v1/ring_004/ring_004_cross_view_filter_review.png",
+        "reprojection_preview": "dataset/phase_runs/v1/vggt_resolution_448_validation_v1/ring_004/ring_004_cross_view_reprojection.png"
+      }
+    },
+    {
+      "object_id": "ring_012",
+      "split": "val",
+      "mean_leave_one_view_out_iou": 0.456376,
+      "minimum_leave_one_view_out_iou": 0.318558,
+      "mean_partial_surface_precision": 0.816325,
+      "mean_surface_completion_recall": 0.509448,
+      "retention_fraction": 0.796563,
+      "decision": "rejected_as_cross_view_reconstruction_geometry",
+      "artifacts": {
+        "supported_cloud": "dataset/phase_runs/v1/vggt_resolution_448_validation_v1/ring_012/ring_012_cross_view_supported.ply",
+        "filter_preview": "dataset/phase_runs/v1/vggt_resolution_448_validation_v1/ring_012/ring_012_cross_view_filter_review.png",
+        "reprojection_preview": "dataset/phase_runs/v1/vggt_resolution_448_validation_v1/ring_012/ring_012_cross_view_reprojection.png"
+      }
+    },
+    {
+      "object_id": "ring_020",
+      "split": "val",
+      "mean_leave_one_view_out_iou": 0.364144,
+      "minimum_leave_one_view_out_iou": 0.142292,
+      "mean_partial_surface_precision": 0.832778,
+      "mean_surface_completion_recall": 0.382589,
+      "retention_fraction": 0.586606,
+      "decision": "rejected_as_cross_view_reconstruction_geometry",
+      "artifacts": {
+        "supported_cloud": "dataset/phase_runs/v1/vggt_resolution_448_validation_v1/ring_020/ring_020_cross_view_supported.ply",
+        "filter_preview": "dataset/phase_runs/v1/vggt_resolution_448_validation_v1/ring_020/ring_020_cross_view_filter_review.png",
+        "reprojection_preview": "dataset/phase_runs/v1/vggt_resolution_448_validation_v1/ring_020/ring_020_cross_view_reprojection.png"
+      }
+    }
+  ],
+  "accepted_object_count": 0,
+  "decision": "research_only",
+  "claims": {
+    "dataset_generalization_validated": false,
+    "cross_view_geometry_validated": false,
+    "manufacturing_accuracy_validated": false
+  }
+}

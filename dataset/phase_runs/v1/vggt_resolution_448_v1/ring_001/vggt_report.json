@@ -1,0 +1,103 @@
+{
+  "backend": "vggt",
+  "status": "completed_machine_hypothesis",
+  "authority": "machine_hypothesis",
+  "metric": false,
+  "cross_view_validated": false,
+  "pinned_code_commit": "a288dd0f14786c93483e45524328726ab7b1b4ce",
+  "checkpoint": "/workspace/models/vggt/VGGT-1B/model.pt",
+  "checkpoint_license_id": "VGGT-1B-NonCommercial",
+  "noncommercial_research_override": true,
+  "low_vram_attempt": true,
+  "code_available": true,
+  "runtime": {
+    "torch_version": "2.3.1",
+    "cuda_available": true,
+    "gpu_name": "NVIDIA GeForce RTX 3050 Laptop GPU",
+    "gpu_free_bytes": 3684368384,
+    "gpu_total_bytes": 4007591936
+  },
+  "blockers": [],
+  "warnings": [
+    "gpu_memory_below_conservative_8_gib_probe_gate"
+  ],
+  "image_count": 5,
+  "image_names": [
+    "front.png",
+    "top.png",
+    "iso.png",
+    "lsv.png",
+    "rsv.png"
+  ],
+  "camera_shapes": {
+    "extrinsic": [
+      1,
+      5,
+      3,
+      4
+    ],
+    "intrinsic": [
+      1,
+      5,
+      3,
+      3
+    ]
+  },
+  "dense_shapes": {
+    "depth": [
+      1,
+      5,
+      448,
+      448,
+      1
+    ],
+    "depth_conf": [
+      1,
+      5,
+      448,
+      448
+    ],
+    "world_points": [
+      1,
+      5,
+      448,
+      448,
+      3
+    ],
+    "world_points_conf": [
+      1,
+      5,
+      448,
+      448
+    ]
+  },
+  "camera_only": false,
+  "image_size": 448,
+  "dtype": "torch.float16",
+  "checkpoint_sha256": "d15bf50a8615c8225ed48b51ea5cac673d82442ec0309036df555a053253afe0",
+  "artifacts": {
+    "cameras": "/workspace/dataset/phase_runs/v1/vggt_resolution_448_v1/ring_001/vggt_cameras.npz",
+    "dense": "/workspace/dataset/phase_runs/v1/vggt_resolution_448_v1/ring_001/vggt_dense_evidence.npz"
+  },
+  "elapsed_seconds": 18.3869,
+  "peak_cuda_bytes": 3146706944,
+  "warning": "VGGT outputs are uncalibrated machine hypotheses until compared with reviewed camera and geometry truth.",
+  "object_id": "ring_001",
+  "dataset": "STL-1",
+  "split": "train",
+  "view_order": [
+    "front",
+    "top",
+    "iso",
+    "lsv",
+    "rsv"
+  ],
+  "input_preprocessing": "prepared_v1_full_frame",
+  "decision": "research_only",
+  "claims": {
+    "camera_pose_accuracy_validated": false,
+    "metric_depth_validated": false,
+    "cross_view_geometry_validated": false,
+    "manufacturing_accuracy_validated": false
+  }
+}

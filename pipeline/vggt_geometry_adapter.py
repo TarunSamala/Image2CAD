@@ -160,6 +160,17 @@ def run_vggt_object(
     dtype = torch.float16 if device == "cuda" and allow_low_vram_attempt else torch.float32
     model = None
     images = None
+    batched_images = None
+    aggregated_tokens = None
+    patch_start_idx = None
+    pose_enc = None
+    predictions = None
+    depth = None
+    depth_conf = None
+    world_points = None
+    world_points_conf = None
+    extrinsic = None
+    intrinsic = None
     try:
         torch.manual_seed(0)
         if device == "cuda":
@@ -230,6 +241,17 @@ def run_vggt_object(
         peak_cuda_bytes = int(torch.cuda.max_memory_allocated())
         model = None
         images = None
+        batched_images = None
+        aggregated_tokens = None
+        patch_start_idx = None
+        pose_enc = None
+        predictions = None
+        depth = None
+        depth_conf = None
+        world_points = None
+        world_points_conf = None
+        extrinsic = None
+        intrinsic = None
         gc.collect()
         torch.cuda.empty_cache()
         report = {
@@ -251,11 +273,13 @@ def run_vggt_object(
             json.dumps(report, indent=2), encoding="utf-8"
         )
         return report
+    extrinsic_array = _numpy(extrinsic)
+    intrinsic_array = _numpy(intrinsic)
     cameras_path = output_dir / "vggt_cameras.npz"
     np.savez_compressed(
         cameras_path,
-        extrinsic=_numpy(extrinsic),
-        intrinsic=_numpy(intrinsic),
+        extrinsic=extrinsic_array,
+        intrinsic=intrinsic_array,
     )
     dense_path = None
     dense_shapes = {}
@@ -269,14 +293,15 @@ def run_vggt_object(
         dense_path = output_dir / "vggt_dense_evidence.npz"
         np.savez_compressed(dense_path, **dense)
 
+    peak_cuda_bytes = int(torch.cuda.max_memory_allocated()) if device == "cuda" else 0
     report = {
         **probe,
         "status": "completed_machine_hypothesis",
         "image_count": len(image_paths),
         "image_names": [path.name for path in image_paths],
         "camera_shapes": {
-            "extrinsic": list(_numpy(extrinsic).shape),
-            "intrinsic": list(_numpy(intrinsic).shape),
+            "extrinsic": list(extrinsic_array.shape),
+            "intrinsic": list(intrinsic_array.shape),
         },
         "dense_shapes": dense_shapes,
         "camera_only": bool(camera_only),
@@ -288,11 +313,23 @@ def run_vggt_object(
             "dense": str(dense_path) if dense_path else None,
         },
         "elapsed_seconds": round(time.perf_counter() - started, 4),
-        "peak_cuda_bytes": int(torch.cuda.max_memory_allocated()) if device == "cuda" else 0,
+        "peak_cuda_bytes": peak_cuda_bytes,
         "warning": "VGGT outputs are uncalibrated machine hypotheses until compared with reviewed camera and geometry truth.",
     }
     (output_dir / "vggt_report.json").write_text(json.dumps(report, indent=2), encoding="utf-8")
-    del predictions, images, model
+    model = None
+    images = None
+    batched_images = None
+    aggregated_tokens = None
+    patch_start_idx = None
+    pose_enc = None
+    predictions = None
+    depth = None
+    depth_conf = None
+    world_points = None
+    world_points_conf = None
+    extrinsic = None
+    intrinsic = None
     gc.collect()
     if device == "cuda":
         torch.cuda.empty_cache()

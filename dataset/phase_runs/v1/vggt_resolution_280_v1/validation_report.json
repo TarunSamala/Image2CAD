@@ -1,0 +1,29 @@
+{
+  "schema_version": "vggt_multiring_cross_view_validation_v1",
+  "dataset": "STL-1",
+  "object_count": 1,
+  "objects": [
+    {
+      "object_id": "ring_001",
+      "split": "train",
+      "mean_leave_one_view_out_iou": 0.254092,
+      "minimum_leave_one_view_out_iou": 0.106872,
+      "mean_partial_surface_precision": 0.652159,
+      "mean_surface_completion_recall": 0.284029,
+      "retention_fraction": 0.632564,
+      "decision": "rejected_as_cross_view_reconstruction_geometry",
+      "artifacts": {
+        "supported_cloud": "dataset/phase_runs/v1/vggt_resolution_280_v1/ring_001/ring_001_cross_view_supported.ply",
+        "filter_preview": "dataset/phase_runs/v1/vggt_resolution_280_v1/ring_001/ring_001_cross_view_filter_review.png",
+        "reprojection_preview": "dataset/phase_runs/v1/vggt_resolution_280_v1/ring_001/ring_001_cross_view_reprojection.png"
+      }
+    }
+  ],
+  "accepted_object_count": 0,
+  "decision": "research_only",
+  "claims": {
+    "dataset_generalization_validated": false,
+    "cross_view_geometry_validated": false,
+    "manufacturing_accuracy_validated": false
+  }
+}

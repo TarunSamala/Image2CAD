@@ -1,0 +1,455 @@
+{
+  "schema_version": "vggt_resolution_ladder_v1",
+  "dataset": "STL-1",
+  "resolutions": [
+    {
+      "resolution": 224,
+      "directory": "vggt_multiring_224_v1",
+      "object_count": 3,
+      "complete_representative_cohort": true,
+      "peak_cuda_gib": 2.585364,
+      "mean_elapsed_seconds": 19.153633,
+      "objects": {
+        "ring_001": {
+          "object_id": "ring_001",
+          "split": "train",
+          "mean_leave_one_view_out_iou": 0.156287,
+          "minimum_leave_one_view_out_iou": 0.027439,
+          "mean_partial_surface_precision": 0.563359,
+          "mean_surface_completion_recall": 0.17418,
+          "retention_fraction": 0.347117,
+          "decision": "rejected_as_cross_view_reconstruction_geometry",
+          "artifacts": {
+            "supported_cloud": "dataset/phase_runs/v1/vggt_multiring_224_v1/ring_001/ring_001_cross_view_supported.ply",
+            "filter_preview": "dataset/phase_runs/v1/vggt_multiring_224_v1/ring_001/ring_001_cross_view_filter_review.png",
+            "reprojection_preview": "dataset/phase_runs/v1/vggt_multiring_224_v1/ring_001/ring_001_cross_view_reprojection.png"
+          }
+        },
+        "ring_007": {
+          "object_id": "ring_007",
+          "split": "test",
+          "mean_leave_one_view_out_iou": 0.158126,
+          "minimum_leave_one_view_out_iou": 0.078213,
+          "mean_partial_surface_precision": 0.476176,
+          "mean_surface_completion_recall": 0.189049,
+          "retention_fraction": 0.659944,
+          "decision": "rejected_as_cross_view_reconstruction_geometry",
+          "artifacts": {
+            "supported_cloud": "dataset/phase_runs/v1/vggt_multiring_224_v1/ring_007/ring_007_cross_view_supported.ply",
+            "filter_preview": "dataset/phase_runs/v1/vggt_multiring_224_v1/ring_007/ring_007_cross_view_filter_review.png",
+            "reprojection_preview": "dataset/phase_runs/v1/vggt_multiring_224_v1/ring_007/ring_007_cross_view_reprojection.png"
+          }
+        },
+        "ring_023": {
+          "object_id": "ring_023",
+          "split": "test",
+          "mean_leave_one_view_out_iou": 0.105821,
+          "minimum_leave_one_view_out_iou": 0.046675,
+          "mean_partial_surface_precision": 0.459084,
+          "mean_surface_completion_recall": 0.121199,
+          "retention_fraction": 0.461069,
+          "decision": "rejected_as_cross_view_reconstruction_geometry",
+          "artifacts": {
+            "supported_cloud": "dataset/phase_runs/v1/vggt_multiring_224_v1/ring_023/ring_023_cross_view_supported.ply",
+            "filter_preview": "dataset/phase_runs/v1/vggt_multiring_224_v1/ring_023/ring_023_cross_view_filter_review.png",
+            "reprojection_preview": "dataset/phase_runs/v1/vggt_multiring_224_v1/ring_023/ring_023_cross_view_reprojection.png"
+          }
+        }
+      },
+      "heldout": {
+        "object_count": 2,
+        "mean_iou": 0.131973,
+        "mean_precision": 0.46763,
+        "mean_recall": 0.155124,
+        "minimum_view_iou": 0.046675
+      }
+    },
+    {
+      "resolution": 280,
+      "directory": "vggt_resolution_280_v1",
+      "object_count": 1,
+      "complete_representative_cohort": false,
+      "peak_cuda_gib": 2.585537,
+      "mean_elapsed_seconds": 31.7681,
+      "objects": {
+        "ring_001": {
+          "object_id": "ring_001",
+          "split": "train",
+          "mean_leave_one_view_out_iou": 0.254092,
+          "minimum_leave_one_view_out_iou": 0.106872,
+          "mean_partial_surface_precision": 0.652159,
+          "mean_surface_completion_recall": 0.284029,
+          "retention_fraction": 0.632564,
+          "decision": "rejected_as_cross_view_reconstruction_geometry",
+          "artifacts": {
+            "supported_cloud": "dataset/phase_runs/v1/vggt_resolution_280_v1/ring_001/ring_001_cross_view_supported.ply",
+            "filter_preview": "dataset/phase_runs/v1/vggt_resolution_280_v1/ring_001/ring_001_cross_view_filter_review.png",
+            "reprojection_preview": "dataset/phase_runs/v1/vggt_resolution_280_v1/ring_001/ring_001_cross_view_reprojection.png"
+          }
+        }
+      },
+      "heldout": {
+        "object_count": 0,
+        "mean_iou": null,
+        "mean_precision": null,
+        "mean_recall": null,
+        "minimum_view_iou": null
+      }
+    },
+    {
+      "resolution": 336,
+      "directory": "vggt_resolution_336_v1",
+      "object_count": 3,
+      "complete_representative_cohort": true,
+      "peak_cuda_gib": 2.785315,
+      "mean_elapsed_seconds": 19.231967,
+      "objects": {
+        "ring_001": {
+          "object_id": "ring_001",
+          "split": "train",
+          "mean_leave_one_view_out_iou": 0.315844,
+          "minimum_leave_one_view_out_iou": 0.159025,
+          "mean_partial_surface_precision": 0.736084,
+          "mean_surface_completion_recall": 0.346375,
+          "retention_fraction": 0.71718,
+          "decision": "rejected_as_cross_view_reconstruction_geometry",
+          "artifacts": {
+            "supported_cloud": "dataset/phase_runs/v1/vggt_resolution_336_v1/ring_001/ring_001_cross_view_supported.ply",
+            "filter_preview": "dataset/phase_runs/v1/vggt_resolution_336_v1/ring_001/ring_001_cross_view_filter_review.png",
+            "reprojection_preview": "dataset/phase_runs/v1/vggt_resolution_336_v1/ring_001/ring_001_cross_view_reprojection.png"
+          }
+        },
+        "ring_007": {
+          "object_id": "ring_007",
+          "split": "test",
+          "mean_leave_one_view_out_iou": 0.304193,
+          "minimum_leave_one_view_out_iou": 0.175223,
+          "mean_partial_surface_precision": 0.732078,
+          "mean_surface_completion_recall": 0.336732,
+          "retention_fraction": 0.807947,
+          "decision": "rejected_as_cross_view_reconstruction_geometry",
+          "artifacts": {
+            "supported_cloud": "dataset/phase_runs/v1/vggt_resolution_336_v1/ring_007/ring_007_cross_view_supported.ply",
+            "filter_preview": "dataset/phase_runs/v1/vggt_resolution_336_v1/ring_007/ring_007_cross_view_filter_review.png",
+            "reprojection_preview": "dataset/phase_runs/v1/vggt_resolution_336_v1/ring_007/ring_007_cross_view_reprojection.png"
+          }
+        },
+        "ring_023": {
+          "object_id": "ring_023",
+          "split": "test",
+          "mean_leave_one_view_out_iou": 0.281185,
+          "minimum_leave_one_view_out_iou": 0.141973,
+          "mean_partial_surface_precision": 0.689203,
+          "mean_surface_completion_recall": 0.315322,
+          "retention_fraction": 0.729483,
+          "decision": "rejected_as_cross_view_reconstruction_geometry",
+          "artifacts": {
+            "supported_cloud": "dataset/phase_runs/v1/vggt_resolution_336_v1/ring_023/ring_023_cross_view_supported.ply",
+            "filter_preview": "dataset/phase_runs/v1/vggt_resolution_336_v1/ring_023/ring_023_cross_view_filter_review.png",
+            "reprojection_preview": "dataset/phase_runs/v1/vggt_resolution_336_v1/ring_023/ring_023_cross_view_reprojection.png"
+          }
+        }
+      },
+      "heldout": {
+        "object_count": 2,
+        "mean_iou": 0.292689,
+        "mean_precision": 0.710641,
+        "mean_recall": 0.326027,
+        "minimum_view_iou": 0.141973
+      }
+    },
+    {
+      "resolution": 448,
+      "directory": "vggt_resolution_448_v1",
+      "object_count": 3,
+      "complete_representative_cohort": true,
+      "peak_cuda_gib": 3.117734,
+      "mean_elapsed_seconds": 18.357067,
+      "objects": {
+        "ring_001": {
+          "object_id": "ring_001",
+          "split": "train",
+          "mean_leave_one_view_out_iou": 0.527372,
+          "minimum_leave_one_view_out_iou": 0.452892,
+          "mean_partial_surface_precision": 0.868581,
+          "mean_surface_completion_recall": 0.574478,
+          "retention_fraction": 0.820515,
+          "decision": "rejected_as_cross_view_reconstruction_geometry",
+          "artifacts": {
+            "supported_cloud": "dataset/phase_runs/v1/vggt_resolution_448_v1/ring_001/ring_001_cross_view_supported.ply",
+            "filter_preview": "dataset/phase_runs/v1/vggt_resolution_448_v1/ring_001/ring_001_cross_view_filter_review.png",
+            "reprojection_preview": "dataset/phase_runs/v1/vggt_resolution_448_v1/ring_001/ring_001_cross_view_reprojection.png"
+          }
+        },
+        "ring_007": {
+          "object_id": "ring_007",
+          "split": "test",
+          "mean_leave_one_view_out_iou": 0.446808,
+          "minimum_leave_one_view_out_iou": 0.37166,
+          "mean_partial_surface_precision": 0.821136,
+          "mean_surface_completion_recall": 0.496405,
+          "retention_fraction": 0.839563,
+          "decision": "rejected_as_cross_view_reconstruction_geometry",
+          "artifacts": {
+            "supported_cloud": "dataset/phase_runs/v1/vggt_resolution_448_v1/ring_007/ring_007_cross_view_supported.ply",
+            "filter_preview": "dataset/phase_runs/v1/vggt_resolution_448_v1/ring_007/ring_007_cross_view_filter_review.png",
+            "reprojection_preview": "dataset/phase_runs/v1/vggt_resolution_448_v1/ring_007/ring_007_cross_view_reprojection.png"
+          }
+        },
+        "ring_023": {
+          "object_id": "ring_023",
+          "split": "test",
+          "mean_leave_one_view_out_iou": 0.454104,
+          "minimum_leave_one_view_out_iou": 0.265881,
+          "mean_partial_surface_precision": 0.853634,
+          "mean_surface_completion_recall": 0.492705,
+          "retention_fraction": 0.762226,
+          "decision": "rejected_as_cross_view_reconstruction_geometry",
+          "artifacts": {
+            "supported_cloud": "dataset/phase_runs/v1/vggt_resolution_448_v1/ring_023/ring_023_cross_view_supported.ply",
+            "filter_preview": "dataset/phase_runs/v1/vggt_resolution_448_v1/ring_023/ring_023_cross_view_filter_review.png",
+            "reprojection_preview": "dataset/phase_runs/v1/vggt_resolution_448_v1/ring_023/ring_023_cross_view_reprojection.png"
+          }
+        }
+      },
+      "heldout": {
+        "object_count": 2,
+        "mean_iou": 0.450456,
+        "mean_precision": 0.837385,
+        "mean_recall": 0.494555,
+        "minimum_view_iou": 0.265881
+      }
+    },
+    {
+      "resolution": 518,
+      "directory": "vggt_resolution_518_v1",
+      "object_count": 3,
+      "complete_representative_cohort": true,
+      "peak_cuda_gib": 3.122904,
+      "mean_elapsed_seconds": 18.187733,
+      "objects": {
+        "ring_001": {
+          "object_id": "ring_001",
+          "split": "train",
+          "mean_leave_one_view_out_iou": 0.581174,
+          "minimum_leave_one_view_out_iou": 0.431704,
+          "mean_partial_surface_precision": 0.864508,
+          "mean_surface_completion_recall": 0.640345,
+          "retention_fraction": 0.845794,
+          "decision": "rejected_as_cross_view_reconstruction_geometry",
+          "artifacts": {
+            "supported_cloud": "dataset/phase_runs/v1/vggt_resolution_518_v1/ring_001/ring_001_cross_view_supported.ply",
+            "filter_preview": "dataset/phase_runs/v1/vggt_resolution_518_v1/ring_001/ring_001_cross_view_filter_review.png",
+            "reprojection_preview": "dataset/phase_runs/v1/vggt_resolution_518_v1/ring_001/ring_001_cross_view_reprojection.png"
+          }
+        },
+        "ring_007": {
+          "object_id": "ring_007",
+          "split": "test",
+          "mean_leave_one_view_out_iou": 0.508414,
+          "minimum_leave_one_view_out_iou": 0.390917,
+          "mean_partial_surface_precision": 0.850474,
+          "mean_surface_completion_recall": 0.559026,
+          "retention_fraction": 0.827377,
+          "decision": "rejected_as_cross_view_reconstruction_geometry",
+          "artifacts": {
+            "supported_cloud": "dataset/phase_runs/v1/vggt_resolution_518_v1/ring_007/ring_007_cross_view_supported.ply",
+            "filter_preview": "dataset/phase_runs/v1/vggt_resolution_518_v1/ring_007/ring_007_cross_view_filter_review.png",
+            "reprojection_preview": "dataset/phase_runs/v1/vggt_resolution_518_v1/ring_007/ring_007_cross_view_reprojection.png"
+          }
+        },
+        "ring_023": {
+          "object_id": "ring_023",
+          "split": "test",
+          "mean_leave_one_view_out_iou": 0.475301,
+          "minimum_leave_one_view_out_iou": 0.232783,
+          "mean_partial_surface_precision": 0.837367,
+          "mean_surface_completion_recall": 0.523166,
+          "retention_fraction": 0.746468,
+          "decision": "rejected_as_cross_view_reconstruction_geometry",
+          "artifacts": {
+            "supported_cloud": "dataset/phase_runs/v1/vggt_resolution_518_v1/ring_023/ring_023_cross_view_supported.ply",
+            "filter_preview": "dataset/phase_runs/v1/vggt_resolution_518_v1/ring_023/ring_023_cross_view_filter_review.png",
+            "reprojection_preview": "dataset/phase_runs/v1/vggt_resolution_518_v1/ring_023/ring_023_cross_view_reprojection.png"
+          }
+        }
+      },
+      "heldout": {
+        "object_count": 2,
+        "mean_iou": 0.491858,
+        "mean_precision": 0.84392,
+        "mean_recall": 0.541096,
+        "minimum_view_iou": 0.232783
+      }
+    }
+  ],
+  "validation_selection": {
+    "object_ids": [
+      "ring_004",
+      "ring_012",
+      "ring_020"
+    ],
+    "candidates": [
+      {
+        "resolution": 448,
+        "directory": "vggt_resolution_448_validation_v1",
+        "object_ids": [
+          "ring_004",
+          "ring_012",
+          "ring_020"
+        ],
+        "all_objects_from_validation_split": true,
+        "complete_validation_cohort": true,
+        "mean_iou": 0.428126,
+        "mean_precision": 0.831857,
+        "mean_recall": 0.466591,
+        "minimum_view_iou": 0.142292,
+        "peak_cuda_gib": 2.930645,
+        "objects": {
+          "ring_004": {
+            "object_id": "ring_004",
+            "split": "val",
+            "mean_leave_one_view_out_iou": 0.463859,
+            "minimum_leave_one_view_out_iou": 0.347209,
+            "mean_partial_surface_precision": 0.846469,
+            "mean_surface_completion_recall": 0.507737,
+            "retention_fraction": 0.741696,
+            "decision": "rejected_as_cross_view_reconstruction_geometry",
+            "artifacts": {
+              "supported_cloud": "dataset/phase_runs/v1/vggt_resolution_448_validation_v1/ring_004/ring_004_cross_view_supported.ply",
+              "filter_preview": "dataset/phase_runs/v1/vggt_resolution_448_validation_v1/ring_004/ring_004_cross_view_filter_review.png",
+              "reprojection_preview": "dataset/phase_runs/v1/vggt_resolution_448_validation_v1/ring_004/ring_004_cross_view_reprojection.png"
+            }
+          },
+          "ring_012": {
+            "object_id": "ring_012",
+            "split": "val",
+            "mean_leave_one_view_out_iou": 0.456376,
+            "minimum_leave_one_view_out_iou": 0.318558,
+            "mean_partial_surface_precision": 0.816325,
+            "mean_surface_completion_recall": 0.509448,
+            "retention_fraction": 0.796563,
+            "decision": "rejected_as_cross_view_reconstruction_geometry",
+            "artifacts": {
+              "supported_cloud": "dataset/phase_runs/v1/vggt_resolution_448_validation_v1/ring_012/ring_012_cross_view_supported.ply",
+              "filter_preview": "dataset/phase_runs/v1/vggt_resolution_448_validation_v1/ring_012/ring_012_cross_view_filter_review.png",
+              "reprojection_preview": "dataset/phase_runs/v1/vggt_resolution_448_validation_v1/ring_012/ring_012_cross_view_reprojection.png"
+            }
+          },
+          "ring_020": {
+            "object_id": "ring_020",
+            "split": "val",
+            "mean_leave_one_view_out_iou": 0.364144,
+            "minimum_leave_one_view_out_iou": 0.142292,
+            "mean_partial_surface_precision": 0.832778,
+            "mean_surface_completion_recall": 0.382589,
+            "retention_fraction": 0.586606,
+            "decision": "rejected_as_cross_view_reconstruction_geometry",
+            "artifacts": {
+              "supported_cloud": "dataset/phase_runs/v1/vggt_resolution_448_validation_v1/ring_020/ring_020_cross_view_supported.ply",
+              "filter_preview": "dataset/phase_runs/v1/vggt_resolution_448_validation_v1/ring_020/ring_020_cross_view_filter_review.png",
+              "reprojection_preview": "dataset/phase_runs/v1/vggt_resolution_448_validation_v1/ring_020/ring_020_cross_view_reprojection.png"
+            }
+          }
+        }
+      },
+      {
+        "resolution": 518,
+        "directory": "vggt_resolution_518_validation_v1",
+        "object_ids": [
+          "ring_004",
+          "ring_012",
+          "ring_020"
+        ],
+        "all_objects_from_validation_split": true,
+        "complete_validation_cohort": true,
+        "mean_iou": 0.481936,
+        "mean_precision": 0.849426,
+        "mean_recall": 0.526905,
+        "minimum_view_iou": 0.185475,
+        "peak_cuda_gib": 3.122904,
+        "objects": {
+          "ring_004": {
+            "object_id": "ring_004",
+            "split": "val",
+            "mean_leave_one_view_out_iou": 0.502093,
+            "minimum_leave_one_view_out_iou": 0.304442,
+            "mean_partial_surface_precision": 0.868636,
+            "mean_surface_completion_recall": 0.545699,
+            "retention_fraction": 0.718545,
+            "decision": "rejected_as_cross_view_reconstruction_geometry",
+            "artifacts": {
+              "supported_cloud": "dataset/phase_runs/v1/vggt_resolution_518_validation_v1/ring_004/ring_004_cross_view_supported.ply",
+              "filter_preview": "dataset/phase_runs/v1/vggt_resolution_518_validation_v1/ring_004/ring_004_cross_view_filter_review.png",
+              "reprojection_preview": "dataset/phase_runs/v1/vggt_resolution_518_validation_v1/ring_004/ring_004_cross_view_reprojection.png"
+            }
+          },
+          "ring_012": {
+            "object_id": "ring_012",
+            "split": "val",
+            "mean_leave_one_view_out_iou": 0.502757,
+            "minimum_leave_one_view_out_iou": 0.279614,
+            "mean_partial_surface_precision": 0.821006,
+            "mean_surface_completion_recall": 0.564615,
+            "retention_fraction": 0.814937,
+            "decision": "rejected_as_cross_view_reconstruction_geometry",
+            "artifacts": {
+              "supported_cloud": "dataset/phase_runs/v1/vggt_resolution_518_validation_v1/ring_012/ring_012_cross_view_supported.ply",
+              "filter_preview": "dataset/phase_runs/v1/vggt_resolution_518_validation_v1/ring_012/ring_012_cross_view_filter_review.png",
+              "reprojection_preview": "dataset/phase_runs/v1/vggt_resolution_518_validation_v1/ring_012/ring_012_cross_view_reprojection.png"
+            }
+          },
+          "ring_020": {
+            "object_id": "ring_020",
+            "split": "val",
+            "mean_leave_one_view_out_iou": 0.440958,
+            "minimum_leave_one_view_out_iou": 0.185475,
+            "mean_partial_surface_precision": 0.858636,
+            "mean_surface_completion_recall": 0.470401,
+            "retention_fraction": 0.629675,
+            "decision": "rejected_as_cross_view_reconstruction_geometry",
+            "artifacts": {
+              "supported_cloud": "dataset/phase_runs/v1/vggt_resolution_518_validation_v1/ring_020/ring_020_cross_view_supported.ply",
+              "filter_preview": "dataset/phase_runs/v1/vggt_resolution_518_validation_v1/ring_020/ring_020_cross_view_filter_review.png",
+              "reprojection_preview": "dataset/phase_runs/v1/vggt_resolution_518_validation_v1/ring_020/ring_020_cross_view_reprojection.png"
+            }
+          }
+        }
+      }
+    ],
+    "selected_resolution": 518,
+    "selected_mean_iou": 0.481936,
+    "selection_rule": "highest mean IoU across three validation-split objects under 4 GiB peak CUDA allocation"
+  },
+  "selected_resolution": 518,
+  "selected_configuration": "vggt_resolution_518_v1",
+  "heldout_change_from_224": {
+    "mean_iou": 0.359885,
+    "mean_precision": 0.37629,
+    "mean_recall": 0.385972
+  },
+  "checks": {
+    "selection_uses_validation_split_only": true,
+    "all_selection_objects_are_validation_split": true,
+    "selected_run_below_four_gib": true,
+    "selected_run_improves_heldout_mean_iou": true,
+    "all_selected_objects_pass_geometry_gate": false
+  },
+  "decision": "selected_as_research_baseline_not_validated_geometry",
+  "artifacts": {
+    "metric_chart": "dataset/phase_runs/v1/vggt_resolution_ladder_v1/vggt_resolution_ladder.png",
+    "visual_comparison": "dataset/phase_runs/v1/vggt_resolution_ladder_v1/vggt_224_vs_518_reprojection.jpg"
+  },
+  "claims": {
+    "cross_view_geometry_validated": false,
+    "hidden_surface_completion_validated": false,
+    "manufacturing_accuracy_validated": false
+  },
+  "limitations": [
+    "Resolution was selected on three STL-1 validation objects, not a broad external multi-view dataset.",
+    "The test outputs were observed during the exploratory ladder before validation-based selection; a new external multi-view cohort is still required for a final unbiased estimate.",
+    "Higher projected coverage does not infer surfaces absent from every source view.",
+    "The selected 518 px run still fails the 0.80 mean and 0.70 minimum geometry gate.",
+    "All coordinates remain relative and non-metric."
+  ]
+}

@@ -1,0 +1,579 @@
+{
+  "schema_version": "vggt_signed_depth_free_space_carving_v1",
+  "dataset": "STL-1",
+  "authority": "non_metric_machine_surface_hypothesis",
+  "input_resolution": 518,
+  "voxel_resolution": 96,
+  "surface_distance_fraction": 0.04,
+  "validation_selection": {
+    "object_ids": [
+      "ring_004",
+      "ring_012",
+      "ring_020"
+    ],
+    "candidates": {
+      "0.0025:0": {
+        "mean_iou": 0.755927,
+        "minimum_iou": 0.539438,
+        "mean_precision": 0.930807,
+        "mean_recall": 0.804624
+      },
+      "0.0025:1": {
+        "mean_iou": 0.780605,
+        "minimum_iou": 0.578221,
+        "mean_precision": 0.87521,
+        "mean_recall": 0.881824
+      },
+      "0.0025:2": {
+        "mean_iou": 0.766153,
+        "minimum_iou": 0.566683,
+        "mean_precision": 0.848779,
+        "mean_recall": 0.890286
+      },
+      "0.005:0": {
+        "mean_iou": 0.757719,
+        "minimum_iou": 0.547939,
+        "mean_precision": 0.924834,
+        "mean_recall": 0.811523
+      },
+      "0.005:1": {
+        "mean_iou": 0.779018,
+        "minimum_iou": 0.576405,
+        "mean_precision": 0.871774,
+        "mean_recall": 0.883292
+      },
+      "0.005:2": {
+        "mean_iou": 0.765659,
+        "minimum_iou": 0.566242,
+        "mean_precision": 0.847781,
+        "mean_recall": 0.890648
+      },
+      "0.01:0": {
+        "mean_iou": 0.757938,
+        "minimum_iou": 0.566192,
+        "mean_precision": 0.912945,
+        "mean_recall": 0.821787
+      },
+      "0.01:1": {
+        "mean_iou": 0.776037,
+        "minimum_iou": 0.57315,
+        "mean_precision": 0.86582,
+        "mean_recall": 0.885534
+      },
+      "0.01:2": {
+        "mean_iou": 0.764407,
+        "minimum_iou": 0.565953,
+        "mean_precision": 0.845623,
+        "mean_recall": 0.891208
+      },
+      "0.02:0": {
+        "mean_iou": 0.755063,
+        "minimum_iou": 0.565508,
+        "mean_precision": 0.894518,
+        "mean_recall": 0.834716
+      },
+      "0.02:1": {
+        "mean_iou": 0.769682,
+        "minimum_iou": 0.568702,
+        "mean_precision": 0.855437,
+        "mean_recall": 0.888043
+      },
+      "0.02:2": {
+        "mean_iou": 0.761565,
+        "minimum_iou": 0.565775,
+        "mean_precision": 0.841757,
+        "mean_recall": 0.891574
+      },
+      "0.04:0": {
+        "mean_iou": 0.749326,
+        "minimum_iou": 0.562854,
+        "mean_precision": 0.870808,
+        "mean_recall": 0.849995
+      },
+      "0.04:1": {
+        "mean_iou": 0.762342,
+        "minimum_iou": 0.566215,
+        "mean_precision": 0.844232,
+        "mean_recall": 0.890096
+      },
+      "0.04:2": {
+        "mean_iou": 0.758045,
+        "minimum_iou": 0.565569,
+        "mean_precision": 0.837275,
+        "mean_recall": 0.891779
+      }
+    },
+    "selected_depth_tolerance_fraction": 0.0025,
+    "selected_allowed_source_contradictions": 1,
+    "selection_rule": "highest pooled validation mean IoU"
+  },
+  "validation": {
+    "mean_iou": 0.780605,
+    "minimum_iou": 0.578221,
+    "mean_precision": 0.87521,
+    "mean_recall": 0.881824
+  },
+  "test_evaluation": {
+    "object_ids": [
+      "ring_007",
+      "ring_015",
+      "ring_023"
+    ],
+    "mean_iou": 0.781514,
+    "minimum_iou": 0.529146,
+    "mean_precision": 0.875663,
+    "mean_recall": 0.875165,
+    "mean_delta_over_surface_aware_hull": 0.024201,
+    "mean_delta_over_point_baseline": 0.315867
+  },
+  "objects": [
+    {
+      "object_id": "ring_004",
+      "split": "val",
+      "mean_iou": 0.795195,
+      "minimum_iou": 0.690068,
+      "mean_precision": 0.857316,
+      "mean_recall": 0.922203,
+      "surface_aware_mean_iou": 0.766708,
+      "delta_over_surface_aware_hull": 0.028487,
+      "point_baseline_mean_iou": 0.502093,
+      "delta_over_point_baseline": 0.293102,
+      "views": [
+        {
+          "view": "front",
+          "iou": 0.801104,
+          "precision": 0.939128,
+          "recall": 0.844979,
+          "retained_voxels": 100491,
+          "depth_tolerance": 0.0025,
+          "allowed_source_contradictions": 1
+        },
+        {
+          "view": "top",
+          "iou": 0.690068,
+          "precision": 0.708371,
+          "recall": 0.963909,
+          "retained_voxels": 101950,
+          "depth_tolerance": 0.0025,
+          "allowed_source_contradictions": 1
+        },
+        {
+          "view": "iso",
+          "iou": 0.870256,
+          "precision": 0.911136,
+          "recall": 0.950971,
+          "retained_voxels": 101996,
+          "depth_tolerance": 0.0025,
+          "allowed_source_contradictions": 1
+        },
+        {
+          "view": "lsv",
+          "iou": 0.791209,
+          "precision": 0.873015,
+          "recall": 0.894108,
+          "retained_voxels": 104276,
+          "depth_tolerance": 0.0025,
+          "allowed_source_contradictions": 1
+        },
+        {
+          "view": "rsv",
+          "iou": 0.82334,
+          "precision": 0.85493,
+          "recall": 0.957049,
+          "retained_voxels": 103641,
+          "depth_tolerance": 0.0025,
+          "allowed_source_contradictions": 1
+        }
+      ],
+      "exit_gate_passed": false,
+      "preview": "dataset/phase_runs/v1/vggt_signed_depth_carving_v1/ring_004_signed_depth_carving.png"
+    },
+    {
+      "object_id": "ring_012",
+      "split": "val",
+      "mean_iou": 0.788785,
+      "minimum_iou": 0.650005,
+      "mean_precision": 0.856514,
+      "mean_recall": 0.911226,
+      "surface_aware_mean_iou": 0.75314,
+      "delta_over_surface_aware_hull": 0.035645,
+      "point_baseline_mean_iou": 0.502757,
+      "delta_over_point_baseline": 0.286028,
+      "views": [
+        {
+          "view": "front",
+          "iou": 0.650005,
+          "precision": 0.854145,
+          "recall": 0.731161,
+          "retained_voxels": 59755,
+          "depth_tolerance": 0.0025,
+          "allowed_source_contradictions": 1
+        },
+        {
+          "view": "top",
+          "iou": 0.695775,
+          "precision": 0.711801,
+          "recall": 0.968655,
+          "retained_voxels": 73063,
+          "depth_tolerance": 0.0025,
+          "allowed_source_contradictions": 1
+        },
+        {
+          "view": "iso",
+          "iou": 0.860071,
+          "precision": 0.906188,
+          "recall": 0.944135,
+          "retained_voxels": 67555,
+          "depth_tolerance": 0.0025,
+          "allowed_source_contradictions": 1
+        },
+        {
+          "view": "lsv",
+          "iou": 0.86622,
+          "precision": 0.898586,
+          "recall": 0.960078,
+          "retained_voxels": 65575,
+          "depth_tolerance": 0.0025,
+          "allowed_source_contradictions": 1
+        },
+        {
+          "view": "rsv",
+          "iou": 0.871855,
+          "precision": 0.911849,
+          "recall": 0.952103,
+          "retained_voxels": 64261,
+          "depth_tolerance": 0.0025,
+          "allowed_source_contradictions": 1
+        }
+      ],
+      "exit_gate_passed": false,
+      "preview": "dataset/phase_runs/v1/vggt_signed_depth_carving_v1/ring_012_signed_depth_carving.png"
+    },
+    {
+      "object_id": "ring_020",
+      "split": "val",
+      "mean_iou": 0.757834,
+      "minimum_iou": 0.578221,
+      "mean_precision": 0.911801,
+      "mean_recall": 0.812043,
+      "surface_aware_mean_iou": 0.750821,
+      "delta_over_surface_aware_hull": 0.007014,
+      "point_baseline_mean_iou": 0.440958,
+      "delta_over_point_baseline": 0.316876,
+      "views": [
+        {
+          "view": "front",
+          "iou": 0.735653,
+          "precision": 0.939663,
+          "recall": 0.772126,
+          "retained_voxels": 97467,
+          "depth_tolerance": 0.0025,
+          "allowed_source_contradictions": 1
+        },
+        {
+          "view": "top",
+          "iou": 0.578221,
+          "precision": 0.769485,
+          "recall": 0.699364,
+          "retained_voxels": 99525,
+          "depth_tolerance": 0.0025,
+          "allowed_source_contradictions": 1
+        },
+        {
+          "view": "iso",
+          "iou": 0.811879,
+          "precision": 0.959287,
+          "recall": 0.840852,
+          "retained_voxels": 112214,
+          "depth_tolerance": 0.0025,
+          "allowed_source_contradictions": 1
+        },
+        {
+          "view": "lsv",
+          "iou": 0.775292,
+          "precision": 0.944861,
+          "recall": 0.812031,
+          "retained_voxels": 100226,
+          "depth_tolerance": 0.0025,
+          "allowed_source_contradictions": 1
+        },
+        {
+          "view": "rsv",
+          "iou": 0.888127,
+          "precision": 0.945707,
+          "recall": 0.935844,
+          "retained_voxels": 110253,
+          "depth_tolerance": 0.0025,
+          "allowed_source_contradictions": 1
+        }
+      ],
+      "exit_gate_passed": false,
+      "preview": "dataset/phase_runs/v1/vggt_signed_depth_carving_v1/ring_020_signed_depth_carving.png"
+    },
+    {
+      "object_id": "ring_001",
+      "split": "train",
+      "mean_iou": 0.810968,
+      "minimum_iou": 0.666961,
+      "mean_precision": 0.856915,
+      "mean_recall": 0.940202,
+      "surface_aware_mean_iou": 0.781919,
+      "delta_over_surface_aware_hull": 0.029049,
+      "point_baseline_mean_iou": 0.581174,
+      "delta_over_point_baseline": 0.229794,
+      "views": [
+        {
+          "view": "front",
+          "iou": 0.807477,
+          "precision": 0.889068,
+          "recall": 0.897947,
+          "retained_voxels": 80250,
+          "depth_tolerance": 0.0025,
+          "allowed_source_contradictions": 1
+        },
+        {
+          "view": "top",
+          "iou": 0.666961,
+          "precision": 0.685507,
+          "recall": 0.961018,
+          "retained_voxels": 82618,
+          "depth_tolerance": 0.0025,
+          "allowed_source_contradictions": 1
+        },
+        {
+          "view": "iso",
+          "iou": 0.862379,
+          "precision": 0.915837,
+          "recall": 0.936606,
+          "retained_voxels": 76474,
+          "depth_tolerance": 0.0025,
+          "allowed_source_contradictions": 1
+        },
+        {
+          "view": "lsv",
+          "iou": 0.841409,
+          "precision": 0.888328,
+          "recall": 0.940936,
+          "retained_voxels": 77895,
+          "depth_tolerance": 0.0025,
+          "allowed_source_contradictions": 1
+        },
+        {
+          "view": "rsv",
+          "iou": 0.876612,
+          "precision": 0.905836,
+          "recall": 0.964504,
+          "retained_voxels": 77846,
+          "depth_tolerance": 0.0025,
+          "allowed_source_contradictions": 1
+        }
+      ],
+      "exit_gate_passed": false,
+      "preview": "dataset/phase_runs/v1/vggt_signed_depth_carving_v1/ring_001_signed_depth_carving.png"
+    },
+    {
+      "object_id": "ring_007",
+      "split": "test",
+      "mean_iou": 0.814251,
+      "minimum_iou": 0.711588,
+      "mean_precision": 0.889596,
+      "mean_recall": 0.904744,
+      "surface_aware_mean_iou": 0.785757,
+      "delta_over_surface_aware_hull": 0.028494,
+      "point_baseline_mean_iou": 0.508414,
+      "delta_over_point_baseline": 0.305837,
+      "views": [
+        {
+          "view": "front",
+          "iou": 0.833036,
+          "precision": 0.913228,
+          "recall": 0.90464,
+          "retained_voxels": 74849,
+          "depth_tolerance": 0.0025,
+          "allowed_source_contradictions": 1
+        },
+        {
+          "view": "top",
+          "iou": 0.711588,
+          "precision": 0.795628,
+          "recall": 0.870747,
+          "retained_voxels": 66435,
+          "depth_tolerance": 0.0025,
+          "allowed_source_contradictions": 1
+        },
+        {
+          "view": "iso",
+          "iou": 0.845328,
+          "precision": 0.939047,
+          "recall": 0.894403,
+          "retained_voxels": 75880,
+          "depth_tolerance": 0.0025,
+          "allowed_source_contradictions": 1
+        },
+        {
+          "view": "lsv",
+          "iou": 0.811124,
+          "precision": 0.894413,
+          "recall": 0.897018,
+          "retained_voxels": 78285,
+          "depth_tolerance": 0.0025,
+          "allowed_source_contradictions": 1
+        },
+        {
+          "view": "rsv",
+          "iou": 0.870177,
+          "precision": 0.905663,
+          "recall": 0.956912,
+          "retained_voxels": 75066,
+          "depth_tolerance": 0.0025,
+          "allowed_source_contradictions": 1
+        }
+      ],
+      "exit_gate_passed": true,
+      "preview": "dataset/phase_runs/v1/vggt_signed_depth_carving_v1/ring_007_signed_depth_carving.png"
+    },
+    {
+      "object_id": "ring_015",
+      "split": "test",
+      "mean_iou": 0.750737,
+      "minimum_iou": 0.529146,
+      "mean_precision": 0.85721,
+      "mean_recall": 0.851749,
+      "surface_aware_mean_iou": 0.733347,
+      "delta_over_surface_aware_hull": 0.017391,
+      "point_baseline_mean_iou": 0.413225,
+      "delta_over_point_baseline": 0.337512,
+      "views": [
+        {
+          "view": "front",
+          "iou": 0.774942,
+          "precision": 0.953593,
+          "recall": 0.805312,
+          "retained_voxels": 79525,
+          "depth_tolerance": 0.0025,
+          "allowed_source_contradictions": 1
+        },
+        {
+          "view": "top",
+          "iou": 0.529146,
+          "precision": 0.639807,
+          "recall": 0.753655,
+          "retained_voxels": 85141,
+          "depth_tolerance": 0.0025,
+          "allowed_source_contradictions": 1
+        },
+        {
+          "view": "iso",
+          "iou": 0.851111,
+          "precision": 0.911479,
+          "recall": 0.927801,
+          "retained_voxels": 90522,
+          "depth_tolerance": 0.0025,
+          "allowed_source_contradictions": 1
+        },
+        {
+          "view": "lsv",
+          "iou": 0.77692,
+          "precision": 0.881934,
+          "recall": 0.867106,
+          "retained_voxels": 84411,
+          "depth_tolerance": 0.0025,
+          "allowed_source_contradictions": 1
+        },
+        {
+          "view": "rsv",
+          "iou": 0.821568,
+          "precision": 0.899235,
+          "recall": 0.904872,
+          "retained_voxels": 85144,
+          "depth_tolerance": 0.0025,
+          "allowed_source_contradictions": 1
+        }
+      ],
+      "exit_gate_passed": false,
+      "preview": "dataset/phase_runs/v1/vggt_signed_depth_carving_v1/ring_015_signed_depth_carving.png"
+    },
+    {
+      "object_id": "ring_023",
+      "split": "test",
+      "mean_iou": 0.779554,
+      "minimum_iou": 0.644394,
+      "mean_precision": 0.880182,
+      "mean_recall": 0.869001,
+      "surface_aware_mean_iou": 0.752835,
+      "delta_over_surface_aware_hull": 0.026718,
+      "point_baseline_mean_iou": 0.475301,
+      "delta_over_point_baseline": 0.304253,
+      "views": [
+        {
+          "view": "front",
+          "iou": 0.64876,
+          "precision": 0.886478,
+          "recall": 0.707543,
+          "retained_voxels": 75759,
+          "depth_tolerance": 0.0025,
+          "allowed_source_contradictions": 1
+        },
+        {
+          "view": "top",
+          "iou": 0.644394,
+          "precision": 0.742602,
+          "recall": 0.829719,
+          "retained_voxels": 94246,
+          "depth_tolerance": 0.0025,
+          "allowed_source_contradictions": 1
+        },
+        {
+          "view": "iso",
+          "iou": 0.893028,
+          "precision": 0.926991,
+          "recall": 0.96059,
+          "retained_voxels": 87185,
+          "depth_tolerance": 0.0025,
+          "allowed_source_contradictions": 1
+        },
+        {
+          "view": "lsv",
+          "iou": 0.853167,
+          "precision": 0.946402,
+          "recall": 0.896483,
+          "retained_voxels": 81112,
+          "depth_tolerance": 0.0025,
+          "allowed_source_contradictions": 1
+        },
+        {
+          "view": "rsv",
+          "iou": 0.85842,
+          "precision": 0.898438,
+          "recall": 0.950671,
+          "retained_voxels": 87440,
+          "depth_tolerance": 0.0025,
+          "allowed_source_contradictions": 1
+        }
+      ],
+      "exit_gate_passed": false,
+      "preview": "dataset/phase_runs/v1/vggt_signed_depth_carving_v1/ring_023_signed_depth_carving.png"
+    }
+  ],
+  "checks": {
+    "selection_uses_validation_split_only": true,
+    "target_mask_and_points_excluded_from_reconstruction": true,
+    "all_test_objects_improve_over_surface_aware_hull": true,
+    "geometry_exit_gate_passed": false
+  },
+  "decision": "retained_as_depth_carving_prior_not_approved_geometry",
+  "claims": {
+    "strict_target_image_holdout": false,
+    "metric_scale_validated": false,
+    "depth_accuracy_validated": false,
+    "hidden_surface_truth_validated": false,
+    "component_topology_validated": false,
+    "manufacturing_accuracy_validated": false
+  },
+  "limitations": [
+    "VGGT camera and depth hypotheses are jointly conditioned on all five images even though target masks and target points are excluded from reconstruction.",
+    "Depth is relative and internally consistent, not calibrated in millimetres.",
+    "Allowing one source contradiction is validation-selected robustness to reflective and independently rendered views, not proof that the contradicted view is wrong.",
+    "Free-space carving cannot reconstruct hidden geometry absent from every supplied view."
+  ]
+}

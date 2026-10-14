@@ -607,7 +607,7 @@
                   <a class="button secondary" href="/api/artifacts/vggt_multiring_refinement_report">Refinement report</a>
                 </div>
               </div>
-              <p class="subtle">Each score excludes the target view and reprojects geometry inferred from the other four views. This avoids self-view leakage.</p>
+              <p class="subtle">Each score excludes the target point map from reprojection. VGGT cameras are still inferred jointly from all five images, so this is a leave-one-surface-out diagnostic rather than a strict target-image holdout.</p>
               <div id="vggt-multiring-status" class="key-value-list"></div>
               <div class="two-column phase1-evidence-grid">
                 <figure><img class="wide-evidence" src="/api/artifacts/vggt_ring_001_reprojection" alt="Ring 001 VGGT leave-one-view-out reprojection"><figcaption>Ring 001 · sculptural face · train split</figcaption></figure>
@@ -634,6 +634,77 @@
                 <figure><img class="wide-evidence" src="/api/artifacts/semantic_ring_007_holdout" alt="Ring 007 semantic-axis holdout"><figcaption>Ring 007 · semantic-axis holdout</figcaption></figure>
                 <figure><img class="wide-evidence" src="/api/artifacts/semantic_ring_023_holdout" alt="Ring 023 semantic-axis holdout"><figcaption>Ring 023 · semantic-axis holdout</figcaption></figure>
                 <figure><img class="wide-evidence" src="/api/artifacts/semantic_ring_001_reprojection" alt="Rejected Ring 001 semantic camera snap"><figcaption>Naive semantic snap · rejected after visual and metric validation</figcaption></figure>
+              </div>
+            </article>
+            <article class="evidence-card">
+              <div class="card-heading">
+                <div>
+                  <p class="eyebrow">PHASE 3 / VGGT RESOLUTION LADDER</p>
+                  <h3>Held-out resolution and view-transfer validation</h3>
+                </div>
+                <div class="button-row">
+                  <a class="button secondary" href="/api/artifacts/vggt_resolution_ladder_report">Resolution report</a>
+                  <a class="button secondary" href="/api/artifacts/vggt_view_transfer_report">View-transfer report</a>
+                </div>
+              </div>
+              <p class="subtle">The 518 px setting was selected from a 224–518 px ladder using three validation-split rings, then extended to all three test rings. It improves projected surface evidence substantially, but it still fails the Phase 3 geometry gate and remains non-metric research evidence.</p>
+              <div id="vggt-resolution-status" class="key-value-list"></div>
+              <figure><img class="wide-evidence" src="/api/artifacts/vggt_resolution_ladder_chart" alt="VGGT resolution ladder metrics"><figcaption>Resolution, held-out transfer and CUDA-memory comparison</figcaption></figure>
+              <figure><img class="wide-evidence" src="/api/artifacts/vggt_resolution_visual_comparison" alt="VGGT 224 and 518 pixel reprojection comparison"><figcaption>224 px baseline versus selected 518 px research baseline</figcaption></figure>
+              <figure><img class="wide-evidence" src="/api/artifacts/vggt_view_transfer_ring_007" alt="Rejected train-learned view-transfer policy"><figcaption>Train-learned source-view selection · rejected on held-out rings</figcaption></figure>
+            </article>
+            <article class="evidence-card">
+              <div class="card-heading">
+                <div>
+                  <p class="eyebrow">PHASE 3 / SILHOUETTE COMPLETION</p>
+                  <h3>Four-view camera-space visual hull</h3>
+                </div>
+                <a class="button secondary" href="/api/artifacts/vggt_visual_hull_completion_report">Completion report</a>
+              </div>
+              <p class="subtle">The target silhouette is excluded while the other four silhouettes are intersected using VGGT camera hypotheses. This improves outer-shape completion, but filled silhouettes do not reconstruct local relief, holes, cavities or editable CAD topology.</p>
+              <div id="vggt-visual-hull-status" class="key-value-list"></div>
+              <div class="two-column phase1-evidence-grid">
+                <figure><img class="wide-evidence" src="/api/artifacts/vggt_visual_hull_ring_004" alt="Ring 004 validation visual hull completion"><figcaption>Ring 004 · validation split</figcaption></figure>
+                <figure><img class="wide-evidence" src="/api/artifacts/vggt_visual_hull_ring_020" alt="Ring 020 sculptural validation visual hull completion"><figcaption>Ring 020 · sculptural validation case</figcaption></figure>
+                <figure><img class="wide-evidence" src="/api/artifacts/vggt_visual_hull_ring_007" alt="Ring 007 test visual hull completion"><figcaption>Ring 007 · test split</figcaption></figure>
+                <figure><img class="wide-evidence" src="/api/artifacts/vggt_visual_hull_ring_015" alt="Ring 015 test visual hull completion"><figcaption>Ring 015 · test split</figcaption></figure>
+                <figure><img class="wide-evidence" src="/api/artifacts/vggt_visual_hull_ring_023" alt="Ring 023 test visual hull completion"><figcaption>Ring 023 · test split</figcaption></figure>
+              </div>
+            </article>
+            <article class="evidence-card">
+              <div class="card-heading">
+                <div>
+                  <p class="eyebrow">PHASE 3 / SURFACE-AWARE CARVING</p>
+                  <h3>Visible surfaces constrained inside the visual hull</h3>
+                </div>
+                <a class="button secondary" href="/api/artifacts/vggt_surface_aware_hull_report">Surface report</a>
+              </div>
+              <p class="subtle">Voxels must satisfy all four source silhouettes and remain near a source-view VGGT surface. This restores more negative space and improves the weakest views, but inferred openings and internal topology are still uncertain.</p>
+              <div id="vggt-surface-hull-status" class="key-value-list"></div>
+              <div class="two-column phase1-evidence-grid">
+                <figure><img class="wide-evidence" src="/api/artifacts/vggt_surface_hull_ring_004" alt="Ring 004 validation surface-aware hull"><figcaption>Ring 004 · validation split</figcaption></figure>
+                <figure><img class="wide-evidence" src="/api/artifacts/vggt_surface_hull_ring_020" alt="Ring 020 sculptural surface-aware hull"><figcaption>Ring 020 · sculptural validation case</figcaption></figure>
+                <figure><img class="wide-evidence" src="/api/artifacts/vggt_surface_hull_ring_007" alt="Ring 007 test surface-aware hull"><figcaption>Ring 007 · test split</figcaption></figure>
+                <figure><img class="wide-evidence" src="/api/artifacts/vggt_surface_hull_ring_015" alt="Ring 015 test surface-aware hull"><figcaption>Ring 015 · test split</figcaption></figure>
+                <figure><img class="wide-evidence" src="/api/artifacts/vggt_surface_hull_ring_023" alt="Ring 023 test surface-aware hull"><figcaption>Ring 023 · test split</figcaption></figure>
+              </div>
+            </article>
+            <article class="evidence-card">
+              <div class="card-heading">
+                <div>
+                  <p class="eyebrow">PHASE 3 / SIGNED-DEPTH CARVING</p>
+                  <h3>Source-view free-space constraints</h3>
+                </div>
+                <a class="button secondary" href="/api/artifacts/vggt_signed_depth_carving_report">Depth-carving report</a>
+              </div>
+              <p class="subtle">Voxels clearly in front of source-view VGGT surfaces are removed. One source contradiction is permitted because reflective, independently rendered views are not perfectly consistent. The rule is selected only on validation rings.</p>
+              <div id="vggt-signed-depth-status" class="key-value-list"></div>
+              <div class="two-column phase1-evidence-grid">
+                <figure><img class="wide-evidence" src="/api/artifacts/vggt_signed_depth_ring_004" alt="Ring 004 signed-depth validation"><figcaption>Ring 004 · validation split</figcaption></figure>
+                <figure><img class="wide-evidence" src="/api/artifacts/vggt_signed_depth_ring_020" alt="Ring 020 signed-depth sculptural validation"><figcaption>Ring 020 · sculptural validation case</figcaption></figure>
+                <figure><img class="wide-evidence" src="/api/artifacts/vggt_signed_depth_ring_007" alt="Ring 007 signed-depth test"><figcaption>Ring 007 · test split</figcaption></figure>
+                <figure><img class="wide-evidence" src="/api/artifacts/vggt_signed_depth_ring_015" alt="Ring 015 signed-depth test"><figcaption>Ring 015 · test split</figcaption></figure>
+                <figure><img class="wide-evidence" src="/api/artifacts/vggt_signed_depth_ring_023" alt="Ring 023 signed-depth test"><figcaption>Ring 023 · test split</figcaption></figure>
               </div>
             </article>
           </div>

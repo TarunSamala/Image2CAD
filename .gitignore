@@ -47,6 +47,19 @@ dataset/phase_runs/v1/phase3_geometry_benchmark_v1/vggt/*/*.npz
 models/vggt/
 third_party/vggt/
 
+# Reproducible intermediate VGGT resolution tensors and point clouds.
+# Reports and visual comparisons remain versioned; the selected 518 px evidence stays retained.
+dataset/phase_runs/v1/vggt_resolution_280_v1/*/vggt_dense_evidence.npz
+dataset/phase_runs/v1/vggt_resolution_280_v1/*/*_cross_view_supported.ply
+dataset/phase_runs/v1/vggt_resolution_336_v1/*/vggt_dense_evidence.npz
+dataset/phase_runs/v1/vggt_resolution_336_v1/*/*_cross_view_supported.ply
+dataset/phase_runs/v1/vggt_resolution_448_v1/*/vggt_dense_evidence.npz
+dataset/phase_runs/v1/vggt_resolution_448_v1/*/*_cross_view_supported.ply
+dataset/phase_runs/v1/vggt_resolution_448_validation_v1/*/vggt_dense_evidence.npz
+dataset/phase_runs/v1/vggt_resolution_448_validation_v1/*/*_cross_view_supported.ply
+dataset/phase_runs/v1/vggt_resolution_518_validation_v1/*/vggt_dense_evidence.npz
+dataset/phase_runs/v1/vggt_resolution_518_validation_v1/*/*_cross_view_supported.ply
+
 # Re-downloadable external research datasets and generated image artifacts.
 # Provenance registries, manifests, reports, and compact previews stay versioned.
 dataset/external_sources/raw/

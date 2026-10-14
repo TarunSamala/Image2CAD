@@ -180,6 +180,23 @@ class DatasetStudioServiceTest(unittest.TestCase):
         self.assertEqual(
             semantic_refinement["cohort"]["accepted_initialization_count"], 0
         )
+        resolution = summary["phase3"]["geometry_benchmark"][
+            "vggt_resolution_ladder"
+        ]
+        self.assertEqual(resolution["selected_resolution"], 518)
+        self.assertGreater(resolution["heldout_change_from_224"]["mean_iou"], 0.3)
+        self.assertFalse(
+            resolution["checks"]["all_selected_objects_pass_geometry_gate"]
+        )
+        transfer = summary["phase3"]["geometry_benchmark"][
+            "vggt_view_transfer"
+        ]
+        self.assertLess(transfer["heldout"]["mean_iou_delta"], 0)
+        signed_depth = summary["phase3"]["geometry_benchmark"][
+            "vggt_signed_depth_carving"
+        ]
+        self.assertGreater(signed_depth["test_evaluation"]["mean_iou"], 0.78)
+        self.assertFalse(signed_depth["checks"]["geometry_exit_gate_passed"])
         self.assertEqual(
             phase2["ring01_carryover"]["open_issues"][0]["status"],
             "correction_proposed_pending_human_review",
@@ -361,6 +378,10 @@ class DatasetStudioApiTest(unittest.TestCase):
             'id="surface-normal-summary"',
             'id="cross-view-readiness"',
             'id="semantic-camera-status"',
+            'id="vggt-resolution-status"',
+            'id="vggt-visual-hull-status"',
+            'id="vggt-surface-hull-status"',
+            'id="vggt-signed-depth-status"',
             'id="dataset-depth-summary"',
             'id="dataset-complete-summary"',
             'id="stl1-review-summary"',
@@ -417,6 +438,10 @@ class DatasetStudioApiTest(unittest.TestCase):
         self.assertIn('$("#cross-view-readiness")', javascript)
         self.assertIn('$("#ring01-vggt-status")', javascript)
         self.assertIn('$("#semantic-camera-status")', javascript)
+        self.assertIn('$("#vggt-resolution-status")', javascript)
+        self.assertIn('$("#vggt-visual-hull-status")', javascript)
+        self.assertIn('$("#vggt-surface-hull-status")', javascript)
+        self.assertIn('$("#vggt-signed-depth-status")', javascript)
         self.assertIn("phase2.machine_review", javascript)
         self.assertIn("summary.phase1.complete_features", javascript)
         audit = self.client.get("/api/artifacts/phase2_reflection_audit")
@@ -624,6 +649,66 @@ class DatasetStudioApiTest(unittest.TestCase):
         self.assertEqual(semantic_preview.status_code, 200)
         self.assertEqual(semantic_preview.mimetype, "image/png")
         semantic_preview.close()
+        resolution_report = self.client.get(
+            "/api/artifacts/vggt_resolution_ladder_report"
+        )
+        self.assertEqual(resolution_report.status_code, 200)
+        self.assertEqual(resolution_report.mimetype, "application/json")
+        resolution_report.close()
+        resolution_chart = self.client.get(
+            "/api/artifacts/vggt_resolution_ladder_chart"
+        )
+        self.assertEqual(resolution_chart.status_code, 200)
+        self.assertEqual(resolution_chart.mimetype, "image/png")
+        resolution_chart.close()
+        transfer_preview = self.client.get(
+            "/api/artifacts/vggt_view_transfer_ring_007"
+        )
+        self.assertEqual(transfer_preview.status_code, 200)
+        self.assertEqual(transfer_preview.mimetype, "image/png")
+        transfer_preview.close()
+        completion_report = self.client.get(
+            "/api/artifacts/vggt_visual_hull_completion_report"
+        )
+        self.assertEqual(completion_report.status_code, 200)
+        self.assertEqual(completion_report.mimetype, "application/json")
+        completion_report.close()
+        completion_preview = self.client.get(
+            "/api/artifacts/vggt_visual_hull_ring_020"
+        )
+        self.assertEqual(completion_preview.status_code, 200)
+        self.assertEqual(completion_preview.mimetype, "image/png")
+        completion_preview.close()
+        surface_report = self.client.get(
+            "/api/artifacts/vggt_surface_aware_hull_report"
+        )
+        self.assertEqual(surface_report.status_code, 200)
+        self.assertEqual(surface_report.mimetype, "application/json")
+        surface_report.close()
+        surface_preview = self.client.get(
+            "/api/artifacts/vggt_surface_hull_ring_020"
+        )
+        self.assertEqual(surface_preview.status_code, 200)
+        self.assertEqual(surface_preview.mimetype, "image/png")
+        surface_preview.close()
+        surface_test_preview = self.client.get(
+            "/api/artifacts/vggt_surface_hull_ring_015"
+        )
+        self.assertEqual(surface_test_preview.status_code, 200)
+        self.assertEqual(surface_test_preview.mimetype, "image/png")
+        surface_test_preview.close()
+        signed_depth_report = self.client.get(
+            "/api/artifacts/vggt_signed_depth_carving_report"
+        )
+        self.assertEqual(signed_depth_report.status_code, 200)
+        self.assertEqual(signed_depth_report.mimetype, "application/json")
+        signed_depth_report.close()
+        signed_depth_test_preview = self.client.get(
+            "/api/artifacts/vggt_signed_depth_ring_015"
+        )
+        self.assertEqual(signed_depth_test_preview.status_code, 200)
+        self.assertEqual(signed_depth_test_preview.mimetype, "image/png")
+        signed_depth_test_preview.close()
 
     def test_invalid_routes_fail_closed(self) -> None:
         self.assertEqual(self.client.get("/api/objects/ring_999").status_code, 404)

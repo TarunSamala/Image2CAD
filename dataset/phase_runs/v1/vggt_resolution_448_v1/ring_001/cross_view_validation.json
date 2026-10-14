@@ -1,0 +1,124 @@
+{
+  "schema_version": "vggt_cross_view_validation_v1",
+  "object_id": "ring_001",
+  "dataset": "STL-1",
+  "split": "train",
+  "image_size": 448,
+  "input_preprocessing": "prepared_v1_full_frame",
+  "filter": {
+    "confidence_quantile": 0.5,
+    "confidence_thresholds": [
+      3.06191,
+      3.004335,
+      2.93604,
+      1.972789,
+      2.393796
+    ],
+    "support_radius_fraction_of_robust_diagonal": 0.025,
+    "support_radius": 0.0261383,
+    "minimum_supported_views": 2,
+    "candidate_points": 98933,
+    "supported_points": 81176,
+    "retention_fraction": 0.820515,
+    "support_histograms": [
+      {
+        "1": 7622,
+        "2": 14150,
+        "3": 9495,
+        "4": 2058
+      },
+      {
+        "1": 1023,
+        "2": 3968,
+        "3": 5365,
+        "4": 1974
+      },
+      {
+        "1": 1301,
+        "2": 9796,
+        "3": 12482,
+        "4": 1915
+      },
+      {
+        "1": 5993,
+        "2": 6047,
+        "3": 2088,
+        "4": 144
+      },
+      {
+        "1": 1818,
+        "2": 4865,
+        "3": 6202,
+        "4": 627
+      }
+    ]
+  },
+  "leave_one_view_out_reprojection": {
+    "views": [
+      {
+        "view": "front",
+        "iou": 0.452892,
+        "precision": 0.93491,
+        "recall": 0.467637
+      },
+      {
+        "view": "top",
+        "iou": 0.480633,
+        "precision": 0.753632,
+        "recall": 0.570229
+      },
+      {
+        "view": "iso",
+        "iou": 0.560973,
+        "precision": 0.914159,
+        "recall": 0.592166
+      },
+      {
+        "view": "lsv",
+        "iou": 0.503567,
+        "precision": 0.819237,
+        "recall": 0.566512
+      },
+      {
+        "view": "rsv",
+        "iou": 0.638797,
+        "precision": 0.920966,
+        "recall": 0.675846
+      }
+    ],
+    "mean_iou": 0.527372,
+    "minimum_iou": 0.452892,
+    "mean_partial_surface_precision": 0.868581,
+    "mean_surface_completion_recall": 0.574478,
+    "interpretation": {
+      "precision": "containment of partial cross-view surface evidence inside the target silhouette",
+      "recall": "target-silhouette coverage supplied by the other four visible-surface maps",
+      "iou": "combined surface-completion score; not an isolated camera-pose score"
+    }
+  },
+  "checks": {
+    "all_five_views_scored": true,
+    "supported_cloud_nonempty": true,
+    "filter_reduces_points": true,
+    "no_self_view_in_reprojection": true,
+    "cross_view_exit_gate_passed": false
+  },
+  "artifacts": {
+    "supported_cloud": "dataset/phase_runs/v1/vggt_resolution_448_v1/ring_001/ring_001_cross_view_supported.ply",
+    "filter_preview": "dataset/phase_runs/v1/vggt_resolution_448_v1/ring_001/ring_001_cross_view_filter_review.png",
+    "reprojection_preview": "dataset/phase_runs/v1/vggt_resolution_448_v1/ring_001/ring_001_cross_view_reprojection.png"
+  },
+  "decision": "rejected_as_cross_view_reconstruction_geometry",
+  "claims": {
+    "metric_scale_validated": false,
+    "camera_pose_accuracy_validated": false,
+    "cross_view_geometry_validated": false,
+    "manufacturing_accuracy_validated": false
+  },
+  "limitations": [
+    "The target view is excluded from each reprojection score, but the masks remain machine proposals.",
+    "Each VGGT point map describes visible surface evidence, so leave-one-view-out recall and IoU also measure missing-surface completion rather than camera accuracy alone.",
+    "VGGT coordinates are relative and cannot provide millimetres without scale evidence.",
+    "Independently rendered product views can violate photogrammetric scene assumptions."
+  ]
+}
