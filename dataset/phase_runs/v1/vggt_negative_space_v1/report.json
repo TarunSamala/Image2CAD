@@ -1,0 +1,641 @@
+{
+  "schema_version": "vggt_structural_negative_space_v1",
+  "dataset": "STL-1",
+  "authority": "non_metric_machine_surface_hypothesis",
+  "input_resolution": 518,
+  "voxel_resolution": 96,
+  "minimum_hole_area_fraction": 0.01,
+  "upstream": {
+    "surface_distance_fraction": 0.04,
+    "depth_tolerance_fraction": 0.0025,
+    "allowed_source_contradictions": 1
+  },
+  "validation_selection": {
+    "object_ids": [
+      "ring_004",
+      "ring_012",
+      "ring_020"
+    ],
+    "candidates": {
+      "0": {
+        "mean_iou": 0.780605,
+        "minimum_iou": 0.578221,
+        "mean_precision": 0.87521,
+        "mean_recall": 0.881824,
+        "mean_removed_voxels": 0.0
+      },
+      "1": {
+        "mean_iou": 0.781337,
+        "minimum_iou": 0.578372,
+        "mean_precision": 0.876805,
+        "mean_recall": 0.881063,
+        "mean_removed_voxels": 739.4
+      },
+      "2": {
+        "mean_iou": 0.781938,
+        "minimum_iou": 0.578916,
+        "mean_precision": 0.878638,
+        "mean_recall": 0.879917,
+        "mean_removed_voxels": 1687.6
+      },
+      "4": {
+        "mean_iou": 0.783071,
+        "minimum_iou": 0.580173,
+        "mean_precision": 0.882159,
+        "mean_recall": 0.877747,
+        "mean_removed_voxels": 3563.267
+      },
+      "6": {
+        "mean_iou": 0.782776,
+        "minimum_iou": 0.581583,
+        "mean_precision": 0.885074,
+        "mean_recall": 0.874462,
+        "mean_removed_voxels": 5570.067
+      },
+      "8": {
+        "mean_iou": 0.781295,
+        "minimum_iou": 0.584014,
+        "mean_precision": 0.887978,
+        "mean_recall": 0.869756,
+        "mean_removed_voxels": 7899.0
+      },
+      "12": {
+        "mean_iou": 0.773077,
+        "minimum_iou": 0.582643,
+        "mean_precision": 0.894571,
+        "mean_recall": 0.853164,
+        "mean_removed_voxels": 13018.0
+      }
+    },
+    "selected_hole_margin_pixels": 4,
+    "selection_rule": "highest pooled validation mean IoU"
+  },
+  "validation": {
+    "mean_iou": 0.783071,
+    "minimum_iou": 0.580173,
+    "mean_precision": 0.882159,
+    "mean_recall": 0.877747,
+    "mean_removed_voxels": 3563.267
+  },
+  "test_evaluation": {
+    "object_ids": [
+      "ring_007",
+      "ring_015",
+      "ring_023"
+    ],
+    "mean_iou": 0.777174,
+    "minimum_iou": 0.542143,
+    "mean_precision": 0.880833,
+    "mean_recall": 0.864115,
+    "mean_delta_over_signed_depth": -0.00434
+  },
+  "objects": [
+    {
+      "object_id": "ring_004",
+      "split": "val",
+      "mean_iou": 0.798276,
+      "minimum_iou": 0.698343,
+      "mean_precision": 0.865326,
+      "mean_recall": 0.917397,
+      "signed_depth_mean_iou": 0.795195,
+      "delta_over_signed_depth": 0.00308,
+      "structural_hole_areas": {
+        "front": [],
+        "top": [
+          44129
+        ],
+        "iso": [
+          12295
+        ],
+        "lsv": [],
+        "rsv": []
+      },
+      "views": [
+        {
+          "view": "front",
+          "iou": 0.793162,
+          "precision": 0.939848,
+          "recall": 0.835579,
+          "retained_voxels": 94885,
+          "removed_voxels": 5606,
+          "hole_margin_pixels": 4,
+          "source_structural_hole_count": 2
+        },
+        {
+          "view": "top",
+          "iou": 0.698343,
+          "precision": 0.717462,
+          "recall": 0.963243,
+          "retained_voxels": 98537,
+          "removed_voxels": 3413,
+          "hole_margin_pixels": 4,
+          "source_structural_hole_count": 1
+        },
+        {
+          "view": "iso",
+          "iou": 0.873961,
+          "precision": 0.917999,
+          "recall": 0.947966,
+          "retained_voxels": 96873,
+          "removed_voxels": 5123,
+          "hole_margin_pixels": 4,
+          "source_structural_hole_count": 1
+        },
+        {
+          "view": "lsv",
+          "iou": 0.800605,
+          "precision": 0.889507,
+          "recall": 0.889017,
+          "retained_voxels": 98110,
+          "removed_voxels": 6166,
+          "hole_margin_pixels": 4,
+          "source_structural_hole_count": 2
+        },
+        {
+          "view": "rsv",
+          "iou": 0.825307,
+          "precision": 0.861814,
+          "recall": 0.951179,
+          "retained_voxels": 97634,
+          "removed_voxels": 6007,
+          "hole_margin_pixels": 4,
+          "source_structural_hole_count": 2
+        }
+      ],
+      "exit_gate_passed": false,
+      "preview": "dataset/phase_runs/v1/vggt_negative_space_v1/ring_004_negative_space.png"
+    },
+    {
+      "object_id": "ring_012",
+      "split": "val",
+      "mean_iou": 0.793122,
+      "minimum_iou": 0.647967,
+      "mean_precision": 0.8644,
+      "mean_recall": 0.907555,
+      "signed_depth_mean_iou": 0.788785,
+      "delta_over_signed_depth": 0.004337,
+      "structural_hole_areas": {
+        "front": [],
+        "top": [
+          38023
+        ],
+        "iso": [
+          14073
+        ],
+        "lsv": [],
+        "rsv": []
+      },
+      "views": [
+        {
+          "view": "front",
+          "iou": 0.647967,
+          "precision": 0.854051,
+          "recall": 0.728651,
+          "retained_voxels": 56239,
+          "removed_voxels": 3516,
+          "hole_margin_pixels": 4,
+          "source_structural_hole_count": 2
+        },
+        {
+          "view": "top",
+          "iou": 0.708854,
+          "precision": 0.726016,
+          "recall": 0.967727,
+          "retained_voxels": 70446,
+          "removed_voxels": 2617,
+          "hole_margin_pixels": 4,
+          "source_structural_hole_count": 1
+        },
+        {
+          "view": "iso",
+          "iou": 0.870524,
+          "precision": 0.918309,
+          "recall": 0.943596,
+          "retained_voxels": 64423,
+          "removed_voxels": 3132,
+          "hole_margin_pixels": 4,
+          "source_structural_hole_count": 1
+        },
+        {
+          "view": "lsv",
+          "iou": 0.868537,
+          "precision": 0.910109,
+          "recall": 0.950036,
+          "retained_voxels": 62140,
+          "removed_voxels": 3435,
+          "hole_margin_pixels": 4,
+          "source_structural_hole_count": 2
+        },
+        {
+          "view": "rsv",
+          "iou": 0.869727,
+          "precision": 0.913517,
+          "recall": 0.947763,
+          "retained_voxels": 60994,
+          "removed_voxels": 3267,
+          "hole_margin_pixels": 4,
+          "source_structural_hole_count": 2
+        }
+      ],
+      "exit_gate_passed": false,
+      "preview": "dataset/phase_runs/v1/vggt_negative_space_v1/ring_012_negative_space.png"
+    },
+    {
+      "object_id": "ring_020",
+      "split": "val",
+      "mean_iou": 0.757816,
+      "minimum_iou": 0.580173,
+      "mean_precision": 0.916752,
+      "mean_recall": 0.808291,
+      "signed_depth_mean_iou": 0.757834,
+      "delta_over_signed_depth": -1.9e-05,
+      "structural_hole_areas": {
+        "front": [],
+        "top": [
+          36282
+        ],
+        "iso": [
+          10708
+        ],
+        "lsv": [],
+        "rsv": []
+      },
+      "views": [
+        {
+          "view": "front",
+          "iou": 0.73515,
+          "precision": 0.939685,
+          "recall": 0.771557,
+          "retained_voxels": 94698,
+          "removed_voxels": 2769,
+          "hole_margin_pixels": 4,
+          "source_structural_hole_count": 2
+        },
+        {
+          "view": "top",
+          "iou": 0.580173,
+          "precision": 0.774085,
+          "recall": 0.698433,
+          "retained_voxels": 98817,
+          "removed_voxels": 708,
+          "hole_margin_pixels": 4,
+          "source_structural_hole_count": 1
+        },
+        {
+          "view": "iso",
+          "iou": 0.815138,
+          "precision": 0.966721,
+          "recall": 0.838672,
+          "retained_voxels": 109567,
+          "removed_voxels": 2647,
+          "hole_margin_pixels": 4,
+          "source_structural_hole_count": 1
+        },
+        {
+          "view": "lsv",
+          "iou": 0.771317,
+          "precision": 0.954804,
+          "recall": 0.800546,
+          "retained_voxels": 97954,
+          "removed_voxels": 2272,
+          "hole_margin_pixels": 4,
+          "source_structural_hole_count": 2
+        },
+        {
+          "view": "rsv",
+          "iou": 0.8873,
+          "precision": 0.948463,
+          "recall": 0.932247,
+          "retained_voxels": 107482,
+          "removed_voxels": 2771,
+          "hole_margin_pixels": 4,
+          "source_structural_hole_count": 2
+        }
+      ],
+      "exit_gate_passed": false,
+      "preview": "dataset/phase_runs/v1/vggt_negative_space_v1/ring_020_negative_space.png"
+    },
+    {
+      "object_id": "ring_001",
+      "split": "train",
+      "mean_iou": 0.815088,
+      "minimum_iou": 0.675354,
+      "mean_precision": 0.86507,
+      "mean_recall": 0.936217,
+      "signed_depth_mean_iou": 0.810968,
+      "delta_over_signed_depth": 0.00412,
+      "structural_hole_areas": {
+        "front": [],
+        "top": [
+          38222
+        ],
+        "iso": [
+          9912
+        ],
+        "lsv": [],
+        "rsv": []
+      },
+      "views": [
+        {
+          "view": "front",
+          "iou": 0.807472,
+          "precision": 0.890432,
+          "recall": 0.896554,
+          "retained_voxels": 76174,
+          "removed_voxels": 4076,
+          "hole_margin_pixels": 4,
+          "source_structural_hole_count": 2
+        },
+        {
+          "view": "top",
+          "iou": 0.675354,
+          "precision": 0.694582,
+          "recall": 0.960624,
+          "retained_voxels": 80259,
+          "removed_voxels": 2359,
+          "hole_margin_pixels": 4,
+          "source_structural_hole_count": 1
+        },
+        {
+          "view": "iso",
+          "iou": 0.870429,
+          "precision": 0.925953,
+          "recall": 0.935549,
+          "retained_voxels": 72530,
+          "removed_voxels": 3944,
+          "hole_margin_pixels": 4,
+          "source_structural_hole_count": 1
+        },
+        {
+          "view": "lsv",
+          "iou": 0.846181,
+          "precision": 0.903145,
+          "recall": 0.930633,
+          "retained_voxels": 73307,
+          "removed_voxels": 4588,
+          "hole_margin_pixels": 4,
+          "source_structural_hole_count": 2
+        },
+        {
+          "view": "rsv",
+          "iou": 0.876003,
+          "precision": 0.911237,
+          "recall": 0.957726,
+          "retained_voxels": 73215,
+          "removed_voxels": 4631,
+          "hole_margin_pixels": 4,
+          "source_structural_hole_count": 2
+        }
+      ],
+      "exit_gate_passed": false,
+      "preview": "dataset/phase_runs/v1/vggt_negative_space_v1/ring_001_negative_space.png"
+    },
+    {
+      "object_id": "ring_007",
+      "split": "test",
+      "mean_iou": 0.800376,
+      "minimum_iou": 0.6611,
+      "mean_precision": 0.890637,
+      "mean_recall": 0.884369,
+      "signed_depth_mean_iou": 0.814251,
+      "delta_over_signed_depth": -0.013875,
+      "structural_hole_areas": {
+        "front": [],
+        "top": [
+          34391
+        ],
+        "iso": [
+          12515
+        ],
+        "lsv": [],
+        "rsv": []
+      },
+      "views": [
+        {
+          "view": "front",
+          "iou": 0.830971,
+          "precision": 0.913031,
+          "recall": 0.902397,
+          "retained_voxels": 71896,
+          "removed_voxels": 2953,
+          "hole_margin_pixels": 4,
+          "source_structural_hole_count": 2
+        },
+        {
+          "view": "top",
+          "iou": 0.6611,
+          "precision": 0.787417,
+          "recall": 0.804729,
+          "retained_voxels": 65207,
+          "removed_voxels": 1228,
+          "hole_margin_pixels": 4,
+          "source_structural_hole_count": 1
+        },
+        {
+          "view": "iso",
+          "iou": 0.847829,
+          "precision": 0.94671,
+          "recall": 0.890319,
+          "retained_voxels": 73244,
+          "removed_voxels": 2636,
+          "hole_margin_pixels": 4,
+          "source_structural_hole_count": 1
+        },
+        {
+          "view": "lsv",
+          "iou": 0.801757,
+          "precision": 0.89786,
+          "recall": 0.882223,
+          "retained_voxels": 75130,
+          "removed_voxels": 3155,
+          "hole_margin_pixels": 4,
+          "source_structural_hole_count": 2
+        },
+        {
+          "view": "rsv",
+          "iou": 0.860221,
+          "precision": 0.908168,
+          "recall": 0.942175,
+          "retained_voxels": 72024,
+          "removed_voxels": 3042,
+          "hole_margin_pixels": 4,
+          "source_structural_hole_count": 2
+        }
+      ],
+      "exit_gate_passed": false,
+      "preview": "dataset/phase_runs/v1/vggt_negative_space_v1/ring_007_negative_space.png"
+    },
+    {
+      "object_id": "ring_015",
+      "split": "test",
+      "mean_iou": 0.751215,
+      "minimum_iou": 0.542143,
+      "mean_precision": 0.866752,
+      "mean_recall": 0.843391,
+      "signed_depth_mean_iou": 0.750737,
+      "delta_over_signed_depth": 0.000478,
+      "structural_hole_areas": {
+        "front": [],
+        "top": [
+          40708
+        ],
+        "iso": [
+          16958
+        ],
+        "lsv": [],
+        "rsv": []
+      },
+      "views": [
+        {
+          "view": "front",
+          "iou": 0.771185,
+          "precision": 0.953649,
+          "recall": 0.801217,
+          "retained_voxels": 74445,
+          "removed_voxels": 5080,
+          "hole_margin_pixels": 4,
+          "source_structural_hole_count": 2
+        },
+        {
+          "view": "top",
+          "iou": 0.542143,
+          "precision": 0.661085,
+          "recall": 0.750826,
+          "retained_voxels": 81091,
+          "removed_voxels": 4050,
+          "hole_margin_pixels": 4,
+          "source_structural_hole_count": 1
+        },
+        {
+          "view": "iso",
+          "iou": 0.85732,
+          "precision": 0.924612,
+          "recall": 0.921751,
+          "retained_voxels": 85979,
+          "removed_voxels": 4543,
+          "hole_margin_pixels": 4,
+          "source_structural_hole_count": 1
+        },
+        {
+          "view": "lsv",
+          "iou": 0.763921,
+          "precision": 0.889719,
+          "recall": 0.843821,
+          "retained_voxels": 80386,
+          "removed_voxels": 4025,
+          "hole_margin_pixels": 4,
+          "source_structural_hole_count": 2
+        },
+        {
+          "view": "rsv",
+          "iou": 0.821508,
+          "precision": 0.904695,
+          "recall": 0.899338,
+          "retained_voxels": 80942,
+          "removed_voxels": 4202,
+          "hole_margin_pixels": 4,
+          "source_structural_hole_count": 2
+        }
+      ],
+      "exit_gate_passed": false,
+      "preview": "dataset/phase_runs/v1/vggt_negative_space_v1/ring_015_negative_space.png"
+    },
+    {
+      "object_id": "ring_023",
+      "split": "test",
+      "mean_iou": 0.77993,
+      "minimum_iou": 0.643271,
+      "mean_precision": 0.885109,
+      "mean_recall": 0.864585,
+      "signed_depth_mean_iou": 0.779554,
+      "delta_over_signed_depth": 0.000376,
+      "structural_hole_areas": {
+        "front": [],
+        "top": [
+          36571
+        ],
+        "iso": [
+          6157
+        ],
+        "lsv": [],
+        "rsv": []
+      },
+      "views": [
+        {
+          "view": "front",
+          "iou": 0.643271,
+          "precision": 0.88562,
+          "recall": 0.701556,
+          "retained_voxels": 71789,
+          "removed_voxels": 3970,
+          "hole_margin_pixels": 4,
+          "source_structural_hole_count": 2
+        },
+        {
+          "view": "top",
+          "iou": 0.649901,
+          "precision": 0.750065,
+          "recall": 0.829546,
+          "retained_voxels": 92350,
+          "removed_voxels": 1896,
+          "hole_margin_pixels": 4,
+          "source_structural_hole_count": 1
+        },
+        {
+          "view": "iso",
+          "iou": 0.888935,
+          "precision": 0.93011,
+          "recall": 0.952562,
+          "retained_voxels": 84088,
+          "removed_voxels": 3097,
+          "hole_margin_pixels": 4,
+          "source_structural_hole_count": 1
+        },
+        {
+          "view": "lsv",
+          "iou": 0.854638,
+          "precision": 0.953368,
+          "recall": 0.891922,
+          "retained_voxels": 77614,
+          "removed_voxels": 3498,
+          "hole_margin_pixels": 4,
+          "source_structural_hole_count": 2
+        },
+        {
+          "view": "rsv",
+          "iou": 0.862906,
+          "precision": 0.906381,
+          "recall": 0.947341,
+          "retained_voxels": 83542,
+          "removed_voxels": 3898,
+          "hole_margin_pixels": 4,
+          "source_structural_hole_count": 2
+        }
+      ],
+      "exit_gate_passed": false,
+      "preview": "dataset/phase_runs/v1/vggt_negative_space_v1/ring_023_negative_space.png"
+    }
+  ],
+  "checks": {
+    "selection_uses_validation_split_only": true,
+    "target_mask_points_and_holes_excluded_from_reconstruction": true,
+    "tiny_enclosed_regions_ignored": true,
+    "all_test_objects_improve_over_signed_depth": false,
+    "geometry_exit_gate_passed": false
+  },
+  "decision": "rejected_no_heldout_gain_over_signed_depth",
+  "claims": {
+    "strict_target_image_holdout": false,
+    "cavity_topology_validated": false,
+    "metric_scale_validated": false,
+    "hidden_surface_truth_validated": false,
+    "component_topology_validated": false,
+    "manufacturing_accuracy_validated": false
+  },
+  "limitations": [
+    "Enclosed silhouette background is evidence of visible negative space, not proof of an internal cavity or through-hole.",
+    "The one-percent area threshold intentionally ignores small holes that may be details or segmentation artifacts.",
+    "A two-dimensional pixel margin is not a metric wall-thickness or cavity-clearance measurement.",
+    "VGGT cameras and point maps are jointly conditioned on all five images even though target geometry evidence is excluded."
+  ]
+}

@@ -81,6 +81,7 @@ def _load_object(
         "masks": masks,
         "candidates": candidates,
         "world_points": dense["world_points"][0],
+        "world_points_conf": dense["world_points_conf"][0],
         "extrinsic": cameras["extrinsic"][0],
         "intrinsic": cameras["intrinsic"][0],
         "point_baseline_mean_iou": baseline["mean_leave_one_view_out_iou"],

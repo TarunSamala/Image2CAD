@@ -12,10 +12,12 @@ predate it, so this index prevents similarly numbered stages from being mixed.
   `compare_vggt_resolution_ladder.py`, `evaluate_vggt_view_transfer.py`, and
   `evaluate_vggt_visual_hull_completion.py`,
   `evaluate_vggt_surface_aware_hull.py`, and
-  `evaluate_vggt_signed_depth_carving.py` - Bible Phase 3 research benchmark,
+  `evaluate_vggt_signed_depth_carving.py`,
+  `evaluate_vggt_normal_consistency.py`, and
+  `evaluate_vggt_negative_space.py` - Bible Phase 3 research benchmark,
   low-VRAM execution, source-view transfer, camera-space silhouette completion,
   source-surface constrained hull validation, and signed-depth free-space
-  carving infrastructure.
+  carving plus rejected normal/aperture constraint experiments.
 - `bible_phase_2_paired_benchmark.py` - Bible Phase 2 guided-capture,
   production-STEP, measurement, component-graph, split and provenance guardrail;
   inactive under the image-only execution profile.

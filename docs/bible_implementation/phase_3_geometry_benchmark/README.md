@@ -134,6 +134,27 @@ but cameras are jointly inferred from all five views. The geometry exit gate is
 still false: surface normals, internal topology, relief and physical scale are
 not validated. This evidence remains a research-only geometric prior.
 
+Two conservative post-carving experiments were then run. First, world-space
+normal hypotheses were derived from local VGGT point-map tangents and compared
+between source views. Only `48.1363%` of signed-depth voxels had at least one
+normal pair to compare. Every non-zero cosine threshold reduced pooled
+validation mean IoU, so validation selected `0.0`; no normal-based deletion is
+accepted and the experiment is recorded as rejected.
+
+Second, large enclosed source-silhouette background components were treated as
+visible structural apertures while enclosed regions below `1%` of the image
+were ignored as likely segmentation noise. Validation selected a 4 px aperture
+margin, raising validation mean/minimum IoU to `0.783071 / 0.580173`. On the
+fixed three-object test split, the weakest view improved from `0.529146` to
+`0.542143`, but mean IoU fell from `0.781514` to `0.777174`. Visual inspection
+confirmed cleaner inner openings alongside lost valid outer/profile material.
+The margin is therefore retained only as component evidence and rejected as
+the default reconstruction path.
+
+Together these results move the next priority upstream: cross-view camera and
+point-map alignment must improve before stronger normal or aperture carving can
+be trusted. Neither rejected experiment changes the signed-depth baseline.
+
 External real-image intake remains part of Phase 1/2 generalisation testing:
 206 OrnAsia and Segment Your Ring images have been processed. They are not fed
 to the multi-view geometry backend because the sources are single-view or lack
@@ -231,6 +252,16 @@ docker run --rm --user "$(id -u):$(id -g)" \
   -v "$PWD:/workspace" -w /workspace \
   image2cad-validation:phase0 \
   python -m pipeline.evaluate_vggt_signed_depth_carving
+
+docker run --rm --user "$(id -u):$(id -g)" \
+  -v "$PWD:/workspace" -w /workspace \
+  image2cad-validation:phase0 \
+  python -m pipeline.evaluate_vggt_normal_consistency
+
+docker run --rm --user "$(id -u):$(id -g)" \
+  -v "$PWD:/workspace" -w /workspace \
+  image2cad-validation:phase0 \
+  python -m pipeline.evaluate_vggt_negative_space
 ```
 
 ## Gate

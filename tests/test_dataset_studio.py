@@ -197,6 +197,17 @@ class DatasetStudioServiceTest(unittest.TestCase):
         ]
         self.assertGreater(signed_depth["test_evaluation"]["mean_iou"], 0.78)
         self.assertFalse(signed_depth["checks"]["geometry_exit_gate_passed"])
+        normal = summary["phase3"]["geometry_benchmark"][
+            "vggt_normal_consistency"
+        ]
+        self.assertEqual(normal["validation_selection"]["selected_normal_cosine_threshold"], 0.0)
+        negative_space = summary["phase3"]["geometry_benchmark"][
+            "vggt_negative_space"
+        ]
+        self.assertEqual(
+            negative_space["validation_selection"]["selected_hole_margin_pixels"],
+            4,
+        )
         self.assertEqual(
             phase2["ring01_carryover"]["open_issues"][0]["status"],
             "correction_proposed_pending_human_review",
@@ -382,6 +393,8 @@ class DatasetStudioApiTest(unittest.TestCase):
             'id="vggt-visual-hull-status"',
             'id="vggt-surface-hull-status"',
             'id="vggt-signed-depth-status"',
+            'id="vggt-normal-consistency-status"',
+            'id="vggt-negative-space-status"',
             'id="dataset-depth-summary"',
             'id="dataset-complete-summary"',
             'id="stl1-review-summary"',
@@ -442,6 +455,8 @@ class DatasetStudioApiTest(unittest.TestCase):
         self.assertIn('$("#vggt-visual-hull-status")', javascript)
         self.assertIn('$("#vggt-surface-hull-status")', javascript)
         self.assertIn('$("#vggt-signed-depth-status")', javascript)
+        self.assertIn('$("#vggt-normal-consistency-status")', javascript)
+        self.assertIn('$("#vggt-negative-space-status")', javascript)
         self.assertIn("phase2.machine_review", javascript)
         self.assertIn("summary.phase1.complete_features", javascript)
         audit = self.client.get("/api/artifacts/phase2_reflection_audit")
@@ -709,6 +724,30 @@ class DatasetStudioApiTest(unittest.TestCase):
         self.assertEqual(signed_depth_test_preview.status_code, 200)
         self.assertEqual(signed_depth_test_preview.mimetype, "image/png")
         signed_depth_test_preview.close()
+        normal_report = self.client.get(
+            "/api/artifacts/vggt_normal_consistency_report"
+        )
+        self.assertEqual(normal_report.status_code, 200)
+        self.assertEqual(normal_report.mimetype, "application/json")
+        normal_report.close()
+        normal_preview = self.client.get(
+            "/api/artifacts/vggt_normal_consistency_ring_015"
+        )
+        self.assertEqual(normal_preview.status_code, 200)
+        self.assertEqual(normal_preview.mimetype, "image/png")
+        normal_preview.close()
+        aperture_report = self.client.get(
+            "/api/artifacts/vggt_negative_space_report"
+        )
+        self.assertEqual(aperture_report.status_code, 200)
+        self.assertEqual(aperture_report.mimetype, "application/json")
+        aperture_report.close()
+        aperture_preview = self.client.get(
+            "/api/artifacts/vggt_negative_space_ring_015"
+        )
+        self.assertEqual(aperture_preview.status_code, 200)
+        self.assertEqual(aperture_preview.mimetype, "image/png")
+        aperture_preview.close()
 
     def test_invalid_routes_fail_closed(self) -> None:
         self.assertEqual(self.client.get("/api/objects/ring_999").status_code, 404)

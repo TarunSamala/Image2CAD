@@ -171,6 +171,12 @@ class DatasetRepository:
         self.vggt_signed_depth_carving = self._read_json(
             self.phase_root / "vggt_signed_depth_carving_v1" / "report.json"
         )
+        self.vggt_normal_consistency = self._read_json(
+            self.phase_root / "vggt_normal_consistency_v1" / "report.json"
+        )
+        self.vggt_negative_space = self._read_json(
+            self.phase_root / "vggt_negative_space_v1" / "report.json"
+        )
         self.external_ring_report = self._read_json(
             self.repo_root / "dataset" / "external_ring_v1" / "report.json"
         )
@@ -550,6 +556,12 @@ class DatasetRepository:
                     ),
                     "vggt_signed_depth_carving": deepcopy(
                         self.vggt_signed_depth_carving
+                    ),
+                    "vggt_normal_consistency": deepcopy(
+                        self.vggt_normal_consistency
+                    ),
+                    "vggt_negative_space": deepcopy(
+                        self.vggt_negative_space
                     ),
                     "bible_gate": deepcopy(self.phase3_geometry.get("bible_gate", {})),
                     "claims": deepcopy(self.phase3_geometry.get("claims", {})),
@@ -1630,6 +1642,24 @@ class DatasetRepository:
             "vggt_signed_depth_ring_023": self.phase_root
             / "vggt_signed_depth_carving_v1"
             / "ring_023_signed_depth_carving.png",
+            "vggt_normal_consistency_report": self.phase_root
+            / "vggt_normal_consistency_v1"
+            / "report.json",
+            "vggt_normal_consistency_ring_020": self.phase_root
+            / "vggt_normal_consistency_v1"
+            / "ring_020_normal_consistency.png",
+            "vggt_normal_consistency_ring_015": self.phase_root
+            / "vggt_normal_consistency_v1"
+            / "ring_015_normal_consistency.png",
+            "vggt_negative_space_report": self.phase_root
+            / "vggt_negative_space_v1"
+            / "report.json",
+            "vggt_negative_space_ring_020": self.phase_root
+            / "vggt_negative_space_v1"
+            / "ring_020_negative_space.png",
+            "vggt_negative_space_ring_015": self.phase_root
+            / "vggt_negative_space_v1"
+            / "ring_015_negative_space.png",
             "vggt_ring_001_reprojection": self.phase_root
             / "vggt_multiring_224_v1"
             / "ring_001"

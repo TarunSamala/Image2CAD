@@ -550,6 +550,14 @@ function renderPhase3(detail) {
   const signedDepthValidation = signedDepth.validation || {};
   const signedDepthTest = signedDepth.test_evaluation || {};
   const signedDepthSelection = signedDepth.validation_selection || {};
+  const normalConsistency = globalGeometry.vggt_normal_consistency || {};
+  const normalValidation = normalConsistency.validation || {};
+  const normalTest = normalConsistency.test_evaluation || {};
+  const normalSelection = normalConsistency.validation_selection || {};
+  const negativeSpace = globalGeometry.vggt_negative_space || {};
+  const negativeValidation = negativeSpace.validation || {};
+  const negativeTest = negativeSpace.test_evaluation || {};
+  const negativeSelection = negativeSpace.validation_selection || {};
   $("#phase3-geometry").innerHTML = `
     <div class="key-value"><span>COLMAP object status</span><strong class="${geometry.status === "completed_with_sparse_model" ? "good" : "bad"}">${escapeHtml(humanize(geometry.status || "not run"))}</strong></div>
     <div class="key-value"><span>SIFT keypoints</span><strong>${database.keypoints_rows?.toLocaleString() ?? "—"}</strong></div>
@@ -618,6 +626,17 @@ function renderPhase3(detail) {
     <div class="key-value"><span>Gain over surface-aware hull</span><strong class="good">+${score(signedDepthTest.mean_delta_over_surface_aware_hull, 3)}</strong></div>
     <div class="key-value"><span>Gain over point baseline</span><strong class="good">+${score(signedDepthTest.mean_delta_over_point_baseline, 3)}</strong></div>
     <div class="key-value"><span>Geometry exit gate</span><strong class="bad">Not passed</strong><small>Mean is approaching 0.80; weakest view remains below 0.70</small></div>`;
+  $("#vggt-normal-consistency-status").innerHTML = `
+    <div class="key-value"><span>Validation-selected threshold</span><strong class="bad">${score(normalSelection.selected_normal_cosine_threshold, 2)}</strong><small>Zero means no normal-based voxel removal was accepted</small></div>
+    <div class="key-value"><span>Normals with multi-source support</span><strong>${score((normalValidation.mean_assessed_voxel_fraction || 0) * 100, 1)}%</strong></div>
+    <div class="key-value"><span>Held-out mean IoU delta</span><strong class="bad">${score(normalTest.mean_delta_over_signed_depth, 4)}</strong></div>
+    <div class="key-value"><span>Decision</span><strong class="bad">Rejected</strong><small>Finite-difference VGGT normals reduced validation IoU when used for carving</small></div>`;
+  $("#vggt-negative-space-status").innerHTML = `
+    <div class="key-value"><span>Validation-selected aperture margin</span><strong>${negativeSelection.selected_hole_margin_pixels ?? "—"} px</strong><small>Large enclosed source-mask regions only</small></div>
+    <div class="key-value"><span>Validation mean / minimum IoU</span><strong>${score(negativeValidation.mean_iou, 3)} / ${score(negativeValidation.minimum_iou, 3)}</strong></div>
+    <div class="key-value"><span>Test mean / minimum IoU</span><strong>${score(negativeTest.mean_iou, 3)} / ${score(negativeTest.minimum_iou, 3)}</strong></div>
+    <div class="key-value"><span>Held-out mean IoU delta</span><strong class="bad">${score(negativeTest.mean_delta_over_signed_depth, 4)}</strong><small>Weakest test view improved, but overall agreement fell</small></div>
+    <div class="key-value"><span>Decision</span><strong class="bad">Rejected as default</strong><small>Retained only as aperture evidence for later component reasoning</small></div>`;
   if (!phase3) {
     preview.removeAttribute("src");
     metrics.innerHTML = "<p>No experimental Phase 3 artifact is available.</p>";

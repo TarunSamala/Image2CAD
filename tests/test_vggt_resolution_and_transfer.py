@@ -21,6 +21,8 @@ class VGGTResolutionAndTransferTest(unittest.TestCase):
     signed_depth_root = Path(
         "dataset/phase_runs/v1/vggt_signed_depth_carving_v1"
     )
+    normal_root = Path("dataset/phase_runs/v1/vggt_normal_consistency_v1")
+    negative_space_root = Path("dataset/phase_runs/v1/vggt_negative_space_v1")
 
     @classmethod
     def setUpClass(cls) -> None:
@@ -38,6 +40,12 @@ class VGGTResolutionAndTransferTest(unittest.TestCase):
         )
         cls.signed_depth = json.loads(
             (cls.signed_depth_root / "report.json").read_text(encoding="utf-8")
+        )
+        cls.normal = json.loads(
+            (cls.normal_root / "report.json").read_text(encoding="utf-8")
+        )
+        cls.negative_space = json.loads(
+            (cls.negative_space_root / "report.json").read_text(encoding="utf-8")
         )
 
     def test_resolution_selection_uses_heldout_results_and_stays_honest(self) -> None:
@@ -229,6 +237,68 @@ class VGGTResolutionAndTransferTest(unittest.TestCase):
             image = cv2.imread(str(path))
             self.assertIsNotNone(image, path)
             self.assertGreater(min(image.shape[:2]), 2400)
+
+    def test_raw_normal_carving_is_rejected_without_overstating_accuracy(self) -> None:
+        selection = self.normal["validation_selection"]
+        self.assertEqual(
+            selection["object_ids"], ["ring_004", "ring_012", "ring_020"]
+        )
+        self.assertEqual(selection["selected_normal_cosine_threshold"], 0.0)
+        self.assertEqual(
+            self.normal["decision"], "rejected_no_heldout_gain_over_signed_depth"
+        )
+        self.assertTrue(
+            self.normal["checks"][
+                "target_mask_points_and_normals_excluded_from_reconstruction"
+            ]
+        )
+        self.assertTrue(
+            self.normal["checks"]["unassessed_voxels_retained_as_uncertain"]
+        )
+        self.assertEqual(
+            self.normal["test_evaluation"]["mean_delta_over_signed_depth"], 0.0
+        )
+        self.assertFalse(self.normal["checks"]["geometry_exit_gate_passed"])
+        self.assertFalse(any(self.normal["claims"].values()))
+
+    def test_structural_negative_space_tradeoff_is_rejected_as_default(self) -> None:
+        selection = self.negative_space["validation_selection"]
+        self.assertEqual(
+            selection["object_ids"], ["ring_004", "ring_012", "ring_020"]
+        )
+        self.assertEqual(selection["selected_hole_margin_pixels"], 4)
+        self.assertGreater(self.negative_space["validation"]["mean_iou"], 0.783)
+        self.assertGreater(
+            self.negative_space["test_evaluation"]["minimum_iou"], 0.54
+        )
+        self.assertLess(
+            self.negative_space["test_evaluation"]["mean_delta_over_signed_depth"],
+            0,
+        )
+        self.assertEqual(
+            self.negative_space["decision"],
+            "rejected_no_heldout_gain_over_signed_depth",
+        )
+        self.assertTrue(
+            self.negative_space["checks"][
+                "target_mask_points_and_holes_excluded_from_reconstruction"
+            ]
+        )
+        self.assertFalse(
+            self.negative_space["checks"]["geometry_exit_gate_passed"]
+        )
+        self.assertFalse(any(self.negative_space["claims"].values()))
+
+    def test_rejected_constraint_previews_are_readable(self) -> None:
+        for root, suffix in (
+            (self.normal_root, "normal_consistency"),
+            (self.negative_space_root, "negative_space"),
+        ):
+            for object_id in ("ring_020", "ring_015"):
+                path = root / f"{object_id}_{suffix}.png"
+                image = cv2.imread(str(path))
+                self.assertIsNotNone(image, path)
+                self.assertGreater(min(image.shape[:2]), 2400)
 
 
 if __name__ == "__main__":

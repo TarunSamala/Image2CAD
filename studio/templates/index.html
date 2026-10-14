@@ -707,6 +707,36 @@
                 <figure><img class="wide-evidence" src="/api/artifacts/vggt_signed_depth_ring_023" alt="Ring 023 signed-depth test"><figcaption>Ring 023 · test split</figcaption></figure>
               </div>
             </article>
+            <article class="evidence-card">
+              <div class="card-heading">
+                <div>
+                  <p class="eyebrow">PHASE 3 / REJECTED NORMAL EXPERIMENT</p>
+                  <h3>Source-view normal consistency</h3>
+                </div>
+                <a class="button secondary" href="/api/artifacts/vggt_normal_consistency_report">Normal report</a>
+              </div>
+              <p class="subtle">World-space normal hypotheses were derived from VGGT point-map tangents. Validation selected zero carving because every non-zero threshold reduced mean IoU, so signed depth remains the active baseline.</p>
+              <div id="vggt-normal-consistency-status" class="key-value-list"></div>
+              <div class="two-column phase1-evidence-grid">
+                <figure><img class="wide-evidence" src="/api/artifacts/vggt_normal_consistency_ring_020" alt="Ring 020 normal-consistency diagnostic"><figcaption>Ring 020 · validation diagnostic</figcaption></figure>
+                <figure><img class="wide-evidence" src="/api/artifacts/vggt_normal_consistency_ring_015" alt="Ring 015 normal-consistency diagnostic"><figcaption>Ring 015 · held-out diagnostic</figcaption></figure>
+              </div>
+            </article>
+            <article class="evidence-card">
+              <div class="card-heading">
+                <div>
+                  <p class="eyebrow">PHASE 3 / NEGATIVE-SPACE EXPERIMENT</p>
+                  <h3>Structural aperture preservation</h3>
+                </div>
+                <a class="button secondary" href="/api/artifacts/vggt_negative_space_report">Aperture report</a>
+              </div>
+              <p class="subtle">Large enclosed source-mask regions were expanded before carving. The weakest test view improved, but mean held-out IoU fell, so this is retained only as component evidence and is not the default geometry path.</p>
+              <div id="vggt-negative-space-status" class="key-value-list"></div>
+              <div class="two-column phase1-evidence-grid">
+                <figure><img class="wide-evidence" src="/api/artifacts/vggt_negative_space_ring_020" alt="Ring 020 structural negative-space diagnostic"><figcaption>Ring 020 · validation tradeoff</figcaption></figure>
+                <figure><img class="wide-evidence" src="/api/artifacts/vggt_negative_space_ring_015" alt="Ring 015 structural negative-space diagnostic"><figcaption>Ring 015 · weakest-view improvement with mean-IoU loss</figcaption></figure>
+              </div>
+            </article>
           </div>
 
           <div id="panel-bible" class="tab-panel">

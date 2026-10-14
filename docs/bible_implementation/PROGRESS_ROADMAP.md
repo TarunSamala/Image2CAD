@@ -60,18 +60,27 @@ replace or renumber the canonical [Project Bible roadmap](../bible_v1_0/19_DEVEL
   reaches `0.782 / 0.529`, improving mean IoU by `+0.024` over the surface-aware
   hull and `+0.316` over the point-map baseline. Every test object improves,
   but the minimum remains below the geometry gate and topology is unvalidated.
+- Source-view normal-consistency carving was tested using finite-difference
+  normals from VGGT world-point maps. Validation selected a zero cosine
+  threshold, so no normal-based deletion was accepted. The experiment is
+  rejected until an independent, better-aligned normal estimator is available.
+- Structural negative-space margins were tested on large enclosed source-mask
+  regions. A validation-selected 4 px margin raised the weakest held-out IoU
+  from `0.529` to `0.542`, but reduced held-out mean IoU from `0.782` to
+  `0.777`. It is retained as aperture evidence, not as the default geometry.
 
 ## Remaining implementation
 
-1. Add source-view normal consistency and component-aware negative-space
-   constraints to the signed-depth shell; do not generate CAD from the current
-   voxel reconstruction.
+1. Improve cross-view camera/point alignment before adding more carving rules;
+   the normal and aperture experiments show that downstream deletion cannot
+   repair misregistered outer profiles.
 2. Use pairwise camera-angle diagnostics, projected-surface precision and
    completion recall separately instead of treating IoU as camera accuracy.
 3. Improve the current signed-depth minimum from `0.529` to at least `0.700`
    while raising mean IoU from `0.782` to at least `0.800`; the current method
    still fails the geometry gate.
-4. Fuse consistent multi-view depth and normals while retaining uncertain pixels.
+4. Fuse consistent multi-view depth and independently estimated normals while
+   retaining uncertain pixels.
 5. Select a public-deployment-compatible independent normal comparator; DSINE
    remains blocked without a separate site/commercial licence.
 6. Build the universal jewellery component and constraint graph.
