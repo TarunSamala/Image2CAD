@@ -710,6 +710,24 @@
             <article class="evidence-card">
               <div class="card-heading">
                 <div>
+                  <p class="eyebrow">PHASE 3 / PROJECTION NOISE</p>
+                  <h3>Fragment-gated silhouette cleanup</h3>
+                </div>
+                <a class="button secondary" href="/api/artifacts/vggt_projection_noise_report">Noise report</a>
+              </div>
+              <p class="subtle">The visible scan-line gaps came from projecting a coarse voxel lattice, not widespread disconnected 3D geometry. A validation-selected 3×3 close is applied only when the raw projection contains at least four foreground components. It improves every test ring without regressing a test view, but changes only the review renderer—not the signed-depth voxels.</p>
+              <div id="vggt-projection-noise-status" class="key-value-list"></div>
+              <div class="two-column phase1-evidence-grid">
+                <figure><img class="wide-evidence" src="/api/artifacts/vggt_projection_noise_ring_004" alt="Ring 004 projection-noise validation"><figcaption>Ring 004 · validation split</figcaption></figure>
+                <figure><img class="wide-evidence" src="/api/artifacts/vggt_projection_noise_ring_020" alt="Ring 020 sculptural projection-noise validation"><figcaption>Ring 020 · fragmented front projection cleaned</figcaption></figure>
+                <figure><img class="wide-evidence" src="/api/artifacts/vggt_projection_noise_ring_007" alt="Ring 007 projection-noise test"><figcaption>Ring 007 · held-out test split</figcaption></figure>
+                <figure><img class="wide-evidence" src="/api/artifacts/vggt_projection_noise_ring_015" alt="Ring 015 projection-noise test"><figcaption>Ring 015 · weakest top view intentionally unchanged</figcaption></figure>
+                <figure><img class="wide-evidence" src="/api/artifacts/vggt_projection_noise_ring_023" alt="Ring 023 projection-noise test"><figcaption>Ring 023 · held-out test split</figcaption></figure>
+              </div>
+            </article>
+            <article class="evidence-card">
+              <div class="card-heading">
+                <div>
                   <p class="eyebrow">PHASE 3 / REJECTED NORMAL EXPERIMENT</p>
                   <h3>Source-view normal consistency</h3>
                 </div>
@@ -735,6 +753,61 @@
               <div class="two-column phase1-evidence-grid">
                 <figure><img class="wide-evidence" src="/api/artifacts/vggt_negative_space_ring_020" alt="Ring 020 structural negative-space diagnostic"><figcaption>Ring 020 · validation tradeoff</figcaption></figure>
                 <figure><img class="wide-evidence" src="/api/artifacts/vggt_negative_space_ring_015" alt="Ring 015 structural negative-space diagnostic"><figcaption>Ring 015 · weakest-view improvement with mean-IoU loss</figcaption></figure>
+              </div>
+            </article>
+            <article class="evidence-card">
+              <div class="card-heading">
+                <div>
+                  <p class="eyebrow">PHASE 3 / REJECTED CAMERA EXPERIMENT</p>
+                  <h3>Source-camera image-plane alignment</h3>
+                </div>
+                <a class="button secondary" href="/api/artifacts/vggt_source_camera_alignment_report">Camera-alignment report</a>
+              </div>
+              <p class="subtle">Bounded translation and scale corrections were fitted from source views only. Validation retained the original VGGT cameras because every non-identity profile reduced held-out reconstruction agreement. This is evidence that the remaining error is not a simple 2D camera offset.</p>
+              <div id="vggt-source-camera-alignment-status" class="key-value-list"></div>
+              <div class="two-column phase1-evidence-grid">
+                <figure><img class="wide-evidence" src="/api/artifacts/vggt_source_camera_alignment_ring_020" alt="Ring 020 source-camera alignment diagnostic"><figcaption>Ring 020 · sculptural validation failure</figcaption></figure>
+                <figure><img class="wide-evidence" src="/api/artifacts/vggt_source_camera_alignment_ring_015" alt="Ring 015 source-camera alignment diagnostic"><figcaption>Ring 015 · held-out top-view mismatch</figcaption></figure>
+              </div>
+            </article>
+            <article class="evidence-card">
+              <div class="card-heading">
+                <div>
+                  <p class="eyebrow">PHASE 3 / REJECTED RIGID REGISTRATION</p>
+                  <h3>Source point-map registration</h3>
+                </div>
+                <a class="button secondary" href="/api/artifacts/vggt_rigid_source_registration_report">Rigid-registration report</a>
+              </div>
+              <p class="subtle">Each source point map and camera were transformed together with bounded SE(3) corrections while the held-out target remained excluded. ICP reduced nearest-neighbour cloud distance but progressively damaged reconstruction IoU, so validation retained the original VGGT geometry.</p>
+              <div id="vggt-rigid-registration-status" class="key-value-list"></div>
+              <div class="two-column phase1-evidence-grid">
+                <figure><img class="wide-evidence" src="/api/artifacts/vggt_rigid_registration_ring_020_identity" alt="Ring 020 original VGGT geometry diagnostic"><figcaption>Ring 020 · accepted identity baseline</figcaption></figure>
+                <figure><img class="wide-evidence" src="/api/artifacts/vggt_rigid_registration_ring_020_medium" alt="Ring 020 rejected rigid registration diagnostic"><figcaption>Ring 020 · medium rigid bound damages openings and profile</figcaption></figure>
+                <figure><img class="wide-evidence" src="/api/artifacts/vggt_rigid_registration_ring_015" alt="Ring 015 held-out rigid-registration evaluation"><figcaption>Ring 015 · held-out evaluation uses identity selected on validation</figcaption></figure>
+              </div>
+            </article>
+            <article class="evidence-card">
+              <div class="card-heading">
+                <div>
+                  <p class="eyebrow">PHASE 3 / LEARNED TRACK EXPERIMENT</p>
+                  <h3>VGGT feature tracks and source registration</h3>
+                </div>
+                <div class="button-row">
+                  <a class="button secondary" href="/api/artifacts/vggt_track_evidence_report">Track report</a>
+                  <a class="button secondary" href="/api/artifacts/vggt_track_guided_registration_report">Registration report</a>
+                  <a class="button secondary" href="/api/artifacts/vggt_dense_track_evidence_report">Dense-track report</a>
+                  <a class="button secondary" href="/api/artifacts/vggt_dense_cycle_registration_report">Cycle report</a>
+                </div>
+              </div>
+              <p class="subtle">The pinned VGGT track head first generated 96 and then 384 cross-view queries per view for seven rings within the 4 GB GPU limit. Bounds and source-query checks passed, but the tracks are not ground truth. Sparse registration lost 0.0024 test IoU. With four-times denser reciprocal tracks, every moving profile reduced validation IoU, so validation selected identity. Track evidence is retained for future component relationships, not for moving the current geometry.</p>
+              <div id="vggt-track-registration-status" class="key-value-list"></div>
+              <div class="two-column phase1-evidence-grid">
+                <figure><img class="wide-evidence" src="/api/artifacts/vggt_tracks_ring_020" alt="Ring 020 VGGT cross-view tracks"><figcaption>Ring 020 · high-score tracks still cross repeated ornament</figcaption></figure>
+                <figure><img class="wide-evidence" src="/api/artifacts/vggt_track_registration_ring_020" alt="Ring 020 track-guided registration comparison"><figcaption>Ring 020 · validation result is effectively unchanged</figcaption></figure>
+                <figure><img class="wide-evidence" src="/api/artifacts/vggt_tracks_ring_015" alt="Ring 015 VGGT cross-view tracks"><figcaption>Ring 015 · long-baseline side-view ambiguity</figcaption></figure>
+                <figure><img class="wide-evidence" src="/api/artifacts/vggt_track_registration_ring_007" alt="Ring 007 track-guided registration comparison"><figcaption>Ring 007 · held-out top silhouette becomes worse</figcaption></figure>
+                <figure><img class="wide-evidence" src="/api/artifacts/vggt_dense_cycle_ring_020" alt="Ring 020 dense reciprocal track registration comparison"><figcaption>Ring 020 · dense cycle filtering still selects unchanged geometry</figcaption></figure>
+                <figure><img class="wide-evidence" src="/api/artifacts/vggt_dense_cycle_ring_015" alt="Ring 015 dense reciprocal track registration comparison"><figcaption>Ring 015 · identity selected before held-out test scoring</figcaption></figure>
               </div>
             </article>
           </div>

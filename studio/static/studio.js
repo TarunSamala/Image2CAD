@@ -550,6 +550,10 @@ function renderPhase3(detail) {
   const signedDepthValidation = signedDepth.validation || {};
   const signedDepthTest = signedDepth.test_evaluation || {};
   const signedDepthSelection = signedDepth.validation_selection || {};
+  const projectionNoise = globalGeometry.vggt_projection_noise || {};
+  const projectionNoiseValidation = projectionNoise.validation || {};
+  const projectionNoiseTest = projectionNoise.test_evaluation || {};
+  const projectionNoiseSelection = projectionNoise.validation_selection || {};
   const normalConsistency = globalGeometry.vggt_normal_consistency || {};
   const normalValidation = normalConsistency.validation || {};
   const normalTest = normalConsistency.test_evaluation || {};
@@ -558,6 +562,26 @@ function renderPhase3(detail) {
   const negativeValidation = negativeSpace.validation || {};
   const negativeTest = negativeSpace.test_evaluation || {};
   const negativeSelection = negativeSpace.validation_selection || {};
+  const cameraAlignment = globalGeometry.vggt_source_camera_alignment || {};
+  const cameraAlignmentValidation = cameraAlignment.validation || {};
+  const cameraAlignmentTest = cameraAlignment.test_evaluation || {};
+  const cameraAlignmentSelection = cameraAlignment.validation_selection || {};
+  const rigidRegistration = globalGeometry.vggt_rigid_source_registration || {};
+  const rigidValidation = rigidRegistration.validation || {};
+  const rigidTest = rigidRegistration.test_evaluation || {};
+  const rigidSelection = rigidRegistration.validation_selection || {};
+  const trackEvidence = globalGeometry.vggt_track_evidence || {};
+  const trackChecks = trackEvidence.checks || {};
+  const trackRegistration = globalGeometry.vggt_track_guided_registration || {};
+  const trackValidation = trackRegistration.validation || {};
+  const trackTest = trackRegistration.test_evaluation || {};
+  const trackSelection = trackRegistration.validation_selection || {};
+  const denseTrackEvidence = globalGeometry.vggt_dense_track_evidence || {};
+  const denseTrackChecks = denseTrackEvidence.checks || {};
+  const denseCycle = globalGeometry.vggt_dense_cycle_registration || {};
+  const denseCycleValidation = denseCycle.validation || {};
+  const denseCycleTest = denseCycle.test_evaluation || {};
+  const denseCycleSelection = denseCycle.validation_selection || {};
   $("#phase3-geometry").innerHTML = `
     <div class="key-value"><span>COLMAP object status</span><strong class="${geometry.status === "completed_with_sparse_model" ? "good" : "bad"}">${escapeHtml(humanize(geometry.status || "not run"))}</strong></div>
     <div class="key-value"><span>SIFT keypoints</span><strong>${database.keypoints_rows?.toLocaleString() ?? "—"}</strong></div>
@@ -626,6 +650,13 @@ function renderPhase3(detail) {
     <div class="key-value"><span>Gain over surface-aware hull</span><strong class="good">+${score(signedDepthTest.mean_delta_over_surface_aware_hull, 3)}</strong></div>
     <div class="key-value"><span>Gain over point baseline</span><strong class="good">+${score(signedDepthTest.mean_delta_over_point_baseline, 3)}</strong></div>
     <div class="key-value"><span>Geometry exit gate</span><strong class="bad">Not passed</strong><small>Mean is approaching 0.80; weakest view remains below 0.70</small></div>`;
+  $("#vggt-projection-noise-status").innerHTML = `
+    <div class="key-value"><span>Validation-selected renderer</span><strong class="good">${escapeHtml(humanize(projectionNoiseSelection.selected_profile || "unavailable"))}</strong><small>Cleanup activates from raw fragmentation only</small></div>
+    <div class="key-value"><span>Validation mean / delta</span><strong>${score(projectionNoiseValidation.mean_iou, 3)} / <span class="good">+${score(projectionNoiseValidation.mean_delta_over_raw, 4)}</span></strong></div>
+    <div class="key-value"><span>Test mean / delta</span><strong>${score(projectionNoiseTest.mean_iou, 3)} / <span class="good">+${score(projectionNoiseTest.mean_delta_over_raw, 4)}</span></strong></div>
+    <div class="key-value"><span>Regressed test views</span><strong class="good">${projectionNoiseTest.regressed_view_count ?? "—"}</strong></div>
+    <div class="key-value"><span>Weakest test view</span><strong class="bad">${score(projectionNoiseTest.minimum_iou, 3)}</strong><small>Unchanged; remaining error is geometric</small></div>
+    <div class="key-value"><span>Authority</span><strong>Renderer only</strong><small>Voxel geometry is unchanged and CAD accuracy is not implied</small></div>`;
   $("#vggt-normal-consistency-status").innerHTML = `
     <div class="key-value"><span>Validation-selected threshold</span><strong class="bad">${score(normalSelection.selected_normal_cosine_threshold, 2)}</strong><small>Zero means no normal-based voxel removal was accepted</small></div>
     <div class="key-value"><span>Normals with multi-source support</span><strong>${score((normalValidation.mean_assessed_voxel_fraction || 0) * 100, 1)}%</strong></div>
@@ -637,6 +668,30 @@ function renderPhase3(detail) {
     <div class="key-value"><span>Test mean / minimum IoU</span><strong>${score(negativeTest.mean_iou, 3)} / ${score(negativeTest.minimum_iou, 3)}</strong></div>
     <div class="key-value"><span>Held-out mean IoU delta</span><strong class="bad">${score(negativeTest.mean_delta_over_signed_depth, 4)}</strong><small>Weakest test view improved, but overall agreement fell</small></div>
     <div class="key-value"><span>Decision</span><strong class="bad">Rejected as default</strong><small>Retained only as aperture evidence for later component reasoning</small></div>`;
+  $("#vggt-source-camera-alignment-status").innerHTML = `
+    <div class="key-value"><span>Validation-selected profile</span><strong>${escapeHtml(humanize(cameraAlignmentSelection.selected_profile || "unavailable"))}</strong><small>Identity means the original VGGT source cameras were retained</small></div>
+    <div class="key-value"><span>Validation mean / minimum IoU</span><strong>${score(cameraAlignmentValidation.mean_iou, 3)} / ${score(cameraAlignmentValidation.minimum_iou, 3)}</strong></div>
+    <div class="key-value"><span>Test mean / minimum IoU</span><strong>${score(cameraAlignmentTest.mean_iou, 3)} / ${score(cameraAlignmentTest.minimum_iou, 3)}</strong></div>
+    <div class="key-value"><span>Held-out mean IoU delta</span><strong class="bad">${score(cameraAlignmentTest.mean_delta_over_signed_depth, 4)}</strong><small>No camera adjustment survived validation</small></div>
+    <div class="key-value"><span>Decision</span><strong class="bad">Rejected</strong><small>Image-plane silhouette fitting improved source reprojection but degraded held-out geometry</small></div>`;
+  $("#vggt-rigid-registration-status").innerHTML = `
+    <div class="key-value"><span>Validation-selected profile</span><strong>${escapeHtml(humanize(rigidSelection.selected_profile || "unavailable"))}</strong><small>Identity retains the original VGGT source geometry</small></div>
+    <div class="key-value"><span>Validation mean / minimum IoU</span><strong>${score(rigidValidation.mean_iou, 3)} / ${score(rigidValidation.minimum_iou, 3)}</strong></div>
+    <div class="key-value"><span>Test mean / minimum IoU</span><strong>${score(rigidTest.mean_iou, 3)} / ${score(rigidTest.minimum_iou, 3)}</strong></div>
+    <div class="key-value"><span>Held-out mean IoU delta</span><strong class="bad">${score(rigidTest.mean_delta_over_signed_depth, 4)}</strong></div>
+    <div class="key-value"><span>Decision</span><strong class="bad">Rejected</strong><small>Rigid ICP reduced cloud distance but damaged silhouette agreement</small></div>`;
+  $("#vggt-track-registration-status").innerHTML = `
+    <div class="key-value"><span>Track evidence</span><strong class="${trackChecks.all_objects_completed ? "good" : "bad"}">${trackEvidence.object_count ?? "—"} objects</strong><small>96 queries per view from the pinned VGGT track head</small></div>
+    <div class="key-value"><span>Track integrity checks</span><strong class="${trackChecks.all_tracks_in_bounds_above_95_percent && trackChecks.all_source_queries_preserved ? "good" : "bad"}">${trackChecks.all_tracks_in_bounds_above_95_percent && trackChecks.all_source_queries_preserved ? "Passed" : "Incomplete"}</strong><small>Bounds and source-query preservation only; not correspondence ground truth</small></div>
+    <div class="key-value"><span>Validation-selected profile</span><strong>${escapeHtml(humanize(trackSelection.selected_profile || "unavailable"))}</strong></div>
+    <div class="key-value"><span>Validation mean / delta</span><strong>${score(trackValidation.mean_iou, 3)} / ${score(trackValidation.mean_delta_over_signed_depth, 4)}</strong></div>
+    <div class="key-value"><span>Test mean / delta</span><strong>${score(trackTest.mean_iou, 3)} / <span class="bad">${score(trackTest.mean_delta_over_signed_depth, 4)}</span></strong></div>
+    <div class="key-value"><span>Sparse decision</span><strong class="bad">Rejected</strong><small>Sparse learned tracks did not produce a consistent held-out gain</small></div>
+    <div class="key-value"><span>Dense track evidence</span><strong class="${denseTrackChecks.all_objects_completed ? "good" : "bad"}">${denseTrackEvidence.object_count ?? "—"} objects · 384 queries/view</strong><small>Peak ${denseTrackEvidence.objects?.length ? score(Math.max(...denseTrackEvidence.objects.map((item) => item.runtime.peak_cuda_bytes)) / (1024 ** 3), 2) : "—"} GiB</small></div>
+    <div class="key-value"><span>Dense validation profile</span><strong>${escapeHtml(humanize(denseCycleSelection.selected_profile || "unavailable"))}</strong><small>Identity means no source geometry correction was accepted</small></div>
+    <div class="key-value"><span>Dense validation mean / delta</span><strong>${score(denseCycleValidation.mean_iou, 3)} / ${score(denseCycleValidation.mean_delta_over_signed_depth, 4)}</strong></div>
+    <div class="key-value"><span>Dense test mean / delta</span><strong>${score(denseCycleTest.mean_iou, 3)} / ${score(denseCycleTest.mean_delta_over_signed_depth, 4)}</strong></div>
+    <div class="key-value"><span>Final decision</span><strong class="bad">Rejected for geometry movement</strong><small>Dense reciprocal tracks will be retained as component-relation evidence; signed depth remains active</small></div>`;
   if (!phase3) {
     preview.removeAttribute("src");
     metrics.innerHTML = "<p>No experimental Phase 3 artifact is available.</p>";

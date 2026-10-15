@@ -208,6 +208,71 @@ class DatasetStudioServiceTest(unittest.TestCase):
             negative_space["validation_selection"]["selected_hole_margin_pixels"],
             4,
         )
+        camera_alignment = summary["phase3"]["geometry_benchmark"][
+            "vggt_source_camera_alignment"
+        ]
+        self.assertEqual(
+            camera_alignment["validation_selection"]["selected_profile"],
+            "identity",
+        )
+        self.assertEqual(
+            camera_alignment["decision"],
+            "rejected_no_consistent_heldout_gain",
+        )
+        rigid_registration = summary["phase3"]["geometry_benchmark"][
+            "vggt_rigid_source_registration"
+        ]
+        self.assertEqual(
+            rigid_registration["validation_selection"]["selected_profile"],
+            "identity",
+        )
+        self.assertEqual(
+            rigid_registration["decision"],
+            "rejected_no_consistent_heldout_gain",
+        )
+        track_evidence = summary["phase3"]["geometry_benchmark"][
+            "vggt_track_evidence"
+        ]
+        self.assertEqual(track_evidence["object_count"], 7)
+        self.assertTrue(track_evidence["checks"]["all_objects_completed"])
+        track_registration = summary["phase3"]["geometry_benchmark"][
+            "vggt_track_guided_registration"
+        ]
+        self.assertEqual(
+            track_registration["validation_selection"]["selected_profile"],
+            "track_strict",
+        )
+        self.assertEqual(
+            track_registration["decision"],
+            "rejected_no_consistent_heldout_gain",
+        )
+        dense_tracks = summary["phase3"]["geometry_benchmark"][
+            "vggt_dense_track_evidence"
+        ]
+        self.assertEqual(dense_tracks["object_count"], 7)
+        self.assertEqual(dense_tracks["objects"][0]["query_count_per_view"], 384)
+        dense_cycle = summary["phase3"]["geometry_benchmark"][
+            "vggt_dense_cycle_registration"
+        ]
+        self.assertEqual(
+            dense_cycle["validation_selection"]["selected_profile"],
+            "identity",
+        )
+        self.assertEqual(
+            dense_cycle["decision"],
+            "rejected_no_regression_free_heldout_gain",
+        )
+        projection_noise = summary["phase3"]["geometry_benchmark"][
+            "vggt_projection_noise"
+        ]
+        self.assertEqual(
+            projection_noise["validation_selection"]["selected_profile"],
+            "close3_components_ge_4",
+        )
+        self.assertEqual(
+            projection_noise["decision"],
+            "retained_as_projection_renderer_only",
+        )
         self.assertEqual(
             phase2["ring01_carryover"]["open_issues"][0]["status"],
             "correction_proposed_pending_human_review",
@@ -395,6 +460,10 @@ class DatasetStudioApiTest(unittest.TestCase):
             'id="vggt-signed-depth-status"',
             'id="vggt-normal-consistency-status"',
             'id="vggt-negative-space-status"',
+            'id="vggt-source-camera-alignment-status"',
+            'id="vggt-rigid-registration-status"',
+            'id="vggt-track-registration-status"',
+            'id="vggt-projection-noise-status"',
             'id="dataset-depth-summary"',
             'id="dataset-complete-summary"',
             'id="stl1-review-summary"',
@@ -457,6 +526,10 @@ class DatasetStudioApiTest(unittest.TestCase):
         self.assertIn('$("#vggt-signed-depth-status")', javascript)
         self.assertIn('$("#vggt-normal-consistency-status")', javascript)
         self.assertIn('$("#vggt-negative-space-status")', javascript)
+        self.assertIn('$("#vggt-source-camera-alignment-status")', javascript)
+        self.assertIn('$("#vggt-rigid-registration-status")', javascript)
+        self.assertIn('$("#vggt-track-registration-status")', javascript)
+        self.assertIn('$("#vggt-projection-noise-status")', javascript)
         self.assertIn("phase2.machine_review", javascript)
         self.assertIn("summary.phase1.complete_features", javascript)
         audit = self.client.get("/api/artifacts/phase2_reflection_audit")
@@ -748,6 +821,82 @@ class DatasetStudioApiTest(unittest.TestCase):
         self.assertEqual(aperture_preview.status_code, 200)
         self.assertEqual(aperture_preview.mimetype, "image/png")
         aperture_preview.close()
+        camera_alignment_report = self.client.get(
+            "/api/artifacts/vggt_source_camera_alignment_report"
+        )
+        self.assertEqual(camera_alignment_report.status_code, 200)
+        self.assertEqual(camera_alignment_report.mimetype, "application/json")
+        camera_alignment_report.close()
+        camera_alignment_preview = self.client.get(
+            "/api/artifacts/vggt_source_camera_alignment_ring_015"
+        )
+        self.assertEqual(camera_alignment_preview.status_code, 200)
+        self.assertEqual(camera_alignment_preview.mimetype, "image/png")
+        camera_alignment_preview.close()
+        rigid_registration_report = self.client.get(
+            "/api/artifacts/vggt_rigid_source_registration_report"
+        )
+        self.assertEqual(rigid_registration_report.status_code, 200)
+        self.assertEqual(rigid_registration_report.mimetype, "application/json")
+        rigid_registration_report.close()
+        rigid_registration_preview = self.client.get(
+            "/api/artifacts/vggt_rigid_registration_ring_020_medium"
+        )
+        self.assertEqual(rigid_registration_preview.status_code, 200)
+        self.assertEqual(rigid_registration_preview.mimetype, "image/png")
+        rigid_registration_preview.close()
+        track_report = self.client.get(
+            "/api/artifacts/vggt_track_evidence_report"
+        )
+        self.assertEqual(track_report.status_code, 200)
+        self.assertEqual(track_report.mimetype, "application/json")
+        track_report.close()
+        track_registration_report = self.client.get(
+            "/api/artifacts/vggt_track_guided_registration_report"
+        )
+        self.assertEqual(track_registration_report.status_code, 200)
+        self.assertEqual(track_registration_report.mimetype, "application/json")
+        track_registration_report.close()
+        track_preview = self.client.get("/api/artifacts/vggt_tracks_ring_020")
+        self.assertEqual(track_preview.status_code, 200)
+        self.assertEqual(track_preview.mimetype, "image/png")
+        track_preview.close()
+        track_registration_preview = self.client.get(
+            "/api/artifacts/vggt_track_registration_ring_007"
+        )
+        self.assertEqual(track_registration_preview.status_code, 200)
+        self.assertEqual(track_registration_preview.mimetype, "image/png")
+        track_registration_preview.close()
+        dense_track_report = self.client.get(
+            "/api/artifacts/vggt_dense_track_evidence_report"
+        )
+        self.assertEqual(dense_track_report.status_code, 200)
+        self.assertEqual(dense_track_report.mimetype, "application/json")
+        dense_track_report.close()
+        dense_cycle_report = self.client.get(
+            "/api/artifacts/vggt_dense_cycle_registration_report"
+        )
+        self.assertEqual(dense_cycle_report.status_code, 200)
+        self.assertEqual(dense_cycle_report.mimetype, "application/json")
+        dense_cycle_report.close()
+        dense_cycle_preview = self.client.get(
+            "/api/artifacts/vggt_dense_cycle_ring_015"
+        )
+        self.assertEqual(dense_cycle_preview.status_code, 200)
+        self.assertEqual(dense_cycle_preview.mimetype, "image/png")
+        dense_cycle_preview.close()
+        projection_noise_report = self.client.get(
+            "/api/artifacts/vggt_projection_noise_report"
+        )
+        self.assertEqual(projection_noise_report.status_code, 200)
+        self.assertEqual(projection_noise_report.mimetype, "application/json")
+        projection_noise_report.close()
+        projection_noise_preview = self.client.get(
+            "/api/artifacts/vggt_projection_noise_ring_015"
+        )
+        self.assertEqual(projection_noise_preview.status_code, 200)
+        self.assertEqual(projection_noise_preview.mimetype, "image/png")
+        projection_noise_preview.close()
 
     def test_invalid_routes_fail_closed(self) -> None:
         self.assertEqual(self.client.get("/api/objects/ring_999").status_code, 404)

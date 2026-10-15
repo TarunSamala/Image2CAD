@@ -14,10 +14,23 @@ predate it, so this index prevents similarly numbered stages from being mixed.
   `evaluate_vggt_surface_aware_hull.py`, and
   `evaluate_vggt_signed_depth_carving.py`,
   `evaluate_vggt_normal_consistency.py`, and
-  `evaluate_vggt_negative_space.py` - Bible Phase 3 research benchmark,
+  `evaluate_vggt_negative_space.py`, and
+  `evaluate_vggt_source_camera_alignment.py`, and
+  `evaluate_vggt_rigid_source_registration.py`,
+  `extract_vggt_track_evidence.py`, and
+  `evaluate_vggt_track_guided_registration.py`, and
+  `evaluate_vggt_cycle_consistent_registration.py`, and
+  `evaluate_vggt_projection_noise.py` - Bible Phase 3 research benchmark,
   low-VRAM execution, source-view transfer, camera-space silhouette completion,
   source-surface constrained hull validation, and signed-depth free-space
-  carving plus rejected normal/aperture constraint experiments.
+  carving plus rejected normal, aperture, image-plane camera and rigid
+  point-map registration experiments. The VGGT track experiment is also
+  rejected because its validation gain did not transfer to the fixed test set.
+  Increasing coverage from 96 to 384 queries per view and requiring reciprocal
+  cycles also failed: validation selected identity, so the denser tracks are
+  retained as future component-relation evidence rather than geometry motion.
+  Fragment-gated projection cleanup is retained for review rendering only; it
+  does not alter or validate the signed-depth voxel geometry.
 - `bible_phase_2_paired_benchmark.py` - Bible Phase 2 guided-capture,
   production-STEP, measurement, component-graph, split and provenance guardrail;
   inactive under the image-only execution profile.

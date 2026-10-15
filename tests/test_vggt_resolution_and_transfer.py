@@ -23,6 +23,27 @@ class VGGTResolutionAndTransferTest(unittest.TestCase):
     )
     normal_root = Path("dataset/phase_runs/v1/vggt_normal_consistency_v1")
     negative_space_root = Path("dataset/phase_runs/v1/vggt_negative_space_v1")
+    camera_alignment_root = Path(
+        "dataset/phase_runs/v1/vggt_source_camera_alignment_v1"
+    )
+    rigid_registration_root = Path(
+        "dataset/phase_runs/v1/vggt_rigid_source_registration_v1"
+    )
+    track_evidence_root = Path(
+        "dataset/phase_runs/v1/vggt_track_evidence_v1"
+    )
+    track_registration_root = Path(
+        "dataset/phase_runs/v1/vggt_track_guided_registration_v1"
+    )
+    dense_track_evidence_root = Path(
+        "dataset/phase_runs/v1/vggt_dense_track_evidence_v1"
+    )
+    dense_cycle_root = Path(
+        "dataset/phase_runs/v1/vggt_dense_cycle_consistent_registration_v1"
+    )
+    projection_noise_root = Path(
+        "dataset/phase_runs/v1/vggt_projection_noise_v1"
+    )
 
     @classmethod
     def setUpClass(cls) -> None:
@@ -46,6 +67,35 @@ class VGGTResolutionAndTransferTest(unittest.TestCase):
         )
         cls.negative_space = json.loads(
             (cls.negative_space_root / "report.json").read_text(encoding="utf-8")
+        )
+        cls.camera_alignment = json.loads(
+            (cls.camera_alignment_root / "report.json").read_text(encoding="utf-8")
+        )
+        cls.rigid_registration = json.loads(
+            (cls.rigid_registration_root / "report.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        cls.track_evidence = json.loads(
+            (cls.track_evidence_root / "report.json").read_text(encoding="utf-8")
+        )
+        cls.track_registration = json.loads(
+            (cls.track_registration_root / "report.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        cls.dense_track_evidence = json.loads(
+            (cls.dense_track_evidence_root / "report.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        cls.dense_cycle = json.loads(
+            (cls.dense_cycle_root / "report.json").read_text(encoding="utf-8")
+        )
+        cls.projection_noise = json.loads(
+            (cls.projection_noise_root / "report.json").read_text(
+                encoding="utf-8"
+            )
         )
 
     def test_resolution_selection_uses_heldout_results_and_stays_honest(self) -> None:
@@ -299,6 +349,257 @@ class VGGTResolutionAndTransferTest(unittest.TestCase):
                 image = cv2.imread(str(path))
                 self.assertIsNotNone(image, path)
                 self.assertGreater(min(image.shape[:2]), 2400)
+
+    def test_source_camera_image_alignment_is_rejected_without_target_leakage(self) -> None:
+        selection = self.camera_alignment["validation_selection"]
+        self.assertEqual(
+            selection["object_ids"], ["ring_004", "ring_012", "ring_020"]
+        )
+        self.assertEqual(selection["selected_profile"], "identity")
+        self.assertLess(
+            selection["profile_candidates"]["translation_4px"]["mean_iou"],
+            selection["profile_candidates"]["identity"]["mean_iou"],
+        )
+        self.assertEqual(
+            self.camera_alignment["test_evaluation"]["object_ids"],
+            ["ring_007", "ring_015", "ring_023"],
+        )
+        self.assertEqual(
+            self.camera_alignment["test_evaluation"][
+                "mean_delta_over_signed_depth"
+            ],
+            0.0,
+        )
+        self.assertEqual(
+            self.camera_alignment["decision"],
+            "rejected_no_consistent_heldout_gain",
+        )
+        self.assertTrue(
+            self.camera_alignment["checks"][
+                "target_mask_and_points_excluded_from_alignment_and_reconstruction"
+            ]
+        )
+        self.assertTrue(self.camera_alignment["checks"]["target_camera_unchanged"])
+        self.assertFalse(
+            self.camera_alignment["checks"]["geometry_exit_gate_passed"]
+        )
+        self.assertFalse(any(self.camera_alignment["claims"].values()))
+
+    def test_source_camera_alignment_previews_are_readable(self) -> None:
+        for object_id in ("ring_020", "ring_015"):
+            path = (
+                self.camera_alignment_root
+                / f"{object_id}_source_camera_alignment.png"
+            )
+            image = cv2.imread(str(path))
+            self.assertIsNotNone(image, path)
+            self.assertGreater(min(image.shape[:2]), 2400)
+
+    def test_rigid_source_registration_is_bounded_and_rejected(self) -> None:
+        selection = self.rigid_registration["validation_selection"]
+        self.assertEqual(
+            selection["object_ids"], ["ring_004", "ring_012", "ring_020"]
+        )
+        self.assertEqual(selection["selected_profile"], "identity")
+        candidates = selection["profile_candidates"]
+        self.assertLess(
+            candidates["rigid_medium"][
+                "mean_registration_distance_delta_fraction"
+            ],
+            0,
+        )
+        self.assertLess(
+            candidates["rigid_medium"]["mean_iou"],
+            candidates["identity"]["mean_iou"],
+        )
+        self.assertEqual(
+            self.rigid_registration["test_evaluation"]["object_ids"],
+            ["ring_007", "ring_015", "ring_023"],
+        )
+        self.assertEqual(
+            self.rigid_registration["decision"],
+            "rejected_no_consistent_heldout_gain",
+        )
+        checks = self.rigid_registration["checks"]
+        self.assertTrue(
+            checks["target_mask_points_and_camera_excluded_from_registration"]
+        )
+        self.assertTrue(checks["source_camera_and_points_transformed_together"])
+        self.assertFalse(checks["geometry_exit_gate_passed"])
+        self.assertFalse(any(self.rigid_registration["claims"].values()))
+
+    def test_rigid_registration_previews_are_readable(self) -> None:
+        paths = (
+            self.rigid_registration_root
+            / "ring_020_identity_registration_diagnostic.png",
+            self.rigid_registration_root
+            / "ring_020_rigid_medium_registration_diagnostic.png",
+            self.rigid_registration_root
+            / "ring_015_rigid_source_registration.png",
+        )
+        for path in paths:
+            image = cv2.imread(str(path))
+            self.assertIsNotNone(image, path)
+            self.assertGreater(min(image.shape[:2]), 2400)
+
+    def test_vggt_track_evidence_is_complete_and_non_metric(self) -> None:
+        self.assertEqual(self.track_evidence["object_count"], 7)
+        self.assertEqual(
+            self.track_evidence["object_ids"],
+            [
+                "ring_004",
+                "ring_012",
+                "ring_020",
+                "ring_001",
+                "ring_007",
+                "ring_015",
+                "ring_023",
+            ],
+        )
+        checks = self.track_evidence["checks"]
+        self.assertTrue(checks["all_objects_completed"])
+        self.assertTrue(checks["all_tracks_in_bounds_above_95_percent"])
+        self.assertTrue(checks["all_source_queries_preserved"])
+        self.assertLess(
+            max(item["runtime"]["peak_cuda_bytes"] for item in self.track_evidence["objects"]),
+            4 * 1024**3,
+        )
+        self.assertFalse(any(self.track_evidence["claims"].values()))
+
+    def test_track_guided_registration_is_rejected_on_fixed_test_split(self) -> None:
+        selection = self.track_registration["validation_selection"]
+        self.assertEqual(
+            selection["object_ids"], ["ring_004", "ring_012", "ring_020"]
+        )
+        self.assertEqual(selection["selected_profile"], "track_strict")
+        self.assertGreater(
+            self.track_registration["validation"]["mean_delta_over_signed_depth"],
+            0,
+        )
+        self.assertEqual(
+            self.track_registration["test_evaluation"]["object_ids"],
+            ["ring_007", "ring_015", "ring_023"],
+        )
+        self.assertLess(
+            self.track_registration["test_evaluation"]["mean_delta_over_signed_depth"],
+            0,
+        )
+        self.assertEqual(
+            self.track_registration["decision"],
+            "rejected_no_consistent_heldout_gain",
+        )
+        checks = self.track_registration["checks"]
+        self.assertTrue(
+            checks["target_tracks_mask_points_and_camera_excluded_from_registration"]
+        )
+        self.assertTrue(checks["source_camera_and_points_transformed_together"])
+        self.assertFalse(checks["all_test_objects_improve_over_signed_depth"])
+        self.assertFalse(checks["geometry_exit_gate_passed"])
+        self.assertFalse(any(self.track_registration["claims"].values()))
+
+    def test_track_registration_previews_are_readable(self) -> None:
+        paths = (
+            self.track_registration_root / "ring_020_track_evidence.png",
+            self.track_registration_root / "ring_015_track_evidence.png",
+            self.track_registration_root / "ring_020_track_guided_registration.png",
+            self.track_registration_root / "ring_007_track_guided_registration.png",
+        )
+        for path in paths:
+            image = cv2.imread(str(path))
+            self.assertIsNotNone(image, path)
+            self.assertGreater(min(image.shape[:2]), 1000)
+
+    def test_dense_cycle_registration_selects_identity_on_validation(self) -> None:
+        self.assertEqual(self.dense_track_evidence["object_count"], 7)
+        self.assertEqual(
+            self.dense_track_evidence["objects"][0]["query_count_per_view"],
+            384,
+        )
+        self.assertLess(
+            max(
+                item["runtime"]["peak_cuda_bytes"]
+                for item in self.dense_track_evidence["objects"]
+            ),
+            4 * 1024**3,
+        )
+        selection = self.dense_cycle["validation_selection"]
+        self.assertEqual(
+            selection["object_ids"], ["ring_004", "ring_012", "ring_020"]
+        )
+        self.assertEqual(selection["selected_profile"], "identity")
+        self.assertLess(
+            selection["profile_candidates"]["cycle_tight"][
+                "mean_delta_over_signed_depth"
+            ],
+            0,
+        )
+        self.assertEqual(
+            self.dense_cycle["test_evaluation"]["object_ids"],
+            ["ring_007", "ring_015", "ring_023"],
+        )
+        self.assertEqual(
+            self.dense_cycle["test_evaluation"]["mean_delta_over_signed_depth"],
+            0.0,
+        )
+        self.assertEqual(
+            self.dense_cycle["decision"],
+            "rejected_no_regression_free_heldout_gain",
+        )
+        self.assertFalse(self.dense_cycle["checks"]["reciprocal_cycle_filter_enabled"])
+        self.assertFalse(self.dense_cycle["checks"]["geometry_exit_gate_passed"])
+        self.assertFalse(any(self.dense_cycle["claims"].values()))
+
+    def test_dense_cycle_previews_are_readable(self) -> None:
+        for object_id in ("ring_020", "ring_015"):
+            path = self.dense_cycle_root / f"{object_id}_cycle_registration.png"
+            image = cv2.imread(str(path))
+            self.assertIsNotNone(image, path)
+            self.assertGreater(min(image.shape[:2]), 1000)
+
+    def test_projection_noise_cleanup_is_renderer_only_and_transfers(self) -> None:
+        selection = self.projection_noise["validation_selection"]
+        self.assertEqual(
+            selection["object_ids"], ["ring_004", "ring_012", "ring_020"]
+        )
+        self.assertEqual(
+            selection["selected_profile"], "close3_components_ge_4"
+        )
+        self.assertGreater(
+            self.projection_noise["validation"]["mean_delta_over_raw"], 0
+        )
+        test = self.projection_noise["test_evaluation"]
+        self.assertEqual(
+            test["object_ids"], ["ring_007", "ring_015", "ring_023"]
+        )
+        self.assertGreater(test["mean_delta_over_raw"], 0.007)
+        self.assertEqual(test["regressed_view_count"], 0)
+        self.assertEqual(test["minimum_iou"], 0.529146)
+        checks = self.projection_noise["checks"]
+        self.assertTrue(checks["selection_uses_validation_split_only"])
+        self.assertTrue(checks["target_mask_not_used_for_cleanup_decision"])
+        self.assertTrue(checks["voxel_geometry_unchanged"])
+        self.assertTrue(checks["all_test_objects_improve_over_raw"])
+        self.assertTrue(checks["no_test_view_regresses"])
+        self.assertTrue(checks["structural_hole_guard_passed"])
+        self.assertFalse(checks["geometry_exit_gate_passed"])
+        self.assertEqual(
+            self.projection_noise["decision"],
+            "retained_as_projection_renderer_only",
+        )
+        self.assertFalse(any(self.projection_noise["claims"].values()))
+
+    def test_projection_noise_previews_are_readable(self) -> None:
+        for object_id in (
+            "ring_004",
+            "ring_020",
+            "ring_007",
+            "ring_015",
+            "ring_023",
+        ):
+            path = self.projection_noise_root / f"{object_id}_projection_noise.png"
+            image = cv2.imread(str(path))
+            self.assertIsNotNone(image, path)
+            self.assertGreater(min(image.shape[:2]), 2800)
 
 
 if __name__ == "__main__":

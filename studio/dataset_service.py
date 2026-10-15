@@ -177,6 +177,35 @@ class DatasetRepository:
         self.vggt_negative_space = self._read_json(
             self.phase_root / "vggt_negative_space_v1" / "report.json"
         )
+        self.vggt_source_camera_alignment = self._read_json(
+            self.phase_root
+            / "vggt_source_camera_alignment_v1"
+            / "report.json"
+        )
+        self.vggt_rigid_source_registration = self._read_json(
+            self.phase_root
+            / "vggt_rigid_source_registration_v1"
+            / "report.json"
+        )
+        self.vggt_track_evidence = self._read_json(
+            self.phase_root / "vggt_track_evidence_v1" / "report.json"
+        )
+        self.vggt_track_guided_registration = self._read_json(
+            self.phase_root
+            / "vggt_track_guided_registration_v1"
+            / "report.json"
+        )
+        self.vggt_dense_track_evidence = self._read_json(
+            self.phase_root / "vggt_dense_track_evidence_v1" / "report.json"
+        )
+        self.vggt_dense_cycle_registration = self._read_json(
+            self.phase_root
+            / "vggt_dense_cycle_consistent_registration_v1"
+            / "report.json"
+        )
+        self.vggt_projection_noise = self._read_json(
+            self.phase_root / "vggt_projection_noise_v1" / "report.json"
+        )
         self.external_ring_report = self._read_json(
             self.repo_root / "dataset" / "external_ring_v1" / "report.json"
         )
@@ -562,6 +591,27 @@ class DatasetRepository:
                     ),
                     "vggt_negative_space": deepcopy(
                         self.vggt_negative_space
+                    ),
+                    "vggt_source_camera_alignment": deepcopy(
+                        self.vggt_source_camera_alignment
+                    ),
+                    "vggt_rigid_source_registration": deepcopy(
+                        self.vggt_rigid_source_registration
+                    ),
+                    "vggt_track_evidence": deepcopy(
+                        self.vggt_track_evidence
+                    ),
+                    "vggt_track_guided_registration": deepcopy(
+                        self.vggt_track_guided_registration
+                    ),
+                    "vggt_dense_track_evidence": deepcopy(
+                        self.vggt_dense_track_evidence
+                    ),
+                    "vggt_dense_cycle_registration": deepcopy(
+                        self.vggt_dense_cycle_registration
+                    ),
+                    "vggt_projection_noise": deepcopy(
+                        self.vggt_projection_noise
                     ),
                     "bible_gate": deepcopy(self.phase3_geometry.get("bible_gate", {})),
                     "claims": deepcopy(self.phase3_geometry.get("claims", {})),
@@ -1660,6 +1710,78 @@ class DatasetRepository:
             "vggt_negative_space_ring_015": self.phase_root
             / "vggt_negative_space_v1"
             / "ring_015_negative_space.png",
+            "vggt_source_camera_alignment_report": self.phase_root
+            / "vggt_source_camera_alignment_v1"
+            / "report.json",
+            "vggt_source_camera_alignment_ring_020": self.phase_root
+            / "vggt_source_camera_alignment_v1"
+            / "ring_020_source_camera_alignment.png",
+            "vggt_source_camera_alignment_ring_015": self.phase_root
+            / "vggt_source_camera_alignment_v1"
+            / "ring_015_source_camera_alignment.png",
+            "vggt_rigid_source_registration_report": self.phase_root
+            / "vggt_rigid_source_registration_v1"
+            / "report.json",
+            "vggt_rigid_registration_ring_020_identity": self.phase_root
+            / "vggt_rigid_source_registration_v1"
+            / "ring_020_identity_registration_diagnostic.png",
+            "vggt_rigid_registration_ring_020_medium": self.phase_root
+            / "vggt_rigid_source_registration_v1"
+            / "ring_020_rigid_medium_registration_diagnostic.png",
+            "vggt_rigid_registration_ring_015": self.phase_root
+            / "vggt_rigid_source_registration_v1"
+            / "ring_015_rigid_source_registration.png",
+            "vggt_track_evidence_report": self.phase_root
+            / "vggt_track_evidence_v1"
+            / "report.json",
+            "vggt_track_guided_registration_report": self.phase_root
+            / "vggt_track_guided_registration_v1"
+            / "report.json",
+            "vggt_tracks_ring_020": self.phase_root
+            / "vggt_track_guided_registration_v1"
+            / "ring_020_track_evidence.png",
+            "vggt_tracks_ring_015": self.phase_root
+            / "vggt_track_guided_registration_v1"
+            / "ring_015_track_evidence.png",
+            "vggt_track_registration_ring_020": self.phase_root
+            / "vggt_track_guided_registration_v1"
+            / "ring_020_track_guided_registration.png",
+            "vggt_track_registration_ring_007": self.phase_root
+            / "vggt_track_guided_registration_v1"
+            / "ring_007_track_guided_registration.png",
+            "vggt_track_registration_ring_015": self.phase_root
+            / "vggt_track_guided_registration_v1"
+            / "ring_015_track_guided_registration.png",
+            "vggt_dense_track_evidence_report": self.phase_root
+            / "vggt_dense_track_evidence_v1"
+            / "report.json",
+            "vggt_dense_cycle_registration_report": self.phase_root
+            / "vggt_dense_cycle_consistent_registration_v1"
+            / "report.json",
+            "vggt_dense_cycle_ring_020": self.phase_root
+            / "vggt_dense_cycle_consistent_registration_v1"
+            / "ring_020_cycle_registration.png",
+            "vggt_dense_cycle_ring_015": self.phase_root
+            / "vggt_dense_cycle_consistent_registration_v1"
+            / "ring_015_cycle_registration.png",
+            "vggt_projection_noise_report": self.phase_root
+            / "vggt_projection_noise_v1"
+            / "report.json",
+            "vggt_projection_noise_ring_004": self.phase_root
+            / "vggt_projection_noise_v1"
+            / "ring_004_projection_noise.png",
+            "vggt_projection_noise_ring_020": self.phase_root
+            / "vggt_projection_noise_v1"
+            / "ring_020_projection_noise.png",
+            "vggt_projection_noise_ring_007": self.phase_root
+            / "vggt_projection_noise_v1"
+            / "ring_007_projection_noise.png",
+            "vggt_projection_noise_ring_015": self.phase_root
+            / "vggt_projection_noise_v1"
+            / "ring_015_projection_noise.png",
+            "vggt_projection_noise_ring_023": self.phase_root
+            / "vggt_projection_noise_v1"
+            / "ring_023_projection_noise.png",
             "vggt_ring_001_reprojection": self.phase_root
             / "vggt_multiring_224_v1"
             / "ring_001"

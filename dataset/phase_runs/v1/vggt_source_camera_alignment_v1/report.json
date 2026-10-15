@@ -1,0 +1,2070 @@
+{
+  "schema_version": "vggt_source_camera_image_alignment_v1",
+  "dataset": "STL-1",
+  "authority": "non_metric_machine_camera_hypothesis",
+  "input_resolution": 518,
+  "voxel_resolution": 96,
+  "validation_selection": {
+    "object_ids": [
+      "ring_004",
+      "ring_012",
+      "ring_020"
+    ],
+    "profile_candidates": {
+      "identity": {
+        "mean_iou": 0.780605,
+        "minimum_iou": 0.578221,
+        "mean_precision": 0.87521,
+        "mean_recall": 0.881824,
+        "mean_delta_over_signed_depth": 0.0,
+        "mean_source_alignment_delta": 0.0
+      },
+      "translation_4px": {
+        "mean_iou": 0.771102,
+        "minimum_iou": 0.567969,
+        "mean_precision": 0.868862,
+        "mean_recall": 0.875651,
+        "mean_delta_over_signed_depth": -0.009502,
+        "mean_source_alignment_delta": 0.029192
+      },
+      "similarity_4px": {
+        "mean_iou": 0.767669,
+        "minimum_iou": 0.562848,
+        "mean_precision": 0.863812,
+        "mean_recall": 0.876515,
+        "mean_delta_over_signed_depth": -0.012937,
+        "mean_source_alignment_delta": 0.040135
+      },
+      "similarity_8px": {
+        "mean_iou": 0.751995,
+        "minimum_iou": 0.541022,
+        "mean_precision": 0.861292,
+        "mean_recall": 0.859385,
+        "mean_delta_over_signed_depth": -0.02861,
+        "mean_source_alignment_delta": 0.047512
+      }
+    },
+    "selected_profile": "identity",
+    "selected_profile_definition": {
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0
+      ]
+    },
+    "selection_rule": "highest pooled validation mean IoU"
+  },
+  "validation": {
+    "mean_iou": 0.780605,
+    "minimum_iou": 0.578221,
+    "mean_precision": 0.87521,
+    "mean_recall": 0.881824,
+    "mean_delta_over_signed_depth": 0.0,
+    "mean_source_alignment_delta": 0.0
+  },
+  "test_evaluation": {
+    "object_ids": [
+      "ring_007",
+      "ring_015",
+      "ring_023"
+    ],
+    "mean_iou": 0.781514,
+    "minimum_iou": 0.529146,
+    "mean_precision": 0.875663,
+    "mean_recall": 0.875165,
+    "mean_delta_over_signed_depth": 0.0,
+    "mean_source_alignment_delta": 0.0
+  },
+  "objects": [
+    {
+      "object_id": "ring_004",
+      "split": "val",
+      "profile": "identity",
+      "baseline_mean_iou": 0.795195,
+      "mean_iou": 0.795195,
+      "minimum_iou": 0.690068,
+      "mean_precision": 0.857316,
+      "mean_recall": 0.922203,
+      "mean_delta_over_signed_depth": 0.0,
+      "mean_source_alignment_delta": 0.0,
+      "views": [
+        {
+          "view": "front",
+          "baseline": {
+            "iou": 0.801104,
+            "precision": 0.939128,
+            "recall": 0.844979
+          },
+          "aligned": {
+            "iou": 0.801104,
+            "precision": 0.939128,
+            "recall": 0.844979
+          },
+          "source_alignment": [
+            {
+              "view": "top",
+              "baseline_iou": 0.500758,
+              "aligned_iou": 0.500758,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "iso",
+              "baseline_iou": 0.46767,
+              "aligned_iou": 0.46767,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "lsv",
+              "baseline_iou": 0.533206,
+              "aligned_iou": 0.533206,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "rsv",
+              "baseline_iou": 0.658398,
+              "aligned_iou": 0.658398,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            }
+          ],
+          "baseline_voxels": 100491,
+          "aligned_voxels": 100491
+        },
+        {
+          "view": "top",
+          "baseline": {
+            "iou": 0.690068,
+            "precision": 0.708371,
+            "recall": 0.963909
+          },
+          "aligned": {
+            "iou": 0.690068,
+            "precision": 0.708371,
+            "recall": 0.963909
+          },
+          "source_alignment": [
+            {
+              "view": "front",
+              "baseline_iou": 0.336644,
+              "aligned_iou": 0.336644,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "iso",
+              "baseline_iou": 0.588514,
+              "aligned_iou": 0.588514,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "lsv",
+              "baseline_iou": 0.618408,
+              "aligned_iou": 0.618408,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "rsv",
+              "baseline_iou": 0.724203,
+              "aligned_iou": 0.724203,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            }
+          ],
+          "baseline_voxels": 101950,
+          "aligned_voxels": 101950
+        },
+        {
+          "view": "iso",
+          "baseline": {
+            "iou": 0.870256,
+            "precision": 0.911136,
+            "recall": 0.950971
+          },
+          "aligned": {
+            "iou": 0.870256,
+            "precision": 0.911136,
+            "recall": 0.950971
+          },
+          "source_alignment": [
+            {
+              "view": "front",
+              "baseline_iou": 0.385917,
+              "aligned_iou": 0.385917,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "top",
+              "baseline_iou": 0.417352,
+              "aligned_iou": 0.417352,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "lsv",
+              "baseline_iou": 0.588763,
+              "aligned_iou": 0.588763,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "rsv",
+              "baseline_iou": 0.642042,
+              "aligned_iou": 0.642042,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            }
+          ],
+          "baseline_voxels": 101996,
+          "aligned_voxels": 101996
+        },
+        {
+          "view": "lsv",
+          "baseline": {
+            "iou": 0.791209,
+            "precision": 0.873015,
+            "recall": 0.894108
+          },
+          "aligned": {
+            "iou": 0.791209,
+            "precision": 0.873015,
+            "recall": 0.894108
+          },
+          "source_alignment": [
+            {
+              "view": "front",
+              "baseline_iou": 0.40104,
+              "aligned_iou": 0.40104,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "top",
+              "baseline_iou": 0.595183,
+              "aligned_iou": 0.595183,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "iso",
+              "baseline_iou": 0.601742,
+              "aligned_iou": 0.601742,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "rsv",
+              "baseline_iou": 0.64009,
+              "aligned_iou": 0.64009,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            }
+          ],
+          "baseline_voxels": 104276,
+          "aligned_voxels": 104276
+        },
+        {
+          "view": "rsv",
+          "baseline": {
+            "iou": 0.82334,
+            "precision": 0.85493,
+            "recall": 0.957049
+          },
+          "aligned": {
+            "iou": 0.82334,
+            "precision": 0.85493,
+            "recall": 0.957049
+          },
+          "source_alignment": [
+            {
+              "view": "front",
+              "baseline_iou": 0.436327,
+              "aligned_iou": 0.436327,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "top",
+              "baseline_iou": 0.608431,
+              "aligned_iou": 0.608431,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "iso",
+              "baseline_iou": 0.585746,
+              "aligned_iou": 0.585746,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "lsv",
+              "baseline_iou": 0.580113,
+              "aligned_iou": 0.580113,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            }
+          ],
+          "baseline_voxels": 103641,
+          "aligned_voxels": 103641
+        }
+      ],
+      "exit_gate_passed": false,
+      "preview": "dataset/phase_runs/v1/vggt_source_camera_alignment_v1/ring_004_source_camera_alignment.png"
+    },
+    {
+      "object_id": "ring_012",
+      "split": "val",
+      "profile": "identity",
+      "baseline_mean_iou": 0.788785,
+      "mean_iou": 0.788785,
+      "minimum_iou": 0.650005,
+      "mean_precision": 0.856514,
+      "mean_recall": 0.911226,
+      "mean_delta_over_signed_depth": 0.0,
+      "mean_source_alignment_delta": 0.0,
+      "views": [
+        {
+          "view": "front",
+          "baseline": {
+            "iou": 0.650005,
+            "precision": 0.854145,
+            "recall": 0.731161
+          },
+          "aligned": {
+            "iou": 0.650005,
+            "precision": 0.854145,
+            "recall": 0.731161
+          },
+          "source_alignment": [
+            {
+              "view": "top",
+              "baseline_iou": 0.651546,
+              "aligned_iou": 0.651546,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "iso",
+              "baseline_iou": 0.461352,
+              "aligned_iou": 0.461352,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "lsv",
+              "baseline_iou": 0.571255,
+              "aligned_iou": 0.571255,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "rsv",
+              "baseline_iou": 0.581371,
+              "aligned_iou": 0.581371,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            }
+          ],
+          "baseline_voxels": 59755,
+          "aligned_voxels": 59755
+        },
+        {
+          "view": "top",
+          "baseline": {
+            "iou": 0.695775,
+            "precision": 0.711801,
+            "recall": 0.968655
+          },
+          "aligned": {
+            "iou": 0.695775,
+            "precision": 0.711801,
+            "recall": 0.968655
+          },
+          "source_alignment": [
+            {
+              "view": "front",
+              "baseline_iou": 0.346143,
+              "aligned_iou": 0.346143,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "iso",
+              "baseline_iou": 0.593952,
+              "aligned_iou": 0.593952,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "lsv",
+              "baseline_iou": 0.659416,
+              "aligned_iou": 0.659416,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "rsv",
+              "baseline_iou": 0.672283,
+              "aligned_iou": 0.672283,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            }
+          ],
+          "baseline_voxels": 73063,
+          "aligned_voxels": 73063
+        },
+        {
+          "view": "iso",
+          "baseline": {
+            "iou": 0.860071,
+            "precision": 0.906188,
+            "recall": 0.944135
+          },
+          "aligned": {
+            "iou": 0.860071,
+            "precision": 0.906188,
+            "recall": 0.944135
+          },
+          "source_alignment": [
+            {
+              "view": "front",
+              "baseline_iou": 0.249469,
+              "aligned_iou": 0.249469,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "top",
+              "baseline_iou": 0.600656,
+              "aligned_iou": 0.600656,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "lsv",
+              "baseline_iou": 0.632323,
+              "aligned_iou": 0.632323,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "rsv",
+              "baseline_iou": 0.634222,
+              "aligned_iou": 0.634222,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            }
+          ],
+          "baseline_voxels": 67555,
+          "aligned_voxels": 67555
+        },
+        {
+          "view": "lsv",
+          "baseline": {
+            "iou": 0.86622,
+            "precision": 0.898586,
+            "recall": 0.960078
+          },
+          "aligned": {
+            "iou": 0.86622,
+            "precision": 0.898586,
+            "recall": 0.960078
+          },
+          "source_alignment": [
+            {
+              "view": "front",
+              "baseline_iou": 0.274207,
+              "aligned_iou": 0.274207,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "top",
+              "baseline_iou": 0.531597,
+              "aligned_iou": 0.531597,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "iso",
+              "baseline_iou": 0.571134,
+              "aligned_iou": 0.571134,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "rsv",
+              "baseline_iou": 0.551198,
+              "aligned_iou": 0.551198,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            }
+          ],
+          "baseline_voxels": 65575,
+          "aligned_voxels": 65575
+        },
+        {
+          "view": "rsv",
+          "baseline": {
+            "iou": 0.871855,
+            "precision": 0.911849,
+            "recall": 0.952103
+          },
+          "aligned": {
+            "iou": 0.871855,
+            "precision": 0.911849,
+            "recall": 0.952103
+          },
+          "source_alignment": [
+            {
+              "view": "front",
+              "baseline_iou": 0.309305,
+              "aligned_iou": 0.309305,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "top",
+              "baseline_iou": 0.599994,
+              "aligned_iou": 0.599994,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "iso",
+              "baseline_iou": 0.574265,
+              "aligned_iou": 0.574265,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "lsv",
+              "baseline_iou": 0.545219,
+              "aligned_iou": 0.545219,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            }
+          ],
+          "baseline_voxels": 64261,
+          "aligned_voxels": 64261
+        }
+      ],
+      "exit_gate_passed": false,
+      "preview": "dataset/phase_runs/v1/vggt_source_camera_alignment_v1/ring_012_source_camera_alignment.png"
+    },
+    {
+      "object_id": "ring_020",
+      "split": "val",
+      "profile": "identity",
+      "baseline_mean_iou": 0.757834,
+      "mean_iou": 0.757834,
+      "minimum_iou": 0.578221,
+      "mean_precision": 0.911801,
+      "mean_recall": 0.812043,
+      "mean_delta_over_signed_depth": 0.0,
+      "mean_source_alignment_delta": 0.0,
+      "views": [
+        {
+          "view": "front",
+          "baseline": {
+            "iou": 0.735653,
+            "precision": 0.939663,
+            "recall": 0.772126
+          },
+          "aligned": {
+            "iou": 0.735653,
+            "precision": 0.939663,
+            "recall": 0.772126
+          },
+          "source_alignment": [
+            {
+              "view": "top",
+              "baseline_iou": 0.346594,
+              "aligned_iou": 0.346594,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "iso",
+              "baseline_iou": 0.493232,
+              "aligned_iou": 0.493232,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "lsv",
+              "baseline_iou": 0.552016,
+              "aligned_iou": 0.552016,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "rsv",
+              "baseline_iou": 0.683531,
+              "aligned_iou": 0.683531,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            }
+          ],
+          "baseline_voxels": 97467,
+          "aligned_voxels": 97467
+        },
+        {
+          "view": "top",
+          "baseline": {
+            "iou": 0.578221,
+            "precision": 0.769485,
+            "recall": 0.699364
+          },
+          "aligned": {
+            "iou": 0.578221,
+            "precision": 0.769485,
+            "recall": 0.699364
+          },
+          "source_alignment": [
+            {
+              "view": "front",
+              "baseline_iou": 0.225328,
+              "aligned_iou": 0.225328,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "iso",
+              "baseline_iou": 0.562877,
+              "aligned_iou": 0.562877,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "lsv",
+              "baseline_iou": 0.647013,
+              "aligned_iou": 0.647013,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "rsv",
+              "baseline_iou": 0.695047,
+              "aligned_iou": 0.695047,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            }
+          ],
+          "baseline_voxels": 99525,
+          "aligned_voxels": 99525
+        },
+        {
+          "view": "iso",
+          "baseline": {
+            "iou": 0.811879,
+            "precision": 0.959287,
+            "recall": 0.840852
+          },
+          "aligned": {
+            "iou": 0.811879,
+            "precision": 0.959287,
+            "recall": 0.840852
+          },
+          "source_alignment": [
+            {
+              "view": "front",
+              "baseline_iou": 0.215097,
+              "aligned_iou": 0.215097,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "top",
+              "baseline_iou": 0.282761,
+              "aligned_iou": 0.282761,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "lsv",
+              "baseline_iou": 0.548574,
+              "aligned_iou": 0.548574,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "rsv",
+              "baseline_iou": 0.572925,
+              "aligned_iou": 0.572925,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            }
+          ],
+          "baseline_voxels": 112214,
+          "aligned_voxels": 112214
+        },
+        {
+          "view": "lsv",
+          "baseline": {
+            "iou": 0.775292,
+            "precision": 0.944861,
+            "recall": 0.812031
+          },
+          "aligned": {
+            "iou": 0.775292,
+            "precision": 0.944861,
+            "recall": 0.812031
+          },
+          "source_alignment": [
+            {
+              "view": "front",
+              "baseline_iou": 0.260285,
+              "aligned_iou": 0.260285,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "top",
+              "baseline_iou": 0.287209,
+              "aligned_iou": 0.287209,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "iso",
+              "baseline_iou": 0.602045,
+              "aligned_iou": 0.602045,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "rsv",
+              "baseline_iou": 0.680262,
+              "aligned_iou": 0.680262,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            }
+          ],
+          "baseline_voxels": 100226,
+          "aligned_voxels": 100226
+        },
+        {
+          "view": "rsv",
+          "baseline": {
+            "iou": 0.888127,
+            "precision": 0.945707,
+            "recall": 0.935844
+          },
+          "aligned": {
+            "iou": 0.888127,
+            "precision": 0.945707,
+            "recall": 0.935844
+          },
+          "source_alignment": [
+            {
+              "view": "front",
+              "baseline_iou": 0.288134,
+              "aligned_iou": 0.288134,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "top",
+              "baseline_iou": 0.365145,
+              "aligned_iou": 0.365145,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "iso",
+              "baseline_iou": 0.540245,
+              "aligned_iou": 0.540245,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "lsv",
+              "baseline_iou": 0.60146,
+              "aligned_iou": 0.60146,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            }
+          ],
+          "baseline_voxels": 110253,
+          "aligned_voxels": 110253
+        }
+      ],
+      "exit_gate_passed": false,
+      "preview": "dataset/phase_runs/v1/vggt_source_camera_alignment_v1/ring_020_source_camera_alignment.png"
+    },
+    {
+      "object_id": "ring_001",
+      "split": "train",
+      "profile": "identity",
+      "baseline_mean_iou": 0.810968,
+      "mean_iou": 0.810968,
+      "minimum_iou": 0.666961,
+      "mean_precision": 0.856915,
+      "mean_recall": 0.940202,
+      "mean_delta_over_signed_depth": 0.0,
+      "mean_source_alignment_delta": 0.0,
+      "views": [
+        {
+          "view": "front",
+          "baseline": {
+            "iou": 0.807477,
+            "precision": 0.889068,
+            "recall": 0.897947
+          },
+          "aligned": {
+            "iou": 0.807477,
+            "precision": 0.889068,
+            "recall": 0.897947
+          },
+          "source_alignment": [
+            {
+              "view": "top",
+              "baseline_iou": 0.592706,
+              "aligned_iou": 0.592706,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "iso",
+              "baseline_iou": 0.540467,
+              "aligned_iou": 0.540467,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "lsv",
+              "baseline_iou": 0.595018,
+              "aligned_iou": 0.595018,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "rsv",
+              "baseline_iou": 0.67743,
+              "aligned_iou": 0.67743,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            }
+          ],
+          "baseline_voxels": 80250,
+          "aligned_voxels": 80250
+        },
+        {
+          "view": "top",
+          "baseline": {
+            "iou": 0.666961,
+            "precision": 0.685507,
+            "recall": 0.961018
+          },
+          "aligned": {
+            "iou": 0.666961,
+            "precision": 0.685507,
+            "recall": 0.961018
+          },
+          "source_alignment": [
+            {
+              "view": "front",
+              "baseline_iou": 0.441487,
+              "aligned_iou": 0.441487,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "iso",
+              "baseline_iou": 0.65431,
+              "aligned_iou": 0.65431,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "lsv",
+              "baseline_iou": 0.643479,
+              "aligned_iou": 0.643479,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "rsv",
+              "baseline_iou": 0.716261,
+              "aligned_iou": 0.716261,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            }
+          ],
+          "baseline_voxels": 82618,
+          "aligned_voxels": 82618
+        },
+        {
+          "view": "iso",
+          "baseline": {
+            "iou": 0.862379,
+            "precision": 0.915837,
+            "recall": 0.936606
+          },
+          "aligned": {
+            "iou": 0.862379,
+            "precision": 0.915837,
+            "recall": 0.936606
+          },
+          "source_alignment": [
+            {
+              "view": "front",
+              "baseline_iou": 0.34609,
+              "aligned_iou": 0.34609,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "top",
+              "baseline_iou": 0.548384,
+              "aligned_iou": 0.548384,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "lsv",
+              "baseline_iou": 0.624807,
+              "aligned_iou": 0.624807,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "rsv",
+              "baseline_iou": 0.690659,
+              "aligned_iou": 0.690659,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            }
+          ],
+          "baseline_voxels": 76474,
+          "aligned_voxels": 76474
+        },
+        {
+          "view": "lsv",
+          "baseline": {
+            "iou": 0.841409,
+            "precision": 0.888328,
+            "recall": 0.940936
+          },
+          "aligned": {
+            "iou": 0.841409,
+            "precision": 0.888328,
+            "recall": 0.940936
+          },
+          "source_alignment": [
+            {
+              "view": "front",
+              "baseline_iou": 0.40688,
+              "aligned_iou": 0.40688,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "top",
+              "baseline_iou": 0.575272,
+              "aligned_iou": 0.575272,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "iso",
+              "baseline_iou": 0.651508,
+              "aligned_iou": 0.651508,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "rsv",
+              "baseline_iou": 0.576635,
+              "aligned_iou": 0.576635,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            }
+          ],
+          "baseline_voxels": 77895,
+          "aligned_voxels": 77895
+        },
+        {
+          "view": "rsv",
+          "baseline": {
+            "iou": 0.876612,
+            "precision": 0.905836,
+            "recall": 0.964504
+          },
+          "aligned": {
+            "iou": 0.876612,
+            "precision": 0.905836,
+            "recall": 0.964504
+          },
+          "source_alignment": [
+            {
+              "view": "front",
+              "baseline_iou": 0.416195,
+              "aligned_iou": 0.416195,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "top",
+              "baseline_iou": 0.587699,
+              "aligned_iou": 0.587699,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "iso",
+              "baseline_iou": 0.579725,
+              "aligned_iou": 0.579725,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "lsv",
+              "baseline_iou": 0.531544,
+              "aligned_iou": 0.531544,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            }
+          ],
+          "baseline_voxels": 77846,
+          "aligned_voxels": 77846
+        }
+      ],
+      "exit_gate_passed": false,
+      "preview": "dataset/phase_runs/v1/vggt_source_camera_alignment_v1/ring_001_source_camera_alignment.png"
+    },
+    {
+      "object_id": "ring_007",
+      "split": "test",
+      "profile": "identity",
+      "baseline_mean_iou": 0.814251,
+      "mean_iou": 0.814251,
+      "minimum_iou": 0.711588,
+      "mean_precision": 0.889596,
+      "mean_recall": 0.904744,
+      "mean_delta_over_signed_depth": 0.0,
+      "mean_source_alignment_delta": 0.0,
+      "views": [
+        {
+          "view": "front",
+          "baseline": {
+            "iou": 0.833036,
+            "precision": 0.913228,
+            "recall": 0.90464
+          },
+          "aligned": {
+            "iou": 0.833036,
+            "precision": 0.913228,
+            "recall": 0.90464
+          },
+          "source_alignment": [
+            {
+              "view": "top",
+              "baseline_iou": 0.48601,
+              "aligned_iou": 0.48601,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "iso",
+              "baseline_iou": 0.510859,
+              "aligned_iou": 0.510859,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "lsv",
+              "baseline_iou": 0.488468,
+              "aligned_iou": 0.488468,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "rsv",
+              "baseline_iou": 0.557582,
+              "aligned_iou": 0.557582,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            }
+          ],
+          "baseline_voxels": 74849,
+          "aligned_voxels": 74849
+        },
+        {
+          "view": "top",
+          "baseline": {
+            "iou": 0.711588,
+            "precision": 0.795628,
+            "recall": 0.870747
+          },
+          "aligned": {
+            "iou": 0.711588,
+            "precision": 0.795628,
+            "recall": 0.870747
+          },
+          "source_alignment": [
+            {
+              "view": "front",
+              "baseline_iou": 0.434393,
+              "aligned_iou": 0.434393,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "iso",
+              "baseline_iou": 0.619634,
+              "aligned_iou": 0.619634,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "lsv",
+              "baseline_iou": 0.594079,
+              "aligned_iou": 0.594079,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "rsv",
+              "baseline_iou": 0.635041,
+              "aligned_iou": 0.635041,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            }
+          ],
+          "baseline_voxels": 66435,
+          "aligned_voxels": 66435
+        },
+        {
+          "view": "iso",
+          "baseline": {
+            "iou": 0.845328,
+            "precision": 0.939047,
+            "recall": 0.894403
+          },
+          "aligned": {
+            "iou": 0.845328,
+            "precision": 0.939047,
+            "recall": 0.894403
+          },
+          "source_alignment": [
+            {
+              "view": "front",
+              "baseline_iou": 0.291314,
+              "aligned_iou": 0.291314,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "top",
+              "baseline_iou": 0.472918,
+              "aligned_iou": 0.472918,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "lsv",
+              "baseline_iou": 0.586709,
+              "aligned_iou": 0.586709,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "rsv",
+              "baseline_iou": 0.610687,
+              "aligned_iou": 0.610687,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            }
+          ],
+          "baseline_voxels": 75880,
+          "aligned_voxels": 75880
+        },
+        {
+          "view": "lsv",
+          "baseline": {
+            "iou": 0.811124,
+            "precision": 0.894413,
+            "recall": 0.897018
+          },
+          "aligned": {
+            "iou": 0.811124,
+            "precision": 0.894413,
+            "recall": 0.897018
+          },
+          "source_alignment": [
+            {
+              "view": "front",
+              "baseline_iou": 0.370312,
+              "aligned_iou": 0.370312,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "top",
+              "baseline_iou": 0.414664,
+              "aligned_iou": 0.414664,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "iso",
+              "baseline_iou": 0.639316,
+              "aligned_iou": 0.639316,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "rsv",
+              "baseline_iou": 0.541332,
+              "aligned_iou": 0.541332,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            }
+          ],
+          "baseline_voxels": 78285,
+          "aligned_voxels": 78285
+        },
+        {
+          "view": "rsv",
+          "baseline": {
+            "iou": 0.870177,
+            "precision": 0.905663,
+            "recall": 0.956912
+          },
+          "aligned": {
+            "iou": 0.870177,
+            "precision": 0.905663,
+            "recall": 0.956912
+          },
+          "source_alignment": [
+            {
+              "view": "front",
+              "baseline_iou": 0.428122,
+              "aligned_iou": 0.428122,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "top",
+              "baseline_iou": 0.451693,
+              "aligned_iou": 0.451693,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "iso",
+              "baseline_iou": 0.596462,
+              "aligned_iou": 0.596462,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "lsv",
+              "baseline_iou": 0.472472,
+              "aligned_iou": 0.472472,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            }
+          ],
+          "baseline_voxels": 75066,
+          "aligned_voxels": 75066
+        }
+      ],
+      "exit_gate_passed": true,
+      "preview": "dataset/phase_runs/v1/vggt_source_camera_alignment_v1/ring_007_source_camera_alignment.png"
+    },
+    {
+      "object_id": "ring_015",
+      "split": "test",
+      "profile": "identity",
+      "baseline_mean_iou": 0.750737,
+      "mean_iou": 0.750737,
+      "minimum_iou": 0.529146,
+      "mean_precision": 0.85721,
+      "mean_recall": 0.851749,
+      "mean_delta_over_signed_depth": 0.0,
+      "mean_source_alignment_delta": 0.0,
+      "views": [
+        {
+          "view": "front",
+          "baseline": {
+            "iou": 0.774942,
+            "precision": 0.953593,
+            "recall": 0.805312
+          },
+          "aligned": {
+            "iou": 0.774942,
+            "precision": 0.953593,
+            "recall": 0.805312
+          },
+          "source_alignment": [
+            {
+              "view": "top",
+              "baseline_iou": 0.421973,
+              "aligned_iou": 0.421973,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "iso",
+              "baseline_iou": 0.44693,
+              "aligned_iou": 0.44693,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "lsv",
+              "baseline_iou": 0.542464,
+              "aligned_iou": 0.542464,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "rsv",
+              "baseline_iou": 0.56926,
+              "aligned_iou": 0.56926,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            }
+          ],
+          "baseline_voxels": 79525,
+          "aligned_voxels": 79525
+        },
+        {
+          "view": "top",
+          "baseline": {
+            "iou": 0.529146,
+            "precision": 0.639807,
+            "recall": 0.753655
+          },
+          "aligned": {
+            "iou": 0.529146,
+            "precision": 0.639807,
+            "recall": 0.753655
+          },
+          "source_alignment": [
+            {
+              "view": "front",
+              "baseline_iou": 0.405849,
+              "aligned_iou": 0.405849,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "iso",
+              "baseline_iou": 0.555417,
+              "aligned_iou": 0.555417,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "lsv",
+              "baseline_iou": 0.550348,
+              "aligned_iou": 0.550348,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "rsv",
+              "baseline_iou": 0.579074,
+              "aligned_iou": 0.579074,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            }
+          ],
+          "baseline_voxels": 85141,
+          "aligned_voxels": 85141
+        },
+        {
+          "view": "iso",
+          "baseline": {
+            "iou": 0.851111,
+            "precision": 0.911479,
+            "recall": 0.927801
+          },
+          "aligned": {
+            "iou": 0.851111,
+            "precision": 0.911479,
+            "recall": 0.927801
+          },
+          "source_alignment": [
+            {
+              "view": "front",
+              "baseline_iou": 0.294187,
+              "aligned_iou": 0.294187,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "top",
+              "baseline_iou": 0.39501,
+              "aligned_iou": 0.39501,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "lsv",
+              "baseline_iou": 0.570252,
+              "aligned_iou": 0.570252,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "rsv",
+              "baseline_iou": 0.57513,
+              "aligned_iou": 0.57513,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            }
+          ],
+          "baseline_voxels": 90522,
+          "aligned_voxels": 90522
+        },
+        {
+          "view": "lsv",
+          "baseline": {
+            "iou": 0.77692,
+            "precision": 0.881934,
+            "recall": 0.867106
+          },
+          "aligned": {
+            "iou": 0.77692,
+            "precision": 0.881934,
+            "recall": 0.867106
+          },
+          "source_alignment": [
+            {
+              "view": "front",
+              "baseline_iou": 0.37228,
+              "aligned_iou": 0.37228,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "top",
+              "baseline_iou": 0.315945,
+              "aligned_iou": 0.315945,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "iso",
+              "baseline_iou": 0.580902,
+              "aligned_iou": 0.580902,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "rsv",
+              "baseline_iou": 0.511323,
+              "aligned_iou": 0.511323,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            }
+          ],
+          "baseline_voxels": 84411,
+          "aligned_voxels": 84411
+        },
+        {
+          "view": "rsv",
+          "baseline": {
+            "iou": 0.821568,
+            "precision": 0.899235,
+            "recall": 0.904872
+          },
+          "aligned": {
+            "iou": 0.821568,
+            "precision": 0.899235,
+            "recall": 0.904872
+          },
+          "source_alignment": [
+            {
+              "view": "front",
+              "baseline_iou": 0.37532,
+              "aligned_iou": 0.37532,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "top",
+              "baseline_iou": 0.365856,
+              "aligned_iou": 0.365856,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "iso",
+              "baseline_iou": 0.531629,
+              "aligned_iou": 0.531629,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "lsv",
+              "baseline_iou": 0.493668,
+              "aligned_iou": 0.493668,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            }
+          ],
+          "baseline_voxels": 85144,
+          "aligned_voxels": 85144
+        }
+      ],
+      "exit_gate_passed": false,
+      "preview": "dataset/phase_runs/v1/vggt_source_camera_alignment_v1/ring_015_source_camera_alignment.png"
+    },
+    {
+      "object_id": "ring_023",
+      "split": "test",
+      "profile": "identity",
+      "baseline_mean_iou": 0.779554,
+      "mean_iou": 0.779554,
+      "minimum_iou": 0.644394,
+      "mean_precision": 0.880182,
+      "mean_recall": 0.869001,
+      "mean_delta_over_signed_depth": 0.0,
+      "mean_source_alignment_delta": 0.0,
+      "views": [
+        {
+          "view": "front",
+          "baseline": {
+            "iou": 0.64876,
+            "precision": 0.886478,
+            "recall": 0.707543
+          },
+          "aligned": {
+            "iou": 0.64876,
+            "precision": 0.886478,
+            "recall": 0.707543
+          },
+          "source_alignment": [
+            {
+              "view": "top",
+              "baseline_iou": 0.514671,
+              "aligned_iou": 0.514671,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "iso",
+              "baseline_iou": 0.449907,
+              "aligned_iou": 0.449907,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "lsv",
+              "baseline_iou": 0.544936,
+              "aligned_iou": 0.544936,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "rsv",
+              "baseline_iou": 0.623075,
+              "aligned_iou": 0.623075,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            }
+          ],
+          "baseline_voxels": 75759,
+          "aligned_voxels": 75759
+        },
+        {
+          "view": "top",
+          "baseline": {
+            "iou": 0.644394,
+            "precision": 0.742602,
+            "recall": 0.829719
+          },
+          "aligned": {
+            "iou": 0.644394,
+            "precision": 0.742602,
+            "recall": 0.829719
+          },
+          "source_alignment": [
+            {
+              "view": "front",
+              "baseline_iou": 0.299772,
+              "aligned_iou": 0.299772,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "iso",
+              "baseline_iou": 0.550685,
+              "aligned_iou": 0.550685,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "lsv",
+              "baseline_iou": 0.650196,
+              "aligned_iou": 0.650196,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "rsv",
+              "baseline_iou": 0.672671,
+              "aligned_iou": 0.672671,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            }
+          ],
+          "baseline_voxels": 94246,
+          "aligned_voxels": 94246
+        },
+        {
+          "view": "iso",
+          "baseline": {
+            "iou": 0.893028,
+            "precision": 0.926991,
+            "recall": 0.96059
+          },
+          "aligned": {
+            "iou": 0.893028,
+            "precision": 0.926991,
+            "recall": 0.96059
+          },
+          "source_alignment": [
+            {
+              "view": "front",
+              "baseline_iou": 0.198425,
+              "aligned_iou": 0.198425,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "top",
+              "baseline_iou": 0.392808,
+              "aligned_iou": 0.392808,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "lsv",
+              "baseline_iou": 0.581081,
+              "aligned_iou": 0.581081,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "rsv",
+              "baseline_iou": 0.557564,
+              "aligned_iou": 0.557564,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            }
+          ],
+          "baseline_voxels": 87185,
+          "aligned_voxels": 87185
+        },
+        {
+          "view": "lsv",
+          "baseline": {
+            "iou": 0.853167,
+            "precision": 0.946402,
+            "recall": 0.896483
+          },
+          "aligned": {
+            "iou": 0.853167,
+            "precision": 0.946402,
+            "recall": 0.896483
+          },
+          "source_alignment": [
+            {
+              "view": "front",
+              "baseline_iou": 0.249406,
+              "aligned_iou": 0.249406,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "top",
+              "baseline_iou": 0.460794,
+              "aligned_iou": 0.460794,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "iso",
+              "baseline_iou": 0.568995,
+              "aligned_iou": 0.568995,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "rsv",
+              "baseline_iou": 0.62693,
+              "aligned_iou": 0.62693,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            }
+          ],
+          "baseline_voxels": 81112,
+          "aligned_voxels": 81112
+        },
+        {
+          "view": "rsv",
+          "baseline": {
+            "iou": 0.85842,
+            "precision": 0.898438,
+            "recall": 0.950671
+          },
+          "aligned": {
+            "iou": 0.85842,
+            "precision": 0.898438,
+            "recall": 0.950671
+          },
+          "source_alignment": [
+            {
+              "view": "front",
+              "baseline_iou": 0.288556,
+              "aligned_iou": 0.288556,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "top",
+              "baseline_iou": 0.553578,
+              "aligned_iou": 0.553578,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "iso",
+              "baseline_iou": 0.568234,
+              "aligned_iou": 0.568234,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            },
+            {
+              "view": "lsv",
+              "baseline_iou": 0.580193,
+              "aligned_iou": 0.580193,
+              "iou_delta": 0.0,
+              "scale": 1.0,
+              "translation_x_px": 0,
+              "translation_y_px": 0
+            }
+          ],
+          "baseline_voxels": 87440,
+          "aligned_voxels": 87440
+        }
+      ],
+      "exit_gate_passed": false,
+      "preview": "dataset/phase_runs/v1/vggt_source_camera_alignment_v1/ring_023_source_camera_alignment.png"
+    }
+  ],
+  "checks": {
+    "selection_uses_validation_split_only": true,
+    "target_mask_and_points_excluded_from_alignment_and_reconstruction": true,
+    "target_camera_unchanged": true,
+    "all_test_objects_improve_over_signed_depth": false,
+    "geometry_exit_gate_passed": false
+  },
+  "decision": "rejected_no_consistent_heldout_gain",
+  "claims": {
+    "strict_target_image_holdout": false,
+    "camera_calibration_validated": false,
+    "metric_scale_validated": false,
+    "hidden_surface_truth_validated": false,
+    "component_topology_validated": false,
+    "manufacturing_accuracy_validated": false
+  },
+  "limitations": [
+    "The fitted image-plane similarity transform is a bounded reprojection correction, not physical camera calibration.",
+    "Source silhouettes are machine proposals and may contain reflection-sensitive boundary errors.",
+    "VGGT cameras and point maps remain jointly conditioned on all five input images.",
+    "A source-only correction can improve reprojection without proving hidden geometry or metric scale."
+  ]
+}

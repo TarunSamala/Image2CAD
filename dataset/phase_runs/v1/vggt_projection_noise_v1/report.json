@@ -1,0 +1,1084 @@
+{
+  "schema_version": "vggt_projection_noise_v1",
+  "dataset": "STL-1",
+  "authority": "projection_renderer_evidence_only",
+  "input_resolution": 518,
+  "voxel_resolution": 96,
+  "validation_selection": {
+    "object_ids": [
+      "ring_004",
+      "ring_012",
+      "ring_020"
+    ],
+    "profile_candidates": {
+      "raw_point_projection": {
+        "mean_iou": 0.780605,
+        "minimum_iou": 0.578221,
+        "mean_precision": 0.87521,
+        "mean_recall": 0.881824,
+        "mean_delta_over_raw": 0.0,
+        "worst_view_delta_over_raw": 0.0,
+        "changed_view_count": 0,
+        "improved_view_count": 0,
+        "regressed_view_count": 0,
+        "mean_added_fraction_of_raw": 0.0,
+        "mean_structural_hole_false_fill_delta": 0.0
+      },
+      "close3_components_ge_2": {
+        "mean_iou": 0.787269,
+        "minimum_iou": 0.578221,
+        "mean_precision": 0.873217,
+        "mean_recall": 0.892246,
+        "mean_delta_over_raw": 0.006664,
+        "worst_view_delta_over_raw": -0.00038,
+        "changed_view_count": 12,
+        "improved_view_count": 11,
+        "regressed_view_count": 1,
+        "mean_added_fraction_of_raw": 0.014921,
+        "mean_structural_hole_false_fill_delta": 0.001244
+      },
+      "close3_components_ge_3": {
+        "mean_iou": 0.785261,
+        "minimum_iou": 0.578221,
+        "mean_precision": 0.874234,
+        "mean_recall": 0.888802,
+        "mean_delta_over_raw": 0.004656,
+        "worst_view_delta_over_raw": -0.00038,
+        "changed_view_count": 7,
+        "improved_view_count": 6,
+        "regressed_view_count": 1,
+        "mean_added_fraction_of_raw": 0.009889,
+        "mean_structural_hole_false_fill_delta": 0.000653
+      },
+      "close3_components_ge_4": {
+        "mean_iou": 0.785124,
+        "minimum_iou": 0.578221,
+        "mean_precision": 0.874828,
+        "mean_recall": 0.887886,
+        "mean_delta_over_raw": 0.004519,
+        "worst_view_delta_over_raw": 0.0,
+        "changed_view_count": 4,
+        "improved_view_count": 4,
+        "regressed_view_count": 0,
+        "mean_added_fraction_of_raw": 0.008213,
+        "mean_structural_hole_false_fill_delta": 0.000238
+      },
+      "close3_components_ge_6": {
+        "mean_iou": 0.784597,
+        "minimum_iou": 0.578221,
+        "mean_precision": 0.875446,
+        "mean_recall": 0.886383,
+        "mean_delta_over_raw": 0.003992,
+        "worst_view_delta_over_raw": 0.0,
+        "changed_view_count": 2,
+        "improved_view_count": 2,
+        "regressed_view_count": 0,
+        "mean_added_fraction_of_raw": 0.005796,
+        "mean_structural_hole_false_fill_delta": 0.0
+      },
+      "close3_components_ge_10": {
+        "mean_iou": 0.784597,
+        "minimum_iou": 0.578221,
+        "mean_precision": 0.875446,
+        "mean_recall": 0.886383,
+        "mean_delta_over_raw": 0.003992,
+        "worst_view_delta_over_raw": 0.0,
+        "changed_view_count": 2,
+        "improved_view_count": 2,
+        "regressed_view_count": 0,
+        "mean_added_fraction_of_raw": 0.005796,
+        "mean_structural_hole_false_fill_delta": 0.0
+      },
+      "close3_components_ge_20": {
+        "mean_iou": 0.784597,
+        "minimum_iou": 0.578221,
+        "mean_precision": 0.875446,
+        "mean_recall": 0.886383,
+        "mean_delta_over_raw": 0.003992,
+        "worst_view_delta_over_raw": 0.0,
+        "changed_view_count": 2,
+        "improved_view_count": 2,
+        "regressed_view_count": 0,
+        "mean_added_fraction_of_raw": 0.005796,
+        "mean_structural_hole_false_fill_delta": 0.0
+      },
+      "close3_components_ge_40": {
+        "mean_iou": 0.784597,
+        "minimum_iou": 0.578221,
+        "mean_precision": 0.875446,
+        "mean_recall": 0.886383,
+        "mean_delta_over_raw": 0.003992,
+        "worst_view_delta_over_raw": 0.0,
+        "changed_view_count": 2,
+        "improved_view_count": 2,
+        "regressed_view_count": 0,
+        "mean_added_fraction_of_raw": 0.005796,
+        "mean_structural_hole_false_fill_delta": 0.0
+      }
+    },
+    "selected_profile": "close3_components_ge_4",
+    "selection_rule": "highest validation mean IoU among profiles with zero regressed validation views and no material structural-hole false-fill increase"
+  },
+  "validation": {
+    "mean_iou": 0.785124,
+    "minimum_iou": 0.578221,
+    "mean_precision": 0.874828,
+    "mean_recall": 0.887886,
+    "mean_delta_over_raw": 0.004519,
+    "worst_view_delta_over_raw": 0.0,
+    "changed_view_count": 4,
+    "improved_view_count": 4,
+    "regressed_view_count": 0,
+    "mean_added_fraction_of_raw": 0.008213,
+    "mean_structural_hole_false_fill_delta": 0.000238
+  },
+  "test_evaluation": {
+    "object_ids": [
+      "ring_007",
+      "ring_015",
+      "ring_023"
+    ],
+    "mean_iou": 0.788982,
+    "minimum_iou": 0.529146,
+    "mean_precision": 0.875432,
+    "mean_recall": 0.884235,
+    "mean_delta_over_raw": 0.007468,
+    "regressed_view_count": 0,
+    "mean_structural_hole_false_fill_delta": 5.3e-05
+  },
+  "objects": [
+    {
+      "object_id": "ring_004",
+      "split": "val",
+      "profile": "close3_components_ge_4",
+      "raw_mean_iou": 0.795195,
+      "mean_iou": 0.796696,
+      "minimum_iou": 0.690068,
+      "mean_precision": 0.855994,
+      "mean_recall": 0.925561,
+      "mean_delta_over_raw": 0.0015,
+      "views": [
+        {
+          "view": "front",
+          "raw_foreground_components": 2,
+          "raw": {
+            "iou": 0.801104,
+            "precision": 0.939128,
+            "recall": 0.844979,
+            "structural_hole_false_fill": 0.0,
+            "retained_voxels": 100491
+          },
+          "cleaned": {
+            "iou": 0.801104,
+            "precision": 0.939128,
+            "recall": 0.844979,
+            "iou_delta_over_raw": 0.0,
+            "cleanup_applied": false,
+            "added_pixels": 0,
+            "removed_pixels": 0,
+            "added_fraction_of_raw": 0.0,
+            "structural_hole_false_fill": 0.0,
+            "structural_hole_false_fill_delta": 0.0
+          }
+        },
+        {
+          "view": "top",
+          "raw_foreground_components": 3,
+          "raw": {
+            "iou": 0.690068,
+            "precision": 0.708371,
+            "recall": 0.963909,
+            "structural_hole_false_fill": 0.172676,
+            "retained_voxels": 101950
+          },
+          "cleaned": {
+            "iou": 0.690068,
+            "precision": 0.708371,
+            "recall": 0.963909,
+            "iou_delta_over_raw": 0.0,
+            "cleanup_applied": false,
+            "added_pixels": 0,
+            "removed_pixels": 0,
+            "added_fraction_of_raw": 0.0,
+            "structural_hole_false_fill": 0.172676,
+            "structural_hole_false_fill_delta": 0.0
+          }
+        },
+        {
+          "view": "iso",
+          "raw_foreground_components": 2,
+          "raw": {
+            "iou": 0.870256,
+            "precision": 0.911136,
+            "recall": 0.950971,
+            "structural_hole_false_fill": 0.362098,
+            "retained_voxels": 101996
+          },
+          "cleaned": {
+            "iou": 0.870256,
+            "precision": 0.911136,
+            "recall": 0.950971,
+            "iou_delta_over_raw": 0.0,
+            "cleanup_applied": false,
+            "added_pixels": 0,
+            "removed_pixels": 0,
+            "added_fraction_of_raw": 0.0,
+            "structural_hole_false_fill": 0.362098,
+            "structural_hole_false_fill_delta": 0.0
+          }
+        },
+        {
+          "view": "lsv",
+          "raw_foreground_components": 4,
+          "raw": {
+            "iou": 0.791209,
+            "precision": 0.873015,
+            "recall": 0.894108,
+            "structural_hole_false_fill": 0.0,
+            "retained_voxels": 104276
+          },
+          "cleaned": {
+            "iou": 0.798711,
+            "precision": 0.866405,
+            "recall": 0.910895,
+            "iou_delta_over_raw": 0.007502,
+            "cleanup_applied": true,
+            "added_pixels": 988,
+            "removed_pixels": 0,
+            "added_fraction_of_raw": 0.026547,
+            "structural_hole_false_fill": 0.0,
+            "structural_hole_false_fill_delta": 0.0
+          }
+        },
+        {
+          "view": "rsv",
+          "raw_foreground_components": 2,
+          "raw": {
+            "iou": 0.82334,
+            "precision": 0.85493,
+            "recall": 0.957049,
+            "structural_hole_false_fill": 0.0,
+            "retained_voxels": 103641
+          },
+          "cleaned": {
+            "iou": 0.82334,
+            "precision": 0.85493,
+            "recall": 0.957049,
+            "iou_delta_over_raw": 0.0,
+            "cleanup_applied": false,
+            "added_pixels": 0,
+            "removed_pixels": 0,
+            "added_fraction_of_raw": 0.0,
+            "structural_hole_false_fill": 0.0,
+            "structural_hole_false_fill_delta": 0.0
+          }
+        }
+      ],
+      "exit_gate_passed": false,
+      "preview": "dataset/phase_runs/v1/vggt_projection_noise_v1/ring_004_projection_noise.png"
+    },
+    {
+      "object_id": "ring_012",
+      "split": "val",
+      "profile": "close3_components_ge_4",
+      "raw_mean_iou": 0.788785,
+      "mean_iou": 0.794887,
+      "minimum_iou": 0.680106,
+      "mean_precision": 0.856536,
+      "mean_recall": 0.919593,
+      "mean_delta_over_raw": 0.006102,
+      "views": [
+        {
+          "view": "front",
+          "raw_foreground_components": 64,
+          "raw": {
+            "iou": 0.650005,
+            "precision": 0.854145,
+            "recall": 0.731161,
+            "structural_hole_false_fill": 0.0,
+            "retained_voxels": 59755
+          },
+          "cleaned": {
+            "iou": 0.680106,
+            "precision": 0.85691,
+            "recall": 0.767238,
+            "iou_delta_over_raw": 0.030101,
+            "cleanup_applied": true,
+            "added_pixels": 3292,
+            "removed_pixels": 0,
+            "added_fraction_of_raw": 0.045956,
+            "structural_hole_false_fill": 0.0,
+            "structural_hole_false_fill_delta": 0.0
+          }
+        },
+        {
+          "view": "top",
+          "raw_foreground_components": 4,
+          "raw": {
+            "iou": 0.695775,
+            "precision": 0.711801,
+            "recall": 0.968655,
+            "structural_hole_false_fill": 0.175236,
+            "retained_voxels": 73063
+          },
+          "cleaned": {
+            "iou": 0.696184,
+            "precision": 0.709148,
+            "recall": 0.974412,
+            "iou_delta_over_raw": 0.000409,
+            "cleanup_applied": true,
+            "added_pixels": 413,
+            "removed_pixels": 0,
+            "added_fraction_of_raw": 0.009707,
+            "structural_hole_false_fill": 0.178813,
+            "structural_hole_false_fill_delta": 0.003577
+          }
+        },
+        {
+          "view": "iso",
+          "raw_foreground_components": 1,
+          "raw": {
+            "iou": 0.860071,
+            "precision": 0.906188,
+            "recall": 0.944135,
+            "structural_hole_false_fill": 0.262275,
+            "retained_voxels": 67555
+          },
+          "cleaned": {
+            "iou": 0.860071,
+            "precision": 0.906188,
+            "recall": 0.944135,
+            "iou_delta_over_raw": 0.0,
+            "cleanup_applied": false,
+            "added_pixels": 0,
+            "removed_pixels": 0,
+            "added_fraction_of_raw": 0.0,
+            "structural_hole_false_fill": 0.262275,
+            "structural_hole_false_fill_delta": 0.0
+          }
+        },
+        {
+          "view": "lsv",
+          "raw_foreground_components": 3,
+          "raw": {
+            "iou": 0.86622,
+            "precision": 0.898586,
+            "recall": 0.960078,
+            "structural_hole_false_fill": 0.0,
+            "retained_voxels": 65575
+          },
+          "cleaned": {
+            "iou": 0.86622,
+            "precision": 0.898586,
+            "recall": 0.960078,
+            "iou_delta_over_raw": 0.0,
+            "cleanup_applied": false,
+            "added_pixels": 0,
+            "removed_pixels": 0,
+            "added_fraction_of_raw": 0.0,
+            "structural_hole_false_fill": 0.0,
+            "structural_hole_false_fill_delta": 0.0
+          }
+        },
+        {
+          "view": "rsv",
+          "raw_foreground_components": 2,
+          "raw": {
+            "iou": 0.871855,
+            "precision": 0.911849,
+            "recall": 0.952103,
+            "structural_hole_false_fill": 0.0,
+            "retained_voxels": 64261
+          },
+          "cleaned": {
+            "iou": 0.871855,
+            "precision": 0.911849,
+            "recall": 0.952103,
+            "iou_delta_over_raw": 0.0,
+            "cleanup_applied": false,
+            "added_pixels": 0,
+            "removed_pixels": 0,
+            "added_fraction_of_raw": 0.0,
+            "structural_hole_false_fill": 0.0,
+            "structural_hole_false_fill_delta": 0.0
+          }
+        }
+      ],
+      "exit_gate_passed": false,
+      "preview": "dataset/phase_runs/v1/vggt_projection_noise_v1/ring_012_projection_noise.png"
+    },
+    {
+      "object_id": "ring_020",
+      "split": "val",
+      "profile": "close3_components_ge_4",
+      "raw_mean_iou": 0.757834,
+      "mean_iou": 0.76379,
+      "minimum_iou": 0.578221,
+      "mean_precision": 0.911955,
+      "mean_recall": 0.818504,
+      "mean_delta_over_raw": 0.005955,
+      "views": [
+        {
+          "view": "front",
+          "raw_foreground_components": 50,
+          "raw": {
+            "iou": 0.735653,
+            "precision": 0.939663,
+            "recall": 0.772126,
+            "structural_hole_false_fill": 0.0,
+            "retained_voxels": 97467
+          },
+          "cleaned": {
+            "iou": 0.76543,
+            "precision": 0.940433,
+            "recall": 0.804431,
+            "iou_delta_over_raw": 0.029777,
+            "cleanup_applied": true,
+            "added_pixels": 3016,
+            "removed_pixels": 0,
+            "added_fraction_of_raw": 0.040986,
+            "structural_hole_false_fill": 0.0,
+            "structural_hole_false_fill_delta": 0.0
+          }
+        },
+        {
+          "view": "top",
+          "raw_foreground_components": 1,
+          "raw": {
+            "iou": 0.578221,
+            "precision": 0.769485,
+            "recall": 0.699364,
+            "structural_hole_false_fill": 0.05256,
+            "retained_voxels": 99525
+          },
+          "cleaned": {
+            "iou": 0.578221,
+            "precision": 0.769485,
+            "recall": 0.699364,
+            "iou_delta_over_raw": 0.0,
+            "cleanup_applied": false,
+            "added_pixels": 0,
+            "removed_pixels": 0,
+            "added_fraction_of_raw": 0.0,
+            "structural_hole_false_fill": 0.05256,
+            "structural_hole_false_fill_delta": 0.0
+          }
+        },
+        {
+          "view": "iso",
+          "raw_foreground_components": 3,
+          "raw": {
+            "iou": 0.811879,
+            "precision": 0.959287,
+            "recall": 0.840852,
+            "structural_hole_false_fill": 0.108237,
+            "retained_voxels": 112214
+          },
+          "cleaned": {
+            "iou": 0.811879,
+            "precision": 0.959287,
+            "recall": 0.840852,
+            "iou_delta_over_raw": 0.0,
+            "cleanup_applied": false,
+            "added_pixels": 0,
+            "removed_pixels": 0,
+            "added_fraction_of_raw": 0.0,
+            "structural_hole_false_fill": 0.108237,
+            "structural_hole_false_fill_delta": 0.0
+          }
+        },
+        {
+          "view": "lsv",
+          "raw_foreground_components": 2,
+          "raw": {
+            "iou": 0.775292,
+            "precision": 0.944861,
+            "recall": 0.812031,
+            "structural_hole_false_fill": 0.0,
+            "retained_voxels": 100226
+          },
+          "cleaned": {
+            "iou": 0.775292,
+            "precision": 0.944861,
+            "recall": 0.812031,
+            "iou_delta_over_raw": 0.0,
+            "cleanup_applied": false,
+            "added_pixels": 0,
+            "removed_pixels": 0,
+            "added_fraction_of_raw": 0.0,
+            "structural_hole_false_fill": 0.0,
+            "structural_hole_false_fill_delta": 0.0
+          }
+        },
+        {
+          "view": "rsv",
+          "raw_foreground_components": 1,
+          "raw": {
+            "iou": 0.888127,
+            "precision": 0.945707,
+            "recall": 0.935844,
+            "structural_hole_false_fill": 0.0,
+            "retained_voxels": 110253
+          },
+          "cleaned": {
+            "iou": 0.888127,
+            "precision": 0.945707,
+            "recall": 0.935844,
+            "iou_delta_over_raw": 0.0,
+            "cleanup_applied": false,
+            "added_pixels": 0,
+            "removed_pixels": 0,
+            "added_fraction_of_raw": 0.0,
+            "structural_hole_false_fill": 0.0,
+            "structural_hole_false_fill_delta": 0.0
+          }
+        }
+      ],
+      "exit_gate_passed": false,
+      "preview": "dataset/phase_runs/v1/vggt_projection_noise_v1/ring_020_projection_noise.png"
+    },
+    {
+      "object_id": "ring_001",
+      "split": "train",
+      "profile": "close3_components_ge_4",
+      "raw_mean_iou": 0.810968,
+      "mean_iou": 0.820764,
+      "minimum_iou": 0.666925,
+      "mean_precision": 0.855764,
+      "mean_recall": 0.954139,
+      "mean_delta_over_raw": 0.009797,
+      "views": [
+        {
+          "view": "front",
+          "raw_foreground_components": 87,
+          "raw": {
+            "iou": 0.807477,
+            "precision": 0.889068,
+            "recall": 0.897947,
+            "structural_hole_false_fill": 0.0,
+            "retained_voxels": 80250
+          },
+          "cleaned": {
+            "iou": 0.848079,
+            "precision": 0.891271,
+            "recall": 0.945946,
+            "iou_delta_over_raw": 0.040602,
+            "cleanup_applied": true,
+            "added_pixels": 4572,
+            "removed_pixels": 0,
+            "added_fraction_of_raw": 0.05085,
+            "structural_hole_false_fill": 0.0,
+            "structural_hole_false_fill_delta": 0.0
+          }
+        },
+        {
+          "view": "top",
+          "raw_foreground_components": 4,
+          "raw": {
+            "iou": 0.666961,
+            "precision": 0.685507,
+            "recall": 0.961018,
+            "structural_hole_false_fill": 0.236147,
+            "retained_voxels": 82618
+          },
+          "cleaned": {
+            "iou": 0.666925,
+            "precision": 0.683098,
+            "recall": 0.965717,
+            "iou_delta_over_raw": -3.6e-05,
+            "cleanup_applied": true,
+            "added_pixels": 390,
+            "removed_pixels": 0,
+            "added_fraction_of_raw": 0.008433,
+            "structural_hole_false_fill": 0.239077,
+            "structural_hole_false_fill_delta": 0.00293
+          }
+        },
+        {
+          "view": "iso",
+          "raw_foreground_components": 1,
+          "raw": {
+            "iou": 0.862379,
+            "precision": 0.915837,
+            "recall": 0.936606,
+            "structural_hole_false_fill": 0.371872,
+            "retained_voxels": 76474
+          },
+          "cleaned": {
+            "iou": 0.862379,
+            "precision": 0.915837,
+            "recall": 0.936606,
+            "iou_delta_over_raw": 0.0,
+            "cleanup_applied": false,
+            "added_pixels": 0,
+            "removed_pixels": 0,
+            "added_fraction_of_raw": 0.0,
+            "structural_hole_false_fill": 0.371872,
+            "structural_hole_false_fill_delta": 0.0
+          }
+        },
+        {
+          "view": "lsv",
+          "raw_foreground_components": 4,
+          "raw": {
+            "iou": 0.841409,
+            "precision": 0.888328,
+            "recall": 0.940936,
+            "structural_hole_false_fill": 0.0,
+            "retained_voxels": 77895
+          },
+          "cleaned": {
+            "iou": 0.849827,
+            "precision": 0.882779,
+            "recall": 0.957924,
+            "iou_delta_over_raw": 0.008418,
+            "cleanup_applied": true,
+            "added_pixels": 988,
+            "removed_pixels": 0,
+            "added_fraction_of_raw": 0.024453,
+            "structural_hole_false_fill": 0.0,
+            "structural_hole_false_fill_delta": 0.0
+          }
+        },
+        {
+          "view": "rsv",
+          "raw_foreground_components": 1,
+          "raw": {
+            "iou": 0.876612,
+            "precision": 0.905836,
+            "recall": 0.964504,
+            "structural_hole_false_fill": 0.0,
+            "retained_voxels": 77846
+          },
+          "cleaned": {
+            "iou": 0.876612,
+            "precision": 0.905836,
+            "recall": 0.964504,
+            "iou_delta_over_raw": 0.0,
+            "cleanup_applied": false,
+            "added_pixels": 0,
+            "removed_pixels": 0,
+            "added_fraction_of_raw": 0.0,
+            "structural_hole_false_fill": 0.0,
+            "structural_hole_false_fill_delta": 0.0
+          }
+        }
+      ],
+      "exit_gate_passed": false,
+      "preview": "dataset/phase_runs/v1/vggt_projection_noise_v1/ring_001_projection_noise.png"
+    },
+    {
+      "object_id": "ring_007",
+      "split": "test",
+      "profile": "close3_components_ge_4",
+      "raw_mean_iou": 0.814251,
+      "mean_iou": 0.819316,
+      "minimum_iou": 0.711588,
+      "mean_precision": 0.887936,
+      "mean_recall": 0.91266,
+      "mean_delta_over_raw": 0.005066,
+      "views": [
+        {
+          "view": "front",
+          "raw_foreground_components": 15,
+          "raw": {
+            "iou": 0.833036,
+            "precision": 0.913228,
+            "recall": 0.90464,
+            "structural_hole_false_fill": 0.0,
+            "retained_voxels": 74849
+          },
+          "cleaned": {
+            "iou": 0.853841,
+            "precision": 0.914047,
+            "recall": 0.928382,
+            "iou_delta_over_raw": 0.020805,
+            "cleanup_applied": true,
+            "added_pixels": 1734,
+            "removed_pixels": 0,
+            "added_fraction_of_raw": 0.025326,
+            "structural_hole_false_fill": 0.0,
+            "structural_hole_false_fill_delta": 0.0
+          }
+        },
+        {
+          "view": "top",
+          "raw_foreground_components": 2,
+          "raw": {
+            "iou": 0.711588,
+            "precision": 0.795628,
+            "recall": 0.870747,
+            "structural_hole_false_fill": 0.052688,
+            "retained_voxels": 66435
+          },
+          "cleaned": {
+            "iou": 0.711588,
+            "precision": 0.795628,
+            "recall": 0.870747,
+            "iou_delta_over_raw": 0.0,
+            "cleanup_applied": false,
+            "added_pixels": 0,
+            "removed_pixels": 0,
+            "added_fraction_of_raw": 0.0,
+            "structural_hole_false_fill": 0.052688,
+            "structural_hole_false_fill_delta": 0.0
+          }
+        },
+        {
+          "view": "iso",
+          "raw_foreground_components": 1,
+          "raw": {
+            "iou": 0.845328,
+            "precision": 0.939047,
+            "recall": 0.894403,
+            "structural_hole_false_fill": 0.2163,
+            "retained_voxels": 75880
+          },
+          "cleaned": {
+            "iou": 0.845328,
+            "precision": 0.939047,
+            "recall": 0.894403,
+            "iou_delta_over_raw": 0.0,
+            "cleanup_applied": false,
+            "added_pixels": 0,
+            "removed_pixels": 0,
+            "added_fraction_of_raw": 0.0,
+            "structural_hole_false_fill": 0.2163,
+            "structural_hole_false_fill_delta": 0.0
+          }
+        },
+        {
+          "view": "lsv",
+          "raw_foreground_components": 7,
+          "raw": {
+            "iou": 0.811124,
+            "precision": 0.894413,
+            "recall": 0.897018,
+            "structural_hole_false_fill": 0.0,
+            "retained_voxels": 78285
+          },
+          "cleaned": {
+            "iou": 0.815045,
+            "precision": 0.893747,
+            "recall": 0.902493,
+            "iou_delta_over_raw": 0.003921,
+            "cleanup_applied": true,
+            "added_pixels": 236,
+            "removed_pixels": 0,
+            "added_fraction_of_raw": 0.006853,
+            "structural_hole_false_fill": 0.0,
+            "structural_hole_false_fill_delta": 0.0
+          }
+        },
+        {
+          "view": "rsv",
+          "raw_foreground_components": 7,
+          "raw": {
+            "iou": 0.870177,
+            "precision": 0.905663,
+            "recall": 0.956912,
+            "structural_hole_false_fill": 0.0,
+            "retained_voxels": 75066
+          },
+          "cleaned": {
+            "iou": 0.87078,
+            "precision": 0.897213,
+            "recall": 0.967274,
+            "iou_delta_over_raw": 0.000603,
+            "cleanup_applied": true,
+            "added_pixels": 747,
+            "removed_pixels": 0,
+            "added_fraction_of_raw": 0.020349,
+            "structural_hole_false_fill": 0.0,
+            "structural_hole_false_fill_delta": 0.0
+          }
+        }
+      ],
+      "exit_gate_passed": true,
+      "preview": "dataset/phase_runs/v1/vggt_projection_noise_v1/ring_007_projection_noise.png"
+    },
+    {
+      "object_id": "ring_015",
+      "split": "test",
+      "profile": "close3_components_ge_4",
+      "raw_mean_iou": 0.750737,
+      "mean_iou": 0.759011,
+      "minimum_iou": 0.529146,
+      "mean_precision": 0.85738,
+      "mean_recall": 0.860567,
+      "mean_delta_over_raw": 0.008274,
+      "views": [
+        {
+          "view": "front",
+          "raw_foreground_components": 22,
+          "raw": {
+            "iou": 0.774942,
+            "precision": 0.953593,
+            "recall": 0.805312,
+            "structural_hole_false_fill": 0.0,
+            "retained_voxels": 79525
+          },
+          "cleaned": {
+            "iou": 0.81631,
+            "precision": 0.954446,
+            "recall": 0.849403,
+            "iou_delta_over_raw": 0.041368,
+            "cleanup_applied": true,
+            "added_pixels": 3839,
+            "removed_pixels": 0,
+            "added_fraction_of_raw": 0.053807,
+            "structural_hole_false_fill": 0.0,
+            "structural_hole_false_fill_delta": 0.0
+          }
+        },
+        {
+          "view": "top",
+          "raw_foreground_components": 1,
+          "raw": {
+            "iou": 0.529146,
+            "precision": 0.639807,
+            "recall": 0.753655,
+            "structural_hole_false_fill": 0.212956,
+            "retained_voxels": 85141
+          },
+          "cleaned": {
+            "iou": 0.529146,
+            "precision": 0.639807,
+            "recall": 0.753655,
+            "iou_delta_over_raw": 0.0,
+            "cleanup_applied": false,
+            "added_pixels": 0,
+            "removed_pixels": 0,
+            "added_fraction_of_raw": 0.0,
+            "structural_hole_false_fill": 0.212956,
+            "structural_hole_false_fill_delta": 0.0
+          }
+        },
+        {
+          "view": "iso",
+          "raw_foreground_components": 2,
+          "raw": {
+            "iou": 0.851111,
+            "precision": 0.911479,
+            "recall": 0.927801,
+            "structural_hole_false_fill": 0.184751,
+            "retained_voxels": 90522
+          },
+          "cleaned": {
+            "iou": 0.851111,
+            "precision": 0.911479,
+            "recall": 0.927801,
+            "iou_delta_over_raw": 0.0,
+            "cleanup_applied": false,
+            "added_pixels": 0,
+            "removed_pixels": 0,
+            "added_fraction_of_raw": 0.0,
+            "structural_hole_false_fill": 0.184751,
+            "structural_hole_false_fill_delta": 0.0
+          }
+        },
+        {
+          "view": "lsv",
+          "raw_foreground_components": 1,
+          "raw": {
+            "iou": 0.77692,
+            "precision": 0.881934,
+            "recall": 0.867106,
+            "structural_hole_false_fill": 0.0,
+            "retained_voxels": 84411
+          },
+          "cleaned": {
+            "iou": 0.77692,
+            "precision": 0.881934,
+            "recall": 0.867106,
+            "iou_delta_over_raw": 0.0,
+            "cleanup_applied": false,
+            "added_pixels": 0,
+            "removed_pixels": 0,
+            "added_fraction_of_raw": 0.0,
+            "structural_hole_false_fill": 0.0,
+            "structural_hole_false_fill_delta": 0.0
+          }
+        },
+        {
+          "view": "rsv",
+          "raw_foreground_components": 1,
+          "raw": {
+            "iou": 0.821568,
+            "precision": 0.899235,
+            "recall": 0.904872,
+            "structural_hole_false_fill": 0.0,
+            "retained_voxels": 85144
+          },
+          "cleaned": {
+            "iou": 0.821568,
+            "precision": 0.899235,
+            "recall": 0.904872,
+            "iou_delta_over_raw": 0.0,
+            "cleanup_applied": false,
+            "added_pixels": 0,
+            "removed_pixels": 0,
+            "added_fraction_of_raw": 0.0,
+            "structural_hole_false_fill": 0.0,
+            "structural_hole_false_fill_delta": 0.0
+          }
+        }
+      ],
+      "exit_gate_passed": false,
+      "preview": "dataset/phase_runs/v1/vggt_projection_noise_v1/ring_015_projection_noise.png"
+    },
+    {
+      "object_id": "ring_023",
+      "split": "test",
+      "profile": "close3_components_ge_4",
+      "raw_mean_iou": 0.779554,
+      "mean_iou": 0.788618,
+      "minimum_iou": 0.645613,
+      "mean_precision": 0.88098,
+      "mean_recall": 0.879477,
+      "mean_delta_over_raw": 0.009064,
+      "views": [
+        {
+          "view": "front",
+          "raw_foreground_components": 33,
+          "raw": {
+            "iou": 0.64876,
+            "precision": 0.886478,
+            "recall": 0.707543,
+            "structural_hole_false_fill": 0.0,
+            "retained_voxels": 75759
+          },
+          "cleaned": {
+            "iou": 0.692863,
+            "precision": 0.891379,
+            "recall": 0.756756,
+            "iou_delta_over_raw": 0.044103,
+            "cleanup_applied": true,
+            "added_pixels": 4771,
+            "removed_pixels": 0,
+            "added_fraction_of_raw": 0.063674,
+            "structural_hole_false_fill": 0.0,
+            "structural_hole_false_fill_delta": 0.0
+          }
+        },
+        {
+          "view": "top",
+          "raw_foreground_components": 5,
+          "raw": {
+            "iou": 0.644394,
+            "precision": 0.742602,
+            "recall": 0.829719,
+            "structural_hole_false_fill": 0.180061,
+            "retained_voxels": 94246
+          },
+          "cleaned": {
+            "iou": 0.645613,
+            "precision": 0.74169,
+            "recall": 0.832887,
+            "iou_delta_over_raw": 0.001219,
+            "cleanup_applied": true,
+            "added_pixels": 196,
+            "removed_pixels": 0,
+            "added_fraction_of_raw": 0.005053,
+            "structural_hole_false_fill": 0.180854,
+            "structural_hole_false_fill_delta": 0.000793
+          }
+        },
+        {
+          "view": "iso",
+          "raw_foreground_components": 1,
+          "raw": {
+            "iou": 0.893028,
+            "precision": 0.926991,
+            "recall": 0.96059,
+            "structural_hole_false_fill": 0.11759,
+            "retained_voxels": 87185
+          },
+          "cleaned": {
+            "iou": 0.893028,
+            "precision": 0.926991,
+            "recall": 0.96059,
+            "iou_delta_over_raw": 0.0,
+            "cleanup_applied": false,
+            "added_pixels": 0,
+            "removed_pixels": 0,
+            "added_fraction_of_raw": 0.0,
+            "structural_hole_false_fill": 0.11759,
+            "structural_hole_false_fill_delta": 0.0
+          }
+        },
+        {
+          "view": "lsv",
+          "raw_foreground_components": 1,
+          "raw": {
+            "iou": 0.853167,
+            "precision": 0.946402,
+            "recall": 0.896483,
+            "structural_hole_false_fill": 0.0,
+            "retained_voxels": 81112
+          },
+          "cleaned": {
+            "iou": 0.853167,
+            "precision": 0.946402,
+            "recall": 0.896483,
+            "iou_delta_over_raw": 0.0,
+            "cleanup_applied": false,
+            "added_pixels": 0,
+            "removed_pixels": 0,
+            "added_fraction_of_raw": 0.0,
+            "structural_hole_false_fill": 0.0,
+            "structural_hole_false_fill_delta": 0.0
+          }
+        },
+        {
+          "view": "rsv",
+          "raw_foreground_components": 2,
+          "raw": {
+            "iou": 0.85842,
+            "precision": 0.898438,
+            "recall": 0.950671,
+            "structural_hole_false_fill": 0.0,
+            "retained_voxels": 87440
+          },
+          "cleaned": {
+            "iou": 0.85842,
+            "precision": 0.898438,
+            "recall": 0.950671,
+            "iou_delta_over_raw": 0.0,
+            "cleanup_applied": false,
+            "added_pixels": 0,
+            "removed_pixels": 0,
+            "added_fraction_of_raw": 0.0,
+            "structural_hole_false_fill": 0.0,
+            "structural_hole_false_fill_delta": 0.0
+          }
+        }
+      ],
+      "exit_gate_passed": false,
+      "preview": "dataset/phase_runs/v1/vggt_projection_noise_v1/ring_023_projection_noise.png"
+    }
+  ],
+  "checks": {
+    "selection_uses_validation_split_only": true,
+    "target_mask_not_used_for_cleanup_decision": true,
+    "target_mask_and_points_excluded_from_reconstruction": true,
+    "voxel_geometry_unchanged": true,
+    "all_test_objects_improve_over_raw": true,
+    "no_test_view_regresses": true,
+    "structural_hole_guard_passed": true,
+    "geometry_exit_gate_passed": false
+  },
+  "decision": "retained_as_projection_renderer_only",
+  "claims": {
+    "geometry_improved": false,
+    "topology_validated": false,
+    "metric_scale_validated": false,
+    "manufacturing_accuracy_validated": false
+  },
+  "limitations": [
+    "The cleanup changes only binary projection rasterisation; signed-depth voxels are byte-for-byte unchanged.",
+    "Target masks are score-only evidence and do not decide whether cleanup is applied.",
+    "A cleaner silhouette does not validate hidden surfaces, topology, metric scale or CAD readiness.",
+    "The weakest held-out view remains a geometry/alignment problem rather than projection noise."
+  ]
+}

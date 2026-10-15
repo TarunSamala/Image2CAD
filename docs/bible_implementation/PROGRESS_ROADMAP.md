@@ -68,12 +68,47 @@ replace or renumber the canonical [Project Bible roadmap](../bible_v1_0/19_DEVEL
   regions. A validation-selected 4 px margin raised the weakest held-out IoU
   from `0.529` to `0.542`, but reduced held-out mean IoU from `0.782` to
   `0.777`. It is retained as aperture evidence, not as the default geometry.
+- Bounded source-camera image-plane alignment was tested with translation and
+  isotropic scale searches fitted from source views only. Although those fits
+  improved source reprojection by up to `0.048` IoU, every non-identity profile
+  reduced pooled validation reconstruction IoU. Validation selected the
+  original VGGT cameras, and the experiment was rejected without changing the
+  signed-depth baseline.
+- Physically consistent rigid source registration was then tested by applying
+  each bounded SE(3) transform to a source point map and its camera together.
+  ICP lowered source-cloud distance, but even the tiny bound reduced validation
+  mean IoU from `0.780605` to `0.779059`; the medium bound fell to `0.768162`.
+  Repeated and symmetric jewellery surfaces make unconstrained nearest-neighbour
+  matches unreliable, so validation again retained the original geometry.
+- The pinned VGGT track head then produced 96 sparse queries per view for seven
+  rings while staying below 4 GiB of GPU memory. Bounds and source-query
+  integrity checks passed, but they do not prove physical correspondence.
+  Track-guided rigid fitting selected the strict profile after a `+0.000444`
+  validation mean-IoU gain, then lost `-0.002421` on the fixed test split.
+  Visual review found long-baseline matches collapsing onto repeated ornament,
+  so this experiment is rejected and signed-depth carving remains active.
+- A denser follow-up produced 384 queries per view for the same seven-ring
+  cohort while remaining at `2.44 GiB` peak CUDA allocation. Reciprocal
+  A-to-B-to-A filtering removed many ambiguous tracks, but every non-identity
+  registration profile reduced validation IoU. Validation therefore selected
+  identity before test scoring; test IoU remains the signed-depth baseline at
+  `0.781514 / 0.529146`. Dense tracks are retained only as unreviewed evidence
+  for future component relationships, not as geometry correction.
+- Projection-noise analysis found that more than `99.9%` of retained voxels
+  belong to the largest 3D component on average; the visible scan-line gaps are
+  primarily coarse voxel-to-pixel rasterisation artifacts. Validation selected
+  a `3×3` close only for raw projections with at least four foreground
+  components. The frozen renderer raises test mean IoU from `0.781514` to
+  `0.788982`, improves every test object, regresses no test view and leaves the
+  weakest IoU unchanged at `0.529146`. It is retained for cleaner review only;
+  the voxel geometry and geometry-gate decision are unchanged.
 
 ## Remaining implementation
 
-1. Improve cross-view camera/point alignment before adding more carving rules;
-   the normal and aperture experiments show that downstream deletion cannot
-   repair misregistered outer profiles.
+1. Build reviewed semantic component identities, then group dense
+   correspondence by component and view direction. Image-plane fitting, rigid
+   ICP, sparse VGGT tracks and denser reciprocal-cycle registration have all
+   been rejected for global geometry movement by the fixed held-out split.
 2. Use pairwise camera-angle diagnostics, projected-surface precision and
    completion recall separately instead of treating IoU as camera accuracy.
 3. Improve the current signed-depth minimum from `0.529` to at least `0.700`

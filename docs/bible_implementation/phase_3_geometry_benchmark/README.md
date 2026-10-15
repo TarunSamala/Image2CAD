@@ -155,6 +155,60 @@ Together these results move the next priority upstream: cross-view camera and
 point-map alignment must improve before stronger normal or aperture carving can
 be trusted. Neither rejected experiment changes the signed-depth baseline.
 
+A bounded source-camera alignment experiment then searched translations up to
+8 pixels and isotropic image-plane scales from `0.96` to `1.04`. Every held-out
+target view remained excluded from fitting and reconstruction. Source-view
+silhouette alignment improved by as much as `0.047512` mean IoU, but the same
+profile reduced pooled validation reconstruction IoU from `0.780605` to
+`0.751995`. Validation therefore selected the identity profile. Fixed test
+evaluation remains exactly at the signed-depth baseline (`0.781514` mean,
+`0.529146` minimum), and this camera hypothesis is rejected. Visual inspection
+of Ring 020 and Ring 015 confirms that the remaining errors involve incomplete
+surface/point evidence and non-uniform view disagreement, not a global 2D
+camera offset. A physical calibration claim is not made.
+
+The follow-up registration test applied bounded SE(3) transforms to each source
+point map and its camera together, preserving every source self-projection.
+Targets remained excluded from registration and reconstruction. ICP reduced
+mean pairwise source-cloud distance, but reconstruction agreement moved in the
+opposite direction: validation mean IoU changed from `0.780605` for identity to
+`0.779059`, `0.775972` and `0.768162` for the tiny, small and medium bounds.
+Inspection of Ring 020 shows lost opening/profile material as the bound grows.
+The identity profile was selected, fixed test scores remain unchanged, and
+nearest-neighbour rigid registration is rejected as a geometry refinement.
+
+The next experiment replaced nearest-neighbour matching with the pinned VGGT
+track head. It extracted 96 sparse queries from each of five views for seven
+rings. All tracks stayed in image bounds, source queries were reproduced within
+`0.01` pixels and peak allocated CUDA memory stayed below 4 GiB. These are
+execution and integrity checks, not correspondence ground truth. The strict
+track filter improved validation mean IoU from `0.780605` to `0.781049`, then
+reduced the fixed test mean from `0.781514` to `0.779093`. Ring 007 alone lost
+`0.006235`; inspection shows high-score long-baseline tracks collapsing onto
+repeated ornament and side profiles. The registration hypothesis is rejected,
+and the signed-depth result remains the active Phase 3 baseline.
+
+Projection analysis then separated visible raster noise from 3D fragmentation.
+Across the fixed validation and test cohort, the largest connected 3D component
+contains more than `99.9%` of retained voxels on average. The vertical and
+horizontal scan-line gaps are therefore predominantly caused by projecting a
+coarse `96³` voxel lattice into `518×518` pixels. Validation selected a `3×3`
+binary close gated only by the raw projection having at least four foreground
+components. The frozen rule raises test mean IoU from `0.781514` to `0.788982`,
+improves all three test objects, regresses zero test views and changes mean
+structural-hole false fill by only `0.000053`. The weakest test view remains
+`0.529146`; the renderer is cleaner, but the underlying voxel geometry and
+geometry-gate result are unchanged.
+
+The correspondence follow-up increased VGGT coverage from 96 to 384 queries per
+view while preserving a `2.44 GiB` peak CUDA allocation through 24-query
+chunks. Reciprocal A-to-B-to-A checks were then applied using source views only
+for each held-out target. Every moving profile reduced validation IoU, so the
+validation split selected identity. The fixed test result therefore stays at
+the signed-depth baseline (`0.781514` mean, `0.529146` minimum). This rejects
+track-driven global point-map motion, but retains the tracks as machine-only
+evidence for a later reviewed component graph.
+
 External real-image intake remains part of Phase 1/2 generalisation testing:
 206 OrnAsia and Segment Your Ring images have been processed. They are not fed
 to the multi-view geometry backend because the sources are single-view or lack
@@ -262,6 +316,45 @@ docker run --rm --user "$(id -u):$(id -g)" \
   -v "$PWD:/workspace" -w /workspace \
   image2cad-validation:phase0 \
   python -m pipeline.evaluate_vggt_negative_space
+
+docker run --rm --user "$(id -u):$(id -g)" \
+  -v "$PWD:/workspace" -w /workspace \
+  image2cad-validation:phase0 \
+  python -m pipeline.evaluate_vggt_source_camera_alignment
+
+docker run --rm --user "$(id -u):$(id -g)" \
+  -v "$PWD:/workspace" -w /workspace \
+  image2cad-validation:phase0 \
+  python -m pipeline.evaluate_vggt_rigid_source_registration
+
+docker run --rm --gpus all --user "$(id -u):$(id -g)" \
+  -e PYTHONPATH=/opt/vggt:/workspace \
+  -v "$PWD:/workspace" -w /workspace \
+  image2cad-metric3d-v2:eb5b6fa \
+  python -m pipeline.extract_vggt_track_evidence
+
+docker run --rm --user "$(id -u):$(id -g)" \
+  -v "$PWD:/workspace" -w /workspace \
+  image2cad-validation:phase0 \
+  python -m pipeline.evaluate_vggt_track_guided_registration
+
+docker run --rm --gpus all --user "$(id -u):$(id -g)" \
+  -e PYTHONPATH=/opt/vggt:/workspace \
+  -v "$PWD:/workspace" -w /workspace \
+  image2cad-metric3d-v2:eb5b6fa \
+  python -m pipeline.extract_vggt_track_evidence \
+  --output-root dataset/phase_runs/v1/vggt_dense_track_evidence_v1 \
+  --query-count 384 --query-chunk-size 24
+
+docker run --rm --user "$(id -u):$(id -g)" \
+  -v "$PWD:/workspace" -w /workspace \
+  image2cad-validation:phase0 \
+  python -m pipeline.evaluate_vggt_cycle_consistent_registration
+
+docker run --rm --user "$(id -u):$(id -g)" \
+  -v "$PWD:/workspace" -w /workspace \
+  image2cad-validation:phase0 \
+  python -m pipeline.evaluate_vggt_projection_noise
 ```
 
 ## Gate
