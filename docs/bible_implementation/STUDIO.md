@@ -58,7 +58,13 @@ source-control reproducibility → human image-space ground truth → camera/dep
 The Component Graph tab exposes the Phase 4 Ring01 proposal, stable IDs,
 provenance and manufacturing roles. It also provides non-persistent synthetic
 ten-stone edit previews. Those previews test graph dependencies only and never
-generate or modify CAD.
+generate or modify CAD. The same tab compares aggregate prong masks with
+separate front/top/angled proposals and explicit side/back overlap groups. It
+also displays the retained VGGT normalized centroid-distance matrices used to
+check whether multi-view geometry supports the proposed stable IDs.
+The 24-object STL-1 front-view audit adds aperture and openwork proposals from
+all 120 views. These remain negative-space candidates, not confirmed stones,
+so the UI keeps semantic and CAD-authorization gates closed.
 ```
 
 ## Run locally
@@ -98,12 +104,16 @@ Only bind to `0.0.0.0` on a trusted network. The current service has no authenti
 | `POST /api/phase1/stl1/reviews/view` | Record one named decision across the seven inspected items in one view |
 | `POST /api/phase1/stl1/reviews/object` | Record one cross-view component inventory |
 | `POST /api/phase1/stl1/corrections/silhouette` | Store a separate corrected binary mask |
+| `GET /api/phase4/stl1-candidates` | Dataset-wide candidate semantic-review gate |
+| `GET /api/phase4/stl1-candidates/<object_id>` | Candidate proposals and decisions for one ring |
+| `GET /api/phase4/stl1-candidates/<object_id>/<view>/<kind>` | Whitelisted source, overlay or candidate mask |
+| `POST /api/phase4/stl1-candidates/review` | Record one identified image-space semantic decision |
 | `GET /api/objects?split=test` | Object index with optional split filter |
 | `GET /api/objects/<object_id>` | Five-view metadata and phase evidence |
 | `GET /api/objects/<object_id>/assets/<kind>` | Whitelisted image or 3D artifact |
 | `GET /api/objects/<object_id>/report` | Downloadable evidence JSON |
 
-Asset paths are resolved against the repository root and only named artifact kinds are accepted. The service does not expose arbitrary filesystem paths. Review writes are restricted to the Ring01 and STL-1 manifests plus `phase1_human_review_v1/corrections/silhouette`; every write requires a reviewer name.
+Asset paths are resolved against the repository root and only named artifact kinds are accepted. The service does not expose arbitrary filesystem paths. Review writes are restricted to the Ring01, STL-1 Phase 1 and STL-1 Phase 4 candidate manifests plus `phase1_human_review_v1/corrections/silhouette`; every write requires a reviewer name.
 
 ## Validate
 

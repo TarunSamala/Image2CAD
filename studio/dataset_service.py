@@ -16,6 +16,10 @@ from pipeline.component_constraint_graph import (
     ComponentGraphError,
     apply_local_edit,
 )
+from pipeline.phase4_candidate_review import (
+    apply_candidate_review as apply_phase4_candidate_review,
+    load_manifest as load_phase4_candidate_review,
+)
 from pipeline.phase1_review import (
     LABELS as PHASE1_LABELS,
     VIEWS as PHASE1_VIEWS,
@@ -80,18 +84,33 @@ class DatasetRepository:
             self.phase_root / "phase3_geometry_benchmark_v1" / "report.json"
         )
         self.phase4_component_graph = self._read_json(
-            self.repo_root / "data" / "phase4_component_graph_v1" / "report.json"
+            self.repo_root / "data" / "phase4_component_graph_v3" / "report.json"
+        )
+        self.phase4_prong_instances = self._read_json(
+            self.repo_root / "data" / "phase4_prong_instances_v1" / "report.json"
+        )
+        self.phase4_component_tracks = self._read_json(
+            self.repo_root / "data" / "phase4_component_tracks_v1" / "report.json"
+        )
+        self.phase4_stl1_candidates = self._read_json(
+            self.repo_root
+            / "data"
+            / "phase4_stl1_component_candidates_v1"
+            / "report.json"
+        )
+        _, self.phase4_candidate_review = load_phase4_candidate_review(
+            self.repo_root
         )
         self.phase4_ring01_graph = self._read_json(
             self.repo_root
             / "data"
-            / "phase4_component_graph_v1"
+            / "phase4_component_graph_v3"
             / "ring01_component_graph.json"
         )
         self.phase4_synthetic_graph = self._read_json(
             self.repo_root
             / "data"
-            / "phase4_component_graph_v1"
+            / "phase4_component_graph_v3"
             / "synthetic_ten_stone_graph.json"
         )
         self.phase1_features = self._read_json(self.phase_root / "phase1_features.json")
@@ -636,7 +655,15 @@ class DatasetRepository:
                     "claims": deepcopy(self.phase3_geometry.get("claims", {})),
                 },
             },
-            "phase4": deepcopy(self.phase4_component_graph),
+            "phase4": {
+                **deepcopy(self.phase4_component_graph),
+                "prong_instances": deepcopy(self.phase4_prong_instances),
+                "component_tracks": deepcopy(self.phase4_component_tracks),
+                "stl1_component_candidates": deepcopy(
+                    self.phase4_stl1_candidates
+                ),
+                "stl1_candidate_review": self._phase4_candidate_review_summary(),
+            },
             "limitations": deepcopy(self.dataset_report.get("limitations", [])),
         }
 
@@ -650,6 +677,111 @@ class DatasetRepository:
         if graph is None:
             raise ObjectNotFoundError(f"Unknown Phase 4 graph: {graph_name}")
         return deepcopy(graph)
+
+    def _reload_phase4_candidate_review(self) -> dict[str, Any]:
+        _, self.phase4_candidate_review = load_phase4_candidate_review(
+            self.repo_root
+        )
+        return self.phase4_candidate_review
+
+    def _phase4_candidate_review_summary(self) -> dict[str, Any]:
+        manifest = self.phase4_candidate_review
+        return {
+            "schema_version": manifest.get("schema_version"),
+            "authority_policy": manifest.get("authority_policy"),
+            "semantic_labels": deepcopy(manifest.get("semantic_labels", {})),
+            "review_contract": deepcopy(manifest.get("review_contract", {})),
+            "gate": deepcopy(manifest.get("gate", {})),
+            "objects": [
+                {
+                    "object_id": object_id,
+                    "split": record.get("split"),
+                    "pending_candidate_count": record.get(
+                        "pending_candidate_count", 0
+                    ),
+                    "semantic_review_complete": bool(
+                        record.get("semantic_review_complete", False)
+                    ),
+                }
+                for object_id, record in manifest.get("objects", {}).items()
+            ],
+        }
+
+    def phase4_candidate_review_summary(self) -> dict[str, Any]:
+        self._reload_phase4_candidate_review()
+        return self._phase4_candidate_review_summary()
+
+    def phase4_candidate_review_object(self, object_id: str) -> dict[str, Any]:
+        self._record(object_id)
+        manifest = self._reload_phase4_candidate_review()
+        try:
+            record = manifest["objects"][object_id]
+        except KeyError as exc:
+            raise ObjectNotFoundError(
+                f"No Phase 4 candidate review record for {object_id}"
+            ) from exc
+        return {
+            "schema_version": manifest.get("schema_version"),
+            "authority_policy": manifest.get("authority_policy"),
+            "semantic_labels": deepcopy(manifest.get("semantic_labels", {})),
+            "dataset_gate": deepcopy(manifest.get("gate", {})),
+            "object": deepcopy(record),
+        }
+
+    def phase4_candidate_asset(
+        self,
+        object_id: str,
+        view: str,
+        kind: str,
+        candidate_id: str | None = None,
+    ) -> Path:
+        self._record(object_id)
+        manifest = self._reload_phase4_candidate_review()
+        if view not in VIEW_ORDER:
+            raise AssetNotFoundError(f"Unknown Phase 4 candidate view: {view}")
+        try:
+            view_record = manifest["objects"][object_id]["views"][view]
+        except KeyError as exc:
+            raise AssetNotFoundError(
+                f"Candidate evidence unavailable for {object_id}:{view}"
+            ) from exc
+        if kind == "source":
+            return self._safe_path(
+                self.prepared_root / "images" / object_id / f"{view}.png"
+            )
+        if kind == "overlay":
+            return self._safe_path(view_record["overlay_path"])
+        if kind != "mask":
+            raise AssetNotFoundError(f"Unknown Phase 4 candidate asset: {kind}")
+        matches = [
+            item
+            for item in view_record["candidates"]
+            if item["candidate_id"] == candidate_id
+        ]
+        if len(matches) != 1:
+            raise AssetNotFoundError(
+                f"Unknown candidate ID for {object_id}:{view}: {candidate_id}"
+            )
+        return self._safe_path(matches[0]["mask_path"])
+
+    def review_phase4_candidate(self, payload: dict[str, Any]) -> dict[str, Any]:
+        try:
+            manifest = apply_phase4_candidate_review(
+                self.repo_root,
+                str(payload.get("object_id", "")),
+                str(payload.get("view", "")),
+                str(payload.get("candidate_id", "")),
+                str(payload.get("semantic_label", "")),
+                str(payload.get("decision", "")),
+                str(payload.get("reviewer", "")),
+                payload.get("note"),
+            )
+        except (KeyError, TypeError, ValueError) as exc:
+            raise DatasetError(str(exc)) from exc
+        self.phase4_candidate_review = manifest
+        return self.phase4_candidate_review_object(
+            str(payload.get("object_id", ""))
+        )
 
     def preview_phase4_edit(
         self, graph_name: str, payload: dict[str, Any]
@@ -893,20 +1025,29 @@ class DatasetRepository:
                 "title": "Component and constraint graph",
                 "phase": "Bible Phase 4",
                 "status": "partial",
-                "coverage": f"{int(self.phase4_component_graph.get('ring01', {}).get('node_count', 0))} Ring01 proposal nodes · 30 synthetic edit cases",
-                "summary": "Stable-ID graph API, provenance, dependencies and dry-run local edits are implemented; reviewed component evidence and CAD generators remain blocked.",
+                "coverage": f"{int(self.phase4_component_graph.get('ring01', {}).get('node_count', 0))} Ring01 proposal nodes · {int(self.phase4_prong_instances.get('summary', {}).get('resolved_instance_view_count', 0))}/5 prong-instance views resolved · {int(self.phase4_stl1_candidates.get('candidate_count', 0))} STL-1 negative-space candidates · 30 synthetic edit cases",
+                "summary": "Stable-ID graph API, dependencies and local-edit previews are implemented. VGGT supports the resolved Ring01 prong ordering, while a dataset-wide STL-1 inventory retains apertures and openwork without falsely promoting them to stones.",
                 "functions": [
                     "Inspect Ring01 machine-proposal component dependencies",
+                    "Compare individual prong proposals with unresolved projection groups",
+                    "Inspect VGGT component-centroid assignment matrices and confidence",
+                    "Inspect dataset-wide enclosed negative-space candidates",
                     "Preview remove, resize and replace transactions without persistence",
                     "Verify stable IDs and unchanged unrelated graph state",
                 ],
                 "limitations": [
                     "Ring01 component identities remain pending human review.",
+                    "Side and back images do not individually resolve overlapping prong pairs.",
+                    "VGGT agreement is non-metric machine evidence, not identity ground truth.",
+                    "STL-1 is monochrome and unlabelled, so aperture evidence cannot confirm gemstone material or cross-view component identity.",
                     "The ten-stone locality result covers graph state, not CAD Boolean geometry.",
                 ],
                 "checks": deepcopy(self.phase4_component_graph.get("checks", {})),
                 "actions": [
                     {"label": "Graph report", "href": "/api/artifacts/phase4_component_graph_report"},
+                    {"label": "Prong audit", "href": "/api/artifacts/phase4_prong_instance_audit"},
+                    {"label": "Track audit", "href": "/api/artifacts/phase4_component_track_audit"},
+                    {"label": "STL-1 candidate audit", "href": "/api/artifacts/phase4_stl1_candidate_audit"},
                     {"label": "Ring01 graph", "href": "/api/phase4/graphs/ring01"},
                 ],
             },
@@ -916,7 +1057,7 @@ class DatasetRepository:
                 "phase": "Bible Phase 4+",
                 "status": "blocked",
                 "coverage": "Not implemented",
-                "summary": "The universal component graph, independently editable stones, prongs, seats, cavities and exact STEP construction remain future work.",
+                "summary": "The component graph foundation exists, but independently regenerated stones, prongs, seats, cavities and exact STEP construction remain future work.",
                 "functions": [],
                 "limitations": [
                     "Current STL and 3MF outputs are research meshes, not authoritative editable CAD.",
@@ -1657,16 +1798,40 @@ class DatasetRepository:
             / "report.json",
             "phase4_component_graph_report": self.repo_root
             / "data"
-            / "phase4_component_graph_v1"
+            / "phase4_component_graph_v3"
             / "report.json",
             "phase4_ring01_graph": self.repo_root
             / "data"
-            / "phase4_component_graph_v1"
+            / "phase4_component_graph_v3"
             / "ring01_component_graph.json",
             "phase4_synthetic_graph": self.repo_root
             / "data"
-            / "phase4_component_graph_v1"
+            / "phase4_component_graph_v3"
             / "synthetic_ten_stone_graph.json",
+            "phase4_prong_instance_report": self.repo_root
+            / "data"
+            / "phase4_prong_instances_v1"
+            / "report.json",
+            "phase4_prong_instance_audit": self.repo_root
+            / "data"
+            / "phase4_prong_instances_v1"
+            / "ring01_prong_instance_audit.png",
+            "phase4_component_track_report": self.repo_root
+            / "data"
+            / "phase4_component_tracks_v1"
+            / "report.json",
+            "phase4_component_track_audit": self.repo_root
+            / "data"
+            / "phase4_component_tracks_v1"
+            / "ring01_component_track_audit.png",
+            "phase4_stl1_candidate_report": self.repo_root
+            / "data"
+            / "phase4_stl1_component_candidates_v1"
+            / "report.json",
+            "phase4_stl1_candidate_audit": self.repo_root
+            / "data"
+            / "phase4_stl1_component_candidates_v1"
+            / "stl1_front_component_candidate_audit.png",
             "cross_view_readiness_report": self.phase_root
             / "cross_view_backend_readiness_v1"
             / "report.json",

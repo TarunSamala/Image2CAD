@@ -34,7 +34,7 @@ def create_app(repo_root: str | Path | None = None) -> Flask:
                 "dataset": "STL-1",
                 "objects": len(repository.records),
                 "read_only": False,
-                "write_scope": "phase1_review_decisions_and_corrected_silhouettes_only",
+                "write_scope": "identified_phase1_and_phase4_image_space_review_decisions_plus_corrected_silhouettes",
             }
         )
 
@@ -55,6 +55,31 @@ def create_app(repo_root: str | Path | None = None) -> Flask:
         return jsonify(
             repository.preview_phase4_edit(
                 graph_name, request.get_json(silent=True) or {}
+            )
+        )
+
+    @app.get("/api/phase4/stl1-candidates")
+    def phase4_candidate_review_summary():
+        return jsonify(repository.phase4_candidate_review_summary())
+
+    @app.get("/api/phase4/stl1-candidates/<object_id>")
+    def phase4_candidate_review_object(object_id: str):
+        return jsonify(repository.phase4_candidate_review_object(object_id))
+
+    @app.get("/api/phase4/stl1-candidates/<object_id>/<view>/<kind>")
+    def phase4_candidate_asset(object_id: str, view: str, kind: str):
+        return send_file(
+            repository.phase4_candidate_asset(
+                object_id, view, kind, request.args.get("candidate_id")
+            ),
+            conditional=True,
+        )
+
+    @app.post("/api/phase4/stl1-candidates/review")
+    def phase4_candidate_review():
+        return jsonify(
+            repository.review_phase4_candidate(
+                request.get_json(silent=True) or {}
             )
         )
 

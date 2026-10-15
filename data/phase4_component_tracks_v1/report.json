@@ -1,0 +1,358 @@
+{
+  "schema_version": "lalitha_phase4_component_track_evidence_v1",
+  "object_id": "ring01",
+  "execution_profile": "images_only",
+  "authority": "machine_evidence_review_required",
+  "reference_view": "front",
+  "resolved_views": [
+    "front",
+    "top",
+    "angled"
+  ],
+  "ambiguous_views": [
+    "side",
+    "back"
+  ],
+  "component_ids": [
+    "prong_001",
+    "prong_002",
+    "prong_003",
+    "prong_004"
+  ],
+  "backend": {
+    "name": "VGGT-1B joint world-point maps",
+    "image_size": 224,
+    "metric": false,
+    "checkpoint_sha256": "d15bf50a8615c8225ed48b51ea5cac673d82442ec0309036df555a053253afe0",
+    "pinned_code_commit": "a288dd0f14786c93483e45524328726ab7b1b4ce",
+    "license_id": "VGGT-1B-NonCommercial",
+    "source_dense_evidence": "dataset/phase_runs/v1/ring01_vggt_dense_224_v1/vggt_dense_evidence.npz"
+  },
+  "normalization": {
+    "object_diagonal": 0.31853967,
+    "units": "vggt_model_relative_non_metric",
+    "bounds": "p01_to_p99_over_front_top_angled_jewellery_points"
+  },
+  "descriptors": {
+    "front": {
+      "prong_001": {
+        "point_count": 107,
+        "confidence_q25_threshold": 1.021921,
+        "confidence_median": 1.100966,
+        "robust_centroid_xyz": [
+          -0.04294999,
+          -0.03720494,
+          0.77834576
+        ],
+        "median_cluster_radius": 0.00775358,
+        "p90_cluster_radius": 0.01127626,
+        "units": "vggt_model_relative_non_metric"
+      },
+      "prong_002": {
+        "point_count": 95,
+        "confidence_q25_threshold": 1.0404,
+        "confidence_median": 1.140452,
+        "robust_centroid_xyz": [
+          0.01212739,
+          -0.03486526,
+          0.7800833
+        ],
+        "median_cluster_radius": 0.00603601,
+        "p90_cluster_radius": 0.00977644,
+        "units": "vggt_model_relative_non_metric"
+      },
+      "prong_003": {
+        "point_count": 58,
+        "confidence_q25_threshold": 1.001135,
+        "confidence_median": 1.008551,
+        "robust_centroid_xyz": [
+          -0.03974038,
+          0.0426954,
+          0.76278424
+        ],
+        "median_cluster_radius": 0.00659853,
+        "p90_cluster_radius": 0.21937506,
+        "units": "vggt_model_relative_non_metric"
+      },
+      "prong_004": {
+        "point_count": 54,
+        "confidence_q25_threshold": 1.001992,
+        "confidence_median": 1.025157,
+        "robust_centroid_xyz": [
+          0.01785003,
+          0.04026397,
+          0.76192373
+        ],
+        "median_cluster_radius": 0.00602505,
+        "p90_cluster_radius": 0.21247312,
+        "units": "vggt_model_relative_non_metric"
+      }
+    },
+    "top": {
+      "prong_001": {
+        "point_count": 82,
+        "confidence_q25_threshold": 1.017614,
+        "confidence_median": 1.070212,
+        "robust_centroid_xyz": [
+          -0.0405656,
+          -0.03720495,
+          0.77660996
+        ],
+        "median_cluster_radius": 0.00681043,
+        "p90_cluster_radius": 0.00953468,
+        "units": "vggt_model_relative_non_metric"
+      },
+      "prong_002": {
+        "point_count": 81,
+        "confidence_q25_threshold": 1.030257,
+        "confidence_median": 1.09522,
+        "robust_centroid_xyz": [
+          0.01261399,
+          -0.03578154,
+          0.77227783
+        ],
+        "median_cluster_radius": 0.00572224,
+        "p90_cluster_radius": 0.0087575,
+        "units": "vggt_model_relative_non_metric"
+      },
+      "prong_003": {
+        "point_count": 79,
+        "confidence_q25_threshold": 1.000043,
+        "confidence_median": 1.000185,
+        "robust_centroid_xyz": [
+          -0.043332,
+          0.04158227,
+          0.76106364
+        ],
+        "median_cluster_radius": 0.00716307,
+        "p90_cluster_radius": 0.01028559,
+        "units": "vggt_model_relative_non_metric"
+      },
+      "prong_004": {
+        "point_count": 75,
+        "confidence_q25_threshold": 1.000167,
+        "confidence_median": 1.001286,
+        "robust_centroid_xyz": [
+          0.01605774,
+          0.04104203,
+          0.75505465
+        ],
+        "median_cluster_radius": 0.00725688,
+        "p90_cluster_radius": 0.00974833,
+        "units": "vggt_model_relative_non_metric"
+      }
+    },
+    "angled": {
+      "prong_001": {
+        "point_count": 35,
+        "confidence_q25_threshold": 1.0,
+        "confidence_median": 1.0,
+        "robust_centroid_xyz": [
+          -0.0096748,
+          -0.02869375,
+          0.77660996
+        ],
+        "median_cluster_radius": 0.00421252,
+        "p90_cluster_radius": 0.0111363,
+        "units": "vggt_model_relative_non_metric"
+      },
+      "prong_002": {
+        "point_count": 50,
+        "confidence_q25_threshold": 1.000004,
+        "confidence_median": 1.000011,
+        "robust_centroid_xyz": [
+          0.02309749,
+          -0.01835489,
+          0.780518
+        ],
+        "median_cluster_radius": 0.00460119,
+        "p90_cluster_radius": 0.00851821,
+        "units": "vggt_model_relative_non_metric"
+      },
+      "prong_003": {
+        "point_count": 92,
+        "confidence_q25_threshold": 1.0,
+        "confidence_median": 1.0,
+        "robust_centroid_xyz": [
+          -0.0129617,
+          -0.00024418,
+          0.77660996
+        ],
+        "median_cluster_radius": 0.00660519,
+        "p90_cluster_radius": 0.01224334,
+        "units": "vggt_model_relative_non_metric"
+      },
+      "prong_004": {
+        "point_count": 94,
+        "confidence_q25_threshold": 1.0,
+        "confidence_median": 1.0,
+        "robust_centroid_xyz": [
+          0.00881241,
+          0.00824302,
+          0.77921432
+        ],
+        "median_cluster_radius": 0.00449273,
+        "p90_cluster_radius": 0.00802044,
+        "units": "vggt_model_relative_non_metric"
+      }
+    }
+  },
+  "comparisons": {
+    "top": {
+      "best_assignment": {
+        "prong_001": "prong_001",
+        "prong_002": "prong_002",
+        "prong_003": "prong_003",
+        "prong_004": "prong_004"
+      },
+      "best_assignment_indices": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "best_cost_fraction": 0.0693794,
+      "second_best_assignment_indices": [
+        2,
+        1,
+        3,
+        4
+      ],
+      "second_best_cost_fraction": 0.37687072,
+      "permutation_margin_fraction": 0.81590662,
+      "identity_assignment_cost_fraction": 0.0693794,
+      "identity_is_geometry_optimal": true,
+      "distance_matrix_fraction": [
+        [
+          0.0092588,
+          0.17552741,
+          0.25322208,
+          0.31623128
+        ],
+        [
+          0.1659421,
+          0.02471941,
+          0.30244794,
+          0.25122061
+        ],
+        [
+          0.25457391,
+          0.29765278,
+          0.01298149,
+          0.17691742
+        ],
+        [
+          0.3080622,
+          0.24149442,
+          0.1921339,
+          0.0224197
+        ]
+      ],
+      "identity_distance_fraction_by_component": {
+        "prong_001": 0.0092588,
+        "prong_002": 0.02471941,
+        "prong_003": 0.01298149,
+        "prong_004": 0.0224197
+      },
+      "mean_identity_distance_fraction": 0.01734485,
+      "median_identity_distance_fraction": 0.0177006,
+      "maximum_identity_distance_fraction": 0.02471941,
+      "evidence_level": "strong_machine_support"
+    },
+    "angled": {
+      "best_assignment": {
+        "prong_001": "prong_001",
+        "prong_002": "prong_002",
+        "prong_003": "prong_003",
+        "prong_004": "prong_004"
+      },
+      "best_assignment_indices": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "best_cost_fraction": 0.45260966,
+      "second_best_assignment_indices": [
+        1,
+        2,
+        4,
+        3
+      ],
+      "second_best_cost_fraction": 0.53038561,
+      "permutation_margin_fraction": 0.14664039,
+      "identity_assignment_cost_fraction": 0.45260966,
+      "identity_is_geometry_optimal": true,
+      "distance_matrix_fraction": [
+        [
+          0.10796232,
+          0.21573161,
+          0.14951923,
+          0.21626328
+        ],
+        [
+          0.07196436,
+          0.06224456,
+          0.13466746,
+          0.13575792
+        ],
+        [
+          0.2470213,
+          0.28061825,
+          0.16468917,
+          0.19388454
+        ],
+        [
+          0.23760509,
+          0.19376163,
+          0.16629419,
+          0.11771362
+        ]
+      ],
+      "identity_distance_fraction_by_component": {
+        "prong_001": 0.10796232,
+        "prong_002": 0.06224456,
+        "prong_003": 0.16468917,
+        "prong_004": 0.11771362
+      },
+      "mean_identity_distance_fraction": 0.11315241,
+      "median_identity_distance_fraction": 0.11283797,
+      "maximum_identity_distance_fraction": 0.16468917,
+      "evidence_level": "moderate_machine_support"
+    }
+  },
+  "checks": {
+    "retained_vggt_run_is_numerically_complete": true,
+    "all_resolved_masks_have_vggt_points": true,
+    "top_identity_is_geometry_optimal": true,
+    "angled_identity_is_geometry_optimal": true,
+    "top_has_strong_machine_support": true,
+    "angled_has_at_least_moderate_machine_support": true,
+    "side_back_ambiguity_preserved": true
+  },
+  "gate": {
+    "resolved_identity_assignments_machine_supported": true,
+    "side_back_individual_identity_resolved": false,
+    "cross_view_identity_reviewed": false,
+    "metric_geometry_validated": false,
+    "geometry_generation_authorized": false
+  },
+  "artifacts": {
+    "audit": "data/phase4_component_tracks_v1/ring01_component_track_audit.png",
+    "instance_report": "data/phase4_prong_instances_v1/report.json"
+  },
+  "claims": {
+    "cross_view_identity_human_validated": false,
+    "vggt_camera_accuracy_validated": false,
+    "physical_correspondence_validated": false,
+    "hidden_prong_geometry_recovered": false,
+    "metric_scale_validated": false
+  },
+  "limitations": [
+    "VGGT agreement is independent machine evidence, not human ground truth.",
+    "The 224 px point maps are non-metric and use uncalibrated product images.",
+    "Angled-view support is moderate and weaker than top-view support.",
+    "Side and back projected overlaps remain unresolved by design.",
+    "This checkpoint does not create or validate CAD geometry."
+  ]
+}

@@ -109,11 +109,16 @@ Phase 4 now has a deterministic component-graph API and a Ring01 machine
 proposal with stable IDs, provenance, uncertainty and explicit
 stone-to-seat/cavity/prong dependencies. A synthetic ten-stone graph passes all
 30 remove/resize/replace locality cases without changing unrelated node state.
-This is a graph-state benchmark only: Ring01 has zero approved graph nodes, its
-four prongs still share an aggregate mask, and no CAD Boolean was regenerated.
+Ring01 now also has four disjoint machine-proposed prong masks in front, top and
+angled views; side and back remain honest two-member overlap groups. This is
+still a graph-state and image-evidence benchmark only. Retained VGGT point maps
+independently select the same front-to-top and front-to-angled ID assignment;
+top support is strong while angled support is moderate. Ring01 still has zero
+approved graph nodes and no CAD Boolean was regenerated.
 The Phase 4 exit gate therefore remains blocked.
 
-1. Build reviewed semantic component identities, then group dense
+1. Review the proposed prong identities and build reviewed semantic component
+   identities, then group dense
    correspondence by component and view direction. Image-plane fitting, rigid
    ICP, sparse VGGT tracks and denser reciprocal-cycle registration have all
    been rejected for global geometry movement by the fixed held-out split.
@@ -126,12 +131,16 @@ The Phase 4 exit gate therefore remains blocked.
    retaining uncertain pixels.
 5. Select a public-deployment-compatible independent normal comparator; DSINE
    remains blocked without a separate site/commercial licence.
-6. Connect the component graph to independently editable stone, prong, seat,
+6. Review the 266 enclosed negative-space proposals retained across all 120
+   STL-1 views; they are aperture/openwork evidence, not confirmed stones.
+7. Add labelled real-image multi-stone evidence and resolve each accepted
+   stone across views before creating seat or cavity relationships.
+8. Connect the component graph to independently editable stone, prong, seat,
    cavity and relief geometry generators.
-7. Repeat the ten-stone locality benchmark on exported exact CAD, not only
+9. Repeat the ten-stone locality benchmark on exported exact CAD, not only
    graph state.
-8. Generate parametric CAD and refine it through render-and-compare validation.
-9. Export editable STEP plus derived STL and 3MF artifacts with explicit validation reports.
+10. Generate parametric CAD and refine it through render-and-compare validation.
+11. Export editable STEP plus derived STL and 3MF artifacts with explicit validation reports.
 
 The target is a high-fidelity, structurally editable reconstruction. Under the
 images-only constraint, verified millimetres and manufacturing accuracy cannot

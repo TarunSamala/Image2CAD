@@ -7,6 +7,8 @@ const state = {
   stl1ReviewSummary: null,
   stl1ReviewObject: null,
   phase4Graph: null,
+  phase4CandidateSummary: null,
+  phase4CandidateObject: null,
 };
 
 const $ = (selector) => document.querySelector(selector);
@@ -180,12 +182,23 @@ function renderPhase4() {
   const ring = report.ring01 || {};
   const benchmark = report.synthetic_ten_stone_edit_benchmark || {};
   const checks = report.checks || {};
+  const instances = report.prong_instances || {};
+  const instanceSummary = instances.summary || {};
+  const tracks = report.component_tracks || {};
+  const datasetCandidates = report.stl1_component_candidates || {};
+  const candidateGate = datasetCandidates.gate || {};
+  const topTrack = tracks.comparisons?.top || {};
+  const angledTrack = tracks.comparisons?.angled || {};
   const graph = state.phase4Graph || {};
   $("#phase4-status").innerHTML = `
     <div class="key-value"><span>Ring01 proposal graph</span><strong>${ring.node_count ?? "—"} nodes · ${ring.edge_count ?? "—"} edges</strong></div>
     <div class="key-value"><span>Schema validation</span><strong class="${checks.ring01_graph_schema_valid ? "good" : "bad"}">${checks.ring01_graph_schema_valid ? "Passed" : "Failed"}</strong></div>
     <div class="key-value"><span>Synthetic local edits</span><strong class="${checks.synthetic_ten_stone_edit_test_passed ? "good" : "bad"}">${benchmark.passed_case_count ?? "—"} / ${benchmark.case_count ?? "—"}</strong><small>Remove · resize · replace across ten stones</small></div>
     <div class="key-value"><span>Unrelated graph state</span><strong class="${checks.no_unrelated_graph_state_changes ? "good" : "bad"}">${checks.no_unrelated_graph_state_changes ? "Unchanged" : "Changed"}</strong></div>
+    <div class="key-value"><span>Individual prong proposals</span><strong class="warning">${instanceSummary.resolved_instance_view_count ?? "—"} / ${instanceSummary.view_count ?? 5} views</strong><small>Front · top · angled resolved; side/back retain overlap groups</small></div>
+    <div class="key-value"><span>VGGT identity support</span><strong class="good">Top strong · angled moderate</strong><small>Permutation margins ${score(topTrack.permutation_margin_fraction, 3)} / ${score(angledTrack.permutation_margin_fraction, 3)} · non-metric machine evidence</small></div>
+    <div class="key-value"><span>STL-1 enclosed candidates</span><strong>${datasetCandidates.candidate_count ?? "—"}</strong><small>${datasetCandidates.object_count ?? "—"} objects · ${datasetCandidates.view_count ?? "—"} views · negative space only</small></div>
+    <div class="key-value"><span>STL-1 stones confirmed</span><strong class="warning">${candidateGate.individual_stones_confirmed ? "Yes" : "No"}</strong><small>Monochrome, unlabelled apertures remain semantic unknowns</small></div>
     <div class="key-value"><span>Reviewed Ring01 identities</span><strong class="bad">${ring.reviewed_component_count ?? 0} / ${ring.node_count ?? "—"}</strong></div>
     <div class="key-value"><span>Phase 4 exit gate</span><strong class="bad">Not passed</strong><small>Graph-state locality is not CAD-geometry locality</small></div>`;
   $("#phase4-node-rows").innerHTML = (graph.nodes || []).map((node) => `
@@ -229,6 +242,100 @@ async function previewPhase4Edit() {
     <div class="key-value"><span>Affected components</span><strong>${audit.changed_component_ids?.length ?? "—"}</strong><small>${escapeHtml((audit.changed_component_ids || []).join(", "))}</small></div>
     <div class="key-value"><span>Unrelated components</span><strong class="${audit.unrelated_geometry_state_unchanged ? "good" : "bad"}">${audit.unrelated_geometry_state_unchanged ? "Unchanged" : "Changed"}</strong><small>${audit.unrelated_component_ids?.length ?? "—"} IDs outside the dependency closure</small></div>
     <div class="key-value"><span>Persistent write</span><strong>No</strong><small>Dry-run graph state only; no CAD generated</small></div>`;
+}
+
+const PHASE4_CANDIDATE_VIEWS = ["front", "top", "iso", "lsv", "rsv"];
+
+function phase4CandidateAssetUrl(objectId, view, kind, candidateId = null) {
+  const query = candidateId
+    ? `?candidate_id=${encodeURIComponent(candidateId)}`
+    : "";
+  return `/api/phase4/stl1-candidates/${encodeURIComponent(objectId)}/${encodeURIComponent(view)}/${encodeURIComponent(kind)}${query}`;
+}
+
+function fillSelect(selector, values, labeler = humanize, preferred = null) {
+  const element = $(selector);
+  const previous = preferred ?? element.value;
+  element.replaceChildren(...values.map((value) => new Option(labeler(value), value)));
+  if (values.includes(previous)) element.value = previous;
+}
+
+function renderPhase4CandidateSelection() {
+  const payload = state.phase4CandidateObject;
+  if (!payload) return;
+  const objectId = payload.object_id;
+  const record = payload.object;
+  const view = $("#phase4-candidate-view").value;
+  const viewRecord = record.views[view];
+  const candidateIds = viewRecord.candidates.map((item) => item.candidate_id);
+  fillSelect("#phase4-candidate-id", candidateIds, (value) => value);
+  const candidateId = $("#phase4-candidate-id").value;
+  const candidate = viewRecord.candidates.find((item) => item.candidate_id === candidateId);
+  $("#phase4-candidate-source").src = phase4CandidateAssetUrl(objectId, view, "source");
+  $("#phase4-candidate-overlay").src = phase4CandidateAssetUrl(objectId, view, "overlay");
+  if (!candidate) {
+    $("#phase4-candidate-mask").removeAttribute("src");
+    $("#phase4-candidate-current").textContent = "No enclosed candidate is available in this view.";
+    $("#phase4-candidate-submit").classList.add("hidden");
+    return;
+  }
+  $("#phase4-candidate-submit").classList.remove("hidden");
+  $("#phase4-candidate-mask").src = phase4CandidateAssetUrl(objectId, view, "mask", candidateId);
+  $("#phase4-candidate-semantic").value = candidate.semantic_label;
+  $("#phase4-candidate-current").textContent =
+    `${candidate.candidate_id} · proposal ${humanize(candidate.proposal_subtype)} · ` +
+    `${candidate.area_px2} px · current ${humanize(candidate.decision)} / ${humanize(candidate.semantic_label)}` +
+    `${candidate.reviewer ? ` · ${candidate.reviewer}` : ""}`;
+}
+
+function renderPhase4CandidateObject(payload) {
+  state.phase4CandidateObject = {
+    ...payload,
+    object_id: $("#phase4-candidate-object").value,
+  };
+  const labels = payload.semantic_labels || {};
+  fillSelect("#phase4-candidate-view", PHASE4_CANDIDATE_VIEWS, humanize);
+  fillSelect("#phase4-candidate-semantic", Object.keys(labels), (value) => labels[value]);
+  const gate = payload.dataset_gate || {};
+  $("#phase4-candidate-review-status").innerHTML = `
+    <div class="key-value"><span>Dataset review</span><strong class="warning">${gate.approved_candidate_count ?? 0} / ${gate.candidate_count ?? "—"}</strong><small>Approved image-space labels</small></div>
+    <div class="key-value"><span>Possible stone / setting</span><strong>${gate.approved_possible_stone_or_setting_count ?? 0}</strong><small>Still not confirmed gemstone material or CAD geometry</small></div>
+    <div class="key-value"><span>CAD authorization</span><strong class="bad">No</strong><small>Cross-view identity, seat and cavity geometry remain separate gates</small></div>`;
+  renderPhase4CandidateSelection();
+}
+
+async function loadPhase4CandidateObject(objectId) {
+  renderPhase4CandidateObject(
+    await api(`/api/phase4/stl1-candidates/${encodeURIComponent(objectId)}`)
+  );
+}
+
+async function loadPhase4CandidateReview() {
+  state.phase4CandidateSummary = await api("/api/phase4/stl1-candidates");
+  const objectIds = state.phase4CandidateSummary.objects.map((item) => item.object_id);
+  fillSelect("#phase4-candidate-object", objectIds, (value) => value, "ring_001");
+  if (objectIds.length) await loadPhase4CandidateObject($("#phase4-candidate-object").value);
+}
+
+async function submitPhase4CandidateReview(decision) {
+  const reviewer = $("#phase4-candidate-reviewer").value.trim();
+  if (!reviewer) throw new Error("Enter your reviewer name before recording a candidate decision.");
+  const objectId = $("#phase4-candidate-object").value;
+  const payload = await api("/api/phase4/stl1-candidates/review", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      object_id: objectId,
+      view: $("#phase4-candidate-view").value,
+      candidate_id: $("#phase4-candidate-id").value,
+      semantic_label: $("#phase4-candidate-semantic").value,
+      decision,
+      reviewer,
+      note: $("#phase4-candidate-note").value.trim() || null,
+    }),
+  });
+  renderPhase4CandidateObject(payload);
+  state.phase4CandidateSummary = await api("/api/phase4/stl1-candidates");
 }
 
 const PHASE1_VIEWS = ["front", "side", "top", "angled", "back"];
@@ -872,6 +979,16 @@ function bindControls() {
     clearError();
     previewPhase4Edit().catch(showError);
   });
+  $("#phase4-candidate-object").addEventListener("change", (event) => {
+    clearError();
+    loadPhase4CandidateObject(event.target.value).catch(showError);
+  });
+  $("#phase4-candidate-view").addEventListener("change", renderPhase4CandidateSelection);
+  $("#phase4-candidate-id").addEventListener("change", renderPhase4CandidateSelection);
+  $$(".phase4-candidate-decision").forEach((button) => button.addEventListener("click", () => {
+    clearError();
+    submitPhase4CandidateReview(button.dataset.decision).catch(showError);
+  }));
   $$("#layer-switcher button").forEach((button) => button.addEventListener("click", () => {
     state.layer = button.dataset.layer;
     $$("#layer-switcher button").forEach((item) => item.classList.toggle("active", item === button));
@@ -889,6 +1006,7 @@ async function start() {
     state.summary = await api("/api/summary");
     renderSummary(state.summary);
     await loadPhase4Graph();
+    await loadPhase4CandidateReview();
     await loadPhase1Review();
     await loadStl1ReviewSummary();
     await loadObjects("all", "ring_001");

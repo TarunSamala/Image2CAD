@@ -17,7 +17,7 @@ from pipeline.component_constraint_graph import (
 
 
 class Phase4ComponentGraphTest(unittest.TestCase):
-    root = Path("data/phase4_component_graph_v1")
+    root = Path("data/phase4_component_graph_v3")
 
     @classmethod
     def setUpClass(cls) -> None:
@@ -46,7 +46,7 @@ class Phase4ComponentGraphTest(unittest.TestCase):
             all(node["review_state"] == "pending" for node in self.ring01["nodes"])
         )
 
-    def test_ring01_prongs_use_aggregate_masks_without_false_instance_claim(self) -> None:
+    def test_ring01_prongs_use_partial_instances_without_false_full_view_claim(self) -> None:
         prongs = [
             node for node in self.ring01["nodes"]
             if node["semantic_class"] == "prong"
@@ -56,13 +56,31 @@ class Phase4ComponentGraphTest(unittest.TestCase):
             self.assertEqual(set(prong["observations"]), {
                 "front", "side", "top", "angled", "back"
             })
-            self.assertTrue(
-                all(
-                    observation["aggregate_instance_mask"]
-                    for observation in prong["observations"].values()
-                )
-            )
+            self.assertFalse(prong["observations"]["front"]["aggregate_instance_mask"])
+            self.assertFalse(prong["observations"]["top"]["aggregate_instance_mask"])
+            self.assertFalse(prong["observations"]["angled"]["aggregate_instance_mask"])
+            self.assertTrue(prong["observations"]["side"]["aggregate_instance_mask"])
+            self.assertTrue(prong["observations"]["back"]["aggregate_instance_mask"])
             self.assertEqual(prong["provenance_state"], "inferred")
+        self.assertTrue(
+            self.ring01["gate"]["partial_prong_instance_evidence_available"]
+        )
+        self.assertTrue(
+            self.ring01["gate"]["resolved_prong_identities_machine_supported"]
+        )
+        self.assertFalse(self.ring01["gate"]["cross_view_identity_reviewed"])
+        self.assertFalse(self.ring01["gate"]["individual_prong_masks_available"])
+        for prong in prongs:
+            evidence = prong["cross_view_track_evidence"]
+            self.assertEqual(evidence["reference_view"], "front")
+            self.assertTrue(
+                evidence["comparisons"]["top"]["identity_is_geometry_optimal"]
+            )
+            self.assertTrue(
+                evidence["comparisons"]["angled"]["identity_is_geometry_optimal"]
+            )
+            self.assertEqual(evidence["review_state"], "pending")
+            self.assertFalse(evidence["metric"])
 
     def test_stone_seven_dependency_closure_is_local_and_complete(self) -> None:
         self.assertEqual(
@@ -106,6 +124,10 @@ class Phase4ComponentGraphTest(unittest.TestCase):
         self.assertTrue(checks["synthetic_ten_stone_edit_test_passed"])
         self.assertTrue(checks["no_unrelated_graph_state_changes"])
         self.assertTrue(checks["stable_ids_across_all_edits"])
+        self.assertTrue(checks["partial_ring01_prong_instances_available"])
+        self.assertTrue(
+            checks["resolved_ring01_prong_identities_machine_supported"]
+        )
         self.assertFalse(checks["reviewed_ring01_graph_available"])
         self.assertFalse(checks["phase4_exit_gate_passed"])
         self.assertFalse(any(self.report["claims"].values()))

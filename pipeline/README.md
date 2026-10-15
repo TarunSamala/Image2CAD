@@ -37,10 +37,20 @@ predate it, so this index prevents similarly numbered stages from being mixed.
 - `image_only_reflection_correction.py` - active Ring01 reflection-sensitive
   inner-boundary correction with an explicit uncertainty mask.
 - Phase 0 is primarily Docker, dependency, manifest and regression evidence.
+- `build_phase4_prong_instances.py` - review-gated Ring01 instance masks for
+  front/top/angled views plus explicit side/back projection groups.
+- `build_phase4_stl1_component_candidates.py` - dataset-wide enclosed aperture
+  and openwork masks without fabricated gemstone semantics.
+- `phase4_candidate_review.py` - immutable-proposal, append-only semantic review
+  records that never imply cross-view identity or CAD authorization.
+- `evaluate_phase4_component_tracks.py` - non-metric VGGT point-map descriptors
+  and exhaustive identity-permutation checks for the resolved Ring01 prongs.
 - `component_constraint_graph.py` and `build_phase4_component_graph.py` - Bible
   Phase 4 stable-ID graph schema, provenance/uncertainty contract, directed
   edit dependencies and the synthetic ten-stone graph-state locality benchmark.
-  Ring01 remains review-gated and these modules do not generate CAD.
+  Ring01 remains review-gated and these modules do not generate CAD. Run the
+  prong-instance and track evaluators before rebuilding active v3 graph
+  artifacts.
 
 ## Shared evidence and dataset tools
 

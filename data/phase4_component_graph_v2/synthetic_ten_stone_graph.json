@@ -1,0 +1,3341 @@
+{
+  "schema_version": "lalitha_component_constraint_graph_v1",
+  "graph_id": "synthetic_ten_stone_graph_v1",
+  "object_id": "synthetic_ten_stone_ring",
+  "authority": "synthetic_exact_graph_truth",
+  "units": "mm",
+  "revision": 0,
+  "nodes": [
+    {
+      "component_id": "jewellery_001",
+      "track_id": "track_jewellery_001",
+      "semantic_class": "ring",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": null,
+      "support_ids": [],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "assembly_root",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "metal_body_001",
+      "track_id": "track_metal_body_001",
+      "semantic_class": "metal_body",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "jewellery_001",
+      "support_ids": [],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "primary_metal_body",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "stone_001",
+      "track_id": "track_stone_001",
+      "semantic_class": "round_gemstone",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "jewellery_001",
+      "support_ids": [
+        "seat_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "mm",
+        "values": {
+          "diameter": 2.0,
+          "depth": 1.2
+        },
+        "uncertainty": {
+          "diameter": 0.0,
+          "depth": 0.0
+        }
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "separate_gemstone",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "seat_001",
+      "track_id": "track_seat_001",
+      "semantic_class": "stone_seat",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "metal_body_001",
+      "support_ids": [
+        "metal_body_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "stone_location",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "cavity_001",
+      "track_id": "track_cavity_001",
+      "semantic_class": "stone_cavity",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "metal_body_001",
+      "support_ids": [
+        "metal_body_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "negative_geometry",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "prong_001",
+      "track_id": "track_prong_001",
+      "semantic_class": "prong",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "metal_body_001",
+      "support_ids": [
+        "metal_body_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "stone_retention",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "prong_002",
+      "track_id": "track_prong_002",
+      "semantic_class": "prong",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "metal_body_001",
+      "support_ids": [
+        "metal_body_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "stone_retention",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "prong_003",
+      "track_id": "track_prong_003",
+      "semantic_class": "prong",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "metal_body_001",
+      "support_ids": [
+        "metal_body_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "stone_retention",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "prong_004",
+      "track_id": "track_prong_004",
+      "semantic_class": "prong",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "metal_body_001",
+      "support_ids": [
+        "metal_body_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "stone_retention",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "stone_002",
+      "track_id": "track_stone_002",
+      "semantic_class": "round_gemstone",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "jewellery_001",
+      "support_ids": [
+        "seat_002"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "mm",
+        "values": {
+          "diameter": 2.0,
+          "depth": 1.2
+        },
+        "uncertainty": {
+          "diameter": 0.0,
+          "depth": 0.0
+        }
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "separate_gemstone",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "seat_002",
+      "track_id": "track_seat_002",
+      "semantic_class": "stone_seat",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "metal_body_001",
+      "support_ids": [
+        "metal_body_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "stone_location",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "cavity_002",
+      "track_id": "track_cavity_002",
+      "semantic_class": "stone_cavity",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "metal_body_001",
+      "support_ids": [
+        "metal_body_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "negative_geometry",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "prong_005",
+      "track_id": "track_prong_005",
+      "semantic_class": "prong",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "metal_body_001",
+      "support_ids": [
+        "metal_body_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "stone_retention",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "prong_006",
+      "track_id": "track_prong_006",
+      "semantic_class": "prong",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "metal_body_001",
+      "support_ids": [
+        "metal_body_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "stone_retention",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "prong_007",
+      "track_id": "track_prong_007",
+      "semantic_class": "prong",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "metal_body_001",
+      "support_ids": [
+        "metal_body_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "stone_retention",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "prong_008",
+      "track_id": "track_prong_008",
+      "semantic_class": "prong",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "metal_body_001",
+      "support_ids": [
+        "metal_body_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "stone_retention",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "stone_003",
+      "track_id": "track_stone_003",
+      "semantic_class": "round_gemstone",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "jewellery_001",
+      "support_ids": [
+        "seat_003"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "mm",
+        "values": {
+          "diameter": 2.0,
+          "depth": 1.2
+        },
+        "uncertainty": {
+          "diameter": 0.0,
+          "depth": 0.0
+        }
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "separate_gemstone",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "seat_003",
+      "track_id": "track_seat_003",
+      "semantic_class": "stone_seat",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "metal_body_001",
+      "support_ids": [
+        "metal_body_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "stone_location",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "cavity_003",
+      "track_id": "track_cavity_003",
+      "semantic_class": "stone_cavity",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "metal_body_001",
+      "support_ids": [
+        "metal_body_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "negative_geometry",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "prong_009",
+      "track_id": "track_prong_009",
+      "semantic_class": "prong",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "metal_body_001",
+      "support_ids": [
+        "metal_body_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "stone_retention",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "prong_010",
+      "track_id": "track_prong_010",
+      "semantic_class": "prong",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "metal_body_001",
+      "support_ids": [
+        "metal_body_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "stone_retention",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "prong_011",
+      "track_id": "track_prong_011",
+      "semantic_class": "prong",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "metal_body_001",
+      "support_ids": [
+        "metal_body_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "stone_retention",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "prong_012",
+      "track_id": "track_prong_012",
+      "semantic_class": "prong",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "metal_body_001",
+      "support_ids": [
+        "metal_body_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "stone_retention",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "stone_004",
+      "track_id": "track_stone_004",
+      "semantic_class": "round_gemstone",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "jewellery_001",
+      "support_ids": [
+        "seat_004"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "mm",
+        "values": {
+          "diameter": 2.0,
+          "depth": 1.2
+        },
+        "uncertainty": {
+          "diameter": 0.0,
+          "depth": 0.0
+        }
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "separate_gemstone",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "seat_004",
+      "track_id": "track_seat_004",
+      "semantic_class": "stone_seat",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "metal_body_001",
+      "support_ids": [
+        "metal_body_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "stone_location",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "cavity_004",
+      "track_id": "track_cavity_004",
+      "semantic_class": "stone_cavity",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "metal_body_001",
+      "support_ids": [
+        "metal_body_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "negative_geometry",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "prong_013",
+      "track_id": "track_prong_013",
+      "semantic_class": "prong",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "metal_body_001",
+      "support_ids": [
+        "metal_body_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "stone_retention",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "prong_014",
+      "track_id": "track_prong_014",
+      "semantic_class": "prong",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "metal_body_001",
+      "support_ids": [
+        "metal_body_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "stone_retention",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "prong_015",
+      "track_id": "track_prong_015",
+      "semantic_class": "prong",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "metal_body_001",
+      "support_ids": [
+        "metal_body_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "stone_retention",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "prong_016",
+      "track_id": "track_prong_016",
+      "semantic_class": "prong",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "metal_body_001",
+      "support_ids": [
+        "metal_body_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "stone_retention",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "stone_005",
+      "track_id": "track_stone_005",
+      "semantic_class": "round_gemstone",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "jewellery_001",
+      "support_ids": [
+        "seat_005"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "mm",
+        "values": {
+          "diameter": 2.0,
+          "depth": 1.2
+        },
+        "uncertainty": {
+          "diameter": 0.0,
+          "depth": 0.0
+        }
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "separate_gemstone",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "seat_005",
+      "track_id": "track_seat_005",
+      "semantic_class": "stone_seat",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "metal_body_001",
+      "support_ids": [
+        "metal_body_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "stone_location",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "cavity_005",
+      "track_id": "track_cavity_005",
+      "semantic_class": "stone_cavity",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "metal_body_001",
+      "support_ids": [
+        "metal_body_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "negative_geometry",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "prong_017",
+      "track_id": "track_prong_017",
+      "semantic_class": "prong",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "metal_body_001",
+      "support_ids": [
+        "metal_body_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "stone_retention",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "prong_018",
+      "track_id": "track_prong_018",
+      "semantic_class": "prong",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "metal_body_001",
+      "support_ids": [
+        "metal_body_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "stone_retention",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "prong_019",
+      "track_id": "track_prong_019",
+      "semantic_class": "prong",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "metal_body_001",
+      "support_ids": [
+        "metal_body_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "stone_retention",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "prong_020",
+      "track_id": "track_prong_020",
+      "semantic_class": "prong",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "metal_body_001",
+      "support_ids": [
+        "metal_body_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "stone_retention",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "stone_006",
+      "track_id": "track_stone_006",
+      "semantic_class": "round_gemstone",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "jewellery_001",
+      "support_ids": [
+        "seat_006"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "mm",
+        "values": {
+          "diameter": 2.0,
+          "depth": 1.2
+        },
+        "uncertainty": {
+          "diameter": 0.0,
+          "depth": 0.0
+        }
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "separate_gemstone",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "seat_006",
+      "track_id": "track_seat_006",
+      "semantic_class": "stone_seat",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "metal_body_001",
+      "support_ids": [
+        "metal_body_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "stone_location",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "cavity_006",
+      "track_id": "track_cavity_006",
+      "semantic_class": "stone_cavity",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "metal_body_001",
+      "support_ids": [
+        "metal_body_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "negative_geometry",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "prong_021",
+      "track_id": "track_prong_021",
+      "semantic_class": "prong",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "metal_body_001",
+      "support_ids": [
+        "metal_body_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "stone_retention",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "prong_022",
+      "track_id": "track_prong_022",
+      "semantic_class": "prong",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "metal_body_001",
+      "support_ids": [
+        "metal_body_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "stone_retention",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "prong_023",
+      "track_id": "track_prong_023",
+      "semantic_class": "prong",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "metal_body_001",
+      "support_ids": [
+        "metal_body_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "stone_retention",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "prong_024",
+      "track_id": "track_prong_024",
+      "semantic_class": "prong",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "metal_body_001",
+      "support_ids": [
+        "metal_body_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "stone_retention",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "stone_007",
+      "track_id": "track_stone_007",
+      "semantic_class": "round_gemstone",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "jewellery_001",
+      "support_ids": [
+        "seat_007"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "mm",
+        "values": {
+          "diameter": 2.0,
+          "depth": 1.2
+        },
+        "uncertainty": {
+          "diameter": 0.0,
+          "depth": 0.0
+        }
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "separate_gemstone",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "seat_007",
+      "track_id": "track_seat_007",
+      "semantic_class": "stone_seat",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "metal_body_001",
+      "support_ids": [
+        "metal_body_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "stone_location",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "cavity_007",
+      "track_id": "track_cavity_007",
+      "semantic_class": "stone_cavity",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "metal_body_001",
+      "support_ids": [
+        "metal_body_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "negative_geometry",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "prong_025",
+      "track_id": "track_prong_025",
+      "semantic_class": "prong",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "metal_body_001",
+      "support_ids": [
+        "metal_body_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "stone_retention",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "prong_026",
+      "track_id": "track_prong_026",
+      "semantic_class": "prong",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "metal_body_001",
+      "support_ids": [
+        "metal_body_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "stone_retention",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "prong_027",
+      "track_id": "track_prong_027",
+      "semantic_class": "prong",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "metal_body_001",
+      "support_ids": [
+        "metal_body_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "stone_retention",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "prong_028",
+      "track_id": "track_prong_028",
+      "semantic_class": "prong",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "metal_body_001",
+      "support_ids": [
+        "metal_body_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "stone_retention",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "stone_008",
+      "track_id": "track_stone_008",
+      "semantic_class": "round_gemstone",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "jewellery_001",
+      "support_ids": [
+        "seat_008"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "mm",
+        "values": {
+          "diameter": 2.0,
+          "depth": 1.2
+        },
+        "uncertainty": {
+          "diameter": 0.0,
+          "depth": 0.0
+        }
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "separate_gemstone",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "seat_008",
+      "track_id": "track_seat_008",
+      "semantic_class": "stone_seat",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "metal_body_001",
+      "support_ids": [
+        "metal_body_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "stone_location",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "cavity_008",
+      "track_id": "track_cavity_008",
+      "semantic_class": "stone_cavity",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "metal_body_001",
+      "support_ids": [
+        "metal_body_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "negative_geometry",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "prong_029",
+      "track_id": "track_prong_029",
+      "semantic_class": "prong",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "metal_body_001",
+      "support_ids": [
+        "metal_body_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "stone_retention",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "prong_030",
+      "track_id": "track_prong_030",
+      "semantic_class": "prong",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "metal_body_001",
+      "support_ids": [
+        "metal_body_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "stone_retention",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "prong_031",
+      "track_id": "track_prong_031",
+      "semantic_class": "prong",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "metal_body_001",
+      "support_ids": [
+        "metal_body_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "stone_retention",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "prong_032",
+      "track_id": "track_prong_032",
+      "semantic_class": "prong",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "metal_body_001",
+      "support_ids": [
+        "metal_body_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "stone_retention",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "stone_009",
+      "track_id": "track_stone_009",
+      "semantic_class": "round_gemstone",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "jewellery_001",
+      "support_ids": [
+        "seat_009"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "mm",
+        "values": {
+          "diameter": 2.0,
+          "depth": 1.2
+        },
+        "uncertainty": {
+          "diameter": 0.0,
+          "depth": 0.0
+        }
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "separate_gemstone",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "seat_009",
+      "track_id": "track_seat_009",
+      "semantic_class": "stone_seat",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "metal_body_001",
+      "support_ids": [
+        "metal_body_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "stone_location",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "cavity_009",
+      "track_id": "track_cavity_009",
+      "semantic_class": "stone_cavity",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "metal_body_001",
+      "support_ids": [
+        "metal_body_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "negative_geometry",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "prong_033",
+      "track_id": "track_prong_033",
+      "semantic_class": "prong",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "metal_body_001",
+      "support_ids": [
+        "metal_body_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "stone_retention",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "prong_034",
+      "track_id": "track_prong_034",
+      "semantic_class": "prong",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "metal_body_001",
+      "support_ids": [
+        "metal_body_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "stone_retention",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "prong_035",
+      "track_id": "track_prong_035",
+      "semantic_class": "prong",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "metal_body_001",
+      "support_ids": [
+        "metal_body_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "stone_retention",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "prong_036",
+      "track_id": "track_prong_036",
+      "semantic_class": "prong",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "metal_body_001",
+      "support_ids": [
+        "metal_body_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "stone_retention",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "stone_010",
+      "track_id": "track_stone_010",
+      "semantic_class": "round_gemstone",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "jewellery_001",
+      "support_ids": [
+        "seat_010"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "mm",
+        "values": {
+          "diameter": 2.0,
+          "depth": 1.2
+        },
+        "uncertainty": {
+          "diameter": 0.0,
+          "depth": 0.0
+        }
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "separate_gemstone",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "seat_010",
+      "track_id": "track_seat_010",
+      "semantic_class": "stone_seat",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "metal_body_001",
+      "support_ids": [
+        "metal_body_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "stone_location",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "cavity_010",
+      "track_id": "track_cavity_010",
+      "semantic_class": "stone_cavity",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "metal_body_001",
+      "support_ids": [
+        "metal_body_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "negative_geometry",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "prong_037",
+      "track_id": "track_prong_037",
+      "semantic_class": "prong",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "metal_body_001",
+      "support_ids": [
+        "metal_body_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "stone_retention",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "prong_038",
+      "track_id": "track_prong_038",
+      "semantic_class": "prong",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "metal_body_001",
+      "support_ids": [
+        "metal_body_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "stone_retention",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "prong_039",
+      "track_id": "track_prong_039",
+      "semantic_class": "prong",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "metal_body_001",
+      "support_ids": [
+        "metal_body_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "stone_retention",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "prong_040",
+      "track_id": "track_prong_040",
+      "semantic_class": "prong",
+      "semantic_confidence": 1.0,
+      "provenance_state": "designed",
+      "review_state": "approved",
+      "observations": {},
+      "parent_id": "metal_body_001",
+      "support_ids": [
+        "metal_body_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "stone_retention",
+      "dependency_rules": [],
+      "active": true
+    }
+  ],
+  "edges": [
+    {
+      "edge_id": "edge_jewellery_001_contains_metal_body_001",
+      "source": "jewellery_001",
+      "target": "metal_body_001",
+      "relationship": "contains",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_stone_001_drives_geometry_seat_001",
+      "source": "stone_001",
+      "target": "seat_001",
+      "relationship": "drives_geometry",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_stone_001_drives_geometry_cavity_001",
+      "source": "stone_001",
+      "target": "cavity_001",
+      "relationship": "drives_geometry",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_seat_001_locates_stone_001",
+      "source": "seat_001",
+      "target": "stone_001",
+      "relationship": "locates",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_cavity_001_receives_stone_001",
+      "source": "cavity_001",
+      "target": "stone_001",
+      "relationship": "receives",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_stone_001_drives_geometry_prong_001",
+      "source": "stone_001",
+      "target": "prong_001",
+      "relationship": "drives_geometry",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_prong_001_retains_stone_001",
+      "source": "prong_001",
+      "target": "stone_001",
+      "relationship": "retains",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_stone_001_drives_geometry_prong_002",
+      "source": "stone_001",
+      "target": "prong_002",
+      "relationship": "drives_geometry",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_prong_002_retains_stone_001",
+      "source": "prong_002",
+      "target": "stone_001",
+      "relationship": "retains",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_stone_001_drives_geometry_prong_003",
+      "source": "stone_001",
+      "target": "prong_003",
+      "relationship": "drives_geometry",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_prong_003_retains_stone_001",
+      "source": "prong_003",
+      "target": "stone_001",
+      "relationship": "retains",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_stone_001_drives_geometry_prong_004",
+      "source": "stone_001",
+      "target": "prong_004",
+      "relationship": "drives_geometry",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_prong_004_retains_stone_001",
+      "source": "prong_004",
+      "target": "stone_001",
+      "relationship": "retains",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_stone_002_drives_geometry_seat_002",
+      "source": "stone_002",
+      "target": "seat_002",
+      "relationship": "drives_geometry",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_stone_002_drives_geometry_cavity_002",
+      "source": "stone_002",
+      "target": "cavity_002",
+      "relationship": "drives_geometry",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_seat_002_locates_stone_002",
+      "source": "seat_002",
+      "target": "stone_002",
+      "relationship": "locates",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_cavity_002_receives_stone_002",
+      "source": "cavity_002",
+      "target": "stone_002",
+      "relationship": "receives",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_stone_002_drives_geometry_prong_005",
+      "source": "stone_002",
+      "target": "prong_005",
+      "relationship": "drives_geometry",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_prong_005_retains_stone_002",
+      "source": "prong_005",
+      "target": "stone_002",
+      "relationship": "retains",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_stone_002_drives_geometry_prong_006",
+      "source": "stone_002",
+      "target": "prong_006",
+      "relationship": "drives_geometry",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_prong_006_retains_stone_002",
+      "source": "prong_006",
+      "target": "stone_002",
+      "relationship": "retains",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_stone_002_drives_geometry_prong_007",
+      "source": "stone_002",
+      "target": "prong_007",
+      "relationship": "drives_geometry",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_prong_007_retains_stone_002",
+      "source": "prong_007",
+      "target": "stone_002",
+      "relationship": "retains",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_stone_002_drives_geometry_prong_008",
+      "source": "stone_002",
+      "target": "prong_008",
+      "relationship": "drives_geometry",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_prong_008_retains_stone_002",
+      "source": "prong_008",
+      "target": "stone_002",
+      "relationship": "retains",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_stone_003_drives_geometry_seat_003",
+      "source": "stone_003",
+      "target": "seat_003",
+      "relationship": "drives_geometry",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_stone_003_drives_geometry_cavity_003",
+      "source": "stone_003",
+      "target": "cavity_003",
+      "relationship": "drives_geometry",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_seat_003_locates_stone_003",
+      "source": "seat_003",
+      "target": "stone_003",
+      "relationship": "locates",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_cavity_003_receives_stone_003",
+      "source": "cavity_003",
+      "target": "stone_003",
+      "relationship": "receives",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_stone_003_drives_geometry_prong_009",
+      "source": "stone_003",
+      "target": "prong_009",
+      "relationship": "drives_geometry",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_prong_009_retains_stone_003",
+      "source": "prong_009",
+      "target": "stone_003",
+      "relationship": "retains",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_stone_003_drives_geometry_prong_010",
+      "source": "stone_003",
+      "target": "prong_010",
+      "relationship": "drives_geometry",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_prong_010_retains_stone_003",
+      "source": "prong_010",
+      "target": "stone_003",
+      "relationship": "retains",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_stone_003_drives_geometry_prong_011",
+      "source": "stone_003",
+      "target": "prong_011",
+      "relationship": "drives_geometry",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_prong_011_retains_stone_003",
+      "source": "prong_011",
+      "target": "stone_003",
+      "relationship": "retains",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_stone_003_drives_geometry_prong_012",
+      "source": "stone_003",
+      "target": "prong_012",
+      "relationship": "drives_geometry",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_prong_012_retains_stone_003",
+      "source": "prong_012",
+      "target": "stone_003",
+      "relationship": "retains",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_stone_004_drives_geometry_seat_004",
+      "source": "stone_004",
+      "target": "seat_004",
+      "relationship": "drives_geometry",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_stone_004_drives_geometry_cavity_004",
+      "source": "stone_004",
+      "target": "cavity_004",
+      "relationship": "drives_geometry",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_seat_004_locates_stone_004",
+      "source": "seat_004",
+      "target": "stone_004",
+      "relationship": "locates",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_cavity_004_receives_stone_004",
+      "source": "cavity_004",
+      "target": "stone_004",
+      "relationship": "receives",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_stone_004_drives_geometry_prong_013",
+      "source": "stone_004",
+      "target": "prong_013",
+      "relationship": "drives_geometry",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_prong_013_retains_stone_004",
+      "source": "prong_013",
+      "target": "stone_004",
+      "relationship": "retains",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_stone_004_drives_geometry_prong_014",
+      "source": "stone_004",
+      "target": "prong_014",
+      "relationship": "drives_geometry",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_prong_014_retains_stone_004",
+      "source": "prong_014",
+      "target": "stone_004",
+      "relationship": "retains",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_stone_004_drives_geometry_prong_015",
+      "source": "stone_004",
+      "target": "prong_015",
+      "relationship": "drives_geometry",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_prong_015_retains_stone_004",
+      "source": "prong_015",
+      "target": "stone_004",
+      "relationship": "retains",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_stone_004_drives_geometry_prong_016",
+      "source": "stone_004",
+      "target": "prong_016",
+      "relationship": "drives_geometry",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_prong_016_retains_stone_004",
+      "source": "prong_016",
+      "target": "stone_004",
+      "relationship": "retains",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_stone_005_drives_geometry_seat_005",
+      "source": "stone_005",
+      "target": "seat_005",
+      "relationship": "drives_geometry",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_stone_005_drives_geometry_cavity_005",
+      "source": "stone_005",
+      "target": "cavity_005",
+      "relationship": "drives_geometry",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_seat_005_locates_stone_005",
+      "source": "seat_005",
+      "target": "stone_005",
+      "relationship": "locates",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_cavity_005_receives_stone_005",
+      "source": "cavity_005",
+      "target": "stone_005",
+      "relationship": "receives",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_stone_005_drives_geometry_prong_017",
+      "source": "stone_005",
+      "target": "prong_017",
+      "relationship": "drives_geometry",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_prong_017_retains_stone_005",
+      "source": "prong_017",
+      "target": "stone_005",
+      "relationship": "retains",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_stone_005_drives_geometry_prong_018",
+      "source": "stone_005",
+      "target": "prong_018",
+      "relationship": "drives_geometry",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_prong_018_retains_stone_005",
+      "source": "prong_018",
+      "target": "stone_005",
+      "relationship": "retains",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_stone_005_drives_geometry_prong_019",
+      "source": "stone_005",
+      "target": "prong_019",
+      "relationship": "drives_geometry",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_prong_019_retains_stone_005",
+      "source": "prong_019",
+      "target": "stone_005",
+      "relationship": "retains",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_stone_005_drives_geometry_prong_020",
+      "source": "stone_005",
+      "target": "prong_020",
+      "relationship": "drives_geometry",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_prong_020_retains_stone_005",
+      "source": "prong_020",
+      "target": "stone_005",
+      "relationship": "retains",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_stone_006_drives_geometry_seat_006",
+      "source": "stone_006",
+      "target": "seat_006",
+      "relationship": "drives_geometry",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_stone_006_drives_geometry_cavity_006",
+      "source": "stone_006",
+      "target": "cavity_006",
+      "relationship": "drives_geometry",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_seat_006_locates_stone_006",
+      "source": "seat_006",
+      "target": "stone_006",
+      "relationship": "locates",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_cavity_006_receives_stone_006",
+      "source": "cavity_006",
+      "target": "stone_006",
+      "relationship": "receives",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_stone_006_drives_geometry_prong_021",
+      "source": "stone_006",
+      "target": "prong_021",
+      "relationship": "drives_geometry",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_prong_021_retains_stone_006",
+      "source": "prong_021",
+      "target": "stone_006",
+      "relationship": "retains",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_stone_006_drives_geometry_prong_022",
+      "source": "stone_006",
+      "target": "prong_022",
+      "relationship": "drives_geometry",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_prong_022_retains_stone_006",
+      "source": "prong_022",
+      "target": "stone_006",
+      "relationship": "retains",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_stone_006_drives_geometry_prong_023",
+      "source": "stone_006",
+      "target": "prong_023",
+      "relationship": "drives_geometry",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_prong_023_retains_stone_006",
+      "source": "prong_023",
+      "target": "stone_006",
+      "relationship": "retains",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_stone_006_drives_geometry_prong_024",
+      "source": "stone_006",
+      "target": "prong_024",
+      "relationship": "drives_geometry",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_prong_024_retains_stone_006",
+      "source": "prong_024",
+      "target": "stone_006",
+      "relationship": "retains",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_stone_007_drives_geometry_seat_007",
+      "source": "stone_007",
+      "target": "seat_007",
+      "relationship": "drives_geometry",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_stone_007_drives_geometry_cavity_007",
+      "source": "stone_007",
+      "target": "cavity_007",
+      "relationship": "drives_geometry",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_seat_007_locates_stone_007",
+      "source": "seat_007",
+      "target": "stone_007",
+      "relationship": "locates",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_cavity_007_receives_stone_007",
+      "source": "cavity_007",
+      "target": "stone_007",
+      "relationship": "receives",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_stone_007_drives_geometry_prong_025",
+      "source": "stone_007",
+      "target": "prong_025",
+      "relationship": "drives_geometry",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_prong_025_retains_stone_007",
+      "source": "prong_025",
+      "target": "stone_007",
+      "relationship": "retains",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_stone_007_drives_geometry_prong_026",
+      "source": "stone_007",
+      "target": "prong_026",
+      "relationship": "drives_geometry",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_prong_026_retains_stone_007",
+      "source": "prong_026",
+      "target": "stone_007",
+      "relationship": "retains",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_stone_007_drives_geometry_prong_027",
+      "source": "stone_007",
+      "target": "prong_027",
+      "relationship": "drives_geometry",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_prong_027_retains_stone_007",
+      "source": "prong_027",
+      "target": "stone_007",
+      "relationship": "retains",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_stone_007_drives_geometry_prong_028",
+      "source": "stone_007",
+      "target": "prong_028",
+      "relationship": "drives_geometry",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_prong_028_retains_stone_007",
+      "source": "prong_028",
+      "target": "stone_007",
+      "relationship": "retains",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_stone_008_drives_geometry_seat_008",
+      "source": "stone_008",
+      "target": "seat_008",
+      "relationship": "drives_geometry",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_stone_008_drives_geometry_cavity_008",
+      "source": "stone_008",
+      "target": "cavity_008",
+      "relationship": "drives_geometry",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_seat_008_locates_stone_008",
+      "source": "seat_008",
+      "target": "stone_008",
+      "relationship": "locates",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_cavity_008_receives_stone_008",
+      "source": "cavity_008",
+      "target": "stone_008",
+      "relationship": "receives",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_stone_008_drives_geometry_prong_029",
+      "source": "stone_008",
+      "target": "prong_029",
+      "relationship": "drives_geometry",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_prong_029_retains_stone_008",
+      "source": "prong_029",
+      "target": "stone_008",
+      "relationship": "retains",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_stone_008_drives_geometry_prong_030",
+      "source": "stone_008",
+      "target": "prong_030",
+      "relationship": "drives_geometry",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_prong_030_retains_stone_008",
+      "source": "prong_030",
+      "target": "stone_008",
+      "relationship": "retains",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_stone_008_drives_geometry_prong_031",
+      "source": "stone_008",
+      "target": "prong_031",
+      "relationship": "drives_geometry",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_prong_031_retains_stone_008",
+      "source": "prong_031",
+      "target": "stone_008",
+      "relationship": "retains",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_stone_008_drives_geometry_prong_032",
+      "source": "stone_008",
+      "target": "prong_032",
+      "relationship": "drives_geometry",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_prong_032_retains_stone_008",
+      "source": "prong_032",
+      "target": "stone_008",
+      "relationship": "retains",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_stone_009_drives_geometry_seat_009",
+      "source": "stone_009",
+      "target": "seat_009",
+      "relationship": "drives_geometry",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_stone_009_drives_geometry_cavity_009",
+      "source": "stone_009",
+      "target": "cavity_009",
+      "relationship": "drives_geometry",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_seat_009_locates_stone_009",
+      "source": "seat_009",
+      "target": "stone_009",
+      "relationship": "locates",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_cavity_009_receives_stone_009",
+      "source": "cavity_009",
+      "target": "stone_009",
+      "relationship": "receives",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_stone_009_drives_geometry_prong_033",
+      "source": "stone_009",
+      "target": "prong_033",
+      "relationship": "drives_geometry",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_prong_033_retains_stone_009",
+      "source": "prong_033",
+      "target": "stone_009",
+      "relationship": "retains",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_stone_009_drives_geometry_prong_034",
+      "source": "stone_009",
+      "target": "prong_034",
+      "relationship": "drives_geometry",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_prong_034_retains_stone_009",
+      "source": "prong_034",
+      "target": "stone_009",
+      "relationship": "retains",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_stone_009_drives_geometry_prong_035",
+      "source": "stone_009",
+      "target": "prong_035",
+      "relationship": "drives_geometry",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_prong_035_retains_stone_009",
+      "source": "prong_035",
+      "target": "stone_009",
+      "relationship": "retains",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_stone_009_drives_geometry_prong_036",
+      "source": "stone_009",
+      "target": "prong_036",
+      "relationship": "drives_geometry",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_prong_036_retains_stone_009",
+      "source": "prong_036",
+      "target": "stone_009",
+      "relationship": "retains",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_stone_010_drives_geometry_seat_010",
+      "source": "stone_010",
+      "target": "seat_010",
+      "relationship": "drives_geometry",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_stone_010_drives_geometry_cavity_010",
+      "source": "stone_010",
+      "target": "cavity_010",
+      "relationship": "drives_geometry",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_seat_010_locates_stone_010",
+      "source": "seat_010",
+      "target": "stone_010",
+      "relationship": "locates",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_cavity_010_receives_stone_010",
+      "source": "cavity_010",
+      "target": "stone_010",
+      "relationship": "receives",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_stone_010_drives_geometry_prong_037",
+      "source": "stone_010",
+      "target": "prong_037",
+      "relationship": "drives_geometry",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_prong_037_retains_stone_010",
+      "source": "prong_037",
+      "target": "stone_010",
+      "relationship": "retains",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_stone_010_drives_geometry_prong_038",
+      "source": "stone_010",
+      "target": "prong_038",
+      "relationship": "drives_geometry",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_prong_038_retains_stone_010",
+      "source": "prong_038",
+      "target": "stone_010",
+      "relationship": "retains",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_stone_010_drives_geometry_prong_039",
+      "source": "stone_010",
+      "target": "prong_039",
+      "relationship": "drives_geometry",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_prong_039_retains_stone_010",
+      "source": "prong_039",
+      "target": "stone_010",
+      "relationship": "retains",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_stone_010_drives_geometry_prong_040",
+      "source": "stone_010",
+      "target": "prong_040",
+      "relationship": "drives_geometry",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    },
+    {
+      "edge_id": "edge_prong_040_retains_stone_010",
+      "source": "prong_040",
+      "target": "stone_010",
+      "relationship": "retains",
+      "provenance_state": "designed",
+      "confidence": 1.0
+    }
+  ],
+  "edit_transactions": []
+}

@@ -831,6 +831,51 @@
             <article class="evidence-card">
               <div class="card-heading">
                 <div>
+                  <p class="eyebrow">RING01 / INSTANCE EVIDENCE</p>
+                  <h3>Prong separation and projection ambiguity</h3>
+                </div>
+                <a class="button secondary" href="/api/artifacts/phase4_prong_instance_report">Evidence JSON</a>
+              </div>
+              <p class="subtle">Front, top and angled views contain four disjoint machine-proposed masks. Side and back collapse physical pairs in projection, so the evidence remains grouped instead of inventing hidden boundaries.</p>
+              <figure><img class="wide-evidence" src="/api/artifacts/phase4_prong_instance_audit" alt="Ring01 source images, aggregate prong masks and individual or overlap-group proposals"><figcaption>Red, amber, blue and violet are stable prong IDs where separable; two-color side/back overlays are unresolved projection groups.</figcaption></figure>
+              <figure><img class="wide-evidence" src="/api/artifacts/phase4_component_track_audit" alt="VGGT component identity audit with normalized centroid-distance matrices"><figcaption>VGGT independently selects the same ID order: strong support for top, moderate support for angled. This remains non-metric machine evidence.</figcaption></figure>
+              <figure><img class="wide-evidence" src="/api/artifacts/phase4_stl1_candidate_audit" alt="STL-1 front-view enclosed negative-space candidate audit across 24 rings"><figcaption>Dataset-wide aperture and openwork proposals. Colours identify disjoint image regions only; none are confirmed gemstones.</figcaption></figure>
+            </article>
+            <article class="evidence-card review-console">
+              <div class="card-heading">
+                <div>
+                  <p class="eyebrow">STL-1 / CANDIDATE SEMANTICS</p>
+                  <h3>Classify visible regions without changing proposals</h3>
+                </div>
+                <span class="pill warning">Image-space review only</span>
+              </div>
+              <p class="subtle">The source masks remain immutable. A reviewed label does not establish gemstone material, cross-view identity, metric dimensions, a seat, a cavity or CAD correctness.</p>
+              <div id="phase4-candidate-review-status" class="key-value-list"></div>
+              <div class="inventory-grid">
+                <label>Object<select id="phase4-candidate-object"></select></label>
+                <label>View<select id="phase4-candidate-view"></select></label>
+                <label>Candidate<select id="phase4-candidate-id"></select></label>
+                <label>Visible classification<select id="phase4-candidate-semantic"></select></label>
+              </div>
+              <div class="review-preview">
+                <figure><img id="phase4-candidate-source" alt="Selected STL-1 source view"><figcaption>Source</figcaption></figure>
+                <figure><img id="phase4-candidate-overlay" alt="All enclosed candidates in the selected view"><figcaption>Candidate overlay</figcaption></figure>
+                <figure><img id="phase4-candidate-mask" alt="Selected candidate mask"><figcaption>Selected mask</figcaption></figure>
+              </div>
+              <p id="phase4-candidate-current" class="review-current"></p>
+              <div class="review-fields reviewer-fields">
+                <label>Reviewer<input id="phase4-candidate-reviewer" type="text" maxlength="120" placeholder="Your name" autocomplete="name"></label>
+                <label>Review note<input id="phase4-candidate-note" type="text" maxlength="1000" placeholder="Why this visible classification is appropriate"></label>
+              </div>
+              <div id="phase4-candidate-submit" class="review-actions">
+                <button type="button" class="button primary phase4-candidate-decision" data-decision="approved">Approve inspected label</button>
+                <button type="button" class="button secondary phase4-candidate-decision" data-decision="needs_correction">Needs correction</button>
+                <button type="button" class="button secondary phase4-candidate-decision" data-decision="rejected">Reject proposal</button>
+              </div>
+            </article>
+            <article class="evidence-card">
+              <div class="card-heading">
+                <div>
                   <p class="eyebrow">RING01 / REVIEW-GATED PROPOSAL</p>
                   <h3>Components and dependency roles</h3>
                 </div>

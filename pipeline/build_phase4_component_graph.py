@@ -52,9 +52,22 @@ def _ring01_observations(
     return observations
 
 
-def build_ring01_proposal(manifest: dict[str, Any]) -> dict[str, Any]:
+def _prong_instance_observations(
+    instance_report: dict[str, Any], component_id: str
+) -> dict[str, Any]:
+    return {
+        view: deepcopy(instance_report["views"][view]["component_observations"][component_id])
+        for view in VIEWS
+    }
+
+
+def build_ring01_proposal(
+    manifest: dict[str, Any],
+    instance_report: dict[str, Any],
+    track_report: dict[str, Any],
+) -> dict[str, Any]:
     graph = _base_graph(
-        "ring01_component_graph_proposal_v1",
+        "ring01_component_graph_proposal_v3",
         "ring01",
         "machine_proposal_review_required",
         "normalized",
@@ -100,10 +113,12 @@ def build_ring01_proposal(manifest: dict[str, Any]) -> dict[str, Any]:
                 review_state=item["review"]["decision"],
                 semantic_confidence=0.5,
                 manufacturing_role=role[semantic_class],
-                observations=_ring01_observations(
-                    manifest,
-                    class_to_label[semantic_class],
-                    aggregate_instance_mask=semantic_class == "prong",
+                observations=(
+                    _prong_instance_observations(instance_report, item["component_id"])
+                    if semantic_class == "prong"
+                    else _ring01_observations(
+                        manifest, class_to_label[semantic_class]
+                    )
                 ),
                 support_ids=["setting_001"]
                 if semantic_class in {"round_gemstone", "prong"}
@@ -127,6 +142,35 @@ def build_ring01_proposal(manifest: dict[str, Any]) -> dict[str, Any]:
             )
         )
     graph["nodes"] = nodes
+    for node in graph["nodes"]:
+        if node["semantic_class"] != "prong":
+            continue
+        component_id = node["component_id"]
+        node["cross_view_track_evidence"] = {
+            "backend": "VGGT-1B joint world-point maps",
+            "reference_view": "front",
+            "authority": "machine_evidence_review_required",
+            "comparisons": {
+                view: {
+                    "assigned_component_id": track_report["comparisons"][view][
+                        "best_assignment"
+                    ][component_id],
+                    "identity_distance_fraction": track_report["comparisons"][view][
+                        "identity_distance_fraction_by_component"
+                    ][component_id],
+                    "identity_is_geometry_optimal": track_report["comparisons"][view][
+                        "identity_is_geometry_optimal"
+                    ],
+                    "evidence_level": track_report["comparisons"][view][
+                        "evidence_level"
+                    ],
+                }
+                for view in ("top", "angled")
+            },
+            "ambiguous_views": track_report["ambiguous_views"],
+            "review_state": "pending",
+            "metric": False,
+        }
     edges = [
         make_edge(
             "jewellery_001", "shank_001", "contains",
@@ -167,9 +211,22 @@ def build_ring01_proposal(manifest: dict[str, Any]) -> dict[str, Any]:
     graph["gate"] = {
         "reviewed_component_graph": False,
         "individual_prong_masks_available": False,
+        "partial_prong_instance_evidence_available": instance_report["gate"][
+            "partial_instance_evidence_available"
+        ],
+        "resolved_prong_instance_views": instance_report["summary"][
+            "resolved_views"
+        ],
+        "ambiguous_prong_projection_views": instance_report["summary"][
+            "ambiguous_views"
+        ],
+        "resolved_prong_identities_machine_supported": track_report["gate"][
+            "resolved_identity_assignments_machine_supported"
+        ],
+        "cross_view_identity_reviewed": False,
         "seat_and_cavity_observed": False,
         "geometry_generation_authorized": False,
-        "reason": "All component identities remain pending and prongs use one aggregate mask.",
+        "reason": "VGGT independently supports the front/top/angled identity ordering, but side/back remain unresolved projection groups and every identity remains pending review.",
     }
     return graph
 
@@ -321,7 +378,11 @@ def run(root: Path, output_dir: Path) -> dict[str, Any]:
             encoding="utf-8"
         )
     )
-    ring01 = build_ring01_proposal(manifest)
+    instance_report_path = root / "data/phase4_prong_instances_v1/report.json"
+    instance_report = json.loads(instance_report_path.read_text(encoding="utf-8"))
+    track_report_path = root / "data/phase4_component_tracks_v1/report.json"
+    track_report = json.loads(track_report_path.read_text(encoding="utf-8"))
+    ring01 = build_ring01_proposal(manifest, instance_report, track_report)
     synthetic = build_synthetic_ten_stone_graph()
     ring01_issues = validate_graph(ring01)
     synthetic_issues = validate_graph(synthetic)
@@ -334,7 +395,7 @@ def run(root: Path, output_dir: Path) -> dict[str, Any]:
         json.dumps(synthetic, indent=2) + "\n", encoding="utf-8"
     )
     report = {
-        "schema_version": "lalitha_phase4_component_graph_report_v1",
+        "schema_version": "lalitha_phase4_component_graph_report_v3",
         "execution_profile": "images_only",
         "ring01": {
             "node_count": len(ring01["nodes"]),
@@ -347,6 +408,12 @@ def run(root: Path, output_dir: Path) -> dict[str, Any]:
                 node["review_state"] != "approved" for node in ring01["nodes"]
             ),
             "geometry_generation_authorized": False,
+            "prong_instance_evidence": deepcopy(instance_report["summary"]),
+            "prong_track_evidence": {
+                "top": deepcopy(track_report["comparisons"]["top"]),
+                "angled": deepcopy(track_report["comparisons"]["angled"]),
+                "gate": deepcopy(track_report["gate"]),
+            },
             "artifact": str(ring01_path.relative_to(root)),
         },
         "synthetic_ten_stone_edit_benchmark": benchmark,
@@ -362,12 +429,22 @@ def run(root: Path, output_dir: Path) -> dict[str, Any]:
                 case["stable_component_ids"] for case in benchmark["cases"]
             ),
             "reviewed_ring01_graph_available": False,
+            "partial_ring01_prong_instances_available": instance_report["gate"][
+                "partial_instance_evidence_available"
+            ],
+            "resolved_ring01_prong_identities_machine_supported": track_report[
+                "gate"
+            ]["resolved_identity_assignments_machine_supported"],
             "phase4_exit_gate_passed": False,
         },
         "decision": "graph_api_and_synthetic_contract_implemented_reviewed_evidence_blocked",
         "artifacts": {
             "ring01_component_graph": str(ring01_path.relative_to(root)),
             "synthetic_ten_stone_graph": str(synthetic_path.relative_to(root)),
+            "ring01_prong_instance_report": str(instance_report_path.relative_to(root)),
+            "ring01_prong_instance_audit": instance_report["artifacts"]["audit"],
+            "ring01_component_track_report": str(track_report_path.relative_to(root)),
+            "ring01_component_track_audit": track_report["artifacts"]["audit"],
         },
         "claims": {
             "ring01_component_identity_validated": False,
@@ -379,7 +456,9 @@ def run(root: Path, output_dir: Path) -> dict[str, Any]:
         "limitations": [
             "The ten-stone benchmark validates graph-state locality, not CAD Boolean geometry.",
             "Ring01 component identities and masks remain pending human review.",
-            "The four Ring01 prongs currently share an aggregate prong mask.",
+            "Front, top and angled prongs are machine-proposed instances pending review.",
+            "VGGT supports the resolved-view ordering, but remains uncalibrated machine evidence.",
+            "Side and back prong pairs remain unresolved projection groups.",
             "Seat and cavity nodes are required placeholders with unknown image evidence.",
             "Image-only evidence does not establish absolute physical scale.",
         ],
@@ -396,7 +475,7 @@ def main() -> None:
     parser.add_argument(
         "--output-dir",
         type=Path,
-        default=Path("data/phase4_component_graph_v1"),
+        default=Path("data/phase4_component_graph_v3"),
     )
     args = parser.parse_args()
     root = args.repo_root.resolve()

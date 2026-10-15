@@ -293,6 +293,34 @@ class DatasetStudioServiceTest(unittest.TestCase):
             30,
         )
         self.assertFalse(phase4["checks"]["phase4_exit_gate_passed"])
+        self.assertTrue(phase4["checks"]["partial_ring01_prong_instances_available"])
+        self.assertEqual(
+            phase4["prong_instances"]["summary"]["resolved_instance_view_count"],
+            3,
+        )
+        self.assertTrue(
+            phase4["component_tracks"]["gate"][
+                "resolved_identity_assignments_machine_supported"
+            ]
+        )
+        self.assertEqual(
+            phase4["component_tracks"]["comparisons"]["top"]["evidence_level"],
+            "strong_machine_support",
+        )
+        candidates = phase4["stl1_component_candidates"]
+        self.assertEqual(candidates["object_count"], 24)
+        self.assertEqual(candidates["view_count"], 120)
+        self.assertEqual(candidates["candidate_count"], 266)
+        self.assertFalse(candidates["gate"]["individual_stones_confirmed"])
+        self.assertFalse(
+            candidates["gate"]["component_graph_generation_authorized"]
+        )
+        candidate_review = phase4["stl1_candidate_review"]
+        self.assertEqual(candidate_review["gate"]["candidate_count"], 266)
+        self.assertEqual(candidate_review["gate"]["pending_candidate_count"], 266)
+        self.assertFalse(
+            candidate_review["gate"]["component_graph_generation_authorized"]
+        )
 
     def test_object_filters_preserve_object_level_splits(self) -> None:
         self.assertEqual(len(self.repository.list_objects("train")), 18)
@@ -428,7 +456,7 @@ class DatasetStudioApiTest(unittest.TestCase):
         self.assertEqual(health.get_json()["objects"], 24)
         self.assertEqual(
             health.get_json()["write_scope"],
-            "phase1_review_decisions_and_corrected_silhouettes_only",
+            "identified_phase1_and_phase4_image_space_review_decisions_plus_corrected_silhouettes",
         )
         summary = self.client.get("/api/summary")
         self.assertEqual(summary.status_code, 200)
@@ -930,6 +958,70 @@ class DatasetStudioApiTest(unittest.TestCase):
         self.assertEqual(ring01.status_code, 200)
         self.assertEqual(len(ring01.get_json()["nodes"]), 10)
         ring01.close()
+        prong_audit = self.client.get("/api/artifacts/phase4_prong_instance_audit")
+        self.assertEqual(prong_audit.status_code, 200)
+        self.assertEqual(prong_audit.mimetype, "image/png")
+        prong_audit.close()
+        track_audit = self.client.get("/api/artifacts/phase4_component_track_audit")
+        self.assertEqual(track_audit.status_code, 200)
+        self.assertEqual(track_audit.mimetype, "image/png")
+        track_audit.close()
+        candidate_audit = self.client.get(
+            "/api/artifacts/phase4_stl1_candidate_audit"
+        )
+        self.assertEqual(candidate_audit.status_code, 200)
+        self.assertEqual(candidate_audit.mimetype, "image/png")
+        candidate_audit.close()
+        candidate_report = self.client.get(
+            "/api/artifacts/phase4_stl1_candidate_report"
+        )
+        self.assertEqual(candidate_report.status_code, 200)
+        self.assertEqual(candidate_report.mimetype, "application/json")
+        candidate_report.close()
+        candidate_summary = self.client.get("/api/phase4/stl1-candidates")
+        self.assertEqual(candidate_summary.status_code, 200)
+        self.assertEqual(
+            candidate_summary.get_json()["gate"]["candidate_count"], 266
+        )
+        candidate_summary.close()
+        candidate_object = self.client.get(
+            "/api/phase4/stl1-candidates/ring_014"
+        )
+        self.assertEqual(candidate_object.status_code, 200)
+        object_payload = candidate_object.get_json()
+        self.assertEqual(
+            len(object_payload["object"]["views"]["front"]["candidates"]), 5
+        )
+        candidate_id = object_payload["object"]["views"]["front"][
+            "candidates"
+        ][0]["candidate_id"]
+        candidate_object.close()
+        for kind in ("source", "overlay"):
+            asset = self.client.get(
+                f"/api/phase4/stl1-candidates/ring_014/front/{kind}"
+            )
+            self.assertEqual(asset.status_code, 200)
+            self.assertEqual(asset.mimetype, "image/png")
+            asset.close()
+        mask = self.client.get(
+            "/api/phase4/stl1-candidates/ring_014/front/mask"
+            f"?candidate_id={candidate_id}"
+        )
+        self.assertEqual(mask.status_code, 200)
+        self.assertEqual(mask.mimetype, "image/png")
+        mask.close()
+        unidentified = self.client.post(
+            "/api/phase4/stl1-candidates/review",
+            json={
+                "object_id": "ring_014",
+                "view": "front",
+                "candidate_id": candidate_id,
+                "semantic_label": "aperture",
+                "decision": "approved",
+            },
+        )
+        self.assertEqual(unidentified.status_code, 400)
+        unidentified.close()
         synthetic = self.client.get("/api/phase4/graphs/synthetic-ten-stone")
         self.assertEqual(synthetic.status_code, 200)
         self.assertEqual(
