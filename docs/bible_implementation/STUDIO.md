@@ -54,6 +54,11 @@ The frozen development order remains:
 
 ```text
 source-control reproducibility → human image-space ground truth → camera/depth/normal evidence → reviewed component and constraint graph → exact CAD generalization
+
+The Component Graph tab exposes the Phase 4 Ring01 proposal, stable IDs,
+provenance and manufacturing roles. It also provides non-persistent synthetic
+ten-stone edit previews. Those previews test graph dependencies only and never
+generate or modify CAD.
 ```
 
 ## Run locally

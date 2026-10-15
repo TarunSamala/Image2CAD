@@ -399,6 +399,7 @@
             <button class="tab" data-panel="phase1-review">Phase 1 review</button>
             <button class="tab" data-panel="audits">Phase audits</button>
             <button class="tab" data-panel="phase3">Experimental 3D</button>
+            <button class="tab" data-panel="phase4">Component graph</button>
             <button class="tab" data-panel="bible">Bible gates</button>
             <button class="tab" data-panel="metadata">Metadata</button>
           </nav>
@@ -809,6 +810,56 @@
                 <figure><img class="wide-evidence" src="/api/artifacts/vggt_dense_cycle_ring_020" alt="Ring 020 dense reciprocal track registration comparison"><figcaption>Ring 020 · dense cycle filtering still selects unchanged geometry</figcaption></figure>
                 <figure><img class="wide-evidence" src="/api/artifacts/vggt_dense_cycle_ring_015" alt="Ring 015 dense reciprocal track registration comparison"><figcaption>Ring 015 · identity selected before held-out test scoring</figcaption></figure>
               </div>
+            </article>
+          </div>
+
+          <div id="panel-phase4" class="tab-panel">
+            <article class="evidence-card">
+              <div class="card-heading">
+                <div>
+                  <p class="eyebrow">BIBLE PHASE 4 / STRUCTURAL FOUNDATION</p>
+                  <h3>Universal component and constraint graph</h3>
+                </div>
+                <div class="button-row">
+                  <a class="button secondary" href="/api/artifacts/phase4_component_graph_report">Benchmark report</a>
+                  <a class="button secondary" href="/api/phase4/graphs/ring01">Ring01 JSON</a>
+                </div>
+              </div>
+              <p class="subtle">The graph records stable component IDs, cross-view observation references, provenance, uncertainty and stone-to-seat/cavity/prong dependencies. Ring01 remains a machine proposal pending review; this graph cannot authorize CAD generation.</p>
+              <div id="phase4-status" class="key-value-list"></div>
+            </article>
+            <article class="evidence-card">
+              <div class="card-heading">
+                <div>
+                  <p class="eyebrow">RING01 / REVIEW-GATED PROPOSAL</p>
+                  <h3>Components and dependency roles</h3>
+                </div>
+                <span class="pill warning">No approved identities</span>
+              </div>
+              <div class="table-wrap">
+                <table>
+                  <thead><tr><th>Component</th><th>Class</th><th>Provenance</th><th>Review</th><th>Role</th></tr></thead>
+                  <tbody id="phase4-node-rows"></tbody>
+                </table>
+              </div>
+            </article>
+            <article class="evidence-card">
+              <div class="card-heading">
+                <div>
+                  <p class="eyebrow">TEN-STONE LOCAL EDIT TEST</p>
+                  <h3>Dry-run dependency preview</h3>
+                </div>
+                <span class="pill pass">Graph state only</span>
+              </div>
+              <p class="subtle">Choose a synthetic stone and operation. The backend returns the exact dependency closure without saving changes or generating CAD.</p>
+              <div class="inventory-grid">
+                <label>Stone<select id="phase4-edit-component"></select></label>
+                <label>Operation<select id="phase4-edit-operation"><option value="resize">Resize</option><option value="remove">Remove</option><option value="replace">Replace</option></select></label>
+              </div>
+              <div class="review-actions">
+                <button id="phase4-preview-edit" type="button" class="button primary">Preview local edit</button>
+              </div>
+              <div id="phase4-edit-result" class="key-value-list"></div>
             </article>
           </div>
 

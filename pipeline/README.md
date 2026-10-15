@@ -37,6 +37,10 @@ predate it, so this index prevents similarly numbered stages from being mixed.
 - `image_only_reflection_correction.py` - active Ring01 reflection-sensitive
   inner-boundary correction with an explicit uncertainty mask.
 - Phase 0 is primarily Docker, dependency, manifest and regression evidence.
+- `component_constraint_graph.py` and `build_phase4_component_graph.py` - Bible
+  Phase 4 stable-ID graph schema, provenance/uncertainty contract, directed
+  edit dependencies and the synthetic ten-stone graph-state locality benchmark.
+  Ring01 remains review-gated and these modules do not generate CAD.
 
 ## Shared evidence and dataset tools
 

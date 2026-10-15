@@ -6,6 +6,7 @@ const state = {
   phase1Review: null,
   stl1ReviewSummary: null,
   stl1ReviewObject: null,
+  phase4Graph: null,
 };
 
 const $ = (selector) => document.querySelector(selector);
@@ -172,6 +173,62 @@ function renderSummary(summary) {
   $("#phase2-blockers").innerHTML = (phase2.limitations || [])
     .map((item) => `<li>${escapeHtml(item)}</li>`).join("");
   $("#ring01-carryover-note").textContent = carryover.overall_observation || "No carry-over note recorded.";
+}
+
+function renderPhase4() {
+  const report = state.summary?.phase4 || {};
+  const ring = report.ring01 || {};
+  const benchmark = report.synthetic_ten_stone_edit_benchmark || {};
+  const checks = report.checks || {};
+  const graph = state.phase4Graph || {};
+  $("#phase4-status").innerHTML = `
+    <div class="key-value"><span>Ring01 proposal graph</span><strong>${ring.node_count ?? "—"} nodes · ${ring.edge_count ?? "—"} edges</strong></div>
+    <div class="key-value"><span>Schema validation</span><strong class="${checks.ring01_graph_schema_valid ? "good" : "bad"}">${checks.ring01_graph_schema_valid ? "Passed" : "Failed"}</strong></div>
+    <div class="key-value"><span>Synthetic local edits</span><strong class="${checks.synthetic_ten_stone_edit_test_passed ? "good" : "bad"}">${benchmark.passed_case_count ?? "—"} / ${benchmark.case_count ?? "—"}</strong><small>Remove · resize · replace across ten stones</small></div>
+    <div class="key-value"><span>Unrelated graph state</span><strong class="${checks.no_unrelated_graph_state_changes ? "good" : "bad"}">${checks.no_unrelated_graph_state_changes ? "Unchanged" : "Changed"}</strong></div>
+    <div class="key-value"><span>Reviewed Ring01 identities</span><strong class="bad">${ring.reviewed_component_count ?? 0} / ${ring.node_count ?? "—"}</strong></div>
+    <div class="key-value"><span>Phase 4 exit gate</span><strong class="bad">Not passed</strong><small>Graph-state locality is not CAD-geometry locality</small></div>`;
+  $("#phase4-node-rows").innerHTML = (graph.nodes || []).map((node) => `
+    <tr>
+      <td class="mono">${escapeHtml(node.component_id)}</td>
+      <td>${escapeHtml(humanize(node.semantic_class))}</td>
+      <td>${escapeHtml(humanize(node.provenance_state))}</td>
+      <td>${escapeHtml(humanize(node.review_state))}</td>
+      <td>${escapeHtml(humanize(node.manufacturing_role))}</td>
+    </tr>`).join("");
+  const selector = $("#phase4-edit-component");
+  if (!selector.options.length) {
+    for (let index = 1; index <= 10; index += 1) {
+      const componentId = `stone_${String(index).padStart(3, "0")}`;
+      selector.add(new Option(componentId, componentId));
+    }
+  }
+}
+
+async function loadPhase4Graph() {
+  state.phase4Graph = await api("/api/phase4/graphs/ring01");
+  renderPhase4();
+}
+
+async function previewPhase4Edit() {
+  const componentId = $("#phase4-edit-component").value;
+  const operation = $("#phase4-edit-operation").value;
+  const parameters = operation === "resize"
+    ? { diameter: 2.4, depth: 1.4 }
+    : operation === "replace"
+      ? { semantic_class: "oval_gemstone", dimensions: { length: 2.6, width: 2.0, depth: 1.3 } }
+      : {};
+  const payload = await api("/api/phase4/graphs/synthetic-ten-stone/edit-preview", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ component_id: componentId, operation, parameters }),
+  });
+  const audit = payload.audit || {};
+  $("#phase4-edit-result").innerHTML = `
+    <div class="key-value"><span>Transaction</span><strong class="mono">${escapeHtml(audit.transaction_id || "—")}</strong></div>
+    <div class="key-value"><span>Affected components</span><strong>${audit.changed_component_ids?.length ?? "—"}</strong><small>${escapeHtml((audit.changed_component_ids || []).join(", "))}</small></div>
+    <div class="key-value"><span>Unrelated components</span><strong class="${audit.unrelated_geometry_state_unchanged ? "good" : "bad"}">${audit.unrelated_geometry_state_unchanged ? "Unchanged" : "Changed"}</strong><small>${audit.unrelated_component_ids?.length ?? "—"} IDs outside the dependency closure</small></div>
+    <div class="key-value"><span>Persistent write</span><strong>No</strong><small>Dry-run graph state only; no CAD generated</small></div>`;
 }
 
 const PHASE1_VIEWS = ["front", "side", "top", "angled", "back"];
@@ -811,6 +868,10 @@ function bindControls() {
     selectNextStl1Pending().catch(showError);
   });
   $("#split-filter").addEventListener("change", (event) => loadObjects(event.target.value).catch(showError));
+  $("#phase4-preview-edit").addEventListener("click", () => {
+    clearError();
+    previewPhase4Edit().catch(showError);
+  });
   $$("#layer-switcher button").forEach((button) => button.addEventListener("click", () => {
     state.layer = button.dataset.layer;
     $$("#layer-switcher button").forEach((item) => item.classList.toggle("active", item === button));
@@ -827,6 +888,7 @@ async function start() {
   try {
     state.summary = await api("/api/summary");
     renderSummary(state.summary);
+    await loadPhase4Graph();
     await loadPhase1Review();
     await loadStl1ReviewSummary();
     await loadObjects("all", "ring_001");

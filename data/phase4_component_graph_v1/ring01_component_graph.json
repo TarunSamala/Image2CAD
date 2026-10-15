@@ -1,0 +1,822 @@
+{
+  "schema_version": "lalitha_component_constraint_graph_v1",
+  "graph_id": "ring01_component_graph_proposal_v1",
+  "object_id": "ring01",
+  "authority": "machine_proposal_review_required",
+  "units": "normalized",
+  "revision": 0,
+  "nodes": [
+    {
+      "component_id": "jewellery_001",
+      "track_id": "track_jewellery_001",
+      "semantic_class": "ring",
+      "semantic_confidence": 1.0,
+      "provenance_state": "observed",
+      "review_state": "pending",
+      "observations": {
+        "front": {
+          "visible_mask": "data/ring01_phase2_refined/masks/jewelry/ring01_front_jewelry.png",
+          "amodal_mask": null,
+          "sha256": "5dc6cf1ae579eca7fbcc7d552f831ead76212ec72c440c27b1321096ed599f8e",
+          "confidence": null,
+          "provenance_state": "inferred",
+          "review_state": "pending",
+          "aggregate_instance_mask": false
+        },
+        "side": {
+          "visible_mask": "data/ring01_phase2_refined/masks/jewelry/ring01_side_jewelry.png",
+          "amodal_mask": null,
+          "sha256": "cbd35f7198b07b7d0ff2aebda373ad86b7e1b38009ae1ab7a22030bb956661b0",
+          "confidence": null,
+          "provenance_state": "inferred",
+          "review_state": "pending",
+          "aggregate_instance_mask": false
+        },
+        "top": {
+          "visible_mask": "data/ring01_phase2_refined/masks/jewelry/ring01_top_jewelry.png",
+          "amodal_mask": null,
+          "sha256": "a9ec41294ab0dea08654bd93c2e949dd946c8ac53e2877205a98a5cab881b746",
+          "confidence": null,
+          "provenance_state": "inferred",
+          "review_state": "pending",
+          "aggregate_instance_mask": false
+        },
+        "angled": {
+          "visible_mask": "data/ring01_phase2_refined/masks/jewelry/ring01_angled_jewelry.png",
+          "amodal_mask": null,
+          "sha256": "b385452cee8ac92ab5fb07a21f4f06eed23421ee6715b35a3ca1dcd507f02332",
+          "confidence": null,
+          "provenance_state": "inferred",
+          "review_state": "pending",
+          "aggregate_instance_mask": false
+        },
+        "back": {
+          "visible_mask": "data/ring01_phase2_refined/masks/jewelry/ring01_back_jewelry.png",
+          "amodal_mask": null,
+          "sha256": "0f15ec73782927a9453e1b57307c1a0a2bf306e08a76def434761b763ca6d03f",
+          "confidence": null,
+          "provenance_state": "inferred",
+          "review_state": "pending",
+          "aggregate_instance_mask": false
+        }
+      },
+      "parent_id": null,
+      "support_ids": [],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "assembly_root",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "shank_001",
+      "track_id": "track_shank_001",
+      "semantic_class": "shank",
+      "semantic_confidence": 0.5,
+      "provenance_state": "inferred",
+      "review_state": "pending",
+      "observations": {
+        "front": {
+          "visible_mask": "data/ring01_phase2_refined/masks/shank/ring01_front_shank.png",
+          "amodal_mask": null,
+          "sha256": "11f17a8179a5c521f02f173349068e916541350dac894ee5e01d06bb3721181f",
+          "confidence": null,
+          "provenance_state": "inferred",
+          "review_state": "pending",
+          "aggregate_instance_mask": false
+        },
+        "side": {
+          "visible_mask": "data/ring01_phase2_refined/masks/shank/ring01_side_shank.png",
+          "amodal_mask": null,
+          "sha256": "439d84ef1e379017c2c25059fc3b8f4a013e3aa5f5457a322589f4b3d3ed7b73",
+          "confidence": null,
+          "provenance_state": "inferred",
+          "review_state": "pending",
+          "aggregate_instance_mask": false
+        },
+        "top": {
+          "visible_mask": "data/ring01_phase2_refined/masks/shank/ring01_top_shank.png",
+          "amodal_mask": null,
+          "sha256": "cf90b0c93d68f0a4df56aadb71c7b394b855bdd8423d47c13f3af32f34e342fd",
+          "confidence": null,
+          "provenance_state": "inferred",
+          "review_state": "pending",
+          "aggregate_instance_mask": false
+        },
+        "angled": {
+          "visible_mask": "data/ring01_phase2_refined/masks/shank/ring01_angled_shank.png",
+          "amodal_mask": null,
+          "sha256": "3047154b79f72c933965f0b9d805fa2dfb0821e50e81343a5b7c450b6db3200b",
+          "confidence": null,
+          "provenance_state": "inferred",
+          "review_state": "pending",
+          "aggregate_instance_mask": false
+        },
+        "back": {
+          "visible_mask": "data/ring01_phase2_refined/masks/shank/ring01_back_shank.png",
+          "amodal_mask": null,
+          "sha256": "f760dfa1f6d4dd113cf6e42ec03fc16531b0e7dde188f43b975eba8f2622de4b",
+          "confidence": null,
+          "provenance_state": "inferred",
+          "review_state": "pending",
+          "aggregate_instance_mask": false
+        }
+      },
+      "parent_id": "jewellery_001",
+      "support_ids": [],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "primary_metal_body",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "setting_001",
+      "track_id": "track_setting_001",
+      "semantic_class": "setting",
+      "semantic_confidence": 0.5,
+      "provenance_state": "inferred",
+      "review_state": "pending",
+      "observations": {
+        "front": {
+          "visible_mask": "data/ring01_phase2_refined/masks/setting/ring01_front_setting.png",
+          "amodal_mask": null,
+          "sha256": "67e9f7d0655e75b4e5bdf2a23b63b5b24d9f9f3da3d352723003434ded460db5",
+          "confidence": null,
+          "provenance_state": "inferred",
+          "review_state": "pending",
+          "aggregate_instance_mask": false
+        },
+        "side": {
+          "visible_mask": "data/ring01_phase2_refined/masks/setting/ring01_side_setting.png",
+          "amodal_mask": null,
+          "sha256": "0adb1bdbf26406cf7d694354c8db4fcc3657279aed5dba53adc6153a4ca0190e",
+          "confidence": null,
+          "provenance_state": "inferred",
+          "review_state": "pending",
+          "aggregate_instance_mask": false
+        },
+        "top": {
+          "visible_mask": "data/ring01_phase2_refined/masks/setting/ring01_top_setting.png",
+          "amodal_mask": null,
+          "sha256": "69addea6007e5e318d4524e1ceeb53f4eb34fb84c08953cb088e301663e4f40c",
+          "confidence": null,
+          "provenance_state": "inferred",
+          "review_state": "pending",
+          "aggregate_instance_mask": false
+        },
+        "angled": {
+          "visible_mask": "data/ring01_phase2_refined/masks/setting/ring01_angled_setting.png",
+          "amodal_mask": null,
+          "sha256": "7e9b49b5a47332b03fb421a8356ec441d4221ed2d83bcdc44ea01db699fc7761",
+          "confidence": null,
+          "provenance_state": "inferred",
+          "review_state": "pending",
+          "aggregate_instance_mask": false
+        },
+        "back": {
+          "visible_mask": "data/ring01_phase2_refined/masks/setting/ring01_back_setting.png",
+          "amodal_mask": null,
+          "sha256": "31304e49cc3f4ec1a5a111ea9321ed9a40f0ee3c9b3fec2cb24ceb6e0c7d9c91",
+          "confidence": null,
+          "provenance_state": "inferred",
+          "review_state": "pending",
+          "aggregate_instance_mask": false
+        }
+      },
+      "parent_id": "jewellery_001",
+      "support_ids": [],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "stone_support",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "stone_001",
+      "track_id": "track_stone_001",
+      "semantic_class": "round_gemstone",
+      "semantic_confidence": 0.5,
+      "provenance_state": "inferred",
+      "review_state": "pending",
+      "observations": {
+        "front": {
+          "visible_mask": "data/ring01_phase2_refined/masks/stone_visible/ring01_front_stone_visible.png",
+          "amodal_mask": null,
+          "sha256": "c34eacab41b322918f6b9864e800de933c443e72bad3ec5586f9be3ac79db90d",
+          "confidence": null,
+          "provenance_state": "inferred",
+          "review_state": "pending",
+          "aggregate_instance_mask": false
+        },
+        "side": {
+          "visible_mask": "data/ring01_phase2_refined/masks/stone_visible/ring01_side_stone_visible.png",
+          "amodal_mask": null,
+          "sha256": "a50e9313da23ae707417f28049550a9260769d8392188bf196fbbc6cabf75103",
+          "confidence": null,
+          "provenance_state": "inferred",
+          "review_state": "pending",
+          "aggregate_instance_mask": false
+        },
+        "top": {
+          "visible_mask": "data/ring01_phase2_refined/masks/stone_visible/ring01_top_stone_visible.png",
+          "amodal_mask": null,
+          "sha256": "e713c90856cb8c2d235add95eac1c03229531327336be0026512b195408d68a5",
+          "confidence": null,
+          "provenance_state": "inferred",
+          "review_state": "pending",
+          "aggregate_instance_mask": false
+        },
+        "angled": {
+          "visible_mask": "data/ring01_phase2_refined/masks/stone_visible/ring01_angled_stone_visible.png",
+          "amodal_mask": null,
+          "sha256": "7ef4af9581c3d18819234291ae666ab825dc3afe6632b3d23759469f62e3ed81",
+          "confidence": null,
+          "provenance_state": "inferred",
+          "review_state": "pending",
+          "aggregate_instance_mask": false
+        },
+        "back": {
+          "visible_mask": "data/ring01_phase2_refined/masks/stone_visible/ring01_back_stone_visible.png",
+          "amodal_mask": null,
+          "sha256": "8a944217ea8d27267e5d7776812bd08508fede289d8a18935e44b65ca61c5641",
+          "confidence": null,
+          "provenance_state": "inferred",
+          "review_state": "pending",
+          "aggregate_instance_mask": false
+        }
+      },
+      "parent_id": "setting_001",
+      "support_ids": [
+        "setting_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "separate_gemstone",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "prong_001",
+      "track_id": "track_prong_001",
+      "semantic_class": "prong",
+      "semantic_confidence": 0.5,
+      "provenance_state": "inferred",
+      "review_state": "pending",
+      "observations": {
+        "front": {
+          "visible_mask": "data/ring01_phase2_refined/masks/prongs/ring01_front_prongs.png",
+          "amodal_mask": null,
+          "sha256": "52fa5a63606ca213bcb38890442020d00e9572fcc997a9d121755db18331e953",
+          "confidence": null,
+          "provenance_state": "inferred",
+          "review_state": "pending",
+          "aggregate_instance_mask": true
+        },
+        "side": {
+          "visible_mask": "data/ring01_phase2_refined/masks/prongs/ring01_side_prongs.png",
+          "amodal_mask": null,
+          "sha256": "109928ff6cfcc33e2c1566a32bc08d11f41181b0bbb57de5096a41e60d0ceedf",
+          "confidence": null,
+          "provenance_state": "inferred",
+          "review_state": "pending",
+          "aggregate_instance_mask": true
+        },
+        "top": {
+          "visible_mask": "data/ring01_phase2_refined/masks/prongs/ring01_top_prongs.png",
+          "amodal_mask": null,
+          "sha256": "54c77812c0405e102aebcaf058861efc4dca4b17d791c05ea24fc3f636ef39c5",
+          "confidence": null,
+          "provenance_state": "inferred",
+          "review_state": "pending",
+          "aggregate_instance_mask": true
+        },
+        "angled": {
+          "visible_mask": "data/ring01_phase2_refined/masks/prongs/ring01_angled_prongs.png",
+          "amodal_mask": null,
+          "sha256": "8c3e6b9b5f779cedd27d956ec9eb66bf1617a23fc39d404a10626d0c9f5c6b47",
+          "confidence": null,
+          "provenance_state": "inferred",
+          "review_state": "pending",
+          "aggregate_instance_mask": true
+        },
+        "back": {
+          "visible_mask": "data/ring01_phase2_refined/masks/prongs/ring01_back_prongs.png",
+          "amodal_mask": null,
+          "sha256": "bed7cc3faf5ec80ccf962203482cc825658d3d08207f317342bc07fe228481e4",
+          "confidence": null,
+          "provenance_state": "inferred",
+          "review_state": "pending",
+          "aggregate_instance_mask": true
+        }
+      },
+      "parent_id": "setting_001",
+      "support_ids": [
+        "setting_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "stone_retention",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "prong_002",
+      "track_id": "track_prong_002",
+      "semantic_class": "prong",
+      "semantic_confidence": 0.5,
+      "provenance_state": "inferred",
+      "review_state": "pending",
+      "observations": {
+        "front": {
+          "visible_mask": "data/ring01_phase2_refined/masks/prongs/ring01_front_prongs.png",
+          "amodal_mask": null,
+          "sha256": "52fa5a63606ca213bcb38890442020d00e9572fcc997a9d121755db18331e953",
+          "confidence": null,
+          "provenance_state": "inferred",
+          "review_state": "pending",
+          "aggregate_instance_mask": true
+        },
+        "side": {
+          "visible_mask": "data/ring01_phase2_refined/masks/prongs/ring01_side_prongs.png",
+          "amodal_mask": null,
+          "sha256": "109928ff6cfcc33e2c1566a32bc08d11f41181b0bbb57de5096a41e60d0ceedf",
+          "confidence": null,
+          "provenance_state": "inferred",
+          "review_state": "pending",
+          "aggregate_instance_mask": true
+        },
+        "top": {
+          "visible_mask": "data/ring01_phase2_refined/masks/prongs/ring01_top_prongs.png",
+          "amodal_mask": null,
+          "sha256": "54c77812c0405e102aebcaf058861efc4dca4b17d791c05ea24fc3f636ef39c5",
+          "confidence": null,
+          "provenance_state": "inferred",
+          "review_state": "pending",
+          "aggregate_instance_mask": true
+        },
+        "angled": {
+          "visible_mask": "data/ring01_phase2_refined/masks/prongs/ring01_angled_prongs.png",
+          "amodal_mask": null,
+          "sha256": "8c3e6b9b5f779cedd27d956ec9eb66bf1617a23fc39d404a10626d0c9f5c6b47",
+          "confidence": null,
+          "provenance_state": "inferred",
+          "review_state": "pending",
+          "aggregate_instance_mask": true
+        },
+        "back": {
+          "visible_mask": "data/ring01_phase2_refined/masks/prongs/ring01_back_prongs.png",
+          "amodal_mask": null,
+          "sha256": "bed7cc3faf5ec80ccf962203482cc825658d3d08207f317342bc07fe228481e4",
+          "confidence": null,
+          "provenance_state": "inferred",
+          "review_state": "pending",
+          "aggregate_instance_mask": true
+        }
+      },
+      "parent_id": "setting_001",
+      "support_ids": [
+        "setting_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "stone_retention",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "prong_003",
+      "track_id": "track_prong_003",
+      "semantic_class": "prong",
+      "semantic_confidence": 0.5,
+      "provenance_state": "inferred",
+      "review_state": "pending",
+      "observations": {
+        "front": {
+          "visible_mask": "data/ring01_phase2_refined/masks/prongs/ring01_front_prongs.png",
+          "amodal_mask": null,
+          "sha256": "52fa5a63606ca213bcb38890442020d00e9572fcc997a9d121755db18331e953",
+          "confidence": null,
+          "provenance_state": "inferred",
+          "review_state": "pending",
+          "aggregate_instance_mask": true
+        },
+        "side": {
+          "visible_mask": "data/ring01_phase2_refined/masks/prongs/ring01_side_prongs.png",
+          "amodal_mask": null,
+          "sha256": "109928ff6cfcc33e2c1566a32bc08d11f41181b0bbb57de5096a41e60d0ceedf",
+          "confidence": null,
+          "provenance_state": "inferred",
+          "review_state": "pending",
+          "aggregate_instance_mask": true
+        },
+        "top": {
+          "visible_mask": "data/ring01_phase2_refined/masks/prongs/ring01_top_prongs.png",
+          "amodal_mask": null,
+          "sha256": "54c77812c0405e102aebcaf058861efc4dca4b17d791c05ea24fc3f636ef39c5",
+          "confidence": null,
+          "provenance_state": "inferred",
+          "review_state": "pending",
+          "aggregate_instance_mask": true
+        },
+        "angled": {
+          "visible_mask": "data/ring01_phase2_refined/masks/prongs/ring01_angled_prongs.png",
+          "amodal_mask": null,
+          "sha256": "8c3e6b9b5f779cedd27d956ec9eb66bf1617a23fc39d404a10626d0c9f5c6b47",
+          "confidence": null,
+          "provenance_state": "inferred",
+          "review_state": "pending",
+          "aggregate_instance_mask": true
+        },
+        "back": {
+          "visible_mask": "data/ring01_phase2_refined/masks/prongs/ring01_back_prongs.png",
+          "amodal_mask": null,
+          "sha256": "bed7cc3faf5ec80ccf962203482cc825658d3d08207f317342bc07fe228481e4",
+          "confidence": null,
+          "provenance_state": "inferred",
+          "review_state": "pending",
+          "aggregate_instance_mask": true
+        }
+      },
+      "parent_id": "setting_001",
+      "support_ids": [
+        "setting_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "stone_retention",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "prong_004",
+      "track_id": "track_prong_004",
+      "semantic_class": "prong",
+      "semantic_confidence": 0.5,
+      "provenance_state": "inferred",
+      "review_state": "pending",
+      "observations": {
+        "front": {
+          "visible_mask": "data/ring01_phase2_refined/masks/prongs/ring01_front_prongs.png",
+          "amodal_mask": null,
+          "sha256": "52fa5a63606ca213bcb38890442020d00e9572fcc997a9d121755db18331e953",
+          "confidence": null,
+          "provenance_state": "inferred",
+          "review_state": "pending",
+          "aggregate_instance_mask": true
+        },
+        "side": {
+          "visible_mask": "data/ring01_phase2_refined/masks/prongs/ring01_side_prongs.png",
+          "amodal_mask": null,
+          "sha256": "109928ff6cfcc33e2c1566a32bc08d11f41181b0bbb57de5096a41e60d0ceedf",
+          "confidence": null,
+          "provenance_state": "inferred",
+          "review_state": "pending",
+          "aggregate_instance_mask": true
+        },
+        "top": {
+          "visible_mask": "data/ring01_phase2_refined/masks/prongs/ring01_top_prongs.png",
+          "amodal_mask": null,
+          "sha256": "54c77812c0405e102aebcaf058861efc4dca4b17d791c05ea24fc3f636ef39c5",
+          "confidence": null,
+          "provenance_state": "inferred",
+          "review_state": "pending",
+          "aggregate_instance_mask": true
+        },
+        "angled": {
+          "visible_mask": "data/ring01_phase2_refined/masks/prongs/ring01_angled_prongs.png",
+          "amodal_mask": null,
+          "sha256": "8c3e6b9b5f779cedd27d956ec9eb66bf1617a23fc39d404a10626d0c9f5c6b47",
+          "confidence": null,
+          "provenance_state": "inferred",
+          "review_state": "pending",
+          "aggregate_instance_mask": true
+        },
+        "back": {
+          "visible_mask": "data/ring01_phase2_refined/masks/prongs/ring01_back_prongs.png",
+          "amodal_mask": null,
+          "sha256": "bed7cc3faf5ec80ccf962203482cc825658d3d08207f317342bc07fe228481e4",
+          "confidence": null,
+          "provenance_state": "inferred",
+          "review_state": "pending",
+          "aggregate_instance_mask": true
+        }
+      },
+      "parent_id": "setting_001",
+      "support_ids": [
+        "setting_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "stone_retention",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "seat_001",
+      "track_id": "track_seat_001",
+      "semantic_class": "stone_seat",
+      "semantic_confidence": 0.0,
+      "provenance_state": "unknown",
+      "review_state": "pending",
+      "observations": {},
+      "parent_id": "setting_001",
+      "support_ids": [
+        "setting_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "stone_location",
+      "dependency_rules": [],
+      "active": true
+    },
+    {
+      "component_id": "cavity_001",
+      "track_id": "track_cavity_001",
+      "semantic_class": "stone_cavity",
+      "semantic_confidence": 0.0,
+      "provenance_state": "unknown",
+      "review_state": "pending",
+      "observations": {},
+      "parent_id": "setting_001",
+      "support_ids": [
+        "setting_001"
+      ],
+      "pose": {
+        "coordinate_frame": "object_normalized",
+        "translation": null,
+        "rotation_quaternion_xyzw": null,
+        "uncertainty": "unknown"
+      },
+      "dimensions": {
+        "units": "normalized",
+        "values": {},
+        "uncertainty": {}
+      },
+      "geometry": {
+        "generator": null,
+        "freeform_surface": null,
+        "parameters": {}
+      },
+      "manufacturing_role": "negative_geometry",
+      "dependency_rules": [],
+      "active": true
+    }
+  ],
+  "edges": [
+    {
+      "edge_id": "edge_jewellery_001_contains_shank_001",
+      "source": "jewellery_001",
+      "target": "shank_001",
+      "relationship": "contains",
+      "provenance_state": "inferred",
+      "confidence": 0.5
+    },
+    {
+      "edge_id": "edge_jewellery_001_contains_setting_001",
+      "source": "jewellery_001",
+      "target": "setting_001",
+      "relationship": "contains",
+      "provenance_state": "inferred",
+      "confidence": 0.5
+    },
+    {
+      "edge_id": "edge_setting_001_supports_stone_001",
+      "source": "setting_001",
+      "target": "stone_001",
+      "relationship": "supports",
+      "provenance_state": "inferred",
+      "confidence": 0.5
+    },
+    {
+      "edge_id": "edge_seat_001_locates_stone_001",
+      "source": "seat_001",
+      "target": "stone_001",
+      "relationship": "locates",
+      "provenance_state": "unknown",
+      "confidence": 0.0
+    },
+    {
+      "edge_id": "edge_cavity_001_receives_stone_001",
+      "source": "cavity_001",
+      "target": "stone_001",
+      "relationship": "receives",
+      "provenance_state": "unknown",
+      "confidence": 0.0
+    },
+    {
+      "edge_id": "edge_stone_001_drives_geometry_seat_001",
+      "source": "stone_001",
+      "target": "seat_001",
+      "relationship": "drives_geometry",
+      "provenance_state": "unknown",
+      "confidence": 0.0
+    },
+    {
+      "edge_id": "edge_stone_001_drives_geometry_cavity_001",
+      "source": "stone_001",
+      "target": "cavity_001",
+      "relationship": "drives_geometry",
+      "provenance_state": "unknown",
+      "confidence": 0.0
+    },
+    {
+      "edge_id": "edge_stone_001_drives_geometry_prong_001",
+      "source": "stone_001",
+      "target": "prong_001",
+      "relationship": "drives_geometry",
+      "provenance_state": "unknown",
+      "confidence": 0.0
+    },
+    {
+      "edge_id": "edge_stone_001_drives_geometry_prong_002",
+      "source": "stone_001",
+      "target": "prong_002",
+      "relationship": "drives_geometry",
+      "provenance_state": "unknown",
+      "confidence": 0.0
+    },
+    {
+      "edge_id": "edge_stone_001_drives_geometry_prong_003",
+      "source": "stone_001",
+      "target": "prong_003",
+      "relationship": "drives_geometry",
+      "provenance_state": "unknown",
+      "confidence": 0.0
+    },
+    {
+      "edge_id": "edge_stone_001_drives_geometry_prong_004",
+      "source": "stone_001",
+      "target": "prong_004",
+      "relationship": "drives_geometry",
+      "provenance_state": "unknown",
+      "confidence": 0.0
+    },
+    {
+      "edge_id": "edge_prong_001_retains_stone_001",
+      "source": "prong_001",
+      "target": "stone_001",
+      "relationship": "retains",
+      "provenance_state": "inferred",
+      "confidence": 0.5
+    },
+    {
+      "edge_id": "edge_prong_002_retains_stone_001",
+      "source": "prong_002",
+      "target": "stone_001",
+      "relationship": "retains",
+      "provenance_state": "inferred",
+      "confidence": 0.5
+    },
+    {
+      "edge_id": "edge_prong_003_retains_stone_001",
+      "source": "prong_003",
+      "target": "stone_001",
+      "relationship": "retains",
+      "provenance_state": "inferred",
+      "confidence": 0.5
+    },
+    {
+      "edge_id": "edge_prong_004_retains_stone_001",
+      "source": "prong_004",
+      "target": "stone_001",
+      "relationship": "retains",
+      "provenance_state": "inferred",
+      "confidence": 0.5
+    }
+  ],
+  "edit_transactions": [],
+  "gate": {
+    "reviewed_component_graph": false,
+    "individual_prong_masks_available": false,
+    "seat_and_cavity_observed": false,
+    "geometry_generation_authorized": false,
+    "reason": "All component identities remain pending and prongs use one aggregate mask."
+  }
+}

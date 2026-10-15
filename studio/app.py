@@ -46,6 +46,18 @@ def create_app(repo_root: str | Path | None = None) -> Flask:
     def capabilities():
         return jsonify(repository.capabilities())
 
+    @app.get("/api/phase4/graphs/<graph_name>")
+    def phase4_graph(graph_name: str):
+        return jsonify(repository.phase4_graph(graph_name))
+
+    @app.post("/api/phase4/graphs/<graph_name>/edit-preview")
+    def phase4_edit_preview(graph_name: str):
+        return jsonify(
+            repository.preview_phase4_edit(
+                graph_name, request.get_json(silent=True) or {}
+            )
+        )
+
     @app.get("/api/phase1/review")
     def phase1_review():
         return jsonify(repository.phase1_review_manifest())

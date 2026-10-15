@@ -286,6 +286,13 @@ class DatasetStudioServiceTest(unittest.TestCase):
         self.assertEqual(geometry["selected_object_count"], 24)
         self.assertEqual(geometry["backends"]["colmap"]["version"], "4.2.1")
         self.assertEqual(geometry["backends"]["vggt"]["status"], "blocked")
+        phase4 = summary["phase4"]
+        self.assertEqual(phase4["ring01"]["node_count"], 10)
+        self.assertEqual(
+            phase4["synthetic_ten_stone_edit_benchmark"]["passed_case_count"],
+            30,
+        )
+        self.assertFalse(phase4["checks"]["phase4_exit_gate_passed"])
 
     def test_object_filters_preserve_object_level_splits(self) -> None:
         self.assertEqual(len(self.repository.list_objects("train")), 18)
@@ -297,9 +304,9 @@ class DatasetStudioServiceTest(unittest.TestCase):
         payload = self.repository.capabilities()
         self.assertEqual(payload["schema_version"], "studio_capabilities_v1")
         self.assertEqual(payload["execution_profile"], "images_only")
-        self.assertEqual(payload["summary"]["capability_count"], 9)
+        self.assertEqual(payload["summary"]["capability_count"], 10)
         self.assertEqual(payload["summary"]["working_count"], 4)
-        self.assertEqual(payload["summary"]["partial_count"], 4)
+        self.assertEqual(payload["summary"]["partial_count"], 5)
         self.assertEqual(payload["summary"]["blocked_count"], 1)
         indexed = {item["id"]: item for item in payload["capabilities"]}
         self.assertEqual(indexed["feature_extraction"]["status"], "implemented")
@@ -309,6 +316,12 @@ class DatasetStudioServiceTest(unittest.TestCase):
         )
         self.assertEqual(indexed["depth_evidence"]["status"], "partial")
         self.assertIn("4/20", indexed["depth_evidence"]["limitations"][0])
+        self.assertEqual(indexed["component_graph"]["status"], "partial")
+        self.assertTrue(
+            indexed["component_graph"]["checks"][
+                "synthetic_ten_stone_edit_test_passed"
+            ]
+        )
         self.assertEqual(indexed["parametric_cad"]["status"], "blocked")
         self.assertEqual(len(payload["remaining_gates"]), 4)
 
@@ -423,7 +436,7 @@ class DatasetStudioApiTest(unittest.TestCase):
         capabilities = self.client.get("/api/capabilities")
         self.assertEqual(capabilities.status_code, 200)
         self.assertEqual(
-            capabilities.get_json()["summary"]["capability_count"], 9
+            capabilities.get_json()["summary"]["capability_count"], 10
         )
         capabilities.close()
         environment = self.client.get("/api/artifacts/phase0_environment")
@@ -443,6 +456,9 @@ class DatasetStudioApiTest(unittest.TestCase):
             'id="metric-depth-color-convention"',
             'id="phase0-summary"',
             'id="phase0-limits"',
+            'data-panel="phase4"',
+            'id="phase4-status"',
+            'id="phase4-preview-edit"',
             'id="phase1-summary"',
             'id="phase1-review-console"',
             'id="phase1-reviewer"',
@@ -899,11 +915,52 @@ class DatasetStudioApiTest(unittest.TestCase):
         projection_noise_preview.close()
 
     def test_invalid_routes_fail_closed(self) -> None:
+        self.assertEqual(
+            self.client.get("/api/phase4/graphs/not-a-graph").status_code,
+            404,
+        )
         self.assertEqual(self.client.get("/api/objects/ring_999").status_code, 404)
         self.assertEqual(
             self.client.get("/api/objects/ring_001/assets/source?view=../../etc").status_code,
             404,
         )
+
+    def test_phase4_graph_and_dry_run_edit_routes(self) -> None:
+        ring01 = self.client.get("/api/phase4/graphs/ring01")
+        self.assertEqual(ring01.status_code, 200)
+        self.assertEqual(len(ring01.get_json()["nodes"]), 10)
+        ring01.close()
+        synthetic = self.client.get("/api/phase4/graphs/synthetic-ten-stone")
+        self.assertEqual(synthetic.status_code, 200)
+        self.assertEqual(
+            sum(
+                node["semantic_class"] == "round_gemstone"
+                for node in synthetic.get_json()["nodes"]
+            ),
+            10,
+        )
+        synthetic.close()
+        preview = self.client.post(
+            "/api/phase4/graphs/synthetic-ten-stone/edit-preview",
+            json={
+                "component_id": "stone_007",
+                "operation": "resize",
+                "parameters": {"diameter": 2.8, "depth": 1.5},
+            },
+        )
+        self.assertEqual(preview.status_code, 200)
+        payload = preview.get_json()
+        self.assertTrue(payload["dry_run"])
+        self.assertTrue(payload["graph_state_only"])
+        self.assertFalse(payload["geometry_generated"])
+        self.assertTrue(payload["audit"]["affected_set_exact"])
+        self.assertTrue(payload["audit"]["unrelated_geometry_state_unchanged"])
+        preview.close()
+        rejected = self.client.post(
+            "/api/phase4/graphs/synthetic-ten-stone/edit-preview",
+            json={"component_id": "stone_999", "operation": "resize"},
+        )
+        self.assertEqual(rejected.status_code, 400)
 
 
 if __name__ == "__main__":

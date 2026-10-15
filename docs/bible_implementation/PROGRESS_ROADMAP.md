@@ -105,6 +105,14 @@ replace or renumber the canonical [Project Bible roadmap](../bible_v1_0/19_DEVEL
 
 ## Remaining implementation
 
+Phase 4 now has a deterministic component-graph API and a Ring01 machine
+proposal with stable IDs, provenance, uncertainty and explicit
+stone-to-seat/cavity/prong dependencies. A synthetic ten-stone graph passes all
+30 remove/resize/replace locality cases without changing unrelated node state.
+This is a graph-state benchmark only: Ring01 has zero approved graph nodes, its
+four prongs still share an aggregate mask, and no CAD Boolean was regenerated.
+The Phase 4 exit gate therefore remains blocked.
+
 1. Build reviewed semantic component identities, then group dense
    correspondence by component and view direction. Image-plane fitting, rigid
    ICP, sparse VGGT tracks and denser reciprocal-cycle registration have all
@@ -118,8 +126,10 @@ replace or renumber the canonical [Project Bible roadmap](../bible_v1_0/19_DEVEL
    retaining uncertain pixels.
 5. Select a public-deployment-compatible independent normal comparator; DSINE
    remains blocked without a separate site/commercial licence.
-6. Build the universal jewellery component and constraint graph.
-7. Support independently editable stones, prongs, seats, cavities and relief geometry.
+6. Connect the component graph to independently editable stone, prong, seat,
+   cavity and relief geometry generators.
+7. Repeat the ten-stone locality benchmark on exported exact CAD, not only
+   graph state.
 8. Generate parametric CAD and refine it through render-and-compare validation.
 9. Export editable STEP plus derived STL and 3MF artifacts with explicit validation reports.
 

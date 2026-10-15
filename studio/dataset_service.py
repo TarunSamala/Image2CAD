@@ -12,6 +12,10 @@ from copy import deepcopy
 from pathlib import Path
 from typing import Any
 
+from pipeline.component_constraint_graph import (
+    ComponentGraphError,
+    apply_local_edit,
+)
 from pipeline.phase1_review import (
     LABELS as PHASE1_LABELS,
     VIEWS as PHASE1_VIEWS,
@@ -74,6 +78,21 @@ class DatasetRepository:
         )
         self.phase3_geometry = self._read_json(
             self.phase_root / "phase3_geometry_benchmark_v1" / "report.json"
+        )
+        self.phase4_component_graph = self._read_json(
+            self.repo_root / "data" / "phase4_component_graph_v1" / "report.json"
+        )
+        self.phase4_ring01_graph = self._read_json(
+            self.repo_root
+            / "data"
+            / "phase4_component_graph_v1"
+            / "ring01_component_graph.json"
+        )
+        self.phase4_synthetic_graph = self._read_json(
+            self.repo_root
+            / "data"
+            / "phase4_component_graph_v1"
+            / "synthetic_ten_stone_graph.json"
         )
         self.phase1_features = self._read_json(self.phase_root / "phase1_features.json")
         self.phase1_depth = self._read_json(
@@ -617,7 +636,47 @@ class DatasetRepository:
                     "claims": deepcopy(self.phase3_geometry.get("claims", {})),
                 },
             },
+            "phase4": deepcopy(self.phase4_component_graph),
             "limitations": deepcopy(self.dataset_report.get("limitations", [])),
+        }
+
+    def phase4_graph(self, graph_name: str) -> dict[str, Any]:
+        """Return a retained Phase 4 graph without exposing arbitrary paths."""
+        graphs = {
+            "ring01": self.phase4_ring01_graph,
+            "synthetic-ten-stone": self.phase4_synthetic_graph,
+        }
+        graph = graphs.get(graph_name)
+        if graph is None:
+            raise ObjectNotFoundError(f"Unknown Phase 4 graph: {graph_name}")
+        return deepcopy(graph)
+
+    def preview_phase4_edit(
+        self, graph_name: str, payload: dict[str, Any]
+    ) -> dict[str, Any]:
+        """Preview a graph-state edit in memory; never persist or generate CAD."""
+        component_id = str(payload.get("component_id", "")).strip()
+        operation = str(payload.get("operation", "")).strip()
+        parameters = payload.get("parameters", {})
+        if not component_id:
+            raise DatasetError("Component ID is required")
+        if not isinstance(parameters, dict):
+            raise DatasetError("Edit parameters must be a JSON object")
+        try:
+            edited, audit = apply_local_edit(
+                self.phase4_graph(graph_name),
+                component_id,
+                operation,
+                parameters,
+            )
+        except ComponentGraphError as exc:
+            raise DatasetError(str(exc)) from exc
+        return {
+            "dry_run": True,
+            "graph_state_only": True,
+            "geometry_generated": False,
+            "audit": audit,
+            "graph": edited,
         }
 
     def capabilities(self) -> dict[str, Any]:
@@ -830,6 +889,28 @@ class DatasetRepository:
                 ],
             },
             {
+                "id": "component_graph",
+                "title": "Component and constraint graph",
+                "phase": "Bible Phase 4",
+                "status": "partial",
+                "coverage": f"{int(self.phase4_component_graph.get('ring01', {}).get('node_count', 0))} Ring01 proposal nodes · 30 synthetic edit cases",
+                "summary": "Stable-ID graph API, provenance, dependencies and dry-run local edits are implemented; reviewed component evidence and CAD generators remain blocked.",
+                "functions": [
+                    "Inspect Ring01 machine-proposal component dependencies",
+                    "Preview remove, resize and replace transactions without persistence",
+                    "Verify stable IDs and unchanged unrelated graph state",
+                ],
+                "limitations": [
+                    "Ring01 component identities remain pending human review.",
+                    "The ten-stone locality result covers graph state, not CAD Boolean geometry.",
+                ],
+                "checks": deepcopy(self.phase4_component_graph.get("checks", {})),
+                "actions": [
+                    {"label": "Graph report", "href": "/api/artifacts/phase4_component_graph_report"},
+                    {"label": "Ring01 graph", "href": "/api/phase4/graphs/ring01"},
+                ],
+            },
+            {
                 "id": "parametric_cad",
                 "title": "Editable structural CAD",
                 "phase": "Bible Phase 4+",
@@ -856,9 +937,9 @@ class DatasetRepository:
             {
                 "id": "component_graph",
                 "title": "Universal jewellery component graph",
-                "status": "not_implemented",
-                "evidence": "Image-space masks and reviewer inventories exist.",
-                "requirement": "Create persistent identities and constraints for metal, stones, prongs, seats, cavities, chains and sculptural relief.",
+                "status": "partial_review_blocked",
+                "evidence": "Stable-ID API and 30-case synthetic locality benchmark exist; Ring01 graph has 10 pending proposal nodes.",
+                "requirement": "Approve or correct image-space component identities, add individual instance masks, then validate local CAD regeneration.",
             },
             {
                 "id": "exact_cad",
@@ -1574,6 +1655,18 @@ class DatasetRepository:
             "phase3_geometry_report": self.phase_root
             / "phase3_geometry_benchmark_v1"
             / "report.json",
+            "phase4_component_graph_report": self.repo_root
+            / "data"
+            / "phase4_component_graph_v1"
+            / "report.json",
+            "phase4_ring01_graph": self.repo_root
+            / "data"
+            / "phase4_component_graph_v1"
+            / "ring01_component_graph.json",
+            "phase4_synthetic_graph": self.repo_root
+            / "data"
+            / "phase4_component_graph_v1"
+            / "synthetic_ten_stone_graph.json",
             "cross_view_readiness_report": self.phase_root
             / "cross_view_backend_readiness_v1"
             / "report.json",

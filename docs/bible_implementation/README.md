@@ -15,7 +15,8 @@ cannot apply under this constraint.
 | Phase 2 - Real Paired Benchmark | Not applicable to the image-only profile | [Retained guardrail](phase_2_paired_benchmark/README.md); not an active collection request |
 | Image-only Phase 2 - Reflection, depth and normal evidence | Machine-reviewed research may continue; human and metric-scale gates blocked | [Machine-review checkpoint](../../data/ring01_image_only/machine_review_v1/MACHINE_REVIEW.md), [metric-depth consensus](image_only_phase_2/METRIC_DEPTH_CONSENSUS.md), [surface-normal evidence](image_only_phase_2/SURFACE_NORMAL_EVIDENCE.md), [Ring01 correction report](../../data/ring01_image_only/reflection_correction_v1/report.json) |
 | Phase 3 - Camera / Geometry Evidence Benchmark | Partial research implementation | [Benchmark contract](phase_3_geometry_benchmark/README.md) |
-| Phase 4-9 | Not started | Defined in the canonical roadmap |
+| Phase 4 - Universal Component & Constraint Graph | Partial foundation; reviewed evidence and CAD locality blocked | [Graph API and synthetic edit benchmark](phase_4_component_graph/README.md) |
+| Phase 5-9 | Not started | Defined in the canonical roadmap |
 
 Phase 1 machine proposals are ready, but identified human review, one known
 physical dimension for Ring01 and the remaining ground-truth decisions are not
