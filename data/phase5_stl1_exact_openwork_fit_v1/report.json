@@ -1,0 +1,2808 @@
+{
+  "schema_version": "lalitha_phase5_stl1_exact_openwork_fit_v1",
+  "created_at_utc": "2026-10-16T17:48:59.646614+00:00",
+  "execution_profile": "ring_only_front_negative_space_exact_cut_trials",
+  "scope": {
+    "included": [
+      "Phase 5.2 exact shank and head-support envelope",
+      "Phase 4 front-view negative-space candidates",
+      "valid connected exact Boolean cut trials"
+    ],
+    "excluded": [
+      "semantic stone classification",
+      "relief or face reconstruction",
+      "cross-view opening identity",
+      "manufacturing scale"
+    ]
+  },
+  "summary": {
+    "object_count": 24,
+    "input_candidate_count": 168,
+    "accepted_opening_count": 168,
+    "rejected_opening_count": 0,
+    "train_mean_filled_baseline_iou": 0.972574,
+    "train_mean_openwork_iou": 0.98862,
+    "train_mean_iou_delta": 0.016046,
+    "validation_mean_filled_baseline_iou": 0.973288,
+    "validation_mean_openwork_iou": 0.987284,
+    "validation_mean_iou_delta": 0.013996,
+    "validation_mean_openwork_boundary_f1": 0.969656,
+    "test_held_out_count": 3
+  },
+  "checks": {
+    "all_24_ring_candidates_generated": true,
+    "all_front_candidates_trialed": true,
+    "all_heads_valid_single_solids": true,
+    "all_metals_valid_single_solids": true,
+    "all_step_exports_present": true,
+    "all_validation_geometry_previews_present": true,
+    "held_out_test_not_scored": true,
+    "candidate_semantics_not_promoted": true,
+    "ring_only_scope_enforced": true
+  },
+  "objects": [
+    {
+      "object_id": "ring_001",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "scored",
+      "source_front_image": "dataset/prepared_v1/images/ring_001/front.png",
+      "ring_body_spec": {
+        "object_id": "ring_001",
+        "inner_width": 16.803599000000002,
+        "inner_height": 16.347447600000002,
+        "radial_thickness": 1.5732650000000001,
+        "axial_depth": 1.4474038000000002,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_support_spec": {
+        "component_id": "ring_001_head_support_001",
+        "height": 10.302366413637353,
+        "base_z": 8.409713550000001,
+        "shoulder_radius": 0.9754243,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "input_candidate_count": 6,
+      "accepted_opening_count": 6,
+      "rejected_opening_count": 0,
+      "opening_candidates": [
+        {
+          "component_id": "ring_001_front_negative_space_001",
+          "candidate_subtype": "decorative_openwork",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 156,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.61887973
+        },
+        {
+          "component_id": "ring_001_front_negative_space_002",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 106,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 0.91998143
+        },
+        {
+          "component_id": "ring_001_front_negative_space_003",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 106,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 0.95282715
+        },
+        {
+          "component_id": "ring_001_front_negative_space_004",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 105,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 0.91160756
+        },
+        {
+          "component_id": "ring_001_front_negative_space_005",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 106,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 0.95483909
+        },
+        {
+          "component_id": "ring_001_front_negative_space_006",
+          "candidate_subtype": "decorative_openwork",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 157,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.63104104
+        }
+      ],
+      "exact_geometry": {
+        "head_support_valid": true,
+        "head_support_solid_count": 1,
+        "metal_valid": true,
+        "metal_solid_count": 1
+      },
+      "metrics": {
+        "filled_baseline_iou": 0.986891,
+        "openwork_iou": 0.990589,
+        "iou_delta": 0.003699,
+        "openwork_boundary_f1": 0.992211
+      },
+      "artifacts": {
+        "front_target": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_001/front_openwork_target.png",
+        "front_baseline": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_001/front_filled_baseline.png",
+        "front_render": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_001/front_exact_openwork_render.png",
+        "step": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_001/ring_001_shank_head_openwork.step"
+      }
+    },
+    {
+      "object_id": "ring_002",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "scored",
+      "source_front_image": "dataset/prepared_v1/images/ring_002/front.png",
+      "ring_body_spec": {
+        "object_id": "ring_002",
+        "inner_width": 16.930373200000002,
+        "inner_height": 16.2055176,
+        "radial_thickness": 1.5818638000000003,
+        "axial_depth": 1.4553146960000003,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_support_spec": {
+        "component_id": "ring_002_head_support_001",
+        "height": 9.590003811701926,
+        "base_z": 8.34003837,
+        "shoulder_radius": 0.9807555560000002,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "input_candidate_count": 3,
+      "accepted_opening_count": 3,
+      "rejected_opening_count": 0,
+      "opening_candidates": [
+        {
+          "component_id": "ring_002_front_negative_space_001",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 129,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 0.70036684
+        },
+        {
+          "component_id": "ring_002_front_negative_space_002",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 138,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 0.67058275
+        },
+        {
+          "component_id": "ring_002_front_negative_space_003",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 138,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 0.66804955
+        }
+      ],
+      "exact_geometry": {
+        "head_support_valid": true,
+        "head_support_solid_count": 1,
+        "metal_valid": true,
+        "metal_solid_count": 1
+      },
+      "metrics": {
+        "filled_baseline_iou": 0.984386,
+        "openwork_iou": 0.986556,
+        "iou_delta": 0.00217,
+        "openwork_boundary_f1": 0.955238
+      },
+      "artifacts": {
+        "front_target": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_002/front_openwork_target.png",
+        "front_baseline": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_002/front_filled_baseline.png",
+        "front_render": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_002/front_exact_openwork_render.png",
+        "step": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_002/ring_002_shank_head_openwork.step"
+      }
+    },
+    {
+      "object_id": "ring_003",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "scored",
+      "source_front_image": "dataset/prepared_v1/images/ring_003/front.png",
+      "ring_body_spec": {
+        "object_id": "ring_003",
+        "inner_width": 16.802204600000003,
+        "inner_height": 16.468893200000004,
+        "radial_thickness": 1.5544738000000002,
+        "axial_depth": 1.4301158960000002,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_support_spec": {
+        "component_id": "ring_003_head_support_001",
+        "height": 10.933178259874774,
+        "base_z": 8.467617670000003,
+        "shoulder_radius": 0.9637737560000001,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "input_candidate_count": 19,
+      "accepted_opening_count": 19,
+      "rejected_opening_count": 0,
+      "opening_candidates": [
+        {
+          "component_id": "ring_003_front_negative_space_001",
+          "candidate_subtype": "decorative_openwork",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 2444,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 28.23389289
+        },
+        {
+          "component_id": "ring_003_front_negative_space_002",
+          "candidate_subtype": "decorative_openwork",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 2453,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 27.96486489
+        },
+        {
+          "component_id": "ring_003_front_negative_space_003",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 114,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 0.84408105
+        },
+        {
+          "component_id": "ring_003_front_negative_space_004",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 114,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 0.86167028
+        },
+        {
+          "component_id": "ring_003_front_negative_space_005",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 242,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 2.47694633
+        },
+        {
+          "component_id": "ring_003_front_negative_space_006",
+          "candidate_subtype": "decorative_openwork",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 470,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 4.88133662
+        },
+        {
+          "component_id": "ring_003_front_negative_space_007",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 438,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 3.59505352
+        },
+        {
+          "component_id": "ring_003_front_negative_space_008",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 442,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 3.56062587
+        },
+        {
+          "component_id": "ring_003_front_negative_space_009",
+          "candidate_subtype": "decorative_openwork",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 391,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 4.33758931
+        },
+        {
+          "component_id": "ring_003_front_negative_space_010",
+          "candidate_subtype": "decorative_openwork",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 205,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 2.12265982
+        },
+        {
+          "component_id": "ring_003_front_negative_space_011",
+          "candidate_subtype": "decorative_openwork",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 82,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 0.5628997
+        },
+        {
+          "component_id": "ring_003_front_negative_space_012",
+          "candidate_subtype": "decorative_openwork",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 79,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 0.54731538
+        },
+        {
+          "component_id": "ring_003_front_negative_space_013",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 70,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 0.57079309
+        },
+        {
+          "component_id": "ring_003_front_negative_space_014",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 69,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 0.57536823
+        },
+        {
+          "component_id": "ring_003_front_negative_space_015",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 80,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 0.75262459
+        },
+        {
+          "component_id": "ring_003_front_negative_space_016",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 79,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 0.74610174
+        },
+        {
+          "component_id": "ring_003_front_negative_space_017",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 103,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.06545259
+        },
+        {
+          "component_id": "ring_003_front_negative_space_018",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 102,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.05656528
+        },
+        {
+          "component_id": "ring_003_front_negative_space_019",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 107,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.18168461
+        }
+      ],
+      "exact_geometry": {
+        "head_support_valid": true,
+        "head_support_solid_count": 1,
+        "metal_valid": true,
+        "metal_solid_count": 1
+      },
+      "metrics": {
+        "filled_baseline_iou": 0.951093,
+        "openwork_iou": 0.992927,
+        "iou_delta": 0.041834,
+        "openwork_boundary_f1": 0.999737
+      },
+      "artifacts": {
+        "front_target": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_003/front_openwork_target.png",
+        "front_baseline": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_003/front_filled_baseline.png",
+        "front_render": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_003/front_exact_openwork_render.png",
+        "step": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_003/ring_003_shank_head_openwork.step"
+      }
+    },
+    {
+      "object_id": "ring_004",
+      "category": "ring",
+      "split": "val",
+      "evaluation_status": "scored",
+      "source_front_image": "dataset/prepared_v1/images/ring_004/front.png",
+      "ring_body_spec": {
+        "object_id": "ring_004",
+        "inner_width": 16.917807,
+        "inner_height": 16.2489266,
+        "radial_thickness": 1.8894452000000004,
+        "axial_depth": 1.7382895840000003,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_support_spec": {
+        "component_id": "ring_004_head_support_001",
+        "height": 8.455257901870178,
+        "base_z": 8.40788008,
+        "shoulder_radius": 1.1714560240000003,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "input_candidate_count": 14,
+      "accepted_opening_count": 14,
+      "rejected_opening_count": 0,
+      "opening_candidates": [
+        {
+          "component_id": "ring_004_front_negative_space_001",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 238,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.82034724
+        },
+        {
+          "component_id": "ring_004_front_negative_space_002",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 224,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.26729893
+        },
+        {
+          "component_id": "ring_004_front_negative_space_003",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 225,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.30051649
+        },
+        {
+          "component_id": "ring_004_front_negative_space_004",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 202,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.09874215
+        },
+        {
+          "component_id": "ring_004_front_negative_space_005",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 196,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.07792935
+        },
+        {
+          "component_id": "ring_004_front_negative_space_006",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 161,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 0.80493283
+        },
+        {
+          "component_id": "ring_004_front_negative_space_007",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 161,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 0.80271283
+        },
+        {
+          "component_id": "ring_004_front_negative_space_008",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 88,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 0.41724577
+        },
+        {
+          "component_id": "ring_004_front_negative_space_009",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 77,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 0.36416641
+        },
+        {
+          "component_id": "ring_004_front_negative_space_010",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 194,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.06972702
+        },
+        {
+          "component_id": "ring_004_front_negative_space_011",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 194,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.0547237
+        },
+        {
+          "component_id": "ring_004_front_negative_space_012",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 226,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.30903619
+        },
+        {
+          "component_id": "ring_004_front_negative_space_013",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 229,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.29854455
+        },
+        {
+          "component_id": "ring_004_front_negative_space_014",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 237,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.81352913
+        }
+      ],
+      "exact_geometry": {
+        "head_support_valid": true,
+        "head_support_solid_count": 1,
+        "metal_valid": true,
+        "metal_solid_count": 1
+      },
+      "metrics": {
+        "filled_baseline_iou": 0.972591,
+        "openwork_iou": 0.987338,
+        "iou_delta": 0.014746,
+        "openwork_boundary_f1": 0.961867
+      },
+      "artifacts": {
+        "front_target": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_004/front_openwork_target.png",
+        "front_baseline": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_004/front_filled_baseline.png",
+        "front_render": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_004/front_exact_openwork_render.png",
+        "step": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_004/ring_004_shank_head_openwork.step",
+        "geometry_preview": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_004/ring_004_openwork_geometry_preview.png"
+      }
+    },
+    {
+      "object_id": "ring_005",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "scored",
+      "source_front_image": "dataset/prepared_v1/images/ring_005/front.png",
+      "ring_body_spec": {
+        "object_id": "ring_005",
+        "inner_width": 17.086297000000002,
+        "inner_height": 16.066559,
+        "radial_thickness": 1.6106648000000001,
+        "axial_depth": 1.481811616,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_support_spec": {
+        "component_id": "ring_005_head_support_001",
+        "height": 9.713523310694521,
+        "base_z": 8.27487922,
+        "shoulder_radius": 0.9986121760000001,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "input_candidate_count": 3,
+      "accepted_opening_count": 3,
+      "rejected_opening_count": 0,
+      "opening_candidates": [
+        {
+          "component_id": "ring_005_front_negative_space_001",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 115,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 0.75438078
+        },
+        {
+          "component_id": "ring_005_front_negative_space_002",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 113,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 0.73161213
+        },
+        {
+          "component_id": "ring_005_front_negative_space_003",
+          "candidate_subtype": "decorative_openwork",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 147,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.05608665
+        }
+      ],
+      "exact_geometry": {
+        "head_support_valid": true,
+        "head_support_solid_count": 1,
+        "metal_valid": true,
+        "metal_solid_count": 1
+      },
+      "metrics": {
+        "filled_baseline_iou": 0.989158,
+        "openwork_iou": 0.991236,
+        "iou_delta": 0.002077,
+        "openwork_boundary_f1": 0.989362
+      },
+      "artifacts": {
+        "front_target": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_005/front_openwork_target.png",
+        "front_baseline": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_005/front_filled_baseline.png",
+        "front_render": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_005/front_exact_openwork_render.png",
+        "step": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_005/ring_005_shank_head_openwork.step"
+      }
+    },
+    {
+      "object_id": "ring_006",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "scored",
+      "source_front_image": "dataset/prepared_v1/images/ring_006/front.png",
+      "ring_body_spec": {
+        "object_id": "ring_006",
+        "inner_width": 17.0766524,
+        "inner_height": 16.054507400000002,
+        "radial_thickness": 1.6172218,
+        "axial_depth": 1.4878440560000001,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_support_spec": {
+        "component_id": "ring_006_head_support_001",
+        "height": 11.268423618057763,
+        "base_z": 8.269836970000002,
+        "shoulder_radius": 1.002677516,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "input_candidate_count": 11,
+      "accepted_opening_count": 11,
+      "rejected_opening_count": 0,
+      "opening_candidates": [
+        {
+          "component_id": "ring_006_front_negative_space_001",
+          "candidate_subtype": "decorative_openwork",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 99,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 0.86235835
+        },
+        {
+          "component_id": "ring_006_front_negative_space_002",
+          "candidate_subtype": "decorative_openwork",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 2208,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 20.06721321
+        },
+        {
+          "component_id": "ring_006_front_negative_space_003",
+          "candidate_subtype": "decorative_openwork",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 2178,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 20.34892797
+        },
+        {
+          "component_id": "ring_006_front_negative_space_004",
+          "candidate_subtype": "decorative_openwork",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 782,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 6.71775575
+        },
+        {
+          "component_id": "ring_006_front_negative_space_005",
+          "candidate_subtype": "decorative_openwork",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 670,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 5.92054837
+        },
+        {
+          "component_id": "ring_006_front_negative_space_006",
+          "candidate_subtype": "decorative_openwork",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 390,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 3.34516208
+        },
+        {
+          "component_id": "ring_006_front_negative_space_007",
+          "candidate_subtype": "decorative_openwork",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 332,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 2.5694708
+        },
+        {
+          "component_id": "ring_006_front_negative_space_008",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 88,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 0.64499819
+        },
+        {
+          "component_id": "ring_006_front_negative_space_009",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 88,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 0.63927009
+        },
+        {
+          "component_id": "ring_006_front_negative_space_010",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 241,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 2.04440423
+        },
+        {
+          "component_id": "ring_006_front_negative_space_011",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 240,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 2.03304452
+        }
+      ],
+      "exact_geometry": {
+        "head_support_valid": true,
+        "head_support_solid_count": 1,
+        "metal_valid": true,
+        "metal_solid_count": 1
+      },
+      "metrics": {
+        "filled_baseline_iou": 0.951225,
+        "openwork_iou": 0.983883,
+        "iou_delta": 0.032658,
+        "openwork_boundary_f1": 0.969158
+      },
+      "artifacts": {
+        "front_target": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_006/front_openwork_target.png",
+        "front_baseline": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_006/front_filled_baseline.png",
+        "front_render": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_006/front_exact_openwork_render.png",
+        "step": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_006/ring_006_shank_head_openwork.step"
+      }
+    },
+    {
+      "object_id": "ring_007",
+      "category": "ring",
+      "split": "test",
+      "evaluation_status": "held_out_not_scored",
+      "source_front_image": "dataset/prepared_v1/images/ring_007/front.png",
+      "ring_body_spec": {
+        "object_id": "ring_007",
+        "inner_width": 17.166973,
+        "inner_height": 15.976985400000002,
+        "radial_thickness": 1.6059006,
+        "axial_depth": 1.4774285520000001,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_support_spec": {
+        "component_id": "ring_007_head_support_001",
+        "height": 12.044299805356376,
+        "base_z": 8.229377790000001,
+        "shoulder_radius": 0.995658372,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "input_candidate_count": 1,
+      "accepted_opening_count": 1,
+      "rejected_opening_count": 0,
+      "opening_candidates": [
+        {
+          "component_id": "ring_007_front_negative_space_001",
+          "candidate_subtype": "decorative_openwork",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 54,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 0.73024875
+        }
+      ],
+      "exact_geometry": {
+        "head_support_valid": true,
+        "head_support_solid_count": 1,
+        "metal_valid": true,
+        "metal_solid_count": 1
+      },
+      "metrics": null,
+      "artifacts": {
+        "front_target": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_007/front_openwork_target.png",
+        "front_baseline": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_007/front_filled_baseline.png",
+        "front_render": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_007/front_exact_openwork_render.png",
+        "step": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_007/ring_007_shank_head_openwork.step"
+      }
+    },
+    {
+      "object_id": "ring_008",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "scored",
+      "source_front_image": "dataset/prepared_v1/images/ring_008/front.png",
+      "ring_body_spec": {
+        "object_id": "ring_008",
+        "inner_width": 16.725911,
+        "inner_height": 16.4005842,
+        "radial_thickness": 1.9200390000000003,
+        "axial_depth": 1.7664358800000004,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_support_spec": {
+        "component_id": "ring_008_head_support_001",
+        "height": 9.675037238258156,
+        "base_z": 8.48829795,
+        "shoulder_radius": 1.1904241800000002,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "input_candidate_count": 12,
+      "accepted_opening_count": 12,
+      "rejected_opening_count": 0,
+      "opening_candidates": [
+        {
+          "component_id": "ring_008_front_negative_space_001",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 213,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 2.29194992
+        },
+        {
+          "component_id": "ring_008_front_negative_space_002",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 204,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.84758092
+        },
+        {
+          "component_id": "ring_008_front_negative_space_003",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 205,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.86629481
+        },
+        {
+          "component_id": "ring_008_front_negative_space_004",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 179,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.58572649
+        },
+        {
+          "component_id": "ring_008_front_negative_space_005",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 181,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.55285405
+        },
+        {
+          "component_id": "ring_008_front_negative_space_006",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 115,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 0.88061418
+        },
+        {
+          "component_id": "ring_008_front_negative_space_007",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 115,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 0.88512089
+        },
+        {
+          "component_id": "ring_008_front_negative_space_008",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 164,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.42652413
+        },
+        {
+          "component_id": "ring_008_front_negative_space_009",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 171,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.45452782
+        },
+        {
+          "component_id": "ring_008_front_negative_space_010",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 204,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.86134654
+        },
+        {
+          "component_id": "ring_008_front_negative_space_011",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 198,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.77931102
+        },
+        {
+          "component_id": "ring_008_front_negative_space_012",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 215,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 2.31520101
+        }
+      ],
+      "exact_geometry": {
+        "head_support_valid": true,
+        "head_support_solid_count": 1,
+        "metal_valid": true,
+        "metal_solid_count": 1
+      },
+      "metrics": {
+        "filled_baseline_iou": 0.980683,
+        "openwork_iou": 0.993028,
+        "iou_delta": 0.012345,
+        "openwork_boundary_f1": 0.987712
+      },
+      "artifacts": {
+        "front_target": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_008/front_openwork_target.png",
+        "front_baseline": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_008/front_filled_baseline.png",
+        "front_render": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_008/front_exact_openwork_render.png",
+        "step": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_008/ring_008_shank_head_openwork.step"
+      }
+    },
+    {
+      "object_id": "ring_009",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "scored",
+      "source_front_image": "dataset/prepared_v1/images/ring_009/front.png",
+      "ring_body_spec": {
+        "object_id": "ring_009",
+        "inner_width": 16.9745292,
+        "inner_height": 16.1519328,
+        "radial_thickness": 1.6531442,
+        "axial_depth": 1.5208926640000002,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_support_spec": {
+        "component_id": "ring_009_head_support_001",
+        "height": 10.57008634782181,
+        "base_z": 8.32393803,
+        "shoulder_radius": 1.024949404,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "input_candidate_count": 1,
+      "accepted_opening_count": 1,
+      "rejected_opening_count": 0,
+      "opening_candidates": [
+        {
+          "component_id": "ring_009_front_negative_space_001",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 608,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 4.76250803
+        }
+      ],
+      "exact_geometry": {
+        "head_support_valid": true,
+        "head_support_solid_count": 1,
+        "metal_valid": true,
+        "metal_solid_count": 1
+      },
+      "metrics": {
+        "filled_baseline_iou": 0.986122,
+        "openwork_iou": 0.988893,
+        "iou_delta": 0.002771,
+        "openwork_boundary_f1": 0.972686
+      },
+      "artifacts": {
+        "front_target": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_009/front_openwork_target.png",
+        "front_baseline": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_009/front_filled_baseline.png",
+        "front_render": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_009/front_exact_openwork_render.png",
+        "step": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_009/ring_009_shank_head_openwork.step"
+      }
+    },
+    {
+      "object_id": "ring_010",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "scored",
+      "source_front_image": "dataset/prepared_v1/images/ring_010/front.png",
+      "ring_body_spec": {
+        "object_id": "ring_010",
+        "inner_width": 17.2385854,
+        "inner_height": 15.9155654,
+        "radial_thickness": 1.7072436000000002,
+        "axial_depth": 1.5706641120000002,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_support_spec": {
+        "component_id": "ring_010_head_support_001",
+        "height": 11.53680617648278,
+        "base_z": 8.21386924,
+        "shoulder_radius": 1.058491032,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "input_candidate_count": 2,
+      "accepted_opening_count": 2,
+      "rejected_opening_count": 0,
+      "opening_candidates": [
+        {
+          "component_id": "ring_010_front_negative_space_001",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 289,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 4.49642444
+        },
+        {
+          "component_id": "ring_010_front_negative_space_002",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 288,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 4.48518351
+        }
+      ],
+      "exact_geometry": {
+        "head_support_valid": true,
+        "head_support_solid_count": 1,
+        "metal_valid": true,
+        "metal_solid_count": 1
+      },
+      "metrics": {
+        "filled_baseline_iou": 0.986518,
+        "openwork_iou": 0.990309,
+        "iou_delta": 0.003791,
+        "openwork_boundary_f1": 0.99823
+      },
+      "artifacts": {
+        "front_target": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_010/front_openwork_target.png",
+        "front_baseline": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_010/front_filled_baseline.png",
+        "front_render": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_010/front_exact_openwork_render.png",
+        "step": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_010/ring_010_shank_head_openwork.step"
+      }
+    },
+    {
+      "object_id": "ring_011",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "scored",
+      "source_front_image": "dataset/prepared_v1/images/ring_011/front.png",
+      "ring_body_spec": {
+        "object_id": "ring_011",
+        "inner_width": 17.1979818,
+        "inner_height": 15.978960800000001,
+        "radial_thickness": 1.5879228000000003,
+        "axial_depth": 1.4608889760000003,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_support_spec": {
+        "component_id": "ring_011_head_support_001",
+        "height": 10.756842289757119,
+        "base_z": 8.22766882,
+        "shoulder_radius": 0.9845121360000002,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "input_candidate_count": 1,
+      "accepted_opening_count": 1,
+      "rejected_opening_count": 0,
+      "opening_candidates": [
+        {
+          "component_id": "ring_011_front_negative_space_001",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 1456,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 13.61158059
+        }
+      ],
+      "exact_geometry": {
+        "head_support_valid": true,
+        "head_support_solid_count": 1,
+        "metal_valid": true,
+        "metal_solid_count": 1
+      },
+      "metrics": {
+        "filled_baseline_iou": 0.982796,
+        "openwork_iou": 0.989776,
+        "iou_delta": 0.00698,
+        "openwork_boundary_f1": 0.99535
+      },
+      "artifacts": {
+        "front_target": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_011/front_openwork_target.png",
+        "front_baseline": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_011/front_filled_baseline.png",
+        "front_render": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_011/front_exact_openwork_render.png",
+        "step": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_011/ring_011_shank_head_openwork.step"
+      }
+    },
+    {
+      "object_id": "ring_012",
+      "category": "ring",
+      "split": "val",
+      "evaluation_status": "scored",
+      "source_front_image": "dataset/prepared_v1/images/ring_012/front.png",
+      "ring_body_spec": {
+        "object_id": "ring_012",
+        "inner_width": 17.1700108,
+        "inner_height": 15.985136000000002,
+        "radial_thickness": 1.5775146000000002,
+        "axial_depth": 1.4513134320000003,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_support_spec": {
+        "component_id": "ring_012_head_support_001",
+        "height": 10.584563544627112,
+        "base_z": 8.22919519,
+        "shoulder_radius": 0.9780590520000001,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "input_candidate_count": 0,
+      "accepted_opening_count": 0,
+      "rejected_opening_count": 0,
+      "opening_candidates": [],
+      "exact_geometry": {
+        "head_support_valid": true,
+        "head_support_solid_count": 1,
+        "metal_valid": true,
+        "metal_solid_count": 1
+      },
+      "metrics": {
+        "filled_baseline_iou": 0.990246,
+        "openwork_iou": 0.990246,
+        "iou_delta": 0.0,
+        "openwork_boundary_f1": 0.988994
+      },
+      "artifacts": {
+        "front_target": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_012/front_openwork_target.png",
+        "front_baseline": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_012/front_filled_baseline.png",
+        "front_render": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_012/front_exact_openwork_render.png",
+        "step": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_012/ring_012_shank_head_openwork.step",
+        "geometry_preview": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_012/ring_012_openwork_geometry_preview.png"
+      }
+    },
+    {
+      "object_id": "ring_013",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "scored",
+      "source_front_image": "dataset/prepared_v1/images/ring_013/front.png",
+      "ring_body_spec": {
+        "object_id": "ring_013",
+        "inner_width": 17.2422872,
+        "inner_height": 15.9320824,
+        "radial_thickness": 1.8009672000000003,
+        "axial_depth": 1.6568898240000003,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_support_spec": {
+        "component_id": "ring_013_head_support_001",
+        "height": 9.394272068534379,
+        "base_z": 8.23618628,
+        "shoulder_radius": 1.1165996640000002,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "input_candidate_count": 6,
+      "accepted_opening_count": 6,
+      "rejected_opening_count": 0,
+      "opening_candidates": [
+        {
+          "component_id": "ring_013_front_negative_space_001",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 137,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 0.87097131
+        },
+        {
+          "component_id": "ring_013_front_negative_space_002",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 137,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 0.87051237
+        },
+        {
+          "component_id": "ring_013_front_negative_space_003",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 198,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.29969105
+        },
+        {
+          "component_id": "ring_013_front_negative_space_004",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 195,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.27920841
+        },
+        {
+          "component_id": "ring_013_front_negative_space_005",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 214,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.40279083
+        },
+        {
+          "component_id": "ring_013_front_negative_space_006",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 208,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.36447696
+        }
+      ],
+      "exact_geometry": {
+        "head_support_valid": true,
+        "head_support_solid_count": 1,
+        "metal_valid": true,
+        "metal_solid_count": 1
+      },
+      "metrics": {
+        "filled_baseline_iou": 0.979462,
+        "openwork_iou": 0.984889,
+        "iou_delta": 0.005427,
+        "openwork_boundary_f1": 0.95576
+      },
+      "artifacts": {
+        "front_target": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_013/front_openwork_target.png",
+        "front_baseline": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_013/front_filled_baseline.png",
+        "front_render": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_013/front_exact_openwork_render.png",
+        "step": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_013/ring_013_shank_head_openwork.step"
+      }
+    },
+    {
+      "object_id": "ring_014",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "scored",
+      "source_front_image": "dataset/prepared_v1/images/ring_014/front.png",
+      "ring_body_spec": {
+        "object_id": "ring_014",
+        "inner_width": 17.181099600000003,
+        "inner_height": 15.967374000000001,
+        "radial_thickness": 1.6252230000000003,
+        "axial_depth": 1.4952051600000003,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_support_spec": {
+        "component_id": "ring_014_head_support_001",
+        "height": 9.603557321399647,
+        "base_z": 8.22747045,
+        "shoulder_radius": 1.0076382600000002,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "input_candidate_count": 5,
+      "accepted_opening_count": 5,
+      "rejected_opening_count": 0,
+      "opening_candidates": [
+        {
+          "component_id": "ring_014_front_negative_space_001",
+          "candidate_subtype": "decorative_openwork",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 531,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 4.44322479
+        },
+        {
+          "component_id": "ring_014_front_negative_space_002",
+          "candidate_subtype": "decorative_openwork",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 533,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 4.46925374
+        },
+        {
+          "component_id": "ring_014_front_negative_space_003",
+          "candidate_subtype": "decorative_openwork",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 186,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.42931886
+        },
+        {
+          "component_id": "ring_014_front_negative_space_004",
+          "candidate_subtype": "decorative_openwork",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 187,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.44148612
+        },
+        {
+          "component_id": "ring_014_front_negative_space_005",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 1218,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 11.0309848
+        }
+      ],
+      "exact_geometry": {
+        "head_support_valid": true,
+        "head_support_solid_count": 1,
+        "metal_valid": true,
+        "metal_solid_count": 1
+      },
+      "metrics": {
+        "filled_baseline_iou": 0.97536,
+        "openwork_iou": 0.988704,
+        "iou_delta": 0.013343,
+        "openwork_boundary_f1": 0.995111
+      },
+      "artifacts": {
+        "front_target": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_014/front_openwork_target.png",
+        "front_baseline": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_014/front_filled_baseline.png",
+        "front_render": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_014/front_exact_openwork_render.png",
+        "step": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_014/ring_014_shank_head_openwork.step"
+      }
+    },
+    {
+      "object_id": "ring_015",
+      "category": "ring",
+      "split": "test",
+      "evaluation_status": "held_out_not_scored",
+      "source_front_image": "dataset/prepared_v1/images/ring_015/front.png",
+      "ring_body_spec": {
+        "object_id": "ring_015",
+        "inner_width": 16.9754754,
+        "inner_height": 16.162258,
+        "radial_thickness": 1.5740286,
+        "axial_depth": 1.4481063120000002,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_support_spec": {
+        "component_id": "ring_015_head_support_001",
+        "height": 9.444123602101104,
+        "base_z": 8.31723329,
+        "shoulder_radius": 0.9758977320000001,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "input_candidate_count": 3,
+      "accepted_opening_count": 3,
+      "rejected_opening_count": 0,
+      "opening_candidates": [
+        {
+          "component_id": "ring_015_front_negative_space_001",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 155,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 0.92903626
+        },
+        {
+          "component_id": "ring_015_front_negative_space_002",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 103,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 0.53348835
+        },
+        {
+          "component_id": "ring_015_front_negative_space_003",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 104,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 0.53251683
+        }
+      ],
+      "exact_geometry": {
+        "head_support_valid": true,
+        "head_support_solid_count": 1,
+        "metal_valid": true,
+        "metal_solid_count": 1
+      },
+      "metrics": null,
+      "artifacts": {
+        "front_target": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_015/front_openwork_target.png",
+        "front_baseline": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_015/front_filled_baseline.png",
+        "front_render": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_015/front_exact_openwork_render.png",
+        "step": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_015/ring_015_shank_head_openwork.step"
+      }
+    },
+    {
+      "object_id": "ring_016",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "scored",
+      "source_front_image": "dataset/prepared_v1/images/ring_016/front.png",
+      "ring_body_spec": {
+        "object_id": "ring_016",
+        "inner_width": 16.9473882,
+        "inner_height": 16.181447600000002,
+        "radial_thickness": 1.5490954000000001,
+        "axial_depth": 1.4251677680000001,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_support_spec": {
+        "component_id": "ring_016_head_support_001",
+        "height": 9.149331472399634,
+        "base_z": 8.32308811,
+        "shoulder_radius": 0.9604391480000001,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "input_candidate_count": 1,
+      "accepted_opening_count": 1,
+      "rejected_opening_count": 0,
+      "opening_candidates": [
+        {
+          "component_id": "ring_016_front_negative_space_001",
+          "candidate_subtype": "decorative_openwork",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 2635,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 16.93354637
+        }
+      ],
+      "exact_geometry": {
+        "head_support_valid": true,
+        "head_support_solid_count": 1,
+        "metal_valid": true,
+        "metal_solid_count": 1
+      },
+      "metrics": {
+        "filled_baseline_iou": 0.973708,
+        "openwork_iou": 0.988871,
+        "iou_delta": 0.015162,
+        "openwork_boundary_f1": 0.994427
+      },
+      "artifacts": {
+        "front_target": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_016/front_openwork_target.png",
+        "front_baseline": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_016/front_filled_baseline.png",
+        "front_render": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_016/front_exact_openwork_render.png",
+        "step": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_016/ring_016_shank_head_openwork.step"
+      }
+    },
+    {
+      "object_id": "ring_017",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "scored",
+      "source_front_image": "dataset/prepared_v1/images/ring_017/front.png",
+      "ring_body_spec": {
+        "object_id": "ring_017",
+        "inner_width": 17.090413800000004,
+        "inner_height": 16.0551548,
+        "radial_thickness": 1.6352826000000003,
+        "axial_depth": 1.5044599920000004,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_support_spec": {
+        "component_id": "ring_017_head_support_001",
+        "height": 9.762140733399406,
+        "base_z": 8.27286979,
+        "shoulder_radius": 1.013875212,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "input_candidate_count": 11,
+      "accepted_opening_count": 11,
+      "rejected_opening_count": 0,
+      "opening_candidates": [
+        {
+          "component_id": "ring_017_front_negative_space_001",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 768,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 12.41792804
+        },
+        {
+          "component_id": "ring_017_front_negative_space_002",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 121,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.54026772
+        },
+        {
+          "component_id": "ring_017_front_negative_space_003",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 116,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.4912211
+        },
+        {
+          "component_id": "ring_017_front_negative_space_004",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 82,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.00075505
+        },
+        {
+          "component_id": "ring_017_front_negative_space_005",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 83,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.00966779
+        },
+        {
+          "component_id": "ring_017_front_negative_space_006",
+          "candidate_subtype": "decorative_openwork",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 71,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 0.81198737
+        },
+        {
+          "component_id": "ring_017_front_negative_space_007",
+          "candidate_subtype": "decorative_openwork",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 71,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 0.8149663
+        },
+        {
+          "component_id": "ring_017_front_negative_space_008",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 116,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.51046905
+        },
+        {
+          "component_id": "ring_017_front_negative_space_009",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 110,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.40286742
+        },
+        {
+          "component_id": "ring_017_front_negative_space_010",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 140,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 2.04891902
+        },
+        {
+          "component_id": "ring_017_front_negative_space_011",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 139,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 2.02125932
+        }
+      ],
+      "exact_geometry": {
+        "head_support_valid": true,
+        "head_support_solid_count": 1,
+        "metal_valid": true,
+        "metal_solid_count": 1
+      },
+      "metrics": {
+        "filled_baseline_iou": 0.976785,
+        "openwork_iou": 0.98761,
+        "iou_delta": 0.010824,
+        "openwork_boundary_f1": 0.975602
+      },
+      "artifacts": {
+        "front_target": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_017/front_openwork_target.png",
+        "front_baseline": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_017/front_filled_baseline.png",
+        "front_render": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_017/front_exact_openwork_render.png",
+        "step": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_017/ring_017_shank_head_openwork.step"
+      }
+    },
+    {
+      "object_id": "ring_018",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "scored",
+      "source_front_image": "dataset/prepared_v1/images/ring_018/front.png",
+      "ring_body_spec": {
+        "object_id": "ring_018",
+        "inner_width": 17.039020200000003,
+        "inner_height": 16.0988958,
+        "radial_thickness": 1.5765352000000001,
+        "axial_depth": 1.4504123840000003,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_support_spec": {
+        "component_id": "ring_018_head_support_001",
+        "height": 11.508738872812195,
+        "base_z": 8.28592818,
+        "shoulder_radius": 0.9774518240000001,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "input_candidate_count": 0,
+      "accepted_opening_count": 0,
+      "rejected_opening_count": 0,
+      "opening_candidates": [],
+      "exact_geometry": {
+        "head_support_valid": true,
+        "head_support_solid_count": 1,
+        "metal_valid": true,
+        "metal_solid_count": 1
+      },
+      "metrics": {
+        "filled_baseline_iou": 0.990048,
+        "openwork_iou": 0.990048,
+        "iou_delta": 0.0,
+        "openwork_boundary_f1": 0.989265
+      },
+      "artifacts": {
+        "front_target": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_018/front_openwork_target.png",
+        "front_baseline": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_018/front_filled_baseline.png",
+        "front_render": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_018/front_exact_openwork_render.png",
+        "step": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_018/ring_018_shank_head_openwork.step"
+      }
+    },
+    {
+      "object_id": "ring_019",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "scored",
+      "source_front_image": "dataset/prepared_v1/images/ring_019/front.png",
+      "ring_body_spec": {
+        "object_id": "ring_019",
+        "inner_width": 17.008277,
+        "inner_height": 16.1282778,
+        "radial_thickness": 1.6347348000000002,
+        "axial_depth": 1.5039560160000003,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_support_spec": {
+        "component_id": "ring_019_head_support_001",
+        "height": 9.03907936246801,
+        "base_z": 8.30934912,
+        "shoulder_radius": 1.013535576,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "input_candidate_count": 16,
+      "accepted_opening_count": 16,
+      "rejected_opening_count": 0,
+      "opening_candidates": [
+        {
+          "component_id": "ring_019_front_negative_space_001",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 1064,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 6.44461744
+        },
+        {
+          "component_id": "ring_019_front_negative_space_002",
+          "candidate_subtype": "decorative_openwork",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 351,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.63100298
+        },
+        {
+          "component_id": "ring_019_front_negative_space_003",
+          "candidate_subtype": "decorative_openwork",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 352,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.63575848
+        },
+        {
+          "component_id": "ring_019_front_negative_space_004",
+          "candidate_subtype": "decorative_openwork",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 201,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 0.86558227
+        },
+        {
+          "component_id": "ring_019_front_negative_space_005",
+          "candidate_subtype": "decorative_openwork",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 197,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 0.87343484
+        },
+        {
+          "component_id": "ring_019_front_negative_space_006",
+          "candidate_subtype": "decorative_openwork",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 404,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.79748238
+        },
+        {
+          "component_id": "ring_019_front_negative_space_007",
+          "candidate_subtype": "decorative_openwork",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 410,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.82251693
+        },
+        {
+          "component_id": "ring_019_front_negative_space_008",
+          "candidate_subtype": "decorative_openwork",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 253,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.21270963
+        },
+        {
+          "component_id": "ring_019_front_negative_space_009",
+          "candidate_subtype": "decorative_openwork",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 244,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.16645468
+        },
+        {
+          "component_id": "ring_019_front_negative_space_010",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 75,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 0.30565885
+        },
+        {
+          "component_id": "ring_019_front_negative_space_011",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 74,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 0.30136765
+        },
+        {
+          "component_id": "ring_019_front_negative_space_012",
+          "candidate_subtype": "decorative_openwork",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 82,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 0.33776567
+        },
+        {
+          "component_id": "ring_019_front_negative_space_013",
+          "candidate_subtype": "decorative_openwork",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 81,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 0.33091196
+        },
+        {
+          "component_id": "ring_019_front_negative_space_014",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 60,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 0.26234746
+        },
+        {
+          "component_id": "ring_019_front_negative_space_015",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 56,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 0.25869345
+        },
+        {
+          "component_id": "ring_019_front_negative_space_016",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 2284,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 13.92260272
+        }
+      ],
+      "exact_geometry": {
+        "head_support_valid": true,
+        "head_support_solid_count": 1,
+        "metal_valid": true,
+        "metal_solid_count": 1
+      },
+      "metrics": {
+        "filled_baseline_iou": 0.949168,
+        "openwork_iou": 0.986163,
+        "iou_delta": 0.036995,
+        "openwork_boundary_f1": 0.976476
+      },
+      "artifacts": {
+        "front_target": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_019/front_openwork_target.png",
+        "front_baseline": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_019/front_filled_baseline.png",
+        "front_render": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_019/front_exact_openwork_render.png",
+        "step": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_019/ring_019_shank_head_openwork.step"
+      }
+    },
+    {
+      "object_id": "ring_020",
+      "category": "ring",
+      "split": "val",
+      "evaluation_status": "scored",
+      "source_front_image": "dataset/prepared_v1/images/ring_020/front.png",
+      "ring_body_spec": {
+        "object_id": "ring_020",
+        "inner_width": 17.188851800000002,
+        "inner_height": 15.987958000000003,
+        "radial_thickness": 1.6664906000000002,
+        "axial_depth": 1.533171352,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_support_spec": {
+        "component_id": "ring_020_head_support_001",
+        "height": 11.196771414570424,
+        "base_z": 8.243952590000001,
+        "shoulder_radius": 1.0332241720000002,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "input_candidate_count": 13,
+      "accepted_opening_count": 13,
+      "rejected_opening_count": 0,
+      "opening_candidates": [
+        {
+          "component_id": "ring_020_front_negative_space_001",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 181,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.81943261
+        },
+        {
+          "component_id": "ring_020_front_negative_space_002",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 181,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.8111482
+        },
+        {
+          "component_id": "ring_020_front_negative_space_003",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 127,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.24402247
+        },
+        {
+          "component_id": "ring_020_front_negative_space_004",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 127,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.24335837
+        },
+        {
+          "component_id": "ring_020_front_negative_space_005",
+          "candidate_subtype": "decorative_openwork",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 2008,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 22.03316718
+        },
+        {
+          "component_id": "ring_020_front_negative_space_006",
+          "candidate_subtype": "decorative_openwork",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 1600,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 17.53100401
+        },
+        {
+          "component_id": "ring_020_front_negative_space_007",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 87,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 0.80004988
+        },
+        {
+          "component_id": "ring_020_front_negative_space_008",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 85,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 0.77829098
+        },
+        {
+          "component_id": "ring_020_front_negative_space_009",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 75,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 0.75919348
+        },
+        {
+          "component_id": "ring_020_front_negative_space_010",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 161,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.56611182
+        },
+        {
+          "component_id": "ring_020_front_negative_space_011",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 162,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.58344266
+        },
+        {
+          "component_id": "ring_020_front_negative_space_012",
+          "candidate_subtype": "decorative_openwork",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 491,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 5.07912402
+        },
+        {
+          "component_id": "ring_020_front_negative_space_013",
+          "candidate_subtype": "decorative_openwork",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 489,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 5.03521046
+        }
+      ],
+      "exact_geometry": {
+        "head_support_valid": true,
+        "head_support_solid_count": 1,
+        "metal_valid": true,
+        "metal_solid_count": 1
+      },
+      "metrics": {
+        "filled_baseline_iou": 0.957026,
+        "openwork_iou": 0.984268,
+        "iou_delta": 0.027242,
+        "openwork_boundary_f1": 0.958107
+      },
+      "artifacts": {
+        "front_target": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_020/front_openwork_target.png",
+        "front_baseline": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_020/front_filled_baseline.png",
+        "front_render": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_020/front_exact_openwork_render.png",
+        "step": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_020/ring_020_shank_head_openwork.step",
+        "geometry_preview": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_020/ring_020_openwork_geometry_preview.png"
+      }
+    },
+    {
+      "object_id": "ring_021",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "scored",
+      "source_front_image": "dataset/prepared_v1/images/ring_021/front.png",
+      "ring_body_spec": {
+        "object_id": "ring_021",
+        "inner_width": 17.093733800000003,
+        "inner_height": 16.0961568,
+        "radial_thickness": 1.661245,
+        "axial_depth": 1.5283454,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_support_spec": {
+        "component_id": "ring_021_head_support_001",
+        "height": 9.430008135508611,
+        "base_z": 8.29726515,
+        "shoulder_radius": 1.0299719,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "input_candidate_count": 1,
+      "accepted_opening_count": 1,
+      "rejected_opening_count": 0,
+      "opening_candidates": [
+        {
+          "component_id": "ring_021_front_negative_space_001",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 2017,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 17.79763388
+        }
+      ],
+      "exact_geometry": {
+        "head_support_valid": true,
+        "head_support_solid_count": 1,
+        "metal_valid": true,
+        "metal_solid_count": 1
+      },
+      "metrics": {
+        "filled_baseline_iou": 0.967285,
+        "openwork_iou": 0.978897,
+        "iou_delta": 0.011612,
+        "openwork_boundary_f1": 0.956832
+      },
+      "artifacts": {
+        "front_target": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_021/front_openwork_target.png",
+        "front_baseline": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_021/front_filled_baseline.png",
+        "front_render": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_021/front_exact_openwork_render.png",
+        "step": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_021/ring_021_shank_head_openwork.step"
+      }
+    },
+    {
+      "object_id": "ring_022",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "scored",
+      "source_front_image": "dataset/prepared_v1/images/ring_022/front.png",
+      "ring_body_spec": {
+        "object_id": "ring_022",
+        "inner_width": 17.171538,
+        "inner_height": 15.9777988,
+        "radial_thickness": 1.6611952,
+        "axial_depth": 1.5282995840000002,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_support_spec": {
+        "component_id": "ring_022_head_support_001",
+        "height": 10.319535642123478,
+        "base_z": 8.238078680000001,
+        "shoulder_radius": 1.029941024,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "input_candidate_count": 3,
+      "accepted_opening_count": 3,
+      "rejected_opening_count": 0,
+      "opening_candidates": [
+        {
+          "component_id": "ring_022_front_negative_space_001",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 576,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 5.58977277
+        },
+        {
+          "component_id": "ring_022_front_negative_space_002",
+          "candidate_subtype": "decorative_openwork",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 184,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.81100895
+        },
+        {
+          "component_id": "ring_022_front_negative_space_003",
+          "candidate_subtype": "decorative_openwork",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 186,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.82362608
+        }
+      ],
+      "exact_geometry": {
+        "head_support_valid": true,
+        "head_support_solid_count": 1,
+        "metal_valid": true,
+        "metal_solid_count": 1
+      },
+      "metrics": {
+        "filled_baseline_iou": 0.990231,
+        "openwork_iou": 0.994586,
+        "iou_delta": 0.004355,
+        "openwork_boundary_f1": 0.996922
+      },
+      "artifacts": {
+        "front_target": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_022/front_openwork_target.png",
+        "front_baseline": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_022/front_filled_baseline.png",
+        "front_render": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_022/front_exact_openwork_render.png",
+        "step": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_022/ring_022_shank_head_openwork.step"
+      }
+    },
+    {
+      "object_id": "ring_023",
+      "category": "ring",
+      "split": "test",
+      "evaluation_status": "held_out_not_scored",
+      "source_front_image": "dataset/prepared_v1/images/ring_023/front.png",
+      "ring_body_spec": {
+        "object_id": "ring_023",
+        "inner_width": 17.0012718,
+        "inner_height": 16.124742,
+        "radial_thickness": 1.6604482000000003,
+        "axial_depth": 1.5276123440000002,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_support_spec": {
+        "component_id": "ring_023_head_support_001",
+        "height": 11.052383320585074,
+        "base_z": 8.31143823,
+        "shoulder_radius": 1.029477884,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "input_candidate_count": 16,
+      "accepted_opening_count": 16,
+      "rejected_opening_count": 0,
+      "opening_candidates": [
+        {
+          "component_id": "ring_023_front_negative_space_001",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 78,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 0.54105821
+        },
+        {
+          "component_id": "ring_023_front_negative_space_002",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 78,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 0.52466041
+        },
+        {
+          "component_id": "ring_023_front_negative_space_003",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 132,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.12772346
+        },
+        {
+          "component_id": "ring_023_front_negative_space_004",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 132,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.02792245
+        },
+        {
+          "component_id": "ring_023_front_negative_space_005",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 132,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 0.8708462
+        },
+        {
+          "component_id": "ring_023_front_negative_space_006",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 138,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 0.91601763
+        },
+        {
+          "component_id": "ring_023_front_negative_space_007",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 129,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 0.82748895
+        },
+        {
+          "component_id": "ring_023_front_negative_space_008",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 135,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 0.86952589
+        },
+        {
+          "component_id": "ring_023_front_negative_space_009",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 178,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.27313129
+        },
+        {
+          "component_id": "ring_023_front_negative_space_010",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 174,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.24605151
+        },
+        {
+          "component_id": "ring_023_front_negative_space_011",
+          "candidate_subtype": "decorative_openwork",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 81,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 0.54292447
+        },
+        {
+          "component_id": "ring_023_front_negative_space_012",
+          "candidate_subtype": "decorative_openwork",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 76,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 0.50801723
+        },
+        {
+          "component_id": "ring_023_front_negative_space_013",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 140,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.01629851
+        },
+        {
+          "component_id": "ring_023_front_negative_space_014",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 144,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.04909461
+        },
+        {
+          "component_id": "ring_023_front_negative_space_015",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 160,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.14174089
+        },
+        {
+          "component_id": "ring_023_front_negative_space_016",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 158,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.12194689
+        }
+      ],
+      "exact_geometry": {
+        "head_support_valid": true,
+        "head_support_solid_count": 1,
+        "metal_valid": true,
+        "metal_solid_count": 1
+      },
+      "metrics": null,
+      "artifacts": {
+        "front_target": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_023/front_openwork_target.png",
+        "front_baseline": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_023/front_filled_baseline.png",
+        "front_render": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_023/front_exact_openwork_render.png",
+        "step": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_023/ring_023_shank_head_openwork.step"
+      }
+    },
+    {
+      "object_id": "ring_024",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "scored",
+      "source_front_image": "dataset/prepared_v1/images/ring_024/front.png",
+      "ring_body_spec": {
+        "object_id": "ring_024",
+        "inner_width": 16.9253434,
+        "inner_height": 16.2118256,
+        "radial_thickness": 1.6295722000000001,
+        "axial_depth": 1.4992064240000003,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_support_spec": {
+        "component_id": "ring_024_head_support_001",
+        "height": 8.360397971105382,
+        "base_z": 8.350348630000001,
+        "shoulder_radius": 1.010334764,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "input_candidate_count": 20,
+      "accepted_opening_count": 20,
+      "rejected_opening_count": 0,
+      "opening_candidates": [
+        {
+          "component_id": "ring_024_front_negative_space_001",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 259,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.28154391
+        },
+        {
+          "component_id": "ring_024_front_negative_space_002",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 235,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.16086586
+        },
+        {
+          "component_id": "ring_024_front_negative_space_003",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 236,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.10982796
+        },
+        {
+          "component_id": "ring_024_front_negative_space_004",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 245,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.02104015
+        },
+        {
+          "component_id": "ring_024_front_negative_space_005",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 246,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.03663224
+        },
+        {
+          "component_id": "ring_024_front_negative_space_006",
+          "candidate_subtype": "decorative_openwork",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 493,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 2.34592715
+        },
+        {
+          "component_id": "ring_024_front_negative_space_007",
+          "candidate_subtype": "decorative_openwork",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 489,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 2.26514746
+        },
+        {
+          "component_id": "ring_024_front_negative_space_008",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 223,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 0.96030522
+        },
+        {
+          "component_id": "ring_024_front_negative_space_009",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 223,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 0.96509793
+        },
+        {
+          "component_id": "ring_024_front_negative_space_010",
+          "candidate_subtype": "decorative_openwork",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 518,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 2.42738932
+        },
+        {
+          "component_id": "ring_024_front_negative_space_011",
+          "candidate_subtype": "decorative_openwork",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 544,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 2.65546252
+        },
+        {
+          "component_id": "ring_024_front_negative_space_012",
+          "candidate_subtype": "decorative_openwork",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 1790,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 7.98548763
+        },
+        {
+          "component_id": "ring_024_front_negative_space_013",
+          "candidate_subtype": "decorative_openwork",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 1933,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 8.60032105
+        },
+        {
+          "component_id": "ring_024_front_negative_space_014",
+          "candidate_subtype": "decorative_openwork",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 654,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 2.84095404
+        },
+        {
+          "component_id": "ring_024_front_negative_space_015",
+          "candidate_subtype": "decorative_openwork",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 657,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 2.84422244
+        },
+        {
+          "component_id": "ring_024_front_negative_space_016",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 214,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 0.89490633
+        },
+        {
+          "component_id": "ring_024_front_negative_space_017",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 216,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 0.90412293
+        },
+        {
+          "component_id": "ring_024_front_negative_space_018",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 232,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.18025686
+        },
+        {
+          "component_id": "ring_024_front_negative_space_019",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 236,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.13171934
+        },
+        {
+          "component_id": "ring_024_front_negative_space_020",
+          "candidate_subtype": "circular_aperture",
+          "semantic_state": "observable_geometry_semantics_unresolved",
+          "review_state": "pending",
+          "area_px2": 240,
+          "accepted_as_exact_cut_candidate": true,
+          "cut_status": "valid_connected_exact_cut",
+          "removed_volume_nominal_units3": 1.18065654
+        }
+      ],
+      "exact_geometry": {
+        "head_support_valid": true,
+        "head_support_solid_count": 1,
+        "metal_valid": true,
+        "metal_solid_count": 1
+      },
+      "metrics": {
+        "filled_baseline_iou": 0.905415,
+        "openwork_iou": 0.988194,
+        "iou_delta": 0.082779,
+        "openwork_boundary_f1": 0.998621
+      },
+      "artifacts": {
+        "front_target": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_024/front_openwork_target.png",
+        "front_baseline": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_024/front_filled_baseline.png",
+        "front_render": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_024/front_exact_openwork_render.png",
+        "step": "data/phase5_stl1_exact_openwork_fit_v1/objects/ring_024/ring_024_shank_head_openwork.step"
+      }
+    }
+  ],
+  "artifacts": {
+    "audit": "data/phase5_stl1_exact_openwork_fit_v1/stl1_exact_openwork_fit_audit.png"
+  },
+  "decision": "exact_negative_space_cut_candidates_ready_for_review",
+  "claims": {
+    "observable_negative_space_converted_to_exact_cut_candidates": true,
+    "openings_semantically_reviewed": false,
+    "relief_reconstructed": false,
+    "complete_ring_reconstructed": false,
+    "manufacturing_accuracy_validated": false
+  },
+  "limitations": [
+    "Candidate masks and fitting scores come from the same machine-derived front silhouettes.",
+    "A visible enclosed region can be openwork, a bezel interior, a missing insert or a segmentation error.",
+    "The Boolean trials do not establish cross-view opening identity or hidden cavity depth.",
+    "The exact cuts traverse the structural head envelope and remain review candidates, not approved manufacturing holes."
+  ]
+}

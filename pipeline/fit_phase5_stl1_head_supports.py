@@ -276,7 +276,15 @@ def _render_audit(root: Path, objects: list[dict[str, Any]], output_path: Path) 
     plt.close(figure)
 
 
-def _render_geometry_preview(shape: Any, output_path: Path, title: str) -> None:
+def _render_geometry_preview(
+    shape: Any,
+    output_path: Path,
+    title: str,
+    footer: str = (
+        "Actual tessellated STEP candidate · structural envelope only · "
+        "relief and openings excluded"
+    ),
+) -> None:
     """Render the actual tessellated B-rep from four diagnostic cameras."""
     import matplotlib
 
@@ -324,7 +332,7 @@ def _render_geometry_preview(shape: Any, output_path: Path, title: str) -> None:
     figure.text(
         0.5,
         0.02,
-        "Actual tessellated STEP candidate · structural envelope only · relief and openings excluded",
+        footer,
         ha="center",
         fontsize=10,
         color="#4a5159",

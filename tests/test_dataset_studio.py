@@ -335,6 +335,71 @@ class DatasetStudioServiceTest(unittest.TestCase):
                 "all_metals_valid_single_solids"
             ]
         )
+        self.assertEqual(
+            summary["phase5"]["stl1_openwork_fit"]["summary"][
+                "input_candidate_count"
+            ],
+            168,
+        )
+        self.assertTrue(
+            summary["phase5"]["stl1_openwork_fit"]["checks"][
+                "candidate_semantics_not_promoted"
+            ]
+        )
+        self.assertEqual(
+            summary["phase5"]["stl1_relief_evidence"]["summary"][
+                "view_count"
+            ],
+            120,
+        )
+        self.assertTrue(
+            summary["phase5"]["stl1_relief_evidence"]["checks"][
+                "relief_kept_separate_from_exact_cad"
+            ]
+        )
+        self.assertFalse(
+            summary["phase5"]["stl1_relief_evidence"]["claims"][
+                "relief_accuracy_measured"
+            ]
+        )
+        self.assertEqual(
+            summary["phase5"]["relief_track_consistency"]["summary"][
+                "object_count"
+            ],
+            7,
+        )
+        self.assertTrue(
+            summary["phase5"]["relief_track_consistency"]["checks"][
+                "reciprocal_cycle_required"
+            ]
+        )
+        self.assertFalse(
+            summary["phase5"]["relief_track_consistency"]["claims"][
+                "cad_fusion_authorized"
+            ]
+        )
+        self.assertEqual(
+            summary["phase5"]["full_relief_track_consistency"]["summary"][
+                "object_count"
+            ],
+            24,
+        )
+        self.assertEqual(
+            summary["phase5"]["full_relief_track_consistency"]["summary"][
+                "view_count"
+            ],
+            120,
+        )
+        self.assertTrue(
+            summary["phase5"]["full_relief_track_consistency"]["checks"][
+                "held_out_test_not_aggregated"
+            ]
+        )
+        self.assertFalse(
+            summary["phase5"]["full_relief_track_consistency"]["claims"][
+                "cad_fusion_authorized"
+            ]
+        )
         self.assertFalse(phase4["checks"]["phase4_exit_gate_passed"])
         self.assertTrue(phase4["checks"]["partial_ring01_prong_instances_available"])
         self.assertEqual(
@@ -1081,6 +1146,78 @@ class DatasetStudioApiTest(unittest.TestCase):
         self.assertEqual(phase5_head_step.status_code, 200)
         self.assertEqual(phase5_head_step.mimetype, "application/octet-stream")
         phase5_head_step.close()
+        phase5_openwork_audit = self.client.get(
+            "/api/artifacts/phase5_stl1_openwork_fit_audit"
+        )
+        self.assertEqual(phase5_openwork_audit.status_code, 200)
+        self.assertEqual(phase5_openwork_audit.mimetype, "image/png")
+        phase5_openwork_audit.close()
+        phase5_openwork_preview = self.client.get(
+            "/api/artifacts/phase5_ring004_openwork_preview"
+        )
+        self.assertEqual(phase5_openwork_preview.status_code, 200)
+        self.assertEqual(phase5_openwork_preview.mimetype, "image/png")
+        phase5_openwork_preview.close()
+        phase5_openwork_step = self.client.get(
+            "/api/artifacts/phase5_ring004_openwork_step"
+        )
+        self.assertEqual(phase5_openwork_step.status_code, 200)
+        self.assertEqual(
+            phase5_openwork_step.mimetype, "application/octet-stream"
+        )
+        phase5_openwork_step.close()
+        phase5_relief_audit = self.client.get(
+            "/api/artifacts/phase5_stl1_relief_evidence_audit"
+        )
+        self.assertEqual(phase5_relief_audit.status_code, 200)
+        self.assertEqual(phase5_relief_audit.mimetype, "image/png")
+        phase5_relief_audit.close()
+        phase5_relief_review = self.client.get(
+            "/api/artifacts/phase5_ring004_relief_review"
+        )
+        self.assertEqual(phase5_relief_review.status_code, 200)
+        self.assertEqual(phase5_relief_review.mimetype, "image/png")
+        phase5_relief_review.close()
+        phase5_relief_obj = self.client.get(
+            "/api/artifacts/phase5_ring004_relief_obj"
+        )
+        self.assertEqual(phase5_relief_obj.status_code, 200)
+        self.assertEqual(
+            phase5_relief_obj.mimetype, "application/octet-stream"
+        )
+        phase5_relief_obj.close()
+        phase5_relief_track_audit = self.client.get(
+            "/api/artifacts/phase5_relief_track_audit"
+        )
+        self.assertEqual(phase5_relief_track_audit.status_code, 200)
+        self.assertEqual(phase5_relief_track_audit.mimetype, "image/png")
+        phase5_relief_track_audit.close()
+        phase5_relief_track_review = self.client.get(
+            "/api/artifacts/phase5_ring004_relief_track_review"
+        )
+        self.assertEqual(phase5_relief_track_review.status_code, 200)
+        self.assertEqual(phase5_relief_track_review.mimetype, "image/png")
+        phase5_relief_track_review.close()
+        phase5_full_relief_track_audit = self.client.get(
+            "/api/artifacts/phase5_full_relief_track_audit"
+        )
+        self.assertEqual(phase5_full_relief_track_audit.status_code, 200)
+        self.assertEqual(phase5_full_relief_track_audit.mimetype, "image/png")
+        phase5_full_relief_track_audit.close()
+        phase5_full_relief_track_report = self.client.get(
+            "/api/artifacts/phase5_full_relief_track_report"
+        )
+        self.assertEqual(phase5_full_relief_track_report.status_code, 200)
+        self.assertEqual(phase5_full_relief_track_report.mimetype, "application/json")
+        phase5_full_relief_track_report.close()
+        phase5_full_ring004_relief_track_review = self.client.get(
+            "/api/artifacts/phase5_full_ring004_relief_track_review"
+        )
+        self.assertEqual(phase5_full_ring004_relief_track_review.status_code, 200)
+        self.assertEqual(
+            phase5_full_ring004_relief_track_review.mimetype, "image/png"
+        )
+        phase5_full_ring004_relief_track_review.close()
         candidate_summary = self.client.get("/api/phase4/stl1-candidates")
         self.assertEqual(candidate_summary.status_code, 200)
         self.assertEqual(

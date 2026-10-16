@@ -113,6 +113,30 @@ class DatasetRepository:
             / "phase5_stl1_exact_head_support_fit_v1"
             / "report.json"
         )
+        self.phase5_stl1_openwork_fit = self._read_json(
+            self.repo_root
+            / "data"
+            / "phase5_stl1_exact_openwork_fit_v1"
+            / "report.json"
+        )
+        self.phase5_stl1_relief_evidence = self._read_json(
+            self.repo_root
+            / "data"
+            / "phase5_stl1_relief_evidence_v1"
+            / "report.json"
+        )
+        self.phase5_relief_tracks = self._read_json(
+            self.repo_root
+            / "data"
+            / "phase5_relief_track_consistency_v1"
+            / "report.json"
+        )
+        self.phase5_full_relief_tracks = self._read_json(
+            self.repo_root
+            / "data"
+            / "phase5_full_relief_track_consistency_v1"
+            / "report.json"
+        )
         self.phase4_prong_instances = self._read_json(
             self.repo_root / "data" / "phase4_prong_instances_v1" / "report.json"
         )
@@ -703,6 +727,18 @@ class DatasetRepository:
                 "stl1_head_support_fit": deepcopy(
                     self.phase5_stl1_head_support_fit
                 ),
+                "stl1_openwork_fit": deepcopy(
+                    self.phase5_stl1_openwork_fit
+                ),
+                "stl1_relief_evidence": deepcopy(
+                    self.phase5_stl1_relief_evidence
+                ),
+                "relief_track_consistency": deepcopy(
+                    self.phase5_relief_tracks
+                ),
+                "full_relief_track_consistency": deepcopy(
+                    self.phase5_full_relief_tracks
+                ),
             },
             "limitations": deepcopy(self.dataset_report.get("limitations", [])),
         }
@@ -1098,8 +1134,8 @@ class DatasetRepository:
                 "title": "Editable structural CAD",
                 "phase": "Bible Phase 4+",
                 "status": "partial",
-                "coverage": f"30/30 designed local edits · {int(self.phase5_exact_cad_v2.get('summary', {}).get('passed_family_count', 0))}/4 exact structural families · {int(self.phase5_stl1_head_support_fit.get('summary', {}).get('object_count', 0))}/24 shank + head-support candidates",
-                "summary": "Independent synthetic components regenerate through exact CadQuery/OCP B-reps. The ring-only dataset path now converts each STL-1 shank into an editable periodic-spline solid and intersects front/top silhouette prisms into a connected head-support envelope. Relief, openings and semantic components remain open.",
+                "coverage": f"30/30 designed local edits · {int(self.phase5_exact_cad_v2.get('summary', {}).get('passed_family_count', 0))}/4 exact structural families · {int(self.phase5_stl1_openwork_fit.get('summary', {}).get('input_candidate_count', 0))} exact negative-space cut trials · {int(self.phase5_stl1_relief_evidence.get('summary', {}).get('view_count', 0))} relief-evidence views · {int(self.phase5_full_relief_tracks.get('summary', {}).get('object_count', 0))}/24 reciprocal-track rings",
+                "summary": "Independent synthetic components regenerate through exact CadQuery/OCP B-reps. The ring-only dataset path fits shanks, intersects front/top silhouettes into connected head envelopes, trials observable negative space as exact cuts, keeps relief separate and measures sparse reciprocal relief support across all 24 STL-1 rings.",
                 "functions": [
                     "Generate separate exact solids for stones, seats, cavities and prongs",
                     "Rebuild a valid single-solid metal body after local edits",
@@ -1108,12 +1144,21 @@ class DatasetRepository:
                     "Inspect dataset-derived normalized ring parameters for all 24 STL-1 objects",
                     "Download exact image-derived shank STEP files at nominal display scale",
                     "Inspect connected two-view head-support STEP candidates and real CAD previews",
+                    "Trial stable-ID front negative spaces as exact connected Boolean cuts",
+                    "Inspect depth-supported sculptural detail separately from rejected reflections and shadows",
+                    "Download reversible front-view relief OBJ evidence without modifying the exact STEP body",
+                    "Review reciprocal front-to-isometric and side-view support without moving cameras or CAD geometry",
+                    "Compare the frozen reciprocal relief gate across all 24 STL-1 rings while holding test rings out of aggregates",
                 ],
                 "limitations": [
                     "Current STL and 3MF outputs are research meshes, not authoritative editable CAD.",
                     "The exact CAD benchmark uses designed synthetic truth and is not reconstructed from an image.",
                     "STL-1 proposals are normalized image measurements, not fitted CAD or physical millimetres.",
-                    "Current image-derived STEP files contain the shank and a filled structural head envelope, not relief, openwork, stones or complete rings.",
+                    "The Phase 5.2 STEP checkpoint contains a filled structural head envelope; Phase 5.3 adds only machine-proposed front-view openings.",
+                    "Phase 5.3 openwork cuts are machine-derived review candidates; their semantic type and hidden depth are not established.",
+                    "Phase 5.4 relief OBJ files are open, scale-normalized evidence surfaces; they are not solids and are not fused into the STEP body.",
+                    "Only a small fraction of fine validation detail is strongly supported by the retained depth evidence; unresolved detail remains visible in the audit.",
+                    "Phase 5.6 covers all 24 rings, but the 384 queries per view remain sparse machine correspondence evidence; they are not dense or physically validated and cannot authorize CAD fusion.",
                     "Image-only inputs do not verify absolute millimetres without a known scale reference.",
                 ],
                 "actions": [
@@ -1123,6 +1168,15 @@ class DatasetRepository:
                     {"label": "Exact ring-body fit audit", "href": "/api/artifacts/phase5_stl1_ring_body_fit_audit"},
                     {"label": "Head-support fit audit", "href": "/api/artifacts/phase5_stl1_head_support_fit_audit"},
                     {"label": "Ring 004 CAD preview", "href": "/api/artifacts/phase5_ring004_head_support_preview"},
+                    {"label": "Openwork fit audit", "href": "/api/artifacts/phase5_stl1_openwork_fit_audit"},
+                    {"label": "Ring 004 openwork preview", "href": "/api/artifacts/phase5_ring004_openwork_preview"},
+                    {"label": "Relief evidence audit", "href": "/api/artifacts/phase5_stl1_relief_evidence_audit"},
+                    {"label": "Ring 004 relief review", "href": "/api/artifacts/phase5_ring004_relief_review"},
+                    {"label": "Ring 004 relief OBJ preview", "href": "/api/artifacts/phase5_ring004_relief_obj_preview"},
+                    {"label": "Relief track audit", "href": "/api/artifacts/phase5_relief_track_audit"},
+                    {"label": "Ring 004 relief tracks", "href": "/api/artifacts/phase5_ring004_relief_track_review"},
+                    {"label": "Full-dataset track audit", "href": "/api/artifacts/phase5_full_relief_track_audit"},
+                    {"label": "Full-dataset track report", "href": "/api/artifacts/phase5_full_relief_track_report"},
                     {"label": "Download baseline STEP", "href": "/api/artifacts/phase4_exact_cad_baseline_step"},
                 ],
             },
@@ -1927,6 +1981,86 @@ class DatasetRepository:
             / "objects"
             / "ring_004"
             / "ring_004_geometry_preview.png",
+            "phase5_stl1_openwork_fit_report": self.repo_root
+            / "data"
+            / "phase5_stl1_exact_openwork_fit_v1"
+            / "report.json",
+            "phase5_stl1_openwork_fit_audit": self.repo_root
+            / "data"
+            / "phase5_stl1_exact_openwork_fit_v1"
+            / "stl1_exact_openwork_fit_audit.png",
+            "phase5_ring004_openwork_step": self.repo_root
+            / "data"
+            / "phase5_stl1_exact_openwork_fit_v1"
+            / "objects"
+            / "ring_004"
+            / "ring_004_shank_head_openwork.step",
+            "phase5_ring004_openwork_preview": self.repo_root
+            / "data"
+            / "phase5_stl1_exact_openwork_fit_v1"
+            / "objects"
+            / "ring_004"
+            / "ring_004_openwork_geometry_preview.png",
+            "phase5_stl1_relief_evidence_report": self.repo_root
+            / "data"
+            / "phase5_stl1_relief_evidence_v1"
+            / "report.json",
+            "phase5_stl1_relief_evidence_audit": self.repo_root
+            / "data"
+            / "phase5_stl1_relief_evidence_v1"
+            / "stl1_relief_evidence_audit.png",
+            "phase5_ring004_relief_review": self.repo_root
+            / "data"
+            / "phase5_stl1_relief_evidence_v1"
+            / "objects"
+            / "ring_004"
+            / "ring_004_front_relief_review.png",
+            "phase5_ring004_relief_obj": self.repo_root
+            / "data"
+            / "phase5_stl1_relief_evidence_v1"
+            / "objects"
+            / "ring_004"
+            / "ring_004_front_relief_evidence.obj",
+            "phase5_ring004_relief_obj_preview": self.repo_root
+            / "data"
+            / "phase5_stl1_relief_evidence_v1"
+            / "objects"
+            / "ring_004"
+            / "ring_004_front_relief_obj_preview.png",
+            "phase5_relief_track_report": self.repo_root
+            / "data"
+            / "phase5_relief_track_consistency_v1"
+            / "report.json",
+            "phase5_relief_track_audit": self.repo_root
+            / "data"
+            / "phase5_relief_track_consistency_v1"
+            / "relief_track_consistency_audit.png",
+            "phase5_ring004_relief_track_review": self.repo_root
+            / "data"
+            / "phase5_relief_track_consistency_v1"
+            / "objects"
+            / "ring_004"
+            / "ring_004_relief_track_review.png",
+            "phase5_ring004_crossview_relief": self.repo_root
+            / "data"
+            / "phase5_relief_track_consistency_v1"
+            / "objects"
+            / "ring_004"
+            / "ring_004_front_crossview_relief.png",
+            "phase5_full_relief_track_report": self.repo_root
+            / "data"
+            / "phase5_full_relief_track_consistency_v1"
+            / "report.json",
+            "phase5_full_relief_track_audit": self.repo_root
+            / "data"
+            / "phase5_full_relief_track_consistency_v1"
+            / "front_relief_support_audit.png",
+            "phase5_full_ring004_relief_track_review": self.repo_root
+            / "data"
+            / "phase5_full_relief_track_consistency_v1"
+            / "objects"
+            / "ring_004"
+            / "ring_004_relief_track_review.png",
             "phase5_round_solitaire_step": self.repo_root
             / "data"
             / "phase5_exact_cad_v2_v1"

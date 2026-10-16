@@ -1,0 +1,41 @@
+{
+  "schema_version": "vggt_track_evidence_v1",
+  "object_id": "ring_022",
+  "split": "train",
+  "views": [
+    "front",
+    "top",
+    "iso",
+    "lsv",
+    "rsv"
+  ],
+  "image_size": 518,
+  "query_count_per_view": 384,
+  "query_selection": "shi_tomasi_inside_silhouette_then_deterministic_mask_fill",
+  "tracker": {
+    "backend": "VGGT-1B track head",
+    "pinned_code_commit": "a288dd0f14786c93483e45524328726ab7b1b4ce",
+    "checkpoint_sha256": "d15bf50a8615c8225ed48b51ea5cac673d82442ec0309036df555a053253afe0",
+    "query_chunk_size": 24,
+    "dtype": "float16"
+  },
+  "summary": {
+    "mean_visibility": 0.65564,
+    "mean_confidence": 0.260427,
+    "in_bounds_fraction": 0.999896,
+    "maximum_source_query_error_pixels": 0.0
+  },
+  "runtime": {
+    "seconds": 95.287,
+    "peak_cuda_bytes": 2615137792
+  },
+  "artifacts": {
+    "track_evidence": "dataset/phase_runs/v1/vggt_full_stl1_track_evidence_v1/ring_022/vggt_track_evidence.npz"
+  },
+  "claims": {
+    "tracks_are_human_ground_truth": false,
+    "camera_calibration_validated": false,
+    "metric_scale_validated": false,
+    "geometry_accuracy_validated": false
+  }
+}

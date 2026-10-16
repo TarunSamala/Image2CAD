@@ -149,8 +149,48 @@ top head profile instead of using the rejected rectangular envelope. Validation
 front/top IoU is `0.973288`/`0.983941`; all 24 head solids, all 48 shoulders and
 all fused metal bodies are valid, connected B-reps with STEP exports. Actual
 tessellated CAD previews for rings 004, 012 and 020 were inspected separately.
-This approves the structural outer envelope only. Relief, faces, openwork,
-stones, prongs, seats, cavities and physical millimetres remain unimplemented.
+That Phase 5.2 checkpoint approves the structural outer envelope only. Relief,
+faces, stones, prongs, seats, cavities and physical millimetres remain
+unimplemented; openwork advances separately as the candidate trial below.
+
+Phase 5.3 now reuses the 168 stable front-view negative-space IDs from Phase 4
+and trials each one as an exact Boolean cut. All trial cuts preserve valid,
+connected head and fused-metal B-reps across the 24 rings. Validation front IoU
+improves from `0.973288` to `0.987284`, with `0.969656` boundary F1; the test
+split remains unscored. This is a candidate-geometry checkpoint only. It does
+not resolve whether an opening is decorative openwork, a bezel interior, a
+missing insert or a segmentation error, and it does not infer hidden cut depth.
+
+Phase 5.4 now measures sculptural-relief evidence across all 24 rings and all
+120 views without embossing raw brightness. It combines repeat-validated
+relative depth, image-detail support, uncertainty and the retained three-model
+metric-depth supplement where available. It emits 24 separate front-view OBJ
+evidence surfaces plus confidence, signed-relief and rejected-detail maps. The
+validation split supports only `0.076056` of thresholded fine detail on average,
+while `0.238673` remains explicitly unresolved. The actual validation OBJ
+previews are shallow open surfaces, which correctly exposes that current depth
+models do not recover deity faces and carving at the required fidelity. These
+objects are not fused into the exact STEP body and make no relief-accuracy,
+metric-scale or manufacturing claim.
+
+Phase 5.5 now evaluates that relief evidence against the retained 384-query
+VGGT tracks for a fixed seven-ring cohort. A source point survives only when a
+second view also contains depth-supported detail, forward and reverse tracks
+pass visibility/confidence thresholds, nearest-query association is bounded,
+and the reciprocal cycle closes within 16 pixels. The common gate is identical
+for every ring; the 15-view Metric3D normal supplement is reported separately
+so rings without normals are not given an easier hidden rule. Validation keeps
+178 of 623 front candidates (`0.285714`). Ring 004 keeps only six, all through
+the isometric view, while top views support none across the cohort. This is
+sparse review evidence, not dense physical correspondence or CAD authorization.
+
+Phase 5.6 expands the retained 384-query VGGT evidence to all 24 STL-1 rings
+and applies the unchanged Phase 5.5 thresholds. All extraction checks pass at a
+2.62 GB peak CUDA allocation. Training retains 1,420 of 4,610 front candidates
+(`0.308026`); validation remains 178 of 623 (`0.285714`). The three test rings
+have review artifacts but remain outside every aggregate. The broad per-ring
+spread and absent top-view support still block dense correspondence and CAD
+relief fusion.
 
 1. Review the proposed prong identities and build reviewed semantic component
    identities, then group dense
@@ -162,8 +202,9 @@ stones, prongs, seats, cavities and physical millimetres remain unimplemented.
 3. Improve the current signed-depth minimum from `0.529` to at least `0.700`
    while raising mean IoU from `0.782` to at least `0.800`; the current method
    still fails the geometry gate.
-4. Fuse consistent multi-view depth and independently estimated normals while
-   retaining uncertain pixels.
+4. Improve fine-detail geometry beyond the Phase 5.4 depth-supported baseline
+   and densify the full-dataset sparse Phase 5.6 reciprocal tracks before any OBJ evidence
+   is converted into an exact CAD surface.
 5. Select a public-deployment-compatible independent normal comparator; DSINE
    remains blocked without a separate site/commercial licence.
 6. Review the 266 enclosed negative-space proposals retained across all 120

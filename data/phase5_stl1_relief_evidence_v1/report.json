@@ -1,0 +1,2408 @@
+{
+  "schema_version": "lalitha_phase5_stl1_relief_evidence_v1",
+  "created_at_utc": "2026-10-16T18:05:50.478013+00:00",
+  "execution_profile": "images_only_ring_relief_evidence",
+  "source": {
+    "phase1_complete_features": "dataset/phase_runs/v1/phase1_complete_features_v1/report.json",
+    "phase5_ring_parameters": "data/phase5_stl1_ring_parameters_v1/report.json",
+    "metric_depth_supplement": "dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1"
+  },
+  "summary": {
+    "object_count": 24,
+    "view_count": 120,
+    "front_relief_obj_count": 24,
+    "multi_model_supported_view_count": 15,
+    "train_mean_confidence": 0.053573,
+    "train_mean_detail_supported_fraction": 0.090062,
+    "validation_mean_confidence": 0.044672,
+    "validation_mean_detail_supported_fraction": 0.076056,
+    "validation_mean_detail_unresolved_fraction": 0.238673,
+    "test_held_out_count": 3
+  },
+  "checks": {
+    "all_24_ring_objects_processed": true,
+    "all_120_views_processed": true,
+    "all_front_relief_objs_present": true,
+    "all_outputs_repeat_deterministic": true,
+    "all_meshes_nonempty": true,
+    "held_out_test_not_aggregated": true,
+    "relief_kept_separate_from_exact_cad": true,
+    "ring_only_scope_enforced": true
+  },
+  "objects": [
+    {
+      "object_id": "ring_001",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "evidence_diagnostics_only",
+      "views": {
+        "front": {
+          "source_image": "dataset/prepared_v1/images/ring_001/front.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_001/front.npz",
+          "multi_model_depth_available": true,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.042907,
+            "detail_supported_fraction": 0.030661,
+            "detail_unresolved_fraction": 0.272082
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_001/front_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_001/front_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_001/front_rejected_photo_detail.png"
+          }
+        },
+        "top": {
+          "source_image": "dataset/prepared_v1/images/ring_001/top.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_001/top.npz",
+          "multi_model_depth_available": true,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.023228,
+            "detail_supported_fraction": 0.034615,
+            "detail_unresolved_fraction": 0.238597
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_001/top_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_001/top_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_001/top_rejected_photo_detail.png"
+          }
+        },
+        "iso": {
+          "source_image": "dataset/prepared_v1/images/ring_001/iso.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_001/iso.npz",
+          "multi_model_depth_available": true,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.031583,
+            "detail_supported_fraction": 0.011627,
+            "detail_unresolved_fraction": 0.248093
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_001/iso_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_001/iso_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_001/iso_rejected_photo_detail.png"
+          }
+        },
+        "lsv": {
+          "source_image": "dataset/prepared_v1/images/ring_001/lsv.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_001/lsv.npz",
+          "multi_model_depth_available": true,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.032882,
+            "detail_supported_fraction": 0.016301,
+            "detail_unresolved_fraction": 0.26859
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_001/lsv_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_001/lsv_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_001/lsv_rejected_photo_detail.png"
+          }
+        },
+        "rsv": {
+          "source_image": "dataset/prepared_v1/images/ring_001/rsv.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_001/rsv.npz",
+          "multi_model_depth_available": true,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.040972,
+            "detail_supported_fraction": 0.041188,
+            "detail_unresolved_fraction": 0.290385
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_001/rsv_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_001/rsv_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_001/rsv_rejected_photo_detail.png"
+          }
+        }
+      },
+      "front_relief_mesh": {
+        "path": "data/phase5_stl1_relief_evidence_v1/objects/ring_001/ring_001_front_relief_evidence.obj",
+        "sha256": "bbaf3cc5b905c49141e50e3e9d7fc874fe5c2b4425053d24f1e3ccb9b32063a3",
+        "vertex_count": 5699,
+        "face_count": 10892,
+        "units": "nominal_display_units_not_metric",
+        "topology": "open_surface_not_solid",
+        "fusion_status": "separate_reversible_evidence_layer",
+        "preview": null
+      }
+    },
+    {
+      "object_id": "ring_002",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "evidence_diagnostics_only",
+      "views": {
+        "front": {
+          "source_image": "dataset/prepared_v1/images/ring_002/front.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_002/front.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.076187,
+            "detail_supported_fraction": 0.110633,
+            "detail_unresolved_fraction": 0.27881
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_002/front_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_002/front_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_002/front_rejected_photo_detail.png"
+          }
+        },
+        "top": {
+          "source_image": "dataset/prepared_v1/images/ring_002/top.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_002/top.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.059714,
+            "detail_supported_fraction": 0.139641,
+            "detail_unresolved_fraction": 0.300221
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_002/top_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_002/top_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_002/top_rejected_photo_detail.png"
+          }
+        },
+        "iso": {
+          "source_image": "dataset/prepared_v1/images/ring_002/iso.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_002/iso.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.052598,
+            "detail_supported_fraction": 0.037718,
+            "detail_unresolved_fraction": 0.31139
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_002/iso_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_002/iso_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_002/iso_rejected_photo_detail.png"
+          }
+        },
+        "lsv": {
+          "source_image": "dataset/prepared_v1/images/ring_002/lsv.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_002/lsv.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.037381,
+            "detail_supported_fraction": 0.052846,
+            "detail_unresolved_fraction": 0.132702
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_002/lsv_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_002/lsv_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_002/lsv_rejected_photo_detail.png"
+          }
+        },
+        "rsv": {
+          "source_image": "dataset/prepared_v1/images/ring_002/rsv.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_002/rsv.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.035736,
+            "detail_supported_fraction": 0.041043,
+            "detail_unresolved_fraction": 0.219557
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_002/rsv_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_002/rsv_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_002/rsv_rejected_photo_detail.png"
+          }
+        }
+      },
+      "front_relief_mesh": {
+        "path": "data/phase5_stl1_relief_evidence_v1/objects/ring_002/ring_002_front_relief_evidence.obj",
+        "sha256": "ad3c2d1ecbd0bbeac23486e1d481ac85c14255c030e57a2a4cb7520cd7a73441",
+        "vertex_count": 5320,
+        "face_count": 10124,
+        "units": "nominal_display_units_not_metric",
+        "topology": "open_surface_not_solid",
+        "fusion_status": "separate_reversible_evidence_layer",
+        "preview": null
+      }
+    },
+    {
+      "object_id": "ring_003",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "evidence_diagnostics_only",
+      "views": {
+        "front": {
+          "source_image": "dataset/prepared_v1/images/ring_003/front.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_003/front.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.064213,
+            "detail_supported_fraction": 0.075036,
+            "detail_unresolved_fraction": 0.192117
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_003/front_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_003/front_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_003/front_rejected_photo_detail.png"
+          }
+        },
+        "top": {
+          "source_image": "dataset/prepared_v1/images/ring_003/top.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_003/top.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.044292,
+            "detail_supported_fraction": 0.089188,
+            "detail_unresolved_fraction": 0.340672
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_003/top_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_003/top_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_003/top_rejected_photo_detail.png"
+          }
+        },
+        "iso": {
+          "source_image": "dataset/prepared_v1/images/ring_003/iso.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_003/iso.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.062415,
+            "detail_supported_fraction": 0.074781,
+            "detail_unresolved_fraction": 0.454855
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_003/iso_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_003/iso_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_003/iso_rejected_photo_detail.png"
+          }
+        },
+        "lsv": {
+          "source_image": "dataset/prepared_v1/images/ring_003/lsv.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_003/lsv.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.041151,
+            "detail_supported_fraction": 0.094786,
+            "detail_unresolved_fraction": 0.164254
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_003/lsv_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_003/lsv_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_003/lsv_rejected_photo_detail.png"
+          }
+        },
+        "rsv": {
+          "source_image": "dataset/prepared_v1/images/ring_003/rsv.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_003/rsv.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.04545,
+            "detail_supported_fraction": 0.076928,
+            "detail_unresolved_fraction": 0.168411
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_003/rsv_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_003/rsv_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_003/rsv_rejected_photo_detail.png"
+          }
+        }
+      },
+      "front_relief_mesh": {
+        "path": "data/phase5_stl1_relief_evidence_v1/objects/ring_003/ring_003_front_relief_evidence.obj",
+        "sha256": "722307f93c2ab89cf067027f41efe51f6de7b7430e3d5a694b73bb5da143d477",
+        "vertex_count": 7698,
+        "face_count": 14458,
+        "units": "nominal_display_units_not_metric",
+        "topology": "open_surface_not_solid",
+        "fusion_status": "separate_reversible_evidence_layer",
+        "preview": null
+      }
+    },
+    {
+      "object_id": "ring_004",
+      "category": "ring",
+      "split": "val",
+      "evaluation_status": "evidence_diagnostics_only",
+      "views": {
+        "front": {
+          "source_image": "dataset/prepared_v1/images/ring_004/front.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_004/front.npz",
+          "multi_model_depth_available": true,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.029981,
+            "detail_supported_fraction": 0.014192,
+            "detail_unresolved_fraction": 0.157199
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_004/front_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_004/front_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_004/front_rejected_photo_detail.png",
+            "review_sheet": "data/phase5_stl1_relief_evidence_v1/objects/ring_004/ring_004_front_relief_review.png"
+          }
+        },
+        "top": {
+          "source_image": "dataset/prepared_v1/images/ring_004/top.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_004/top.npz",
+          "multi_model_depth_available": true,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.015856,
+            "detail_supported_fraction": 0.002719,
+            "detail_unresolved_fraction": 0.165709
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_004/top_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_004/top_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_004/top_rejected_photo_detail.png"
+          }
+        },
+        "iso": {
+          "source_image": "dataset/prepared_v1/images/ring_004/iso.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_004/iso.npz",
+          "multi_model_depth_available": true,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.037961,
+            "detail_supported_fraction": 0.046953,
+            "detail_unresolved_fraction": 0.218025
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_004/iso_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_004/iso_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_004/iso_rejected_photo_detail.png"
+          }
+        },
+        "lsv": {
+          "source_image": "dataset/prepared_v1/images/ring_004/lsv.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_004/lsv.npz",
+          "multi_model_depth_available": true,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.022391,
+            "detail_supported_fraction": 0.025301,
+            "detail_unresolved_fraction": 0.14274
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_004/lsv_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_004/lsv_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_004/lsv_rejected_photo_detail.png"
+          }
+        },
+        "rsv": {
+          "source_image": "dataset/prepared_v1/images/ring_004/rsv.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_004/rsv.npz",
+          "multi_model_depth_available": true,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.032529,
+            "detail_supported_fraction": 0.050601,
+            "detail_unresolved_fraction": 0.278058
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_004/rsv_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_004/rsv_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_004/rsv_rejected_photo_detail.png"
+          }
+        }
+      },
+      "front_relief_mesh": {
+        "path": "data/phase5_stl1_relief_evidence_v1/objects/ring_004/ring_004_front_relief_evidence.obj",
+        "sha256": "6cb3ee661087b714a431d2854c73b117545b305ab047701b1a4d05164278ff37",
+        "vertex_count": 4940,
+        "face_count": 9160,
+        "units": "nominal_display_units_not_metric",
+        "topology": "open_surface_not_solid",
+        "fusion_status": "separate_reversible_evidence_layer",
+        "preview": "data/phase5_stl1_relief_evidence_v1/objects/ring_004/ring_004_front_relief_obj_preview.png"
+      }
+    },
+    {
+      "object_id": "ring_005",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "evidence_diagnostics_only",
+      "views": {
+        "front": {
+          "source_image": "dataset/prepared_v1/images/ring_005/front.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_005/front.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.086551,
+            "detail_supported_fraction": 0.156335,
+            "detail_unresolved_fraction": 0.312499
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_005/front_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_005/front_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_005/front_rejected_photo_detail.png"
+          }
+        },
+        "top": {
+          "source_image": "dataset/prepared_v1/images/ring_005/top.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_005/top.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.052309,
+            "detail_supported_fraction": 0.057052,
+            "detail_unresolved_fraction": 0.282231
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_005/top_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_005/top_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_005/top_rejected_photo_detail.png"
+          }
+        },
+        "iso": {
+          "source_image": "dataset/prepared_v1/images/ring_005/iso.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_005/iso.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.054357,
+            "detail_supported_fraction": 0.064345,
+            "detail_unresolved_fraction": 0.218598
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_005/iso_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_005/iso_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_005/iso_rejected_photo_detail.png"
+          }
+        },
+        "lsv": {
+          "source_image": "dataset/prepared_v1/images/ring_005/lsv.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_005/lsv.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.043272,
+            "detail_supported_fraction": 0.074039,
+            "detail_unresolved_fraction": 0.18521
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_005/lsv_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_005/lsv_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_005/lsv_rejected_photo_detail.png"
+          }
+        },
+        "rsv": {
+          "source_image": "dataset/prepared_v1/images/ring_005/rsv.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_005/rsv.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.045514,
+            "detail_supported_fraction": 0.055697,
+            "detail_unresolved_fraction": 0.192177
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_005/rsv_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_005/rsv_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_005/rsv_rejected_photo_detail.png"
+          }
+        }
+      },
+      "front_relief_mesh": {
+        "path": "data/phase5_stl1_relief_evidence_v1/objects/ring_005/ring_005_front_relief_evidence.obj",
+        "sha256": "f30519eb8764833a123b2385b90325bfb220dae3e8cd68f20975a3e17adcfbf1",
+        "vertex_count": 5126,
+        "face_count": 9812,
+        "units": "nominal_display_units_not_metric",
+        "topology": "open_surface_not_solid",
+        "fusion_status": "separate_reversible_evidence_layer",
+        "preview": null
+      }
+    },
+    {
+      "object_id": "ring_006",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "evidence_diagnostics_only",
+      "views": {
+        "front": {
+          "source_image": "dataset/prepared_v1/images/ring_006/front.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_006/front.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.072889,
+            "detail_supported_fraction": 0.110972,
+            "detail_unresolved_fraction": 0.285223
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_006/front_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_006/front_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_006/front_rejected_photo_detail.png"
+          }
+        },
+        "top": {
+          "source_image": "dataset/prepared_v1/images/ring_006/top.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_006/top.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.062933,
+            "detail_supported_fraction": 0.100536,
+            "detail_unresolved_fraction": 0.250239
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_006/top_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_006/top_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_006/top_rejected_photo_detail.png"
+          }
+        },
+        "iso": {
+          "source_image": "dataset/prepared_v1/images/ring_006/iso.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_006/iso.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.06189,
+            "detail_supported_fraction": 0.058031,
+            "detail_unresolved_fraction": 0.30198
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_006/iso_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_006/iso_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_006/iso_rejected_photo_detail.png"
+          }
+        },
+        "lsv": {
+          "source_image": "dataset/prepared_v1/images/ring_006/lsv.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_006/lsv.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.04932,
+            "detail_supported_fraction": 0.04647,
+            "detail_unresolved_fraction": 0.255712
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_006/lsv_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_006/lsv_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_006/lsv_rejected_photo_detail.png"
+          }
+        },
+        "rsv": {
+          "source_image": "dataset/prepared_v1/images/ring_006/rsv.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_006/rsv.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.060345,
+            "detail_supported_fraction": 0.071566,
+            "detail_unresolved_fraction": 0.307438
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_006/rsv_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_006/rsv_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_006/rsv_rejected_photo_detail.png"
+          }
+        }
+      },
+      "front_relief_mesh": {
+        "path": "data/phase5_stl1_relief_evidence_v1/objects/ring_006/ring_006_front_relief_evidence.obj",
+        "sha256": "04265f10ae000e64a9bdce9f1416db02e541dee8c7fe35c59de6147cea1a60f0",
+        "vertex_count": 5953,
+        "face_count": 11138,
+        "units": "nominal_display_units_not_metric",
+        "topology": "open_surface_not_solid",
+        "fusion_status": "separate_reversible_evidence_layer",
+        "preview": null
+      }
+    },
+    {
+      "object_id": "ring_007",
+      "category": "ring",
+      "split": "test",
+      "evaluation_status": "held_out_not_aggregated",
+      "views": {
+        "front": {
+          "source_image": "dataset/prepared_v1/images/ring_007/front.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_007/front.npz",
+          "multi_model_depth_available": true,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.035393,
+            "detail_supported_fraction": 0.019047,
+            "detail_unresolved_fraction": 0.156847
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_007/front_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_007/front_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_007/front_rejected_photo_detail.png"
+          }
+        },
+        "top": {
+          "source_image": "dataset/prepared_v1/images/ring_007/top.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_007/top.npz",
+          "multi_model_depth_available": true,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.016522,
+            "detail_supported_fraction": 0.001822,
+            "detail_unresolved_fraction": 0.137863
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_007/top_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_007/top_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_007/top_rejected_photo_detail.png"
+          }
+        },
+        "iso": {
+          "source_image": "dataset/prepared_v1/images/ring_007/iso.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_007/iso.npz",
+          "multi_model_depth_available": true,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.035631,
+            "detail_supported_fraction": 0.016689,
+            "detail_unresolved_fraction": 0.287686
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_007/iso_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_007/iso_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_007/iso_rejected_photo_detail.png"
+          }
+        },
+        "lsv": {
+          "source_image": "dataset/prepared_v1/images/ring_007/lsv.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_007/lsv.npz",
+          "multi_model_depth_available": true,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.015803,
+            "detail_supported_fraction": 0.001653,
+            "detail_unresolved_fraction": 0.164761
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_007/lsv_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_007/lsv_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_007/lsv_rejected_photo_detail.png"
+          }
+        },
+        "rsv": {
+          "source_image": "dataset/prepared_v1/images/ring_007/rsv.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_007/rsv.npz",
+          "multi_model_depth_available": true,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.023982,
+            "detail_supported_fraction": 0.00652,
+            "detail_unresolved_fraction": 0.318632
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_007/rsv_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_007/rsv_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_007/rsv_rejected_photo_detail.png"
+          }
+        }
+      },
+      "front_relief_mesh": {
+        "path": "data/phase5_stl1_relief_evidence_v1/objects/ring_007/ring_007_front_relief_evidence.obj",
+        "sha256": "f185d5af4016e9305644ecc53c491b16b3eec38e2bfa7e15f157fe9c0bbdf8e4",
+        "vertex_count": 7677,
+        "face_count": 14852,
+        "units": "nominal_display_units_not_metric",
+        "topology": "open_surface_not_solid",
+        "fusion_status": "separate_reversible_evidence_layer",
+        "preview": null
+      }
+    },
+    {
+      "object_id": "ring_008",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "evidence_diagnostics_only",
+      "views": {
+        "front": {
+          "source_image": "dataset/prepared_v1/images/ring_008/front.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_008/front.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.077517,
+            "detail_supported_fraction": 0.132039,
+            "detail_unresolved_fraction": 0.202552
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_008/front_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_008/front_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_008/front_rejected_photo_detail.png"
+          }
+        },
+        "top": {
+          "source_image": "dataset/prepared_v1/images/ring_008/top.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_008/top.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.051045,
+            "detail_supported_fraction": 0.103759,
+            "detail_unresolved_fraction": 0.213043
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_008/top_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_008/top_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_008/top_rejected_photo_detail.png"
+          }
+        },
+        "iso": {
+          "source_image": "dataset/prepared_v1/images/ring_008/iso.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_008/iso.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.070694,
+            "detail_supported_fraction": 0.073586,
+            "detail_unresolved_fraction": 0.435781
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_008/iso_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_008/iso_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_008/iso_rejected_photo_detail.png"
+          }
+        },
+        "lsv": {
+          "source_image": "dataset/prepared_v1/images/ring_008/lsv.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_008/lsv.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.05152,
+            "detail_supported_fraction": 0.070237,
+            "detail_unresolved_fraction": 0.240443
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_008/lsv_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_008/lsv_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_008/lsv_rejected_photo_detail.png"
+          }
+        },
+        "rsv": {
+          "source_image": "dataset/prepared_v1/images/ring_008/rsv.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_008/rsv.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.058072,
+            "detail_supported_fraction": 0.058668,
+            "detail_unresolved_fraction": 0.22552
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_008/rsv_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_008/rsv_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_008/rsv_rejected_photo_detail.png"
+          }
+        }
+      },
+      "front_relief_mesh": {
+        "path": "data/phase5_stl1_relief_evidence_v1/objects/ring_008/ring_008_front_relief_evidence.obj",
+        "sha256": "ab0ccb34a863b5b8f8c57961703789f94c51d61d0f2d98d6d0452aa4e5b90199",
+        "vertex_count": 4883,
+        "face_count": 9178,
+        "units": "nominal_display_units_not_metric",
+        "topology": "open_surface_not_solid",
+        "fusion_status": "separate_reversible_evidence_layer",
+        "preview": null
+      }
+    },
+    {
+      "object_id": "ring_009",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "evidence_diagnostics_only",
+      "views": {
+        "front": {
+          "source_image": "dataset/prepared_v1/images/ring_009/front.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_009/front.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.078666,
+            "detail_supported_fraction": 0.126825,
+            "detail_unresolved_fraction": 0.23121
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_009/front_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_009/front_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_009/front_rejected_photo_detail.png"
+          }
+        },
+        "top": {
+          "source_image": "dataset/prepared_v1/images/ring_009/top.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_009/top.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.049927,
+            "detail_supported_fraction": 0.082674,
+            "detail_unresolved_fraction": 0.249384
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_009/top_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_009/top_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_009/top_rejected_photo_detail.png"
+          }
+        },
+        "iso": {
+          "source_image": "dataset/prepared_v1/images/ring_009/iso.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_009/iso.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.068713,
+            "detail_supported_fraction": 0.110012,
+            "detail_unresolved_fraction": 0.33993
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_009/iso_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_009/iso_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_009/iso_rejected_photo_detail.png"
+          }
+        },
+        "lsv": {
+          "source_image": "dataset/prepared_v1/images/ring_009/lsv.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_009/lsv.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.049189,
+            "detail_supported_fraction": 0.108471,
+            "detail_unresolved_fraction": 0.155743
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_009/lsv_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_009/lsv_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_009/lsv_rejected_photo_detail.png"
+          }
+        },
+        "rsv": {
+          "source_image": "dataset/prepared_v1/images/ring_009/rsv.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_009/rsv.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.047843,
+            "detail_supported_fraction": 0.09355,
+            "detail_unresolved_fraction": 0.198723
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_009/rsv_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_009/rsv_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_009/rsv_rejected_photo_detail.png"
+          }
+        }
+      },
+      "front_relief_mesh": {
+        "path": "data/phase5_stl1_relief_evidence_v1/objects/ring_009/ring_009_front_relief_evidence.obj",
+        "sha256": "80cbceb00d71b1f4b2f317bd8a1beee79ff07b245c1bf00ee545d5c300005179",
+        "vertex_count": 6340,
+        "face_count": 12200,
+        "units": "nominal_display_units_not_metric",
+        "topology": "open_surface_not_solid",
+        "fusion_status": "separate_reversible_evidence_layer",
+        "preview": null
+      }
+    },
+    {
+      "object_id": "ring_010",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "evidence_diagnostics_only",
+      "views": {
+        "front": {
+          "source_image": "dataset/prepared_v1/images/ring_010/front.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_010/front.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.103444,
+            "detail_supported_fraction": 0.203432,
+            "detail_unresolved_fraction": 0.291772
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_010/front_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_010/front_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_010/front_rejected_photo_detail.png"
+          }
+        },
+        "top": {
+          "source_image": "dataset/prepared_v1/images/ring_010/top.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_010/top.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.04768,
+            "detail_supported_fraction": 0.06831,
+            "detail_unresolved_fraction": 0.199526
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_010/top_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_010/top_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_010/top_rejected_photo_detail.png"
+          }
+        },
+        "iso": {
+          "source_image": "dataset/prepared_v1/images/ring_010/iso.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_010/iso.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.058795,
+            "detail_supported_fraction": 0.056328,
+            "detail_unresolved_fraction": 0.356296
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_010/iso_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_010/iso_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_010/iso_rejected_photo_detail.png"
+          }
+        },
+        "lsv": {
+          "source_image": "dataset/prepared_v1/images/ring_010/lsv.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_010/lsv.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.044008,
+            "detail_supported_fraction": 0.094192,
+            "detail_unresolved_fraction": 0.174609
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_010/lsv_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_010/lsv_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_010/lsv_rejected_photo_detail.png"
+          }
+        },
+        "rsv": {
+          "source_image": "dataset/prepared_v1/images/ring_010/rsv.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_010/rsv.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.049989,
+            "detail_supported_fraction": 0.091642,
+            "detail_unresolved_fraction": 0.211569
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_010/rsv_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_010/rsv_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_010/rsv_rejected_photo_detail.png"
+          }
+        }
+      },
+      "front_relief_mesh": {
+        "path": "data/phase5_stl1_relief_evidence_v1/objects/ring_010/ring_010_front_relief_evidence.obj",
+        "sha256": "0324946b4934e7fe75b73490cc6d7bccbc752a653c7b5ef607c636f7a5b1ea63",
+        "vertex_count": 8059,
+        "face_count": 15578,
+        "units": "nominal_display_units_not_metric",
+        "topology": "open_surface_not_solid",
+        "fusion_status": "separate_reversible_evidence_layer",
+        "preview": null
+      }
+    },
+    {
+      "object_id": "ring_011",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "evidence_diagnostics_only",
+      "views": {
+        "front": {
+          "source_image": "dataset/prepared_v1/images/ring_011/front.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_011/front.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.072786,
+            "detail_supported_fraction": 0.104931,
+            "detail_unresolved_fraction": 0.237757
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_011/front_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_011/front_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_011/front_rejected_photo_detail.png"
+          }
+        },
+        "top": {
+          "source_image": "dataset/prepared_v1/images/ring_011/top.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_011/top.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.04842,
+            "detail_supported_fraction": 0.113651,
+            "detail_unresolved_fraction": 0.233452
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_011/top_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_011/top_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_011/top_rejected_photo_detail.png"
+          }
+        },
+        "iso": {
+          "source_image": "dataset/prepared_v1/images/ring_011/iso.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_011/iso.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.054396,
+            "detail_supported_fraction": 0.05379,
+            "detail_unresolved_fraction": 0.243608
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_011/iso_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_011/iso_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_011/iso_rejected_photo_detail.png"
+          }
+        },
+        "lsv": {
+          "source_image": "dataset/prepared_v1/images/ring_011/lsv.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_011/lsv.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.038071,
+            "detail_supported_fraction": 0.055775,
+            "detail_unresolved_fraction": 0.156915
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_011/lsv_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_011/lsv_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_011/lsv_rejected_photo_detail.png"
+          }
+        },
+        "rsv": {
+          "source_image": "dataset/prepared_v1/images/ring_011/rsv.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_011/rsv.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.064267,
+            "detail_supported_fraction": 0.121797,
+            "detail_unresolved_fraction": 0.417854
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_011/rsv_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_011/rsv_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_011/rsv_rejected_photo_detail.png"
+          }
+        }
+      },
+      "front_relief_mesh": {
+        "path": "data/phase5_stl1_relief_evidence_v1/objects/ring_011/ring_011_front_relief_evidence.obj",
+        "sha256": "daa70faa6116cc02c4a6ad23944b00c90f8d45bc2e0be1ca544a1d1f8cfc08d1",
+        "vertex_count": 7302,
+        "face_count": 14128,
+        "units": "nominal_display_units_not_metric",
+        "topology": "open_surface_not_solid",
+        "fusion_status": "separate_reversible_evidence_layer",
+        "preview": null
+      }
+    },
+    {
+      "object_id": "ring_012",
+      "category": "ring",
+      "split": "val",
+      "evaluation_status": "evidence_diagnostics_only",
+      "views": {
+        "front": {
+          "source_image": "dataset/prepared_v1/images/ring_012/front.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_012/front.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.07184,
+            "detail_supported_fraction": 0.100285,
+            "detail_unresolved_fraction": 0.195809
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_012/front_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_012/front_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_012/front_rejected_photo_detail.png",
+            "review_sheet": "data/phase5_stl1_relief_evidence_v1/objects/ring_012/ring_012_front_relief_review.png"
+          }
+        },
+        "top": {
+          "source_image": "dataset/prepared_v1/images/ring_012/top.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_012/top.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.05597,
+            "detail_supported_fraction": 0.175359,
+            "detail_unresolved_fraction": 0.367646
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_012/top_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_012/top_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_012/top_rejected_photo_detail.png"
+          }
+        },
+        "iso": {
+          "source_image": "dataset/prepared_v1/images/ring_012/iso.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_012/iso.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.065927,
+            "detail_supported_fraction": 0.095082,
+            "detail_unresolved_fraction": 0.283437
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_012/iso_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_012/iso_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_012/iso_rejected_photo_detail.png"
+          }
+        },
+        "lsv": {
+          "source_image": "dataset/prepared_v1/images/ring_012/lsv.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_012/lsv.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.05271,
+            "detail_supported_fraction": 0.113448,
+            "detail_unresolved_fraction": 0.201693
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_012/lsv_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_012/lsv_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_012/lsv_rejected_photo_detail.png"
+          }
+        },
+        "rsv": {
+          "source_image": "dataset/prepared_v1/images/ring_012/rsv.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_012/rsv.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.063282,
+            "detail_supported_fraction": 0.130968,
+            "detail_unresolved_fraction": 0.300534
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_012/rsv_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_012/rsv_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_012/rsv_rejected_photo_detail.png"
+          }
+        }
+      },
+      "front_relief_mesh": {
+        "path": "data/phase5_stl1_relief_evidence_v1/objects/ring_012/ring_012_front_relief_evidence.obj",
+        "sha256": "edcffe27890487b8f8c051089cb2fbc35475192068f7c0910f445dd480578eb8",
+        "vertex_count": 6566,
+        "face_count": 12694,
+        "units": "nominal_display_units_not_metric",
+        "topology": "open_surface_not_solid",
+        "fusion_status": "separate_reversible_evidence_layer",
+        "preview": "data/phase5_stl1_relief_evidence_v1/objects/ring_012/ring_012_front_relief_obj_preview.png"
+      }
+    },
+    {
+      "object_id": "ring_013",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "evidence_diagnostics_only",
+      "views": {
+        "front": {
+          "source_image": "dataset/prepared_v1/images/ring_013/front.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_013/front.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.067391,
+            "detail_supported_fraction": 0.093029,
+            "detail_unresolved_fraction": 0.250884
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_013/front_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_013/front_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_013/front_rejected_photo_detail.png"
+          }
+        },
+        "top": {
+          "source_image": "dataset/prepared_v1/images/ring_013/top.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_013/top.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.033743,
+            "detail_supported_fraction": 0.059895,
+            "detail_unresolved_fraction": 0.371851
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_013/top_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_013/top_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_013/top_rejected_photo_detail.png"
+          }
+        },
+        "iso": {
+          "source_image": "dataset/prepared_v1/images/ring_013/iso.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_013/iso.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.04046,
+            "detail_supported_fraction": 0.046981,
+            "detail_unresolved_fraction": 0.169059
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_013/iso_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_013/iso_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_013/iso_rejected_photo_detail.png"
+          }
+        },
+        "lsv": {
+          "source_image": "dataset/prepared_v1/images/ring_013/lsv.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_013/lsv.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.033447,
+            "detail_supported_fraction": 0.078789,
+            "detail_unresolved_fraction": 0.178565
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_013/lsv_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_013/lsv_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_013/lsv_rejected_photo_detail.png"
+          }
+        },
+        "rsv": {
+          "source_image": "dataset/prepared_v1/images/ring_013/rsv.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_013/rsv.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.03811,
+            "detail_supported_fraction": 0.094502,
+            "detail_unresolved_fraction": 0.246905
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_013/rsv_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_013/rsv_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_013/rsv_rejected_photo_detail.png"
+          }
+        }
+      },
+      "front_relief_mesh": {
+        "path": "data/phase5_stl1_relief_evidence_v1/objects/ring_013/ring_013_front_relief_evidence.obj",
+        "sha256": "fa6cec56fb7c5126b8622c4b0ed413b993fb5f932a5d8878e7e25babde774fb5",
+        "vertex_count": 6204,
+        "face_count": 11806,
+        "units": "nominal_display_units_not_metric",
+        "topology": "open_surface_not_solid",
+        "fusion_status": "separate_reversible_evidence_layer",
+        "preview": null
+      }
+    },
+    {
+      "object_id": "ring_014",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "evidence_diagnostics_only",
+      "views": {
+        "front": {
+          "source_image": "dataset/prepared_v1/images/ring_014/front.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_014/front.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.085158,
+            "detail_supported_fraction": 0.164022,
+            "detail_unresolved_fraction": 0.220418
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_014/front_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_014/front_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_014/front_rejected_photo_detail.png"
+          }
+        },
+        "top": {
+          "source_image": "dataset/prepared_v1/images/ring_014/top.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_014/top.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.04481,
+            "detail_supported_fraction": 0.108249,
+            "detail_unresolved_fraction": 0.276195
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_014/top_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_014/top_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_014/top_rejected_photo_detail.png"
+          }
+        },
+        "iso": {
+          "source_image": "dataset/prepared_v1/images/ring_014/iso.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_014/iso.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.054367,
+            "detail_supported_fraction": 0.057727,
+            "detail_unresolved_fraction": 0.25091
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_014/iso_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_014/iso_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_014/iso_rejected_photo_detail.png"
+          }
+        },
+        "lsv": {
+          "source_image": "dataset/prepared_v1/images/ring_014/lsv.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_014/lsv.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.045355,
+            "detail_supported_fraction": 0.049259,
+            "detail_unresolved_fraction": 0.243061
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_014/lsv_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_014/lsv_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_014/lsv_rejected_photo_detail.png"
+          }
+        },
+        "rsv": {
+          "source_image": "dataset/prepared_v1/images/ring_014/rsv.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_014/rsv.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.045348,
+            "detail_supported_fraction": 0.043534,
+            "detail_unresolved_fraction": 0.27462
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_014/rsv_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_014/rsv_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_014/rsv_rejected_photo_detail.png"
+          }
+        }
+      },
+      "front_relief_mesh": {
+        "path": "data/phase5_stl1_relief_evidence_v1/objects/ring_014/ring_014_front_relief_evidence.obj",
+        "sha256": "7cf755a26c626093ce58c5bb6ff6e8cf3470afa3065b965fb435b48542e5a9c6",
+        "vertex_count": 5549,
+        "face_count": 10606,
+        "units": "nominal_display_units_not_metric",
+        "topology": "open_surface_not_solid",
+        "fusion_status": "separate_reversible_evidence_layer",
+        "preview": null
+      }
+    },
+    {
+      "object_id": "ring_015",
+      "category": "ring",
+      "split": "test",
+      "evaluation_status": "held_out_not_aggregated",
+      "views": {
+        "front": {
+          "source_image": "dataset/prepared_v1/images/ring_015/front.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_015/front.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.065597,
+            "detail_supported_fraction": 0.07857,
+            "detail_unresolved_fraction": 0.111758
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_015/front_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_015/front_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_015/front_rejected_photo_detail.png"
+          }
+        },
+        "top": {
+          "source_image": "dataset/prepared_v1/images/ring_015/top.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_015/top.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.04226,
+            "detail_supported_fraction": 0.125613,
+            "detail_unresolved_fraction": 0.361452
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_015/top_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_015/top_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_015/top_rejected_photo_detail.png"
+          }
+        },
+        "iso": {
+          "source_image": "dataset/prepared_v1/images/ring_015/iso.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_015/iso.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.064843,
+            "detail_supported_fraction": 0.081397,
+            "detail_unresolved_fraction": 0.39174
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_015/iso_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_015/iso_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_015/iso_rejected_photo_detail.png"
+          }
+        },
+        "lsv": {
+          "source_image": "dataset/prepared_v1/images/ring_015/lsv.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_015/lsv.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.043316,
+            "detail_supported_fraction": 0.076734,
+            "detail_unresolved_fraction": 0.311376
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_015/lsv_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_015/lsv_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_015/lsv_rejected_photo_detail.png"
+          }
+        },
+        "rsv": {
+          "source_image": "dataset/prepared_v1/images/ring_015/rsv.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_015/rsv.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.043055,
+            "detail_supported_fraction": 0.051991,
+            "detail_unresolved_fraction": 0.349409
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_015/rsv_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_015/rsv_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_015/rsv_rejected_photo_detail.png"
+          }
+        }
+      },
+      "front_relief_mesh": {
+        "path": "data/phase5_stl1_relief_evidence_v1/objects/ring_015/ring_015_front_relief_evidence.obj",
+        "sha256": "34f718890f3d6349d8fff71dda2f9eca3d02922c25676b156511770383dfef6c",
+        "vertex_count": 5434,
+        "face_count": 10464,
+        "units": "nominal_display_units_not_metric",
+        "topology": "open_surface_not_solid",
+        "fusion_status": "separate_reversible_evidence_layer",
+        "preview": null
+      }
+    },
+    {
+      "object_id": "ring_016",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "evidence_diagnostics_only",
+      "views": {
+        "front": {
+          "source_image": "dataset/prepared_v1/images/ring_016/front.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_016/front.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.077873,
+            "detail_supported_fraction": 0.120414,
+            "detail_unresolved_fraction": 0.231725
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_016/front_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_016/front_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_016/front_rejected_photo_detail.png"
+          }
+        },
+        "top": {
+          "source_image": "dataset/prepared_v1/images/ring_016/top.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_016/top.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.049367,
+            "detail_supported_fraction": 0.080023,
+            "detail_unresolved_fraction": 0.322903
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_016/top_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_016/top_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_016/top_rejected_photo_detail.png"
+          }
+        },
+        "iso": {
+          "source_image": "dataset/prepared_v1/images/ring_016/iso.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_016/iso.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.05749,
+            "detail_supported_fraction": 0.061412,
+            "detail_unresolved_fraction": 0.287569
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_016/iso_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_016/iso_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_016/iso_rejected_photo_detail.png"
+          }
+        },
+        "lsv": {
+          "source_image": "dataset/prepared_v1/images/ring_016/lsv.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_016/lsv.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.044134,
+            "detail_supported_fraction": 0.123226,
+            "detail_unresolved_fraction": 0.25768
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_016/lsv_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_016/lsv_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_016/lsv_rejected_photo_detail.png"
+          }
+        },
+        "rsv": {
+          "source_image": "dataset/prepared_v1/images/ring_016/rsv.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_016/rsv.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.044585,
+            "detail_supported_fraction": 0.092878,
+            "detail_unresolved_fraction": 0.17633
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_016/rsv_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_016/rsv_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_016/rsv_rejected_photo_detail.png"
+          }
+        }
+      },
+      "front_relief_mesh": {
+        "path": "data/phase5_stl1_relief_evidence_v1/objects/ring_016/ring_016_front_relief_evidence.obj",
+        "sha256": "77adb2f53635a6af625d3e99cab44aa8e91dd0dd32a64c4aac84eaffc0c686a9",
+        "vertex_count": 5095,
+        "face_count": 9740,
+        "units": "nominal_display_units_not_metric",
+        "topology": "open_surface_not_solid",
+        "fusion_status": "separate_reversible_evidence_layer",
+        "preview": null
+      }
+    },
+    {
+      "object_id": "ring_017",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "evidence_diagnostics_only",
+      "views": {
+        "front": {
+          "source_image": "dataset/prepared_v1/images/ring_017/front.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_017/front.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.085154,
+            "detail_supported_fraction": 0.134284,
+            "detail_unresolved_fraction": 0.276113
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_017/front_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_017/front_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_017/front_rejected_photo_detail.png"
+          }
+        },
+        "top": {
+          "source_image": "dataset/prepared_v1/images/ring_017/top.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_017/top.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.046357,
+            "detail_supported_fraction": 0.090042,
+            "detail_unresolved_fraction": 0.178561
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_017/top_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_017/top_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_017/top_rejected_photo_detail.png"
+          }
+        },
+        "iso": {
+          "source_image": "dataset/prepared_v1/images/ring_017/iso.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_017/iso.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.05229,
+            "detail_supported_fraction": 0.051632,
+            "detail_unresolved_fraction": 0.256285
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_017/iso_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_017/iso_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_017/iso_rejected_photo_detail.png"
+          }
+        },
+        "lsv": {
+          "source_image": "dataset/prepared_v1/images/ring_017/lsv.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_017/lsv.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.051298,
+            "detail_supported_fraction": 0.136063,
+            "detail_unresolved_fraction": 0.193376
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_017/lsv_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_017/lsv_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_017/lsv_rejected_photo_detail.png"
+          }
+        },
+        "rsv": {
+          "source_image": "dataset/prepared_v1/images/ring_017/rsv.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_017/rsv.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.054589,
+            "detail_supported_fraction": 0.138889,
+            "detail_unresolved_fraction": 0.202531
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_017/rsv_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_017/rsv_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_017/rsv_rejected_photo_detail.png"
+          }
+        }
+      },
+      "front_relief_mesh": {
+        "path": "data/phase5_stl1_relief_evidence_v1/objects/ring_017/ring_017_front_relief_evidence.obj",
+        "sha256": "48f192403c2af70fd31bb7c8b93a4ce29f583d0304d9d0de0154a8db30306e30",
+        "vertex_count": 7140,
+        "face_count": 13556,
+        "units": "nominal_display_units_not_metric",
+        "topology": "open_surface_not_solid",
+        "fusion_status": "separate_reversible_evidence_layer",
+        "preview": null
+      }
+    },
+    {
+      "object_id": "ring_018",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "evidence_diagnostics_only",
+      "views": {
+        "front": {
+          "source_image": "dataset/prepared_v1/images/ring_018/front.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_018/front.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.087795,
+            "detail_supported_fraction": 0.139329,
+            "detail_unresolved_fraction": 0.260953
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_018/front_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_018/front_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_018/front_rejected_photo_detail.png"
+          }
+        },
+        "top": {
+          "source_image": "dataset/prepared_v1/images/ring_018/top.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_018/top.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.047968,
+            "detail_supported_fraction": 0.083753,
+            "detail_unresolved_fraction": 0.267877
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_018/top_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_018/top_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_018/top_rejected_photo_detail.png"
+          }
+        },
+        "iso": {
+          "source_image": "dataset/prepared_v1/images/ring_018/iso.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_018/iso.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.053309,
+            "detail_supported_fraction": 0.06968,
+            "detail_unresolved_fraction": 0.223471
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_018/iso_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_018/iso_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_018/iso_rejected_photo_detail.png"
+          }
+        },
+        "lsv": {
+          "source_image": "dataset/prepared_v1/images/ring_018/lsv.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_018/lsv.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.046871,
+            "detail_supported_fraction": 0.111776,
+            "detail_unresolved_fraction": 0.155317
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_018/lsv_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_018/lsv_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_018/lsv_rejected_photo_detail.png"
+          }
+        },
+        "rsv": {
+          "source_image": "dataset/prepared_v1/images/ring_018/rsv.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_018/rsv.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.045988,
+            "detail_supported_fraction": 0.112899,
+            "detail_unresolved_fraction": 0.177603
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_018/rsv_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_018/rsv_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_018/rsv_rejected_photo_detail.png"
+          }
+        }
+      },
+      "front_relief_mesh": {
+        "path": "data/phase5_stl1_relief_evidence_v1/objects/ring_018/ring_018_front_relief_evidence.obj",
+        "sha256": "068dc6f82714587f58e0e468f18c9ef3400f0a590f170a6c08c3025c59b40031",
+        "vertex_count": 5779,
+        "face_count": 11160,
+        "units": "nominal_display_units_not_metric",
+        "topology": "open_surface_not_solid",
+        "fusion_status": "separate_reversible_evidence_layer",
+        "preview": null
+      }
+    },
+    {
+      "object_id": "ring_019",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "evidence_diagnostics_only",
+      "views": {
+        "front": {
+          "source_image": "dataset/prepared_v1/images/ring_019/front.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_019/front.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.077814,
+            "detail_supported_fraction": 0.119533,
+            "detail_unresolved_fraction": 0.280579
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_019/front_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_019/front_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_019/front_rejected_photo_detail.png"
+          }
+        },
+        "top": {
+          "source_image": "dataset/prepared_v1/images/ring_019/top.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_019/top.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.053932,
+            "detail_supported_fraction": 0.134114,
+            "detail_unresolved_fraction": 0.223009
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_019/top_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_019/top_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_019/top_rejected_photo_detail.png"
+          }
+        },
+        "iso": {
+          "source_image": "dataset/prepared_v1/images/ring_019/iso.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_019/iso.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.048254,
+            "detail_supported_fraction": 0.035605,
+            "detail_unresolved_fraction": 0.345734
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_019/iso_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_019/iso_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_019/iso_rejected_photo_detail.png"
+          }
+        },
+        "lsv": {
+          "source_image": "dataset/prepared_v1/images/ring_019/lsv.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_019/lsv.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.028347,
+            "detail_supported_fraction": 0.04529,
+            "detail_unresolved_fraction": 0.136566
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_019/lsv_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_019/lsv_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_019/lsv_rejected_photo_detail.png"
+          }
+        },
+        "rsv": {
+          "source_image": "dataset/prepared_v1/images/ring_019/rsv.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_019/rsv.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.041139,
+            "detail_supported_fraction": 0.067873,
+            "detail_unresolved_fraction": 0.314803
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_019/rsv_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_019/rsv_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_019/rsv_rejected_photo_detail.png"
+          }
+        }
+      },
+      "front_relief_mesh": {
+        "path": "data/phase5_stl1_relief_evidence_v1/objects/ring_019/ring_019_front_relief_evidence.obj",
+        "sha256": "3328fa95b89584218641596143fdbde66efebea3c916b569b89d894312d5aaad",
+        "vertex_count": 4389,
+        "face_count": 8002,
+        "units": "nominal_display_units_not_metric",
+        "topology": "open_surface_not_solid",
+        "fusion_status": "separate_reversible_evidence_layer",
+        "preview": null
+      }
+    },
+    {
+      "object_id": "ring_020",
+      "category": "ring",
+      "split": "val",
+      "evaluation_status": "evidence_diagnostics_only",
+      "views": {
+        "front": {
+          "source_image": "dataset/prepared_v1/images/ring_020/front.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_020/front.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.071049,
+            "detail_supported_fraction": 0.087478,
+            "detail_unresolved_fraction": 0.328336
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_020/front_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_020/front_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_020/front_rejected_photo_detail.png",
+            "review_sheet": "data/phase5_stl1_relief_evidence_v1/objects/ring_020/ring_020_front_relief_review.png"
+          }
+        },
+        "top": {
+          "source_image": "dataset/prepared_v1/images/ring_020/top.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_020/top.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.042977,
+            "detail_supported_fraction": 0.124828,
+            "detail_unresolved_fraction": 0.266725
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_020/top_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_020/top_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_020/top_rejected_photo_detail.png"
+          }
+        },
+        "iso": {
+          "source_image": "dataset/prepared_v1/images/ring_020/iso.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_020/iso.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.046448,
+            "detail_supported_fraction": 0.060154,
+            "detail_unresolved_fraction": 0.168146
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_020/iso_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_020/iso_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_020/iso_rejected_photo_detail.png"
+          }
+        },
+        "lsv": {
+          "source_image": "dataset/prepared_v1/images/ring_020/lsv.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_020/lsv.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.020854,
+            "detail_supported_fraction": 0.036054,
+            "detail_unresolved_fraction": 0.255897
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_020/lsv_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_020/lsv_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_020/lsv_rejected_photo_detail.png"
+          }
+        },
+        "rsv": {
+          "source_image": "dataset/prepared_v1/images/ring_020/rsv.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_020/rsv.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.040309,
+            "detail_supported_fraction": 0.077425,
+            "detail_unresolved_fraction": 0.25014
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_020/rsv_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_020/rsv_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_020/rsv_rejected_photo_detail.png"
+          }
+        }
+      },
+      "front_relief_mesh": {
+        "path": "data/phase5_stl1_relief_evidence_v1/objects/ring_020/ring_020_front_relief_evidence.obj",
+        "sha256": "eb6b5672d5a0b0c8c286097a80246ad9197d0f0002df06c53e2c69f184657e7a",
+        "vertex_count": 7376,
+        "face_count": 13866,
+        "units": "nominal_display_units_not_metric",
+        "topology": "open_surface_not_solid",
+        "fusion_status": "separate_reversible_evidence_layer",
+        "preview": "data/phase5_stl1_relief_evidence_v1/objects/ring_020/ring_020_front_relief_obj_preview.png"
+      }
+    },
+    {
+      "object_id": "ring_021",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "evidence_diagnostics_only",
+      "views": {
+        "front": {
+          "source_image": "dataset/prepared_v1/images/ring_021/front.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_021/front.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.092321,
+            "detail_supported_fraction": 0.136743,
+            "detail_unresolved_fraction": 0.298897
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_021/front_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_021/front_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_021/front_rejected_photo_detail.png"
+          }
+        },
+        "top": {
+          "source_image": "dataset/prepared_v1/images/ring_021/top.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_021/top.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.066255,
+            "detail_supported_fraction": 0.208193,
+            "detail_unresolved_fraction": 0.238659
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_021/top_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_021/top_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_021/top_rejected_photo_detail.png"
+          }
+        },
+        "iso": {
+          "source_image": "dataset/prepared_v1/images/ring_021/iso.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_021/iso.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.048295,
+            "detail_supported_fraction": 0.038814,
+            "detail_unresolved_fraction": 0.251939
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_021/iso_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_021/iso_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_021/iso_rejected_photo_detail.png"
+          }
+        },
+        "lsv": {
+          "source_image": "dataset/prepared_v1/images/ring_021/lsv.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_021/lsv.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.034374,
+            "detail_supported_fraction": 0.129056,
+            "detail_unresolved_fraction": 0.202679
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_021/lsv_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_021/lsv_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_021/lsv_rejected_photo_detail.png"
+          }
+        },
+        "rsv": {
+          "source_image": "dataset/prepared_v1/images/ring_021/rsv.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_021/rsv.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.05062,
+            "detail_supported_fraction": 0.12877,
+            "detail_unresolved_fraction": 0.237723
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_021/rsv_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_021/rsv_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_021/rsv_rejected_photo_detail.png"
+          }
+        }
+      },
+      "front_relief_mesh": {
+        "path": "data/phase5_stl1_relief_evidence_v1/objects/ring_021/ring_021_front_relief_evidence.obj",
+        "sha256": "2828dd7c4ce34c52084b7df96166e6f5a952fec9b740dff9ed5f7f81993ffffd",
+        "vertex_count": 6131,
+        "face_count": 11672,
+        "units": "nominal_display_units_not_metric",
+        "topology": "open_surface_not_solid",
+        "fusion_status": "separate_reversible_evidence_layer",
+        "preview": null
+      }
+    },
+    {
+      "object_id": "ring_022",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "evidence_diagnostics_only",
+      "views": {
+        "front": {
+          "source_image": "dataset/prepared_v1/images/ring_022/front.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_022/front.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.081725,
+            "detail_supported_fraction": 0.127399,
+            "detail_unresolved_fraction": 0.233572
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_022/front_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_022/front_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_022/front_rejected_photo_detail.png"
+          }
+        },
+        "top": {
+          "source_image": "dataset/prepared_v1/images/ring_022/top.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_022/top.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.041563,
+            "detail_supported_fraction": 0.0995,
+            "detail_unresolved_fraction": 0.174335
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_022/top_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_022/top_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_022/top_rejected_photo_detail.png"
+          }
+        },
+        "iso": {
+          "source_image": "dataset/prepared_v1/images/ring_022/iso.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_022/iso.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.068225,
+            "detail_supported_fraction": 0.126922,
+            "detail_unresolved_fraction": 0.324899
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_022/iso_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_022/iso_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_022/iso_rejected_photo_detail.png"
+          }
+        },
+        "lsv": {
+          "source_image": "dataset/prepared_v1/images/ring_022/lsv.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_022/lsv.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.03432,
+            "detail_supported_fraction": 0.170493,
+            "detail_unresolved_fraction": 0.254317
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_022/lsv_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_022/lsv_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_022/lsv_rejected_photo_detail.png"
+          }
+        },
+        "rsv": {
+          "source_image": "dataset/prepared_v1/images/ring_022/rsv.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_022/rsv.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.039436,
+            "detail_supported_fraction": 0.169359,
+            "detail_unresolved_fraction": 0.237178
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_022/rsv_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_022/rsv_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_022/rsv_rejected_photo_detail.png"
+          }
+        }
+      },
+      "front_relief_mesh": {
+        "path": "data/phase5_stl1_relief_evidence_v1/objects/ring_022/ring_022_front_relief_evidence.obj",
+        "sha256": "b6249e6c4192aea917266b0d9e88cb6cec0c883708da1dda6090cdbd1185277e",
+        "vertex_count": 7831,
+        "face_count": 15160,
+        "units": "nominal_display_units_not_metric",
+        "topology": "open_surface_not_solid",
+        "fusion_status": "separate_reversible_evidence_layer",
+        "preview": null
+      }
+    },
+    {
+      "object_id": "ring_023",
+      "category": "ring",
+      "split": "test",
+      "evaluation_status": "held_out_not_aggregated",
+      "views": {
+        "front": {
+          "source_image": "dataset/prepared_v1/images/ring_023/front.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_023/front.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.078647,
+            "detail_supported_fraction": 0.13557,
+            "detail_unresolved_fraction": 0.240043
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_023/front_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_023/front_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_023/front_rejected_photo_detail.png"
+          }
+        },
+        "top": {
+          "source_image": "dataset/prepared_v1/images/ring_023/top.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_023/top.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.050731,
+            "detail_supported_fraction": 0.115844,
+            "detail_unresolved_fraction": 0.156565
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_023/top_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_023/top_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_023/top_rejected_photo_detail.png"
+          }
+        },
+        "iso": {
+          "source_image": "dataset/prepared_v1/images/ring_023/iso.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_023/iso.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.060078,
+            "detail_supported_fraction": 0.094622,
+            "detail_unresolved_fraction": 0.276293
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_023/iso_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_023/iso_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_023/iso_rejected_photo_detail.png"
+          }
+        },
+        "lsv": {
+          "source_image": "dataset/prepared_v1/images/ring_023/lsv.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_023/lsv.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.03697,
+            "detail_supported_fraction": 0.140104,
+            "detail_unresolved_fraction": 0.328207
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_023/lsv_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_023/lsv_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_023/lsv_rejected_photo_detail.png"
+          }
+        },
+        "rsv": {
+          "source_image": "dataset/prepared_v1/images/ring_023/rsv.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_023/rsv.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.057562,
+            "detail_supported_fraction": 0.181299,
+            "detail_unresolved_fraction": 0.251915
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_023/rsv_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_023/rsv_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_023/rsv_rejected_photo_detail.png"
+          }
+        }
+      },
+      "front_relief_mesh": {
+        "path": "data/phase5_stl1_relief_evidence_v1/objects/ring_023/ring_023_front_relief_evidence.obj",
+        "sha256": "7f4d90051c7d5daff280cd1bf831abab8bb23a8b1b535850e788fc30a6628739",
+        "vertex_count": 5953,
+        "face_count": 11224,
+        "units": "nominal_display_units_not_metric",
+        "topology": "open_surface_not_solid",
+        "fusion_status": "separate_reversible_evidence_layer",
+        "preview": null
+      }
+    },
+    {
+      "object_id": "ring_024",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "evidence_diagnostics_only",
+      "views": {
+        "front": {
+          "source_image": "dataset/prepared_v1/images/ring_024/front.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_024/front.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.069813,
+            "detail_supported_fraction": 0.107335,
+            "detail_unresolved_fraction": 0.23626
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_024/front_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_024/front_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_024/front_rejected_photo_detail.png"
+          }
+        },
+        "top": {
+          "source_image": "dataset/prepared_v1/images/ring_024/top.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_024/top.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.029848,
+            "detail_supported_fraction": 0.052485,
+            "detail_unresolved_fraction": 0.424008
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_024/top_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_024/top_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_024/top_rejected_photo_detail.png"
+          }
+        },
+        "iso": {
+          "source_image": "dataset/prepared_v1/images/ring_024/iso.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_024/iso.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.05038,
+            "detail_supported_fraction": 0.050896,
+            "detail_unresolved_fraction": 0.38529
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_024/iso_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_024/iso_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_024/iso_rejected_photo_detail.png"
+          }
+        },
+        "lsv": {
+          "source_image": "dataset/prepared_v1/images/ring_024/lsv.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_024/lsv.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.021079,
+            "detail_supported_fraction": 0.046954,
+            "detail_unresolved_fraction": 0.116539
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_024/lsv_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_024/lsv_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_024/lsv_rejected_photo_detail.png"
+          }
+        },
+        "rsv": {
+          "source_image": "dataset/prepared_v1/images/ring_024/rsv.png",
+          "source_bundle": "dataset/phase_runs/v1/phase1_complete_features_v1/bundles/ring_024/rsv.npz",
+          "multi_model_depth_available": false,
+          "repeat_deterministic": true,
+          "diagnostics": {
+            "mean_confidence": 0.045439,
+            "detail_supported_fraction": 0.122243,
+            "detail_unresolved_fraction": 0.270243
+          },
+          "artifacts": {
+            "confidence": "data/phase5_stl1_relief_evidence_v1/objects/ring_024/rsv_relief_confidence.png",
+            "relief": "data/phase5_stl1_relief_evidence_v1/objects/ring_024/rsv_signed_relief.png",
+            "rejected": "data/phase5_stl1_relief_evidence_v1/objects/ring_024/rsv_rejected_photo_detail.png"
+          }
+        }
+      },
+      "front_relief_mesh": {
+        "path": "data/phase5_stl1_relief_evidence_v1/objects/ring_024/ring_024_front_relief_evidence.obj",
+        "sha256": "8c18400ff1c0f2408c10ceb8c3f88cdc9433e055bb1955baf4fb07329676e177",
+        "vertex_count": 2850,
+        "face_count": 4864,
+        "units": "nominal_display_units_not_metric",
+        "topology": "open_surface_not_solid",
+        "fusion_status": "separate_reversible_evidence_layer",
+        "preview": null
+      }
+    }
+  ],
+  "artifacts": {
+    "audit": "data/phase5_stl1_relief_evidence_v1/stl1_relief_evidence_audit.png"
+  },
+  "decision": "relief_evidence_ready_for_cross_view_review_not_cad_fusion",
+  "claims": {
+    "per_view_relief_evidence_available": true,
+    "raw_brightness_embossed_directly": false,
+    "relief_mesh_fused_into_exact_cad": false,
+    "relief_accuracy_measured": false,
+    "metric_scale_validated": false,
+    "manufacturing_accuracy_validated": false
+  },
+  "limitations": [
+    "The dataset provides images only; no relief, scan or physical ground truth exists.",
+    "Depth Anything preserves broad shape but omits much of the fine sculptural carving visible in STL-1.",
+    "Only 15 of 120 views have the retained three-model metric-depth supplement; other views use repeat uncertainty from Phase 1.",
+    "The OBJ files are open evidence surfaces in nominal display units, not watertight solids or manufacturing geometry.",
+    "Highlights, shadows and polished-metal reflections remain unresolved wherever depth does not support the image detail."
+  ]
+}

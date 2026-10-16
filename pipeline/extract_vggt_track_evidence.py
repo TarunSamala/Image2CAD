@@ -25,6 +25,7 @@ VIEW_ORDER = ("front", "top", "iso", "lsv", "rsv")
 VALIDATION_OBJECTS = ("ring_004", "ring_012", "ring_020")
 EVALUATION_OBJECTS = ("ring_001", "ring_007", "ring_015", "ring_023")
 TRACK_OBJECTS = (*VALIDATION_OBJECTS, *EVALUATION_OBJECTS)
+ALL_STL1_OBJECTS = tuple(f"ring_{index:03d}" for index in range(1, 25))
 IMAGE_SIZE = 518
 
 
@@ -280,8 +281,8 @@ def run(
     checkpoint_sha256 = _sha256(checkpoint)
     results = []
     for object_id in object_ids:
-        if object_id not in TRACK_OBJECTS:
-            raise ValueError(f"Object is outside the fixed Phase 3 cohort: {object_id}")
+        if object_id not in records:
+            raise ValueError(f"Unknown prepared STL-1 object: {object_id}")
         object_output = output_root / object_id
         existing_report = object_output / "report.json"
         existing_evidence = object_output / "vggt_track_evidence.npz"
@@ -346,6 +347,11 @@ def main() -> None:
         default=Path("dataset/phase_runs/v1/vggt_track_evidence_v1"),
     )
     parser.add_argument("--object-id", action="append", dest="object_ids")
+    parser.add_argument(
+        "--all-stl1",
+        action="store_true",
+        help="Extend the retained track evidence to all 24 prepared STL-1 rings.",
+    )
     parser.add_argument("--query-count", type=int, default=96)
     parser.add_argument("--query-chunk-size", type=int, default=24)
     args = parser.parse_args()
@@ -354,7 +360,13 @@ def main() -> None:
     output_root = (
         args.output_root if args.output_root.is_absolute() else root / args.output_root
     )
-    object_ids = args.object_ids or list(TRACK_OBJECTS)
+    if args.object_ids and args.all_stl1:
+        parser.error("--object-id and --all-stl1 cannot be combined")
+    object_ids = (
+        list(ALL_STL1_OBJECTS)
+        if args.all_stl1
+        else args.object_ids or list(TRACK_OBJECTS)
+    )
     report = run(
         root,
         checkpoint,

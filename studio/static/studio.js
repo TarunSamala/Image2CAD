@@ -196,6 +196,20 @@ function renderPhase4() {
   const headSupportFit = phase5.stl1_head_support_fit || {};
   const headSupportSummary = headSupportFit.summary || {};
   const headSupportChecks = headSupportFit.checks || {};
+  const openworkFit = phase5.stl1_openwork_fit || {};
+  const openworkSummary = openworkFit.summary || {};
+  const openworkChecks = openworkFit.checks || {};
+  const reliefEvidence = phase5.stl1_relief_evidence || {};
+  const reliefSummary = reliefEvidence.summary || {};
+  const reliefChecks = reliefEvidence.checks || {};
+  const reliefTracks = phase5.relief_track_consistency || {};
+  const reliefTrackSummary = reliefTracks.summary || {};
+  const reliefTrackValidation = reliefTrackSummary.validation || {};
+  const reliefTrackChecks = reliefTracks.checks || {};
+  const fullReliefTracks = phase5.full_relief_track_consistency || {};
+  const fullReliefTrackSummary = fullReliefTracks.summary || {};
+  const fullReliefTrackValidation = fullReliefTrackSummary.validation || {};
+  const fullReliefTrackChecks = fullReliefTracks.checks || {};
   const checks = report.checks || {};
   const instances = report.prong_instances || {};
   const instanceSummary = instances.summary || {};
@@ -217,6 +231,9 @@ function renderPhase4() {
     <div class="key-value"><span>STL-1 ring parameter proposals</span><strong class="${datasetRingChecks.all_24_stl1_rings_processed ? "good" : "bad"}">${datasetRingSummary.parameterized_ring_count ?? "—"} / 24 rings</strong><small>${datasetRingSummary.view_count ?? "—"} image views · normalized ring units · no invented millimetres</small></div>
     <div class="key-value"><span>Image-derived exact shank bodies</span><strong class="${ringBodyChecks.all_exact_breps_valid_single_solids ? "good" : "bad"}">${ringBodySummary.object_count ?? "—"} / 24 rings</strong><small>Validation IoU ${score(ringBodySummary.validation_mean_shank_iou, 3)} · boundary F1 ${score(ringBodySummary.validation_mean_boundary_f1, 3)} · test split unscored</small></div>
     <div class="key-value"><span>Two-view head-support envelopes</span><strong class="${headSupportChecks.all_metals_valid_single_solids ? "good" : "bad"}">${headSupportSummary.object_count ?? "—"} / 24 rings</strong><small>Validation front IoU ${score(headSupportSummary.validation_mean_front_profile_iou, 3)} · top IoU ${score(headSupportSummary.validation_mean_top_envelope_iou, 3)} · real CAD previews inspected · test split unscored</small></div>
+    <div class="key-value"><span>Exact negative-space cut trials</span><strong class="${openworkChecks.all_metals_valid_single_solids ? "good" : "bad"}">${openworkSummary.accepted_opening_count ?? "—"} / ${openworkSummary.input_candidate_count ?? "—"}</strong><small>Validation IoU ${score(openworkSummary.validation_mean_openwork_iou, 3)} · delta ${score(openworkSummary.validation_mean_iou_delta, 3)} · semantics unresolved · test split unscored</small></div>
+    <div class="key-value"><span>Sculptural relief evidence</span><strong class="${reliefChecks.relief_kept_separate_from_exact_cad ? "warning" : "bad"}">${reliefSummary.front_relief_obj_count ?? "—"} OBJ layers</strong><small>${reliefSummary.view_count ?? "—"} views · validation detail supported ${score(reliefSummary.validation_mean_detail_supported_fraction, 3)} · unresolved ${score(reliefSummary.validation_mean_detail_unresolved_fraction, 3)} · not fused into STEP</small></div>
+    <div class="key-value"><span>Full-dataset reciprocal relief tracks</span><strong class="${fullReliefTrackChecks.reciprocal_cycle_required ? "warning" : "bad"}">${fullReliefTrackValidation.front_supported_count ?? reliefTrackValidation.front_supported_count ?? "—"} / ${fullReliefTrackValidation.front_candidate_count ?? reliefTrackValidation.front_candidate_count ?? "—"}</strong><small>Validation support ${score(fullReliefTrackValidation.front_supported_fraction ?? reliefTrackValidation.front_supported_fraction, 3)} · ${fullReliefTrackSummary.object_count ?? reliefTrackSummary.object_count ?? "—"}/24 rings · 384 queries per view · sparse machine evidence · CAD fusion blocked</small></div>
     <div class="key-value"><span>Individual prong proposals</span><strong class="warning">${instanceSummary.resolved_instance_view_count ?? "—"} / ${instanceSummary.view_count ?? 5} views</strong><small>Front · top · angled resolved; side/back retain overlap groups</small></div>
     <div class="key-value"><span>VGGT identity support</span><strong class="good">Top strong · angled moderate</strong><small>Permutation margins ${score(topTrack.permutation_margin_fraction, 3)} / ${score(angledTrack.permutation_margin_fraction, 3)} · non-metric machine evidence</small></div>
     <div class="key-value"><span>STL-1 enclosed candidates</span><strong>${datasetCandidates.candidate_count ?? "—"}</strong><small>${datasetCandidates.object_count ?? "—"} objects · ${datasetCandidates.view_count ?? "—"} views · negative space only</small></div>

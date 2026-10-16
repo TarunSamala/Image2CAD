@@ -68,6 +68,19 @@ predate it, so this index prevents similarly numbered stages from being mixed.
   It intersects front and top silhouette prisms, joins exact shanks and shoulder
   supports, exports one connected STEP candidate per ring, and retains actual
   CAD previews for the validation split. Relief and semantic detail remain open.
+- `fit_phase5_stl1_openwork.py` - Phase 5.3 exact negative-space cut trials.
+  It reuses all 168 stable Phase 4 front candidates, records Boolean acceptance
+  per ID, exports connected STEP candidates and keeps semantic/material claims
+  unresolved. This is open-space geometry evidence, not relief reconstruction.
+- `build_phase5_stl1_relief_evidence.py` - Phase 5.4 conservative relief
+  evidence across all 120 STL-1 views. It combines depth residuals, image-detail
+  support and uncertainty, writes rejected photometric detail separately, and
+  exports one reversible front OBJ layer per ring without modifying exact STEP.
+- `evaluate_phase5_relief_tracks.py` - Phase 5.5/5.6 sparse reciprocal relief
+  consistency. The default preserves the seven-ring checkpoint; `--all-stl1`
+  applies the same frozen gate to all 24 rings. It requires source and target
+  relief support plus bounded forward/reverse cycles, retains test rings as
+  non-aggregated evidence, and never moves or authorizes CAD geometry.
 
 ## Shared evidence and dataset tools
 

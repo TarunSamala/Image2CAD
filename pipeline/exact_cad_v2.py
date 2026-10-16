@@ -137,6 +137,9 @@ def build_head_support_envelope(
     spec: HeadSupportSpec,
     front_profile_xy: tuple[tuple[float, float], ...],
     top_profile_xz: tuple[tuple[float, float], ...],
+    front_opening_profiles_xy: tuple[
+        tuple[tuple[float, float], ...], ...
+    ] = (),
 ) -> dict[str, Any]:
     """Attach an exact two-view head visual hull and shoulder supports."""
     if len(front_profile_xy) < 12 or len(top_profile_xz) < 12:
@@ -163,6 +166,52 @@ def build_head_support_envelope(
         cq.Vector(0.0, profile_depth, 0.0),
     ).clean()
     head = front_prism.intersect(top_prism).clean()
+    opening_trials: list[dict[str, Any]] = []
+    accepted_opening_cutters: list[Any] = []
+    cutter_padding = max(spec.height * 0.01, 0.02)
+    for opening_index, opening_profile in enumerate(
+        front_opening_profiles_xy, start=1
+    ):
+        trial: dict[str, Any] = {
+            "profile_index": opening_index - 1,
+            "accepted": False,
+            "reason": "invalid_profile",
+            "removed_volume": 0.0,
+        }
+        if len(opening_profile) < 8:
+            opening_trials.append(trial)
+            continue
+        opening_vectors = [
+            cq.Vector(x, y, spec.base_z - cutter_padding)
+            for x, y in opening_profile
+        ]
+        try:
+            opening_wire = cq.Wire.makePolygon(
+                [*opening_vectors, opening_vectors[0]], close=True
+            )
+            cutter = cq.Solid.extrudeLinear(
+                opening_wire,
+                [],
+                cq.Vector(0.0, 0.0, spec.height + 2.0 * cutter_padding),
+            ).clean()
+            previous_volume = float(head.Volume())
+            candidate = head.cut(cutter).clean()
+            removed_volume = previous_volume - float(candidate.Volume())
+            trial["removed_volume"] = removed_volume
+            if removed_volume <= 1e-7:
+                trial["reason"] = "no_head_intersection"
+            elif not candidate.isValid():
+                trial["reason"] = "invalid_brep_after_cut"
+            elif len(candidate.Solids()) != 1:
+                trial["reason"] = "head_disconnected_after_cut"
+            else:
+                head = candidate
+                accepted_opening_cutters.append(cutter)
+                trial["accepted"] = True
+                trial["reason"] = "valid_connected_exact_cut"
+        except Exception as error:  # OCCT rejects degenerate image contours.
+            trial["reason"] = f"boolean_error:{type(error).__name__}"
+        opening_trials.append(trial)
 
     body_spec = ring_body["spec"]
     top_z = spec.base_z + spec.height * 0.22
@@ -203,6 +252,8 @@ def build_head_support_envelope(
         "assembly": metal,
         "profile_wire": profile_wire,
         "top_profile_wire": top_wire,
+        "opening_trials": opening_trials,
+        "accepted_opening_cutters": accepted_opening_cutters,
     }
 
 

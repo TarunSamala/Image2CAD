@@ -1,0 +1,687 @@
+{
+  "schema_version": "lalitha_phase5_full_relief_track_consistency_v1",
+  "created_at_utc": "2026-10-16T19:04:27.655613+00:00",
+  "execution_profile": "images_only_sparse_reciprocal_relief_tracking",
+  "scope": {
+    "dataset": "STL-1",
+    "object_ids": [
+      "ring_001",
+      "ring_002",
+      "ring_003",
+      "ring_004",
+      "ring_005",
+      "ring_006",
+      "ring_007",
+      "ring_008",
+      "ring_009",
+      "ring_010",
+      "ring_011",
+      "ring_012",
+      "ring_013",
+      "ring_014",
+      "ring_015",
+      "ring_016",
+      "ring_017",
+      "ring_018",
+      "ring_019",
+      "ring_020",
+      "ring_021",
+      "ring_022",
+      "ring_023",
+      "ring_024"
+    ],
+    "view_order": [
+      "front",
+      "top",
+      "iso",
+      "lsv",
+      "rsv"
+    ],
+    "input_resolution": 518,
+    "query_count_per_view": 384,
+    "thresholds": {
+      "minimum_source_relief_confidence": 0.05,
+      "minimum_target_relief_confidence": 0.05,
+      "minimum_visibility": 0.5,
+      "minimum_track_confidence": 0.1,
+      "maximum_nearest_query_distance_pixels": 12.0,
+      "maximum_reciprocal_cycle_error_pixels": 16.0,
+      "minimum_normal_agreement_when_available": 0.4
+    }
+  },
+  "sources": {
+    "phase5_relief_evidence": "data/phase5_stl1_relief_evidence_v1/report.json",
+    "vggt_tracks": "dataset/phase_runs/v1/vggt_full_stl1_track_evidence_v1/report.json",
+    "surface_normal_supplement": "dataset/phase_runs/v1/surface_normal_evidence_v1/report.json"
+  },
+  "summary": {
+    "object_count": 24,
+    "view_count": 120,
+    "normal_comparator_view_count": 15,
+    "train": {
+      "object_count": 18,
+      "front_candidate_count": 4610,
+      "front_supported_count": 1420,
+      "front_supported_fraction": 0.308026,
+      "mean_front_supported_view_count": 0.346921
+    },
+    "validation": {
+      "object_count": 3,
+      "front_candidate_count": 623,
+      "front_supported_count": 178,
+      "front_supported_fraction": 0.285714,
+      "mean_front_supported_view_count": 0.290786
+    },
+    "test_held_out_count": 3
+  },
+  "checks": {
+    "full_24_ring_track_cohort_processed": true,
+    "all_120_tracked_views_processed": true,
+    "selection_thresholds_do_not_use_test_objects": true,
+    "held_out_test_not_aggregated": true,
+    "reciprocal_cycle_required": true,
+    "nearest_query_distance_bounded": true,
+    "normal_comparator_reported_separately_from_universal_gate": true,
+    "exact_cad_body_unchanged": true,
+    "ring_only_scope_enforced": true
+  },
+  "objects": [
+    {
+      "object_id": "ring_001",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "sparse_machine_evidence_only",
+      "normal_comparator_view_count": 5,
+      "front": {
+        "candidate_count": 180,
+        "cross_view_supported_count": 51,
+        "cross_view_supported_fraction": 0.283333,
+        "mean_supported_view_count": 0.338889,
+        "normal_corroborated_count": 17
+      },
+      "all_views": {
+        "candidate_count": 681,
+        "cross_view_supported_count": 130
+      },
+      "artifacts": {
+        "evidence": "data/phase5_full_relief_track_consistency_v1/objects/ring_001/ring_001_relief_track_support.npz",
+        "review": "data/phase5_full_relief_track_consistency_v1/objects/ring_001/ring_001_relief_track_review.png",
+        "front_support": "data/phase5_full_relief_track_consistency_v1/objects/ring_001/ring_001_front_crossview_support.png",
+        "front_relief": "data/phase5_full_relief_track_consistency_v1/objects/ring_001/ring_001_front_crossview_relief.png"
+      }
+    },
+    {
+      "object_id": "ring_002",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "sparse_machine_evidence_only",
+      "normal_comparator_view_count": 0,
+      "front": {
+        "candidate_count": 283,
+        "cross_view_supported_count": 110,
+        "cross_view_supported_fraction": 0.388693,
+        "mean_supported_view_count": 0.409894,
+        "normal_corroborated_count": 0
+      },
+      "all_views": {
+        "candidate_count": 838,
+        "cross_view_supported_count": 293
+      },
+      "artifacts": {
+        "evidence": "data/phase5_full_relief_track_consistency_v1/objects/ring_002/ring_002_relief_track_support.npz",
+        "review": "data/phase5_full_relief_track_consistency_v1/objects/ring_002/ring_002_relief_track_review.png",
+        "front_support": "data/phase5_full_relief_track_consistency_v1/objects/ring_002/ring_002_front_crossview_support.png",
+        "front_relief": "data/phase5_full_relief_track_consistency_v1/objects/ring_002/ring_002_front_crossview_relief.png"
+      }
+    },
+    {
+      "object_id": "ring_003",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "sparse_machine_evidence_only",
+      "normal_comparator_view_count": 0,
+      "front": {
+        "candidate_count": 237,
+        "cross_view_supported_count": 87,
+        "cross_view_supported_fraction": 0.367089,
+        "mean_supported_view_count": 0.42616,
+        "normal_corroborated_count": 0
+      },
+      "all_views": {
+        "candidate_count": 855,
+        "cross_view_supported_count": 241
+      },
+      "artifacts": {
+        "evidence": "data/phase5_full_relief_track_consistency_v1/objects/ring_003/ring_003_relief_track_support.npz",
+        "review": "data/phase5_full_relief_track_consistency_v1/objects/ring_003/ring_003_relief_track_review.png",
+        "front_support": "data/phase5_full_relief_track_consistency_v1/objects/ring_003/ring_003_front_crossview_support.png",
+        "front_relief": "data/phase5_full_relief_track_consistency_v1/objects/ring_003/ring_003_front_crossview_relief.png"
+      }
+    },
+    {
+      "object_id": "ring_004",
+      "category": "ring",
+      "split": "val",
+      "evaluation_status": "sparse_machine_evidence_only",
+      "normal_comparator_view_count": 5,
+      "front": {
+        "candidate_count": 135,
+        "cross_view_supported_count": 6,
+        "cross_view_supported_fraction": 0.044444,
+        "mean_supported_view_count": 0.044444,
+        "normal_corroborated_count": 4
+      },
+      "all_views": {
+        "candidate_count": 466,
+        "cross_view_supported_count": 14
+      },
+      "artifacts": {
+        "evidence": "data/phase5_full_relief_track_consistency_v1/objects/ring_004/ring_004_relief_track_support.npz",
+        "review": "data/phase5_full_relief_track_consistency_v1/objects/ring_004/ring_004_relief_track_review.png",
+        "front_support": "data/phase5_full_relief_track_consistency_v1/objects/ring_004/ring_004_front_crossview_support.png",
+        "front_relief": "data/phase5_full_relief_track_consistency_v1/objects/ring_004/ring_004_front_crossview_relief.png"
+      }
+    },
+    {
+      "object_id": "ring_005",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "sparse_machine_evidence_only",
+      "normal_comparator_view_count": 0,
+      "front": {
+        "candidate_count": 277,
+        "cross_view_supported_count": 91,
+        "cross_view_supported_fraction": 0.32852,
+        "mean_supported_view_count": 0.34657,
+        "normal_corroborated_count": 0
+      },
+      "all_views": {
+        "candidate_count": 830,
+        "cross_view_supported_count": 189
+      },
+      "artifacts": {
+        "evidence": "data/phase5_full_relief_track_consistency_v1/objects/ring_005/ring_005_relief_track_support.npz",
+        "review": "data/phase5_full_relief_track_consistency_v1/objects/ring_005/ring_005_relief_track_review.png",
+        "front_support": "data/phase5_full_relief_track_consistency_v1/objects/ring_005/ring_005_front_crossview_support.png",
+        "front_relief": "data/phase5_full_relief_track_consistency_v1/objects/ring_005/ring_005_front_crossview_relief.png"
+      }
+    },
+    {
+      "object_id": "ring_006",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "sparse_machine_evidence_only",
+      "normal_comparator_view_count": 0,
+      "front": {
+        "candidate_count": 241,
+        "cross_view_supported_count": 40,
+        "cross_view_supported_fraction": 0.165975,
+        "mean_supported_view_count": 0.170124,
+        "normal_corroborated_count": 0
+      },
+      "all_views": {
+        "candidate_count": 943,
+        "cross_view_supported_count": 108
+      },
+      "artifacts": {
+        "evidence": "data/phase5_full_relief_track_consistency_v1/objects/ring_006/ring_006_relief_track_support.npz",
+        "review": "data/phase5_full_relief_track_consistency_v1/objects/ring_006/ring_006_relief_track_review.png",
+        "front_support": "data/phase5_full_relief_track_consistency_v1/objects/ring_006/ring_006_front_crossview_support.png",
+        "front_relief": "data/phase5_full_relief_track_consistency_v1/objects/ring_006/ring_006_front_crossview_relief.png"
+      }
+    },
+    {
+      "object_id": "ring_007",
+      "category": "ring",
+      "split": "test",
+      "evaluation_status": "held_out_not_aggregated",
+      "normal_comparator_view_count": 5,
+      "front": {
+        "candidate_count": 172,
+        "cross_view_supported_count": 38,
+        "cross_view_supported_fraction": 0.22093,
+        "mean_supported_view_count": 0.232558,
+        "normal_corroborated_count": 6
+      },
+      "all_views": {
+        "candidate_count": 535,
+        "cross_view_supported_count": 101
+      },
+      "artifacts": {
+        "evidence": "data/phase5_full_relief_track_consistency_v1/objects/ring_007/ring_007_relief_track_support.npz",
+        "review": "data/phase5_full_relief_track_consistency_v1/objects/ring_007/ring_007_relief_track_review.png",
+        "front_support": "data/phase5_full_relief_track_consistency_v1/objects/ring_007/ring_007_front_crossview_support.png",
+        "front_relief": "data/phase5_full_relief_track_consistency_v1/objects/ring_007/ring_007_front_crossview_relief.png"
+      }
+    },
+    {
+      "object_id": "ring_008",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "sparse_machine_evidence_only",
+      "normal_comparator_view_count": 0,
+      "front": {
+        "candidate_count": 250,
+        "cross_view_supported_count": 138,
+        "cross_view_supported_fraction": 0.552,
+        "mean_supported_view_count": 0.636,
+        "normal_corroborated_count": 0
+      },
+      "all_views": {
+        "candidate_count": 1060,
+        "cross_view_supported_count": 291
+      },
+      "artifacts": {
+        "evidence": "data/phase5_full_relief_track_consistency_v1/objects/ring_008/ring_008_relief_track_support.npz",
+        "review": "data/phase5_full_relief_track_consistency_v1/objects/ring_008/ring_008_relief_track_review.png",
+        "front_support": "data/phase5_full_relief_track_consistency_v1/objects/ring_008/ring_008_front_crossview_support.png",
+        "front_relief": "data/phase5_full_relief_track_consistency_v1/objects/ring_008/ring_008_front_crossview_relief.png"
+      }
+    },
+    {
+      "object_id": "ring_009",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "sparse_machine_evidence_only",
+      "normal_comparator_view_count": 0,
+      "front": {
+        "candidate_count": 290,
+        "cross_view_supported_count": 25,
+        "cross_view_supported_fraction": 0.086207,
+        "mean_supported_view_count": 0.089655,
+        "normal_corroborated_count": 0
+      },
+      "all_views": {
+        "candidate_count": 892,
+        "cross_view_supported_count": 70
+      },
+      "artifacts": {
+        "evidence": "data/phase5_full_relief_track_consistency_v1/objects/ring_009/ring_009_relief_track_support.npz",
+        "review": "data/phase5_full_relief_track_consistency_v1/objects/ring_009/ring_009_relief_track_review.png",
+        "front_support": "data/phase5_full_relief_track_consistency_v1/objects/ring_009/ring_009_front_crossview_support.png",
+        "front_relief": "data/phase5_full_relief_track_consistency_v1/objects/ring_009/ring_009_front_crossview_relief.png"
+      }
+    },
+    {
+      "object_id": "ring_010",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "sparse_machine_evidence_only",
+      "normal_comparator_view_count": 0,
+      "front": {
+        "candidate_count": 304,
+        "cross_view_supported_count": 158,
+        "cross_view_supported_fraction": 0.519737,
+        "mean_supported_view_count": 0.611842,
+        "normal_corroborated_count": 0
+      },
+      "all_views": {
+        "candidate_count": 880,
+        "cross_view_supported_count": 427
+      },
+      "artifacts": {
+        "evidence": "data/phase5_full_relief_track_consistency_v1/objects/ring_010/ring_010_relief_track_support.npz",
+        "review": "data/phase5_full_relief_track_consistency_v1/objects/ring_010/ring_010_relief_track_review.png",
+        "front_support": "data/phase5_full_relief_track_consistency_v1/objects/ring_010/ring_010_front_crossview_support.png",
+        "front_relief": "data/phase5_full_relief_track_consistency_v1/objects/ring_010/ring_010_front_crossview_relief.png"
+      }
+    },
+    {
+      "object_id": "ring_011",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "sparse_machine_evidence_only",
+      "normal_comparator_view_count": 0,
+      "front": {
+        "candidate_count": 262,
+        "cross_view_supported_count": 124,
+        "cross_view_supported_fraction": 0.473282,
+        "mean_supported_view_count": 0.60687,
+        "normal_corroborated_count": 0
+      },
+      "all_views": {
+        "candidate_count": 908,
+        "cross_view_supported_count": 333
+      },
+      "artifacts": {
+        "evidence": "data/phase5_full_relief_track_consistency_v1/objects/ring_011/ring_011_relief_track_support.npz",
+        "review": "data/phase5_full_relief_track_consistency_v1/objects/ring_011/ring_011_relief_track_review.png",
+        "front_support": "data/phase5_full_relief_track_consistency_v1/objects/ring_011/ring_011_front_crossview_support.png",
+        "front_relief": "data/phase5_full_relief_track_consistency_v1/objects/ring_011/ring_011_front_crossview_relief.png"
+      }
+    },
+    {
+      "object_id": "ring_012",
+      "category": "ring",
+      "split": "val",
+      "evaluation_status": "sparse_machine_evidence_only",
+      "normal_comparator_view_count": 0,
+      "front": {
+        "candidate_count": 239,
+        "cross_view_supported_count": 121,
+        "cross_view_supported_fraction": 0.506276,
+        "mean_supported_view_count": 0.615063,
+        "normal_corroborated_count": 0
+      },
+      "all_views": {
+        "candidate_count": 876,
+        "cross_view_supported_count": 343
+      },
+      "artifacts": {
+        "evidence": "data/phase5_full_relief_track_consistency_v1/objects/ring_012/ring_012_relief_track_support.npz",
+        "review": "data/phase5_full_relief_track_consistency_v1/objects/ring_012/ring_012_relief_track_review.png",
+        "front_support": "data/phase5_full_relief_track_consistency_v1/objects/ring_012/ring_012_front_crossview_support.png",
+        "front_relief": "data/phase5_full_relief_track_consistency_v1/objects/ring_012/ring_012_front_crossview_relief.png"
+      }
+    },
+    {
+      "object_id": "ring_013",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "sparse_machine_evidence_only",
+      "normal_comparator_view_count": 0,
+      "front": {
+        "candidate_count": 219,
+        "cross_view_supported_count": 48,
+        "cross_view_supported_fraction": 0.219178,
+        "mean_supported_view_count": 0.237443,
+        "normal_corroborated_count": 0
+      },
+      "all_views": {
+        "candidate_count": 631,
+        "cross_view_supported_count": 143
+      },
+      "artifacts": {
+        "evidence": "data/phase5_full_relief_track_consistency_v1/objects/ring_013/ring_013_relief_track_support.npz",
+        "review": "data/phase5_full_relief_track_consistency_v1/objects/ring_013/ring_013_relief_track_review.png",
+        "front_support": "data/phase5_full_relief_track_consistency_v1/objects/ring_013/ring_013_front_crossview_support.png",
+        "front_relief": "data/phase5_full_relief_track_consistency_v1/objects/ring_013/ring_013_front_crossview_relief.png"
+      }
+    },
+    {
+      "object_id": "ring_014",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "sparse_machine_evidence_only",
+      "normal_comparator_view_count": 0,
+      "front": {
+        "candidate_count": 277,
+        "cross_view_supported_count": 47,
+        "cross_view_supported_fraction": 0.169675,
+        "mean_supported_view_count": 0.176895,
+        "normal_corroborated_count": 0
+      },
+      "all_views": {
+        "candidate_count": 884,
+        "cross_view_supported_count": 128
+      },
+      "artifacts": {
+        "evidence": "data/phase5_full_relief_track_consistency_v1/objects/ring_014/ring_014_relief_track_support.npz",
+        "review": "data/phase5_full_relief_track_consistency_v1/objects/ring_014/ring_014_relief_track_review.png",
+        "front_support": "data/phase5_full_relief_track_consistency_v1/objects/ring_014/ring_014_front_crossview_support.png",
+        "front_relief": "data/phase5_full_relief_track_consistency_v1/objects/ring_014/ring_014_front_crossview_relief.png"
+      }
+    },
+    {
+      "object_id": "ring_015",
+      "category": "ring",
+      "split": "test",
+      "evaluation_status": "held_out_not_aggregated",
+      "normal_comparator_view_count": 0,
+      "front": {
+        "candidate_count": 224,
+        "cross_view_supported_count": 42,
+        "cross_view_supported_fraction": 0.1875,
+        "mean_supported_view_count": 0.214286,
+        "normal_corroborated_count": 0
+      },
+      "all_views": {
+        "candidate_count": 851,
+        "cross_view_supported_count": 122
+      },
+      "artifacts": {
+        "evidence": "data/phase5_full_relief_track_consistency_v1/objects/ring_015/ring_015_relief_track_support.npz",
+        "review": "data/phase5_full_relief_track_consistency_v1/objects/ring_015/ring_015_relief_track_review.png",
+        "front_support": "data/phase5_full_relief_track_consistency_v1/objects/ring_015/ring_015_front_crossview_support.png",
+        "front_relief": "data/phase5_full_relief_track_consistency_v1/objects/ring_015/ring_015_front_crossview_relief.png"
+      }
+    },
+    {
+      "object_id": "ring_016",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "sparse_machine_evidence_only",
+      "normal_comparator_view_count": 0,
+      "front": {
+        "candidate_count": 251,
+        "cross_view_supported_count": 88,
+        "cross_view_supported_fraction": 0.350598,
+        "mean_supported_view_count": 0.370518,
+        "normal_corroborated_count": 0
+      },
+      "all_views": {
+        "candidate_count": 815,
+        "cross_view_supported_count": 210
+      },
+      "artifacts": {
+        "evidence": "data/phase5_full_relief_track_consistency_v1/objects/ring_016/ring_016_relief_track_support.npz",
+        "review": "data/phase5_full_relief_track_consistency_v1/objects/ring_016/ring_016_relief_track_review.png",
+        "front_support": "data/phase5_full_relief_track_consistency_v1/objects/ring_016/ring_016_front_crossview_support.png",
+        "front_relief": "data/phase5_full_relief_track_consistency_v1/objects/ring_016/ring_016_front_crossview_relief.png"
+      }
+    },
+    {
+      "object_id": "ring_017",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "sparse_machine_evidence_only",
+      "normal_comparator_view_count": 0,
+      "front": {
+        "candidate_count": 238,
+        "cross_view_supported_count": 114,
+        "cross_view_supported_fraction": 0.478992,
+        "mean_supported_view_count": 0.571429,
+        "normal_corroborated_count": 0
+      },
+      "all_views": {
+        "candidate_count": 884,
+        "cross_view_supported_count": 304
+      },
+      "artifacts": {
+        "evidence": "data/phase5_full_relief_track_consistency_v1/objects/ring_017/ring_017_relief_track_support.npz",
+        "review": "data/phase5_full_relief_track_consistency_v1/objects/ring_017/ring_017_relief_track_review.png",
+        "front_support": "data/phase5_full_relief_track_consistency_v1/objects/ring_017/ring_017_front_crossview_support.png",
+        "front_relief": "data/phase5_full_relief_track_consistency_v1/objects/ring_017/ring_017_front_crossview_relief.png"
+      }
+    },
+    {
+      "object_id": "ring_018",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "sparse_machine_evidence_only",
+      "normal_comparator_view_count": 0,
+      "front": {
+        "candidate_count": 293,
+        "cross_view_supported_count": 46,
+        "cross_view_supported_fraction": 0.156997,
+        "mean_supported_view_count": 0.170648,
+        "normal_corroborated_count": 0
+      },
+      "all_views": {
+        "candidate_count": 842,
+        "cross_view_supported_count": 130
+      },
+      "artifacts": {
+        "evidence": "data/phase5_full_relief_track_consistency_v1/objects/ring_018/ring_018_relief_track_support.npz",
+        "review": "data/phase5_full_relief_track_consistency_v1/objects/ring_018/ring_018_relief_track_review.png",
+        "front_support": "data/phase5_full_relief_track_consistency_v1/objects/ring_018/ring_018_front_crossview_support.png",
+        "front_relief": "data/phase5_full_relief_track_consistency_v1/objects/ring_018/ring_018_front_crossview_relief.png"
+      }
+    },
+    {
+      "object_id": "ring_019",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "sparse_machine_evidence_only",
+      "normal_comparator_view_count": 0,
+      "front": {
+        "candidate_count": 275,
+        "cross_view_supported_count": 69,
+        "cross_view_supported_fraction": 0.250909,
+        "mean_supported_view_count": 0.261818,
+        "normal_corroborated_count": 0
+      },
+      "all_views": {
+        "candidate_count": 801,
+        "cross_view_supported_count": 166
+      },
+      "artifacts": {
+        "evidence": "data/phase5_full_relief_track_consistency_v1/objects/ring_019/ring_019_relief_track_support.npz",
+        "review": "data/phase5_full_relief_track_consistency_v1/objects/ring_019/ring_019_relief_track_review.png",
+        "front_support": "data/phase5_full_relief_track_consistency_v1/objects/ring_019/ring_019_front_crossview_support.png",
+        "front_relief": "data/phase5_full_relief_track_consistency_v1/objects/ring_019/ring_019_front_crossview_relief.png"
+      }
+    },
+    {
+      "object_id": "ring_020",
+      "category": "ring",
+      "split": "val",
+      "evaluation_status": "sparse_machine_evidence_only",
+      "normal_comparator_view_count": 0,
+      "front": {
+        "candidate_count": 249,
+        "cross_view_supported_count": 51,
+        "cross_view_supported_fraction": 0.204819,
+        "mean_supported_view_count": 0.212851,
+        "normal_corroborated_count": 0
+      },
+      "all_views": {
+        "candidate_count": 796,
+        "cross_view_supported_count": 154
+      },
+      "artifacts": {
+        "evidence": "data/phase5_full_relief_track_consistency_v1/objects/ring_020/ring_020_relief_track_support.npz",
+        "review": "data/phase5_full_relief_track_consistency_v1/objects/ring_020/ring_020_relief_track_review.png",
+        "front_support": "data/phase5_full_relief_track_consistency_v1/objects/ring_020/ring_020_front_crossview_support.png",
+        "front_relief": "data/phase5_full_relief_track_consistency_v1/objects/ring_020/ring_020_front_crossview_relief.png"
+      }
+    },
+    {
+      "object_id": "ring_021",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "sparse_machine_evidence_only",
+      "normal_comparator_view_count": 0,
+      "front": {
+        "candidate_count": 307,
+        "cross_view_supported_count": 53,
+        "cross_view_supported_fraction": 0.172638,
+        "mean_supported_view_count": 0.19544,
+        "normal_corroborated_count": 0
+      },
+      "all_views": {
+        "candidate_count": 861,
+        "cross_view_supported_count": 134
+      },
+      "artifacts": {
+        "evidence": "data/phase5_full_relief_track_consistency_v1/objects/ring_021/ring_021_relief_track_support.npz",
+        "review": "data/phase5_full_relief_track_consistency_v1/objects/ring_021/ring_021_relief_track_review.png",
+        "front_support": "data/phase5_full_relief_track_consistency_v1/objects/ring_021/ring_021_front_crossview_support.png",
+        "front_relief": "data/phase5_full_relief_track_consistency_v1/objects/ring_021/ring_021_front_crossview_relief.png"
+      }
+    },
+    {
+      "object_id": "ring_022",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "sparse_machine_evidence_only",
+      "normal_comparator_view_count": 0,
+      "front": {
+        "candidate_count": 217,
+        "cross_view_supported_count": 92,
+        "cross_view_supported_fraction": 0.423963,
+        "mean_supported_view_count": 0.437788,
+        "normal_corroborated_count": 0
+      },
+      "all_views": {
+        "candidate_count": 925,
+        "cross_view_supported_count": 229
+      },
+      "artifacts": {
+        "evidence": "data/phase5_full_relief_track_consistency_v1/objects/ring_022/ring_022_relief_track_support.npz",
+        "review": "data/phase5_full_relief_track_consistency_v1/objects/ring_022/ring_022_relief_track_review.png",
+        "front_support": "data/phase5_full_relief_track_consistency_v1/objects/ring_022/ring_022_front_crossview_support.png",
+        "front_relief": "data/phase5_full_relief_track_consistency_v1/objects/ring_022/ring_022_front_crossview_relief.png"
+      }
+    },
+    {
+      "object_id": "ring_023",
+      "category": "ring",
+      "split": "test",
+      "evaluation_status": "held_out_not_aggregated",
+      "normal_comparator_view_count": 0,
+      "front": {
+        "candidate_count": 221,
+        "cross_view_supported_count": 76,
+        "cross_view_supported_fraction": 0.343891,
+        "mean_supported_view_count": 0.361991,
+        "normal_corroborated_count": 0
+      },
+      "all_views": {
+        "candidate_count": 842,
+        "cross_view_supported_count": 215
+      },
+      "artifacts": {
+        "evidence": "data/phase5_full_relief_track_consistency_v1/objects/ring_023/ring_023_relief_track_support.npz",
+        "review": "data/phase5_full_relief_track_consistency_v1/objects/ring_023/ring_023_relief_track_review.png",
+        "front_support": "data/phase5_full_relief_track_consistency_v1/objects/ring_023/ring_023_front_crossview_support.png",
+        "front_relief": "data/phase5_full_relief_track_consistency_v1/objects/ring_023/ring_023_front_crossview_relief.png"
+      }
+    },
+    {
+      "object_id": "ring_024",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "sparse_machine_evidence_only",
+      "normal_comparator_view_count": 0,
+      "front": {
+        "candidate_count": 209,
+        "cross_view_supported_count": 39,
+        "cross_view_supported_fraction": 0.186603,
+        "mean_supported_view_count": 0.186603,
+        "normal_corroborated_count": 0
+      },
+      "all_views": {
+        "candidate_count": 529,
+        "cross_view_supported_count": 78
+      },
+      "artifacts": {
+        "evidence": "data/phase5_full_relief_track_consistency_v1/objects/ring_024/ring_024_relief_track_support.npz",
+        "review": "data/phase5_full_relief_track_consistency_v1/objects/ring_024/ring_024_relief_track_review.png",
+        "front_support": "data/phase5_full_relief_track_consistency_v1/objects/ring_024/ring_024_front_crossview_support.png",
+        "front_relief": "data/phase5_full_relief_track_consistency_v1/objects/ring_024/ring_024_front_crossview_relief.png"
+      }
+    }
+  ],
+  "artifacts": {
+    "audit": "data/phase5_full_relief_track_consistency_v1/relief_track_consistency_audit.png",
+    "compact_front_audit": "data/phase5_full_relief_track_consistency_v1/front_relief_support_audit.png"
+  },
+  "decision": "full_dataset_sparse_relief_support_retained_not_cad_fusion",
+  "claims": {
+    "sparse_reciprocal_relief_support_available": true,
+    "dense_correspondence_validated": false,
+    "physical_correspondence_validated": false,
+    "relief_accuracy_measured": false,
+    "cad_fusion_authorized": false,
+    "metric_scale_validated": false,
+    "manufacturing_accuracy_validated": false
+  },
+  "limitations": [
+    "All 24 rings have retained sparse VGGT query tracks, but this is not dense correspondence.",
+    "VGGT features were jointly conditioned on all five images and are machine evidence, not independent correspondence truth.",
+    "Nearest-query reciprocal association can reject correct tracks because the 384 target queries remain sparse.",
+    "The direct-normal comparator is available for only 15 of 120 views and shares the Metric3D backbone with one depth hypothesis.",
+    "View-dependent highlights can still satisfy learned feature tracks; accepted points require review before CAD use."
+  ]
+}

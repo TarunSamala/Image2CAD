@@ -75,6 +75,84 @@ yet reconstruct relief, faces, openwork, stones, prongs, seats or cavities.
 Left/right views provide disagreement diagnostics but are not calibrated well
 enough to override the direct front silhouette.
 
+## Phase 5.3 exact negative-space cut trials
+
+`pipeline/fit_phase5_stl1_openwork.py` consumes the existing stable-ID Phase 4
+front-view negative-space inventory instead of introducing another detector.
+It trials all 168 candidates as exact through-cuts in their corresponding
+Phase 5.2 head envelope. A cut is retained only when it intersects the head and
+leaves one valid connected head solid; the complete fused ring metal must also
+remain one valid solid.
+
+All 168 candidates currently pass those geometric trial conditions. Training
+front-view IoU rises from `0.972574` to `0.988620`; validation rises from
+`0.973288` to `0.987284`, with `0.969656` validation boundary F1. All 24 STEP
+exports and the validation CAD previews pass. The three test rings are generated
+but remain unscored.
+
+This result does not prove that every enclosed region is intentional openwork.
+The source masks are machine proposals, candidate semantics remain unresolved,
+and hidden cut depth cannot be observed from the front image. These are exact
+negative-space CAD candidates for review—not confirmed stones, cavities or
+manufacturing holes. Sculptural relief and deity/face detail remain absent.
+
+## Phase 5.4 reversible relief evidence
+
+`pipeline/build_phase5_stl1_relief_evidence.py` processes all 24 rings and all
+120 prepared views. It does not map brightness directly to height. Instead it
+requires image detail to agree with retained depth residuals, attenuates pixels
+near silhouettes and openings, uses repeat uncertainty, and adds three-model
+depth agreement for the 15 views where that supplement exists. Unsupported
+highlights, shadows and texture are written to a separate rejected-detail map.
+
+Every ring receives a front-view OBJ evidence surface at a 96-sample grid. The
+OBJ is an open, reversible layer in nominal display units and is never fused
+into the exact Phase 5.3 STEP body. All 120 computations are repeat
+deterministic; the fixed test objects are generated but excluded from aggregate
+selection metrics.
+
+The retained validation result is intentionally conservative: mean confidence
+is `0.044672`, only `0.076056` of thresholded fine detail is depth-supported,
+and `0.238673` remains unresolved. Visual inspection of the actual OBJ previews
+for rings 004, 012 and 020 confirms shallow broad-form relief, not faithful
+deity-face reconstruction. This checkpoint is therefore evidence of the
+remaining gap, not approval for CAD fusion.
+
+## Phase 5.5 reciprocal relief-track consistency
+
+`pipeline/evaluate_phase5_relief_tracks.py` reuses the retained 384-query VGGT
+tracks for rings 001, 004, 012, 020, 007, 015 and 023. It does not rerun the
+model, move cameras or deform geometry. For every source relief candidate it
+requires target-view relief support, forward and reverse visibility/confidence,
+a target-query distance below 12 pixels and a reciprocal-cycle error below 16
+pixels. Normal agreement is reported separately for the 15 views where the
+Metric3D direct-normal supplement exists, rather than changing the common gate.
+
+The three validation rings retain 178 of 623 front candidates (`0.285714`).
+Ring 004 retains only six, Ring 012 retains 121 and Ring 020 retains 51. The
+isometric view carries most support; top views retain none because the ornament
+face is largely not visible. The three test rings are rendered for evidence but
+remain excluded from aggregate selection metrics.
+
+This is sparse learned-feature evidence. VGGT saw all five images jointly,
+nearest-query association is approximate, only seven rings had retained sparse
+tracks at this checkpoint, and there is no physical correspondence truth. Phase 5.5 therefore
+does not filter the OBJ permanently or authorize exact-CAD relief fusion.
+
+## Phase 5.6 full-dataset reciprocal relief tracks
+
+The retained VGGT extraction now covers all 24 STL-1 rings at 384 queries per
+view. `evaluate_phase5_relief_tracks.py --all-stl1` applies the Phase 5.5 gate
+without threshold changes. Training retains 1,420 of 4,610 front candidates
+(`0.308026`); validation retains 178 of 623 (`0.285714`). Rings 007, 015 and
+023 are generated for review but excluded from all aggregates. The run peaks
+at about 2.62 GB CUDA memory on the 4 GB GPU.
+
+Visual inspection confirms coherent front-to-isometric support, but support is
+highly uneven and top-view reciprocity remains absent. These are sparse learned
+tracks, not dense correspondence, physical truth or authorization to fuse
+relief into the exact STEP body.
+
 ## Claim boundary
 
 The dimensions are designed test parameters. The fixtures verify generator
@@ -135,17 +213,67 @@ docker run --rm --user "$(id -u):$(id -g)" \
   -v "$PWD:/workspace" -w /workspace \
   image2cad-validation:phase0 \
   python -m unittest tests.test_phase5_stl1_head_support_fit
+
+docker run --rm --user "$(id -u):$(id -g)" \
+  -e HOME=/tmp -e PYTHONPATH=/workspace:/workspace/pipeline \
+  -v "$PWD:/workspace" -w /workspace \
+  image2cad-validation:phase0 \
+  python -m pipeline.fit_phase5_stl1_openwork
+
+docker run --rm --user "$(id -u):$(id -g)" \
+  -e HOME=/tmp -e PYTHONPATH=/workspace:/workspace/pipeline \
+  -v "$PWD:/workspace" -w /workspace \
+  image2cad-validation:phase0 \
+  python -m unittest tests.test_phase5_stl1_openwork_fit
+
+docker run --rm --user "$(id -u):$(id -g)" \
+  -e HOME=/tmp -e PYTHONPATH=/workspace:/workspace/pipeline \
+  -v "$PWD:/workspace" -w /workspace \
+  image2cad-validation:phase0 \
+  python -m pipeline.build_phase5_stl1_relief_evidence
+
+docker run --rm --user "$(id -u):$(id -g)" \
+  -e HOME=/tmp -e PYTHONPATH=/workspace:/workspace/pipeline \
+  -v "$PWD:/workspace" -w /workspace \
+  image2cad-validation:phase0 \
+  python -m unittest tests.test_phase5_stl1_relief_evidence
+
+docker run --rm --user "$(id -u):$(id -g)" \
+  -e HOME=/tmp -e PYTHONPATH=/workspace:/workspace/pipeline \
+  -v "$PWD:/workspace" -w /workspace \
+  image2cad-validation:phase0 \
+  python -m pipeline.evaluate_phase5_relief_tracks
+
+docker run --rm --user "$(id -u):$(id -g)" \
+  -e HOME=/tmp -e PYTHONPATH=/workspace:/workspace/pipeline \
+  -v "$PWD:/workspace" -w /workspace \
+  image2cad-validation:phase0 \
+  python -m unittest tests.test_phase5_relief_tracks
+
+docker run --rm --user "$(id -u):$(id -g)" \
+  -e HOME=/tmp -e PYTHONPATH=/workspace:/workspace/pipeline \
+  -v "$PWD:/workspace" -w /workspace \
+  image2cad-validation:phase0 \
+  python -m pipeline.evaluate_phase5_relief_tracks --all-stl1
+
+docker run --rm --user "$(id -u):$(id -g)" \
+  -e HOME=/tmp -e PYTHONPATH=/workspace:/workspace/pipeline \
+  -v "$PWD:/workspace" -w /workspace \
+  image2cad-validation:phase0 \
+  python -m unittest tests.test_phase5_full_relief_tracks
 ```
 
 ## Next gate
 
-1. Replace the filled head envelope with separate base relief, openwork and
-   structural layers while preserving the accepted outer support envelope.
-2. Fit general gallery generators across side and iso evidence without
+1. Densify Phase 5.6 reciprocal support and add a public-deployment-compatible
+   independent normal comparator before promoting relief into exact CAD.
+2. Resolve candidate semantics and cross-view opening identity before any
+   retained cut is promoted to an approved cavity or manufacturing hole.
+3. Fit general gallery generators across side and iso evidence without
    weakening exact-solid validity.
-3. Add channel and split-shank topology fixtures.
-4. Extend the implemented normalized parameter adapter to head, shoulder,
+4. Add channel and split-shank topology fixtures.
+5. Extend the implemented normalized parameter adapter to head, shoulder,
    gallery and component-track parameters with explicit uncertainty.
-5. Render exact ring exports through accepted camera hypotheses and fit only against
+6. Render exact ring exports through accepted camera hypotheses and fit only against
    reviewed or explicitly machine-proposed evidence.
-6. Validate on held-out image families before making a generalization claim.
+7. Validate on held-out image families before making a generalization claim.
