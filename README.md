@@ -29,7 +29,9 @@ Start with the [documentation index](docs/README.md), the
 | Phase 2 | Real paired photo-to-production-CAD benchmark | Not applicable under the images-only input constraint; retained as an unavailable validation gate |
 | Image-only Phase 2 | Reflection-resilient evidence and multi-view consistency | In progress; Ring01 angled inner-shank correction proposed |
 | Phase 3 | Camera, depth, normal and geometry evidence benchmark | Partial research evidence only; exit benchmark not complete |
-| Phase 4–9 | Constraint graph, exact CAD, detail, manufacturing and pilot | Not started |
+| Phase 4 | Component and constraint graph | Partial; synthetic exact-CAD locality passes 30/30, while reviewed image-derived component truth remains blocked |
+| Phase 5 | Exact CAD V2 | Phase 5.2 connected shank and two-view head-support STEP candidates generated for all 24 STL-1 rings; validation front/top fitting passes 0.97/0.98 IoU while test remains unscored; relief, openwork, gallery and semantic detail remain open |
+| Phase 6–9 | Detail, manufacturing and pilot | Not started |
 
 ## Legacy checkpoint status
 

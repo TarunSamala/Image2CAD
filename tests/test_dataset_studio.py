@@ -292,6 +292,49 @@ class DatasetStudioServiceTest(unittest.TestCase):
             phase4["synthetic_ten_stone_edit_benchmark"]["passed_case_count"],
             30,
         )
+        self.assertEqual(
+            phase4["exact_cad_locality"]["summary"]["passed_case_count"], 30
+        )
+        self.assertTrue(
+            phase4["exact_cad_locality"]["checks"][
+                "all_unrelated_exact_breps_unchanged"
+            ]
+        )
+        self.assertEqual(summary["phase5"]["summary"]["passed_family_count"], 4)
+        self.assertFalse(
+            summary["phase5"]["claims"]["image_derived_exact_cad_validated"]
+        )
+        self.assertEqual(
+            summary["phase5"]["stl1_ring_parameters"]["summary"][
+                "parameterized_ring_count"
+            ],
+            24,
+        )
+        self.assertTrue(
+            summary["phase5"]["stl1_ring_parameters"]["checks"][
+                "ring_only_scope_enforced"
+            ]
+        )
+        self.assertEqual(
+            summary["phase5"]["stl1_ring_body_fit"]["summary"]["object_count"],
+            24,
+        )
+        self.assertTrue(
+            summary["phase5"]["stl1_ring_body_fit"]["checks"][
+                "held_out_test_not_scored"
+            ]
+        )
+        self.assertEqual(
+            summary["phase5"]["stl1_head_support_fit"]["summary"][
+                "object_count"
+            ],
+            24,
+        )
+        self.assertTrue(
+            summary["phase5"]["stl1_head_support_fit"]["checks"][
+                "all_metals_valid_single_solids"
+            ]
+        )
         self.assertFalse(phase4["checks"]["phase4_exit_gate_passed"])
         self.assertTrue(phase4["checks"]["partial_ring01_prong_instances_available"])
         self.assertEqual(
@@ -334,8 +377,8 @@ class DatasetStudioServiceTest(unittest.TestCase):
         self.assertEqual(payload["execution_profile"], "images_only")
         self.assertEqual(payload["summary"]["capability_count"], 10)
         self.assertEqual(payload["summary"]["working_count"], 4)
-        self.assertEqual(payload["summary"]["partial_count"], 5)
-        self.assertEqual(payload["summary"]["blocked_count"], 1)
+        self.assertEqual(payload["summary"]["partial_count"], 6)
+        self.assertEqual(payload["summary"]["blocked_count"], 0)
         indexed = {item["id"]: item for item in payload["capabilities"]}
         self.assertEqual(indexed["feature_extraction"]["status"], "implemented")
         self.assertIn("120 views", indexed["feature_extraction"]["coverage"])
@@ -350,7 +393,7 @@ class DatasetStudioServiceTest(unittest.TestCase):
                 "synthetic_ten_stone_edit_test_passed"
             ]
         )
-        self.assertEqual(indexed["parametric_cad"]["status"], "blocked")
+        self.assertEqual(indexed["parametric_cad"]["status"], "partial")
         self.assertEqual(len(payload["remaining_gates"]), 4)
 
     def test_every_object_exposes_real_view_and_phase_artifacts(self) -> None:
@@ -978,6 +1021,66 @@ class DatasetStudioApiTest(unittest.TestCase):
         self.assertEqual(candidate_report.status_code, 200)
         self.assertEqual(candidate_report.mimetype, "application/json")
         candidate_report.close()
+        exact_cad_audit = self.client.get(
+            "/api/artifacts/phase4_exact_cad_locality_audit"
+        )
+        self.assertEqual(exact_cad_audit.status_code, 200)
+        self.assertEqual(exact_cad_audit.mimetype, "image/png")
+        exact_cad_audit.close()
+        exact_cad_report = self.client.get(
+            "/api/artifacts/phase4_exact_cad_locality_report"
+        )
+        self.assertEqual(exact_cad_report.status_code, 200)
+        self.assertEqual(exact_cad_report.mimetype, "application/json")
+        exact_cad_report.close()
+        phase5_audit = self.client.get(
+            "/api/artifacts/phase5_exact_cad_v2_audit"
+        )
+        self.assertEqual(phase5_audit.status_code, 200)
+        self.assertEqual(phase5_audit.mimetype, "image/png")
+        phase5_audit.close()
+        phase5_dataset_audit = self.client.get(
+            "/api/artifacts/phase5_stl1_ring_parameter_audit"
+        )
+        self.assertEqual(phase5_dataset_audit.status_code, 200)
+        self.assertEqual(phase5_dataset_audit.mimetype, "image/png")
+        phase5_dataset_audit.close()
+        phase5_dataset_report = self.client.get(
+            "/api/artifacts/phase5_stl1_ring_parameter_report"
+        )
+        self.assertEqual(phase5_dataset_report.status_code, 200)
+        self.assertEqual(phase5_dataset_report.mimetype, "application/json")
+        phase5_dataset_report.close()
+        phase5_ring_body_audit = self.client.get(
+            "/api/artifacts/phase5_stl1_ring_body_fit_audit"
+        )
+        self.assertEqual(phase5_ring_body_audit.status_code, 200)
+        self.assertEqual(phase5_ring_body_audit.mimetype, "image/png")
+        phase5_ring_body_audit.close()
+        phase5_ring_body_step = self.client.get(
+            "/api/artifacts/phase5_ring004_ring_body_step"
+        )
+        self.assertEqual(phase5_ring_body_step.status_code, 200)
+        self.assertEqual(phase5_ring_body_step.mimetype, "application/octet-stream")
+        phase5_ring_body_step.close()
+        phase5_head_audit = self.client.get(
+            "/api/artifacts/phase5_stl1_head_support_fit_audit"
+        )
+        self.assertEqual(phase5_head_audit.status_code, 200)
+        self.assertEqual(phase5_head_audit.mimetype, "image/png")
+        phase5_head_audit.close()
+        phase5_head_preview = self.client.get(
+            "/api/artifacts/phase5_ring004_head_support_preview"
+        )
+        self.assertEqual(phase5_head_preview.status_code, 200)
+        self.assertEqual(phase5_head_preview.mimetype, "image/png")
+        phase5_head_preview.close()
+        phase5_head_step = self.client.get(
+            "/api/artifacts/phase5_ring004_head_support_step"
+        )
+        self.assertEqual(phase5_head_step.status_code, 200)
+        self.assertEqual(phase5_head_step.mimetype, "application/octet-stream")
+        phase5_head_step.close()
         candidate_summary = self.client.get("/api/phase4/stl1-candidates")
         self.assertEqual(candidate_summary.status_code, 200)
         self.assertEqual(

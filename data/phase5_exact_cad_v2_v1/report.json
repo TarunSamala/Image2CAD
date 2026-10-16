@@ -1,0 +1,505 @@
+{
+  "schema_version": "lalitha_phase5_exact_cad_v2_benchmark_v1",
+  "execution_profile": "designed_synthetic_exact_cad",
+  "summary": {
+    "family_count": 4,
+    "passed_family_count": 4,
+    "families": [
+      "round_solitaire",
+      "oval_solitaire",
+      "three_stone",
+      "halo"
+    ],
+    "total_stone_count": 14,
+    "total_prong_count": 24,
+    "total_bezel_count": 8
+  },
+  "families": [
+    {
+      "object_id": "cad_v2_round_solitaire",
+      "family": "round_solitaire",
+      "designed_spec": {
+        "object_id": "cad_v2_round_solitaire",
+        "family": "round_solitaire",
+        "inner_radius_mm": 8.3,
+        "shank_radius_mm": 1.15,
+        "head_depth_mm": 3.0,
+        "stones": [
+          {
+            "component_id": "stone_001",
+            "kind": "round",
+            "x_mm": 0.0,
+            "y_mm": 0.0,
+            "length_mm": 5.8,
+            "width_mm": 5.8,
+            "depth_mm": 3.2,
+            "setting_style": "prong",
+            "prong_count": 4
+          }
+        ]
+      },
+      "component_count": 9,
+      "component_ids": [
+        "cavity_001",
+        "head_base_001",
+        "prong_stone_001_01",
+        "prong_stone_001_02",
+        "prong_stone_001_03",
+        "prong_stone_001_04",
+        "seat_001",
+        "shank_001",
+        "stone_001"
+      ],
+      "topology": {
+        "stone_count": 1,
+        "seat_count": 1,
+        "cavity_count": 1,
+        "prong_count": 4,
+        "bezel_count": 0
+      },
+      "metal": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_mm3": 257.426916,
+        "face_count": 49,
+        "edge_count": 146
+      },
+      "assembly": {
+        "valid": true,
+        "solid_count": 2,
+        "volume_mm3": 323.353196,
+        "face_count": 52,
+        "edge_count": 149
+      },
+      "checks": {
+        "all_source_components_valid": true,
+        "stone_count_exact": true,
+        "seat_count_exact": true,
+        "cavity_count_exact": true,
+        "prong_count_exact": true,
+        "bezel_count_exact": true,
+        "metal_brep_valid": true,
+        "metal_single_solid": true,
+        "assembly_brep_valid": true,
+        "step_roundtrip_valid": true,
+        "step_roundtrip_solid_count_exact": true,
+        "derived_stl_watertight": true
+      },
+      "passed": true,
+      "artifacts": {
+        "assembly_step": "data/phase5_exact_cad_v2_v1/round_solitaire_assembly.step",
+        "metal_step": "data/phase5_exact_cad_v2_v1/round_solitaire_metal.step",
+        "assembly_stl": "data/phase5_exact_cad_v2_v1/round_solitaire_assembly.stl"
+      }
+    },
+    {
+      "object_id": "cad_v2_oval_solitaire",
+      "family": "oval_solitaire",
+      "designed_spec": {
+        "object_id": "cad_v2_oval_solitaire",
+        "family": "oval_solitaire",
+        "inner_radius_mm": 8.3,
+        "shank_radius_mm": 1.15,
+        "head_depth_mm": 3.0,
+        "stones": [
+          {
+            "component_id": "stone_001",
+            "kind": "oval",
+            "x_mm": 0.0,
+            "y_mm": 0.0,
+            "length_mm": 7.2,
+            "width_mm": 5.2,
+            "depth_mm": 3.4,
+            "setting_style": "prong",
+            "prong_count": 4
+          }
+        ]
+      },
+      "component_count": 9,
+      "component_ids": [
+        "cavity_001",
+        "head_base_001",
+        "prong_stone_001_01",
+        "prong_stone_001_02",
+        "prong_stone_001_03",
+        "prong_stone_001_04",
+        "seat_001",
+        "shank_001",
+        "stone_001"
+      ],
+      "topology": {
+        "stone_count": 1,
+        "seat_count": 1,
+        "cavity_count": 1,
+        "prong_count": 4,
+        "bezel_count": 0
+      },
+      "metal": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_mm3": 258.594763,
+        "face_count": 51,
+        "edge_count": 152
+      },
+      "assembly": {
+        "valid": true,
+        "solid_count": 2,
+        "volume_mm3": 336.553962,
+        "face_count": 54,
+        "edge_count": 155
+      },
+      "checks": {
+        "all_source_components_valid": true,
+        "stone_count_exact": true,
+        "seat_count_exact": true,
+        "cavity_count_exact": true,
+        "prong_count_exact": true,
+        "bezel_count_exact": true,
+        "metal_brep_valid": true,
+        "metal_single_solid": true,
+        "assembly_brep_valid": true,
+        "step_roundtrip_valid": true,
+        "step_roundtrip_solid_count_exact": true,
+        "derived_stl_watertight": true
+      },
+      "passed": true,
+      "artifacts": {
+        "assembly_step": "data/phase5_exact_cad_v2_v1/oval_solitaire_assembly.step",
+        "metal_step": "data/phase5_exact_cad_v2_v1/oval_solitaire_metal.step",
+        "assembly_stl": "data/phase5_exact_cad_v2_v1/oval_solitaire_assembly.stl"
+      }
+    },
+    {
+      "object_id": "cad_v2_three_stone",
+      "family": "three_stone",
+      "designed_spec": {
+        "object_id": "cad_v2_three_stone",
+        "family": "three_stone",
+        "inner_radius_mm": 8.3,
+        "shank_radius_mm": 1.15,
+        "head_depth_mm": 3.0,
+        "stones": [
+          {
+            "component_id": "stone_001",
+            "kind": "round",
+            "x_mm": 0.0,
+            "y_mm": 0.0,
+            "length_mm": 4.8,
+            "width_mm": 4.8,
+            "depth_mm": 2.8,
+            "setting_style": "prong",
+            "prong_count": 4
+          },
+          {
+            "component_id": "stone_002",
+            "kind": "round",
+            "x_mm": -4.2,
+            "y_mm": 0.0,
+            "length_mm": 3.3,
+            "width_mm": 3.3,
+            "depth_mm": 2.0,
+            "setting_style": "prong",
+            "prong_count": 4
+          },
+          {
+            "component_id": "stone_003",
+            "kind": "round",
+            "x_mm": 4.2,
+            "y_mm": 0.0,
+            "length_mm": 3.3,
+            "width_mm": 3.3,
+            "depth_mm": 2.0,
+            "setting_style": "prong",
+            "prong_count": 4
+          }
+        ]
+      },
+      "component_count": 23,
+      "component_ids": [
+        "cavity_001",
+        "cavity_002",
+        "cavity_003",
+        "head_base_001",
+        "prong_stone_001_01",
+        "prong_stone_001_02",
+        "prong_stone_001_03",
+        "prong_stone_001_04",
+        "prong_stone_002_01",
+        "prong_stone_002_02",
+        "prong_stone_002_03",
+        "prong_stone_002_04",
+        "prong_stone_003_01",
+        "prong_stone_003_02",
+        "prong_stone_003_03",
+        "prong_stone_003_04",
+        "seat_001",
+        "seat_002",
+        "seat_003",
+        "shank_001",
+        "stone_001",
+        "stone_002",
+        "stone_003"
+      ],
+      "topology": {
+        "stone_count": 3,
+        "seat_count": 3,
+        "cavity_count": 3,
+        "prong_count": 12,
+        "bezel_count": 0
+      },
+      "metal": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_mm3": 266.402627,
+        "face_count": 129,
+        "edge_count": 426
+      },
+      "assembly": {
+        "valid": true,
+        "solid_count": 4,
+        "volume_mm3": 332.588576,
+        "face_count": 138,
+        "edge_count": 435
+      },
+      "checks": {
+        "all_source_components_valid": true,
+        "stone_count_exact": true,
+        "seat_count_exact": true,
+        "cavity_count_exact": true,
+        "prong_count_exact": true,
+        "bezel_count_exact": true,
+        "metal_brep_valid": true,
+        "metal_single_solid": true,
+        "assembly_brep_valid": true,
+        "step_roundtrip_valid": true,
+        "step_roundtrip_solid_count_exact": true,
+        "derived_stl_watertight": true
+      },
+      "passed": true,
+      "artifacts": {
+        "assembly_step": "data/phase5_exact_cad_v2_v1/three_stone_assembly.step",
+        "metal_step": "data/phase5_exact_cad_v2_v1/three_stone_metal.step",
+        "assembly_stl": "data/phase5_exact_cad_v2_v1/three_stone_assembly.stl"
+      }
+    },
+    {
+      "object_id": "cad_v2_halo",
+      "family": "halo",
+      "designed_spec": {
+        "object_id": "cad_v2_halo",
+        "family": "halo",
+        "inner_radius_mm": 8.3,
+        "shank_radius_mm": 1.15,
+        "head_depth_mm": 10.2,
+        "stones": [
+          {
+            "component_id": "stone_001",
+            "kind": "round",
+            "x_mm": 0.0,
+            "y_mm": 0.0,
+            "length_mm": 5.4,
+            "width_mm": 5.4,
+            "depth_mm": 3.0,
+            "setting_style": "prong",
+            "prong_count": 4
+          },
+          {
+            "component_id": "stone_002",
+            "kind": "round",
+            "x_mm": 4.0,
+            "y_mm": 0.0,
+            "length_mm": 1.35,
+            "width_mm": 1.35,
+            "depth_mm": 0.95,
+            "setting_style": "bezel",
+            "prong_count": 0
+          },
+          {
+            "component_id": "stone_003",
+            "kind": "round",
+            "x_mm": 2.8284271247461903,
+            "y_mm": 2.68700576850888,
+            "length_mm": 1.35,
+            "width_mm": 1.35,
+            "depth_mm": 0.95,
+            "setting_style": "bezel",
+            "prong_count": 0
+          },
+          {
+            "component_id": "stone_004",
+            "kind": "round",
+            "x_mm": 2.4492935982947064e-16,
+            "y_mm": 3.8,
+            "length_mm": 1.35,
+            "width_mm": 1.35,
+            "depth_mm": 0.95,
+            "setting_style": "bezel",
+            "prong_count": 0
+          },
+          {
+            "component_id": "stone_005",
+            "kind": "round",
+            "x_mm": -2.82842712474619,
+            "y_mm": 2.6870057685088806,
+            "length_mm": 1.35,
+            "width_mm": 1.35,
+            "depth_mm": 0.95,
+            "setting_style": "bezel",
+            "prong_count": 0
+          },
+          {
+            "component_id": "stone_006",
+            "kind": "round",
+            "x_mm": -4.0,
+            "y_mm": 4.653657836759942e-16,
+            "length_mm": 1.35,
+            "width_mm": 1.35,
+            "depth_mm": 0.95,
+            "setting_style": "bezel",
+            "prong_count": 0
+          },
+          {
+            "component_id": "stone_007",
+            "kind": "round",
+            "x_mm": -2.8284271247461907,
+            "y_mm": -2.68700576850888,
+            "length_mm": 1.35,
+            "width_mm": 1.35,
+            "depth_mm": 0.95,
+            "setting_style": "bezel",
+            "prong_count": 0
+          },
+          {
+            "component_id": "stone_008",
+            "kind": "round",
+            "x_mm": -7.347880794884119e-16,
+            "y_mm": -3.8,
+            "length_mm": 1.35,
+            "width_mm": 1.35,
+            "depth_mm": 0.95,
+            "setting_style": "bezel",
+            "prong_count": 0
+          },
+          {
+            "component_id": "stone_009",
+            "kind": "round",
+            "x_mm": 2.8284271247461894,
+            "y_mm": -2.687005768508881,
+            "length_mm": 1.35,
+            "width_mm": 1.35,
+            "depth_mm": 0.95,
+            "setting_style": "bezel",
+            "prong_count": 0
+          }
+        ]
+      },
+      "component_count": 41,
+      "component_ids": [
+        "bezel_002",
+        "bezel_003",
+        "bezel_004",
+        "bezel_005",
+        "bezel_006",
+        "bezel_007",
+        "bezel_008",
+        "bezel_009",
+        "cavity_001",
+        "cavity_002",
+        "cavity_003",
+        "cavity_004",
+        "cavity_005",
+        "cavity_006",
+        "cavity_007",
+        "cavity_008",
+        "cavity_009",
+        "head_base_001",
+        "prong_stone_001_01",
+        "prong_stone_001_02",
+        "prong_stone_001_03",
+        "prong_stone_001_04",
+        "seat_001",
+        "seat_002",
+        "seat_003",
+        "seat_004",
+        "seat_005",
+        "seat_006",
+        "seat_007",
+        "seat_008",
+        "seat_009",
+        "shank_001",
+        "stone_001",
+        "stone_002",
+        "stone_003",
+        "stone_004",
+        "stone_005",
+        "stone_006",
+        "stone_007",
+        "stone_008",
+        "stone_009"
+      ],
+      "topology": {
+        "stone_count": 9,
+        "seat_count": 9,
+        "cavity_count": 9,
+        "prong_count": 4,
+        "bezel_count": 8
+      },
+      "metal": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_mm3": 315.660491,
+        "face_count": 72,
+        "edge_count": 224
+      },
+      "assembly": {
+        "valid": true,
+        "solid_count": 10,
+        "volume_mm3": 377.718085,
+        "face_count": 99,
+        "edge_count": 251
+      },
+      "checks": {
+        "all_source_components_valid": true,
+        "stone_count_exact": true,
+        "seat_count_exact": true,
+        "cavity_count_exact": true,
+        "prong_count_exact": true,
+        "bezel_count_exact": true,
+        "metal_brep_valid": true,
+        "metal_single_solid": true,
+        "assembly_brep_valid": true,
+        "step_roundtrip_valid": true,
+        "step_roundtrip_solid_count_exact": true,
+        "derived_stl_watertight": true
+      },
+      "passed": true,
+      "artifacts": {
+        "assembly_step": "data/phase5_exact_cad_v2_v1/halo_assembly.step",
+        "metal_step": "data/phase5_exact_cad_v2_v1/halo_metal.step",
+        "assembly_stl": "data/phase5_exact_cad_v2_v1/halo_assembly.stl"
+      }
+    }
+  ],
+  "checks": {
+    "all_family_fixtures_passed": true,
+    "multiple_structural_families_exercised": true,
+    "all_step_roundtrips_valid": true,
+    "all_derived_meshes_watertight": true
+  },
+  "decision": "phase5_exact_cad_generator_foundation_validated",
+  "artifacts": {
+    "audit": "data/phase5_exact_cad_v2_v1/exact_cad_v2_family_audit.png"
+  },
+  "claims": {
+    "designed_exact_cad_generators_validated": true,
+    "image_derived_exact_cad_validated": false,
+    "unseen_image_family_generalization_validated": false,
+    "manufacturing_accuracy_validated": false
+  },
+  "limitations": [
+    "All fixtures use explicit designed parameters rather than measurements inferred from images.",
+    "The bridge-style head is a topology fixture, not a final jewellery aesthetic.",
+    "Shoulder, gallery, channel and split-shank generators remain to be implemented.",
+    "No physical scale, manufacturing profile or specialist approval is available."
+  ]
+}

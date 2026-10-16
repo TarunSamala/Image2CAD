@@ -48,9 +48,26 @@ predate it, so this index prevents similarly numbered stages from being mixed.
 - `component_constraint_graph.py` and `build_phase4_component_graph.py` - Bible
   Phase 4 stable-ID graph schema, provenance/uncertainty contract, directed
   edit dependencies and the synthetic ten-stone graph-state locality benchmark.
-  Ring01 remains review-gated and these modules do not generate CAD. Run the
-  prong-instance and track evaluators before rebuilding active v3 graph
-  artifacts.
+  Ring01 remains review-gated. `benchmark_phase4_exact_cad_locality.py` maps
+  the synthetic graph to separate CadQuery/OCP stones, seats, cavities and
+  prongs, then verifies exact B-rep locality and Boolean health for 30 edits.
+  This validates designed synthetic truth only, not image-derived CAD. Run the
+  prong-instance and track evaluators before rebuilding active v3 graph artifacts.
+- `exact_cad_v2.py` and `benchmark_phase5_exact_cad_v2.py` - Bible Phase 5
+  designed-truth structural generators and four-family exact B-rep/STEP
+  benchmark. These validate the CAD layer only; image-derived fitting and
+  manufacturing claims remain blocked.
+- `propose_phase5_stl1_ring_parameters.py` - ring-only STL-1 bridge that
+  measures all 120 silhouettes, detects each top-view shank aperture and emits
+  normalized parameter proposals for all 24 rings without fabricating physical
+  units or authorizing CAD.
+- `fit_phase5_stl1_ring_bodies.py` - Phase 5.1 periodic-spline exact shank
+  fitting for all 24 STL-1 rings. It exports valid STEP bodies, scores train and
+  validation top-view fits, and keeps all three test objects unscored.
+- `fit_phase5_stl1_head_supports.py` - Phase 5.2 two-view visual-hull fitting.
+  It intersects front and top silhouette prisms, joins exact shanks and shoulder
+  supports, exports one connected STEP candidate per ring, and retains actual
+  CAD previews for the validation split. Relief and semantic detail remain open.
 
 ## Shared evidence and dataset tools
 

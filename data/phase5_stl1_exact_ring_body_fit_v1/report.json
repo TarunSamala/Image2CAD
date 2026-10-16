@@ -1,0 +1,773 @@
+{
+  "schema_version": "lalitha_phase5_stl1_exact_ring_body_fit_v1",
+  "created_at_utc": "2026-10-16T08:56:22.097880+00:00",
+  "execution_profile": "ring_only_image_derived_exact_shank_fit",
+  "scope": {
+    "included": [
+      "ring inner aperture",
+      "elliptical shank envelope"
+    ],
+    "excluded": [
+      "shoulders",
+      "head",
+      "gallery",
+      "relief",
+      "stones",
+      "prongs",
+      "seats",
+      "cavities"
+    ],
+    "scored_view": "top",
+    "scale": "nominal display scale; not verified millimetres"
+  },
+  "summary": {
+    "object_count": 24,
+    "train_scored_count": 18,
+    "validation_scored_count": 3,
+    "test_held_out_count": 3,
+    "train_mean_shank_iou": 0.932061,
+    "validation_mean_shank_iou": 0.935501,
+    "train_mean_boundary_f1": 0.987267,
+    "validation_mean_boundary_f1": 0.984843
+  },
+  "checks": {
+    "all_24_ring_bodies_generated": true,
+    "all_exact_breps_valid_single_solids": true,
+    "all_step_exports_present": true,
+    "train_and_validation_scored": true,
+    "held_out_test_not_scored": true,
+    "ring_only_scope_enforced": true,
+    "metric_accuracy_not_claimed": true
+  },
+  "objects": [
+    {
+      "object_id": "ring_001",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "scored",
+      "source_top_image": "dataset/prepared_v1/images/ring_001/top.png",
+      "ring_body_spec": {
+        "object_id": "ring_001",
+        "inner_width": 16.803599000000002,
+        "inner_height": 16.347447600000002,
+        "radial_thickness": 1.5732650000000001,
+        "axial_depth": 1.4474038000000002,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "profile_control_count": 32,
+      "exact_geometry": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_nominal_units3": 158.94983
+      },
+      "metrics": {
+        "shank_iou": 0.93272,
+        "boundary_f1": 0.96879
+      },
+      "artifacts": {
+        "target_mask": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_001/top_shank_target.png",
+        "rendered_mask": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_001/top_exact_ring_body_render.png",
+        "step": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_001/ring_001_ring_body.step"
+      }
+    },
+    {
+      "object_id": "ring_002",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "scored",
+      "source_top_image": "dataset/prepared_v1/images/ring_002/top.png",
+      "ring_body_spec": {
+        "object_id": "ring_002",
+        "inner_width": 16.930373200000002,
+        "inner_height": 16.2055176,
+        "radial_thickness": 1.5818638000000003,
+        "axial_depth": 1.4553146960000003,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "profile_control_count": 32,
+      "exact_geometry": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_nominal_units3": 131.485088
+      },
+      "metrics": {
+        "shank_iou": 0.94138,
+        "boundary_f1": 0.997371
+      },
+      "artifacts": {
+        "target_mask": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_002/top_shank_target.png",
+        "rendered_mask": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_002/top_exact_ring_body_render.png",
+        "step": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_002/ring_002_ring_body.step"
+      }
+    },
+    {
+      "object_id": "ring_003",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "scored",
+      "source_top_image": "dataset/prepared_v1/images/ring_003/top.png",
+      "ring_body_spec": {
+        "object_id": "ring_003",
+        "inner_width": 16.802204600000003,
+        "inner_height": 16.468893200000004,
+        "radial_thickness": 1.5544738000000002,
+        "axial_depth": 1.4301158960000002,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "profile_control_count": 32,
+      "exact_geometry": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_nominal_units3": 131.30708
+      },
+      "metrics": {
+        "shank_iou": 0.934157,
+        "boundary_f1": 0.996869
+      },
+      "artifacts": {
+        "target_mask": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_003/top_shank_target.png",
+        "rendered_mask": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_003/top_exact_ring_body_render.png",
+        "step": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_003/ring_003_ring_body.step"
+      }
+    },
+    {
+      "object_id": "ring_004",
+      "category": "ring",
+      "split": "val",
+      "evaluation_status": "scored",
+      "source_top_image": "dataset/prepared_v1/images/ring_004/top.png",
+      "ring_body_spec": {
+        "object_id": "ring_004",
+        "inner_width": 16.917807,
+        "inner_height": 16.2489266,
+        "radial_thickness": 1.8894452000000004,
+        "axial_depth": 1.7382895840000003,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "profile_control_count": 32,
+      "exact_geometry": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_nominal_units3": 203.766081
+      },
+      "metrics": {
+        "shank_iou": 0.938448,
+        "boundary_f1": 0.973682
+      },
+      "artifacts": {
+        "target_mask": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_004/top_shank_target.png",
+        "rendered_mask": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_004/top_exact_ring_body_render.png",
+        "step": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_004/ring_004_ring_body.step"
+      }
+    },
+    {
+      "object_id": "ring_005",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "scored",
+      "source_top_image": "dataset/prepared_v1/images/ring_005/top.png",
+      "ring_body_spec": {
+        "object_id": "ring_005",
+        "inner_width": 17.086297000000002,
+        "inner_height": 16.066559,
+        "radial_thickness": 1.6106648000000001,
+        "axial_depth": 1.481811616,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "profile_control_count": 32,
+      "exact_geometry": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_nominal_units3": 137.014706
+      },
+      "metrics": {
+        "shank_iou": 0.934902,
+        "boundary_f1": 1.0
+      },
+      "artifacts": {
+        "target_mask": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_005/top_shank_target.png",
+        "rendered_mask": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_005/top_exact_ring_body_render.png",
+        "step": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_005/ring_005_ring_body.step"
+      }
+    },
+    {
+      "object_id": "ring_006",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "scored",
+      "source_top_image": "dataset/prepared_v1/images/ring_006/top.png",
+      "ring_body_spec": {
+        "object_id": "ring_006",
+        "inner_width": 17.0766524,
+        "inner_height": 16.054507400000002,
+        "radial_thickness": 1.6172218,
+        "axial_depth": 1.4878440560000001,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "profile_control_count": 32,
+      "exact_geometry": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_nominal_units3": 140.239551
+      },
+      "metrics": {
+        "shank_iou": 0.935982,
+        "boundary_f1": 0.992298
+      },
+      "artifacts": {
+        "target_mask": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_006/top_shank_target.png",
+        "rendered_mask": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_006/top_exact_ring_body_render.png",
+        "step": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_006/ring_006_ring_body.step"
+      }
+    },
+    {
+      "object_id": "ring_007",
+      "category": "ring",
+      "split": "test",
+      "evaluation_status": "held_out_not_scored",
+      "source_top_image": "dataset/prepared_v1/images/ring_007/top.png",
+      "ring_body_spec": {
+        "object_id": "ring_007",
+        "inner_width": 17.166973,
+        "inner_height": 15.976985400000002,
+        "radial_thickness": 1.6059006,
+        "axial_depth": 1.4774285520000001,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "profile_control_count": 32,
+      "exact_geometry": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_nominal_units3": 135.919521
+      },
+      "metrics": null,
+      "artifacts": {
+        "target_mask": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_007/top_shank_target.png",
+        "rendered_mask": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_007/top_exact_ring_body_render.png",
+        "step": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_007/ring_007_ring_body.step"
+      }
+    },
+    {
+      "object_id": "ring_008",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "scored",
+      "source_top_image": "dataset/prepared_v1/images/ring_008/top.png",
+      "ring_body_spec": {
+        "object_id": "ring_008",
+        "inner_width": 16.725911,
+        "inner_height": 16.4005842,
+        "radial_thickness": 1.9200390000000003,
+        "axial_depth": 1.7664358800000004,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "profile_control_count": 32,
+      "exact_geometry": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_nominal_units3": 239.125053
+      },
+      "metrics": {
+        "shank_iou": 0.952839,
+        "boundary_f1": 0.979742
+      },
+      "artifacts": {
+        "target_mask": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_008/top_shank_target.png",
+        "rendered_mask": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_008/top_exact_ring_body_render.png",
+        "step": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_008/ring_008_ring_body.step"
+      }
+    },
+    {
+      "object_id": "ring_009",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "scored",
+      "source_top_image": "dataset/prepared_v1/images/ring_009/top.png",
+      "ring_body_spec": {
+        "object_id": "ring_009",
+        "inner_width": 16.9745292,
+        "inner_height": 16.1519328,
+        "radial_thickness": 1.6531442,
+        "axial_depth": 1.5208926640000002,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "profile_control_count": 32,
+      "exact_geometry": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_nominal_units3": 148.513847
+      },
+      "metrics": {
+        "shank_iou": 0.935638,
+        "boundary_f1": 0.989034
+      },
+      "artifacts": {
+        "target_mask": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_009/top_shank_target.png",
+        "rendered_mask": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_009/top_exact_ring_body_render.png",
+        "step": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_009/ring_009_ring_body.step"
+      }
+    },
+    {
+      "object_id": "ring_010",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "scored",
+      "source_top_image": "dataset/prepared_v1/images/ring_010/top.png",
+      "ring_body_spec": {
+        "object_id": "ring_010",
+        "inner_width": 17.2385854,
+        "inner_height": 15.9155654,
+        "radial_thickness": 1.7072436000000002,
+        "axial_depth": 1.5706641120000002,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "profile_control_count": 32,
+      "exact_geometry": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_nominal_units3": 161.362786
+      },
+      "metrics": {
+        "shank_iou": 0.942835,
+        "boundary_f1": 0.999475
+      },
+      "artifacts": {
+        "target_mask": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_010/top_shank_target.png",
+        "rendered_mask": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_010/top_exact_ring_body_render.png",
+        "step": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_010/ring_010_ring_body.step"
+      }
+    },
+    {
+      "object_id": "ring_011",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "scored",
+      "source_top_image": "dataset/prepared_v1/images/ring_011/top.png",
+      "ring_body_spec": {
+        "object_id": "ring_011",
+        "inner_width": 17.1979818,
+        "inner_height": 15.978960800000001,
+        "radial_thickness": 1.5879228000000003,
+        "axial_depth": 1.4608889760000003,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "profile_control_count": 32,
+      "exact_geometry": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_nominal_units3": 132.819859
+      },
+      "metrics": {
+        "shank_iou": 0.932373,
+        "boundary_f1": 0.990965
+      },
+      "artifacts": {
+        "target_mask": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_011/top_shank_target.png",
+        "rendered_mask": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_011/top_exact_ring_body_render.png",
+        "step": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_011/ring_011_ring_body.step"
+      }
+    },
+    {
+      "object_id": "ring_012",
+      "category": "ring",
+      "split": "val",
+      "evaluation_status": "scored",
+      "source_top_image": "dataset/prepared_v1/images/ring_012/top.png",
+      "ring_body_spec": {
+        "object_id": "ring_012",
+        "inner_width": 17.1700108,
+        "inner_height": 15.985136000000002,
+        "radial_thickness": 1.5775146000000002,
+        "axial_depth": 1.4513134320000003,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "profile_control_count": 32,
+      "exact_geometry": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_nominal_units3": 129.653116
+      },
+      "metrics": {
+        "shank_iou": 0.936686,
+        "boundary_f1": 1.0
+      },
+      "artifacts": {
+        "target_mask": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_012/top_shank_target.png",
+        "rendered_mask": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_012/top_exact_ring_body_render.png",
+        "step": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_012/ring_012_ring_body.step"
+      }
+    },
+    {
+      "object_id": "ring_013",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "scored",
+      "source_top_image": "dataset/prepared_v1/images/ring_013/top.png",
+      "ring_body_spec": {
+        "object_id": "ring_013",
+        "inner_width": 17.2422872,
+        "inner_height": 15.9320824,
+        "radial_thickness": 1.8009672000000003,
+        "axial_depth": 1.6568898240000003,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "profile_control_count": 32,
+      "exact_geometry": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_nominal_units3": 178.229254
+      },
+      "metrics": {
+        "shank_iou": 0.937596,
+        "boundary_f1": 0.978708
+      },
+      "artifacts": {
+        "target_mask": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_013/top_shank_target.png",
+        "rendered_mask": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_013/top_exact_ring_body_render.png",
+        "step": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_013/ring_013_ring_body.step"
+      }
+    },
+    {
+      "object_id": "ring_014",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "scored",
+      "source_top_image": "dataset/prepared_v1/images/ring_014/top.png",
+      "ring_body_spec": {
+        "object_id": "ring_014",
+        "inner_width": 17.181099600000003,
+        "inner_height": 15.967374000000001,
+        "radial_thickness": 1.6252230000000003,
+        "axial_depth": 1.4952051600000003,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "profile_control_count": 32,
+      "exact_geometry": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_nominal_units3": 137.653087
+      },
+      "metrics": {
+        "shank_iou": 0.938145,
+        "boundary_f1": 1.0
+      },
+      "artifacts": {
+        "target_mask": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_014/top_shank_target.png",
+        "rendered_mask": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_014/top_exact_ring_body_render.png",
+        "step": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_014/ring_014_ring_body.step"
+      }
+    },
+    {
+      "object_id": "ring_015",
+      "category": "ring",
+      "split": "test",
+      "evaluation_status": "held_out_not_scored",
+      "source_top_image": "dataset/prepared_v1/images/ring_015/top.png",
+      "ring_body_spec": {
+        "object_id": "ring_015",
+        "inner_width": 16.9754754,
+        "inner_height": 16.162258,
+        "radial_thickness": 1.5740286,
+        "axial_depth": 1.4481063120000002,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "profile_control_count": 32,
+      "exact_geometry": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_nominal_units3": 129.281139
+      },
+      "metrics": null,
+      "artifacts": {
+        "target_mask": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_015/top_shank_target.png",
+        "rendered_mask": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_015/top_exact_ring_body_render.png",
+        "step": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_015/ring_015_ring_body.step"
+      }
+    },
+    {
+      "object_id": "ring_016",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "scored",
+      "source_top_image": "dataset/prepared_v1/images/ring_016/top.png",
+      "ring_body_spec": {
+        "object_id": "ring_016",
+        "inner_width": 16.9473882,
+        "inner_height": 16.181447600000002,
+        "radial_thickness": 1.5490954000000001,
+        "axial_depth": 1.4251677680000001,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "profile_control_count": 32,
+      "exact_geometry": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_nominal_units3": 126.543979
+      },
+      "metrics": {
+        "shank_iou": 0.936599,
+        "boundary_f1": 1.0
+      },
+      "artifacts": {
+        "target_mask": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_016/top_shank_target.png",
+        "rendered_mask": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_016/top_exact_ring_body_render.png",
+        "step": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_016/ring_016_ring_body.step"
+      }
+    },
+    {
+      "object_id": "ring_017",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "scored",
+      "source_top_image": "dataset/prepared_v1/images/ring_017/top.png",
+      "ring_body_spec": {
+        "object_id": "ring_017",
+        "inner_width": 17.090413800000004,
+        "inner_height": 16.0551548,
+        "radial_thickness": 1.6352826000000003,
+        "axial_depth": 1.5044599920000004,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "profile_control_count": 32,
+      "exact_geometry": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_nominal_units3": 150.647769
+      },
+      "metrics": {
+        "shank_iou": 0.937823,
+        "boundary_f1": 0.996479
+      },
+      "artifacts": {
+        "target_mask": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_017/top_shank_target.png",
+        "rendered_mask": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_017/top_exact_ring_body_render.png",
+        "step": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_017/ring_017_ring_body.step"
+      }
+    },
+    {
+      "object_id": "ring_018",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "scored",
+      "source_top_image": "dataset/prepared_v1/images/ring_018/top.png",
+      "ring_body_spec": {
+        "object_id": "ring_018",
+        "inner_width": 17.039020200000003,
+        "inner_height": 16.0988958,
+        "radial_thickness": 1.5765352000000001,
+        "axial_depth": 1.4504123840000003,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "profile_control_count": 32,
+      "exact_geometry": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_nominal_units3": 131.501146
+      },
+      "metrics": {
+        "shank_iou": 0.932469,
+        "boundary_f1": 0.995304
+      },
+      "artifacts": {
+        "target_mask": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_018/top_shank_target.png",
+        "rendered_mask": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_018/top_exact_ring_body_render.png",
+        "step": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_018/ring_018_ring_body.step"
+      }
+    },
+    {
+      "object_id": "ring_019",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "scored",
+      "source_top_image": "dataset/prepared_v1/images/ring_019/top.png",
+      "ring_body_spec": {
+        "object_id": "ring_019",
+        "inner_width": 17.008277,
+        "inner_height": 16.1282778,
+        "radial_thickness": 1.6347348000000002,
+        "axial_depth": 1.5039560160000003,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "profile_control_count": 32,
+      "exact_geometry": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_nominal_units3": 145.440666
+      },
+      "metrics": {
+        "shank_iou": 0.919215,
+        "boundary_f1": 0.979746
+      },
+      "artifacts": {
+        "target_mask": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_019/top_shank_target.png",
+        "rendered_mask": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_019/top_exact_ring_body_render.png",
+        "step": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_019/ring_019_ring_body.step"
+      }
+    },
+    {
+      "object_id": "ring_020",
+      "category": "ring",
+      "split": "val",
+      "evaluation_status": "scored",
+      "source_top_image": "dataset/prepared_v1/images/ring_020/top.png",
+      "ring_body_spec": {
+        "object_id": "ring_020",
+        "inner_width": 17.188851800000002,
+        "inner_height": 15.987958000000003,
+        "radial_thickness": 1.6664906000000002,
+        "axial_depth": 1.533171352,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "profile_control_count": 32,
+      "exact_geometry": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_nominal_units3": 150.285582
+      },
+      "metrics": {
+        "shank_iou": 0.931369,
+        "boundary_f1": 0.980847
+      },
+      "artifacts": {
+        "target_mask": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_020/top_shank_target.png",
+        "rendered_mask": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_020/top_exact_ring_body_render.png",
+        "step": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_020/ring_020_ring_body.step"
+      }
+    },
+    {
+      "object_id": "ring_021",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "scored",
+      "source_top_image": "dataset/prepared_v1/images/ring_021/top.png",
+      "ring_body_spec": {
+        "object_id": "ring_021",
+        "inner_width": 17.093733800000003,
+        "inner_height": 16.0961568,
+        "radial_thickness": 1.661245,
+        "axial_depth": 1.5283454,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "profile_control_count": 32,
+      "exact_geometry": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_nominal_units3": 148.433583
+      },
+      "metrics": {
+        "shank_iou": 0.925704,
+        "boundary_f1": 0.963922
+      },
+      "artifacts": {
+        "target_mask": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_021/top_shank_target.png",
+        "rendered_mask": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_021/top_exact_ring_body_render.png",
+        "step": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_021/ring_021_ring_body.step"
+      }
+    },
+    {
+      "object_id": "ring_022",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "scored",
+      "source_top_image": "dataset/prepared_v1/images/ring_022/top.png",
+      "ring_body_spec": {
+        "object_id": "ring_022",
+        "inner_width": 17.171538,
+        "inner_height": 15.9777988,
+        "radial_thickness": 1.6611952,
+        "axial_depth": 1.5282995840000002,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "profile_control_count": 32,
+      "exact_geometry": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_nominal_units3": 149.162942
+      },
+      "metrics": {
+        "shank_iou": 0.943725,
+        "boundary_f1": 1.0
+      },
+      "artifacts": {
+        "target_mask": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_022/top_shank_target.png",
+        "rendered_mask": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_022/top_exact_ring_body_render.png",
+        "step": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_022/ring_022_ring_body.step"
+      }
+    },
+    {
+      "object_id": "ring_023",
+      "category": "ring",
+      "split": "test",
+      "evaluation_status": "held_out_not_scored",
+      "source_top_image": "dataset/prepared_v1/images/ring_023/top.png",
+      "ring_body_spec": {
+        "object_id": "ring_023",
+        "inner_width": 17.0012718,
+        "inner_height": 16.124742,
+        "radial_thickness": 1.6604482000000003,
+        "axial_depth": 1.5276123440000002,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "profile_control_count": 32,
+      "exact_geometry": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_nominal_units3": 149.060962
+      },
+      "metrics": null,
+      "artifacts": {
+        "target_mask": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_023/top_shank_target.png",
+        "rendered_mask": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_023/top_exact_ring_body_render.png",
+        "step": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_023/ring_023_ring_body.step"
+      }
+    },
+    {
+      "object_id": "ring_024",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "scored",
+      "source_top_image": "dataset/prepared_v1/images/ring_024/top.png",
+      "ring_body_spec": {
+        "object_id": "ring_024",
+        "inner_width": 16.9253434,
+        "inner_height": 16.2118256,
+        "radial_thickness": 1.6295722000000001,
+        "axial_depth": 1.4992064240000003,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "profile_control_count": 32,
+      "exact_geometry": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_nominal_units3": 120.491804
+      },
+      "metrics": {
+        "shank_iou": 0.86299,
+        "boundary_f1": 0.942101
+      },
+      "artifacts": {
+        "target_mask": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_024/top_shank_target.png",
+        "rendered_mask": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_024/top_exact_ring_body_render.png",
+        "step": "data/phase5_stl1_exact_ring_body_fit_v1/objects/ring_024/ring_024_ring_body.step"
+      }
+    }
+  ],
+  "artifacts": {
+    "audit": "data/phase5_stl1_exact_ring_body_fit_v1/stl1_exact_ring_body_fit_audit.png"
+  },
+  "decision": "exact_ring_body_baseline_ready_for_shoulder_gallery_fitting",
+  "claims": {
+    "image_derived_exact_shank_generated": true,
+    "five_view_ring_fit_validated": false,
+    "complete_ring_cad_validated": false,
+    "metric_accuracy_validated": false,
+    "manufacturing_accuracy_validated": false
+  },
+  "limitations": [
+    "Only the top-view shank region is fitted and scored in this checkpoint.",
+    "The retained STEP files use a nominal display scale because STL-1 provides no physical dimension.",
+    "The held-out test split is generated for pipeline integrity but remains unscored until the fitting policy is frozen.",
+    "The shank target and spline initialization come from the same machine silhouette, so the score measures fitting consistency rather than independent geometric truth.",
+    "A complete ring requires multi-view shoulders, gallery, head, relief and component reconstruction."
+  ]
+}

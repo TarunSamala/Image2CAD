@@ -181,6 +181,21 @@ function renderPhase4() {
   const report = state.summary?.phase4 || {};
   const ring = report.ring01 || {};
   const benchmark = report.synthetic_ten_stone_edit_benchmark || {};
+  const exactCad = report.exact_cad_locality || {};
+  const exactSummary = exactCad.summary || {};
+  const exactChecks = exactCad.checks || {};
+  const phase5 = state.summary?.phase5 || {};
+  const phase5Summary = phase5.summary || {};
+  const phase5Checks = phase5.checks || {};
+  const datasetRingParameters = phase5.stl1_ring_parameters || {};
+  const datasetRingSummary = datasetRingParameters.summary || {};
+  const datasetRingChecks = datasetRingParameters.checks || {};
+  const ringBodyFit = phase5.stl1_ring_body_fit || {};
+  const ringBodySummary = ringBodyFit.summary || {};
+  const ringBodyChecks = ringBodyFit.checks || {};
+  const headSupportFit = phase5.stl1_head_support_fit || {};
+  const headSupportSummary = headSupportFit.summary || {};
+  const headSupportChecks = headSupportFit.checks || {};
   const checks = report.checks || {};
   const instances = report.prong_instances || {};
   const instanceSummary = instances.summary || {};
@@ -195,12 +210,19 @@ function renderPhase4() {
     <div class="key-value"><span>Schema validation</span><strong class="${checks.ring01_graph_schema_valid ? "good" : "bad"}">${checks.ring01_graph_schema_valid ? "Passed" : "Failed"}</strong></div>
     <div class="key-value"><span>Synthetic local edits</span><strong class="${checks.synthetic_ten_stone_edit_test_passed ? "good" : "bad"}">${benchmark.passed_case_count ?? "—"} / ${benchmark.case_count ?? "—"}</strong><small>Remove · resize · replace across ten stones</small></div>
     <div class="key-value"><span>Unrelated graph state</span><strong class="${checks.no_unrelated_graph_state_changes ? "good" : "bad"}">${checks.no_unrelated_graph_state_changes ? "Unchanged" : "Changed"}</strong></div>
+    <div class="key-value"><span>Exact CAD local edits</span><strong class="${exactChecks.all_30_local_edits_passed ? "good" : "bad"}">${exactSummary.passed_case_count ?? "—"} / ${exactSummary.case_count ?? "—"}</strong><small>CadQuery/OCP B-reps · remove · resize · replace</small></div>
+    <div class="key-value"><span>Unrelated exact components</span><strong class="${exactChecks.all_unrelated_exact_breps_unchanged ? "good" : "bad"}">${exactChecks.all_unrelated_exact_breps_unchanged ? "Byte-identical" : "Changed"}</strong><small>Seats, cavities, stones and four prongs per setting</small></div>
+    <div class="key-value"><span>Derived metal Booleans</span><strong class="${exactChecks.all_derived_metals_valid_single_solids ? "good" : "bad"}">${exactChecks.all_derived_metals_valid_single_solids ? "30 / 30 valid" : "Failure detected"}</strong><small>Synthetic exact geometry only</small></div>
+    <div class="key-value"><span>Phase 5 family fixtures</span><strong class="${phase5Checks.all_family_fixtures_passed ? "good" : "bad"}">${phase5Summary.passed_family_count ?? "—"} / ${phase5Summary.family_count ?? "—"}</strong><small>Round · oval · three-stone · halo · designed truth only</small></div>
+    <div class="key-value"><span>STL-1 ring parameter proposals</span><strong class="${datasetRingChecks.all_24_stl1_rings_processed ? "good" : "bad"}">${datasetRingSummary.parameterized_ring_count ?? "—"} / 24 rings</strong><small>${datasetRingSummary.view_count ?? "—"} image views · normalized ring units · no invented millimetres</small></div>
+    <div class="key-value"><span>Image-derived exact shank bodies</span><strong class="${ringBodyChecks.all_exact_breps_valid_single_solids ? "good" : "bad"}">${ringBodySummary.object_count ?? "—"} / 24 rings</strong><small>Validation IoU ${score(ringBodySummary.validation_mean_shank_iou, 3)} · boundary F1 ${score(ringBodySummary.validation_mean_boundary_f1, 3)} · test split unscored</small></div>
+    <div class="key-value"><span>Two-view head-support envelopes</span><strong class="${headSupportChecks.all_metals_valid_single_solids ? "good" : "bad"}">${headSupportSummary.object_count ?? "—"} / 24 rings</strong><small>Validation front IoU ${score(headSupportSummary.validation_mean_front_profile_iou, 3)} · top IoU ${score(headSupportSummary.validation_mean_top_envelope_iou, 3)} · real CAD previews inspected · test split unscored</small></div>
     <div class="key-value"><span>Individual prong proposals</span><strong class="warning">${instanceSummary.resolved_instance_view_count ?? "—"} / ${instanceSummary.view_count ?? 5} views</strong><small>Front · top · angled resolved; side/back retain overlap groups</small></div>
     <div class="key-value"><span>VGGT identity support</span><strong class="good">Top strong · angled moderate</strong><small>Permutation margins ${score(topTrack.permutation_margin_fraction, 3)} / ${score(angledTrack.permutation_margin_fraction, 3)} · non-metric machine evidence</small></div>
     <div class="key-value"><span>STL-1 enclosed candidates</span><strong>${datasetCandidates.candidate_count ?? "—"}</strong><small>${datasetCandidates.object_count ?? "—"} objects · ${datasetCandidates.view_count ?? "—"} views · negative space only</small></div>
     <div class="key-value"><span>STL-1 stones confirmed</span><strong class="warning">${candidateGate.individual_stones_confirmed ? "Yes" : "No"}</strong><small>Monochrome, unlabelled apertures remain semantic unknowns</small></div>
     <div class="key-value"><span>Reviewed Ring01 identities</span><strong class="bad">${ring.reviewed_component_count ?? 0} / ${ring.node_count ?? "—"}</strong></div>
-    <div class="key-value"><span>Phase 4 exit gate</span><strong class="bad">Not passed</strong><small>Graph-state locality is not CAD-geometry locality</small></div>`;
+    <div class="key-value"><span>Phase 4 exit gate</span><strong class="bad">Not passed</strong><small>Synthetic CAD locality passed; reviewed image-derived component truth remains blocked</small></div>`;
   $("#phase4-node-rows").innerHTML = (graph.nodes || []).map((node) => `
     <tr>
       <td class="mono">${escapeHtml(node.component_id)}</td>

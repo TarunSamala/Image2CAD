@@ -1,0 +1,1615 @@
+{
+  "schema_version": "lalitha_phase5_stl1_exact_head_support_fit_v1",
+  "created_at_utc": "2026-10-16T09:55:34.246959+00:00",
+  "execution_profile": "ring_only_multiview_exact_head_support_envelope",
+  "scope": {
+    "included": [
+      "exact shank",
+      "front/top two-view head-support visual hull",
+      "two shoulder supports"
+    ],
+    "excluded": [
+      "surface relief",
+      "openwork",
+      "stones",
+      "prongs",
+      "seats",
+      "cavities",
+      "manufacturing scale"
+    ],
+    "evidence_views": [
+      "front",
+      "top",
+      "lsv",
+      "rsv"
+    ]
+  },
+  "summary": {
+    "object_count": 24,
+    "train_scored_count": 18,
+    "validation_scored_count": 3,
+    "test_held_out_count": 3,
+    "train_mean_front_profile_iou": 0.972574,
+    "validation_mean_front_profile_iou": 0.973288,
+    "train_mean_top_envelope_iou": 0.986451,
+    "validation_mean_top_envelope_iou": 0.983941
+  },
+  "checks": {
+    "all_24_support_candidates_generated": true,
+    "all_head_supports_valid": true,
+    "all_48_shoulders_valid": true,
+    "all_metals_valid_single_solids": true,
+    "all_step_exports_present": true,
+    "all_validation_geometry_previews_present": true,
+    "held_out_test_not_scored": true,
+    "ring_only_scope_enforced": true,
+    "detail_and_metric_accuracy_not_claimed": true
+  },
+  "objects": [
+    {
+      "object_id": "ring_001",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "scored",
+      "source_images": {
+        "front": "dataset/prepared_v1/images/ring_001/front.png",
+        "top": "dataset/prepared_v1/images/ring_001/top.png"
+      },
+      "ring_body_spec": {
+        "object_id": "ring_001",
+        "inner_width": 16.803599000000002,
+        "inner_height": 16.347447600000002,
+        "radial_thickness": 1.5732650000000001,
+        "axial_depth": 1.4474038000000002,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_support_spec": {
+        "component_id": "ring_001_head_support_001",
+        "height": 10.302366413637353,
+        "base_z": 8.409713550000001,
+        "shoulder_radius": 0.9754243,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_dimensions_nominal": {
+        "head_width": 22.685506339388652,
+        "head_depth": 22.03850437605493,
+        "head_height": 10.302366413637353,
+        "front_depth_estimate": 22.03850437605493,
+        "side_depth_estimates": [
+          12.87795801704669,
+          13.139249918841841
+        ],
+        "side_depth_median": 13.008603967944266,
+        "front_side_depth_disagreement_fraction": 0.40973290446704486,
+        "top_start_y_px": 461.0,
+        "top_center_x_px": 383.5,
+        "top_bbox_x0_px": 160.0,
+        "top_bbox_x1_px": 607.0
+      },
+      "profile_control_count": {
+        "front": 96,
+        "top": 96
+      },
+      "exact_geometry": {
+        "head_support_valid": true,
+        "shoulder_count": 2,
+        "shoulders_valid": true,
+        "metal_valid": true,
+        "metal_solid_count": 1
+      },
+      "metrics": {
+        "front_profile_iou": 0.986891,
+        "front_boundary_f1": 0.930233,
+        "top_envelope_iou": 0.979802,
+        "top_envelope_boundary_f1": 0.999674
+      },
+      "artifacts": {
+        "front_target": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_001/front_head_target.png",
+        "front_render": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_001/front_head_support_render.png",
+        "top_target": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_001/top_head_target.png",
+        "top_render": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_001/top_head_support_render.png",
+        "step": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_001/ring_001_shank_head_support.step"
+      }
+    },
+    {
+      "object_id": "ring_002",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "scored",
+      "source_images": {
+        "front": "dataset/prepared_v1/images/ring_002/front.png",
+        "top": "dataset/prepared_v1/images/ring_002/top.png"
+      },
+      "ring_body_spec": {
+        "object_id": "ring_002",
+        "inner_width": 16.930373200000002,
+        "inner_height": 16.2055176,
+        "radial_thickness": 1.5818638000000003,
+        "axial_depth": 1.4553146960000003,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_support_spec": {
+        "component_id": "ring_002_head_support_001",
+        "height": 9.590003811701926,
+        "base_z": 8.34003837,
+        "shoulder_radius": 0.9807555560000002,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_dimensions_nominal": {
+        "head_width": 17.350986277873073,
+        "head_depth": 17.599745937770894,
+        "head_height": 9.590003811701926,
+        "front_depth_estimate": 17.599745937770894,
+        "side_depth_estimates": [
+          19.117734871379813,
+          19.312283538048018
+        ],
+        "side_depth_median": 19.215009204713915,
+        "front_side_depth_disagreement_fraction": 0.09177764682821343,
+        "top_start_y_px": 471.0,
+        "top_center_x_px": 384.5,
+        "top_bbox_x0_px": 209.0,
+        "top_bbox_x1_px": 560.0
+      },
+      "profile_control_count": {
+        "front": 96,
+        "top": 96
+      },
+      "exact_geometry": {
+        "head_support_valid": true,
+        "shoulder_count": 2,
+        "shoulders_valid": true,
+        "metal_valid": true,
+        "metal_solid_count": 1
+      },
+      "metrics": {
+        "front_profile_iou": 0.984386,
+        "front_boundary_f1": 0.921987,
+        "top_envelope_iou": 0.985705,
+        "top_envelope_boundary_f1": 1.0
+      },
+      "artifacts": {
+        "front_target": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_002/front_head_target.png",
+        "front_render": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_002/front_head_support_render.png",
+        "top_target": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_002/top_head_target.png",
+        "top_render": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_002/top_head_support_render.png",
+        "step": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_002/ring_002_shank_head_support.step"
+      }
+    },
+    {
+      "object_id": "ring_003",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "scored",
+      "source_images": {
+        "front": "dataset/prepared_v1/images/ring_003/front.png",
+        "top": "dataset/prepared_v1/images/ring_003/top.png"
+      },
+      "ring_body_spec": {
+        "object_id": "ring_003",
+        "inner_width": 16.802204600000003,
+        "inner_height": 16.468893200000004,
+        "radial_thickness": 1.5544738000000002,
+        "axial_depth": 1.4301158960000002,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_support_spec": {
+        "component_id": "ring_003_head_support_001",
+        "height": 10.933178259874774,
+        "base_z": 8.467617670000003,
+        "shoulder_radius": 0.9637737560000001,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_dimensions_nominal": {
+        "head_width": 17.980155716476524,
+        "head_depth": 22.041462819101707,
+        "head_height": 10.933178259874774,
+        "front_depth_estimate": 22.041462819101707,
+        "side_depth_estimates": [
+          32.48491094480778,
+          29.47525760601375
+        ],
+        "side_depth_median": 30.980084275410764,
+        "front_side_depth_disagreement_fraction": 0.4055366710308635,
+        "top_start_y_px": 453.0,
+        "top_center_x_px": 384.5,
+        "top_bbox_x0_px": 211.0,
+        "top_bbox_x1_px": 558.0
+      },
+      "profile_control_count": {
+        "front": 96,
+        "top": 96
+      },
+      "exact_geometry": {
+        "head_support_valid": true,
+        "shoulder_count": 2,
+        "shoulders_valid": true,
+        "metal_valid": true,
+        "metal_solid_count": 1
+      },
+      "metrics": {
+        "front_profile_iou": 0.951093,
+        "front_boundary_f1": 0.722017,
+        "top_envelope_iou": 0.992886,
+        "top_envelope_boundary_f1": 1.0
+      },
+      "artifacts": {
+        "front_target": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_003/front_head_target.png",
+        "front_render": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_003/front_head_support_render.png",
+        "top_target": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_003/top_head_target.png",
+        "top_render": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_003/top_head_support_render.png",
+        "step": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_003/ring_003_shank_head_support.step"
+      }
+    },
+    {
+      "object_id": "ring_004",
+      "category": "ring",
+      "split": "val",
+      "evaluation_status": "scored",
+      "source_images": {
+        "front": "dataset/prepared_v1/images/ring_004/front.png",
+        "top": "dataset/prepared_v1/images/ring_004/top.png"
+      },
+      "ring_body_spec": {
+        "object_id": "ring_004",
+        "inner_width": 16.917807,
+        "inner_height": 16.2489266,
+        "radial_thickness": 1.8894452000000004,
+        "axial_depth": 1.7382895840000003,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_support_spec": {
+        "component_id": "ring_004_head_support_001",
+        "height": 8.455257901870178,
+        "base_z": 8.40788008,
+        "shoulder_radius": 1.1714560240000003,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_dimensions_nominal": {
+        "head_width": 22.342664735109466,
+        "head_depth": 16.687302181837552,
+        "head_height": 8.455257901870178,
+        "front_depth_estimate": 16.687302181837552,
+        "side_depth_estimates": [
+          11.237543621716346,
+          11.159416960576406
+        ],
+        "side_depth_median": 11.198480291146376,
+        "front_side_depth_disagreement_fraction": 0.3289220648658958,
+        "top_start_y_px": 487.0,
+        "top_center_x_px": 384.5,
+        "top_bbox_x0_px": 148.0,
+        "top_bbox_x1_px": 621.0
+      },
+      "profile_control_count": {
+        "front": 96,
+        "top": 96
+      },
+      "exact_geometry": {
+        "head_support_valid": true,
+        "shoulder_count": 2,
+        "shoulders_valid": true,
+        "metal_valid": true,
+        "metal_solid_count": 1
+      },
+      "metrics": {
+        "front_profile_iou": 0.972591,
+        "front_boundary_f1": 0.81122,
+        "top_envelope_iou": 0.977844,
+        "top_envelope_boundary_f1": 0.99836
+      },
+      "artifacts": {
+        "front_target": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_004/front_head_target.png",
+        "front_render": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_004/front_head_support_render.png",
+        "top_target": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_004/top_head_target.png",
+        "top_render": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_004/top_head_support_render.png",
+        "step": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_004/ring_004_shank_head_support.step",
+        "geometry_preview": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_004/ring_004_geometry_preview.png"
+      }
+    },
+    {
+      "object_id": "ring_005",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "scored",
+      "source_images": {
+        "front": "dataset/prepared_v1/images/ring_005/front.png",
+        "top": "dataset/prepared_v1/images/ring_005/top.png"
+      },
+      "ring_body_spec": {
+        "object_id": "ring_005",
+        "inner_width": 17.086297000000002,
+        "inner_height": 16.066559,
+        "radial_thickness": 1.6106648000000001,
+        "axial_depth": 1.481811616,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_support_spec": {
+        "component_id": "ring_005_head_support_001",
+        "height": 9.713523310694521,
+        "base_z": 8.27487922,
+        "shoulder_radius": 0.9986121760000001,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_dimensions_nominal": {
+        "head_width": 19.476605413790544,
+        "head_depth": 17.11580475757351,
+        "head_height": 9.713523310694521,
+        "front_depth_estimate": 17.11580475757351,
+        "side_depth_estimates": [
+          16.14014731928534,
+          16.763661197488933
+        ],
+        "side_depth_median": 16.451904258387138,
+        "front_side_depth_disagreement_fraction": 0.03878873991552195,
+        "top_start_y_px": 469.0,
+        "top_center_x_px": 384.5,
+        "top_bbox_x0_px": 188.0,
+        "top_bbox_x1_px": 581.0
+      },
+      "profile_control_count": {
+        "front": 96,
+        "top": 96
+      },
+      "exact_geometry": {
+        "head_support_valid": true,
+        "shoulder_count": 2,
+        "shoulders_valid": true,
+        "metal_valid": true,
+        "metal_solid_count": 1
+      },
+      "metrics": {
+        "front_profile_iou": 0.989158,
+        "front_boundary_f1": 0.956438,
+        "top_envelope_iou": 0.990788,
+        "top_envelope_boundary_f1": 1.0
+      },
+      "artifacts": {
+        "front_target": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_005/front_head_target.png",
+        "front_render": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_005/front_head_support_render.png",
+        "top_target": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_005/top_head_target.png",
+        "top_render": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_005/top_head_support_render.png",
+        "step": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_005/ring_005_shank_head_support.step"
+      }
+    },
+    {
+      "object_id": "ring_006",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "scored",
+      "source_images": {
+        "front": "dataset/prepared_v1/images/ring_006/front.png",
+        "top": "dataset/prepared_v1/images/ring_006/top.png"
+      },
+      "ring_body_spec": {
+        "object_id": "ring_006",
+        "inner_width": 17.0766524,
+        "inner_height": 16.054507400000002,
+        "radial_thickness": 1.6172218,
+        "axial_depth": 1.4878440560000001,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_support_spec": {
+        "component_id": "ring_006_head_support_001",
+        "height": 11.268423618057763,
+        "base_z": 8.269836970000002,
+        "shoulder_radius": 1.002677516,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_dimensions_nominal": {
+        "head_width": 20.554439377383144,
+        "head_depth": 19.782269025102202,
+        "head_height": 11.268423618057763,
+        "front_depth_estimate": 19.782269025102202,
+        "side_depth_estimates": [
+          14.965179192361298,
+          16.77516457167875
+        ],
+        "side_depth_median": 15.870171882020024,
+        "front_side_depth_disagreement_fraction": 0.19775775661113612,
+        "top_start_y_px": 451.0,
+        "top_center_x_px": 384.0,
+        "top_bbox_x0_px": 187.0,
+        "top_bbox_x1_px": 581.0
+      },
+      "profile_control_count": {
+        "front": 96,
+        "top": 96
+      },
+      "exact_geometry": {
+        "head_support_valid": true,
+        "shoulder_count": 2,
+        "shoulders_valid": true,
+        "metal_valid": true,
+        "metal_solid_count": 1
+      },
+      "metrics": {
+        "front_profile_iou": 0.951225,
+        "front_boundary_f1": 0.760392,
+        "top_envelope_iou": 0.985214,
+        "top_envelope_boundary_f1": 1.0
+      },
+      "artifacts": {
+        "front_target": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_006/front_head_target.png",
+        "front_render": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_006/front_head_support_render.png",
+        "top_target": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_006/top_head_target.png",
+        "top_render": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_006/top_head_support_render.png",
+        "step": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_006/ring_006_shank_head_support.step"
+      }
+    },
+    {
+      "object_id": "ring_007",
+      "category": "ring",
+      "split": "test",
+      "evaluation_status": "held_out_not_scored",
+      "source_images": {
+        "front": "dataset/prepared_v1/images/ring_007/front.png",
+        "top": "dataset/prepared_v1/images/ring_007/top.png"
+      },
+      "ring_body_spec": {
+        "object_id": "ring_007",
+        "inner_width": 17.166973,
+        "inner_height": 15.976985400000002,
+        "radial_thickness": 1.6059006,
+        "axial_depth": 1.4774285520000001,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_support_spec": {
+        "component_id": "ring_007_head_support_001",
+        "height": 12.044299805356376,
+        "base_z": 8.229377790000001,
+        "shoulder_radius": 0.995658372,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_dimensions_nominal": {
+        "head_width": 18.896168139070223,
+        "head_depth": 24.942941943572695,
+        "head_height": 12.044299805356376,
+        "front_depth_estimate": 24.942941943572695,
+        "side_depth_estimates": [
+          31.69552580356941,
+          31.527725961079923
+        ],
+        "side_depth_median": 31.611625882324667,
+        "front_side_depth_disagreement_fraction": 0.2673575536453654,
+        "top_start_y_px": 440.0,
+        "top_center_x_px": 384.5,
+        "top_bbox_x0_px": 208.0,
+        "top_bbox_x1_px": 561.0
+      },
+      "profile_control_count": {
+        "front": 96,
+        "top": 96
+      },
+      "exact_geometry": {
+        "head_support_valid": true,
+        "shoulder_count": 2,
+        "shoulders_valid": true,
+        "metal_valid": true,
+        "metal_solid_count": 1
+      },
+      "metrics": null,
+      "artifacts": {
+        "front_target": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_007/front_head_target.png",
+        "front_render": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_007/front_head_support_render.png",
+        "top_target": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_007/top_head_target.png",
+        "top_render": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_007/top_head_support_render.png",
+        "step": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_007/ring_007_shank_head_support.step"
+      }
+    },
+    {
+      "object_id": "ring_008",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "scored",
+      "source_images": {
+        "front": "dataset/prepared_v1/images/ring_008/front.png",
+        "top": "dataset/prepared_v1/images/ring_008/top.png"
+      },
+      "ring_body_spec": {
+        "object_id": "ring_008",
+        "inner_width": 16.725911,
+        "inner_height": 16.4005842,
+        "radial_thickness": 1.9200390000000003,
+        "axial_depth": 1.7664358800000004,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_support_spec": {
+        "component_id": "ring_008_head_support_001",
+        "height": 9.675037238258156,
+        "base_z": 8.48829795,
+        "shoulder_radius": 1.1904241800000002,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_dimensions_nominal": {
+        "head_width": 24.287335747586198,
+        "head_depth": 17.706809840931825,
+        "head_height": 9.675037238258156,
+        "front_depth_estimate": 17.706809840931825,
+        "side_depth_estimates": [
+          9.9347697815671,
+          10.287789596681172
+        ],
+        "side_depth_median": 10.111279689124135,
+        "front_side_depth_disagreement_fraction": 0.4289609602204873,
+        "top_start_y_px": 470.0,
+        "top_center_x_px": 384.5,
+        "top_bbox_x0_px": 141.0,
+        "top_bbox_x1_px": 628.0
+      },
+      "profile_control_count": {
+        "front": 96,
+        "top": 96
+      },
+      "exact_geometry": {
+        "head_support_valid": true,
+        "shoulder_count": 2,
+        "shoulders_valid": true,
+        "metal_valid": true,
+        "metal_solid_count": 1
+      },
+      "metrics": {
+        "front_profile_iou": 0.980683,
+        "front_boundary_f1": 0.843643,
+        "top_envelope_iou": 0.985349,
+        "top_envelope_boundary_f1": 1.0
+      },
+      "artifacts": {
+        "front_target": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_008/front_head_target.png",
+        "front_render": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_008/front_head_support_render.png",
+        "top_target": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_008/top_head_target.png",
+        "top_render": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_008/top_head_support_render.png",
+        "step": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_008/ring_008_shank_head_support.step"
+      }
+    },
+    {
+      "object_id": "ring_009",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "scored",
+      "source_images": {
+        "front": "dataset/prepared_v1/images/ring_009/front.png",
+        "top": "dataset/prepared_v1/images/ring_009/top.png"
+      },
+      "ring_body_spec": {
+        "object_id": "ring_009",
+        "inner_width": 16.9745292,
+        "inner_height": 16.1519328,
+        "radial_thickness": 1.6531442,
+        "axial_depth": 1.5208926640000002,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_support_spec": {
+        "component_id": "ring_009_head_support_001",
+        "height": 10.57008634782181,
+        "base_z": 8.32393803,
+        "shoulder_radius": 1.024949404,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_dimensions_nominal": {
+        "head_width": 18.435032113736614,
+        "head_depth": 18.567658244051266,
+        "head_height": 10.57008634782181,
+        "front_depth_estimate": 18.567658244051266,
+        "side_depth_estimates": [
+          18.271908058546245,
+          21.14017269564362
+        ],
+        "side_depth_median": 19.706040377094933,
+        "front_side_depth_disagreement_fraction": 0.06130994647148804,
+        "top_start_y_px": 467.0,
+        "top_center_x_px": 384.0,
+        "top_bbox_x0_px": 200.0,
+        "top_bbox_x1_px": 568.0
+      },
+      "profile_control_count": {
+        "front": 96,
+        "top": 96
+      },
+      "exact_geometry": {
+        "head_support_valid": true,
+        "shoulder_count": 2,
+        "shoulders_valid": true,
+        "metal_valid": true,
+        "metal_solid_count": 1
+      },
+      "metrics": {
+        "front_profile_iou": 0.986122,
+        "front_boundary_f1": 0.951862,
+        "top_envelope_iou": 0.98546,
+        "top_envelope_boundary_f1": 0.999454
+      },
+      "artifacts": {
+        "front_target": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_009/front_head_target.png",
+        "front_render": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_009/front_head_support_render.png",
+        "top_target": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_009/top_head_target.png",
+        "top_render": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_009/top_head_support_render.png",
+        "step": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_009/ring_009_shank_head_support.step"
+      }
+    },
+    {
+      "object_id": "ring_010",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "scored",
+      "source_images": {
+        "front": "dataset/prepared_v1/images/ring_010/front.png",
+        "top": "dataset/prepared_v1/images/ring_010/top.png"
+      },
+      "ring_body_spec": {
+        "object_id": "ring_010",
+        "inner_width": 17.2385854,
+        "inner_height": 15.9155654,
+        "radial_thickness": 1.7072436000000002,
+        "axial_depth": 1.5706641120000002,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_support_spec": {
+        "component_id": "ring_010_head_support_001",
+        "height": 11.53680617648278,
+        "base_z": 8.21386924,
+        "shoulder_radius": 1.058491032,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_dimensions_nominal": {
+        "head_width": 19.19352058957449,
+        "head_depth": 25.911252795925563,
+        "head_height": 11.53680617648278,
+        "front_depth_estimate": 26.26235378232022,
+        "side_depth_estimates": [
+          34.76845697022208,
+          32.776753971596776
+        ],
+        "side_depth_median": 33.772605470909426,
+        "front_side_depth_disagreement_fraction": 0.2859702428365388,
+        "top_start_y_px": 452.0,
+        "top_center_x_px": 384.5,
+        "top_bbox_x0_px": 199.0,
+        "top_bbox_x1_px": 570.0
+      },
+      "profile_control_count": {
+        "front": 96,
+        "top": 96
+      },
+      "exact_geometry": {
+        "head_support_valid": true,
+        "shoulder_count": 2,
+        "shoulders_valid": true,
+        "metal_valid": true,
+        "metal_solid_count": 1
+      },
+      "metrics": {
+        "front_profile_iou": 0.986518,
+        "front_boundary_f1": 0.963441,
+        "top_envelope_iou": 0.986849,
+        "top_envelope_boundary_f1": 1.0
+      },
+      "artifacts": {
+        "front_target": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_010/front_head_target.png",
+        "front_render": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_010/front_head_support_render.png",
+        "top_target": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_010/top_head_target.png",
+        "top_render": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_010/top_head_support_render.png",
+        "step": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_010/ring_010_shank_head_support.step"
+      }
+    },
+    {
+      "object_id": "ring_011",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "scored",
+      "source_images": {
+        "front": "dataset/prepared_v1/images/ring_011/front.png",
+        "top": "dataset/prepared_v1/images/ring_011/top.png"
+      },
+      "ring_body_spec": {
+        "object_id": "ring_011",
+        "inner_width": 17.1979818,
+        "inner_height": 15.978960800000001,
+        "radial_thickness": 1.5879228000000003,
+        "axial_depth": 1.4608889760000003,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_support_spec": {
+        "component_id": "ring_011_head_support_001",
+        "height": 10.756842289757119,
+        "base_z": 8.22766882,
+        "shoulder_radius": 0.9845121360000002,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_dimensions_nominal": {
+        "head_width": 17.876847424405877,
+        "head_depth": 19.906688665822482,
+        "head_height": 10.756842289757119,
+        "front_depth_estimate": 19.906688665822482,
+        "side_depth_estimates": [
+          23.411950865941964,
+          22.14644000832348
+        ],
+        "side_depth_median": 22.77919543713272,
+        "front_side_depth_disagreement_fraction": 0.14429857318470074,
+        "top_start_y_px": 455.0,
+        "top_center_x_px": 384.5,
+        "top_bbox_x0_px": 210.0,
+        "top_bbox_x1_px": 559.0
+      },
+      "profile_control_count": {
+        "front": 96,
+        "top": 96
+      },
+      "exact_geometry": {
+        "head_support_valid": true,
+        "shoulder_count": 2,
+        "shoulders_valid": true,
+        "metal_valid": true,
+        "metal_solid_count": 1
+      },
+      "metrics": {
+        "front_profile_iou": 0.982796,
+        "front_boundary_f1": 0.95982,
+        "top_envelope_iou": 0.987506,
+        "top_envelope_boundary_f1": 1.0
+      },
+      "artifacts": {
+        "front_target": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_011/front_head_target.png",
+        "front_render": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_011/front_head_support_render.png",
+        "top_target": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_011/top_head_target.png",
+        "top_render": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_011/top_head_support_render.png",
+        "step": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_011/ring_011_shank_head_support.step"
+      }
+    },
+    {
+      "object_id": "ring_012",
+      "category": "ring",
+      "split": "val",
+      "evaluation_status": "scored",
+      "source_images": {
+        "front": "dataset/prepared_v1/images/ring_012/front.png",
+        "top": "dataset/prepared_v1/images/ring_012/top.png"
+      },
+      "ring_body_spec": {
+        "object_id": "ring_012",
+        "inner_width": 17.1700108,
+        "inner_height": 15.985136000000002,
+        "radial_thickness": 1.5775146000000002,
+        "axial_depth": 1.4513134320000003,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_support_spec": {
+        "component_id": "ring_012_head_support_001",
+        "height": 10.584563544627112,
+        "base_z": 8.22919519,
+        "shoulder_radius": 0.9780590520000001,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_dimensions_nominal": {
+        "head_width": 20.456704542981246,
+        "head_depth": 22.64415413767627,
+        "head_height": 10.584563544627112,
+        "front_depth_estimate": 22.64415413767627,
+        "side_depth_estimates": [
+          21.28172882909068,
+          20.881503079889356
+        ],
+        "side_depth_median": 21.08161595449002,
+        "front_side_depth_disagreement_fraction": 0.06900404288391752,
+        "top_start_y_px": 457.0,
+        "top_center_x_px": 384.0,
+        "top_bbox_x0_px": 183.0,
+        "top_bbox_x1_px": 585.0
+      },
+      "profile_control_count": {
+        "front": 96,
+        "top": 96
+      },
+      "exact_geometry": {
+        "head_support_valid": true,
+        "shoulder_count": 2,
+        "shoulders_valid": true,
+        "metal_valid": true,
+        "metal_solid_count": 1
+      },
+      "metrics": {
+        "front_profile_iou": 0.990246,
+        "front_boundary_f1": 0.988994,
+        "top_envelope_iou": 0.982658,
+        "top_envelope_boundary_f1": 0.999824
+      },
+      "artifacts": {
+        "front_target": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_012/front_head_target.png",
+        "front_render": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_012/front_head_support_render.png",
+        "top_target": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_012/top_head_target.png",
+        "top_render": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_012/top_head_support_render.png",
+        "step": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_012/ring_012_shank_head_support.step",
+        "geometry_preview": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_012/ring_012_geometry_preview.png"
+      }
+    },
+    {
+      "object_id": "ring_013",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "scored",
+      "source_images": {
+        "front": "dataset/prepared_v1/images/ring_013/front.png",
+        "top": "dataset/prepared_v1/images/ring_013/top.png"
+      },
+      "ring_body_spec": {
+        "object_id": "ring_013",
+        "inner_width": 17.2422872,
+        "inner_height": 15.9320824,
+        "radial_thickness": 1.8009672000000003,
+        "axial_depth": 1.6568898240000003,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_support_spec": {
+        "component_id": "ring_013_head_support_001",
+        "height": 9.394272068534379,
+        "base_z": 8.23618628,
+        "shoulder_radius": 1.1165996640000002,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_dimensions_nominal": {
+        "head_width": 18.983244076312996,
+        "head_depth": 19.905794255722597,
+        "head_height": 9.394272068534379,
+        "front_depth_estimate": 19.905794255722597,
+        "side_depth_estimates": [
+          23.73619409316353,
+          22.34977145716676
+        ],
+        "side_depth_median": 23.042982775165143,
+        "front_side_depth_disagreement_fraction": 0.15760177560062213,
+        "top_start_y_px": 471.0,
+        "top_center_x_px": 384.0,
+        "top_bbox_x0_px": 189.0,
+        "top_bbox_x1_px": 579.0
+      },
+      "profile_control_count": {
+        "front": 96,
+        "top": 96
+      },
+      "exact_geometry": {
+        "head_support_valid": true,
+        "shoulder_count": 2,
+        "shoulders_valid": true,
+        "metal_valid": true,
+        "metal_solid_count": 1
+      },
+      "metrics": {
+        "front_profile_iou": 0.979462,
+        "front_boundary_f1": 0.887021,
+        "top_envelope_iou": 0.987796,
+        "top_envelope_boundary_f1": 0.999812
+      },
+      "artifacts": {
+        "front_target": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_013/front_head_target.png",
+        "front_render": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_013/front_head_support_render.png",
+        "top_target": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_013/top_head_target.png",
+        "top_render": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_013/top_head_support_render.png",
+        "step": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_013/ring_013_shank_head_support.step"
+      }
+    },
+    {
+      "object_id": "ring_014",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "scored",
+      "source_images": {
+        "front": "dataset/prepared_v1/images/ring_014/front.png",
+        "top": "dataset/prepared_v1/images/ring_014/top.png"
+      },
+      "ring_body_spec": {
+        "object_id": "ring_014",
+        "inner_width": 17.181099600000003,
+        "inner_height": 15.967374000000001,
+        "radial_thickness": 1.6252230000000003,
+        "axial_depth": 1.4952051600000003,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_support_spec": {
+        "component_id": "ring_014_head_support_001",
+        "height": 9.603557321399647,
+        "base_z": 8.22747045,
+        "shoulder_radius": 1.0076382600000002,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_dimensions_nominal": {
+        "head_width": 21.571067214220744,
+        "head_depth": 17.55784540692386,
+        "head_height": 9.603557321399647,
+        "front_depth_estimate": 17.55784540692386,
+        "side_depth_estimates": [
+          15.706310496082182,
+          16.290851163002543
+        ],
+        "side_depth_median": 15.998580829542362,
+        "front_side_depth_disagreement_fraction": 0.08880728479170961,
+        "top_start_y_px": 470.0,
+        "top_center_x_px": 384.0,
+        "top_bbox_x0_px": 165.0,
+        "top_bbox_x1_px": 603.0
+      },
+      "profile_control_count": {
+        "front": 96,
+        "top": 96
+      },
+      "exact_geometry": {
+        "head_support_valid": true,
+        "shoulder_count": 2,
+        "shoulders_valid": true,
+        "metal_valid": true,
+        "metal_solid_count": 1
+      },
+      "metrics": {
+        "front_profile_iou": 0.97536,
+        "front_boundary_f1": 0.889652,
+        "top_envelope_iou": 0.990038,
+        "top_envelope_boundary_f1": 1.0
+      },
+      "artifacts": {
+        "front_target": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_014/front_head_target.png",
+        "front_render": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_014/front_head_support_render.png",
+        "top_target": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_014/top_head_target.png",
+        "top_render": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_014/top_head_support_render.png",
+        "step": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_014/ring_014_shank_head_support.step"
+      }
+    },
+    {
+      "object_id": "ring_015",
+      "category": "ring",
+      "split": "test",
+      "evaluation_status": "held_out_not_scored",
+      "source_images": {
+        "front": "dataset/prepared_v1/images/ring_015/front.png",
+        "top": "dataset/prepared_v1/images/ring_015/top.png"
+      },
+      "ring_body_spec": {
+        "object_id": "ring_015",
+        "inner_width": 16.9754754,
+        "inner_height": 16.162258,
+        "radial_thickness": 1.5740286,
+        "axial_depth": 1.4481063120000002,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_support_spec": {
+        "component_id": "ring_015_head_support_001",
+        "height": 9.444123602101104,
+        "base_z": 8.31723329,
+        "shoulder_radius": 0.9758977320000001,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_dimensions_nominal": {
+        "head_width": 18.396365766592776,
+        "head_depth": 15.3028802888473,
+        "head_height": 9.444123602101104,
+        "front_depth_estimate": 15.3028802888473,
+        "side_depth_estimates": [
+          14.192274142383981,
+          13.103103426998915
+        ],
+        "side_depth_median": 13.647688784691448,
+        "front_side_depth_disagreement_fraction": 0.10816208928734487,
+        "top_start_y_px": 472.0,
+        "top_center_x_px": 384.0,
+        "top_bbox_x0_px": 197.0,
+        "top_bbox_x1_px": 571.0
+      },
+      "profile_control_count": {
+        "front": 96,
+        "top": 96
+      },
+      "exact_geometry": {
+        "head_support_valid": true,
+        "shoulder_count": 2,
+        "shoulders_valid": true,
+        "metal_valid": true,
+        "metal_solid_count": 1
+      },
+      "metrics": null,
+      "artifacts": {
+        "front_target": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_015/front_head_target.png",
+        "front_render": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_015/front_head_support_render.png",
+        "top_target": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_015/top_head_target.png",
+        "top_render": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_015/top_head_support_render.png",
+        "step": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_015/ring_015_shank_head_support.step"
+      }
+    },
+    {
+      "object_id": "ring_016",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "scored",
+      "source_images": {
+        "front": "dataset/prepared_v1/images/ring_016/front.png",
+        "top": "dataset/prepared_v1/images/ring_016/top.png"
+      },
+      "ring_body_spec": {
+        "object_id": "ring_016",
+        "inner_width": 16.9473882,
+        "inner_height": 16.181447600000002,
+        "radial_thickness": 1.5490954000000001,
+        "axial_depth": 1.4251677680000001,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_support_spec": {
+        "component_id": "ring_016_head_support_001",
+        "height": 9.149331472399634,
+        "base_z": 8.32308811,
+        "shoulder_radius": 0.9604391480000001,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_dimensions_nominal": {
+        "head_width": 17.66934384881411,
+        "head_depth": 18.1899874981346,
+        "head_height": 9.149331472399634,
+        "front_depth_estimate": 18.1899874981346,
+        "side_depth_estimates": [
+          27.678649832469482,
+          25.25517943621056
+        ],
+        "side_depth_median": 26.46691463434002,
+        "front_side_depth_disagreement_fraction": 0.45502654342419036,
+        "top_start_y_px": 476.0,
+        "top_center_x_px": 384.5,
+        "top_bbox_x0_px": 202.0,
+        "top_bbox_x1_px": 567.0
+      },
+      "profile_control_count": {
+        "front": 96,
+        "top": 96
+      },
+      "exact_geometry": {
+        "head_support_valid": true,
+        "shoulder_count": 2,
+        "shoulders_valid": true,
+        "metal_valid": true,
+        "metal_solid_count": 1
+      },
+      "metrics": {
+        "front_profile_iou": 0.973708,
+        "front_boundary_f1": 0.943874,
+        "top_envelope_iou": 0.98343,
+        "top_envelope_boundary_f1": 1.0
+      },
+      "artifacts": {
+        "front_target": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_016/front_head_target.png",
+        "front_render": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_016/front_head_support_render.png",
+        "top_target": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_016/top_head_target.png",
+        "top_render": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_016/top_head_support_render.png",
+        "step": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_016/ring_016_shank_head_support.step"
+      }
+    },
+    {
+      "object_id": "ring_017",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "scored",
+      "source_images": {
+        "front": "dataset/prepared_v1/images/ring_017/front.png",
+        "top": "dataset/prepared_v1/images/ring_017/top.png"
+      },
+      "ring_body_spec": {
+        "object_id": "ring_017",
+        "inner_width": 17.090413800000004,
+        "inner_height": 16.0551548,
+        "radial_thickness": 1.6352826000000003,
+        "axial_depth": 1.5044599920000004,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_support_spec": {
+        "component_id": "ring_017_head_support_001",
+        "height": 9.762140733399406,
+        "base_z": 8.27286979,
+        "shoulder_radius": 1.013875212,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_dimensions_nominal": {
+        "head_width": 22.497522299306247,
+        "head_depth": 27.8611699998031,
+        "head_height": 9.762140733399406,
+        "front_depth_estimate": 27.8611699998031,
+        "side_depth_estimates": [
+          25.574774942186988,
+          25.504231549561798
+        ],
+        "side_depth_median": 25.539503245874393,
+        "front_side_depth_disagreement_fraction": 0.08332983697185417,
+        "top_start_y_px": 467.0,
+        "top_center_x_px": 384.0,
+        "top_bbox_x0_px": 157.0,
+        "top_bbox_x1_px": 611.0
+      },
+      "profile_control_count": {
+        "front": 96,
+        "top": 96
+      },
+      "exact_geometry": {
+        "head_support_valid": true,
+        "shoulder_count": 2,
+        "shoulders_valid": true,
+        "metal_valid": true,
+        "metal_solid_count": 1
+      },
+      "metrics": {
+        "front_profile_iou": 0.976785,
+        "front_boundary_f1": 0.857319,
+        "top_envelope_iou": 0.98819,
+        "top_envelope_boundary_f1": 1.0
+      },
+      "artifacts": {
+        "front_target": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_017/front_head_target.png",
+        "front_render": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_017/front_head_support_render.png",
+        "top_target": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_017/top_head_target.png",
+        "top_render": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_017/top_head_support_render.png",
+        "step": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_017/ring_017_shank_head_support.step"
+      }
+    },
+    {
+      "object_id": "ring_018",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "scored",
+      "source_images": {
+        "front": "dataset/prepared_v1/images/ring_018/front.png",
+        "top": "dataset/prepared_v1/images/ring_018/top.png"
+      },
+      "ring_body_spec": {
+        "object_id": "ring_018",
+        "inner_width": 17.039020200000003,
+        "inner_height": 16.0988958,
+        "radial_thickness": 1.5765352000000001,
+        "axial_depth": 1.4504123840000003,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_support_spec": {
+        "component_id": "ring_018_head_support_001",
+        "height": 11.508738872812195,
+        "base_z": 8.28592818,
+        "shoulder_radius": 0.9774518240000001,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_dimensions_nominal": {
+        "head_width": 19.496539369010613,
+        "head_depth": 19.04474790413158,
+        "head_height": 11.508738872812195,
+        "front_depth_estimate": 19.04474790413158,
+        "side_depth_estimates": [
+          22.76453842973841,
+          23.41433081020412
+        ],
+        "side_depth_median": 23.089434619971264,
+        "front_side_depth_disagreement_fraction": 0.212378065396299,
+        "top_start_y_px": 446.0,
+        "top_center_x_px": 384.5,
+        "top_bbox_x0_px": 199.0,
+        "top_bbox_x1_px": 570.0
+      },
+      "profile_control_count": {
+        "front": 96,
+        "top": 96
+      },
+      "exact_geometry": {
+        "head_support_valid": true,
+        "shoulder_count": 2,
+        "shoulders_valid": true,
+        "metal_valid": true,
+        "metal_solid_count": 1
+      },
+      "metrics": {
+        "front_profile_iou": 0.990048,
+        "front_boundary_f1": 0.989265,
+        "top_envelope_iou": 0.985212,
+        "top_envelope_boundary_f1": 1.0
+      },
+      "artifacts": {
+        "front_target": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_018/front_head_target.png",
+        "front_render": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_018/front_head_support_render.png",
+        "top_target": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_018/top_head_target.png",
+        "top_render": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_018/top_head_support_render.png",
+        "step": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_018/ring_018_shank_head_support.step"
+      }
+    },
+    {
+      "object_id": "ring_019",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "scored",
+      "source_images": {
+        "front": "dataset/prepared_v1/images/ring_019/front.png",
+        "top": "dataset/prepared_v1/images/ring_019/top.png"
+      },
+      "ring_body_spec": {
+        "object_id": "ring_019",
+        "inner_width": 17.008277,
+        "inner_height": 16.1282778,
+        "radial_thickness": 1.6347348000000002,
+        "axial_depth": 1.5039560160000003,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_support_spec": {
+        "component_id": "ring_019_head_support_001",
+        "height": 9.03907936246801,
+        "base_z": 8.30934912,
+        "shoulder_radius": 1.013535576,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_dimensions_nominal": {
+        "head_width": 18.126238934310848,
+        "head_depth": 17.023748551901956,
+        "head_height": 9.03907936246801,
+        "front_depth_estimate": 17.023748551901956,
+        "side_depth_estimates": [
+          22.008193230356895,
+          20.77065044992649
+        ],
+        "side_depth_median": 21.389421840141694,
+        "front_side_depth_disagreement_fraction": 0.2564460626829446,
+        "top_start_y_px": 477.0,
+        "top_center_x_px": 384.5,
+        "top_bbox_x0_px": 196.0,
+        "top_bbox_x1_px": 573.0
+      },
+      "profile_control_count": {
+        "front": 96,
+        "top": 96
+      },
+      "exact_geometry": {
+        "head_support_valid": true,
+        "shoulder_count": 2,
+        "shoulders_valid": true,
+        "metal_valid": true,
+        "metal_solid_count": 1
+      },
+      "metrics": {
+        "front_profile_iou": 0.949168,
+        "front_boundary_f1": 0.746645,
+        "top_envelope_iou": 0.980967,
+        "top_envelope_boundary_f1": 0.990233
+      },
+      "artifacts": {
+        "front_target": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_019/front_head_target.png",
+        "front_render": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_019/front_head_support_render.png",
+        "top_target": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_019/top_head_target.png",
+        "top_render": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_019/top_head_support_render.png",
+        "step": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_019/ring_019_shank_head_support.step"
+      }
+    },
+    {
+      "object_id": "ring_020",
+      "category": "ring",
+      "split": "val",
+      "evaluation_status": "scored",
+      "source_images": {
+        "front": "dataset/prepared_v1/images/ring_020/front.png",
+        "top": "dataset/prepared_v1/images/ring_020/top.png"
+      },
+      "ring_body_spec": {
+        "object_id": "ring_020",
+        "inner_width": 17.188851800000002,
+        "inner_height": 15.987958000000003,
+        "radial_thickness": 1.6664906000000002,
+        "axial_depth": 1.533171352,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_support_spec": {
+        "component_id": "ring_020_head_support_001",
+        "height": 11.196771414570424,
+        "base_z": 8.243952590000001,
+        "shoulder_radius": 1.0332241720000002,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_dimensions_nominal": {
+        "head_width": 18.800160375162434,
+        "head_depth": 21.49138987671943,
+        "head_height": 11.196771414570424,
+        "front_depth_estimate": 21.49138987671943,
+        "side_depth_estimates": [
+          21.60976883012092,
+          20.96650333512697
+        ],
+        "side_depth_median": 21.288136082623943,
+        "front_side_depth_disagreement_fraction": 0.009457452275604707,
+        "top_start_y_px": 449.0,
+        "top_center_x_px": 384.5,
+        "top_bbox_x0_px": 204.0,
+        "top_bbox_x1_px": 565.0
+      },
+      "profile_control_count": {
+        "front": 96,
+        "top": 96
+      },
+      "exact_geometry": {
+        "head_support_valid": true,
+        "shoulder_count": 2,
+        "shoulders_valid": true,
+        "metal_valid": true,
+        "metal_solid_count": 1
+      },
+      "metrics": {
+        "front_profile_iou": 0.957026,
+        "front_boundary_f1": 0.743938,
+        "top_envelope_iou": 0.99132,
+        "top_envelope_boundary_f1": 1.0
+      },
+      "artifacts": {
+        "front_target": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_020/front_head_target.png",
+        "front_render": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_020/front_head_support_render.png",
+        "top_target": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_020/top_head_target.png",
+        "top_render": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_020/top_head_support_render.png",
+        "step": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_020/ring_020_shank_head_support.step",
+        "geometry_preview": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_020/ring_020_geometry_preview.png"
+      }
+    },
+    {
+      "object_id": "ring_021",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "scored",
+      "source_images": {
+        "front": "dataset/prepared_v1/images/ring_021/front.png",
+        "top": "dataset/prepared_v1/images/ring_021/top.png"
+      },
+      "ring_body_spec": {
+        "object_id": "ring_021",
+        "inner_width": 17.093733800000003,
+        "inner_height": 16.0961568,
+        "radial_thickness": 1.661245,
+        "axial_depth": 1.5283454,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_support_spec": {
+        "component_id": "ring_021_head_support_001",
+        "height": 9.430008135508611,
+        "base_z": 8.29726515,
+        "shoulder_radius": 1.0299719,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_dimensions_nominal": {
+        "head_width": 18.469135104778523,
+        "head_depth": 21.02697866307779,
+        "head_height": 9.430008135508611,
+        "front_depth_estimate": 21.02697866307779,
+        "side_depth_estimates": [
+          22.20947271259132,
+          21.933886326238262
+        ],
+        "side_depth_median": 22.071679519414793,
+        "front_side_depth_disagreement_fraction": 0.04968383109511775,
+        "top_start_y_px": 472.0,
+        "top_center_x_px": 384.0,
+        "top_bbox_x0_px": 195.0,
+        "top_bbox_x1_px": 573.0
+      },
+      "profile_control_count": {
+        "front": 96,
+        "top": 96
+      },
+      "exact_geometry": {
+        "head_support_valid": true,
+        "shoulder_count": 2,
+        "shoulders_valid": true,
+        "metal_valid": true,
+        "metal_solid_count": 1
+      },
+      "metrics": {
+        "front_profile_iou": 0.967285,
+        "front_boundary_f1": 0.917751,
+        "top_envelope_iou": 0.986307,
+        "top_envelope_boundary_f1": 0.999626
+      },
+      "artifacts": {
+        "front_target": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_021/front_head_target.png",
+        "front_render": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_021/front_head_support_render.png",
+        "top_target": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_021/top_head_target.png",
+        "top_render": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_021/top_head_support_render.png",
+        "step": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_021/ring_021_shank_head_support.step"
+      }
+    },
+    {
+      "object_id": "ring_022",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "scored",
+      "source_images": {
+        "front": "dataset/prepared_v1/images/ring_022/front.png",
+        "top": "dataset/prepared_v1/images/ring_022/top.png"
+      },
+      "ring_body_spec": {
+        "object_id": "ring_022",
+        "inner_width": 17.171538,
+        "inner_height": 15.9777988,
+        "radial_thickness": 1.6611952,
+        "axial_depth": 1.5282995840000002,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_support_spec": {
+        "component_id": "ring_022_head_support_001",
+        "height": 10.319535642123478,
+        "base_z": 8.238078680000001,
+        "shoulder_radius": 1.029941024,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_dimensions_nominal": {
+        "head_width": 18.776520948839305,
+        "head_depth": 21.151863960439456,
+        "head_height": 10.319535642123478,
+        "front_depth_estimate": 21.151863960439456,
+        "side_depth_estimates": [
+          20.23831261853342,
+          18.88759046425352
+        ],
+        "side_depth_median": 19.56295154139347,
+        "front_side_depth_disagreement_fraction": 0.07511926239776054,
+        "top_start_y_px": 460.0,
+        "top_center_x_px": 384.5,
+        "top_bbox_x0_px": 198.0,
+        "top_bbox_x1_px": 571.0
+      },
+      "profile_control_count": {
+        "front": 96,
+        "top": 96
+      },
+      "exact_geometry": {
+        "head_support_valid": true,
+        "shoulder_count": 2,
+        "shoulders_valid": true,
+        "metal_valid": true,
+        "metal_solid_count": 1
+      },
+      "metrics": {
+        "front_profile_iou": 0.990231,
+        "front_boundary_f1": 0.948098,
+        "top_envelope_iou": 0.991829,
+        "top_envelope_boundary_f1": 1.0
+      },
+      "artifacts": {
+        "front_target": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_022/front_head_target.png",
+        "front_render": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_022/front_head_support_render.png",
+        "top_target": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_022/top_head_target.png",
+        "top_render": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_022/top_head_support_render.png",
+        "step": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_022/ring_022_shank_head_support.step"
+      }
+    },
+    {
+      "object_id": "ring_023",
+      "category": "ring",
+      "split": "test",
+      "evaluation_status": "held_out_not_scored",
+      "source_images": {
+        "front": "dataset/prepared_v1/images/ring_023/front.png",
+        "top": "dataset/prepared_v1/images/ring_023/top.png"
+      },
+      "ring_body_spec": {
+        "object_id": "ring_023",
+        "inner_width": 17.0012718,
+        "inner_height": 16.124742,
+        "radial_thickness": 1.6604482000000003,
+        "axial_depth": 1.5276123440000002,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_support_spec": {
+        "component_id": "ring_023_head_support_001",
+        "height": 11.052383320585074,
+        "base_z": 8.31143823,
+        "shoulder_radius": 1.029477884,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_dimensions_nominal": {
+        "head_width": 19.198975721204118,
+        "head_depth": 18.103846981313687,
+        "head_height": 11.052383320585074,
+        "front_depth_estimate": 18.103846981313687,
+        "side_depth_estimates": [
+          17.113367722196244,
+          16.856146251485914
+        ],
+        "side_depth_median": 16.984756986841077,
+        "front_side_depth_disagreement_fraction": 0.06181503829698213,
+        "top_start_y_px": 451.0,
+        "top_center_x_px": 384.0,
+        "top_bbox_x0_px": 199.0,
+        "top_bbox_x1_px": 569.0
+      },
+      "profile_control_count": {
+        "front": 96,
+        "top": 96
+      },
+      "exact_geometry": {
+        "head_support_valid": true,
+        "shoulder_count": 2,
+        "shoulders_valid": true,
+        "metal_valid": true,
+        "metal_solid_count": 1
+      },
+      "metrics": null,
+      "artifacts": {
+        "front_target": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_023/front_head_target.png",
+        "front_render": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_023/front_head_support_render.png",
+        "top_target": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_023/top_head_target.png",
+        "top_render": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_023/top_head_support_render.png",
+        "step": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_023/ring_023_shank_head_support.step"
+      }
+    },
+    {
+      "object_id": "ring_024",
+      "category": "ring",
+      "split": "train",
+      "evaluation_status": "scored",
+      "source_images": {
+        "front": "dataset/prepared_v1/images/ring_024/front.png",
+        "top": "dataset/prepared_v1/images/ring_024/top.png"
+      },
+      "ring_body_spec": {
+        "object_id": "ring_024",
+        "inner_width": 16.9253434,
+        "inner_height": 16.2118256,
+        "radial_thickness": 1.6295722000000001,
+        "axial_depth": 1.4992064240000003,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_support_spec": {
+        "component_id": "ring_024_head_support_001",
+        "height": 8.360397971105382,
+        "base_z": 8.350348630000001,
+        "shoulder_radius": 1.010334764,
+        "scale_status": "nominal_display_scale_not_metric"
+      },
+      "head_dimensions_nominal": {
+        "head_width": 17.85440922642844,
+        "head_depth": 12.456564576577982,
+        "head_height": 8.360397971105382,
+        "front_depth_estimate": 12.456564576577982,
+        "side_depth_estimates": [
+          16.128326794652114,
+          14.984405594365798
+        ],
+        "side_depth_median": 15.556366194508957,
+        "front_side_depth_disagreement_fraction": 0.24884883780553083,
+        "top_start_y_px": 487.0,
+        "top_center_x_px": 384.0,
+        "top_bbox_x0_px": 195.0,
+        "top_bbox_x1_px": 573.0
+      },
+      "profile_control_count": {
+        "front": 96,
+        "top": 96
+      },
+      "exact_geometry": {
+        "head_support_valid": true,
+        "shoulder_count": 2,
+        "shoulders_valid": true,
+        "metal_valid": true,
+        "metal_solid_count": 1
+      },
+      "metrics": {
+        "front_profile_iou": 0.905415,
+        "front_boundary_f1": 0.653522,
+        "top_envelope_iou": 0.982783,
+        "top_envelope_boundary_f1": 0.998866
+      },
+      "artifacts": {
+        "front_target": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_024/front_head_target.png",
+        "front_render": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_024/front_head_support_render.png",
+        "top_target": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_024/top_head_target.png",
+        "top_render": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_024/top_head_support_render.png",
+        "step": "data/phase5_stl1_exact_head_support_fit_v1/objects/ring_024/ring_024_shank_head_support.step"
+      }
+    }
+  ],
+  "artifacts": {
+    "audit": "data/phase5_stl1_exact_head_support_fit_v1/stl1_exact_head_support_fit_audit.png"
+  },
+  "decision": "two_view_head_support_envelope_ready_for_relief_and_openwork_reconstruction",
+  "claims": {
+    "image_derived_exact_head_support_generated": true,
+    "complete_ring_head_reconstructed": false,
+    "multi_view_calibrated_geometry_validated": false,
+    "manufacturing_accuracy_validated": false
+  },
+  "limitations": [
+    "The front profile and dimensions are machine-derived from the same silhouettes used for fitting scores.",
+    "Top and side views provide envelope ratios without calibrated cross-view scale or camera intrinsics.",
+    "Left/right side estimates are retained as disagreement diagnostics and do not override the direct front-profile aspect ratio.",
+    "The head blank intentionally fills openwork and omits all sculptural relief.",
+    "The result is a structural support candidate, not a visually complete ring."
+  ]
+}

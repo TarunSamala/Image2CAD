@@ -86,6 +86,33 @@ class DatasetRepository:
         self.phase4_component_graph = self._read_json(
             self.repo_root / "data" / "phase4_component_graph_v3" / "report.json"
         )
+        self.phase4_exact_cad_locality = self._read_json(
+            self.repo_root
+            / "data"
+            / "phase4_exact_cad_locality_v1"
+            / "report.json"
+        )
+        self.phase5_exact_cad_v2 = self._read_json(
+            self.repo_root / "data" / "phase5_exact_cad_v2_v1" / "report.json"
+        )
+        self.phase5_stl1_ring_parameters = self._read_json(
+            self.repo_root
+            / "data"
+            / "phase5_stl1_ring_parameters_v1"
+            / "report.json"
+        )
+        self.phase5_stl1_ring_body_fit = self._read_json(
+            self.repo_root
+            / "data"
+            / "phase5_stl1_exact_ring_body_fit_v1"
+            / "report.json"
+        )
+        self.phase5_stl1_head_support_fit = self._read_json(
+            self.repo_root
+            / "data"
+            / "phase5_stl1_exact_head_support_fit_v1"
+            / "report.json"
+        )
         self.phase4_prong_instances = self._read_json(
             self.repo_root / "data" / "phase4_prong_instances_v1" / "report.json"
         )
@@ -657,12 +684,25 @@ class DatasetRepository:
             },
             "phase4": {
                 **deepcopy(self.phase4_component_graph),
+                "exact_cad_locality": deepcopy(self.phase4_exact_cad_locality),
                 "prong_instances": deepcopy(self.phase4_prong_instances),
                 "component_tracks": deepcopy(self.phase4_component_tracks),
                 "stl1_component_candidates": deepcopy(
                     self.phase4_stl1_candidates
                 ),
                 "stl1_candidate_review": self._phase4_candidate_review_summary(),
+            },
+            "phase5": {
+                **deepcopy(self.phase5_exact_cad_v2),
+                "stl1_ring_parameters": deepcopy(
+                    self.phase5_stl1_ring_parameters
+                ),
+                "stl1_ring_body_fit": deepcopy(
+                    self.phase5_stl1_ring_body_fit
+                ),
+                "stl1_head_support_fit": deepcopy(
+                    self.phase5_stl1_head_support_fit
+                ),
             },
             "limitations": deepcopy(self.dataset_report.get("limitations", [])),
         }
@@ -1025,8 +1065,8 @@ class DatasetRepository:
                 "title": "Component and constraint graph",
                 "phase": "Bible Phase 4",
                 "status": "partial",
-                "coverage": f"{int(self.phase4_component_graph.get('ring01', {}).get('node_count', 0))} Ring01 proposal nodes · {int(self.phase4_prong_instances.get('summary', {}).get('resolved_instance_view_count', 0))}/5 prong-instance views resolved · {int(self.phase4_stl1_candidates.get('candidate_count', 0))} STL-1 negative-space candidates · 30 synthetic edit cases",
-                "summary": "Stable-ID graph API, dependencies and local-edit previews are implemented. VGGT supports the resolved Ring01 prong ordering, while a dataset-wide STL-1 inventory retains apertures and openwork without falsely promoting them to stones.",
+                "coverage": f"{int(self.phase4_component_graph.get('ring01', {}).get('node_count', 0))} Ring01 proposal nodes · {int(self.phase4_prong_instances.get('summary', {}).get('resolved_instance_view_count', 0))}/5 prong-instance views resolved · {int(self.phase4_stl1_candidates.get('candidate_count', 0))} STL-1 negative-space candidates · {int(self.phase4_exact_cad_locality.get('summary', {}).get('passed_case_count', 0))}/30 exact CAD edits",
+                "summary": "Stable-ID graph dependencies now drive an exact synthetic CAD locality benchmark. VGGT supports the resolved Ring01 prong ordering, while the STL-1 inventory retains apertures and openwork without falsely promoting them to stones.",
                 "functions": [
                     "Inspect Ring01 machine-proposal component dependencies",
                     "Compare individual prong proposals with unresolved projection groups",
@@ -1034,17 +1074,19 @@ class DatasetRepository:
                     "Inspect dataset-wide enclosed negative-space candidates",
                     "Preview remove, resize and replace transactions without persistence",
                     "Verify stable IDs and unchanged unrelated graph state",
+                    "Inspect exact B-rep remove, resize and replace evidence",
                 ],
                 "limitations": [
                     "Ring01 component identities remain pending human review.",
                     "Side and back images do not individually resolve overlapping prong pairs.",
                     "VGGT agreement is non-metric machine evidence, not identity ground truth.",
                     "STL-1 is monochrome and unlabelled, so aperture evidence cannot confirm gemstone material or cross-view component identity.",
-                    "The ten-stone locality result covers graph state, not CAD Boolean geometry.",
+                    "Exact CAD locality is validated only on designed synthetic truth, not image-derived Ring01 geometry.",
                 ],
                 "checks": deepcopy(self.phase4_component_graph.get("checks", {})),
                 "actions": [
                     {"label": "Graph report", "href": "/api/artifacts/phase4_component_graph_report"},
+                    {"label": "Exact CAD audit", "href": "/api/artifacts/phase4_exact_cad_locality_audit"},
                     {"label": "Prong audit", "href": "/api/artifacts/phase4_prong_instance_audit"},
                     {"label": "Track audit", "href": "/api/artifacts/phase4_component_track_audit"},
                     {"label": "STL-1 candidate audit", "href": "/api/artifacts/phase4_stl1_candidate_audit"},
@@ -1055,15 +1097,34 @@ class DatasetRepository:
                 "id": "parametric_cad",
                 "title": "Editable structural CAD",
                 "phase": "Bible Phase 4+",
-                "status": "blocked",
-                "coverage": "Not implemented",
-                "summary": "The component graph foundation exists, but independently regenerated stones, prongs, seats, cavities and exact STEP construction remain future work.",
-                "functions": [],
+                "status": "partial",
+                "coverage": f"30/30 designed local edits · {int(self.phase5_exact_cad_v2.get('summary', {}).get('passed_family_count', 0))}/4 exact structural families · {int(self.phase5_stl1_head_support_fit.get('summary', {}).get('object_count', 0))}/24 shank + head-support candidates",
+                "summary": "Independent synthetic components regenerate through exact CadQuery/OCP B-reps. The ring-only dataset path now converts each STL-1 shank into an editable periodic-spline solid and intersects front/top silhouette prisms into a connected head-support envelope. Relief, openings and semantic components remain open.",
+                "functions": [
+                    "Generate separate exact solids for stones, seats, cavities and prongs",
+                    "Rebuild a valid single-solid metal body after local edits",
+                    "Export synthetic baseline and representative edits as STEP and STL",
+                    "Exercise round, oval, three-stone and halo exact-CAD fixtures",
+                    "Inspect dataset-derived normalized ring parameters for all 24 STL-1 objects",
+                    "Download exact image-derived shank STEP files at nominal display scale",
+                    "Inspect connected two-view head-support STEP candidates and real CAD previews",
+                ],
                 "limitations": [
                     "Current STL and 3MF outputs are research meshes, not authoritative editable CAD.",
+                    "The exact CAD benchmark uses designed synthetic truth and is not reconstructed from an image.",
+                    "STL-1 proposals are normalized image measurements, not fitted CAD or physical millimetres.",
+                    "Current image-derived STEP files contain the shank and a filled structural head envelope, not relief, openwork, stones or complete rings.",
                     "Image-only inputs do not verify absolute millimetres without a known scale reference.",
                 ],
-                "actions": [],
+                "actions": [
+                    {"label": "Exact CAD audit", "href": "/api/artifacts/phase4_exact_cad_locality_audit"},
+                    {"label": "Family fixture audit", "href": "/api/artifacts/phase5_exact_cad_v2_audit"},
+                    {"label": "STL-1 ring parameter audit", "href": "/api/artifacts/phase5_stl1_ring_parameter_audit"},
+                    {"label": "Exact ring-body fit audit", "href": "/api/artifacts/phase5_stl1_ring_body_fit_audit"},
+                    {"label": "Head-support fit audit", "href": "/api/artifacts/phase5_stl1_head_support_fit_audit"},
+                    {"label": "Ring 004 CAD preview", "href": "/api/artifacts/phase5_ring004_head_support_preview"},
+                    {"label": "Download baseline STEP", "href": "/api/artifacts/phase4_exact_cad_baseline_step"},
+                ],
             },
         ]
 
@@ -1079,15 +1140,15 @@ class DatasetRepository:
                 "id": "component_graph",
                 "title": "Universal jewellery component graph",
                 "status": "partial_review_blocked",
-                "evidence": "Stable-ID API and 30-case synthetic locality benchmark exist; Ring01 graph has 10 pending proposal nodes.",
-                "requirement": "Approve or correct image-space component identities, add individual instance masks, then validate local CAD regeneration.",
+                "evidence": "Stable-ID API, 30 graph edits and 30 exact CAD edits pass; Ring01 graph still has 10 pending proposal nodes.",
+                "requirement": "Approve or correct image-space component identities, then connect reviewed image evidence to the validated local CAD generators.",
             },
             {
                 "id": "exact_cad",
                 "title": "Parametric CAD reconstruction",
-                "status": "not_implemented",
-                "evidence": "Coarse watertight STL/3MF research meshes exist.",
-                "requirement": "Fit editable dimensions and topology, generate exact B-rep/STEP, and validate renders against every supplied view.",
+                "status": "synthetic_foundation_validated",
+                "evidence": "Designed ten-stone truth passes 30/30 exact B-rep locality and Boolean checks with STEP/STL exports.",
+                "requirement": "Fit editable dimensions and topology from reviewed images, then validate exact CAD renders against every supplied view.",
             },
             {
                 "id": "image_only_scale",
@@ -1800,6 +1861,76 @@ class DatasetRepository:
             / "data"
             / "phase4_component_graph_v3"
             / "report.json",
+            "phase4_exact_cad_locality_report": self.repo_root
+            / "data"
+            / "phase4_exact_cad_locality_v1"
+            / "report.json",
+            "phase4_exact_cad_locality_audit": self.repo_root
+            / "data"
+            / "phase4_exact_cad_locality_v1"
+            / "exact_cad_locality_audit.png",
+            "phase4_exact_cad_baseline_step": self.repo_root
+            / "data"
+            / "phase4_exact_cad_locality_v1"
+            / "baseline_assembly.step",
+            "phase4_exact_cad_baseline_stl": self.repo_root
+            / "data"
+            / "phase4_exact_cad_locality_v1"
+            / "baseline_assembly.stl",
+            "phase5_exact_cad_v2_report": self.repo_root
+            / "data"
+            / "phase5_exact_cad_v2_v1"
+            / "report.json",
+            "phase5_exact_cad_v2_audit": self.repo_root
+            / "data"
+            / "phase5_exact_cad_v2_v1"
+            / "exact_cad_v2_family_audit.png",
+            "phase5_stl1_ring_parameter_report": self.repo_root
+            / "data"
+            / "phase5_stl1_ring_parameters_v1"
+            / "report.json",
+            "phase5_stl1_ring_parameter_audit": self.repo_root
+            / "data"
+            / "phase5_stl1_ring_parameters_v1"
+            / "stl1_ring_parameter_audit.png",
+            "phase5_stl1_ring_body_fit_report": self.repo_root
+            / "data"
+            / "phase5_stl1_exact_ring_body_fit_v1"
+            / "report.json",
+            "phase5_stl1_ring_body_fit_audit": self.repo_root
+            / "data"
+            / "phase5_stl1_exact_ring_body_fit_v1"
+            / "stl1_exact_ring_body_fit_audit.png",
+            "phase5_ring004_ring_body_step": self.repo_root
+            / "data"
+            / "phase5_stl1_exact_ring_body_fit_v1"
+            / "objects"
+            / "ring_004"
+            / "ring_004_ring_body.step",
+            "phase5_stl1_head_support_fit_report": self.repo_root
+            / "data"
+            / "phase5_stl1_exact_head_support_fit_v1"
+            / "report.json",
+            "phase5_stl1_head_support_fit_audit": self.repo_root
+            / "data"
+            / "phase5_stl1_exact_head_support_fit_v1"
+            / "stl1_exact_head_support_fit_audit.png",
+            "phase5_ring004_head_support_step": self.repo_root
+            / "data"
+            / "phase5_stl1_exact_head_support_fit_v1"
+            / "objects"
+            / "ring_004"
+            / "ring_004_shank_head_support.step",
+            "phase5_ring004_head_support_preview": self.repo_root
+            / "data"
+            / "phase5_stl1_exact_head_support_fit_v1"
+            / "objects"
+            / "ring_004"
+            / "ring_004_geometry_preview.png",
+            "phase5_round_solitaire_step": self.repo_root
+            / "data"
+            / "phase5_exact_cad_v2_v1"
+            / "round_solitaire_assembly.step",
             "phase4_ring01_graph": self.repo_root
             / "data"
             / "phase4_component_graph_v3"

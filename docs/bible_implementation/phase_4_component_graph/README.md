@@ -1,8 +1,9 @@
 # Phase 4 - universal component and constraint graph
 
 This implementation establishes the deterministic structural contract required
-before exact CAD generation. It does not claim that Ring01 components are
-reviewed or that local CAD regeneration is already valid.
+before image-derived exact CAD generation. Exact local CAD regeneration is now
+validated against designed synthetic truth; it does not claim that Ring01
+components are reviewed or that image-derived CAD is valid.
 
 ## Implemented
 
@@ -16,6 +17,9 @@ reviewed or that local CAD regeneration is already valid.
 - directed stone-to-seat/cavity/prong dependencies;
 - schema validation and dependency-cycle rejection;
 - in-memory remove, resize and replace transactions;
+- separate exact B-rep stones, seats, cavities and four prongs per setting;
+- local CadQuery/OCP regeneration and fused-metal Boolean validation;
+- representative STEP/STL exports and a retained visual audit;
 - dry-run Flask API and Studio inspection controls.
 
 Ring01 currently contains ten proposal nodes: assembly root, shank, setting,
@@ -76,9 +80,18 @@ All 30 cases pass the graph-state checks:
 - unrelated node state remains byte-stable under canonical hashing;
 - the edited graph remains schema-valid.
 
-This validates graph dependency locality only. It does not validate CadQuery or
-OpenCascade regeneration, Boolean cavities, separate solids, collisions or
-manufacturing rules. Therefore the Bible Phase 4 exit gate remains blocked.
+The same 30 operations now also run through CadQuery/OCP exact B-rep
+regeneration under `data/phase4_exact_cad_locality_v1/`. Every case passes:
+
+- the changed exact-component set equals the graph dependency closure;
+- every unrelated B-rep SHA-256 remains byte-identical;
+- every active component remains a valid exact solid;
+- each derived metal body remains valid and contains one connected solid;
+- baseline and Stone 007 remove/resize/replace assemblies export to STEP/STL.
+
+This closes the synthetic CAD-locality requirement. It does not validate image
+inference, Ring01 dimensions, collisions, manufacturability or metric accuracy.
+Therefore the Bible Phase 4 image-derived exit gate remains blocked.
 
 ## API
 
@@ -134,7 +147,12 @@ docker run --rm --user "$(id -u):$(id -g)" \
 docker run --rm --user "$(id -u):$(id -g)" \
   -v "$PWD:/workspace" -w /workspace \
   image2cad-validation:phase0 \
-  python -m unittest tests.test_phase4_prong_instances tests.test_phase4_component_tracks tests.test_phase4_stl1_component_candidates tests.test_phase4_candidate_review tests.test_phase4_component_graph
+  python -m pipeline.benchmark_phase4_exact_cad_locality
+
+docker run --rm --user "$(id -u):$(id -g)" \
+  -v "$PWD:/workspace" -w /workspace \
+  image2cad-validation:phase0 \
+  python -m unittest tests.test_phase4_prong_instances tests.test_phase4_component_tracks tests.test_phase4_stl1_component_candidates tests.test_phase4_candidate_review tests.test_phase4_component_graph tests.test_phase4_exact_cad_locality
 ```
 
 ## Next gate
@@ -144,6 +162,7 @@ docker run --rm --user "$(id -u):$(id -g)" \
 2. Review the STL-1 aperture/openwork inventory and add labelled real-image
    multi-stone evidence before producing stone/support instance masks.
 3. Attach reviewed cross-view observations to stable track IDs.
-4. Connect graph transactions to exact component generators.
-5. Repeat the ten-stone benchmark on exported CAD and verify that unrelated
-   solids and dimensions remain unchanged.
+4. Connect reviewed image observations and scale-normalized dimensions to the
+   validated exact component generators.
+5. Add collision, clearance, minimum-wall and render-against-source checks
+   before any manufacturing claim.

@@ -109,13 +109,48 @@ Phase 4 now has a deterministic component-graph API and a Ring01 machine
 proposal with stable IDs, provenance, uncertainty and explicit
 stone-to-seat/cavity/prong dependencies. A synthetic ten-stone graph passes all
 30 remove/resize/replace locality cases without changing unrelated node state.
+Those operations now also pass a retained exact-CAD benchmark: 71 independent
+CadQuery/OCP source components are regenerated in every case, every unrelated
+B-rep remains byte-identical, and all 30 derived metal bodies remain valid
+single solids. Baseline and Stone 007 edit assemblies are exported as STEP/STL.
 Ring01 now also has four disjoint machine-proposed prong masks in front, top and
 angled views; side and back remain honest two-member overlap groups. This is
-still a graph-state and image-evidence benchmark only. Retained VGGT point maps
+still synthetic CAD truth plus unreviewed image evidence. Retained VGGT point maps
 independently select the same front-to-top and front-to-angled ID assignment;
 top support is strong while angled support is moderate. Ring01 still has zero
-approved graph nodes and no CAD Boolean was regenerated.
+approved graph nodes, so no image-derived exact CAD is authorized.
 The Phase 4 exit gate therefore remains blocked.
+
+Phase 5 has now started independently of that blocked image-review gate. Four
+designed structural fixtures—round solitaire, oval solitaire, three-stone and
+halo—pass exact B-rep validity, one-metal-solid topology, independent STEP
+reload and watertight derived-mesh checks. This validates the reusable CAD
+generator foundation only. It does not show that images can yet select or fit
+those parameters accurately.
+
+The first dataset bridge now keeps the scope ring-only and processes all 24
+STL-1 objects and 120 views. It proposes scale-normalized inner-aperture and
+shank measurements while preserving the fixed 18/3/3 split. The retained audit
+shows the detected aperture and robust radial samples for every ring. These are
+image measurements for initializing fitting, not physical millimetres or
+accepted CAD.
+
+Phase 5.1 now converts those observations into exact periodic-spline shank
+B-reps and exports one STEP body for every STL-1 ring. The 18 training objects
+reach `0.932061` mean top-view shank IoU and the three validation objects reach
+`0.935501`; boundary F1 is `0.987267` and `0.984843`. The three test rings are
+retained but unscored. These are same-silhouette fitting-consistency metrics,
+not independent geometry truth, and no head/detail or physical-scale claim is
+made.
+
+Phase 5.2 now adds a connected two-view head-support envelope to every shank.
+The retained implementation intersects the front ornament silhouette with the
+top head profile instead of using the rejected rectangular envelope. Validation
+front/top IoU is `0.973288`/`0.983941`; all 24 head solids, all 48 shoulders and
+all fused metal bodies are valid, connected B-reps with STEP exports. Actual
+tessellated CAD previews for rings 004, 012 and 020 were inspected separately.
+This approves the structural outer envelope only. Relief, faces, openwork,
+stones, prongs, seats, cavities and physical millimetres remain unimplemented.
 
 1. Review the proposed prong identities and build reviewed semantic component
    identities, then group dense
@@ -135,12 +170,16 @@ The Phase 4 exit gate therefore remains blocked.
    STL-1 views; they are aperture/openwork evidence, not confirmed stones.
 7. Add labelled real-image multi-stone evidence and resolve each accepted
    stone across views before creating seat or cavity relationships.
-8. Connect the component graph to independently editable stone, prong, seat,
-   cavity and relief geometry generators.
-9. Repeat the ten-stone locality benchmark on exported exact CAD, not only
-   graph state.
-10. Generate parametric CAD and refine it through render-and-compare validation.
-11. Export editable STEP plus derived STL and 3MF artifacts with explicit validation reports.
+8. Extend the implemented normalized ring adapter to head, shoulder, gallery,
+   relief and accepted component-track parameters, including uncertainty.
+9. Connect reviewed image observations to the validated independently editable
+   stone, prong, seat and cavity generators; add relief generators separately.
+10. Add collision, clearance, minimum-wall and manufacturability checks to the
+   synthetic exact-CAD benchmark.
+11. Generate image-derived parametric CAD and refine it through
+    render-and-compare validation.
+12. Export editable STEP plus derived STL and 3MF artifacts with explicit
+    image-fit and uncertainty reports.
 
 The target is a high-fidelity, structurally editable reconstruction. Under the
 images-only constraint, verified millimetres and manufacturing accuracy cannot

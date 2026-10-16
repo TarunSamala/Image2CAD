@@ -1,0 +1,3197 @@
+{
+  "schema_version": "lalitha_phase4_exact_cad_locality_v1",
+  "execution_profile": "synthetic_exact_cad_benchmark",
+  "source_graph": "data/phase4_component_graph_v3/synthetic_ten_stone_graph.json",
+  "cad_kernel": "CadQuery/OCP exact B-rep",
+  "units": "mm",
+  "summary": {
+    "case_count": 30,
+    "passed_case_count": 30,
+    "pass_fraction": 1.0,
+    "stone_count": 10,
+    "component_count": 71,
+    "active_prong_count": 40,
+    "operations": [
+      "remove",
+      "replace",
+      "resize"
+    ]
+  },
+  "baseline": {
+    "component_signatures": {
+      "cavity_001": {
+        "active": true,
+        "brep_sha256": "fd4efd65daf622616fa1c6cf7cab4100de2a8e122eb9a318af3583ff7a959e9c",
+        "valid": true,
+        "volume_mm3": 4.404381,
+        "area_mm2": 15.546485,
+        "center_mm": [
+          -12.0,
+          -2.8,
+          1.49
+        ],
+        "bounding_box_mm": [
+          2.18,
+          2.18,
+          1.18
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 3,
+          "edges": 3,
+          "vertices": 2
+        }
+      },
+      "cavity_002": {
+        "active": true,
+        "brep_sha256": "8c3e4fc364975b58db24a948338d43565e63e7a60bb99cc8064a91f940870676",
+        "valid": true,
+        "volume_mm3": 4.404381,
+        "area_mm2": 15.546485,
+        "center_mm": [
+          -6.0,
+          -2.8,
+          1.49
+        ],
+        "bounding_box_mm": [
+          2.18,
+          2.18,
+          1.18
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 3,
+          "edges": 3,
+          "vertices": 2
+        }
+      },
+      "cavity_003": {
+        "active": true,
+        "brep_sha256": "174bd7b1e2deb392816e28e625ebc6593fb84d0992171e97ffb4cf7f2b9d6dc1",
+        "valid": true,
+        "volume_mm3": 4.404381,
+        "area_mm2": 15.546485,
+        "center_mm": [
+          -0.0,
+          -2.8,
+          1.49
+        ],
+        "bounding_box_mm": [
+          2.18,
+          2.18,
+          1.18
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 3,
+          "edges": 3,
+          "vertices": 2
+        }
+      },
+      "cavity_004": {
+        "active": true,
+        "brep_sha256": "1ddbef311def301d630874f0f1dd1cb90aa35b64c2590a40dc492c9a720cdbf7",
+        "valid": true,
+        "volume_mm3": 4.404381,
+        "area_mm2": 15.546485,
+        "center_mm": [
+          6.0,
+          -2.8,
+          1.49
+        ],
+        "bounding_box_mm": [
+          2.18,
+          2.18,
+          1.18
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 3,
+          "edges": 3,
+          "vertices": 2
+        }
+      },
+      "cavity_005": {
+        "active": true,
+        "brep_sha256": "c23d8089ae7f1f623a88372a8cd7a12a8ee79af8c1acaec4a06d19c1e45a2e39",
+        "valid": true,
+        "volume_mm3": 4.404381,
+        "area_mm2": 15.546485,
+        "center_mm": [
+          12.0,
+          -2.8,
+          1.49
+        ],
+        "bounding_box_mm": [
+          2.18,
+          2.18,
+          1.18
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 3,
+          "edges": 3,
+          "vertices": 2
+        }
+      },
+      "cavity_006": {
+        "active": true,
+        "brep_sha256": "875e9af6fa3f3a36ef9444f4fc0f4380857a0fb7e097e4d8087a323017b744ef",
+        "valid": true,
+        "volume_mm3": 4.404381,
+        "area_mm2": 15.546485,
+        "center_mm": [
+          -12.0,
+          2.8,
+          1.49
+        ],
+        "bounding_box_mm": [
+          2.18,
+          2.18,
+          1.18
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 3,
+          "edges": 3,
+          "vertices": 2
+        }
+      },
+      "cavity_007": {
+        "active": true,
+        "brep_sha256": "f04f43db4dbcefab23dafbe8094055284480d5f49002790d9f3ba16d72bbe864",
+        "valid": true,
+        "volume_mm3": 4.404381,
+        "area_mm2": 15.546485,
+        "center_mm": [
+          -6.0,
+          2.8,
+          1.49
+        ],
+        "bounding_box_mm": [
+          2.18,
+          2.18,
+          1.18
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 3,
+          "edges": 3,
+          "vertices": 2
+        }
+      },
+      "cavity_008": {
+        "active": true,
+        "brep_sha256": "2d7dad2e129d8047701adc59359f7e7a718acd0ceb20c3f08491ab5222514482",
+        "valid": true,
+        "volume_mm3": 4.404381,
+        "area_mm2": 15.546485,
+        "center_mm": [
+          -0.0,
+          2.8,
+          1.49
+        ],
+        "bounding_box_mm": [
+          2.18,
+          2.18,
+          1.18
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 3,
+          "edges": 3,
+          "vertices": 2
+        }
+      },
+      "cavity_009": {
+        "active": true,
+        "brep_sha256": "05f63125b1940a72daaa99eab319a5bd9bae131c43235513cf212bb73625bf2d",
+        "valid": true,
+        "volume_mm3": 4.404381,
+        "area_mm2": 15.546485,
+        "center_mm": [
+          6.0,
+          2.8,
+          1.49
+        ],
+        "bounding_box_mm": [
+          2.18,
+          2.18,
+          1.18
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 3,
+          "edges": 3,
+          "vertices": 2
+        }
+      },
+      "cavity_010": {
+        "active": true,
+        "brep_sha256": "17f826d8bde27206895170fa37fd5249b05ad2d241726fb91ce7ebb704587e72",
+        "valid": true,
+        "volume_mm3": 4.404381,
+        "area_mm2": 15.546485,
+        "center_mm": [
+          12.0,
+          2.8,
+          1.49
+        ],
+        "bounding_box_mm": [
+          2.18,
+          2.18,
+          1.18
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 3,
+          "edges": 3,
+          "vertices": 2
+        }
+      },
+      "metal_body_001": {
+        "active": true,
+        "brep_sha256": "a840ad413d261a346466d42d921e7bb3855993fcf18eaf4d37a9fd3683da9d56",
+        "valid": true,
+        "volume_mm3": 575.347181,
+        "area_mm2": 788.465973,
+        "center_mm": [
+          -0.0,
+          0.0,
+          0.9
+        ],
+        "bounding_box_mm": [
+          32.0,
+          10.0,
+          1.8
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 10,
+          "edges": 24,
+          "vertices": 16
+        }
+      },
+      "prong_001": {
+        "active": true,
+        "brep_sha256": "465b153694020591b407e7ab97e429c5de05e8276cac4bce09a77004ff4384c1",
+        "valid": true,
+        "volume_mm3": 0.222202,
+        "area_mm2": 2.50816,
+        "center_mm": [
+          -13.1964,
+          -3.9964,
+          2.53324
+        ],
+        "bounding_box_mm": [
+          0.4484,
+          0.4484,
+          1.9442
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 3,
+          "edges": 4,
+          "vertices": 3
+        }
+      },
+      "prong_002": {
+        "active": true,
+        "brep_sha256": "10cc5d4bd4d9307459bd143618b609eae7c1c734182fff10e7ee2816483999e0",
+        "valid": true,
+        "volume_mm3": 0.222202,
+        "area_mm2": 2.50816,
+        "center_mm": [
+          -10.8036,
+          -3.9964,
+          2.53324
+        ],
+        "bounding_box_mm": [
+          0.4484,
+          0.4484,
+          1.9442
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 3,
+          "edges": 4,
+          "vertices": 3
+        }
+      },
+      "prong_003": {
+        "active": true,
+        "brep_sha256": "6c159d56f222906194743d7fdc3277c9cc496bf907a23f927c5f3152efd6bbed",
+        "valid": true,
+        "volume_mm3": 0.222202,
+        "area_mm2": 2.50816,
+        "center_mm": [
+          -10.8036,
+          -1.6036,
+          2.53324
+        ],
+        "bounding_box_mm": [
+          0.4484,
+          0.4484,
+          1.9442
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 3,
+          "edges": 4,
+          "vertices": 3
+        }
+      },
+      "prong_004": {
+        "active": true,
+        "brep_sha256": "58f9aeab23eacff2be62db542adaf0ac1922e847908bf8213ff5cb35092ffec4",
+        "valid": true,
+        "volume_mm3": 0.222202,
+        "area_mm2": 2.50816,
+        "center_mm": [
+          -13.1964,
+          -1.6036,
+          2.53324
+        ],
+        "bounding_box_mm": [
+          0.4484,
+          0.4484,
+          1.9442
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 3,
+          "edges": 4,
+          "vertices": 3
+        }
+      },
+      "prong_005": {
+        "active": true,
+        "brep_sha256": "835708cf5c89831a6a29a3bccc1402817fa10a9ccc302dc68cccffe294091697",
+        "valid": true,
+        "volume_mm3": 0.222202,
+        "area_mm2": 2.50816,
+        "center_mm": [
+          -7.1964,
+          -3.9964,
+          2.53324
+        ],
+        "bounding_box_mm": [
+          0.4484,
+          0.4484,
+          1.9442
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 3,
+          "edges": 4,
+          "vertices": 3
+        }
+      },
+      "prong_006": {
+        "active": true,
+        "brep_sha256": "0b5bf60905b1c92d963b59f30d0db9f0c4a631c4b2f43ae15b1724343996f43f",
+        "valid": true,
+        "volume_mm3": 0.222202,
+        "area_mm2": 2.50816,
+        "center_mm": [
+          -4.8036,
+          -3.9964,
+          2.53324
+        ],
+        "bounding_box_mm": [
+          0.4484,
+          0.4484,
+          1.9442
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 3,
+          "edges": 4,
+          "vertices": 3
+        }
+      },
+      "prong_007": {
+        "active": true,
+        "brep_sha256": "68f5f5b21bc81c8609096b09a7d1c020fd3ec0ab78acdc02afcf2a2843bfe8a0",
+        "valid": true,
+        "volume_mm3": 0.222202,
+        "area_mm2": 2.50816,
+        "center_mm": [
+          -4.8036,
+          -1.6036,
+          2.53324
+        ],
+        "bounding_box_mm": [
+          0.4484,
+          0.4484,
+          1.9442
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 3,
+          "edges": 4,
+          "vertices": 3
+        }
+      },
+      "prong_008": {
+        "active": true,
+        "brep_sha256": "8afe45522d9669e8284a905a378703a03d53b9817e474691b3e3998158456b74",
+        "valid": true,
+        "volume_mm3": 0.222202,
+        "area_mm2": 2.50816,
+        "center_mm": [
+          -7.1964,
+          -1.6036,
+          2.53324
+        ],
+        "bounding_box_mm": [
+          0.4484,
+          0.4484,
+          1.9442
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 3,
+          "edges": 4,
+          "vertices": 3
+        }
+      },
+      "prong_009": {
+        "active": true,
+        "brep_sha256": "fef1b79ba10b1f1e1d6929a1c29b77ec0d7a66932a3378a4ce39626807e74b0b",
+        "valid": true,
+        "volume_mm3": 0.222202,
+        "area_mm2": 2.50816,
+        "center_mm": [
+          -1.1964,
+          -3.9964,
+          2.53324
+        ],
+        "bounding_box_mm": [
+          0.4484,
+          0.4484,
+          1.9442
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 3,
+          "edges": 4,
+          "vertices": 3
+        }
+      },
+      "prong_010": {
+        "active": true,
+        "brep_sha256": "87fefc79060bca55deb8d81ce4ef841db73bec68110428e1b9420662261df5a6",
+        "valid": true,
+        "volume_mm3": 0.222202,
+        "area_mm2": 2.50816,
+        "center_mm": [
+          1.1964,
+          -3.9964,
+          2.53324
+        ],
+        "bounding_box_mm": [
+          0.4484,
+          0.4484,
+          1.9442
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 3,
+          "edges": 4,
+          "vertices": 3
+        }
+      },
+      "prong_011": {
+        "active": true,
+        "brep_sha256": "76717d87303f0db6524d9195d681ff3a7e001710d1a621688a0a5c6c0653acb7",
+        "valid": true,
+        "volume_mm3": 0.222202,
+        "area_mm2": 2.50816,
+        "center_mm": [
+          1.1964,
+          -1.6036,
+          2.53324
+        ],
+        "bounding_box_mm": [
+          0.4484,
+          0.4484,
+          1.9442
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 3,
+          "edges": 4,
+          "vertices": 3
+        }
+      },
+      "prong_012": {
+        "active": true,
+        "brep_sha256": "03419d0dbba93a9bf3ef762d860a427249d567ffd41811496f4bc527fe8dd735",
+        "valid": true,
+        "volume_mm3": 0.222202,
+        "area_mm2": 2.50816,
+        "center_mm": [
+          -1.1964,
+          -1.6036,
+          2.53324
+        ],
+        "bounding_box_mm": [
+          0.4484,
+          0.4484,
+          1.9442
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 3,
+          "edges": 4,
+          "vertices": 3
+        }
+      },
+      "prong_013": {
+        "active": true,
+        "brep_sha256": "1cdeb5e2db5aaf6061fdd42ddda2c8ad592949e84ad921329073376e18b7601c",
+        "valid": true,
+        "volume_mm3": 0.222202,
+        "area_mm2": 2.50816,
+        "center_mm": [
+          4.8036,
+          -3.9964,
+          2.53324
+        ],
+        "bounding_box_mm": [
+          0.4484,
+          0.4484,
+          1.9442
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 3,
+          "edges": 4,
+          "vertices": 3
+        }
+      },
+      "prong_014": {
+        "active": true,
+        "brep_sha256": "04126ca9ae84c4f7b2dd093b01a30b9eae7d0cac94060c783947dd7755cbee7d",
+        "valid": true,
+        "volume_mm3": 0.222202,
+        "area_mm2": 2.50816,
+        "center_mm": [
+          7.1964,
+          -3.9964,
+          2.53324
+        ],
+        "bounding_box_mm": [
+          0.4484,
+          0.4484,
+          1.9442
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 3,
+          "edges": 4,
+          "vertices": 3
+        }
+      },
+      "prong_015": {
+        "active": true,
+        "brep_sha256": "2834842852d9f8463c65d640042af979d25b88cb2f76e88879bc61156089f504",
+        "valid": true,
+        "volume_mm3": 0.222202,
+        "area_mm2": 2.50816,
+        "center_mm": [
+          7.1964,
+          -1.6036,
+          2.53324
+        ],
+        "bounding_box_mm": [
+          0.4484,
+          0.4484,
+          1.9442
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 3,
+          "edges": 4,
+          "vertices": 3
+        }
+      },
+      "prong_016": {
+        "active": true,
+        "brep_sha256": "4f89eb5270cca1e4d80517b25fdf74b9fb21dd97a56f53afa46dc2664f538dc9",
+        "valid": true,
+        "volume_mm3": 0.222202,
+        "area_mm2": 2.50816,
+        "center_mm": [
+          4.8036,
+          -1.6036,
+          2.53324
+        ],
+        "bounding_box_mm": [
+          0.4484,
+          0.4484,
+          1.9442
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 3,
+          "edges": 4,
+          "vertices": 3
+        }
+      },
+      "prong_017": {
+        "active": true,
+        "brep_sha256": "d0d1c3f5b4d0bb716d3bcaf7fac3a302b311df67021a3c0eb294d4833dfc9d7c",
+        "valid": true,
+        "volume_mm3": 0.222202,
+        "area_mm2": 2.50816,
+        "center_mm": [
+          10.8036,
+          -3.9964,
+          2.53324
+        ],
+        "bounding_box_mm": [
+          0.4484,
+          0.4484,
+          1.9442
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 3,
+          "edges": 4,
+          "vertices": 3
+        }
+      },
+      "prong_018": {
+        "active": true,
+        "brep_sha256": "0ce1a373fe2717f2d8945e168b1949e4ad20eae4f86c11b1d047952bdc2da2fe",
+        "valid": true,
+        "volume_mm3": 0.222202,
+        "area_mm2": 2.50816,
+        "center_mm": [
+          13.1964,
+          -3.9964,
+          2.53324
+        ],
+        "bounding_box_mm": [
+          0.4484,
+          0.4484,
+          1.9442
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 3,
+          "edges": 4,
+          "vertices": 3
+        }
+      },
+      "prong_019": {
+        "active": true,
+        "brep_sha256": "a4edf363833d25e0eda476e0c0f0379997714669a40e46dc550528f28c96a99a",
+        "valid": true,
+        "volume_mm3": 0.222202,
+        "area_mm2": 2.50816,
+        "center_mm": [
+          13.1964,
+          -1.6036,
+          2.53324
+        ],
+        "bounding_box_mm": [
+          0.4484,
+          0.4484,
+          1.9442
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 3,
+          "edges": 4,
+          "vertices": 3
+        }
+      },
+      "prong_020": {
+        "active": true,
+        "brep_sha256": "ffea29c4facb1391bb534e4e2a11560b167b46eef569efbbb12590e63d24a204",
+        "valid": true,
+        "volume_mm3": 0.222202,
+        "area_mm2": 2.50816,
+        "center_mm": [
+          10.8036,
+          -1.6036,
+          2.53324
+        ],
+        "bounding_box_mm": [
+          0.4484,
+          0.4484,
+          1.9442
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 3,
+          "edges": 4,
+          "vertices": 3
+        }
+      },
+      "prong_021": {
+        "active": true,
+        "brep_sha256": "06ae2eb4557d14680329436d7b313672b2f03f6497d4c559d972f94aeef9352d",
+        "valid": true,
+        "volume_mm3": 0.222202,
+        "area_mm2": 2.50816,
+        "center_mm": [
+          -13.1964,
+          1.6036,
+          2.53324
+        ],
+        "bounding_box_mm": [
+          0.4484,
+          0.4484,
+          1.9442
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 3,
+          "edges": 4,
+          "vertices": 3
+        }
+      },
+      "prong_022": {
+        "active": true,
+        "brep_sha256": "cb4537c3f61b09ec661ab205f5d439b585e355e50247aec083def5f279f6d36a",
+        "valid": true,
+        "volume_mm3": 0.222202,
+        "area_mm2": 2.50816,
+        "center_mm": [
+          -10.8036,
+          1.6036,
+          2.53324
+        ],
+        "bounding_box_mm": [
+          0.4484,
+          0.4484,
+          1.9442
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 3,
+          "edges": 4,
+          "vertices": 3
+        }
+      },
+      "prong_023": {
+        "active": true,
+        "brep_sha256": "2bf80bf0528cc6ec8f864bb8f0cd296eeba1c4fff46dd61c57c5419a83c9658c",
+        "valid": true,
+        "volume_mm3": 0.222202,
+        "area_mm2": 2.50816,
+        "center_mm": [
+          -10.8036,
+          3.9964,
+          2.53324
+        ],
+        "bounding_box_mm": [
+          0.4484,
+          0.4484,
+          1.9442
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 3,
+          "edges": 4,
+          "vertices": 3
+        }
+      },
+      "prong_024": {
+        "active": true,
+        "brep_sha256": "e3cce84a553810c32cd3abf7e711eb99be51267dfed3809f5d1fd85ff59330ad",
+        "valid": true,
+        "volume_mm3": 0.222202,
+        "area_mm2": 2.50816,
+        "center_mm": [
+          -13.1964,
+          3.9964,
+          2.53324
+        ],
+        "bounding_box_mm": [
+          0.4484,
+          0.4484,
+          1.9442
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 3,
+          "edges": 4,
+          "vertices": 3
+        }
+      },
+      "prong_025": {
+        "active": true,
+        "brep_sha256": "543c5f1a0498ba24ade500ff691b403c2d8d7c1ae5510754a0fccdbe61301c35",
+        "valid": true,
+        "volume_mm3": 0.222202,
+        "area_mm2": 2.50816,
+        "center_mm": [
+          -7.1964,
+          1.6036,
+          2.53324
+        ],
+        "bounding_box_mm": [
+          0.4484,
+          0.4484,
+          1.9442
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 3,
+          "edges": 4,
+          "vertices": 3
+        }
+      },
+      "prong_026": {
+        "active": true,
+        "brep_sha256": "96d643edae51c8764494c43164a2a805f42950ed8a54c2085aed2dbf1a3b3f28",
+        "valid": true,
+        "volume_mm3": 0.222202,
+        "area_mm2": 2.50816,
+        "center_mm": [
+          -4.8036,
+          1.6036,
+          2.53324
+        ],
+        "bounding_box_mm": [
+          0.4484,
+          0.4484,
+          1.9442
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 3,
+          "edges": 4,
+          "vertices": 3
+        }
+      },
+      "prong_027": {
+        "active": true,
+        "brep_sha256": "a935c8b361d2904dc0fbb26eacb282d77c75798554efb645b933b683d25a3e58",
+        "valid": true,
+        "volume_mm3": 0.222202,
+        "area_mm2": 2.50816,
+        "center_mm": [
+          -4.8036,
+          3.9964,
+          2.53324
+        ],
+        "bounding_box_mm": [
+          0.4484,
+          0.4484,
+          1.9442
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 3,
+          "edges": 4,
+          "vertices": 3
+        }
+      },
+      "prong_028": {
+        "active": true,
+        "brep_sha256": "06888d1d07d57062bba16308b0084af0b3f9bf0016f0a7029d741603ec4e8bf9",
+        "valid": true,
+        "volume_mm3": 0.222202,
+        "area_mm2": 2.50816,
+        "center_mm": [
+          -7.1964,
+          3.9964,
+          2.53324
+        ],
+        "bounding_box_mm": [
+          0.4484,
+          0.4484,
+          1.9442
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 3,
+          "edges": 4,
+          "vertices": 3
+        }
+      },
+      "prong_029": {
+        "active": true,
+        "brep_sha256": "eca9314cfec5c4459145d5b0a1baa3b124b0cdffff95e8f3939f938060b5335b",
+        "valid": true,
+        "volume_mm3": 0.222202,
+        "area_mm2": 2.50816,
+        "center_mm": [
+          -1.1964,
+          1.6036,
+          2.53324
+        ],
+        "bounding_box_mm": [
+          0.4484,
+          0.4484,
+          1.9442
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 3,
+          "edges": 4,
+          "vertices": 3
+        }
+      },
+      "prong_030": {
+        "active": true,
+        "brep_sha256": "2cb976a22772c9c157c77223bab7f7850831563882801dca8649dece9b441db5",
+        "valid": true,
+        "volume_mm3": 0.222202,
+        "area_mm2": 2.50816,
+        "center_mm": [
+          1.1964,
+          1.6036,
+          2.53324
+        ],
+        "bounding_box_mm": [
+          0.4484,
+          0.4484,
+          1.9442
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 3,
+          "edges": 4,
+          "vertices": 3
+        }
+      },
+      "prong_031": {
+        "active": true,
+        "brep_sha256": "8a99024bbc8f90f234d65d3500dc3ff0270c89f93dab81b4c02ba933b34292b2",
+        "valid": true,
+        "volume_mm3": 0.222202,
+        "area_mm2": 2.50816,
+        "center_mm": [
+          1.1964,
+          3.9964,
+          2.53324
+        ],
+        "bounding_box_mm": [
+          0.4484,
+          0.4484,
+          1.9442
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 3,
+          "edges": 4,
+          "vertices": 3
+        }
+      },
+      "prong_032": {
+        "active": true,
+        "brep_sha256": "e1118ba31aae16c55ea17472daafb0cd1bde2db1f82bdfcafbfa72efed1d53af",
+        "valid": true,
+        "volume_mm3": 0.222202,
+        "area_mm2": 2.50816,
+        "center_mm": [
+          -1.1964,
+          3.9964,
+          2.53324
+        ],
+        "bounding_box_mm": [
+          0.4484,
+          0.4484,
+          1.9442
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 3,
+          "edges": 4,
+          "vertices": 3
+        }
+      },
+      "prong_033": {
+        "active": true,
+        "brep_sha256": "2aca1a7836c5911306ec792da47c49b282f871f25f7d5a7caa6f871249db41f2",
+        "valid": true,
+        "volume_mm3": 0.222202,
+        "area_mm2": 2.50816,
+        "center_mm": [
+          4.8036,
+          1.6036,
+          2.53324
+        ],
+        "bounding_box_mm": [
+          0.4484,
+          0.4484,
+          1.9442
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 3,
+          "edges": 4,
+          "vertices": 3
+        }
+      },
+      "prong_034": {
+        "active": true,
+        "brep_sha256": "bcb476850b277d5db13642ae0d2b75b58d7170d4c841319b7b05b869a996926c",
+        "valid": true,
+        "volume_mm3": 0.222202,
+        "area_mm2": 2.50816,
+        "center_mm": [
+          7.1964,
+          1.6036,
+          2.53324
+        ],
+        "bounding_box_mm": [
+          0.4484,
+          0.4484,
+          1.9442
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 3,
+          "edges": 4,
+          "vertices": 3
+        }
+      },
+      "prong_035": {
+        "active": true,
+        "brep_sha256": "e31978025aa72da7de1338c3b67f04ad459b25969443523fb25bad9a9c5069e9",
+        "valid": true,
+        "volume_mm3": 0.222202,
+        "area_mm2": 2.50816,
+        "center_mm": [
+          7.1964,
+          3.9964,
+          2.53324
+        ],
+        "bounding_box_mm": [
+          0.4484,
+          0.4484,
+          1.9442
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 3,
+          "edges": 4,
+          "vertices": 3
+        }
+      },
+      "prong_036": {
+        "active": true,
+        "brep_sha256": "f085bcb37cc0da1b977c9623f60dee3a0a5f64459a1b48c88b7cf60a8f627800",
+        "valid": true,
+        "volume_mm3": 0.222202,
+        "area_mm2": 2.50816,
+        "center_mm": [
+          4.8036,
+          3.9964,
+          2.53324
+        ],
+        "bounding_box_mm": [
+          0.4484,
+          0.4484,
+          1.9442
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 3,
+          "edges": 4,
+          "vertices": 3
+        }
+      },
+      "prong_037": {
+        "active": true,
+        "brep_sha256": "b938b0b8b7abc9ebcb3f0867f27fa036cf973b907322fbe0c286dd4e19906f45",
+        "valid": true,
+        "volume_mm3": 0.222202,
+        "area_mm2": 2.50816,
+        "center_mm": [
+          10.8036,
+          1.6036,
+          2.53324
+        ],
+        "bounding_box_mm": [
+          0.4484,
+          0.4484,
+          1.9442
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 3,
+          "edges": 4,
+          "vertices": 3
+        }
+      },
+      "prong_038": {
+        "active": true,
+        "brep_sha256": "de0d6ba9bb8a8d3f1e34f2cb04e4f9bb4ef1e5ffc7d71ac153ac0426ee46e837",
+        "valid": true,
+        "volume_mm3": 0.222202,
+        "area_mm2": 2.50816,
+        "center_mm": [
+          13.1964,
+          1.6036,
+          2.53324
+        ],
+        "bounding_box_mm": [
+          0.4484,
+          0.4484,
+          1.9442
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 3,
+          "edges": 4,
+          "vertices": 3
+        }
+      },
+      "prong_039": {
+        "active": true,
+        "brep_sha256": "95d8d1ee5bff76ab0305d60a195a1b86de85313ace72d056c28f64bfe8a09e9d",
+        "valid": true,
+        "volume_mm3": 0.222202,
+        "area_mm2": 2.50816,
+        "center_mm": [
+          13.1964,
+          3.9964,
+          2.53324
+        ],
+        "bounding_box_mm": [
+          0.4484,
+          0.4484,
+          1.9442
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 3,
+          "edges": 4,
+          "vertices": 3
+        }
+      },
+      "prong_040": {
+        "active": true,
+        "brep_sha256": "e2d67a3429f4a8e4338c7e00e58cfddf8be6f04bfd47e9a2ad77a3e4ab3720bb",
+        "valid": true,
+        "volume_mm3": 0.222202,
+        "area_mm2": 2.50816,
+        "center_mm": [
+          10.8036,
+          3.9964,
+          2.53324
+        ],
+        "bounding_box_mm": [
+          0.4484,
+          0.4484,
+          1.9442
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 3,
+          "edges": 4,
+          "vertices": 3
+        }
+      },
+      "seat_001": {
+        "active": true,
+        "brep_sha256": "3135fd100b549a23cc91e4160803f05330b5518cd9eafe4b7c51b14dfea00158",
+        "valid": true,
+        "volume_mm3": 1.038687,
+        "area_mm2": 11.747054,
+        "center_mm": [
+          -12.0,
+          -2.8,
+          1.82
+        ],
+        "bounding_box_mm": [
+          2.74,
+          2.74,
+          0.48
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 4,
+          "edges": 6,
+          "vertices": 4
+        }
+      },
+      "seat_002": {
+        "active": true,
+        "brep_sha256": "1d73c84814951b7313b5a5e4543ad8d3e97b494b9e5f229915e101e965fce4e3",
+        "valid": true,
+        "volume_mm3": 1.038687,
+        "area_mm2": 11.747054,
+        "center_mm": [
+          -6.0,
+          -2.8,
+          1.82
+        ],
+        "bounding_box_mm": [
+          2.74,
+          2.74,
+          0.48
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 4,
+          "edges": 6,
+          "vertices": 4
+        }
+      },
+      "seat_003": {
+        "active": true,
+        "brep_sha256": "4262a3dbbb6dfa2cd79b55d929bd6a1527f7039287836fee1993fa1d06a74bf5",
+        "valid": true,
+        "volume_mm3": 1.038687,
+        "area_mm2": 11.747054,
+        "center_mm": [
+          0.0,
+          -2.8,
+          1.82
+        ],
+        "bounding_box_mm": [
+          2.74,
+          2.74,
+          0.48
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 4,
+          "edges": 6,
+          "vertices": 4
+        }
+      },
+      "seat_004": {
+        "active": true,
+        "brep_sha256": "02decccc55afd8f3db46460dbe8a160eb95abd7b13fd3d31b7089d3d677b6985",
+        "valid": true,
+        "volume_mm3": 1.038687,
+        "area_mm2": 11.747054,
+        "center_mm": [
+          6.0,
+          -2.8,
+          1.82
+        ],
+        "bounding_box_mm": [
+          2.74,
+          2.74,
+          0.48
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 4,
+          "edges": 6,
+          "vertices": 4
+        }
+      },
+      "seat_005": {
+        "active": true,
+        "brep_sha256": "157288f5a1c41d4b07295e06cb2a97df5e1518290462fe07356309cdf32bf178",
+        "valid": true,
+        "volume_mm3": 1.038687,
+        "area_mm2": 11.747054,
+        "center_mm": [
+          12.0,
+          -2.8,
+          1.82
+        ],
+        "bounding_box_mm": [
+          2.74,
+          2.74,
+          0.48
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 4,
+          "edges": 6,
+          "vertices": 4
+        }
+      },
+      "seat_006": {
+        "active": true,
+        "brep_sha256": "033390aa6581b344b6e755f250cd6b5ced6c0c8d75b5d7d2ac204d7c99123b92",
+        "valid": true,
+        "volume_mm3": 1.038687,
+        "area_mm2": 11.747054,
+        "center_mm": [
+          -12.0,
+          2.8,
+          1.82
+        ],
+        "bounding_box_mm": [
+          2.74,
+          2.74,
+          0.48
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 4,
+          "edges": 6,
+          "vertices": 4
+        }
+      },
+      "seat_007": {
+        "active": true,
+        "brep_sha256": "6179f229107adf5f227f32135787878dc70dc520990e5ed185fb9faa2453de30",
+        "valid": true,
+        "volume_mm3": 1.038687,
+        "area_mm2": 11.747054,
+        "center_mm": [
+          -6.0,
+          2.8,
+          1.82
+        ],
+        "bounding_box_mm": [
+          2.74,
+          2.74,
+          0.48
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 4,
+          "edges": 6,
+          "vertices": 4
+        }
+      },
+      "seat_008": {
+        "active": true,
+        "brep_sha256": "c5437498d6ef9cf821e8c92debb34fa490ff9df18a3feed9caa4836706083bdd",
+        "valid": true,
+        "volume_mm3": 1.038687,
+        "area_mm2": 11.747054,
+        "center_mm": [
+          0.0,
+          2.8,
+          1.82
+        ],
+        "bounding_box_mm": [
+          2.74,
+          2.74,
+          0.48
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 4,
+          "edges": 6,
+          "vertices": 4
+        }
+      },
+      "seat_009": {
+        "active": true,
+        "brep_sha256": "3aff8d51adce57b9ca6b1fb5f8b22bfc402c1b897d8a777389fbe8803e6d9a69",
+        "valid": true,
+        "volume_mm3": 1.038687,
+        "area_mm2": 11.747054,
+        "center_mm": [
+          6.0,
+          2.8,
+          1.82
+        ],
+        "bounding_box_mm": [
+          2.74,
+          2.74,
+          0.48
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 4,
+          "edges": 6,
+          "vertices": 4
+        }
+      },
+      "seat_010": {
+        "active": true,
+        "brep_sha256": "33793e0bc91ac9ad79442336cecf2ef9591c73f22a972a14d55867aec36e1745",
+        "valid": true,
+        "volume_mm3": 1.038687,
+        "area_mm2": 11.747054,
+        "center_mm": [
+          12.0,
+          2.8,
+          1.82
+        ],
+        "bounding_box_mm": [
+          2.74,
+          2.74,
+          0.48
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 4,
+          "edges": 6,
+          "vertices": 4
+        }
+      },
+      "stone_001": {
+        "active": true,
+        "brep_sha256": "f2f0dc62bba5c37fe57bbd51b41d5944395135fbb515147f6be3efd731ecd8ae",
+        "valid": true,
+        "volume_mm3": 3.170859,
+        "area_mm2": 11.199303,
+        "center_mm": [
+          -11.999999,
+          -2.8,
+          2.324916
+        ],
+        "bounding_box_mm": [
+          2.003334,
+          2.003334,
+          1.2
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 3,
+          "edges": 3,
+          "vertices": 2
+        }
+      },
+      "stone_002": {
+        "active": true,
+        "brep_sha256": "a55017ec3726a8b665e132adcbf010929e27d7735c17114bbc94efd7c2eecab0",
+        "valid": true,
+        "volume_mm3": 3.170859,
+        "area_mm2": 11.199303,
+        "center_mm": [
+          -5.999999,
+          -2.8,
+          2.324916
+        ],
+        "bounding_box_mm": [
+          2.003334,
+          2.003334,
+          1.2
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 3,
+          "edges": 3,
+          "vertices": 2
+        }
+      },
+      "stone_003": {
+        "active": true,
+        "brep_sha256": "79cffdf37849ebfb760cbc9cd58be9e3aa4cf54238c7b48ef8347dc17483a5e9",
+        "valid": true,
+        "volume_mm3": 3.170859,
+        "area_mm2": 11.199303,
+        "center_mm": [
+          1e-06,
+          -2.8,
+          2.324916
+        ],
+        "bounding_box_mm": [
+          2.003334,
+          2.003334,
+          1.2
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 3,
+          "edges": 3,
+          "vertices": 2
+        }
+      },
+      "stone_004": {
+        "active": true,
+        "brep_sha256": "68b7d143bb667bd0f91ac5b03d370779eb185577b5836b86445639f1c4b5a931",
+        "valid": true,
+        "volume_mm3": 3.170859,
+        "area_mm2": 11.199303,
+        "center_mm": [
+          6.000001,
+          -2.8,
+          2.324916
+        ],
+        "bounding_box_mm": [
+          2.003334,
+          2.003334,
+          1.2
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 3,
+          "edges": 3,
+          "vertices": 2
+        }
+      },
+      "stone_005": {
+        "active": true,
+        "brep_sha256": "01485ff15dae797726580117dd3865da4a67dd4a175fdf8db5b52149ca28138c",
+        "valid": true,
+        "volume_mm3": 3.170859,
+        "area_mm2": 11.199303,
+        "center_mm": [
+          12.000001,
+          -2.8,
+          2.324916
+        ],
+        "bounding_box_mm": [
+          2.003334,
+          2.003334,
+          1.2
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 3,
+          "edges": 3,
+          "vertices": 2
+        }
+      },
+      "stone_006": {
+        "active": true,
+        "brep_sha256": "b37f91b00ab2415a42250261a94935f989a30ccb436e4af1ff5d6736e8772d93",
+        "valid": true,
+        "volume_mm3": 3.170859,
+        "area_mm2": 11.199303,
+        "center_mm": [
+          -11.999999,
+          2.8,
+          2.324916
+        ],
+        "bounding_box_mm": [
+          2.003334,
+          2.003334,
+          1.2
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 3,
+          "edges": 3,
+          "vertices": 2
+        }
+      },
+      "stone_007": {
+        "active": true,
+        "brep_sha256": "3068a6807a546d485de2741fc8c48851dfe654df47a7c596278e578d5e0ee08c",
+        "valid": true,
+        "volume_mm3": 3.170859,
+        "area_mm2": 11.199303,
+        "center_mm": [
+          -5.999999,
+          2.8,
+          2.324916
+        ],
+        "bounding_box_mm": [
+          2.003334,
+          2.003334,
+          1.2
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 3,
+          "edges": 3,
+          "vertices": 2
+        }
+      },
+      "stone_008": {
+        "active": true,
+        "brep_sha256": "b195596a50884655fb446213a1b1905533798c9bc86d60e6a9def58830954366",
+        "valid": true,
+        "volume_mm3": 3.170859,
+        "area_mm2": 11.199303,
+        "center_mm": [
+          1e-06,
+          2.8,
+          2.324916
+        ],
+        "bounding_box_mm": [
+          2.003334,
+          2.003334,
+          1.2
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 3,
+          "edges": 3,
+          "vertices": 2
+        }
+      },
+      "stone_009": {
+        "active": true,
+        "brep_sha256": "a4fbde288d6979ecebac862fc50d4299bec7b742bbf00dfd64147443135ff3c1",
+        "valid": true,
+        "volume_mm3": 3.170859,
+        "area_mm2": 11.199303,
+        "center_mm": [
+          6.000001,
+          2.8,
+          2.324916
+        ],
+        "bounding_box_mm": [
+          2.003334,
+          2.003334,
+          1.2
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 3,
+          "edges": 3,
+          "vertices": 2
+        }
+      },
+      "stone_010": {
+        "active": true,
+        "brep_sha256": "6f903b659424aba0e124174f61d111c710f7887e7e62cdaa4031372afd27eb6d",
+        "valid": true,
+        "volume_mm3": 3.170859,
+        "area_mm2": 11.199303,
+        "center_mm": [
+          12.000001,
+          2.8,
+          2.324916
+        ],
+        "bounding_box_mm": [
+          2.003334,
+          2.003334,
+          1.2
+        ],
+        "topology": {
+          "solids": 1,
+          "faces": 3,
+          "edges": 3,
+          "vertices": 2
+        }
+      }
+    },
+    "derived_metal": {
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 555.179986,
+      "face_count": 140
+    },
+    "derived_assembly": {
+      "valid": true,
+      "solid_count": 11,
+      "volume_mm3": 586.888578,
+      "face_count": 170
+    }
+  },
+  "cases": [
+    {
+      "edited_component_id": "stone_001",
+      "operation": "resize",
+      "parameters": {
+        "diameter": 2.4,
+        "depth": 1.4
+      },
+      "expected_affected_component_ids": [
+        "cavity_001",
+        "prong_001",
+        "prong_002",
+        "prong_003",
+        "prong_004",
+        "seat_001",
+        "stone_001"
+      ],
+      "changed_exact_component_ids": [
+        "cavity_001",
+        "prong_001",
+        "prong_002",
+        "prong_003",
+        "prong_004",
+        "seat_001",
+        "stone_001"
+      ],
+      "unrelated_component_count": 64,
+      "checks": {
+        "graph_affected_set_exact": true,
+        "exact_brep_affected_set_exact": true,
+        "unrelated_brep_hashes_unchanged": true,
+        "all_active_source_solids_valid": true,
+        "derived_metal_valid": true,
+        "derived_metal_single_solid": true,
+        "derived_assembly_valid": true
+      },
+      "passed": true,
+      "derived_metal": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_mm3": 554.01634,
+        "face_count": 140
+      },
+      "derived_assembly": {
+        "valid": true,
+        "solid_count": 11,
+        "volume_mm3": 587.881116,
+        "face_count": 170
+      }
+    },
+    {
+      "edited_component_id": "stone_001",
+      "operation": "remove",
+      "parameters": {},
+      "expected_affected_component_ids": [
+        "cavity_001",
+        "prong_001",
+        "prong_002",
+        "prong_003",
+        "prong_004",
+        "seat_001",
+        "stone_001"
+      ],
+      "changed_exact_component_ids": [
+        "cavity_001",
+        "prong_001",
+        "prong_002",
+        "prong_003",
+        "prong_004",
+        "seat_001",
+        "stone_001"
+      ],
+      "unrelated_component_count": 64,
+      "checks": {
+        "graph_affected_set_exact": true,
+        "exact_brep_affected_set_exact": true,
+        "unrelated_brep_hashes_unchanged": true,
+        "all_active_source_solids_valid": true,
+        "derived_metal_valid": true,
+        "derived_metal_single_solid": true,
+        "derived_assembly_valid": true
+      },
+      "passed": true,
+      "derived_metal": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_mm3": 557.196707,
+        "face_count": 127
+      },
+      "derived_assembly": {
+        "valid": true,
+        "solid_count": 10,
+        "volume_mm3": 585.734439,
+        "face_count": 154
+      }
+    },
+    {
+      "edited_component_id": "stone_001",
+      "operation": "replace",
+      "parameters": {
+        "semantic_class": "oval_gemstone",
+        "dimensions": {
+          "length": 2.6,
+          "width": 2.0,
+          "depth": 1.3
+        }
+      },
+      "expected_affected_component_ids": [
+        "cavity_001",
+        "prong_001",
+        "prong_002",
+        "prong_003",
+        "prong_004",
+        "seat_001",
+        "stone_001"
+      ],
+      "changed_exact_component_ids": [
+        "cavity_001",
+        "prong_001",
+        "prong_002",
+        "prong_003",
+        "prong_004",
+        "seat_001",
+        "stone_001"
+      ],
+      "unrelated_component_count": 64,
+      "checks": {
+        "graph_affected_set_exact": true,
+        "exact_brep_affected_set_exact": true,
+        "unrelated_brep_hashes_unchanged": true,
+        "all_active_source_solids_valid": true,
+        "derived_metal_valid": true,
+        "derived_metal_single_solid": true,
+        "derived_assembly_valid": true
+      },
+      "passed": true,
+      "derived_metal": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_mm3": 554.369401,
+        "face_count": 140
+      },
+      "derived_assembly": {
+        "valid": true,
+        "solid_count": 11,
+        "volume_mm3": 587.37276,
+        "face_count": 170
+      }
+    },
+    {
+      "edited_component_id": "stone_002",
+      "operation": "resize",
+      "parameters": {
+        "diameter": 2.4,
+        "depth": 1.4
+      },
+      "expected_affected_component_ids": [
+        "cavity_002",
+        "prong_005",
+        "prong_006",
+        "prong_007",
+        "prong_008",
+        "seat_002",
+        "stone_002"
+      ],
+      "changed_exact_component_ids": [
+        "cavity_002",
+        "prong_005",
+        "prong_006",
+        "prong_007",
+        "prong_008",
+        "seat_002",
+        "stone_002"
+      ],
+      "unrelated_component_count": 64,
+      "checks": {
+        "graph_affected_set_exact": true,
+        "exact_brep_affected_set_exact": true,
+        "unrelated_brep_hashes_unchanged": true,
+        "all_active_source_solids_valid": true,
+        "derived_metal_valid": true,
+        "derived_metal_single_solid": true,
+        "derived_assembly_valid": true
+      },
+      "passed": true,
+      "derived_metal": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_mm3": 554.016331,
+        "face_count": 140
+      },
+      "derived_assembly": {
+        "valid": true,
+        "solid_count": 11,
+        "volume_mm3": 587.881107,
+        "face_count": 170
+      }
+    },
+    {
+      "edited_component_id": "stone_002",
+      "operation": "remove",
+      "parameters": {},
+      "expected_affected_component_ids": [
+        "cavity_002",
+        "prong_005",
+        "prong_006",
+        "prong_007",
+        "prong_008",
+        "seat_002",
+        "stone_002"
+      ],
+      "changed_exact_component_ids": [
+        "cavity_002",
+        "prong_005",
+        "prong_006",
+        "prong_007",
+        "prong_008",
+        "seat_002",
+        "stone_002"
+      ],
+      "unrelated_component_count": 64,
+      "checks": {
+        "graph_affected_set_exact": true,
+        "exact_brep_affected_set_exact": true,
+        "unrelated_brep_hashes_unchanged": true,
+        "all_active_source_solids_valid": true,
+        "derived_metal_valid": true,
+        "derived_metal_single_solid": true,
+        "derived_assembly_valid": true
+      },
+      "passed": true,
+      "derived_metal": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_mm3": 557.196703,
+        "face_count": 127
+      },
+      "derived_assembly": {
+        "valid": true,
+        "solid_count": 10,
+        "volume_mm3": 585.734436,
+        "face_count": 154
+      }
+    },
+    {
+      "edited_component_id": "stone_002",
+      "operation": "replace",
+      "parameters": {
+        "semantic_class": "oval_gemstone",
+        "dimensions": {
+          "length": 2.6,
+          "width": 2.0,
+          "depth": 1.3
+        }
+      },
+      "expected_affected_component_ids": [
+        "cavity_002",
+        "prong_005",
+        "prong_006",
+        "prong_007",
+        "prong_008",
+        "seat_002",
+        "stone_002"
+      ],
+      "changed_exact_component_ids": [
+        "cavity_002",
+        "prong_005",
+        "prong_006",
+        "prong_007",
+        "prong_008",
+        "seat_002",
+        "stone_002"
+      ],
+      "unrelated_component_count": 64,
+      "checks": {
+        "graph_affected_set_exact": true,
+        "exact_brep_affected_set_exact": true,
+        "unrelated_brep_hashes_unchanged": true,
+        "all_active_source_solids_valid": true,
+        "derived_metal_valid": true,
+        "derived_metal_single_solid": true,
+        "derived_assembly_valid": true
+      },
+      "passed": true,
+      "derived_metal": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_mm3": 554.369412,
+        "face_count": 140
+      },
+      "derived_assembly": {
+        "valid": true,
+        "solid_count": 11,
+        "volume_mm3": 587.372772,
+        "face_count": 170
+      }
+    },
+    {
+      "edited_component_id": "stone_003",
+      "operation": "resize",
+      "parameters": {
+        "diameter": 2.4,
+        "depth": 1.4
+      },
+      "expected_affected_component_ids": [
+        "cavity_003",
+        "prong_009",
+        "prong_010",
+        "prong_011",
+        "prong_012",
+        "seat_003",
+        "stone_003"
+      ],
+      "changed_exact_component_ids": [
+        "cavity_003",
+        "prong_009",
+        "prong_010",
+        "prong_011",
+        "prong_012",
+        "seat_003",
+        "stone_003"
+      ],
+      "unrelated_component_count": 64,
+      "checks": {
+        "graph_affected_set_exact": true,
+        "exact_brep_affected_set_exact": true,
+        "unrelated_brep_hashes_unchanged": true,
+        "all_active_source_solids_valid": true,
+        "derived_metal_valid": true,
+        "derived_metal_single_solid": true,
+        "derived_assembly_valid": true
+      },
+      "passed": true,
+      "derived_metal": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_mm3": 554.016287,
+        "face_count": 140
+      },
+      "derived_assembly": {
+        "valid": true,
+        "solid_count": 11,
+        "volume_mm3": 587.881063,
+        "face_count": 170
+      }
+    },
+    {
+      "edited_component_id": "stone_003",
+      "operation": "remove",
+      "parameters": {},
+      "expected_affected_component_ids": [
+        "cavity_003",
+        "prong_009",
+        "prong_010",
+        "prong_011",
+        "prong_012",
+        "seat_003",
+        "stone_003"
+      ],
+      "changed_exact_component_ids": [
+        "cavity_003",
+        "prong_009",
+        "prong_010",
+        "prong_011",
+        "prong_012",
+        "seat_003",
+        "stone_003"
+      ],
+      "unrelated_component_count": 64,
+      "checks": {
+        "graph_affected_set_exact": true,
+        "exact_brep_affected_set_exact": true,
+        "unrelated_brep_hashes_unchanged": true,
+        "all_active_source_solids_valid": true,
+        "derived_metal_valid": true,
+        "derived_metal_single_solid": true,
+        "derived_assembly_valid": true
+      },
+      "passed": true,
+      "derived_metal": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_mm3": 557.196703,
+        "face_count": 127
+      },
+      "derived_assembly": {
+        "valid": true,
+        "solid_count": 10,
+        "volume_mm3": 585.734435,
+        "face_count": 154
+      }
+    },
+    {
+      "edited_component_id": "stone_003",
+      "operation": "replace",
+      "parameters": {
+        "semantic_class": "oval_gemstone",
+        "dimensions": {
+          "length": 2.6,
+          "width": 2.0,
+          "depth": 1.3
+        }
+      },
+      "expected_affected_component_ids": [
+        "cavity_003",
+        "prong_009",
+        "prong_010",
+        "prong_011",
+        "prong_012",
+        "seat_003",
+        "stone_003"
+      ],
+      "changed_exact_component_ids": [
+        "cavity_003",
+        "prong_009",
+        "prong_010",
+        "prong_011",
+        "prong_012",
+        "seat_003",
+        "stone_003"
+      ],
+      "unrelated_component_count": 64,
+      "checks": {
+        "graph_affected_set_exact": true,
+        "exact_brep_affected_set_exact": true,
+        "unrelated_brep_hashes_unchanged": true,
+        "all_active_source_solids_valid": true,
+        "derived_metal_valid": true,
+        "derived_metal_single_solid": true,
+        "derived_assembly_valid": true
+      },
+      "passed": true,
+      "derived_metal": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_mm3": 554.369427,
+        "face_count": 140
+      },
+      "derived_assembly": {
+        "valid": true,
+        "solid_count": 11,
+        "volume_mm3": 587.372786,
+        "face_count": 170
+      }
+    },
+    {
+      "edited_component_id": "stone_004",
+      "operation": "resize",
+      "parameters": {
+        "diameter": 2.4,
+        "depth": 1.4
+      },
+      "expected_affected_component_ids": [
+        "cavity_004",
+        "prong_013",
+        "prong_014",
+        "prong_015",
+        "prong_016",
+        "seat_004",
+        "stone_004"
+      ],
+      "changed_exact_component_ids": [
+        "cavity_004",
+        "prong_013",
+        "prong_014",
+        "prong_015",
+        "prong_016",
+        "seat_004",
+        "stone_004"
+      ],
+      "unrelated_component_count": 64,
+      "checks": {
+        "graph_affected_set_exact": true,
+        "exact_brep_affected_set_exact": true,
+        "unrelated_brep_hashes_unchanged": true,
+        "all_active_source_solids_valid": true,
+        "derived_metal_valid": true,
+        "derived_metal_single_solid": true,
+        "derived_assembly_valid": true
+      },
+      "passed": true,
+      "derived_metal": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_mm3": 554.01632,
+        "face_count": 140
+      },
+      "derived_assembly": {
+        "valid": true,
+        "solid_count": 11,
+        "volume_mm3": 587.881096,
+        "face_count": 170
+      }
+    },
+    {
+      "edited_component_id": "stone_004",
+      "operation": "remove",
+      "parameters": {},
+      "expected_affected_component_ids": [
+        "cavity_004",
+        "prong_013",
+        "prong_014",
+        "prong_015",
+        "prong_016",
+        "seat_004",
+        "stone_004"
+      ],
+      "changed_exact_component_ids": [
+        "cavity_004",
+        "prong_013",
+        "prong_014",
+        "prong_015",
+        "prong_016",
+        "seat_004",
+        "stone_004"
+      ],
+      "unrelated_component_count": 64,
+      "checks": {
+        "graph_affected_set_exact": true,
+        "exact_brep_affected_set_exact": true,
+        "unrelated_brep_hashes_unchanged": true,
+        "all_active_source_solids_valid": true,
+        "derived_metal_valid": true,
+        "derived_metal_single_solid": true,
+        "derived_assembly_valid": true
+      },
+      "passed": true,
+      "derived_metal": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_mm3": 557.1967,
+        "face_count": 127
+      },
+      "derived_assembly": {
+        "valid": true,
+        "solid_count": 10,
+        "volume_mm3": 585.734433,
+        "face_count": 154
+      }
+    },
+    {
+      "edited_component_id": "stone_004",
+      "operation": "replace",
+      "parameters": {
+        "semantic_class": "oval_gemstone",
+        "dimensions": {
+          "length": 2.6,
+          "width": 2.0,
+          "depth": 1.3
+        }
+      },
+      "expected_affected_component_ids": [
+        "cavity_004",
+        "prong_013",
+        "prong_014",
+        "prong_015",
+        "prong_016",
+        "seat_004",
+        "stone_004"
+      ],
+      "changed_exact_component_ids": [
+        "cavity_004",
+        "prong_013",
+        "prong_014",
+        "prong_015",
+        "prong_016",
+        "seat_004",
+        "stone_004"
+      ],
+      "unrelated_component_count": 64,
+      "checks": {
+        "graph_affected_set_exact": true,
+        "exact_brep_affected_set_exact": true,
+        "unrelated_brep_hashes_unchanged": true,
+        "all_active_source_solids_valid": true,
+        "derived_metal_valid": true,
+        "derived_metal_single_solid": true,
+        "derived_assembly_valid": true
+      },
+      "passed": true,
+      "derived_metal": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_mm3": 554.369439,
+        "face_count": 140
+      },
+      "derived_assembly": {
+        "valid": true,
+        "solid_count": 11,
+        "volume_mm3": 587.372798,
+        "face_count": 170
+      }
+    },
+    {
+      "edited_component_id": "stone_005",
+      "operation": "resize",
+      "parameters": {
+        "diameter": 2.4,
+        "depth": 1.4
+      },
+      "expected_affected_component_ids": [
+        "cavity_005",
+        "prong_017",
+        "prong_018",
+        "prong_019",
+        "prong_020",
+        "seat_005",
+        "stone_005"
+      ],
+      "changed_exact_component_ids": [
+        "cavity_005",
+        "prong_017",
+        "prong_018",
+        "prong_019",
+        "prong_020",
+        "seat_005",
+        "stone_005"
+      ],
+      "unrelated_component_count": 64,
+      "checks": {
+        "graph_affected_set_exact": true,
+        "exact_brep_affected_set_exact": true,
+        "unrelated_brep_hashes_unchanged": true,
+        "all_active_source_solids_valid": true,
+        "derived_metal_valid": true,
+        "derived_metal_single_solid": true,
+        "derived_assembly_valid": true
+      },
+      "passed": true,
+      "derived_metal": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_mm3": 554.016337,
+        "face_count": 140
+      },
+      "derived_assembly": {
+        "valid": true,
+        "solid_count": 11,
+        "volume_mm3": 587.881113,
+        "face_count": 170
+      }
+    },
+    {
+      "edited_component_id": "stone_005",
+      "operation": "remove",
+      "parameters": {},
+      "expected_affected_component_ids": [
+        "cavity_005",
+        "prong_017",
+        "prong_018",
+        "prong_019",
+        "prong_020",
+        "seat_005",
+        "stone_005"
+      ],
+      "changed_exact_component_ids": [
+        "cavity_005",
+        "prong_017",
+        "prong_018",
+        "prong_019",
+        "prong_020",
+        "seat_005",
+        "stone_005"
+      ],
+      "unrelated_component_count": 64,
+      "checks": {
+        "graph_affected_set_exact": true,
+        "exact_brep_affected_set_exact": true,
+        "unrelated_brep_hashes_unchanged": true,
+        "all_active_source_solids_valid": true,
+        "derived_metal_valid": true,
+        "derived_metal_single_solid": true,
+        "derived_assembly_valid": true
+      },
+      "passed": true,
+      "derived_metal": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_mm3": 557.196706,
+        "face_count": 127
+      },
+      "derived_assembly": {
+        "valid": true,
+        "solid_count": 10,
+        "volume_mm3": 585.734438,
+        "face_count": 154
+      }
+    },
+    {
+      "edited_component_id": "stone_005",
+      "operation": "replace",
+      "parameters": {
+        "semantic_class": "oval_gemstone",
+        "dimensions": {
+          "length": 2.6,
+          "width": 2.0,
+          "depth": 1.3
+        }
+      },
+      "expected_affected_component_ids": [
+        "cavity_005",
+        "prong_017",
+        "prong_018",
+        "prong_019",
+        "prong_020",
+        "seat_005",
+        "stone_005"
+      ],
+      "changed_exact_component_ids": [
+        "cavity_005",
+        "prong_017",
+        "prong_018",
+        "prong_019",
+        "prong_020",
+        "seat_005",
+        "stone_005"
+      ],
+      "unrelated_component_count": 64,
+      "checks": {
+        "graph_affected_set_exact": true,
+        "exact_brep_affected_set_exact": true,
+        "unrelated_brep_hashes_unchanged": true,
+        "all_active_source_solids_valid": true,
+        "derived_metal_valid": true,
+        "derived_metal_single_solid": true,
+        "derived_assembly_valid": true
+      },
+      "passed": true,
+      "derived_metal": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_mm3": 554.36946,
+        "face_count": 140
+      },
+      "derived_assembly": {
+        "valid": true,
+        "solid_count": 11,
+        "volume_mm3": 587.372819,
+        "face_count": 170
+      }
+    },
+    {
+      "edited_component_id": "stone_006",
+      "operation": "resize",
+      "parameters": {
+        "diameter": 2.4,
+        "depth": 1.4
+      },
+      "expected_affected_component_ids": [
+        "cavity_006",
+        "prong_021",
+        "prong_022",
+        "prong_023",
+        "prong_024",
+        "seat_006",
+        "stone_006"
+      ],
+      "changed_exact_component_ids": [
+        "cavity_006",
+        "prong_021",
+        "prong_022",
+        "prong_023",
+        "prong_024",
+        "seat_006",
+        "stone_006"
+      ],
+      "unrelated_component_count": 64,
+      "checks": {
+        "graph_affected_set_exact": true,
+        "exact_brep_affected_set_exact": true,
+        "unrelated_brep_hashes_unchanged": true,
+        "all_active_source_solids_valid": true,
+        "derived_metal_valid": true,
+        "derived_metal_single_solid": true,
+        "derived_assembly_valid": true
+      },
+      "passed": true,
+      "derived_metal": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_mm3": 554.016339,
+        "face_count": 140
+      },
+      "derived_assembly": {
+        "valid": true,
+        "solid_count": 11,
+        "volume_mm3": 587.881115,
+        "face_count": 170
+      }
+    },
+    {
+      "edited_component_id": "stone_006",
+      "operation": "remove",
+      "parameters": {},
+      "expected_affected_component_ids": [
+        "cavity_006",
+        "prong_021",
+        "prong_022",
+        "prong_023",
+        "prong_024",
+        "seat_006",
+        "stone_006"
+      ],
+      "changed_exact_component_ids": [
+        "cavity_006",
+        "prong_021",
+        "prong_022",
+        "prong_023",
+        "prong_024",
+        "seat_006",
+        "stone_006"
+      ],
+      "unrelated_component_count": 64,
+      "checks": {
+        "graph_affected_set_exact": true,
+        "exact_brep_affected_set_exact": true,
+        "unrelated_brep_hashes_unchanged": true,
+        "all_active_source_solids_valid": true,
+        "derived_metal_valid": true,
+        "derived_metal_single_solid": true,
+        "derived_assembly_valid": true
+      },
+      "passed": true,
+      "derived_metal": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_mm3": 557.196705,
+        "face_count": 127
+      },
+      "derived_assembly": {
+        "valid": true,
+        "solid_count": 10,
+        "volume_mm3": 585.734437,
+        "face_count": 154
+      }
+    },
+    {
+      "edited_component_id": "stone_006",
+      "operation": "replace",
+      "parameters": {
+        "semantic_class": "oval_gemstone",
+        "dimensions": {
+          "length": 2.6,
+          "width": 2.0,
+          "depth": 1.3
+        }
+      },
+      "expected_affected_component_ids": [
+        "cavity_006",
+        "prong_021",
+        "prong_022",
+        "prong_023",
+        "prong_024",
+        "seat_006",
+        "stone_006"
+      ],
+      "changed_exact_component_ids": [
+        "cavity_006",
+        "prong_021",
+        "prong_022",
+        "prong_023",
+        "prong_024",
+        "seat_006",
+        "stone_006"
+      ],
+      "unrelated_component_count": 64,
+      "checks": {
+        "graph_affected_set_exact": true,
+        "exact_brep_affected_set_exact": true,
+        "unrelated_brep_hashes_unchanged": true,
+        "all_active_source_solids_valid": true,
+        "derived_metal_valid": true,
+        "derived_metal_single_solid": true,
+        "derived_assembly_valid": true
+      },
+      "passed": true,
+      "derived_metal": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_mm3": 554.369399,
+        "face_count": 140
+      },
+      "derived_assembly": {
+        "valid": true,
+        "solid_count": 11,
+        "volume_mm3": 587.372758,
+        "face_count": 170
+      }
+    },
+    {
+      "edited_component_id": "stone_007",
+      "operation": "resize",
+      "parameters": {
+        "diameter": 2.4,
+        "depth": 1.4
+      },
+      "expected_affected_component_ids": [
+        "cavity_007",
+        "prong_025",
+        "prong_026",
+        "prong_027",
+        "prong_028",
+        "seat_007",
+        "stone_007"
+      ],
+      "changed_exact_component_ids": [
+        "cavity_007",
+        "prong_025",
+        "prong_026",
+        "prong_027",
+        "prong_028",
+        "seat_007",
+        "stone_007"
+      ],
+      "unrelated_component_count": 64,
+      "checks": {
+        "graph_affected_set_exact": true,
+        "exact_brep_affected_set_exact": true,
+        "unrelated_brep_hashes_unchanged": true,
+        "all_active_source_solids_valid": true,
+        "derived_metal_valid": true,
+        "derived_metal_single_solid": true,
+        "derived_assembly_valid": true
+      },
+      "passed": true,
+      "derived_metal": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_mm3": 554.016345,
+        "face_count": 140
+      },
+      "derived_assembly": {
+        "valid": true,
+        "solid_count": 11,
+        "volume_mm3": 587.881121,
+        "face_count": 170
+      }
+    },
+    {
+      "edited_component_id": "stone_007",
+      "operation": "remove",
+      "parameters": {},
+      "expected_affected_component_ids": [
+        "cavity_007",
+        "prong_025",
+        "prong_026",
+        "prong_027",
+        "prong_028",
+        "seat_007",
+        "stone_007"
+      ],
+      "changed_exact_component_ids": [
+        "cavity_007",
+        "prong_025",
+        "prong_026",
+        "prong_027",
+        "prong_028",
+        "seat_007",
+        "stone_007"
+      ],
+      "unrelated_component_count": 64,
+      "checks": {
+        "graph_affected_set_exact": true,
+        "exact_brep_affected_set_exact": true,
+        "unrelated_brep_hashes_unchanged": true,
+        "all_active_source_solids_valid": true,
+        "derived_metal_valid": true,
+        "derived_metal_single_solid": true,
+        "derived_assembly_valid": true
+      },
+      "passed": true,
+      "derived_metal": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_mm3": 557.196714,
+        "face_count": 127
+      },
+      "derived_assembly": {
+        "valid": true,
+        "solid_count": 10,
+        "volume_mm3": 585.734447,
+        "face_count": 154
+      }
+    },
+    {
+      "edited_component_id": "stone_007",
+      "operation": "replace",
+      "parameters": {
+        "semantic_class": "oval_gemstone",
+        "dimensions": {
+          "length": 2.6,
+          "width": 2.0,
+          "depth": 1.3
+        }
+      },
+      "expected_affected_component_ids": [
+        "cavity_007",
+        "prong_025",
+        "prong_026",
+        "prong_027",
+        "prong_028",
+        "seat_007",
+        "stone_007"
+      ],
+      "changed_exact_component_ids": [
+        "cavity_007",
+        "prong_025",
+        "prong_026",
+        "prong_027",
+        "prong_028",
+        "seat_007",
+        "stone_007"
+      ],
+      "unrelated_component_count": 64,
+      "checks": {
+        "graph_affected_set_exact": true,
+        "exact_brep_affected_set_exact": true,
+        "unrelated_brep_hashes_unchanged": true,
+        "all_active_source_solids_valid": true,
+        "derived_metal_valid": true,
+        "derived_metal_single_solid": true,
+        "derived_assembly_valid": true
+      },
+      "passed": true,
+      "derived_metal": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_mm3": 554.369423,
+        "face_count": 140
+      },
+      "derived_assembly": {
+        "valid": true,
+        "solid_count": 11,
+        "volume_mm3": 587.372783,
+        "face_count": 170
+      }
+    },
+    {
+      "edited_component_id": "stone_008",
+      "operation": "resize",
+      "parameters": {
+        "diameter": 2.4,
+        "depth": 1.4
+      },
+      "expected_affected_component_ids": [
+        "cavity_008",
+        "prong_029",
+        "prong_030",
+        "prong_031",
+        "prong_032",
+        "seat_008",
+        "stone_008"
+      ],
+      "changed_exact_component_ids": [
+        "cavity_008",
+        "prong_029",
+        "prong_030",
+        "prong_031",
+        "prong_032",
+        "seat_008",
+        "stone_008"
+      ],
+      "unrelated_component_count": 64,
+      "checks": {
+        "graph_affected_set_exact": true,
+        "exact_brep_affected_set_exact": true,
+        "unrelated_brep_hashes_unchanged": true,
+        "all_active_source_solids_valid": true,
+        "derived_metal_valid": true,
+        "derived_metal_single_solid": true,
+        "derived_assembly_valid": true
+      },
+      "passed": true,
+      "derived_metal": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_mm3": 554.016239,
+        "face_count": 140
+      },
+      "derived_assembly": {
+        "valid": true,
+        "solid_count": 11,
+        "volume_mm3": 587.881014,
+        "face_count": 170
+      }
+    },
+    {
+      "edited_component_id": "stone_008",
+      "operation": "remove",
+      "parameters": {},
+      "expected_affected_component_ids": [
+        "cavity_008",
+        "prong_029",
+        "prong_030",
+        "prong_031",
+        "prong_032",
+        "seat_008",
+        "stone_008"
+      ],
+      "changed_exact_component_ids": [
+        "cavity_008",
+        "prong_029",
+        "prong_030",
+        "prong_031",
+        "prong_032",
+        "seat_008",
+        "stone_008"
+      ],
+      "unrelated_component_count": 64,
+      "checks": {
+        "graph_affected_set_exact": true,
+        "exact_brep_affected_set_exact": true,
+        "unrelated_brep_hashes_unchanged": true,
+        "all_active_source_solids_valid": true,
+        "derived_metal_valid": true,
+        "derived_metal_single_solid": true,
+        "derived_assembly_valid": true
+      },
+      "passed": true,
+      "derived_metal": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_mm3": 557.196702,
+        "face_count": 127
+      },
+      "derived_assembly": {
+        "valid": true,
+        "solid_count": 10,
+        "volume_mm3": 585.734435,
+        "face_count": 154
+      }
+    },
+    {
+      "edited_component_id": "stone_008",
+      "operation": "replace",
+      "parameters": {
+        "semantic_class": "oval_gemstone",
+        "dimensions": {
+          "length": 2.6,
+          "width": 2.0,
+          "depth": 1.3
+        }
+      },
+      "expected_affected_component_ids": [
+        "cavity_008",
+        "prong_029",
+        "prong_030",
+        "prong_031",
+        "prong_032",
+        "seat_008",
+        "stone_008"
+      ],
+      "changed_exact_component_ids": [
+        "cavity_008",
+        "prong_029",
+        "prong_030",
+        "prong_031",
+        "prong_032",
+        "seat_008",
+        "stone_008"
+      ],
+      "unrelated_component_count": 64,
+      "checks": {
+        "graph_affected_set_exact": true,
+        "exact_brep_affected_set_exact": true,
+        "unrelated_brep_hashes_unchanged": true,
+        "all_active_source_solids_valid": true,
+        "derived_metal_valid": true,
+        "derived_metal_single_solid": true,
+        "derived_assembly_valid": true
+      },
+      "passed": true,
+      "derived_metal": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_mm3": 554.369426,
+        "face_count": 140
+      },
+      "derived_assembly": {
+        "valid": true,
+        "solid_count": 11,
+        "volume_mm3": 587.372786,
+        "face_count": 170
+      }
+    },
+    {
+      "edited_component_id": "stone_009",
+      "operation": "resize",
+      "parameters": {
+        "diameter": 2.4,
+        "depth": 1.4
+      },
+      "expected_affected_component_ids": [
+        "cavity_009",
+        "prong_033",
+        "prong_034",
+        "prong_035",
+        "prong_036",
+        "seat_009",
+        "stone_009"
+      ],
+      "changed_exact_component_ids": [
+        "cavity_009",
+        "prong_033",
+        "prong_034",
+        "prong_035",
+        "prong_036",
+        "seat_009",
+        "stone_009"
+      ],
+      "unrelated_component_count": 64,
+      "checks": {
+        "graph_affected_set_exact": true,
+        "exact_brep_affected_set_exact": true,
+        "unrelated_brep_hashes_unchanged": true,
+        "all_active_source_solids_valid": true,
+        "derived_metal_valid": true,
+        "derived_metal_single_solid": true,
+        "derived_assembly_valid": true
+      },
+      "passed": true,
+      "derived_metal": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_mm3": 554.01635,
+        "face_count": 140
+      },
+      "derived_assembly": {
+        "valid": true,
+        "solid_count": 11,
+        "volume_mm3": 587.881126,
+        "face_count": 170
+      }
+    },
+    {
+      "edited_component_id": "stone_009",
+      "operation": "remove",
+      "parameters": {},
+      "expected_affected_component_ids": [
+        "cavity_009",
+        "prong_033",
+        "prong_034",
+        "prong_035",
+        "prong_036",
+        "seat_009",
+        "stone_009"
+      ],
+      "changed_exact_component_ids": [
+        "cavity_009",
+        "prong_033",
+        "prong_034",
+        "prong_035",
+        "prong_036",
+        "seat_009",
+        "stone_009"
+      ],
+      "unrelated_component_count": 64,
+      "checks": {
+        "graph_affected_set_exact": true,
+        "exact_brep_affected_set_exact": true,
+        "unrelated_brep_hashes_unchanged": true,
+        "all_active_source_solids_valid": true,
+        "derived_metal_valid": true,
+        "derived_metal_single_solid": true,
+        "derived_assembly_valid": true
+      },
+      "passed": true,
+      "derived_metal": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_mm3": 557.196723,
+        "face_count": 127
+      },
+      "derived_assembly": {
+        "valid": true,
+        "solid_count": 10,
+        "volume_mm3": 585.734456,
+        "face_count": 154
+      }
+    },
+    {
+      "edited_component_id": "stone_009",
+      "operation": "replace",
+      "parameters": {
+        "semantic_class": "oval_gemstone",
+        "dimensions": {
+          "length": 2.6,
+          "width": 2.0,
+          "depth": 1.3
+        }
+      },
+      "expected_affected_component_ids": [
+        "cavity_009",
+        "prong_033",
+        "prong_034",
+        "prong_035",
+        "prong_036",
+        "seat_009",
+        "stone_009"
+      ],
+      "changed_exact_component_ids": [
+        "cavity_009",
+        "prong_033",
+        "prong_034",
+        "prong_035",
+        "prong_036",
+        "seat_009",
+        "stone_009"
+      ],
+      "unrelated_component_count": 64,
+      "checks": {
+        "graph_affected_set_exact": true,
+        "exact_brep_affected_set_exact": true,
+        "unrelated_brep_hashes_unchanged": true,
+        "all_active_source_solids_valid": true,
+        "derived_metal_valid": true,
+        "derived_metal_single_solid": true,
+        "derived_assembly_valid": true
+      },
+      "passed": true,
+      "derived_metal": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_mm3": 554.369462,
+        "face_count": 140
+      },
+      "derived_assembly": {
+        "valid": true,
+        "solid_count": 11,
+        "volume_mm3": 587.372822,
+        "face_count": 170
+      }
+    },
+    {
+      "edited_component_id": "stone_010",
+      "operation": "resize",
+      "parameters": {
+        "diameter": 2.4,
+        "depth": 1.4
+      },
+      "expected_affected_component_ids": [
+        "cavity_010",
+        "prong_037",
+        "prong_038",
+        "prong_039",
+        "prong_040",
+        "seat_010",
+        "stone_010"
+      ],
+      "changed_exact_component_ids": [
+        "cavity_010",
+        "prong_037",
+        "prong_038",
+        "prong_039",
+        "prong_040",
+        "seat_010",
+        "stone_010"
+      ],
+      "unrelated_component_count": 64,
+      "checks": {
+        "graph_affected_set_exact": true,
+        "exact_brep_affected_set_exact": true,
+        "unrelated_brep_hashes_unchanged": true,
+        "all_active_source_solids_valid": true,
+        "derived_metal_valid": true,
+        "derived_metal_single_solid": true,
+        "derived_assembly_valid": true
+      },
+      "passed": true,
+      "derived_metal": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_mm3": 554.016326,
+        "face_count": 140
+      },
+      "derived_assembly": {
+        "valid": true,
+        "solid_count": 11,
+        "volume_mm3": 587.881102,
+        "face_count": 170
+      }
+    },
+    {
+      "edited_component_id": "stone_010",
+      "operation": "remove",
+      "parameters": {},
+      "expected_affected_component_ids": [
+        "cavity_010",
+        "prong_037",
+        "prong_038",
+        "prong_039",
+        "prong_040",
+        "seat_010",
+        "stone_010"
+      ],
+      "changed_exact_component_ids": [
+        "cavity_010",
+        "prong_037",
+        "prong_038",
+        "prong_039",
+        "prong_040",
+        "seat_010",
+        "stone_010"
+      ],
+      "unrelated_component_count": 64,
+      "checks": {
+        "graph_affected_set_exact": true,
+        "exact_brep_affected_set_exact": true,
+        "unrelated_brep_hashes_unchanged": true,
+        "all_active_source_solids_valid": true,
+        "derived_metal_valid": true,
+        "derived_metal_single_solid": true,
+        "derived_assembly_valid": true
+      },
+      "passed": true,
+      "derived_metal": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_mm3": 557.196695,
+        "face_count": 127
+      },
+      "derived_assembly": {
+        "valid": true,
+        "solid_count": 10,
+        "volume_mm3": 585.734428,
+        "face_count": 154
+      }
+    },
+    {
+      "edited_component_id": "stone_010",
+      "operation": "replace",
+      "parameters": {
+        "semantic_class": "oval_gemstone",
+        "dimensions": {
+          "length": 2.6,
+          "width": 2.0,
+          "depth": 1.3
+        }
+      },
+      "expected_affected_component_ids": [
+        "cavity_010",
+        "prong_037",
+        "prong_038",
+        "prong_039",
+        "prong_040",
+        "seat_010",
+        "stone_010"
+      ],
+      "changed_exact_component_ids": [
+        "cavity_010",
+        "prong_037",
+        "prong_038",
+        "prong_039",
+        "prong_040",
+        "seat_010",
+        "stone_010"
+      ],
+      "unrelated_component_count": 64,
+      "checks": {
+        "graph_affected_set_exact": true,
+        "exact_brep_affected_set_exact": true,
+        "unrelated_brep_hashes_unchanged": true,
+        "all_active_source_solids_valid": true,
+        "derived_metal_valid": true,
+        "derived_metal_single_solid": true,
+        "derived_assembly_valid": true
+      },
+      "passed": true,
+      "derived_metal": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_mm3": 554.369449,
+        "face_count": 140
+      },
+      "derived_assembly": {
+        "valid": true,
+        "solid_count": 11,
+        "volume_mm3": 587.372808,
+        "face_count": 170
+      }
+    }
+  ],
+  "checks": {
+    "all_30_local_edits_passed": true,
+    "all_ten_stones_exercised": true,
+    "all_three_operations_exercised": true,
+    "all_unrelated_exact_breps_unchanged": true,
+    "all_expected_exact_breps_changed": true,
+    "all_derived_metals_valid_single_solids": true
+  },
+  "decision": "synthetic_exact_cad_locality_validated",
+  "artifacts": {
+    "audit": "data/phase4_exact_cad_locality_v1/exact_cad_locality_audit.png",
+    "baseline": {
+      "assembly_step": "data/phase4_exact_cad_locality_v1/baseline_assembly.step",
+      "assembly_stl": "data/phase4_exact_cad_locality_v1/baseline_assembly.stl",
+      "metal_step": "data/phase4_exact_cad_locality_v1/baseline_metal.step"
+    },
+    "stone_007": {
+      "resize": {
+        "assembly_step": "data/phase4_exact_cad_locality_v1/stone007_resize_assembly.step",
+        "assembly_stl": "data/phase4_exact_cad_locality_v1/stone007_resize_assembly.stl",
+        "metal_step": "data/phase4_exact_cad_locality_v1/stone007_resize_metal.step"
+      },
+      "remove": {
+        "assembly_step": "data/phase4_exact_cad_locality_v1/stone007_remove_assembly.step",
+        "assembly_stl": "data/phase4_exact_cad_locality_v1/stone007_remove_assembly.stl",
+        "metal_step": "data/phase4_exact_cad_locality_v1/stone007_remove_metal.step"
+      },
+      "replace": {
+        "assembly_step": "data/phase4_exact_cad_locality_v1/stone007_replace_assembly.step",
+        "assembly_stl": "data/phase4_exact_cad_locality_v1/stone007_replace_assembly.stl",
+        "metal_step": "data/phase4_exact_cad_locality_v1/stone007_replace_metal.step"
+      }
+    }
+  },
+  "claims": {
+    "synthetic_exact_cad_locality_validated": true,
+    "ring01_image_derived_cad_validated": false,
+    "image_derived_dimensions_validated": false,
+    "manufacturing_accuracy_validated": false
+  },
+  "limitations": [
+    "This benchmark uses designed synthetic dimensions and exact component truth.",
+    "It validates local B-rep regeneration and Boolean health, not image inference.",
+    "The stable metal_body_001 node is the base stock; the fused metal assembly is derived and is expected to change after a local edit.",
+    "Ring01 component review, metric scale and image-derived seat or cavity geometry remain unresolved."
+  ]
+}

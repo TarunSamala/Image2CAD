@@ -6,11 +6,15 @@ LABEL org.opencontainers.image.title="Lalitha Phase 0 validation environment" \
 
 WORKDIR /workspace
 
+RUN apt-get update \
+    && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends libgl1 \
+    && rm -rf /var/lib/apt/lists/*
+
 COPY requirements-validation.txt /tmp/requirements-validation.txt
 COPY constraints-validation.txt /tmp/constraints-validation.txt
 RUN python -m pip install --no-cache-dir --no-build-isolation \
         -c /tmp/constraints-validation.txt -r /tmp/requirements-validation.txt \
-    && python -c "import cv2, flask, numpy, skimage, torch, torchvision, trimesh; assert torch.__version__.startswith('2.5.1'); assert torchvision.__version__.startswith('0.20.1'); print('validation environment ready')"
+    && python -c "import cadquery, cv2, flask, numpy, skimage, torch, torchvision, trimesh; assert torch.__version__.startswith('2.5.1'); assert torchvision.__version__.startswith('0.20.1'); print('validation environment ready')"
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONPATH=/workspace/pipeline
