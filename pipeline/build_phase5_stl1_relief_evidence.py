@@ -269,7 +269,12 @@ def _write_relief_obj(
     return len(vertices), len(faces)
 
 
-def _render_obj_preview(obj_path: Path, output_path: Path, title: str) -> None:
+def _render_obj_preview(
+    obj_path: Path,
+    output_path: Path,
+    title: str,
+    minimum_xy_radius: float = 0.5,
+) -> None:
     """Render the written OBJ itself so the mesh artifact is visually audited."""
     import matplotlib
 
@@ -290,7 +295,10 @@ def _render_obj_preview(obj_path: Path, output_path: Path, title: str) -> None:
     low = points.min(axis=0)
     high = points.max(axis=0)
     center = (low + high) / 2.0
-    xy_radius = max(float((high[:2] - low[:2]).max()) / 2.0, 0.5)
+    xy_radius = max(
+        float((high[:2] - low[:2]).max()) / 2.0,
+        minimum_xy_radius,
+    )
     cameras = (
         ("OBLIQUE", 32, -58),
         ("ORNAMENT FACE", 90, -90),

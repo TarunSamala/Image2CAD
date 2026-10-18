@@ -1,0 +1,114 @@
+{
+  "schema_version": "lalitha_phase5_local_relief_surfaces_v1",
+  "created_at_utc": "2026-10-18T17:32:02.573108+00:00",
+  "stage": "Phase 5.12 reversible local relief-surface trials",
+  "scope": {
+    "object_ids": [
+      "ring_004",
+      "ring_012",
+      "ring_020"
+    ],
+    "split": "val",
+    "source_view": "front"
+  },
+  "sources": {
+    "subdivision": "data/phase5_relief_subdivision_v1/report.json",
+    "phase5_4_relief_builder": "pipeline/build_phase5_stl1_relief_evidence.py",
+    "phase1_features": "dataset/phase_runs/v1/phase1_complete_features_v1/report.json"
+  },
+  "summary": {
+    "object_count": 3,
+    "eligible_patch_count": 40,
+    "generated_mesh_count": 40,
+    "failed_mesh_count": 0,
+    "vertex_count": 676,
+    "face_count": 1018,
+    "mean_dense_relief_rmse": 0.277521
+  },
+  "checks": {
+    "fixed_validation_objects_only": true,
+    "phase5_11_eligible_counts_reproduced": true,
+    "all_generated_geometry_finite": true,
+    "all_generated_surfaces_are_open_obj_layers": true,
+    "test_objects_not_processed": true,
+    "exact_cad_unchanged": true,
+    "no_step_files_generated": true
+  },
+  "objects": [
+    {
+      "object_id": "ring_004",
+      "split": "val",
+      "eligible_patch_count": 6,
+      "generated_mesh_count": 6,
+      "failed_mesh_count": 0,
+      "vertex_count": 58,
+      "face_count": 74,
+      "mean_dense_relief_rmse": 0.392111,
+      "all_generated_geometry_finite": true,
+      "phase5_11_eligible_count_reproduced": true,
+      "artifacts": {
+        "report": "data/phase5_local_relief_surfaces_v1/ring_004/report.json",
+        "combined_obj": "data/phase5_local_relief_surfaces_v1/ring_004/ring_004_local_relief_trials.obj",
+        "combined_obj_sha256": "639e641f337545c22daa60925725f4cb6549066f9b883119fceaa08e9cfb4f45",
+        "combined_preview": "data/phase5_local_relief_surfaces_v1/ring_004/ring_004_local_relief_trials_preview.png",
+        "audit": "data/phase5_local_relief_surfaces_v1/ring_004/local_relief_surface_audit.png"
+      }
+    },
+    {
+      "object_id": "ring_012",
+      "split": "val",
+      "eligible_patch_count": 19,
+      "generated_mesh_count": 19,
+      "failed_mesh_count": 0,
+      "vertex_count": 433,
+      "face_count": 701,
+      "mean_dense_relief_rmse": 0.205002,
+      "all_generated_geometry_finite": true,
+      "phase5_11_eligible_count_reproduced": true,
+      "artifacts": {
+        "report": "data/phase5_local_relief_surfaces_v1/ring_012/report.json",
+        "combined_obj": "data/phase5_local_relief_surfaces_v1/ring_012/ring_012_local_relief_trials.obj",
+        "combined_obj_sha256": "536670407daa0af36f4713776210cbe84d9b74524f36439bf50448a82c6a0c9e",
+        "combined_preview": "data/phase5_local_relief_surfaces_v1/ring_012/ring_012_local_relief_trials_preview.png",
+        "audit": "data/phase5_local_relief_surfaces_v1/ring_012/local_relief_surface_audit.png"
+      }
+    },
+    {
+      "object_id": "ring_020",
+      "split": "val",
+      "eligible_patch_count": 15,
+      "generated_mesh_count": 15,
+      "failed_mesh_count": 0,
+      "vertex_count": 185,
+      "face_count": 243,
+      "mean_dense_relief_rmse": 0.235449,
+      "all_generated_geometry_finite": true,
+      "phase5_11_eligible_count_reproduced": true,
+      "artifacts": {
+        "report": "data/phase5_local_relief_surfaces_v1/ring_020/report.json",
+        "combined_obj": "data/phase5_local_relief_surfaces_v1/ring_020/ring_020_local_relief_trials.obj",
+        "combined_obj_sha256": "a66e6e790a9c6cdccbf613399e78a6c464713dbf5bb6cf048011519e952e9264",
+        "combined_preview": "data/phase5_local_relief_surfaces_v1/ring_020/ring_020_local_relief_trials_preview.png",
+        "audit": "data/phase5_local_relief_surfaces_v1/ring_020/local_relief_surface_audit.png"
+      }
+    }
+  ],
+  "decision": "retain_local_surfaces_as_reversible_review_trials_only",
+  "claims": {
+    "physical_relief_accuracy_validated": false,
+    "semantic_accuracy_validated": false,
+    "metric_scale_validated": false,
+    "hidden_geometry_recovered": false,
+    "cad_fusion_authorized": false,
+    "manufacturing_accuracy_validated": false
+  },
+  "limitations": [
+    "Dense interpolation error is measured against the same retained image-depth evidence used to build the vertices, not physical relief ground truth.",
+    "Sparse Delaunay triangles can bridge unseen detail inside a patch even when the outer patch gate passes.",
+    "OBJ height is normalized for review and is not millimetric.",
+    "Every generated surface is open, front-visible and separate from exact CAD."
+  ],
+  "artifacts": {
+    "audit": "data/phase5_local_relief_surfaces_v1/validation_local_relief_surface_audit.png"
+  }
+}

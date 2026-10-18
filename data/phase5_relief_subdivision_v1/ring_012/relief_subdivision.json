@@ -1,0 +1,3236 @@
+{
+  "schema_version": "lalitha_phase5_relief_subdivision_object_v1",
+  "object_id": "ring_012",
+  "split": "val",
+  "thresholds": {
+    "spatial_link_radius_track_pixels": 24.0,
+    "maximum_normalized_depth_delta": 0.14,
+    "maximum_edge_barrier_fraction": 0.65,
+    "minimum_fit_review_query_count": 3,
+    "maximum_patch_diameter_track_pixels": 110.0
+  },
+  "subdivisions": [
+    {
+      "parent_component_id": "ring_012_relief_component_001",
+      "source_query_count": 1,
+      "patch_count": 1,
+      "rejected_pair_counts": {
+        "spatial_distance": 0,
+        "no_shared_target_view": 0,
+        "depth_discontinuity": 0,
+        "edge_barrier": 0
+      },
+      "patch_ids": [
+        "ring_012_relief_component_001_patch_001"
+      ]
+    },
+    {
+      "parent_component_id": "ring_012_relief_component_002",
+      "source_query_count": 419,
+      "patch_count": 23,
+      "rejected_pair_counts": {
+        "spatial_distance": 83129,
+        "no_shared_target_view": 433,
+        "depth_discontinuity": 1008,
+        "edge_barrier": 170
+      },
+      "patch_ids": [
+        "ring_012_relief_component_002_patch_001",
+        "ring_012_relief_component_002_patch_002",
+        "ring_012_relief_component_002_patch_003",
+        "ring_012_relief_component_002_patch_004",
+        "ring_012_relief_component_002_patch_005",
+        "ring_012_relief_component_002_patch_006",
+        "ring_012_relief_component_002_patch_007",
+        "ring_012_relief_component_002_patch_008",
+        "ring_012_relief_component_002_patch_009",
+        "ring_012_relief_component_002_patch_010",
+        "ring_012_relief_component_002_patch_011",
+        "ring_012_relief_component_002_patch_012",
+        "ring_012_relief_component_002_patch_013",
+        "ring_012_relief_component_002_patch_014",
+        "ring_012_relief_component_002_patch_015",
+        "ring_012_relief_component_002_patch_016",
+        "ring_012_relief_component_002_patch_017",
+        "ring_012_relief_component_002_patch_018",
+        "ring_012_relief_component_002_patch_019",
+        "ring_012_relief_component_002_patch_020",
+        "ring_012_relief_component_002_patch_021",
+        "ring_012_relief_component_002_patch_022",
+        "ring_012_relief_component_002_patch_023"
+      ]
+    },
+    {
+      "parent_component_id": "ring_012_relief_component_003",
+      "source_query_count": 1,
+      "patch_count": 1,
+      "rejected_pair_counts": {
+        "spatial_distance": 0,
+        "no_shared_target_view": 0,
+        "depth_discontinuity": 0,
+        "edge_barrier": 0
+      },
+      "patch_ids": [
+        "ring_012_relief_component_003_patch_001"
+      ]
+    },
+    {
+      "parent_component_id": "ring_012_relief_component_004",
+      "source_query_count": 18,
+      "patch_count": 4,
+      "rejected_pair_counts": {
+        "spatial_distance": 83,
+        "no_shared_target_view": 0,
+        "depth_discontinuity": 19,
+        "edge_barrier": 8
+      },
+      "patch_ids": [
+        "ring_012_relief_component_004_patch_001",
+        "ring_012_relief_component_004_patch_002",
+        "ring_012_relief_component_004_patch_003",
+        "ring_012_relief_component_004_patch_004"
+      ]
+    },
+    {
+      "parent_component_id": "ring_012_relief_component_005",
+      "source_query_count": 3,
+      "patch_count": 1,
+      "rejected_pair_counts": {
+        "spatial_distance": 0,
+        "no_shared_target_view": 0,
+        "depth_discontinuity": 0,
+        "edge_barrier": 0
+      },
+      "patch_ids": [
+        "ring_012_relief_component_005_patch_001"
+      ]
+    },
+    {
+      "parent_component_id": "ring_012_relief_component_006",
+      "source_query_count": 3,
+      "patch_count": 1,
+      "rejected_pair_counts": {
+        "spatial_distance": 1,
+        "no_shared_target_view": 0,
+        "depth_discontinuity": 0,
+        "edge_barrier": 0
+      },
+      "patch_ids": [
+        "ring_012_relief_component_006_patch_001"
+      ]
+    },
+    {
+      "parent_component_id": "ring_012_relief_component_007",
+      "source_query_count": 6,
+      "patch_count": 1,
+      "rejected_pair_counts": {
+        "spatial_distance": 0,
+        "no_shared_target_view": 0,
+        "depth_discontinuity": 0,
+        "edge_barrier": 1
+      },
+      "patch_ids": [
+        "ring_012_relief_component_007_patch_001"
+      ]
+    },
+    {
+      "parent_component_id": "ring_012_relief_component_008",
+      "source_query_count": 2,
+      "patch_count": 1,
+      "rejected_pair_counts": {
+        "spatial_distance": 0,
+        "no_shared_target_view": 0,
+        "depth_discontinuity": 0,
+        "edge_barrier": 0
+      },
+      "patch_ids": [
+        "ring_012_relief_component_008_patch_001"
+      ]
+    }
+  ],
+  "patches": [
+    {
+      "patch_id": "ring_012_relief_component_001_patch_001",
+      "parent_component_id": "ring_012_relief_component_001",
+      "query_node_ids": [
+        "ring_012:front:q0345"
+      ],
+      "query_count": 1,
+      "source_points_xy": [
+        [
+          271.0,
+          102.0
+        ]
+      ],
+      "accepted_target_views": [
+        "rsv"
+      ],
+      "normal_corroborated_target_views": [],
+      "evidence_state": "reciprocal_normal_unresolved",
+      "mean_relative_depth": 0.285221,
+      "relative_depth_span": 0.0,
+      "mean_depth_uncertainty": 0.205997,
+      "review_priority": "normal_unresolved",
+      "future_surface_fit_review_eligible": false,
+      "semantic_label": "unknown_ornamental_relief_patch",
+      "semantic_claim_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "patch_id": "ring_012_relief_component_002_patch_001",
+      "parent_component_id": "ring_012_relief_component_002",
+      "query_node_ids": [
+        "ring_012:front:q0210",
+        "ring_012:front:q0218",
+        "ring_012:front:q0302",
+        "ring_012:front:q0317",
+        "ring_012:front:q0657",
+        "ring_012:front:q0669",
+        "ring_012:front:q0789",
+        "ring_012:front:q0904",
+        "ring_012:front:q0907",
+        "ring_012:front:q0946",
+        "ring_012:front:q0953",
+        "ring_012:front:q0954",
+        "ring_012:front:q0991",
+        "ring_012:front:q1004",
+        "ring_012:front:q1023"
+      ],
+      "query_count": 15,
+      "source_points_xy": [
+        [
+          266.0,
+          125.0
+        ],
+        [
+          234.0,
+          124.0
+        ],
+        [
+          262.0,
+          130.0
+        ],
+        [
+          233.0,
+          115.0
+        ],
+        [
+          234.0,
+          144.0
+        ],
+        [
+          229.0,
+          176.0
+        ],
+        [
+          252.0,
+          130.0
+        ],
+        [
+          230.0,
+          115.0
+        ],
+        [
+          254.0,
+          122.0
+        ],
+        [
+          261.0,
+          123.0
+        ],
+        [
+          233.0,
+          155.0
+        ],
+        [
+          246.0,
+          136.0
+        ],
+        [
+          239.0,
+          137.0
+        ],
+        [
+          261.0,
+          129.0
+        ],
+        [
+          236.0,
+          115.0
+        ]
+      ],
+      "accepted_target_views": [
+        "lsv",
+        "rsv"
+      ],
+      "normal_corroborated_target_views": [
+        "lsv",
+        "rsv"
+      ],
+      "evidence_state": "multi_view_normal_corroborated",
+      "mean_relative_depth": 0.443417,
+      "relative_depth_span": 0.378442,
+      "mean_depth_uncertainty": 0.310162,
+      "review_priority": "multi_view_supported",
+      "future_surface_fit_review_eligible": true,
+      "semantic_label": "unknown_ornamental_relief_patch",
+      "semantic_claim_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "patch_id": "ring_012_relief_component_002_patch_002",
+      "parent_component_id": "ring_012_relief_component_002",
+      "query_node_ids": [
+        "ring_012:front:q0819"
+      ],
+      "query_count": 1,
+      "source_points_xy": [
+        [
+          281.0,
+          123.0
+        ]
+      ],
+      "accepted_target_views": [
+        "iso"
+      ],
+      "normal_corroborated_target_views": [],
+      "evidence_state": "reciprocal_normal_unresolved",
+      "mean_relative_depth": 0.313447,
+      "relative_depth_span": 0.0,
+      "mean_depth_uncertainty": 0.24358,
+      "review_priority": "normal_unresolved",
+      "future_surface_fit_review_eligible": false,
+      "semantic_label": "unknown_ornamental_relief_patch",
+      "semantic_claim_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "patch_id": "ring_012_relief_component_002_patch_003",
+      "parent_component_id": "ring_012_relief_component_002",
+      "query_node_ids": [
+        "ring_012:front:q0524"
+      ],
+      "query_count": 1,
+      "source_points_xy": [
+        [
+          288.0,
+          130.0
+        ]
+      ],
+      "accepted_target_views": [
+        "iso"
+      ],
+      "normal_corroborated_target_views": [],
+      "evidence_state": "reciprocal_normal_unresolved",
+      "mean_relative_depth": 0.312558,
+      "relative_depth_span": 0.0,
+      "mean_depth_uncertainty": 0.286534,
+      "review_priority": "normal_unresolved",
+      "future_surface_fit_review_eligible": false,
+      "semantic_label": "unknown_ornamental_relief_patch",
+      "semantic_claim_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "patch_id": "ring_012_relief_component_002_patch_004",
+      "parent_component_id": "ring_012_relief_component_002",
+      "query_node_ids": [
+        "ring_012:front:q0620",
+        "ring_012:front:q0355",
+        "ring_012:front:q0064",
+        "ring_012:front:q0685",
+        "ring_012:front:q0810",
+        "ring_012:front:q0483",
+        "ring_012:front:q0558",
+        "ring_012:front:q0320",
+        "ring_012:front:q0584",
+        "ring_012:front:q0521",
+        "ring_012:front:q0903",
+        "ring_012:front:q0920",
+        "ring_012:front:q0144",
+        "ring_012:front:q0139",
+        "ring_012:front:q0793",
+        "ring_012:front:q0125",
+        "ring_012:front:q0192",
+        "ring_012:front:q0314",
+        "ring_012:front:q0632",
+        "ring_012:front:q0628",
+        "ring_012:front:q0835",
+        "ring_012:front:q0947",
+        "ring_012:front:q0952",
+        "ring_012:front:q0582",
+        "ring_012:front:q0588",
+        "ring_012:front:q0265",
+        "ring_012:front:q0617",
+        "ring_012:front:q0743",
+        "ring_012:front:q0455",
+        "ring_012:front:q0422",
+        "ring_012:front:q0435",
+        "ring_012:front:q0567",
+        "ring_012:front:q0445",
+        "ring_012:front:q0642",
+        "ring_012:front:q0291",
+        "ring_012:front:q0709",
+        "ring_012:front:q0443",
+        "ring_012:front:q1010",
+        "ring_012:front:q0309",
+        "ring_012:front:q0189",
+        "ring_012:front:q0786",
+        "ring_012:front:q0494",
+        "ring_012:front:q0564",
+        "ring_012:front:q0169",
+        "ring_012:front:q0152",
+        "ring_012:front:q0499",
+        "ring_012:front:q0674",
+        "ring_012:front:q0635"
+      ],
+      "query_count": 48,
+      "source_points_xy": [
+        [
+          291.0,
+          134.0
+        ],
+        [
+          325.0,
+          154.0
+        ],
+        [
+          328.0,
+          158.0
+        ],
+        [
+          294.0,
+          152.0
+        ],
+        [
+          283.0,
+          149.0
+        ],
+        [
+          302.0,
+          155.0
+        ],
+        [
+          306.0,
+          157.0
+        ],
+        [
+          288.0,
+          152.0
+        ],
+        [
+          290.0,
+          154.0
+        ],
+        [
+          295.0,
+          156.0
+        ],
+        [
+          316.0,
+          164.0
+        ],
+        [
+          303.0,
+          160.0
+        ],
+        [
+          295.0,
+          159.0
+        ],
+        [
+          343.0,
+          174.0
+        ],
+        [
+          296.0,
+          161.0
+        ],
+        [
+          318.0,
+          168.0
+        ],
+        [
+          285.0,
+          159.0
+        ],
+        [
+          312.0,
+          171.0
+        ],
+        [
+          302.0,
+          168.0
+        ],
+        [
+          301.0,
+          172.0
+        ],
+        [
+          296.0,
+          171.0
+        ],
+        [
+          305.0,
+          174.0
+        ],
+        [
+          309.0,
+          178.0
+        ],
+        [
+          298.0,
+          175.0
+        ],
+        [
+          282.0,
+          171.0
+        ],
+        [
+          311.0,
+          181.0
+        ],
+        [
+          333.0,
+          188.0
+        ],
+        [
+          299.0,
+          179.0
+        ],
+        [
+          295.0,
+          178.0
+        ],
+        [
+          284.0,
+          175.0
+        ],
+        [
+          280.0,
+          176.0
+        ],
+        [
+          291.0,
+          180.0
+        ],
+        [
+          296.0,
+          182.0
+        ],
+        [
+          286.0,
+          180.0
+        ],
+        [
+          290.0,
+          182.0
+        ],
+        [
+          299.0,
+          185.0
+        ],
+        [
+          281.0,
+          180.0
+        ],
+        [
+          277.0,
+          179.0
+        ],
+        [
+          298.0,
+          187.0
+        ],
+        [
+          285.0,
+          183.0
+        ],
+        [
+          295.0,
+          187.0
+        ],
+        [
+          298.0,
+          190.0
+        ],
+        [
+          304.0,
+          192.0
+        ],
+        [
+          260.0,
+          181.0
+        ],
+        [
+          292.0,
+          191.0
+        ],
+        [
+          294.0,
+          192.0
+        ],
+        [
+          306.0,
+          196.0
+        ],
+        [
+          260.0,
+          182.0
+        ]
+      ],
+      "accepted_target_views": [
+        "iso",
+        "rsv"
+      ],
+      "normal_corroborated_target_views": [
+        "iso",
+        "rsv"
+      ],
+      "evidence_state": "multi_view_normal_corroborated",
+      "mean_relative_depth": 0.493763,
+      "relative_depth_span": 0.702837,
+      "mean_depth_uncertainty": 0.276258,
+      "review_priority": "multi_view_supported",
+      "future_surface_fit_review_eligible": true,
+      "semantic_label": "unknown_ornamental_relief_patch",
+      "semantic_claim_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "patch_id": "ring_012_relief_component_002_patch_005",
+      "parent_component_id": "ring_012_relief_component_002",
+      "query_node_ids": [
+        "ring_012:front:q0905",
+        "ring_012:front:q0970"
+      ],
+      "query_count": 2,
+      "source_points_xy": [
+        [
+          218.0,
+          171.0
+        ],
+        [
+          223.0,
+          178.0
+        ]
+      ],
+      "accepted_target_views": [
+        "lsv"
+      ],
+      "normal_corroborated_target_views": [
+        "lsv"
+      ],
+      "evidence_state": "single_view_normal_corroborated",
+      "mean_relative_depth": 0.296421,
+      "relative_depth_span": 0.109813,
+      "mean_depth_uncertainty": 0.678134,
+      "review_priority": "single_view_supported",
+      "future_surface_fit_review_eligible": false,
+      "semantic_label": "unknown_ornamental_relief_patch",
+      "semantic_claim_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "patch_id": "ring_012_relief_component_002_patch_006",
+      "parent_component_id": "ring_012_relief_component_002",
+      "query_node_ids": [
+        "ring_012:front:q0552",
+        "ring_012:front:q0873"
+      ],
+      "query_count": 2,
+      "source_points_xy": [
+        [
+          253.0,
+          176.0
+        ],
+        [
+          248.0,
+          180.0
+        ]
+      ],
+      "accepted_target_views": [
+        "lsv",
+        "rsv"
+      ],
+      "normal_corroborated_target_views": [
+        "lsv",
+        "rsv"
+      ],
+      "evidence_state": "multi_view_normal_corroborated",
+      "mean_relative_depth": 0.925191,
+      "relative_depth_span": 0.001863,
+      "mean_depth_uncertainty": 0.13492,
+      "review_priority": "multi_view_supported",
+      "future_surface_fit_review_eligible": false,
+      "semantic_label": "unknown_ornamental_relief_patch",
+      "semantic_claim_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "patch_id": "ring_012_relief_component_002_patch_007",
+      "parent_component_id": "ring_012_relief_component_002",
+      "query_node_ids": [
+        "ring_012:front:q0959",
+        "ring_012:front:q0476",
+        "ring_012:front:q0855",
+        "ring_012:front:q0694",
+        "ring_012:front:q0788",
+        "ring_012:front:q0484",
+        "ring_012:front:q0340",
+        "ring_012:front:q0977",
+        "ring_012:front:q0577",
+        "ring_012:front:q0782",
+        "ring_012:front:q0692",
+        "ring_012:front:q0554",
+        "ring_012:front:q0465",
+        "ring_012:front:q0698",
+        "ring_012:front:q0459",
+        "ring_012:front:q0545",
+        "ring_012:front:q0365",
+        "ring_012:front:q0562",
+        "ring_012:front:q0158",
+        "ring_012:front:q0606",
+        "ring_012:front:q0927",
+        "ring_012:front:q0976",
+        "ring_012:front:q0200",
+        "ring_012:front:q0964"
+      ],
+      "query_count": 24,
+      "source_points_xy": [
+        [
+          313.0,
+          232.0
+        ],
+        [
+          327.0,
+          241.0
+        ],
+        [
+          318.0,
+          232.0
+        ],
+        [
+          332.0,
+          241.0
+        ],
+        [
+          315.0,
+          227.0
+        ],
+        [
+          331.0,
+          237.0
+        ],
+        [
+          335.0,
+          237.0
+        ],
+        [
+          335.0,
+          236.0
+        ],
+        [
+          331.0,
+          231.0
+        ],
+        [
+          349.0,
+          239.0
+        ],
+        [
+          329.0,
+          225.0
+        ],
+        [
+          353.0,
+          241.0
+        ],
+        [
+          357.0,
+          240.0
+        ],
+        [
+          340.0,
+          228.0
+        ],
+        [
+          362.0,
+          240.0
+        ],
+        [
+          337.0,
+          223.0
+        ],
+        [
+          340.0,
+          225.0
+        ],
+        [
+          340.0,
+          217.0
+        ],
+        [
+          342.0,
+          216.0
+        ],
+        [
+          335.0,
+          205.0
+        ],
+        [
+          357.0,
+          202.0
+        ],
+        [
+          355.0,
+          198.0
+        ],
+        [
+          354.0,
+          193.0
+        ],
+        [
+          345.0,
+          176.0
+        ]
+      ],
+      "accepted_target_views": [
+        "iso",
+        "rsv"
+      ],
+      "normal_corroborated_target_views": [
+        "iso",
+        "rsv"
+      ],
+      "evidence_state": "multi_view_normal_corroborated",
+      "mean_relative_depth": 0.363265,
+      "relative_depth_span": 0.295267,
+      "mean_depth_uncertainty": 0.278609,
+      "review_priority": "multi_view_supported",
+      "future_surface_fit_review_eligible": true,
+      "semantic_label": "unknown_ornamental_relief_patch",
+      "semantic_claim_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "patch_id": "ring_012_relief_component_002_patch_008",
+      "parent_component_id": "ring_012_relief_component_002",
+      "query_node_ids": [
+        "ring_012:front:q0350"
+      ],
+      "query_count": 1,
+      "source_points_xy": [
+        [
+          228.0,
+          181.0
+        ]
+      ],
+      "accepted_target_views": [
+        "lsv"
+      ],
+      "normal_corroborated_target_views": [
+        "lsv"
+      ],
+      "evidence_state": "single_view_normal_corroborated",
+      "mean_relative_depth": 0.558009,
+      "relative_depth_span": 0.0,
+      "mean_depth_uncertainty": 0.286854,
+      "review_priority": "single_view_supported",
+      "future_surface_fit_review_eligible": false,
+      "semantic_label": "unknown_ornamental_relief_patch",
+      "semantic_claim_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "patch_id": "ring_012_relief_component_002_patch_009",
+      "parent_component_id": "ring_012_relief_component_002",
+      "query_node_ids": [
+        "ring_012:front:q0636"
+      ],
+      "query_count": 1,
+      "source_points_xy": [
+        [
+          229.0,
+          182.0
+        ]
+      ],
+      "accepted_target_views": [
+        "lsv"
+      ],
+      "normal_corroborated_target_views": [
+        "lsv"
+      ],
+      "evidence_state": "single_view_normal_corroborated",
+      "mean_relative_depth": 0.657794,
+      "relative_depth_span": 0.0,
+      "mean_depth_uncertainty": 0.325551,
+      "review_priority": "single_view_supported",
+      "future_surface_fit_review_eligible": false,
+      "semantic_label": "unknown_ornamental_relief_patch",
+      "semantic_claim_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "patch_id": "ring_012_relief_component_002_patch_010",
+      "parent_component_id": "ring_012_relief_component_002",
+      "query_node_ids": [
+        "ring_012:front:q0597",
+        "ring_012:front:q0933",
+        "ring_012:front:q0495",
+        "ring_012:front:q0985",
+        "ring_012:front:q0859",
+        "ring_012:front:q0795",
+        "ring_012:front:q0630",
+        "ring_012:front:q0370",
+        "ring_012:front:q0512",
+        "ring_012:front:q0766",
+        "ring_012:front:q0644",
+        "ring_012:front:q0486",
+        "ring_012:front:q0532",
+        "ring_012:front:q0020",
+        "ring_012:front:q1018",
+        "ring_012:front:q0534",
+        "ring_012:front:q0479",
+        "ring_012:front:q0675",
+        "ring_012:front:q0274",
+        "ring_012:front:q0489",
+        "ring_012:front:q0186",
+        "ring_012:front:q0785",
+        "ring_012:front:q0612",
+        "ring_012:front:q0555",
+        "ring_012:front:q0695",
+        "ring_012:front:q0690",
+        "ring_012:front:q0979",
+        "ring_012:front:q0312",
+        "ring_012:front:q0726",
+        "ring_012:front:q0619",
+        "ring_012:front:q0244",
+        "ring_012:front:q0550",
+        "ring_012:front:q0195",
+        "ring_012:front:q0187",
+        "ring_012:front:q0742",
+        "ring_012:front:q0736",
+        "ring_012:front:q0908",
+        "ring_012:front:q0700",
+        "ring_012:front:q0217",
+        "ring_012:front:q0869",
+        "ring_012:front:q0809",
+        "ring_012:front:q0278",
+        "ring_012:front:q0374",
+        "ring_012:front:q0347",
+        "ring_012:front:q0861",
+        "ring_012:front:q0990",
+        "ring_012:front:q0073",
+        "ring_012:front:q0989"
+      ],
+      "query_count": 48,
+      "source_points_xy": [
+        [
+          265.0,
+          184.0
+        ],
+        [
+          309.0,
+          199.0
+        ],
+        [
+          302.0,
+          199.0
+        ],
+        [
+          292.0,
+          196.0
+        ],
+        [
+          279.0,
+          192.0
+        ],
+        [
+          260.0,
+          187.0
+        ],
+        [
+          298.0,
+          200.0
+        ],
+        [
+          290.0,
+          198.0
+        ],
+        [
+          267.0,
+          193.0
+        ],
+        [
+          308.0,
+          206.0
+        ],
+        [
+          288.0,
+          200.0
+        ],
+        [
+          302.0,
+          205.0
+        ],
+        [
+          261.0,
+          193.0
+        ],
+        [
+          267.0,
+          195.0
+        ],
+        [
+          290.0,
+          204.0
+        ],
+        [
+          264.0,
+          197.0
+        ],
+        [
+          304.0,
+          210.0
+        ],
+        [
+          270.0,
+          200.0
+        ],
+        [
+          259.0,
+          197.0
+        ],
+        [
+          266.0,
+          201.0
+        ],
+        [
+          270.0,
+          203.0
+        ],
+        [
+          257.0,
+          199.0
+        ],
+        [
+          269.0,
+          205.0
+        ],
+        [
+          314.0,
+          220.0
+        ],
+        [
+          265.0,
+          206.0
+        ],
+        [
+          257.0,
+          206.0
+        ],
+        [
+          311.0,
+          224.0
+        ],
+        [
+          298.0,
+          220.0
+        ],
+        [
+          262.0,
+          210.0
+        ],
+        [
+          265.0,
+          213.0
+        ],
+        [
+          260.0,
+          213.0
+        ],
+        [
+          261.0,
+          215.0
+        ],
+        [
+          301.0,
+          239.0
+        ],
+        [
+          294.0,
+          250.0
+        ],
+        [
+          286.0,
+          248.0
+        ],
+        [
+          293.0,
+          254.0
+        ],
+        [
+          298.0,
+          256.0
+        ],
+        [
+          284.0,
+          252.0
+        ],
+        [
+          290.0,
+          255.0
+        ],
+        [
+          282.0,
+          256.0
+        ],
+        [
+          291.0,
+          259.0
+        ],
+        [
+          261.0,
+          251.0
+        ],
+        [
+          284.0,
+          259.0
+        ],
+        [
+          289.0,
+          262.0
+        ],
+        [
+          281.0,
+          261.0
+        ],
+        [
+          238.0,
+          250.0
+        ],
+        [
+          256.0,
+          257.0
+        ],
+        [
+          240.0,
+          255.0
+        ]
+      ],
+      "accepted_target_views": [
+        "iso",
+        "lsv",
+        "rsv"
+      ],
+      "normal_corroborated_target_views": [
+        "iso",
+        "lsv",
+        "rsv"
+      ],
+      "evidence_state": "multi_view_normal_corroborated",
+      "mean_relative_depth": 0.791223,
+      "relative_depth_span": 0.667591,
+      "mean_depth_uncertainty": 0.324508,
+      "review_priority": "multi_view_supported",
+      "future_surface_fit_review_eligible": true,
+      "semantic_label": "unknown_ornamental_relief_patch",
+      "semantic_claim_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "patch_id": "ring_012_relief_component_002_patch_011",
+      "parent_component_id": "ring_012_relief_component_002",
+      "query_node_ids": [
+        "ring_012:front:q0223",
+        "ring_012:front:q0591",
+        "ring_012:front:q0798",
+        "ring_012:front:q0504",
+        "ring_012:front:q0750",
+        "ring_012:front:q0428",
+        "ring_012:front:q0830",
+        "ring_012:front:q0522",
+        "ring_012:front:q0561",
+        "ring_012:front:q0777",
+        "ring_012:front:q0583",
+        "ring_012:front:q0704",
+        "ring_012:front:q0412",
+        "ring_012:front:q0961",
+        "ring_012:front:q0298",
+        "ring_012:front:q0419",
+        "ring_012:front:q0112",
+        "ring_012:front:q0249",
+        "ring_012:front:q0718",
+        "ring_012:front:q0127",
+        "ring_012:front:q0447",
+        "ring_012:front:q0449",
+        "ring_012:front:q0270",
+        "ring_012:front:q0744",
+        "ring_012:front:q0332",
+        "ring_012:front:q0399",
+        "ring_012:front:q0295",
+        "ring_012:front:q0401",
+        "ring_012:front:q0759",
+        "ring_012:front:q0358",
+        "ring_012:front:q0716",
+        "ring_012:front:q0616",
+        "ring_012:front:q0261",
+        "ring_012:front:q0528",
+        "ring_012:front:q0557",
+        "ring_012:front:q0551",
+        "ring_012:front:q0251",
+        "ring_012:front:q0769",
+        "ring_012:front:q0517",
+        "ring_012:front:q0213",
+        "ring_012:front:q0932",
+        "ring_012:front:q0984",
+        "ring_012:front:q0315",
+        "ring_012:front:q0331",
+        "ring_012:front:q0914",
+        "ring_012:front:q0113",
+        "ring_012:front:q0906",
+        "ring_012:front:q0259"
+      ],
+      "query_count": 48,
+      "source_points_xy": [
+        [
+          358.0,
+          203.0
+        ],
+        [
+          363.0,
+          236.0
+        ],
+        [
+          366.0,
+          258.0
+        ],
+        [
+          365.0,
+          243.0
+        ],
+        [
+          368.0,
+          263.0
+        ],
+        [
+          366.0,
+          239.0
+        ],
+        [
+          365.0,
+          227.0
+        ],
+        [
+          369.0,
+          244.0
+        ],
+        [
+          371.0,
+          258.0
+        ],
+        [
+          369.0,
+          236.0
+        ],
+        [
+          373.0,
+          263.0
+        ],
+        [
+          372.0,
+          249.0
+        ],
+        [
+          371.0,
+          240.0
+        ],
+        [
+          373.0,
+          245.0
+        ],
+        [
+          374.0,
+          250.0
+        ],
+        [
+          375.0,
+          252.0
+        ],
+        [
+          372.0,
+          228.0
+        ],
+        [
+          373.0,
+          234.0
+        ],
+        [
+          373.0,
+          232.0
+        ],
+        [
+          377.0,
+          261.0
+        ],
+        [
+          375.0,
+          241.0
+        ],
+        [
+          377.0,
+          256.0
+        ],
+        [
+          377.0,
+          241.0
+        ],
+        [
+          381.0,
+          259.0
+        ],
+        [
+          374.0,
+          203.0
+        ],
+        [
+          384.0,
+          262.0
+        ],
+        [
+          385.0,
+          269.0
+        ],
+        [
+          386.0,
+          266.0
+        ],
+        [
+          386.0,
+          246.0
+        ],
+        [
+          387.0,
+          245.0
+        ],
+        [
+          384.0,
+          204.0
+        ],
+        [
+          395.0,
+          276.0
+        ],
+        [
+          391.0,
+          224.0
+        ],
+        [
+          399.0,
+          277.0
+        ],
+        [
+          394.0,
+          230.0
+        ],
+        [
+          393.0,
+          222.0
+        ],
+        [
+          395.0,
+          230.0
+        ],
+        [
+          394.0,
+          218.0
+        ],
+        [
+          404.0,
+          279.0
+        ],
+        [
+          396.0,
+          202.0
+        ],
+        [
+          397.0,
+          201.0
+        ],
+        [
+          415.0,
+          234.0
+        ],
+        [
+          413.0,
+          215.0
+        ],
+        [
+          416.0,
+          236.0
+        ],
+        [
+          418.0,
+          242.0
+        ],
+        [
+          419.0,
+          245.0
+        ],
+        [
+          422.0,
+          230.0
+        ],
+        [
+          423.0,
+          228.0
+        ]
+      ],
+      "accepted_target_views": [
+        "top",
+        "iso",
+        "rsv"
+      ],
+      "normal_corroborated_target_views": [
+        "top",
+        "iso",
+        "rsv"
+      ],
+      "evidence_state": "multi_view_normal_corroborated",
+      "mean_relative_depth": 0.351335,
+      "relative_depth_span": 0.48872,
+      "mean_depth_uncertainty": 0.307891,
+      "review_priority": "multi_view_supported",
+      "future_surface_fit_review_eligible": true,
+      "semantic_label": "unknown_ornamental_relief_patch",
+      "semantic_claim_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "patch_id": "ring_012_relief_component_002_patch_012",
+      "parent_component_id": "ring_012_relief_component_002",
+      "query_node_ids": [
+        "ring_012:front:q0720",
+        "ring_012:front:q0471",
+        "ring_012:front:q0038",
+        "ring_012:front:q0605",
+        "ring_012:front:q0035",
+        "ring_012:front:q0814",
+        "ring_012:front:q0874",
+        "ring_012:front:q0655",
+        "ring_012:front:q0398",
+        "ring_012:front:q0510",
+        "ring_012:front:q0748",
+        "ring_012:front:q0942",
+        "ring_012:front:q0151",
+        "ring_012:front:q0303",
+        "ring_012:front:q0225",
+        "ring_012:front:q0454",
+        "ring_012:front:q0409",
+        "ring_012:front:q0457",
+        "ring_012:front:q0414",
+        "ring_012:front:q1001",
+        "ring_012:front:q0650",
+        "ring_012:front:q0193",
+        "ring_012:front:q0463",
+        "ring_012:front:q0319"
+      ],
+      "query_count": 24,
+      "source_points_xy": [
+        [
+          293.0,
+          266.0
+        ],
+        [
+          303.0,
+          265.0
+        ],
+        [
+          301.0,
+          263.0
+        ],
+        [
+          303.0,
+          260.0
+        ],
+        [
+          301.0,
+          257.0
+        ],
+        [
+          303.0,
+          255.0
+        ],
+        [
+          302.0,
+          251.0
+        ],
+        [
+          331.0,
+          269.0
+        ],
+        [
+          335.0,
+          271.0
+        ],
+        [
+          325.0,
+          262.0
+        ],
+        [
+          341.0,
+          269.0
+        ],
+        [
+          321.0,
+          254.0
+        ],
+        [
+          324.0,
+          254.0
+        ],
+        [
+          320.0,
+          251.0
+        ],
+        [
+          334.0,
+          259.0
+        ],
+        [
+          323.0,
+          250.0
+        ],
+        [
+          331.0,
+          253.0
+        ],
+        [
+          322.0,
+          246.0
+        ],
+        [
+          330.0,
+          249.0
+        ],
+        [
+          314.0,
+          237.0
+        ],
+        [
+          320.0,
+          241.0
+        ],
+        [
+          316.0,
+          237.0
+        ],
+        [
+          329.0,
+          245.0
+        ],
+        [
+          312.0,
+          233.0
+        ]
+      ],
+      "accepted_target_views": [
+        "iso",
+        "rsv"
+      ],
+      "normal_corroborated_target_views": [
+        "iso",
+        "rsv"
+      ],
+      "evidence_state": "multi_view_normal_corroborated",
+      "mean_relative_depth": 0.564383,
+      "relative_depth_span": 0.603399,
+      "mean_depth_uncertainty": 0.392254,
+      "review_priority": "multi_view_supported",
+      "future_surface_fit_review_eligible": true,
+      "semantic_label": "unknown_ornamental_relief_patch",
+      "semantic_claim_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "patch_id": "ring_012_relief_component_002_patch_013",
+      "parent_component_id": "ring_012_relief_component_002",
+      "query_node_ids": [
+        "ring_012:front:q0043",
+        "ring_012:front:q0585",
+        "ring_012:front:q0765",
+        "ring_012:front:q0791",
+        "ring_012:front:q0087",
+        "ring_012:front:q0385",
+        "ring_012:front:q0167",
+        "ring_012:front:q0677",
+        "ring_012:front:q0241",
+        "ring_012:front:q0966",
+        "ring_012:front:q0758",
+        "ring_012:front:q0389",
+        "ring_012:front:q0305",
+        "ring_012:front:q0400",
+        "ring_012:front:q0103",
+        "ring_012:front:q1002",
+        "ring_012:front:q0173",
+        "ring_012:front:q0410",
+        "ring_012:front:q0395",
+        "ring_012:front:q0492",
+        "ring_012:front:q0212",
+        "ring_012:front:q0929",
+        "ring_012:front:q0388",
+        "ring_012:front:q0349",
+        "ring_012:front:q0768",
+        "ring_012:front:q0829",
+        "ring_012:front:q0394",
+        "ring_012:front:q0652",
+        "ring_012:front:q0397",
+        "ring_012:front:q0277",
+        "ring_012:front:q0711",
+        "ring_012:front:q0434",
+        "ring_012:front:q0710",
+        "ring_012:front:q0570",
+        "ring_012:front:q0311",
+        "ring_012:front:q0544",
+        "ring_012:front:q0313",
+        "ring_012:front:q0500",
+        "ring_012:front:q0604",
+        "ring_012:front:q0649",
+        "ring_012:front:q0032",
+        "ring_012:front:q0142",
+        "ring_012:front:q0992",
+        "ring_012:front:q0883",
+        "ring_012:front:q1009",
+        "ring_012:front:q0792",
+        "ring_012:front:q0269",
+        "ring_012:front:q0963"
+      ],
+      "query_count": 48,
+      "source_points_xy": [
+        [
+          322.0,
+          314.0
+        ],
+        [
+          324.0,
+          308.0
+        ],
+        [
+          321.0,
+          315.0
+        ],
+        [
+          333.0,
+          281.0
+        ],
+        [
+          329.0,
+          290.0
+        ],
+        [
+          334.0,
+          277.0
+        ],
+        [
+          318.0,
+          317.0
+        ],
+        [
+          320.0,
+          309.0
+        ],
+        [
+          333.0,
+          273.0
+        ],
+        [
+          326.0,
+          291.0
+        ],
+        [
+          327.0,
+          287.0
+        ],
+        [
+          330.0,
+          278.0
+        ],
+        [
+          313.0,
+          320.0
+        ],
+        [
+          330.0,
+          273.0
+        ],
+        [
+          314.0,
+          314.0
+        ],
+        [
+          322.0,
+          287.0
+        ],
+        [
+          327.0,
+          274.0
+        ],
+        [
+          326.0,
+          276.0
+        ],
+        [
+          325.0,
+          272.0
+        ],
+        [
+          321.0,
+          276.0
+        ],
+        [
+          321.0,
+          274.0
+        ],
+        [
+          315.0,
+          288.0
+        ],
+        [
+          320.0,
+          272.0
+        ],
+        [
+          313.0,
+          287.0
+        ],
+        [
+          316.0,
+          276.0
+        ],
+        [
+          310.0,
+          289.0
+        ],
+        [
+          315.0,
+          272.0
+        ],
+        [
+          304.0,
+          290.0
+        ],
+        [
+          310.0,
+          273.0
+        ],
+        [
+          308.0,
+          274.0
+        ],
+        [
+          296.0,
+          300.0
+        ],
+        [
+          305.0,
+          274.0
+        ],
+        [
+          296.0,
+          294.0
+        ],
+        [
+          301.0,
+          275.0
+        ],
+        [
+          287.0,
+          302.0
+        ],
+        [
+          297.0,
+          267.0
+        ],
+        [
+          294.0,
+          272.0
+        ],
+        [
+          293.0,
+          272.0
+        ],
+        [
+          289.0,
+          271.0
+        ],
+        [
+          281.0,
+          285.0
+        ],
+        [
+          278.0,
+          286.0
+        ],
+        [
+          282.0,
+          275.0
+        ],
+        [
+          283.0,
+          271.0
+        ],
+        [
+          277.0,
+          284.0
+        ],
+        [
+          284.0,
+          265.0
+        ],
+        [
+          273.0,
+          290.0
+        ],
+        [
+          255.0,
+          263.0
+        ],
+        [
+          242.0,
+          260.0
+        ]
+      ],
+      "accepted_target_views": [
+        "iso",
+        "rsv"
+      ],
+      "normal_corroborated_target_views": [
+        "iso"
+      ],
+      "evidence_state": "single_view_normal_corroborated",
+      "mean_relative_depth": 0.952908,
+      "relative_depth_span": 0.226009,
+      "mean_depth_uncertainty": 0.148666,
+      "review_priority": "single_view_supported",
+      "future_surface_fit_review_eligible": true,
+      "semantic_label": "unknown_ornamental_relief_patch",
+      "semantic_claim_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "patch_id": "ring_012_relief_component_002_patch_014",
+      "parent_component_id": "ring_012_relief_component_002",
+      "query_node_ids": [
+        "ring_012:front:q0794",
+        "ring_012:front:q0702",
+        "ring_012:front:q0659",
+        "ring_012:front:q0995",
+        "ring_012:front:q0576",
+        "ring_012:front:q0553",
+        "ring_012:front:q0870",
+        "ring_012:front:q0913",
+        "ring_012:front:q0918",
+        "ring_012:front:q1015",
+        "ring_012:front:q0572",
+        "ring_012:front:q0333",
+        "ring_012:front:q0928",
+        "ring_012:front:q0804",
+        "ring_012:front:q0172",
+        "ring_012:front:q0892",
+        "ring_012:front:q0602",
+        "ring_012:front:q0965",
+        "ring_012:front:q0771",
+        "ring_012:front:q0856",
+        "ring_012:front:q0180",
+        "ring_012:front:q0872",
+        "ring_012:front:q0880",
+        "ring_012:front:q0849"
+      ],
+      "query_count": 24,
+      "source_points_xy": [
+        [
+          243.0,
+          264.0
+        ],
+        [
+          244.0,
+          268.0
+        ],
+        [
+          245.0,
+          273.0
+        ],
+        [
+          235.0,
+          279.0
+        ],
+        [
+          247.0,
+          277.0
+        ],
+        [
+          249.0,
+          282.0
+        ],
+        [
+          192.0,
+          314.0
+        ],
+        [
+          204.0,
+          326.0
+        ],
+        [
+          229.0,
+          318.0
+        ],
+        [
+          255.0,
+          312.0
+        ],
+        [
+          241.0,
+          319.0
+        ],
+        [
+          239.0,
+          320.0
+        ],
+        [
+          261.0,
+          313.0
+        ],
+        [
+          267.0,
+          313.0
+        ],
+        [
+          225.0,
+          328.0
+        ],
+        [
+          273.0,
+          312.0
+        ],
+        [
+          244.0,
+          322.0
+        ],
+        [
+          260.0,
+          318.0
+        ],
+        [
+          219.0,
+          333.0
+        ],
+        [
+          266.0,
+          317.0
+        ],
+        [
+          244.0,
+          325.0
+        ],
+        [
+          237.0,
+          328.0
+        ],
+        [
+          243.0,
+          326.0
+        ],
+        [
+          257.0,
+          333.0
+        ]
+      ],
+      "accepted_target_views": [
+        "iso",
+        "lsv"
+      ],
+      "normal_corroborated_target_views": [
+        "iso",
+        "lsv"
+      ],
+      "evidence_state": "multi_view_normal_corroborated",
+      "mean_relative_depth": 0.799328,
+      "relative_depth_span": 0.183442,
+      "mean_depth_uncertainty": 0.257569,
+      "review_priority": "multi_view_supported",
+      "future_surface_fit_review_eligible": true,
+      "semantic_label": "unknown_ornamental_relief_patch",
+      "semantic_claim_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "patch_id": "ring_012_relief_component_002_patch_015",
+      "parent_component_id": "ring_012_relief_component_002",
+      "query_node_ids": [
+        "ring_012:front:q0712",
+        "ring_012:front:q0875",
+        "ring_012:front:q0594",
+        "ring_012:front:q0763",
+        "ring_012:front:q0967",
+        "ring_012:front:q0174",
+        "ring_012:front:q0117",
+        "ring_012:front:q0075",
+        "ring_012:front:q0135",
+        "ring_012:front:q0044",
+        "ring_012:front:q1013",
+        "ring_012:front:q0037",
+        "ring_012:front:q0840",
+        "ring_012:front:q0415",
+        "ring_012:front:q0475",
+        "ring_012:front:q0689",
+        "ring_012:front:q0228",
+        "ring_012:front:q0197",
+        "ring_012:front:q0403",
+        "ring_012:front:q0390",
+        "ring_012:front:q0573",
+        "ring_012:front:q0671",
+        "ring_012:front:q0508",
+        "ring_012:front:q0431"
+      ],
+      "query_count": 24,
+      "source_points_xy": [
+        [
+          407.0,
+          282.0
+        ],
+        [
+          411.0,
+          285.0
+        ],
+        [
+          391.0,
+          281.0
+        ],
+        [
+          386.0,
+          280.0
+        ],
+        [
+          395.0,
+          287.0
+        ],
+        [
+          387.0,
+          282.0
+        ],
+        [
+          401.0,
+          295.0
+        ],
+        [
+          378.0,
+          282.0
+        ],
+        [
+          399.0,
+          302.0
+        ],
+        [
+          366.0,
+          282.0
+        ],
+        [
+          357.0,
+          284.0
+        ],
+        [
+          354.0,
+          282.0
+        ],
+        [
+          353.0,
+          282.0
+        ],
+        [
+          339.0,
+          273.0
+        ],
+        [
+          346.0,
+          279.0
+        ],
+        [
+          342.0,
+          278.0
+        ],
+        [
+          342.0,
+          279.0
+        ],
+        [
+          350.0,
+          285.0
+        ],
+        [
+          341.0,
+          282.0
+        ],
+        [
+          337.0,
+          280.0
+        ],
+        [
+          343.0,
+          286.0
+        ],
+        [
+          340.0,
+          291.0
+        ],
+        [
+          336.0,
+          289.0
+        ],
+        [
+          337.0,
+          294.0
+        ]
+      ],
+      "accepted_target_views": [
+        "iso",
+        "rsv"
+      ],
+      "normal_corroborated_target_views": [
+        "iso",
+        "rsv"
+      ],
+      "evidence_state": "multi_view_normal_corroborated",
+      "mean_relative_depth": 0.669235,
+      "relative_depth_span": 0.812585,
+      "mean_depth_uncertainty": 0.500727,
+      "review_priority": "multi_view_supported",
+      "future_surface_fit_review_eligible": true,
+      "semantic_label": "unknown_ornamental_relief_patch",
+      "semantic_claim_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "patch_id": "ring_012_relief_component_002_patch_016",
+      "parent_component_id": "ring_012_relief_component_002",
+      "query_node_ids": [
+        "ring_012:front:q0560",
+        "ring_012:front:q0442",
+        "ring_012:front:q0505",
+        "ring_012:front:q0663",
+        "ring_012:front:q0123",
+        "ring_012:front:q0575",
+        "ring_012:front:q0118",
+        "ring_012:front:q0825",
+        "ring_012:front:q0645",
+        "ring_012:front:q0339",
+        "ring_012:front:q0556",
+        "ring_012:front:q0281",
+        "ring_012:front:q0843",
+        "ring_012:front:q0773",
+        "ring_012:front:q0153",
+        "ring_012:front:q0343",
+        "ring_012:front:q0482",
+        "ring_012:front:q0048",
+        "ring_012:front:q0960",
+        "ring_012:front:q0352",
+        "ring_012:front:q0796",
+        "ring_012:front:q0922",
+        "ring_012:front:q0537",
+        "ring_012:front:q0681"
+      ],
+      "query_count": 24,
+      "source_points_xy": [
+        [
+          333.0,
+          292.0
+        ],
+        [
+          340.0,
+          299.0
+        ],
+        [
+          335.0,
+          299.0
+        ],
+        [
+          331.0,
+          298.0
+        ],
+        [
+          366.0,
+          325.0
+        ],
+        [
+          334.0,
+          308.0
+        ],
+        [
+          368.0,
+          334.0
+        ],
+        [
+          332.0,
+          312.0
+        ],
+        [
+          328.0,
+          311.0
+        ],
+        [
+          355.0,
+          331.0
+        ],
+        [
+          332.0,
+          317.0
+        ],
+        [
+          365.0,
+          341.0
+        ],
+        [
+          328.0,
+          316.0
+        ],
+        [
+          331.0,
+          321.0
+        ],
+        [
+          326.0,
+          318.0
+        ],
+        [
+          329.0,
+          324.0
+        ],
+        [
+          352.0,
+          342.0
+        ],
+        [
+          352.0,
+          344.0
+        ],
+        [
+          346.0,
+          343.0
+        ],
+        [
+          344.0,
+          342.0
+        ],
+        [
+          353.0,
+          350.0
+        ],
+        [
+          339.0,
+          347.0
+        ],
+        [
+          344.0,
+          353.0
+        ],
+        [
+          346.0,
+          357.0
+        ]
+      ],
+      "accepted_target_views": [
+        "iso",
+        "rsv"
+      ],
+      "normal_corroborated_target_views": [
+        "iso",
+        "rsv"
+      ],
+      "evidence_state": "multi_view_normal_corroborated",
+      "mean_relative_depth": 0.710168,
+      "relative_depth_span": 0.586712,
+      "mean_depth_uncertainty": 0.395549,
+      "review_priority": "multi_view_supported",
+      "future_surface_fit_review_eligible": true,
+      "semantic_label": "unknown_ornamental_relief_patch",
+      "semantic_claim_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "patch_id": "ring_012_relief_component_002_patch_017",
+      "parent_component_id": "ring_012_relief_component_002",
+      "query_node_ids": [
+        "ring_012:front:q0272",
+        "ring_012:front:q0735",
+        "ring_012:front:q0831",
+        "ring_012:front:q0957"
+      ],
+      "query_count": 4,
+      "source_points_xy": [
+        [
+          343.0,
+          314.0
+        ],
+        [
+          340.0,
+          312.0
+        ],
+        [
+          341.0,
+          317.0
+        ],
+        [
+          346.0,
+          317.0
+        ]
+      ],
+      "accepted_target_views": [
+        "iso",
+        "rsv"
+      ],
+      "normal_corroborated_target_views": [
+        "iso",
+        "rsv"
+      ],
+      "evidence_state": "multi_view_normal_corroborated",
+      "mean_relative_depth": 0.711314,
+      "relative_depth_span": 0.08573,
+      "mean_depth_uncertainty": 0.614542,
+      "review_priority": "multi_view_supported",
+      "future_surface_fit_review_eligible": true,
+      "semantic_label": "unknown_ornamental_relief_patch",
+      "semantic_claim_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "patch_id": "ring_012_relief_component_002_patch_018",
+      "parent_component_id": "ring_012_relief_component_002",
+      "query_node_ids": [
+        "ring_012:front:q0713",
+        "ring_012:front:q0823",
+        "ring_012:front:q0653",
+        "ring_012:front:q0910",
+        "ring_012:front:q0747",
+        "ring_012:front:q0919",
+        "ring_012:front:q0651",
+        "ring_012:front:q0697",
+        "ring_012:front:q0661",
+        "ring_012:front:q0727",
+        "ring_012:front:q0185",
+        "ring_012:front:q0614",
+        "ring_012:front:q0530",
+        "ring_012:front:q0851",
+        "ring_012:front:q0693",
+        "ring_012:front:q0233",
+        "ring_012:front:q0688",
+        "ring_012:front:q0096",
+        "ring_012:front:q0067",
+        "ring_012:front:q0600",
+        "ring_012:front:q0134",
+        "ring_012:front:q0196",
+        "ring_012:front:q0243",
+        "ring_012:front:q0761"
+      ],
+      "query_count": 24,
+      "source_points_xy": [
+        [
+          269.0,
+          331.0
+        ],
+        [
+          265.0,
+          335.0
+        ],
+        [
+          269.0,
+          337.0
+        ],
+        [
+          303.0,
+          327.0
+        ],
+        [
+          273.0,
+          340.0
+        ],
+        [
+          265.0,
+          344.0
+        ],
+        [
+          269.0,
+          347.0
+        ],
+        [
+          273.0,
+          356.0
+        ],
+        [
+          280.0,
+          354.0
+        ],
+        [
+          290.0,
+          354.0
+        ],
+        [
+          231.0,
+          375.0
+        ],
+        [
+          283.0,
+          358.0
+        ],
+        [
+          299.0,
+          355.0
+        ],
+        [
+          296.0,
+          358.0
+        ],
+        [
+          281.0,
+          365.0
+        ],
+        [
+          242.0,
+          379.0
+        ],
+        [
+          291.0,
+          363.0
+        ],
+        [
+          223.0,
+          387.0
+        ],
+        [
+          262.0,
+          375.0
+        ],
+        [
+          224.0,
+          389.0
+        ],
+        [
+          273.0,
+          375.0
+        ],
+        [
+          283.0,
+          372.0
+        ],
+        [
+          256.0,
+          383.0
+        ],
+        [
+          247.0,
+          393.0
+        ]
+      ],
+      "accepted_target_views": [
+        "iso",
+        "rsv"
+      ],
+      "normal_corroborated_target_views": [
+        "iso",
+        "rsv"
+      ],
+      "evidence_state": "multi_view_normal_corroborated",
+      "mean_relative_depth": 0.693094,
+      "relative_depth_span": 0.277375,
+      "mean_depth_uncertainty": 0.157551,
+      "review_priority": "multi_view_supported",
+      "future_surface_fit_review_eligible": true,
+      "semantic_label": "unknown_ornamental_relief_patch",
+      "semantic_claim_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "patch_id": "ring_012_relief_component_002_patch_019",
+      "parent_component_id": "ring_012_relief_component_002",
+      "query_node_ids": [
+        "ring_012:front:q0061",
+        "ring_012:front:q0369",
+        "ring_012:front:q0527"
+      ],
+      "query_count": 3,
+      "source_points_xy": [
+        [
+          169.0,
+          345.0
+        ],
+        [
+          162.0,
+          338.0
+        ],
+        [
+          165.0,
+          351.0
+        ]
+      ],
+      "accepted_target_views": [
+        "lsv"
+      ],
+      "normal_corroborated_target_views": [
+        "lsv"
+      ],
+      "evidence_state": "single_view_normal_corroborated",
+      "mean_relative_depth": 0.39176,
+      "relative_depth_span": 0.123279,
+      "mean_depth_uncertainty": 0.350902,
+      "review_priority": "single_view_supported",
+      "future_surface_fit_review_eligible": true,
+      "semantic_label": "unknown_ornamental_relief_patch",
+      "semantic_claim_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "patch_id": "ring_012_relief_component_002_patch_020",
+      "parent_component_id": "ring_012_relief_component_002",
+      "query_node_ids": [
+        "ring_012:front:q0847",
+        "ring_012:front:q0634",
+        "ring_012:front:q0089",
+        "ring_012:front:q1000",
+        "ring_012:front:q0678",
+        "ring_012:front:q0871",
+        "ring_012:front:q0891",
+        "ring_012:front:q0328",
+        "ring_012:front:q0363",
+        "ring_012:front:q0776",
+        "ring_012:front:q0812",
+        "ring_012:front:q0549",
+        "ring_012:front:q0371",
+        "ring_012:front:q0731",
+        "ring_012:front:q0839",
+        "ring_012:front:q1014",
+        "ring_012:front:q0916",
+        "ring_012:front:q0680",
+        "ring_012:front:q0949",
+        "ring_012:front:q0538",
+        "ring_012:front:q0799",
+        "ring_012:front:q0377",
+        "ring_012:front:q0911",
+        "ring_012:front:q0980"
+      ],
+      "query_count": 24,
+      "source_points_xy": [
+        [
+          307.0,
+          373.0
+        ],
+        [
+          314.0,
+          383.0
+        ],
+        [
+          304.0,
+          366.0
+        ],
+        [
+          307.0,
+          368.0
+        ],
+        [
+          318.0,
+          381.0
+        ],
+        [
+          322.0,
+          384.0
+        ],
+        [
+          318.0,
+          367.0
+        ],
+        [
+          308.0,
+          351.0
+        ],
+        [
+          315.0,
+          361.0
+        ],
+        [
+          317.0,
+          363.0
+        ],
+        [
+          330.0,
+          375.0
+        ],
+        [
+          331.0,
+          370.0
+        ],
+        [
+          322.0,
+          356.0
+        ],
+        [
+          325.0,
+          360.0
+        ],
+        [
+          334.0,
+          373.0
+        ],
+        [
+          337.0,
+          377.0
+        ],
+        [
+          315.0,
+          342.0
+        ],
+        [
+          336.0,
+          369.0
+        ],
+        [
+          339.0,
+          372.0
+        ],
+        [
+          335.0,
+          365.0
+        ],
+        [
+          333.0,
+          356.0
+        ],
+        [
+          329.0,
+          350.0
+        ],
+        [
+          332.0,
+          352.0
+        ],
+        [
+          349.0,
+          360.0
+        ]
+      ],
+      "accepted_target_views": [
+        "iso",
+        "rsv"
+      ],
+      "normal_corroborated_target_views": [
+        "iso",
+        "rsv"
+      ],
+      "evidence_state": "multi_view_normal_corroborated",
+      "mean_relative_depth": 0.543579,
+      "relative_depth_span": 0.306883,
+      "mean_depth_uncertainty": 0.479433,
+      "review_priority": "multi_view_supported",
+      "future_surface_fit_review_eligible": true,
+      "semantic_label": "unknown_ornamental_relief_patch",
+      "semantic_claim_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "patch_id": "ring_012_relief_component_002_patch_021",
+      "parent_component_id": "ring_012_relief_component_002",
+      "query_node_ids": [
+        "ring_012:front:q0912"
+      ],
+      "query_count": 1,
+      "source_points_xy": [
+        [
+          138.0,
+          349.0
+        ]
+      ],
+      "accepted_target_views": [
+        "lsv"
+      ],
+      "normal_corroborated_target_views": [
+        "lsv"
+      ],
+      "evidence_state": "single_view_normal_corroborated",
+      "mean_relative_depth": 0.178972,
+      "relative_depth_span": 0.0,
+      "mean_depth_uncertainty": 0.120729,
+      "review_priority": "single_view_supported",
+      "future_surface_fit_review_eligible": false,
+      "semantic_label": "unknown_ornamental_relief_patch",
+      "semantic_claim_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "patch_id": "ring_012_relief_component_002_patch_022",
+      "parent_component_id": "ring_012_relief_component_002",
+      "query_node_ids": [
+        "ring_012:front:q0586",
+        "ring_012:front:q0622",
+        "ring_012:front:q0753",
+        "ring_012:front:q0909"
+      ],
+      "query_count": 4,
+      "source_points_xy": [
+        [
+          209.0,
+          355.0
+        ],
+        [
+          193.0,
+          352.0
+        ],
+        [
+          200.0,
+          352.0
+        ],
+        [
+          187.0,
+          362.0
+        ]
+      ],
+      "accepted_target_views": [
+        "lsv"
+      ],
+      "normal_corroborated_target_views": [],
+      "evidence_state": "reciprocal_normal_unresolved",
+      "mean_relative_depth": 0.624078,
+      "relative_depth_span": 0.086777,
+      "mean_depth_uncertainty": 0.181567,
+      "review_priority": "normal_unresolved",
+      "future_surface_fit_review_eligible": false,
+      "semantic_label": "unknown_ornamental_relief_patch",
+      "semantic_claim_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "patch_id": "ring_012_relief_component_002_patch_023",
+      "parent_component_id": "ring_012_relief_component_002",
+      "query_node_ids": [
+        "ring_012:front:q0940",
+        "ring_012:front:q0668",
+        "ring_012:front:q0867",
+        "ring_012:front:q0666",
+        "ring_012:front:q1022",
+        "ring_012:front:q0215",
+        "ring_012:front:q0683",
+        "ring_012:front:q0783",
+        "ring_012:front:q0800",
+        "ring_012:front:q0852",
+        "ring_012:front:q0337",
+        "ring_012:front:q0595",
+        "ring_012:front:q0817",
+        "ring_012:front:q0803",
+        "ring_012:front:q0330",
+        "ring_012:front:q0627",
+        "ring_012:front:q0323",
+        "ring_012:front:q0936",
+        "ring_012:front:q0815",
+        "ring_012:front:q0049",
+        "ring_012:front:q0699",
+        "ring_012:front:q0996",
+        "ring_012:front:q0706",
+        "ring_012:front:q0925"
+      ],
+      "query_count": 24,
+      "source_points_xy": [
+        [
+          275.0,
+          405.0
+        ],
+        [
+          269.0,
+          394.0
+        ],
+        [
+          274.0,
+          400.0
+        ],
+        [
+          273.0,
+          396.0
+        ],
+        [
+          294.0,
+          418.0
+        ],
+        [
+          284.0,
+          390.0
+        ],
+        [
+          286.0,
+          392.0
+        ],
+        [
+          290.0,
+          394.0
+        ],
+        [
+          281.0,
+          377.0
+        ],
+        [
+          294.0,
+          395.0
+        ],
+        [
+          290.0,
+          388.0
+        ],
+        [
+          292.0,
+          390.0
+        ],
+        [
+          298.0,
+          393.0
+        ],
+        [
+          285.0,
+          372.0
+        ],
+        [
+          297.0,
+          388.0
+        ],
+        [
+          299.0,
+          389.0
+        ],
+        [
+          291.0,
+          375.0
+        ],
+        [
+          296.0,
+          376.0
+        ],
+        [
+          294.0,
+          372.0
+        ],
+        [
+          294.0,
+          371.0
+        ],
+        [
+          295.0,
+          367.0
+        ],
+        [
+          312.0,
+          388.0
+        ],
+        [
+          310.0,
+          384.0
+        ],
+        [
+          316.0,
+          387.0
+        ]
+      ],
+      "accepted_target_views": [
+        "iso",
+        "rsv"
+      ],
+      "normal_corroborated_target_views": [
+        "iso"
+      ],
+      "evidence_state": "single_view_normal_corroborated",
+      "mean_relative_depth": 0.582241,
+      "relative_depth_span": 0.190033,
+      "mean_depth_uncertainty": 0.397242,
+      "review_priority": "single_view_supported",
+      "future_surface_fit_review_eligible": true,
+      "semantic_label": "unknown_ornamental_relief_patch",
+      "semantic_claim_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "patch_id": "ring_012_relief_component_003_patch_001",
+      "parent_component_id": "ring_012_relief_component_003",
+      "query_node_ids": [
+        "ring_012:front:q0110"
+      ],
+      "query_count": 1,
+      "source_points_xy": [
+        [
+          178.0,
+          168.0
+        ]
+      ],
+      "accepted_target_views": [
+        "lsv"
+      ],
+      "normal_corroborated_target_views": [
+        "lsv"
+      ],
+      "evidence_state": "single_view_normal_corroborated",
+      "mean_relative_depth": 0.23985,
+      "relative_depth_span": 0.0,
+      "mean_depth_uncertainty": 0.757595,
+      "review_priority": "single_view_supported",
+      "future_surface_fit_review_eligible": false,
+      "semantic_label": "unknown_ornamental_relief_patch",
+      "semantic_claim_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "patch_id": "ring_012_relief_component_004_patch_001",
+      "parent_component_id": "ring_012_relief_component_004",
+      "query_node_ids": [
+        "ring_012:front:q0078",
+        "ring_012:front:q0231",
+        "ring_012:front:q0256",
+        "ring_012:front:q0478",
+        "ring_012:front:q0490",
+        "ring_012:front:q0496",
+        "ring_012:front:q0503",
+        "ring_012:front:q0516",
+        "ring_012:front:q0608",
+        "ring_012:front:q0778",
+        "ring_012:front:q0813",
+        "ring_012:front:q0951",
+        "ring_012:front:q0969",
+        "ring_012:front:q0973",
+        "ring_012:front:q1019"
+      ],
+      "query_count": 15,
+      "source_points_xy": [
+        [
+          130.0,
+          230.0
+        ],
+        [
+          129.0,
+          243.0
+        ],
+        [
+          122.0,
+          233.0
+        ],
+        [
+          116.0,
+          223.0
+        ],
+        [
+          131.0,
+          230.0
+        ],
+        [
+          118.0,
+          227.0
+        ],
+        [
+          124.0,
+          236.0
+        ],
+        [
+          116.0,
+          218.0
+        ],
+        [
+          126.0,
+          240.0
+        ],
+        [
+          133.0,
+          246.0
+        ],
+        [
+          153.0,
+          222.0
+        ],
+        [
+          146.0,
+          222.0
+        ],
+        [
+          115.0,
+          232.0
+        ],
+        [
+          142.0,
+          226.0
+        ],
+        [
+          111.0,
+          204.0
+        ]
+      ],
+      "accepted_target_views": [
+        "lsv"
+      ],
+      "normal_corroborated_target_views": [
+        "lsv"
+      ],
+      "evidence_state": "single_view_normal_corroborated",
+      "mean_relative_depth": 0.111899,
+      "relative_depth_span": 0.277972,
+      "mean_depth_uncertainty": 0.187662,
+      "review_priority": "single_view_supported",
+      "future_surface_fit_review_eligible": true,
+      "semantic_label": "unknown_ornamental_relief_patch",
+      "semantic_claim_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "patch_id": "ring_012_relief_component_004_patch_002",
+      "parent_component_id": "ring_012_relief_component_004",
+      "query_node_ids": [
+        "ring_012:front:q0515"
+      ],
+      "query_count": 1,
+      "source_points_xy": [
+        [
+          178.0,
+          233.0
+        ]
+      ],
+      "accepted_target_views": [
+        "lsv"
+      ],
+      "normal_corroborated_target_views": [
+        "lsv"
+      ],
+      "evidence_state": "single_view_normal_corroborated",
+      "mean_relative_depth": 0.26434,
+      "relative_depth_span": 0.0,
+      "mean_depth_uncertainty": 0.697093,
+      "review_priority": "single_view_supported",
+      "future_surface_fit_review_eligible": false,
+      "semantic_label": "unknown_ornamental_relief_patch",
+      "semantic_claim_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "patch_id": "ring_012_relief_component_004_patch_003",
+      "parent_component_id": "ring_012_relief_component_004",
+      "query_node_ids": [
+        "ring_012:front:q0329"
+      ],
+      "query_count": 1,
+      "source_points_xy": [
+        [
+          156.0,
+          238.0
+        ]
+      ],
+      "accepted_target_views": [
+        "lsv"
+      ],
+      "normal_corroborated_target_views": [
+        "lsv"
+      ],
+      "evidence_state": "single_view_normal_corroborated",
+      "mean_relative_depth": 0.515974,
+      "relative_depth_span": 0.0,
+      "mean_depth_uncertainty": 0.088151,
+      "review_priority": "single_view_supported",
+      "future_surface_fit_review_eligible": false,
+      "semantic_label": "unknown_ornamental_relief_patch",
+      "semantic_claim_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "patch_id": "ring_012_relief_component_004_patch_004",
+      "parent_component_id": "ring_012_relief_component_004",
+      "query_node_ids": [
+        "ring_012:front:q0498"
+      ],
+      "query_count": 1,
+      "source_points_xy": [
+        [
+          197.0,
+          238.0
+        ]
+      ],
+      "accepted_target_views": [
+        "lsv"
+      ],
+      "normal_corroborated_target_views": [],
+      "evidence_state": "reciprocal_normal_unresolved",
+      "mean_relative_depth": 0.59799,
+      "relative_depth_span": 0.0,
+      "mean_depth_uncertainty": 0.272618,
+      "review_priority": "normal_unresolved",
+      "future_surface_fit_review_eligible": false,
+      "semantic_label": "unknown_ornamental_relief_patch",
+      "semantic_claim_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "patch_id": "ring_012_relief_component_005_patch_001",
+      "parent_component_id": "ring_012_relief_component_005",
+      "query_node_ids": [
+        "ring_012:front:q0253",
+        "ring_012:front:q0520",
+        "ring_012:front:q0934"
+      ],
+      "query_count": 3,
+      "source_points_xy": [
+        [
+          236.0,
+          282.0
+        ],
+        [
+          252.0,
+          285.0
+        ],
+        [
+          256.0,
+          287.0
+        ]
+      ],
+      "accepted_target_views": [
+        "lsv"
+      ],
+      "normal_corroborated_target_views": [
+        "lsv"
+      ],
+      "evidence_state": "single_view_normal_corroborated",
+      "mean_relative_depth": 0.864215,
+      "relative_depth_span": 0.097943,
+      "mean_depth_uncertainty": 0.21855,
+      "review_priority": "single_view_supported",
+      "future_surface_fit_review_eligible": true,
+      "semantic_label": "unknown_ornamental_relief_patch",
+      "semantic_claim_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "patch_id": "ring_012_relief_component_006_patch_001",
+      "parent_component_id": "ring_012_relief_component_006",
+      "query_node_ids": [
+        "ring_012:front:q0781",
+        "ring_012:front:q0838",
+        "ring_012:front:q0850"
+      ],
+      "query_count": 3,
+      "source_points_xy": [
+        [
+          158.0,
+          306.0
+        ],
+        [
+          159.0,
+          285.0
+        ],
+        [
+          147.0,
+          284.0
+        ]
+      ],
+      "accepted_target_views": [
+        "lsv"
+      ],
+      "normal_corroborated_target_views": [
+        "lsv"
+      ],
+      "evidence_state": "single_view_normal_corroborated",
+      "mean_relative_depth": 0.515083,
+      "relative_depth_span": 0.012701,
+      "mean_depth_uncertainty": 0.392554,
+      "review_priority": "single_view_supported",
+      "future_surface_fit_review_eligible": true,
+      "semantic_label": "unknown_ornamental_relief_patch",
+      "semantic_claim_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "patch_id": "ring_012_relief_component_007_patch_001",
+      "parent_component_id": "ring_012_relief_component_007",
+      "query_node_ids": [
+        "ring_012:front:q0199",
+        "ring_012:front:q0384",
+        "ring_012:front:q0386",
+        "ring_012:front:q0423",
+        "ring_012:front:q0493",
+        "ring_012:front:q0754"
+      ],
+      "query_count": 6,
+      "source_points_xy": [
+        [
+          125.0,
+          324.0
+        ],
+        [
+          125.0,
+          321.0
+        ],
+        [
+          124.0,
+          317.0
+        ],
+        [
+          117.0,
+          316.0
+        ],
+        [
+          113.0,
+          314.0
+        ],
+        [
+          114.0,
+          320.0
+        ]
+      ],
+      "accepted_target_views": [
+        "lsv"
+      ],
+      "normal_corroborated_target_views": [
+        "lsv"
+      ],
+      "evidence_state": "single_view_normal_corroborated",
+      "mean_relative_depth": 0.129976,
+      "relative_depth_span": 0.038695,
+      "mean_depth_uncertainty": 0.117721,
+      "review_priority": "single_view_supported",
+      "future_surface_fit_review_eligible": true,
+      "semantic_label": "unknown_ornamental_relief_patch",
+      "semantic_claim_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "patch_id": "ring_012_relief_component_008_patch_001",
+      "parent_component_id": "ring_012_relief_component_008",
+      "query_node_ids": [
+        "ring_012:front:q0779",
+        "ring_012:front:q0968"
+      ],
+      "query_count": 2,
+      "source_points_xy": [
+        [
+          206.0,
+          334.0
+        ],
+        [
+          203.0,
+          337.0
+        ]
+      ],
+      "accepted_target_views": [
+        "iso"
+      ],
+      "normal_corroborated_target_views": [],
+      "evidence_state": "reciprocal_normal_unresolved",
+      "mean_relative_depth": 0.891051,
+      "relative_depth_span": 0.003357,
+      "mean_depth_uncertainty": 0.434691,
+      "review_priority": "normal_unresolved",
+      "future_surface_fit_review_eligible": false,
+      "semantic_label": "unknown_ornamental_relief_patch",
+      "semantic_claim_authorized": false,
+      "cad_fusion_authorized": false
+    }
+  ],
+  "claims": {
+    "semantic_components_validated": false,
+    "surface_geometry_validated": false,
+    "hidden_geometry_recovered": false,
+    "cad_fusion_authorized": false
+  }
+}

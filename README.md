@@ -30,7 +30,7 @@ Start with the [documentation index](docs/README.md), the
 | Image-only Phase 2 | Reflection-resilient evidence and multi-view consistency | In progress; Ring01 angled inner-shank correction proposed |
 | Phase 3 | Camera, depth, normal and geometry evidence benchmark | Partial research evidence only; exit benchmark not complete |
 | Phase 4 | Component and constraint graph | Partial; synthetic exact-CAD locality passes 30/30, while reviewed image-derived component truth remains blocked |
-| Phase 5 | Exact CAD V2 | Phase 5.7 preserves the 384-query baseline while adding 640 relief-focused queries. Phase 5.8 normal-corroborates 521/736 validation points. Phase 5.9 records visibility per view and finds only 45 supported points corroborated by two or more target views. Test stays untouched and relief is not fused into STEP |
+| Phase 5 | Exact CAD V2 | Phase 5.7–5.10 improve, corroborate, route and organize relief observations without touching test. Phase 5.11 subdivides 30 broad validation components into 83 bounded patches. Phase 5.12 turns the 40 eligible patches into finite, reversible open OBJ trials; they remain nominal-scale, semantically unknown and separate from STEP |
 | Phase 6–9 | Detail, manufacturing and pilot | Not started |
 
 ## Legacy checkpoint status

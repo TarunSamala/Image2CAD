@@ -1,0 +1,13 @@
+# Lalitha Phase 5.12 local reversible relief-surface trial
+# Nominal display units; not millimetres.
+# Open evidence surface; not a solid, STEP feature or manufacturing model.
+g ring_020_relief_component_005_patch_002
+v 0.20986456 0.00676981 -0.00358501
+v 0.19245648 0.05319151 0.01414551
+v 0.17698264 0.03771761 0.02472788
+v 0.18085104 0.02804640 0.01298319
+v 0.19052225 0.04932302 0.01363109
+f 5 2 1
+f 4 5 1
+f 2 5 3
+f 5 4 3

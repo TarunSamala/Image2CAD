@@ -219,24 +219,57 @@ target views. This prevents invisible surfaces from being forced into unrelated
 views. The graph is a routing and review layer, not physical visibility truth,
 semantic segmentation, hidden-geometry recovery or CAD authorization.
 
-1. Review the proposed prong identities and connect accepted semantic component
-   identities to the Phase 5.9 visibility regions. Image-plane fitting, rigid
+Phase 5.10 attaches the 30 validation visibility regions to stable machine
+component proposals. Every relief proposal has an exact metal/head parent,
+visibility provenance, a deterministic image-space zone and optional proximity
+links to the existing unresolved negative-space candidates. Three regions have
+multi-view normal support, 22 have single-view support and five remain
+normal-unresolved. Four regions lie near negative-space evidence. These links
+organize later review; the unlabelled STL-1 images do not prove stones, prongs,
+faces, seats or cavities, so semantic and CAD-fusion gates remain closed.
+
+Phase 5.11 subdivides broad Phase 5.10 proposals using four independent routing
+signals: image-space proximity, a shared reciprocal target view, continuity in
+repeat-regularized relative depth and prepared-edge barriers. A deterministic
+maximum-diameter split prevents transitive point chains from recreating a single
+large region. The 30 parents become 83 bounded patches while every supported
+source query is retained exactly once. Forty patches have at least three queries
+and normal support for future fitting review; 28 singleton observations remain
+explicitly unresolved. Visual review rejected an earlier 227-patch configuration
+as noisy before retaining this bounded result. The patches are not semantic
+components, physical surfaces or CAD geometry.
+
+Phase 5.12 performs the first deliberately reversible local surface trial. It
+triangulates only the 40 Phase 5.11 patches that have at least three queries and
+normal-supported reciprocal evidence. All 40 produce finite open OBJ groups:
+676 vertices and 1,018 faces across Ring 004, Ring 012 and Ring 020. Their mean
+same-view interpolation RMSE is `0.278` against the retained normalized relief
+evidence. Ring 004 is weakest at `0.392`, so no geometry is promoted. The error
+is not physical ground truth because the vertices and validation target come
+from the same retained image-depth evidence. Test remains untouched, no STEP is
+written and exact CAD is unchanged.
+
+1. Review or label the Phase 5.12 surface groups and merge/split only with
+   independent cross-view evidence. Reject rather than promote groups such as
+   the current higher-error Ring 004 trials.
+2. Review or label the Phase 5.11 patches and merge/split only with additional
+   evidence where a patch still crosses ornaments. Image-plane fitting, rigid
    ICP, sparse VGGT tracks and denser reciprocal-cycle registration have all
    been rejected for global geometry movement by the fixed held-out split.
-2. Use pairwise camera-angle diagnostics, projected-surface precision and
+3. Use pairwise camera-angle diagnostics, projected-surface precision and
    completion recall separately instead of treating IoU as camera accuracy.
-3. Improve the current signed-depth minimum from `0.529` to at least `0.700`
+4. Improve the current signed-depth minimum from `0.529` to at least `0.700`
    while raising mean IoU from `0.782` to at least `0.800`; the current method
    still fails the geometry gate.
-4. Improve fine-detail geometry beyond the Phase 5.4 depth-supported baseline,
+5. Improve fine-detail geometry beyond the Phase 5.4 depth-supported baseline,
    add independent normal corroboration and recover top-view reciprocal support
    before any OBJ evidence is converted into an exact CAD surface.
-5. Keep the implemented Depth Anything V2 plus UniDepth normal comparator as a
+6. Keep the implemented Depth Anything V2 plus UniDepth normal comparator as a
    deployability-safe uncertainty check; do not substitute DSINE without a
    separate site/commercial licence.
-6. Review the 266 enclosed negative-space proposals retained across all 120
+7. Review the 266 enclosed negative-space proposals retained across all 120
    STL-1 views; they are aperture/openwork evidence, not confirmed stones.
-7. Add labelled real-image multi-stone evidence and resolve each accepted
+8. Add labelled real-image multi-stone evidence and resolve each accepted
    stone across views before creating seat or cavity relationships.
 8. Extend the implemented normalized ring adapter to head, shoulder, gallery,
    relief and accepted component-track parameters, including uncertainty.

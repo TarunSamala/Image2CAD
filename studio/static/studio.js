@@ -222,6 +222,15 @@ function renderPhase4() {
   const visibilityGraph = phase5.visibility_graph || {};
   const visibilitySummary = visibilityGraph.summary || {};
   const visibilityChecks = visibilityGraph.checks || {};
+  const componentEvidence = phase5.component_evidence_graph || {};
+  const componentEvidenceSummary = componentEvidence.summary || {};
+  const componentEvidenceChecks = componentEvidence.checks || {};
+  const reliefSubdivision = phase5.relief_subdivision || {};
+  const reliefSubdivisionSummary = reliefSubdivision.summary || {};
+  const reliefSubdivisionChecks = reliefSubdivision.checks || {};
+  const localReliefSurfaces = phase5.local_relief_surfaces || {};
+  const localReliefSummary = localReliefSurfaces.summary || {};
+  const localReliefChecks = localReliefSurfaces.checks || {};
   const checks = report.checks || {};
   const instances = report.prong_instances || {};
   const instanceSummary = instances.summary || {};
@@ -250,6 +259,9 @@ function renderPhase4() {
     <div class="key-value"><span>Frozen hybrid validation gate</span><strong class="${denseValidationChecks.baseline_acceptance_gate_preserved && denseValidationSummary.all_objects_improve_supported_spatial_coverage ? "warning" : "bad"}">${denseReliefValidation.object_count ?? "—"} / 3 validation rings</strong><small>Mean supported-area delta ${score(denseValidationSummary.mean_supported_spatial_coverage_delta, 3)} · every validation ring improved · test still held out · top-view support remains weak · CAD fusion blocked</small></div>
     <div class="key-value"><span>Independent normal corroboration</span><strong class="${normalCorroborationChecks.phase5_7_supported_counts_reproduced ? "warning" : "bad"}">${normalCorroborationSummary.normal_corroborated_count ?? "—"} / ${normalCorroborationSummary.phase5_7_supported_count ?? "—"}</strong><small>${score(normalCorroborationSummary.normal_corroborated_fraction, 3)} corroborated · ${normalCorroborationSummary.normal_unresolved_count ?? "—"} unresolved · Metric3D depth excluded from comparator · ${normalCorroborationSummary.top_target_accepted_count ?? "—"} front-to-top track · CAD fusion blocked</small></div>
     <div class="key-value"><span>Visibility-aware relief graph</span><strong class="${visibilityChecks.phase5_8_normal_counts_reproduced ? "warning" : "bad"}">${visibilitySummary.query_class_counts?.multi_view_normal_corroborated ?? "—"} multi-view points</strong><small>${visibilitySummary.surface_region_count ?? "—"} observable image-space regions · ${visibilitySummary.normal_corroborated_query_count ?? "—"} normal-corroborated points total · validation only · CAD fusion blocked</small></div>
+    <div class="key-value"><span>Stable relief-component proposals</span><strong class="${componentEvidenceChecks.phase5_9_visibility_regions_reproduced ? "warning" : "bad"}">${componentEvidenceSummary.relief_component_count ?? "—"} components</strong><small>${componentEvidenceSummary.multi_view_component_count ?? "—"} multi-view · ${componentEvidenceSummary.single_view_component_count ?? "—"} single-view · ${componentEvidenceSummary.normal_unresolved_component_count ?? "—"} normal-unresolved · semantics unknown · CAD fusion blocked</small></div>
+    <div class="key-value"><span>Edge-depth-view relief subdivision</span><strong class="${reliefSubdivisionChecks.all_source_queries_partitioned_exactly_once ? "warning" : "bad"}">${reliefSubdivisionSummary.patch_count ?? "—"} patches</strong><small>${reliefSubdivisionSummary.fit_review_eligible_patch_count ?? "—"} future-fit review eligible · ${reliefSubdivisionSummary.singleton_patch_count ?? "—"} unresolved singletons retained · semantic and CAD claims blocked</small></div>
+    <div class="key-value"><span>Reversible local relief surfaces</span><strong class="${localReliefChecks.all_generated_geometry_finite ? "warning" : "bad"}">${localReliefSummary.generated_mesh_count ?? "—"} / ${localReliefSummary.eligible_patch_count ?? "—"}</strong><small>${localReliefSummary.face_count ?? "—"} open OBJ faces · same-view RMSE ${score(localReliefSummary.mean_dense_relief_rmse, 3)} · nominal scale · CAD fusion blocked</small></div>
     <div class="key-value"><span>Individual prong proposals</span><strong class="warning">${instanceSummary.resolved_instance_view_count ?? "—"} / ${instanceSummary.view_count ?? 5} views</strong><small>Front · top · angled resolved; side/back retain overlap groups</small></div>
     <div class="key-value"><span>VGGT identity support</span><strong class="good">Top strong · angled moderate</strong><small>Permutation margins ${score(topTrack.permutation_margin_fraction, 3)} / ${score(angledTrack.permutation_margin_fraction, 3)} · non-metric machine evidence</small></div>
     <div class="key-value"><span>STL-1 enclosed candidates</span><strong>${datasetCandidates.candidate_count ?? "—"}</strong><small>${datasetCandidates.object_count ?? "—"} objects · ${datasetCandidates.view_count ?? "—"} views · negative space only</small></div>

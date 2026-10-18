@@ -428,6 +428,12 @@ class DatasetStudioServiceTest(unittest.TestCase):
             ]
         )
         self.assertFalse(normal_corroboration["claims"]["cad_fusion_authorized"])
+        local_relief = summary["phase5"]["local_relief_surfaces"]
+        self.assertEqual(local_relief["summary"]["eligible_patch_count"], 40)
+        self.assertEqual(local_relief["summary"]["generated_mesh_count"], 40)
+        self.assertTrue(local_relief["checks"]["all_generated_geometry_finite"])
+        self.assertTrue(local_relief["checks"]["test_objects_not_processed"])
+        self.assertFalse(local_relief["claims"]["cad_fusion_authorized"])
         self.assertFalse(phase4["checks"]["phase4_exit_gate_passed"])
         self.assertTrue(phase4["checks"]["partial_ring01_prong_instances_available"])
         self.assertEqual(
@@ -1298,6 +1304,73 @@ class DatasetStudioApiTest(unittest.TestCase):
             phase5_ring004_visibility.mimetype, "application/json"
         )
         phase5_ring004_visibility.close()
+        phase5_component_audit = self.client.get(
+            "/api/artifacts/phase5_component_evidence_audit"
+        )
+        self.assertEqual(phase5_component_audit.status_code, 200)
+        self.assertEqual(phase5_component_audit.mimetype, "image/png")
+        phase5_component_audit.close()
+        phase5_component_report = self.client.get(
+            "/api/artifacts/phase5_component_evidence_report"
+        )
+        self.assertEqual(phase5_component_report.status_code, 200)
+        self.assertEqual(phase5_component_report.mimetype, "application/json")
+        phase5_component_report.close()
+        phase5_ring004_component = self.client.get(
+            "/api/artifacts/phase5_ring004_component_evidence_graph"
+        )
+        self.assertEqual(phase5_ring004_component.status_code, 200)
+        self.assertEqual(phase5_ring004_component.mimetype, "application/json")
+        phase5_ring004_component.close()
+        phase5_subdivision_audit = self.client.get(
+            "/api/artifacts/phase5_relief_subdivision_audit"
+        )
+        self.assertEqual(phase5_subdivision_audit.status_code, 200)
+        self.assertEqual(phase5_subdivision_audit.mimetype, "image/png")
+        phase5_subdivision_audit.close()
+        phase5_subdivision_report = self.client.get(
+            "/api/artifacts/phase5_relief_subdivision_report"
+        )
+        self.assertEqual(phase5_subdivision_report.status_code, 200)
+        self.assertEqual(phase5_subdivision_report.mimetype, "application/json")
+        phase5_subdivision_report.close()
+        phase5_ring004_subdivision = self.client.get(
+            "/api/artifacts/phase5_ring004_relief_subdivision"
+        )
+        self.assertEqual(phase5_ring004_subdivision.status_code, 200)
+        self.assertEqual(
+            phase5_ring004_subdivision.mimetype, "application/json"
+        )
+        phase5_ring004_subdivision.close()
+        phase5_local_surface_audit = self.client.get(
+            "/api/artifacts/phase5_local_relief_surface_audit"
+        )
+        self.assertEqual(phase5_local_surface_audit.status_code, 200)
+        self.assertEqual(phase5_local_surface_audit.mimetype, "image/png")
+        phase5_local_surface_audit.close()
+        phase5_local_surface_report = self.client.get(
+            "/api/artifacts/phase5_local_relief_surface_report"
+        )
+        self.assertEqual(phase5_local_surface_report.status_code, 200)
+        self.assertEqual(
+            phase5_local_surface_report.mimetype, "application/json"
+        )
+        phase5_local_surface_report.close()
+        phase5_local_surface_obj = self.client.get(
+            "/api/artifacts/phase5_ring004_local_relief_obj"
+        )
+        self.assertEqual(phase5_local_surface_obj.status_code, 200)
+        self.assertIn(
+            phase5_local_surface_obj.mimetype,
+            {"model/obj", "text/plain", "application/octet-stream"},
+        )
+        phase5_local_surface_obj.close()
+        phase5_local_surface_preview = self.client.get(
+            "/api/artifacts/phase5_ring004_local_relief_preview"
+        )
+        self.assertEqual(phase5_local_surface_preview.status_code, 200)
+        self.assertEqual(phase5_local_surface_preview.mimetype, "image/png")
+        phase5_local_surface_preview.close()
         for artifact in (
             "phase5_ring004_validation_normals",
             "phase5_ring012_validation_normals",

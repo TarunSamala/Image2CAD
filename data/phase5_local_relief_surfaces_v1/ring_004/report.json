@@ -1,0 +1,791 @@
+{
+  "schema_version": "lalitha_phase5_local_relief_surfaces_object_v1",
+  "object_id": "ring_004",
+  "split": "val",
+  "eligible_patch_count": 6,
+  "generated_mesh_count": 6,
+  "trials": [
+    {
+      "patch_id": "ring_004_relief_component_001_patch_001",
+      "parent_component_id": "ring_004_relief_component_001",
+      "query_count": 3,
+      "source_points_xy_image": [
+        [
+          145.38900756835938,
+          281.8760070800781
+        ],
+        [
+          140.93800354003906,
+          286.3269958496094
+        ],
+        [
+          146.8719940185547,
+          267.0409851074219
+        ]
+      ],
+      "faces": [
+        [
+          2,
+          0,
+          1
+        ]
+      ],
+      "vertex_count": 3,
+      "face_count": 1,
+      "mesh_generated": true,
+      "topology": "open_surface_not_solid",
+      "nominal_relief_amplitude": 0.025,
+      "projected_pixel_count": 30,
+      "dense_relief_mean_absolute_error": 0.403934,
+      "dense_relief_rmse": 0.493399,
+      "mean_phase5_4_confidence": 0.125883,
+      "minimum_triangle_area_pixels2": 29.712751,
+      "finite_geometry": true,
+      "source_evidence_state": "single_view_normal_corroborated",
+      "semantic_label": "unknown_local_relief_surface_trial",
+      "semantic_claim_authorized": false,
+      "cad_fusion_authorized": false,
+      "artifact": {
+        "obj": "data/phase5_local_relief_surfaces_v1/ring_004/patches/ring_004_relief_component_001_patch_001.obj",
+        "sha256": "dbb7600d7110656ea6ad18a3499c53a4fedfe0afbce830a08f498e5112ba6e41"
+      }
+    },
+    {
+      "patch_id": "ring_004_relief_component_002_patch_001",
+      "parent_component_id": "ring_004_relief_component_002",
+      "query_count": 29,
+      "source_points_xy_image": [
+        [
+          597.8740234375,
+          283.3599853515625
+        ],
+        [
+          492.5419921875,
+          283.3599853515625
+        ],
+        [
+          578.5880126953125,
+          301.1619873046875
+        ],
+        [
+          548.9169921875,
+          283.3599853515625
+        ],
+        [
+          491.0580139160156,
+          301.1619873046875
+        ],
+        [
+          508.8609924316406,
+          292.260986328125
+        ],
+        [
+          502.9259948730469,
+          290.77801513671875
+        ],
+        [
+          511.8280029296875,
+          272.9750061035156
+        ],
+        [
+          593.4240112304688,
+          318.9649963378906
+        ],
+        [
+          611.2260131835938,
+          324.89898681640625
+        ],
+        [
+          499.9590148925781,
+          310.0639953613281
+        ],
+        [
+          519.2459716796875,
+          277.4259948730469
+        ],
+        [
+          535.5650024414062,
+          290.77801513671875
+        ],
+        [
+          608.2589721679688,
+          287.80999755859375
+        ],
+        [
+          615.677001953125,
+          329.3500061035156
+        ],
+        [
+          526.6630249023438,
+          301.1619873046875
+        ],
+        [
+          517.7620239257812,
+          298.19500732421875
+        ],
+        [
+          507.37701416015625,
+          313.031005859375
+        ],
+        [
+          553.3679809570312,
+          290.77801513671875
+        ],
+        [
+          597.8740234375,
+          280.39300537109375
+        ],
+        [
+          489.5740051269531,
+          307.09698486328125
+        ],
+        [
+          617.1599731445312,
+          315.99798583984375
+        ],
+        [
+          617.1599731445312,
+          335.28399658203125
+        ],
+        [
+          618.6439819335938,
+          321.9320068359375
+        ],
+        [
+          548.9169921875,
+          281.8760070800781
+        ],
+        [
+          544.4660034179688,
+          301.1619873046875
+        ],
+        [
+          489.5740051269531,
+          295.2279968261719
+        ],
+        [
+          513.3109741210938,
+          314.5140075683594
+        ],
+        [
+          577.10400390625,
+          305.6130065917969
+        ]
+      ],
+      "faces": [
+        [
+          9,
+          21,
+          23
+        ],
+        [
+          19,
+          24,
+          7
+        ],
+        [
+          18,
+          28,
+          25
+        ],
+        [
+          12,
+          18,
+          25
+        ],
+        [
+          19,
+          18,
+          24
+        ],
+        [
+          27,
+          8,
+          22
+        ],
+        [
+          8,
+          9,
+          22
+        ],
+        [
+          28,
+          8,
+          25
+        ],
+        [
+          8,
+          27,
+          25
+        ],
+        [
+          9,
+          8,
+          21
+        ],
+        [
+          21,
+          8,
+          13
+        ],
+        [
+          6,
+          1,
+          7
+        ],
+        [
+          5,
+          6,
+          7
+        ],
+        [
+          4,
+          10,
+          20
+        ],
+        [
+          6,
+          10,
+          4
+        ],
+        [
+          10,
+          6,
+          5
+        ],
+        [
+          22,
+          14,
+          23
+        ],
+        [
+          14,
+          9,
+          23
+        ],
+        [
+          9,
+          14,
+          22
+        ],
+        [
+          0,
+          19,
+          13
+        ],
+        [
+          15,
+          12,
+          25
+        ],
+        [
+          12,
+          15,
+          16
+        ],
+        [
+          27,
+          15,
+          25
+        ],
+        [
+          15,
+          27,
+          16
+        ],
+        [
+          11,
+          12,
+          16
+        ],
+        [
+          11,
+          5,
+          7
+        ],
+        [
+          5,
+          11,
+          16
+        ],
+        [
+          24,
+          11,
+          7
+        ],
+        [
+          12,
+          11,
+          24
+        ],
+        [
+          3,
+          12,
+          24
+        ],
+        [
+          18,
+          3,
+          24
+        ],
+        [
+          3,
+          18,
+          12
+        ],
+        [
+          6,
+          26,
+          1
+        ],
+        [
+          26,
+          6,
+          4
+        ],
+        [
+          26,
+          4,
+          20
+        ],
+        [
+          10,
+          17,
+          20
+        ],
+        [
+          27,
+          17,
+          16
+        ],
+        [
+          17,
+          5,
+          16
+        ],
+        [
+          17,
+          10,
+          5
+        ],
+        [
+          2,
+          18,
+          19
+        ],
+        [
+          0,
+          2,
+          19
+        ],
+        [
+          18,
+          2,
+          28
+        ],
+        [
+          2,
+          8,
+          28
+        ],
+        [
+          8,
+          2,
+          13
+        ],
+        [
+          2,
+          0,
+          13
+        ]
+      ],
+      "vertex_count": 29,
+      "face_count": 45,
+      "mesh_generated": true,
+      "topology": "open_surface_not_solid",
+      "nominal_relief_amplitude": 0.025,
+      "projected_pixel_count": 5472,
+      "dense_relief_mean_absolute_error": 0.374215,
+      "dense_relief_rmse": 0.448155,
+      "mean_phase5_4_confidence": 0.039172,
+      "minimum_triangle_area_pixels2": 3.301409,
+      "finite_geometry": true,
+      "source_evidence_state": "single_view_normal_corroborated",
+      "semantic_label": "unknown_local_relief_surface_trial",
+      "semantic_claim_authorized": false,
+      "cad_fusion_authorized": false,
+      "artifact": {
+        "obj": "data/phase5_local_relief_surfaces_v1/ring_004/patches/ring_004_relief_component_002_patch_001.obj",
+        "sha256": "64eea4bf51d105c2618cdd6ff411500ee86754a66558057c6493ec6ea5fd2cb8"
+      }
+    },
+    {
+      "patch_id": "ring_004_relief_component_002_patch_002",
+      "parent_component_id": "ring_004_relief_component_002",
+      "query_count": 5,
+      "source_points_xy_image": [
+        [
+          583.0390014648438,
+          359.02099609375
+        ],
+        [
+          599.3579711914062,
+          361.9880065917969
+        ],
+        [
+          577.10400390625,
+          375.3399963378906
+        ],
+        [
+          588.9730224609375,
+          367.9230041503906
+        ],
+        [
+          620.1279907226562,
+          372.37298583984375
+        ]
+      ],
+      "faces": [
+        [
+          3,
+          4,
+          2
+        ],
+        [
+          0,
+          3,
+          2
+        ],
+        [
+          3,
+          1,
+          4
+        ],
+        [
+          1,
+          3,
+          0
+        ]
+      ],
+      "vertex_count": 5,
+      "face_count": 4,
+      "mesh_generated": true,
+      "topology": "open_surface_not_solid",
+      "nominal_relief_amplitude": 0.025,
+      "projected_pixel_count": 398,
+      "dense_relief_mean_absolute_error": 0.33454,
+      "dense_relief_rmse": 0.382495,
+      "mean_phase5_4_confidence": 0.03162,
+      "minimum_triangle_area_pixels2": 63.827602,
+      "finite_geometry": true,
+      "source_evidence_state": "single_view_normal_corroborated",
+      "semantic_label": "unknown_local_relief_surface_trial",
+      "semantic_claim_authorized": false,
+      "cad_fusion_authorized": false,
+      "artifact": {
+        "obj": "data/phase5_local_relief_surfaces_v1/ring_004/patches/ring_004_relief_component_002_patch_002.obj",
+        "sha256": "44ee92952cdf85d0af3ee56d9cebbd01627a4029f1754dec5346124d9e50c016"
+      }
+    },
+    {
+      "patch_id": "ring_004_relief_component_002_patch_003",
+      "parent_component_id": "ring_004_relief_component_002",
+      "query_count": 11,
+      "source_points_xy_image": [
+        [
+          535.5650024414062,
+          474.739013671875
+        ],
+        [
+          562.2689819335938,
+          442.10101318359375
+        ],
+        [
+          544.4660034179688,
+          418.364013671875
+        ],
+        [
+          554.8510131835938,
+          455.4530029296875
+        ],
+        [
+          494.0249938964844,
+          390.1759948730469
+        ],
+        [
+          544.4660034179688,
+          433.1990051269531
+        ],
+        [
+          514.7949829101562,
+          448.0350036621094
+        ],
+        [
+          491.0580139160156,
+          382.75799560546875
+        ],
+        [
+          514.7949829101562,
+          399.0769958496094
+        ],
+        [
+          528.14697265625,
+          428.7489929199219
+        ],
+        [
+          538.531982421875,
+          419.84698486328125
+        ]
+      ],
+      "faces": [
+        [
+          6,
+          3,
+          0
+        ],
+        [
+          2,
+          8,
+          7
+        ],
+        [
+          6,
+          8,
+          9
+        ],
+        [
+          8,
+          10,
+          9
+        ],
+        [
+          10,
+          8,
+          2
+        ],
+        [
+          3,
+          5,
+          1
+        ],
+        [
+          10,
+          5,
+          9
+        ],
+        [
+          5,
+          6,
+          9
+        ],
+        [
+          5,
+          3,
+          6
+        ],
+        [
+          5,
+          2,
+          1
+        ],
+        [
+          5,
+          10,
+          2
+        ],
+        [
+          4,
+          6,
+          7
+        ],
+        [
+          8,
+          4,
+          7
+        ],
+        [
+          4,
+          8,
+          6
+        ]
+      ],
+      "vertex_count": 11,
+      "face_count": 14,
+      "mesh_generated": true,
+      "topology": "open_surface_not_solid",
+      "nominal_relief_amplitude": 0.025,
+      "projected_pixel_count": 2410,
+      "dense_relief_mean_absolute_error": 0.228444,
+      "dense_relief_rmse": 0.288299,
+      "mean_phase5_4_confidence": 0.035156,
+      "minimum_triangle_area_pixels2": 8.80394,
+      "finite_geometry": true,
+      "source_evidence_state": "single_view_normal_corroborated",
+      "semantic_label": "unknown_local_relief_surface_trial",
+      "semantic_claim_authorized": false,
+      "cad_fusion_authorized": false,
+      "artifact": {
+        "obj": "data/phase5_local_relief_surfaces_v1/ring_004/patches/ring_004_relief_component_002_patch_003.obj",
+        "sha256": "dfe264482354aa43abe71a4205608b6ecc245c2ca3ec4e3fa4def47a106eff3a"
+      }
+    },
+    {
+      "patch_id": "ring_004_relief_component_002_patch_004",
+      "parent_component_id": "ring_004_relief_component_002",
+      "query_count": 7,
+      "source_points_xy_image": [
+        [
+          594.906982421875,
+          445.0679931640625
+        ],
+        [
+          634.9630126953125,
+          396.1099853515625
+        ],
+        [
+          624.5780029296875,
+          425.781005859375
+        ],
+        [
+          630.5130004882812,
+          422.8139953613281
+        ],
+        [
+          642.3809814453125,
+          455.4530029296875
+        ],
+        [
+          626.06201171875,
+          434.6830139160156
+        ],
+        [
+          634.9630126953125,
+          388.6919860839844
+        ]
+      ],
+      "faces": [
+        [
+          5,
+          4,
+          0
+        ],
+        [
+          2,
+          5,
+          0
+        ],
+        [
+          5,
+          3,
+          4
+        ],
+        [
+          3,
+          5,
+          2
+        ],
+        [
+          1,
+          3,
+          2
+        ],
+        [
+          6,
+          1,
+          0
+        ],
+        [
+          1,
+          2,
+          0
+        ],
+        [
+          1,
+          6,
+          4
+        ],
+        [
+          3,
+          1,
+          4
+        ]
+      ],
+      "vertex_count": 7,
+      "face_count": 9,
+      "mesh_generated": true,
+      "topology": "open_surface_not_solid",
+      "nominal_relief_amplitude": 0.025,
+      "projected_pixel_count": 1543,
+      "dense_relief_mean_absolute_error": 0.476109,
+      "dense_relief_rmse": 0.610269,
+      "mean_phase5_4_confidence": 0.034943,
+      "minimum_triangle_area_pixels2": 27.511885,
+      "finite_geometry": true,
+      "source_evidence_state": "multi_view_normal_corroborated",
+      "semantic_label": "unknown_local_relief_surface_trial",
+      "semantic_claim_authorized": false,
+      "cad_fusion_authorized": false,
+      "artifact": {
+        "obj": "data/phase5_local_relief_surfaces_v1/ring_004/patches/ring_004_relief_component_002_patch_004.obj",
+        "sha256": "f1353527de3d31b2dc7cf115d9e2409b9a776fe218d3d50e20eef77bb247f694"
+      }
+    },
+    {
+      "patch_id": "ring_004_relief_component_003_patch_001",
+      "parent_component_id": "ring_004_relief_component_003",
+      "query_count": 3,
+      "source_points_xy_image": [
+        [
+          397.593994140625,
+          287.80999755859375
+        ],
+        [
+          399.0769958496094,
+          281.8760070800781
+        ],
+        [
+          391.6600036621094,
+          278.90899658203125
+        ]
+      ],
+      "faces": [
+        [
+          1,
+          0,
+          2
+        ]
+      ],
+      "vertex_count": 3,
+      "face_count": 1,
+      "mesh_generated": true,
+      "topology": "open_surface_not_solid",
+      "nominal_relief_amplitude": 0.025,
+      "projected_pixel_count": 23,
+      "dense_relief_mean_absolute_error": 0.092654,
+      "dense_relief_rmse": 0.130051,
+      "mean_phase5_4_confidence": 0.048975,
+      "minimum_triangle_area_pixels2": 24.210386,
+      "finite_geometry": true,
+      "source_evidence_state": "single_view_normal_corroborated",
+      "semantic_label": "unknown_local_relief_surface_trial",
+      "semantic_claim_authorized": false,
+      "cad_fusion_authorized": false,
+      "artifact": {
+        "obj": "data/phase5_local_relief_surfaces_v1/ring_004/patches/ring_004_relief_component_003_patch_001.obj",
+        "sha256": "e46941382e434ba4d7e2041c746cde4aeffa88af9138870eb192bd5bb4a0183b"
+      }
+    }
+  ],
+  "claims": {
+    "same_view_interpolation_accuracy_only": true,
+    "physical_relief_accuracy_validated": false,
+    "semantic_accuracy_validated": false,
+    "cad_fusion_authorized": false
+  },
+  "artifacts": {
+    "combined_obj": "data/phase5_local_relief_surfaces_v1/ring_004/ring_004_local_relief_trials.obj",
+    "combined_obj_sha256": "639e641f337545c22daa60925725f4cb6549066f9b883119fceaa08e9cfb4f45",
+    "combined_preview": "data/phase5_local_relief_surfaces_v1/ring_004/ring_004_local_relief_trials_preview.png",
+    "audit": "data/phase5_local_relief_surfaces_v1/ring_004/local_relief_surface_audit.png"
+  }
+}

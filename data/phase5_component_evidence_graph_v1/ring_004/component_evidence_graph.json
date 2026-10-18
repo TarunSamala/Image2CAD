@@ -1,0 +1,1085 @@
+{
+  "schema_version": "lalitha_phase5_component_evidence_graph_object_v1",
+  "object_id": "ring_004",
+  "split": "val",
+  "scope": {
+    "source_view": "front",
+    "negative_space_link_distance_pixels": 20.0
+  },
+  "nodes": [
+    {
+      "component_id": "ring_004_metal_body_001",
+      "component_type": "exact_metal_body_candidate",
+      "provenance": "phase5_1_exact_ring_body_plus_phase5_2_head_support",
+      "review_state": "machine_proposed",
+      "semantic_state": "structural_role_known_image_fit_unapproved"
+    },
+    {
+      "component_id": "ring_004_head_support_001",
+      "component_type": "exact_head_support_candidate",
+      "provenance": "phase5_2_two_view_outer_envelope",
+      "review_state": "machine_proposed",
+      "semantic_state": "outer_envelope_only"
+    },
+    {
+      "component_id": "ring_004_upper_head_zone_001",
+      "component_type": "spatial_head_zone",
+      "spatial_zone": "upper_head",
+      "provenance": "deterministic_front_silhouette_partition",
+      "review_state": "machine_proposed",
+      "semantic_state": "location_only_not_jewellery_semantics"
+    },
+    {
+      "component_id": "ring_004_left_head_zone_001",
+      "component_type": "spatial_head_zone",
+      "spatial_zone": "left_head",
+      "provenance": "deterministic_front_silhouette_partition",
+      "review_state": "machine_proposed",
+      "semantic_state": "location_only_not_jewellery_semantics"
+    },
+    {
+      "component_id": "ring_004_central_head_zone_001",
+      "component_type": "spatial_head_zone",
+      "spatial_zone": "central_head",
+      "provenance": "deterministic_front_silhouette_partition",
+      "review_state": "machine_proposed",
+      "semantic_state": "location_only_not_jewellery_semantics"
+    },
+    {
+      "component_id": "ring_004_right_head_zone_001",
+      "component_type": "spatial_head_zone",
+      "spatial_zone": "right_head",
+      "provenance": "deterministic_front_silhouette_partition",
+      "review_state": "machine_proposed",
+      "semantic_state": "location_only_not_jewellery_semantics"
+    },
+    {
+      "component_id": "ring_004_lower_head_zone_001",
+      "component_type": "spatial_head_zone",
+      "spatial_zone": "lower_head",
+      "provenance": "deterministic_front_silhouette_partition",
+      "review_state": "machine_proposed",
+      "semantic_state": "location_only_not_jewellery_semantics"
+    },
+    {
+      "component_id": "ring_004_front_negative_space_001",
+      "component_type": "negative_space_candidate",
+      "candidate_subtype": "circular_aperture",
+      "provenance": "phase4_enclosed_negative_space",
+      "review_state": "pending",
+      "semantic_state": "observable_geometry_semantics_unresolved",
+      "is_confirmed_stone": false
+    },
+    {
+      "component_id": "ring_004_front_negative_space_002",
+      "component_type": "negative_space_candidate",
+      "candidate_subtype": "circular_aperture",
+      "provenance": "phase4_enclosed_negative_space",
+      "review_state": "pending",
+      "semantic_state": "observable_geometry_semantics_unresolved",
+      "is_confirmed_stone": false
+    },
+    {
+      "component_id": "ring_004_front_negative_space_003",
+      "component_type": "negative_space_candidate",
+      "candidate_subtype": "circular_aperture",
+      "provenance": "phase4_enclosed_negative_space",
+      "review_state": "pending",
+      "semantic_state": "observable_geometry_semantics_unresolved",
+      "is_confirmed_stone": false
+    },
+    {
+      "component_id": "ring_004_front_negative_space_004",
+      "component_type": "negative_space_candidate",
+      "candidate_subtype": "circular_aperture",
+      "provenance": "phase4_enclosed_negative_space",
+      "review_state": "pending",
+      "semantic_state": "observable_geometry_semantics_unresolved",
+      "is_confirmed_stone": false
+    },
+    {
+      "component_id": "ring_004_front_negative_space_005",
+      "component_type": "negative_space_candidate",
+      "candidate_subtype": "circular_aperture",
+      "provenance": "phase4_enclosed_negative_space",
+      "review_state": "pending",
+      "semantic_state": "observable_geometry_semantics_unresolved",
+      "is_confirmed_stone": false
+    },
+    {
+      "component_id": "ring_004_front_negative_space_006",
+      "component_type": "negative_space_candidate",
+      "candidate_subtype": "circular_aperture",
+      "provenance": "phase4_enclosed_negative_space",
+      "review_state": "pending",
+      "semantic_state": "observable_geometry_semantics_unresolved",
+      "is_confirmed_stone": false
+    },
+    {
+      "component_id": "ring_004_front_negative_space_007",
+      "component_type": "negative_space_candidate",
+      "candidate_subtype": "circular_aperture",
+      "provenance": "phase4_enclosed_negative_space",
+      "review_state": "pending",
+      "semantic_state": "observable_geometry_semantics_unresolved",
+      "is_confirmed_stone": false
+    },
+    {
+      "component_id": "ring_004_front_negative_space_008",
+      "component_type": "negative_space_candidate",
+      "candidate_subtype": "circular_aperture",
+      "provenance": "phase4_enclosed_negative_space",
+      "review_state": "pending",
+      "semantic_state": "observable_geometry_semantics_unresolved",
+      "is_confirmed_stone": false
+    },
+    {
+      "component_id": "ring_004_front_negative_space_009",
+      "component_type": "negative_space_candidate",
+      "candidate_subtype": "circular_aperture",
+      "provenance": "phase4_enclosed_negative_space",
+      "review_state": "pending",
+      "semantic_state": "observable_geometry_semantics_unresolved",
+      "is_confirmed_stone": false
+    },
+    {
+      "component_id": "ring_004_front_negative_space_010",
+      "component_type": "negative_space_candidate",
+      "candidate_subtype": "circular_aperture",
+      "provenance": "phase4_enclosed_negative_space",
+      "review_state": "pending",
+      "semantic_state": "observable_geometry_semantics_unresolved",
+      "is_confirmed_stone": false
+    },
+    {
+      "component_id": "ring_004_front_negative_space_011",
+      "component_type": "negative_space_candidate",
+      "candidate_subtype": "circular_aperture",
+      "provenance": "phase4_enclosed_negative_space",
+      "review_state": "pending",
+      "semantic_state": "observable_geometry_semantics_unresolved",
+      "is_confirmed_stone": false
+    },
+    {
+      "component_id": "ring_004_front_negative_space_012",
+      "component_type": "negative_space_candidate",
+      "candidate_subtype": "circular_aperture",
+      "provenance": "phase4_enclosed_negative_space",
+      "review_state": "pending",
+      "semantic_state": "observable_geometry_semantics_unresolved",
+      "is_confirmed_stone": false
+    },
+    {
+      "component_id": "ring_004_front_negative_space_013",
+      "component_type": "negative_space_candidate",
+      "candidate_subtype": "circular_aperture",
+      "provenance": "phase4_enclosed_negative_space",
+      "review_state": "pending",
+      "semantic_state": "observable_geometry_semantics_unresolved",
+      "is_confirmed_stone": false
+    },
+    {
+      "component_id": "ring_004_front_negative_space_014",
+      "component_type": "negative_space_candidate",
+      "candidate_subtype": "circular_aperture",
+      "provenance": "phase4_enclosed_negative_space",
+      "review_state": "pending",
+      "semantic_state": "observable_geometry_semantics_unresolved",
+      "is_confirmed_stone": false
+    },
+    {
+      "component_id": "ring_004_relief_component_001",
+      "component_type": "ornamental_relief_region_candidate",
+      "source_visibility_region_id": "front_region_001",
+      "source_bbox_xyxy": [
+        95.0,
+        180.0,
+        99.0,
+        193.0
+      ],
+      "query_node_ids": [
+        "ring_004:front:q0404",
+        "ring_004:front:q0758",
+        "ring_004:front:q1008"
+      ],
+      "query_count": 3,
+      "primary_spatial_zone": "upper_head",
+      "spatial_zone_counts": {
+        "upper_head": 3,
+        "left_head": 0,
+        "central_head": 0,
+        "right_head": 0,
+        "lower_head": 0
+      },
+      "accepted_target_views": [
+        "lsv"
+      ],
+      "normal_corroborated_target_views": [
+        "lsv"
+      ],
+      "evidence_state": "single_view_normal_corroborated",
+      "adjacent_negative_space_ids": [],
+      "negative_space_distances": [],
+      "review_state": "machine_proposed",
+      "semantic_label": "unknown_ornamental_relief",
+      "semantic_claim_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "component_id": "ring_004_relief_component_002",
+      "component_type": "ornamental_relief_region_candidate",
+      "source_visibility_region_id": "front_region_002",
+      "source_bbox_xyxy": [
+        330.0,
+        184.0,
+        433.0,
+        321.0
+      ],
+      "query_node_ids": [
+        "ring_004:front:q0066",
+        "ring_004:front:q0239",
+        "ring_004:front:q0322",
+        "ring_004:front:q0356",
+        "ring_004:front:q0379",
+        "ring_004:front:q0400",
+        "ring_004:front:q0406",
+        "ring_004:front:q0415",
+        "ring_004:front:q0437",
+        "ring_004:front:q0457",
+        "ring_004:front:q0466",
+        "ring_004:front:q0468",
+        "ring_004:front:q0477",
+        "ring_004:front:q0495",
+        "ring_004:front:q0499",
+        "ring_004:front:q0508",
+        "ring_004:front:q0518",
+        "ring_004:front:q0529",
+        "ring_004:front:q0534",
+        "ring_004:front:q0559",
+        "ring_004:front:q0575",
+        "ring_004:front:q0587",
+        "ring_004:front:q0590",
+        "ring_004:front:q0591",
+        "ring_004:front:q0596",
+        "ring_004:front:q0597",
+        "ring_004:front:q0600",
+        "ring_004:front:q0602",
+        "ring_004:front:q0649",
+        "ring_004:front:q0656",
+        "ring_004:front:q0658",
+        "ring_004:front:q0673",
+        "ring_004:front:q0674",
+        "ring_004:front:q0688",
+        "ring_004:front:q0691",
+        "ring_004:front:q0693",
+        "ring_004:front:q0703",
+        "ring_004:front:q0730",
+        "ring_004:front:q0780",
+        "ring_004:front:q0782",
+        "ring_004:front:q0797",
+        "ring_004:front:q0816",
+        "ring_004:front:q0825",
+        "ring_004:front:q0832",
+        "ring_004:front:q0837",
+        "ring_004:front:q0841",
+        "ring_004:front:q0862",
+        "ring_004:front:q0880",
+        "ring_004:front:q0918",
+        "ring_004:front:q0923",
+        "ring_004:front:q0948",
+        "ring_004:front:q0957",
+        "ring_004:front:q0977",
+        "ring_004:front:q0989"
+      ],
+      "query_count": 54,
+      "primary_spatial_zone": "right_head",
+      "spatial_zone_counts": {
+        "upper_head": 22,
+        "left_head": 0,
+        "central_head": 0,
+        "right_head": 28,
+        "lower_head": 4
+      },
+      "accepted_target_views": [
+        "iso",
+        "rsv"
+      ],
+      "normal_corroborated_target_views": [
+        "iso",
+        "rsv"
+      ],
+      "evidence_state": "multi_view_normal_corroborated",
+      "adjacent_negative_space_ids": [
+        "ring_004_front_negative_space_007"
+      ],
+      "negative_space_distances": [
+        {
+          "candidate_id": "ring_004_front_negative_space_007",
+          "minimum_distance_pixels": 12.6
+        }
+      ],
+      "review_state": "machine_proposed",
+      "semantic_label": "unknown_ornamental_relief",
+      "semantic_claim_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "component_id": "ring_004_relief_component_003",
+      "component_type": "ornamental_relief_region_candidate",
+      "source_visibility_region_id": "front_region_003",
+      "source_bbox_xyxy": [
+        264.0,
+        188.0,
+        272.0,
+        220.0
+      ],
+      "query_node_ids": [
+        "ring_004:front:q0808",
+        "ring_004:front:q0901",
+        "ring_004:front:q0902",
+        "ring_004:front:q1017"
+      ],
+      "query_count": 4,
+      "primary_spatial_zone": "upper_head",
+      "spatial_zone_counts": {
+        "upper_head": 3,
+        "left_head": 0,
+        "central_head": 1,
+        "right_head": 0,
+        "lower_head": 0
+      },
+      "accepted_target_views": [
+        "iso"
+      ],
+      "normal_corroborated_target_views": [
+        "iso"
+      ],
+      "evidence_state": "single_view_normal_corroborated",
+      "adjacent_negative_space_ids": [],
+      "negative_space_distances": [],
+      "review_state": "machine_proposed",
+      "semantic_label": "unknown_ornamental_relief",
+      "semantic_claim_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "component_id": "ring_004_relief_component_004",
+      "component_type": "ornamental_relief_region_candidate",
+      "source_visibility_region_id": "front_region_004",
+      "source_bbox_xyxy": [
+        144.0,
+        192.0,
+        190.0,
+        218.0
+      ],
+      "query_node_ids": [
+        "ring_004:front:q0651",
+        "ring_004:front:q0653",
+        "ring_004:front:q0706",
+        "ring_004:front:q0722",
+        "ring_004:front:q0975"
+      ],
+      "query_count": 5,
+      "primary_spatial_zone": "upper_head",
+      "spatial_zone_counts": {
+        "upper_head": 3,
+        "left_head": 2,
+        "central_head": 0,
+        "right_head": 0,
+        "lower_head": 0
+      },
+      "accepted_target_views": [
+        "lsv"
+      ],
+      "normal_corroborated_target_views": [
+        "lsv"
+      ],
+      "evidence_state": "single_view_normal_corroborated",
+      "adjacent_negative_space_ids": [
+        "ring_004_front_negative_space_006"
+      ],
+      "negative_space_distances": [
+        {
+          "candidate_id": "ring_004_front_negative_space_006",
+          "minimum_distance_pixels": 11.394
+        }
+      ],
+      "review_state": "machine_proposed",
+      "semantic_label": "unknown_ornamental_relief",
+      "semantic_claim_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "component_id": "ring_004_relief_component_005",
+      "component_type": "ornamental_relief_region_candidate",
+      "source_visibility_region_id": "front_region_005",
+      "source_bbox_xyxy": [
+        409.0,
+        201.0,
+        414.0,
+        227.0
+      ],
+      "query_node_ids": [
+        "ring_004:front:q0804",
+        "ring_004:front:q0829"
+      ],
+      "query_count": 2,
+      "primary_spatial_zone": "upper_head",
+      "spatial_zone_counts": {
+        "upper_head": 1,
+        "left_head": 0,
+        "central_head": 0,
+        "right_head": 1,
+        "lower_head": 0
+      },
+      "accepted_target_views": [
+        "rsv"
+      ],
+      "normal_corroborated_target_views": [
+        "rsv"
+      ],
+      "evidence_state": "single_view_normal_corroborated",
+      "adjacent_negative_space_ids": [],
+      "negative_space_distances": [],
+      "review_state": "machine_proposed",
+      "semantic_label": "unknown_ornamental_relief",
+      "semantic_claim_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "component_id": "ring_004_relief_component_006",
+      "component_type": "ornamental_relief_region_candidate",
+      "source_visibility_region_id": "front_region_006",
+      "source_bbox_xyxy": [
+        82.0,
+        254.0,
+        89.0,
+        258.0
+      ],
+      "query_node_ids": [
+        "ring_004:front:q0385",
+        "ring_004:front:q0394",
+        "ring_004:front:q0500"
+      ],
+      "query_count": 3,
+      "primary_spatial_zone": "left_head",
+      "spatial_zone_counts": {
+        "upper_head": 0,
+        "left_head": 3,
+        "central_head": 0,
+        "right_head": 0,
+        "lower_head": 0
+      },
+      "accepted_target_views": [
+        "lsv"
+      ],
+      "normal_corroborated_target_views": [
+        "lsv"
+      ],
+      "evidence_state": "single_view_normal_corroborated",
+      "adjacent_negative_space_ids": [],
+      "negative_space_distances": [],
+      "review_state": "machine_proposed",
+      "semantic_label": "unknown_ornamental_relief",
+      "semantic_claim_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "component_id": "ring_004_relief_component_007",
+      "component_type": "ornamental_relief_region_candidate",
+      "source_visibility_region_id": "front_region_007",
+      "source_bbox_xyxy": [
+        304.0,
+        269.0,
+        304.0,
+        269.0
+      ],
+      "query_node_ids": [
+        "ring_004:front:q0208"
+      ],
+      "query_count": 1,
+      "primary_spatial_zone": "central_head",
+      "spatial_zone_counts": {
+        "upper_head": 0,
+        "left_head": 0,
+        "central_head": 1,
+        "right_head": 0,
+        "lower_head": 0
+      },
+      "accepted_target_views": [
+        "iso"
+      ],
+      "normal_corroborated_target_views": [
+        "iso"
+      ],
+      "evidence_state": "single_view_normal_corroborated",
+      "adjacent_negative_space_ids": [],
+      "negative_space_distances": [],
+      "review_state": "machine_proposed",
+      "semantic_label": "unknown_ornamental_relief",
+      "semantic_claim_authorized": false,
+      "cad_fusion_authorized": false
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "ring_004_head_support_001",
+      "relationship": "part_of",
+      "target_id": "ring_004_metal_body_001",
+      "authority": "machine_proposed_structural_relationship"
+    },
+    {
+      "source_id": "ring_004_upper_head_zone_001",
+      "relationship": "spatial_partition_of",
+      "target_id": "ring_004_head_support_001",
+      "authority": "deterministic_image_space_partition"
+    },
+    {
+      "source_id": "ring_004_left_head_zone_001",
+      "relationship": "spatial_partition_of",
+      "target_id": "ring_004_head_support_001",
+      "authority": "deterministic_image_space_partition"
+    },
+    {
+      "source_id": "ring_004_central_head_zone_001",
+      "relationship": "spatial_partition_of",
+      "target_id": "ring_004_head_support_001",
+      "authority": "deterministic_image_space_partition"
+    },
+    {
+      "source_id": "ring_004_right_head_zone_001",
+      "relationship": "spatial_partition_of",
+      "target_id": "ring_004_head_support_001",
+      "authority": "deterministic_image_space_partition"
+    },
+    {
+      "source_id": "ring_004_lower_head_zone_001",
+      "relationship": "spatial_partition_of",
+      "target_id": "ring_004_head_support_001",
+      "authority": "deterministic_image_space_partition"
+    },
+    {
+      "source_id": "ring_004_front_negative_space_001",
+      "relationship": "observed_within_projection_of",
+      "target_id": "ring_004_head_support_001",
+      "authority": "machine_proposed_2d_containment"
+    },
+    {
+      "source_id": "ring_004_front_negative_space_002",
+      "relationship": "observed_within_projection_of",
+      "target_id": "ring_004_head_support_001",
+      "authority": "machine_proposed_2d_containment"
+    },
+    {
+      "source_id": "ring_004_front_negative_space_003",
+      "relationship": "observed_within_projection_of",
+      "target_id": "ring_004_head_support_001",
+      "authority": "machine_proposed_2d_containment"
+    },
+    {
+      "source_id": "ring_004_front_negative_space_004",
+      "relationship": "observed_within_projection_of",
+      "target_id": "ring_004_head_support_001",
+      "authority": "machine_proposed_2d_containment"
+    },
+    {
+      "source_id": "ring_004_front_negative_space_005",
+      "relationship": "observed_within_projection_of",
+      "target_id": "ring_004_head_support_001",
+      "authority": "machine_proposed_2d_containment"
+    },
+    {
+      "source_id": "ring_004_front_negative_space_006",
+      "relationship": "observed_within_projection_of",
+      "target_id": "ring_004_head_support_001",
+      "authority": "machine_proposed_2d_containment"
+    },
+    {
+      "source_id": "ring_004_front_negative_space_007",
+      "relationship": "observed_within_projection_of",
+      "target_id": "ring_004_head_support_001",
+      "authority": "machine_proposed_2d_containment"
+    },
+    {
+      "source_id": "ring_004_front_negative_space_008",
+      "relationship": "observed_within_projection_of",
+      "target_id": "ring_004_head_support_001",
+      "authority": "machine_proposed_2d_containment"
+    },
+    {
+      "source_id": "ring_004_front_negative_space_009",
+      "relationship": "observed_within_projection_of",
+      "target_id": "ring_004_head_support_001",
+      "authority": "machine_proposed_2d_containment"
+    },
+    {
+      "source_id": "ring_004_front_negative_space_010",
+      "relationship": "observed_within_projection_of",
+      "target_id": "ring_004_head_support_001",
+      "authority": "machine_proposed_2d_containment"
+    },
+    {
+      "source_id": "ring_004_front_negative_space_011",
+      "relationship": "observed_within_projection_of",
+      "target_id": "ring_004_head_support_001",
+      "authority": "machine_proposed_2d_containment"
+    },
+    {
+      "source_id": "ring_004_front_negative_space_012",
+      "relationship": "observed_within_projection_of",
+      "target_id": "ring_004_head_support_001",
+      "authority": "machine_proposed_2d_containment"
+    },
+    {
+      "source_id": "ring_004_front_negative_space_013",
+      "relationship": "observed_within_projection_of",
+      "target_id": "ring_004_head_support_001",
+      "authority": "machine_proposed_2d_containment"
+    },
+    {
+      "source_id": "ring_004_front_negative_space_014",
+      "relationship": "observed_within_projection_of",
+      "target_id": "ring_004_head_support_001",
+      "authority": "machine_proposed_2d_containment"
+    },
+    {
+      "source_id": "ring_004_relief_component_001",
+      "relationship": "surface_evidence_for",
+      "target_id": "ring_004_head_support_001",
+      "authority": "phase5_9_visibility_region"
+    },
+    {
+      "source_id": "ring_004_relief_component_001",
+      "relationship": "located_in",
+      "target_id": "ring_004_upper_head_zone_001",
+      "authority": "deterministic_image_space_partition"
+    },
+    {
+      "source_id": "ring_004_relief_component_002",
+      "relationship": "surface_evidence_for",
+      "target_id": "ring_004_head_support_001",
+      "authority": "phase5_9_visibility_region"
+    },
+    {
+      "source_id": "ring_004_relief_component_002",
+      "relationship": "located_in",
+      "target_id": "ring_004_right_head_zone_001",
+      "authority": "deterministic_image_space_partition"
+    },
+    {
+      "source_id": "ring_004_relief_component_002",
+      "relationship": "image_space_adjacent_to",
+      "target_id": "ring_004_front_negative_space_007",
+      "authority": "distance_threshold_machine_proposal"
+    },
+    {
+      "source_id": "ring_004_relief_component_003",
+      "relationship": "surface_evidence_for",
+      "target_id": "ring_004_head_support_001",
+      "authority": "phase5_9_visibility_region"
+    },
+    {
+      "source_id": "ring_004_relief_component_003",
+      "relationship": "located_in",
+      "target_id": "ring_004_upper_head_zone_001",
+      "authority": "deterministic_image_space_partition"
+    },
+    {
+      "source_id": "ring_004_relief_component_004",
+      "relationship": "surface_evidence_for",
+      "target_id": "ring_004_head_support_001",
+      "authority": "phase5_9_visibility_region"
+    },
+    {
+      "source_id": "ring_004_relief_component_004",
+      "relationship": "located_in",
+      "target_id": "ring_004_upper_head_zone_001",
+      "authority": "deterministic_image_space_partition"
+    },
+    {
+      "source_id": "ring_004_relief_component_004",
+      "relationship": "image_space_adjacent_to",
+      "target_id": "ring_004_front_negative_space_006",
+      "authority": "distance_threshold_machine_proposal"
+    },
+    {
+      "source_id": "ring_004_relief_component_005",
+      "relationship": "surface_evidence_for",
+      "target_id": "ring_004_head_support_001",
+      "authority": "phase5_9_visibility_region"
+    },
+    {
+      "source_id": "ring_004_relief_component_005",
+      "relationship": "located_in",
+      "target_id": "ring_004_upper_head_zone_001",
+      "authority": "deterministic_image_space_partition"
+    },
+    {
+      "source_id": "ring_004_relief_component_006",
+      "relationship": "surface_evidence_for",
+      "target_id": "ring_004_head_support_001",
+      "authority": "phase5_9_visibility_region"
+    },
+    {
+      "source_id": "ring_004_relief_component_006",
+      "relationship": "located_in",
+      "target_id": "ring_004_left_head_zone_001",
+      "authority": "deterministic_image_space_partition"
+    },
+    {
+      "source_id": "ring_004_relief_component_007",
+      "relationship": "surface_evidence_for",
+      "target_id": "ring_004_head_support_001",
+      "authority": "phase5_9_visibility_region"
+    },
+    {
+      "source_id": "ring_004_relief_component_007",
+      "relationship": "located_in",
+      "target_id": "ring_004_central_head_zone_001",
+      "authority": "deterministic_image_space_partition"
+    }
+  ],
+  "relief_components": [
+    {
+      "component_id": "ring_004_relief_component_001",
+      "component_type": "ornamental_relief_region_candidate",
+      "source_visibility_region_id": "front_region_001",
+      "source_bbox_xyxy": [
+        95.0,
+        180.0,
+        99.0,
+        193.0
+      ],
+      "query_node_ids": [
+        "ring_004:front:q0404",
+        "ring_004:front:q0758",
+        "ring_004:front:q1008"
+      ],
+      "query_count": 3,
+      "primary_spatial_zone": "upper_head",
+      "spatial_zone_counts": {
+        "upper_head": 3,
+        "left_head": 0,
+        "central_head": 0,
+        "right_head": 0,
+        "lower_head": 0
+      },
+      "accepted_target_views": [
+        "lsv"
+      ],
+      "normal_corroborated_target_views": [
+        "lsv"
+      ],
+      "evidence_state": "single_view_normal_corroborated",
+      "adjacent_negative_space_ids": [],
+      "negative_space_distances": [],
+      "review_state": "machine_proposed",
+      "semantic_label": "unknown_ornamental_relief",
+      "semantic_claim_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "component_id": "ring_004_relief_component_002",
+      "component_type": "ornamental_relief_region_candidate",
+      "source_visibility_region_id": "front_region_002",
+      "source_bbox_xyxy": [
+        330.0,
+        184.0,
+        433.0,
+        321.0
+      ],
+      "query_node_ids": [
+        "ring_004:front:q0066",
+        "ring_004:front:q0239",
+        "ring_004:front:q0322",
+        "ring_004:front:q0356",
+        "ring_004:front:q0379",
+        "ring_004:front:q0400",
+        "ring_004:front:q0406",
+        "ring_004:front:q0415",
+        "ring_004:front:q0437",
+        "ring_004:front:q0457",
+        "ring_004:front:q0466",
+        "ring_004:front:q0468",
+        "ring_004:front:q0477",
+        "ring_004:front:q0495",
+        "ring_004:front:q0499",
+        "ring_004:front:q0508",
+        "ring_004:front:q0518",
+        "ring_004:front:q0529",
+        "ring_004:front:q0534",
+        "ring_004:front:q0559",
+        "ring_004:front:q0575",
+        "ring_004:front:q0587",
+        "ring_004:front:q0590",
+        "ring_004:front:q0591",
+        "ring_004:front:q0596",
+        "ring_004:front:q0597",
+        "ring_004:front:q0600",
+        "ring_004:front:q0602",
+        "ring_004:front:q0649",
+        "ring_004:front:q0656",
+        "ring_004:front:q0658",
+        "ring_004:front:q0673",
+        "ring_004:front:q0674",
+        "ring_004:front:q0688",
+        "ring_004:front:q0691",
+        "ring_004:front:q0693",
+        "ring_004:front:q0703",
+        "ring_004:front:q0730",
+        "ring_004:front:q0780",
+        "ring_004:front:q0782",
+        "ring_004:front:q0797",
+        "ring_004:front:q0816",
+        "ring_004:front:q0825",
+        "ring_004:front:q0832",
+        "ring_004:front:q0837",
+        "ring_004:front:q0841",
+        "ring_004:front:q0862",
+        "ring_004:front:q0880",
+        "ring_004:front:q0918",
+        "ring_004:front:q0923",
+        "ring_004:front:q0948",
+        "ring_004:front:q0957",
+        "ring_004:front:q0977",
+        "ring_004:front:q0989"
+      ],
+      "query_count": 54,
+      "primary_spatial_zone": "right_head",
+      "spatial_zone_counts": {
+        "upper_head": 22,
+        "left_head": 0,
+        "central_head": 0,
+        "right_head": 28,
+        "lower_head": 4
+      },
+      "accepted_target_views": [
+        "iso",
+        "rsv"
+      ],
+      "normal_corroborated_target_views": [
+        "iso",
+        "rsv"
+      ],
+      "evidence_state": "multi_view_normal_corroborated",
+      "adjacent_negative_space_ids": [
+        "ring_004_front_negative_space_007"
+      ],
+      "negative_space_distances": [
+        {
+          "candidate_id": "ring_004_front_negative_space_007",
+          "minimum_distance_pixels": 12.6
+        }
+      ],
+      "review_state": "machine_proposed",
+      "semantic_label": "unknown_ornamental_relief",
+      "semantic_claim_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "component_id": "ring_004_relief_component_003",
+      "component_type": "ornamental_relief_region_candidate",
+      "source_visibility_region_id": "front_region_003",
+      "source_bbox_xyxy": [
+        264.0,
+        188.0,
+        272.0,
+        220.0
+      ],
+      "query_node_ids": [
+        "ring_004:front:q0808",
+        "ring_004:front:q0901",
+        "ring_004:front:q0902",
+        "ring_004:front:q1017"
+      ],
+      "query_count": 4,
+      "primary_spatial_zone": "upper_head",
+      "spatial_zone_counts": {
+        "upper_head": 3,
+        "left_head": 0,
+        "central_head": 1,
+        "right_head": 0,
+        "lower_head": 0
+      },
+      "accepted_target_views": [
+        "iso"
+      ],
+      "normal_corroborated_target_views": [
+        "iso"
+      ],
+      "evidence_state": "single_view_normal_corroborated",
+      "adjacent_negative_space_ids": [],
+      "negative_space_distances": [],
+      "review_state": "machine_proposed",
+      "semantic_label": "unknown_ornamental_relief",
+      "semantic_claim_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "component_id": "ring_004_relief_component_004",
+      "component_type": "ornamental_relief_region_candidate",
+      "source_visibility_region_id": "front_region_004",
+      "source_bbox_xyxy": [
+        144.0,
+        192.0,
+        190.0,
+        218.0
+      ],
+      "query_node_ids": [
+        "ring_004:front:q0651",
+        "ring_004:front:q0653",
+        "ring_004:front:q0706",
+        "ring_004:front:q0722",
+        "ring_004:front:q0975"
+      ],
+      "query_count": 5,
+      "primary_spatial_zone": "upper_head",
+      "spatial_zone_counts": {
+        "upper_head": 3,
+        "left_head": 2,
+        "central_head": 0,
+        "right_head": 0,
+        "lower_head": 0
+      },
+      "accepted_target_views": [
+        "lsv"
+      ],
+      "normal_corroborated_target_views": [
+        "lsv"
+      ],
+      "evidence_state": "single_view_normal_corroborated",
+      "adjacent_negative_space_ids": [
+        "ring_004_front_negative_space_006"
+      ],
+      "negative_space_distances": [
+        {
+          "candidate_id": "ring_004_front_negative_space_006",
+          "minimum_distance_pixels": 11.394
+        }
+      ],
+      "review_state": "machine_proposed",
+      "semantic_label": "unknown_ornamental_relief",
+      "semantic_claim_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "component_id": "ring_004_relief_component_005",
+      "component_type": "ornamental_relief_region_candidate",
+      "source_visibility_region_id": "front_region_005",
+      "source_bbox_xyxy": [
+        409.0,
+        201.0,
+        414.0,
+        227.0
+      ],
+      "query_node_ids": [
+        "ring_004:front:q0804",
+        "ring_004:front:q0829"
+      ],
+      "query_count": 2,
+      "primary_spatial_zone": "upper_head",
+      "spatial_zone_counts": {
+        "upper_head": 1,
+        "left_head": 0,
+        "central_head": 0,
+        "right_head": 1,
+        "lower_head": 0
+      },
+      "accepted_target_views": [
+        "rsv"
+      ],
+      "normal_corroborated_target_views": [
+        "rsv"
+      ],
+      "evidence_state": "single_view_normal_corroborated",
+      "adjacent_negative_space_ids": [],
+      "negative_space_distances": [],
+      "review_state": "machine_proposed",
+      "semantic_label": "unknown_ornamental_relief",
+      "semantic_claim_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "component_id": "ring_004_relief_component_006",
+      "component_type": "ornamental_relief_region_candidate",
+      "source_visibility_region_id": "front_region_006",
+      "source_bbox_xyxy": [
+        82.0,
+        254.0,
+        89.0,
+        258.0
+      ],
+      "query_node_ids": [
+        "ring_004:front:q0385",
+        "ring_004:front:q0394",
+        "ring_004:front:q0500"
+      ],
+      "query_count": 3,
+      "primary_spatial_zone": "left_head",
+      "spatial_zone_counts": {
+        "upper_head": 0,
+        "left_head": 3,
+        "central_head": 0,
+        "right_head": 0,
+        "lower_head": 0
+      },
+      "accepted_target_views": [
+        "lsv"
+      ],
+      "normal_corroborated_target_views": [
+        "lsv"
+      ],
+      "evidence_state": "single_view_normal_corroborated",
+      "adjacent_negative_space_ids": [],
+      "negative_space_distances": [],
+      "review_state": "machine_proposed",
+      "semantic_label": "unknown_ornamental_relief",
+      "semantic_claim_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "component_id": "ring_004_relief_component_007",
+      "component_type": "ornamental_relief_region_candidate",
+      "source_visibility_region_id": "front_region_007",
+      "source_bbox_xyxy": [
+        304.0,
+        269.0,
+        304.0,
+        269.0
+      ],
+      "query_node_ids": [
+        "ring_004:front:q0208"
+      ],
+      "query_count": 1,
+      "primary_spatial_zone": "central_head",
+      "spatial_zone_counts": {
+        "upper_head": 0,
+        "left_head": 0,
+        "central_head": 1,
+        "right_head": 0,
+        "lower_head": 0
+      },
+      "accepted_target_views": [
+        "iso"
+      ],
+      "normal_corroborated_target_views": [
+        "iso"
+      ],
+      "evidence_state": "single_view_normal_corroborated",
+      "adjacent_negative_space_ids": [],
+      "negative_space_distances": [],
+      "review_state": "machine_proposed",
+      "semantic_label": "unknown_ornamental_relief",
+      "semantic_claim_authorized": false,
+      "cad_fusion_authorized": false
+    }
+  ],
+  "claims": {
+    "semantic_components_validated": false,
+    "stones_confirmed": false,
+    "faces_confirmed": false,
+    "prongs_confirmed": false,
+    "hidden_geometry_recovered": false,
+    "cad_fusion_authorized": false
+  }
+}

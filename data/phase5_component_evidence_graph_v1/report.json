@@ -1,0 +1,112 @@
+{
+  "schema_version": "lalitha_phase5_component_evidence_graph_v1",
+  "created_at_utc": "2026-10-18T16:59:16.087930+00:00",
+  "stage": "Phase 5.10 visibility-to-component evidence bridge",
+  "scope": {
+    "object_ids": [
+      "ring_004",
+      "ring_012",
+      "ring_020"
+    ],
+    "split": "val",
+    "source_view": "front"
+  },
+  "sources": {
+    "visibility_graph": "data/phase5_visibility_graph_v1/report.json",
+    "negative_space_candidates": "data/phase4_stl1_component_candidates_v1/report.json",
+    "head_supports": "data/phase5_stl1_exact_head_support_fit_v1/report.json"
+  },
+  "summary": {
+    "object_count": 3,
+    "relief_component_count": 30,
+    "multi_view_component_count": 3,
+    "single_view_component_count": 22,
+    "normal_unresolved_component_count": 5,
+    "negative_space_candidate_count": 27,
+    "components_adjacent_to_negative_space_count": 4
+  },
+  "checks": {
+    "fixed_validation_objects_only": true,
+    "phase5_9_visibility_regions_reproduced": true,
+    "stable_component_ids_unique_per_object": true,
+    "all_relief_components_have_head_parent": true,
+    "test_objects_not_processed": true,
+    "source_visibility_graph_unchanged": true,
+    "exact_cad_unchanged": true
+  },
+  "objects": [
+    {
+      "object_id": "ring_004",
+      "split": "val",
+      "node_count": 28,
+      "edge_count": 36,
+      "relief_component_count": 7,
+      "multi_view_component_count": 1,
+      "single_view_component_count": 6,
+      "normal_unresolved_component_count": 0,
+      "negative_space_candidate_count": 14,
+      "components_adjacent_to_negative_space_count": 2,
+      "visibility_region_count_reproduced": true,
+      "all_component_ids_unique": true,
+      "artifacts": {
+        "graph": "data/phase5_component_evidence_graph_v1/ring_004/component_evidence_graph.json",
+        "audit": "data/phase5_component_evidence_graph_v1/ring_004/component_evidence_audit.png"
+      }
+    },
+    {
+      "object_id": "ring_012",
+      "split": "val",
+      "node_count": 15,
+      "edge_count": 22,
+      "relief_component_count": 8,
+      "multi_view_component_count": 1,
+      "single_view_component_count": 5,
+      "normal_unresolved_component_count": 2,
+      "negative_space_candidate_count": 0,
+      "components_adjacent_to_negative_space_count": 0,
+      "visibility_region_count_reproduced": true,
+      "all_component_ids_unique": true,
+      "artifacts": {
+        "graph": "data/phase5_component_evidence_graph_v1/ring_012/component_evidence_graph.json",
+        "audit": "data/phase5_component_evidence_graph_v1/ring_012/component_evidence_audit.png"
+      }
+    },
+    {
+      "object_id": "ring_020",
+      "split": "val",
+      "node_count": 35,
+      "edge_count": 59,
+      "relief_component_count": 15,
+      "multi_view_component_count": 1,
+      "single_view_component_count": 11,
+      "normal_unresolved_component_count": 3,
+      "negative_space_candidate_count": 13,
+      "components_adjacent_to_negative_space_count": 2,
+      "visibility_region_count_reproduced": true,
+      "all_component_ids_unique": true,
+      "artifacts": {
+        "graph": "data/phase5_component_evidence_graph_v1/ring_020/component_evidence_graph.json",
+        "audit": "data/phase5_component_evidence_graph_v1/ring_020/component_evidence_audit.png"
+      }
+    }
+  ],
+  "decision": "retain_machine_component_proposals_for_semantic_review",
+  "claims": {
+    "semantic_components_validated": false,
+    "cross_view_component_identity_validated": false,
+    "stones_confirmed": false,
+    "prongs_confirmed": false,
+    "faces_confirmed": false,
+    "cad_fusion_authorized": false,
+    "manufacturing_accuracy_validated": false
+  },
+  "limitations": [
+    "STL-1 has no labelled component semantics, so spatial zones and relief components remain machine proposals.",
+    "Image-space adjacency to negative space does not prove a stone, seat, cavity or opening.",
+    "Broad visibility regions can contain multiple semantic ornaments and require later subdivision or review.",
+    "Only front-source regions are represented; hidden surfaces remain absent."
+  ],
+  "artifacts": {
+    "audit": "data/phase5_component_evidence_graph_v1/validation_component_evidence_audit.png"
+  }
+}

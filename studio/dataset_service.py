@@ -161,6 +161,24 @@ class DatasetRepository:
             / "phase5_visibility_graph_v1"
             / "report.json"
         )
+        self.phase5_component_evidence_graph = self._read_json(
+            self.repo_root
+            / "data"
+            / "phase5_component_evidence_graph_v1"
+            / "report.json"
+        )
+        self.phase5_relief_subdivision = self._read_json(
+            self.repo_root
+            / "data"
+            / "phase5_relief_subdivision_v1"
+            / "report.json"
+        )
+        self.phase5_local_relief_surfaces = self._read_json(
+            self.repo_root
+            / "data"
+            / "phase5_local_relief_surfaces_v1"
+            / "report.json"
+        )
         self.phase4_prong_instances = self._read_json(
             self.repo_root / "data" / "phase4_prong_instances_v1" / "report.json"
         )
@@ -775,6 +793,15 @@ class DatasetRepository:
                 "visibility_graph": deepcopy(
                     self.phase5_visibility_graph
                 ),
+                "component_evidence_graph": deepcopy(
+                    self.phase5_component_evidence_graph
+                ),
+                "relief_subdivision": deepcopy(
+                    self.phase5_relief_subdivision
+                ),
+                "local_relief_surfaces": deepcopy(
+                    self.phase5_local_relief_surfaces
+                ),
             },
             "limitations": deepcopy(self.dataset_report.get("limitations", [])),
         }
@@ -1188,6 +1215,8 @@ class DatasetRepository:
                     "Review the no-regression 1,024-query hybrid policy across the complete training and fixed validation splits",
                     "Annotate retained validation tracks with Metric3D direct-normal agreement against an independent Depth Anything V2 and UniDepth consensus",
                     "Route relief evidence through an explicit visibility graph instead of requiring every source surface to appear in every target view",
+                    "Attach visibility regions to stable machine-proposed relief IDs, spatial zones, metal/head parents and nearby negative-space evidence",
+                    "Subdivide broad relief regions with image edges, relative-depth continuity, shared target views and bounded patch diameter",
                 ],
                 "limitations": [
                     "Current STL and 3MF outputs are research meshes, not authoritative editable CAD.",
@@ -1201,6 +1230,9 @@ class DatasetRepository:
                     "Phase 5.7 increases training and validation evidence coverage while preserving the Phase 5.6 gate; top-view support remains nearly absent and the tracks are not physically validated.",
                     "Phase 5.8 normal agreement is an uncertainty annotation without normal ground truth; 215 of 736 validation points remain unresolved and only one accepted front-to-top track exists.",
                     "Phase 5.9 finds only 45 supported front queries with normal-corroborated observations in two or more target views; graph regions are review evidence, not CAD surfaces.",
+                    "Phase 5.10 creates stable component proposals but does not infer stone, prong, face or cavity semantics from unlabelled STL-1 images.",
+                    "Phase 5.11 evidence patches remain sparse image observations; edge or depth changes can still come from reflection and do not define CAD surfaces.",
+                    "Phase 5.12 local OBJ meshes interpolate only the retained front-view evidence inside eligible patches; they are open, scale-normalized review layers and remain separate from exact CAD.",
                     "Image-only inputs do not verify absolute millimetres without a known scale reference.",
                 ],
                 "actions": [
@@ -1227,6 +1259,13 @@ class DatasetRepository:
                     {"label": "Normal corroboration report", "href": "/api/artifacts/phase5_normal_corroboration_report"},
                     {"label": "Visibility graph audit", "href": "/api/artifacts/phase5_visibility_graph_audit"},
                     {"label": "Visibility graph report", "href": "/api/artifacts/phase5_visibility_graph_report"},
+                    {"label": "Component evidence audit", "href": "/api/artifacts/phase5_component_evidence_audit"},
+                    {"label": "Component evidence report", "href": "/api/artifacts/phase5_component_evidence_report"},
+                    {"label": "Relief subdivision audit", "href": "/api/artifacts/phase5_relief_subdivision_audit"},
+                    {"label": "Relief subdivision report", "href": "/api/artifacts/phase5_relief_subdivision_report"},
+                    {"label": "Local relief-surface audit", "href": "/api/artifacts/phase5_local_relief_surface_audit"},
+                    {"label": "Local relief-surface report", "href": "/api/artifacts/phase5_local_relief_surface_report"},
+                    {"label": "Ring 004 local relief OBJ", "href": "/api/artifacts/phase5_ring004_local_relief_obj"},
                     {"label": "Download baseline STEP", "href": "/api/artifacts/phase4_exact_cad_baseline_step"},
                 ],
             },
@@ -2148,6 +2187,50 @@ class DatasetRepository:
             / "phase5_visibility_graph_v1"
             / "ring_004"
             / "visibility_graph.json",
+            "phase5_component_evidence_report": self.repo_root
+            / "data"
+            / "phase5_component_evidence_graph_v1"
+            / "report.json",
+            "phase5_component_evidence_audit": self.repo_root
+            / "data"
+            / "phase5_component_evidence_graph_v1"
+            / "validation_component_evidence_audit.png",
+            "phase5_ring004_component_evidence_graph": self.repo_root
+            / "data"
+            / "phase5_component_evidence_graph_v1"
+            / "ring_004"
+            / "component_evidence_graph.json",
+            "phase5_relief_subdivision_report": self.repo_root
+            / "data"
+            / "phase5_relief_subdivision_v1"
+            / "report.json",
+            "phase5_relief_subdivision_audit": self.repo_root
+            / "data"
+            / "phase5_relief_subdivision_v1"
+            / "validation_relief_subdivision_audit.png",
+            "phase5_ring004_relief_subdivision": self.repo_root
+            / "data"
+            / "phase5_relief_subdivision_v1"
+            / "ring_004"
+            / "relief_subdivision.json",
+            "phase5_local_relief_surface_report": self.repo_root
+            / "data"
+            / "phase5_local_relief_surfaces_v1"
+            / "report.json",
+            "phase5_local_relief_surface_audit": self.repo_root
+            / "data"
+            / "phase5_local_relief_surfaces_v1"
+            / "validation_local_relief_surface_audit.png",
+            "phase5_ring004_local_relief_obj": self.repo_root
+            / "data"
+            / "phase5_local_relief_surfaces_v1"
+            / "ring_004"
+            / "ring_004_local_relief_trials.obj",
+            "phase5_ring004_local_relief_preview": self.repo_root
+            / "data"
+            / "phase5_local_relief_surfaces_v1"
+            / "ring_004"
+            / "ring_004_local_relief_trials_preview.png",
             "phase5_validation_metric_depth_report": self.repo_root
             / "dataset"
             / "phase_runs"

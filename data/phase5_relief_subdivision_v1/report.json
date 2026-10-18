@@ -1,0 +1,112 @@
+{
+  "schema_version": "lalitha_phase5_relief_subdivision_v1",
+  "created_at_utc": "2026-10-18T17:10:12.256412+00:00",
+  "stage": "Phase 5.11 edge-depth-view relief subdivision",
+  "scope": {
+    "object_ids": [
+      "ring_004",
+      "ring_012",
+      "ring_020"
+    ],
+    "split": "val",
+    "source_view": "front"
+  },
+  "sources": {
+    "component_evidence": "data/phase5_component_evidence_graph_v1/report.json",
+    "visibility_graph": "data/phase5_visibility_graph_v1/report.json",
+    "phase1_features": "dataset/phase_runs/v1/phase1_complete_features_v1/report.json"
+  },
+  "thresholds": {
+    "spatial_link_radius_track_pixels": 24.0,
+    "maximum_normalized_depth_delta": 0.14,
+    "maximum_edge_barrier_fraction": 0.65,
+    "minimum_fit_review_query_count": 3,
+    "maximum_patch_diameter_track_pixels": 110.0
+  },
+  "summary": {
+    "object_count": 3,
+    "parent_component_count": 30,
+    "patch_count": 83,
+    "patch_increase": 53,
+    "subdivided_parent_count": 12,
+    "singleton_patch_count": 28,
+    "fit_review_eligible_patch_count": 40,
+    "multi_view_patch_count": 15
+  },
+  "checks": {
+    "fixed_validation_objects_only": true,
+    "phase5_10_parent_counts_reproduced": true,
+    "all_source_queries_partitioned_exactly_once": true,
+    "test_objects_not_processed": true,
+    "source_component_graph_unchanged": true,
+    "exact_cad_unchanged": true
+  },
+  "objects": [
+    {
+      "object_id": "ring_004",
+      "split": "val",
+      "parent_component_count": 7,
+      "patch_count": 17,
+      "subdivided_parent_count": 5,
+      "singleton_patch_count": 8,
+      "fit_review_eligible_patch_count": 6,
+      "multi_view_patch_count": 1,
+      "source_queries_partitioned_exactly_once": true,
+      "phase5_10_parent_count_reproduced": true,
+      "artifacts": {
+        "graph": "data/phase5_relief_subdivision_v1/ring_004/relief_subdivision.json",
+        "audit": "data/phase5_relief_subdivision_v1/ring_004/relief_subdivision_audit.png"
+      }
+    },
+    {
+      "object_id": "ring_012",
+      "split": "val",
+      "parent_component_count": 8,
+      "patch_count": 33,
+      "subdivided_parent_count": 2,
+      "singleton_patch_count": 10,
+      "fit_review_eligible_patch_count": 19,
+      "multi_view_patch_count": 13,
+      "source_queries_partitioned_exactly_once": true,
+      "phase5_10_parent_count_reproduced": true,
+      "artifacts": {
+        "graph": "data/phase5_relief_subdivision_v1/ring_012/relief_subdivision.json",
+        "audit": "data/phase5_relief_subdivision_v1/ring_012/relief_subdivision_audit.png"
+      }
+    },
+    {
+      "object_id": "ring_020",
+      "split": "val",
+      "parent_component_count": 15,
+      "patch_count": 33,
+      "subdivided_parent_count": 5,
+      "singleton_patch_count": 10,
+      "fit_review_eligible_patch_count": 15,
+      "multi_view_patch_count": 1,
+      "source_queries_partitioned_exactly_once": true,
+      "phase5_10_parent_count_reproduced": true,
+      "artifacts": {
+        "graph": "data/phase5_relief_subdivision_v1/ring_020/relief_subdivision.json",
+        "audit": "data/phase5_relief_subdivision_v1/ring_020/relief_subdivision_audit.png"
+      }
+    }
+  ],
+  "decision": "retain_subdivision_as_geometric_review_evidence",
+  "claims": {
+    "semantic_components_validated": false,
+    "surface_geometry_validated": false,
+    "metric_depth_validated": false,
+    "hidden_geometry_recovered": false,
+    "cad_fusion_authorized": false,
+    "manufacturing_accuracy_validated": false
+  },
+  "limitations": [
+    "Relative-depth and edge discontinuities can be caused by reflections, shading or model bias.",
+    "A patch can still contain several semantic ornaments or split one ornament into multiple pieces.",
+    "Singleton patches are retained as unresolved evidence instead of being force-merged.",
+    "Only visible front-source evidence is subdivided; hidden surfaces remain absent."
+  ],
+  "artifacts": {
+    "audit": "data/phase5_relief_subdivision_v1/validation_relief_subdivision_audit.png"
+  }
+}

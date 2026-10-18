@@ -101,6 +101,21 @@ predate it, so this index prevents similarly numbered stages from being mixed.
   views actually observe each front query, annotates normal support, and groups
   nearby supported points only when they share a target view. The graph routes
   evidence for review; it does not infer hidden surfaces or modify CAD.
+- `build_phase5_component_evidence_graph.py` - Phase 5.10 validation-only
+  component bridge. It assigns stable IDs to visibility regions, parents them
+  to the exact metal/head candidates, records deterministic spatial zones and
+  links nearby Phase 4 negative-space evidence. Semantic labels stay unknown;
+  no stone, prong, face, cavity or CAD-fusion claim is created.
+- `subdivide_phase5_component_evidence.py` - Phase 5.11 validation-only relief
+  subdivision. It splits broad components using bounded spatial links, shared
+  reciprocal target views, regularized relative-depth continuity, prepared-edge
+  barriers and a maximum patch diameter. Singleton evidence remains unresolved;
+  patches are not semantic labels or CAD surfaces.
+- `build_phase5_local_relief_surfaces.py` - Phase 5.12 reversible local surface
+  trial. It triangulates only the 40 validation patches already eligible for
+  fitting review, samples conservative signed-relief evidence and writes open
+  nominal-scale OBJ groups with same-view interpolation audits. It does not
+  process test rings, infer semantics, generate STEP or authorize CAD fusion.
 
 ## Shared evidence and dataset tools
 

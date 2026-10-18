@@ -224,6 +224,70 @@ component review; they are not CAD patches. The graph does not recover surfaces
 hidden from the front view, prove calibrated angular diversity or authorize
 relief fusion.
 
+## Phase 5.10 visibility-to-component evidence bridge
+
+`build_phase5_component_evidence_graph.py` gives each Phase 5.9 validation
+region a stable relief-component ID and connects it to the existing exact metal
+body and Phase 5.2 head-support candidate. A deterministic five-zone image-space
+partition records location without pretending to identify jewellery semantics.
+The bridge also records proximity to Phase 4 enclosed negative-space proposals.
+
+The retained validation graph contains 30 relief components: three with
+multi-view normal support, 22 with single-view normal support and five with
+reciprocal tracks but unresolved normals. It links four relief components to
+nearby negative-space evidence. The cohort audit was visually inspected; IDs
+follow the retained visibility regions and the negative-space outlines are
+spatially coherent. Some regions remain broad and contain multiple ornaments.
+
+Every relief semantic label remains `unknown_ornamental_relief`. Negative-space
+adjacency does not prove a gemstone, opening, seat or cavity, and spatial zones
+do not prove a face or prong. This checkpoint establishes graph organization
+only; semantic validation, hidden geometry and CAD fusion remain blocked.
+
+## Phase 5.11 edge-depth-view relief subdivision
+
+`subdivide_phase5_component_evidence.py` divides broad Phase 5.10 components
+only where retained evidence supports a boundary. Queries remain connected when
+they are spatially close, share a reciprocal target view, have continuous
+repeat-regularized relative depth and do not cross a strong prepared-edge
+barrier. A deterministic principal-axis split bounds transitive graph chains at
+110 track pixels.
+
+The first strict configuration produced 227 patches, including 163 singletons,
+and was rejected after visual inspection as excessive fragmentation. The
+retained configuration produces 83 patches from 30 parents. It partitions every
+supported query exactly once, preserves 28 unresolved singleton observations
+and marks 40 normal-supported patches with at least three queries for future
+surface-fitting review. Fifteen patches contain multi-view normal support.
+
+The retained cohort audit is visibly less noisy and prevents the largest Ring
+012 and Ring 020 chains from spanning most of the ornament. Boundaries can still
+follow reflections or depth-model bias, and a patch can split one ornament or
+contain several. Every semantic label remains unknown, test rings remain
+untouched and CAD geometry is unchanged.
+
+## Phase 5.12 reversible local relief-surface trials
+
+`build_phase5_local_relief_surfaces.py` triangulates only the 40 Phase 5.11
+patches already marked eligible for fitting review. Each vertex keeps its front
+image location and samples the conservative signed relief retained in Phase
+5.4. Every patch is written as an independent open OBJ group, so a failed trial
+can be removed without changing the exact ring body, head support or openwork
+STEP checkpoints.
+
+All 40 eligible validation patches generate finite geometry: 676 vertices and
+1,018 faces in total. Mean same-view interpolation RMSE is `0.278`; Ring 004 is
+the weakest object at `0.392`, compared with `0.205` for Ring 012 and `0.235`
+for Ring 020. The cohort audit includes source-space triangles, normalized
+interpolation error and renders of the actual OBJ artifacts. Visual inspection
+confirmed that generated groups stay inside their eligible image regions, but
+the surfaces are sparse and disconnected as expected.
+
+These numbers measure agreement with the same image-depth evidence used to
+construct the vertices. They do not establish physical relief accuracy,
+semantic identity, metric scale or hidden geometry. Test objects are untouched,
+no STEP is generated and CAD fusion remains blocked.
+
 ## Claim boundary
 
 The dimensions are designed test parameters. The fixtures verify generator
@@ -357,12 +421,48 @@ docker run --rm --user "$(id -u):$(id -g)" \
   -v "$PWD:/workspace" -w /workspace \
   image2cad-validation:phase0 \
   python -m unittest tests.test_phase5_visibility_graph
+
+docker run --rm --user "$(id -u):$(id -g)" \
+  -e HOME=/tmp -e PYTHONPATH=/workspace:/workspace/pipeline \
+  -v "$PWD:/workspace" -w /workspace \
+  image2cad-validation:phase0 \
+  python -m pipeline.build_phase5_component_evidence_graph
+
+docker run --rm --user "$(id -u):$(id -g)" \
+  -e HOME=/tmp -e PYTHONPATH=/workspace:/workspace/pipeline \
+  -v "$PWD:/workspace" -w /workspace \
+  image2cad-validation:phase0 \
+  python -m unittest tests.test_phase5_component_evidence_graph
+
+docker run --rm --user "$(id -u):$(id -g)" \
+  -e HOME=/tmp -e PYTHONPATH=/workspace:/workspace/pipeline \
+  -v "$PWD:/workspace" -w /workspace \
+  image2cad-validation:phase0 \
+  python -m pipeline.subdivide_phase5_component_evidence
+
+docker run --rm --user "$(id -u):$(id -g)" \
+  -e HOME=/tmp -e PYTHONPATH=/workspace:/workspace/pipeline \
+  -v "$PWD:/workspace" -w /workspace \
+  image2cad-validation:phase0 \
+  python -m unittest tests.test_phase5_relief_subdivision
+
+docker run --rm --user "$(id -u):$(id -g)" \
+  -e HOME=/tmp -e PYTHONPATH=/workspace:/workspace/pipeline \
+  -v "$PWD:/workspace" -w /workspace \
+  image2cad-validation:phase0 \
+  python -m pipeline.build_phase5_local_relief_surfaces
+
+docker run --rm --user "$(id -u):$(id -g)" \
+  -e HOME=/tmp -e PYTHONPATH=/workspace:/workspace/pipeline \
+  -v "$PWD:/workspace" -w /workspace \
+  image2cad-validation:phase0 \
+  python -m unittest tests.test_phase5_local_relief_surfaces
 ```
 
 ## Next gate
 
-1. Attach reviewed semantic component identities to visibility regions, then
-   fit only regions with sufficient observable-view support.
+1. Add independent target-view reprojection checks to the Phase 5.12 local
+   surfaces; same-view interpolation alone cannot promote them into CAD.
 2. Resolve candidate semantics and cross-view opening identity before any
    retained cut is promoted to an approved cavity or manufacturing hole.
 3. Fit general gallery generators across side and iso evidence without
