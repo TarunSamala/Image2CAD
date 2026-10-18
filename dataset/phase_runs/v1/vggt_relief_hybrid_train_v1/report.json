@@ -1,0 +1,1587 @@
+{
+  "schema_version": "vggt_hybrid_track_evidence_batch_v1",
+  "created_at_utc": "2026-10-18T14:11:04.388945+00:00",
+  "dataset": "STL-1",
+  "object_ids": [
+    "ring_001",
+    "ring_002",
+    "ring_003",
+    "ring_005",
+    "ring_006",
+    "ring_008",
+    "ring_009",
+    "ring_010",
+    "ring_011",
+    "ring_013",
+    "ring_014",
+    "ring_016",
+    "ring_017",
+    "ring_018",
+    "ring_019",
+    "ring_021",
+    "ring_022",
+    "ring_024"
+  ],
+  "object_count": 18,
+  "query_count_per_view": 1024,
+  "objects": [
+    {
+      "schema_version": "vggt_hybrid_track_evidence_v1",
+      "created_at_utc": "2026-10-18T14:11:03.191505+00:00",
+      "object_id": "ring_001",
+      "split": "train",
+      "views": [
+        "front",
+        "top",
+        "iso",
+        "lsv",
+        "rsv"
+      ],
+      "image_size": 518,
+      "query_count_per_view": 1024,
+      "query_selection": "baseline_384_plus_unique_relief_stratified_640",
+      "query_region_counts": {
+        "front": {
+          "depth_supported_relief": 640,
+          "silhouette_boundary": 0,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "top": {
+          "depth_supported_relief": 261,
+          "silhouette_boundary": 369,
+          "textured_surface": 10,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "iso": {
+          "depth_supported_relief": 640,
+          "silhouette_boundary": 0,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "lsv": {
+          "depth_supported_relief": 570,
+          "silhouette_boundary": 70,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "rsv": {
+          "depth_supported_relief": 596,
+          "silhouette_boundary": 44,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        }
+      },
+      "sources": {
+        "baseline_report": "dataset/phase_runs/v1/vggt_full_stl1_track_evidence_v1/ring_001/report.json",
+        "stratified_report": "dataset/phase_runs/v1/vggt_relief_stratified_pilot_v1/ring_001/report.json",
+        "checkpoint_sha256": "d15bf50a8615c8225ed48b51ea5cac673d82442ec0309036df555a053253afe0"
+      },
+      "runtime": {
+        "composition_seconds": 0.071436,
+        "retained_source_gpu_seconds": 188.695,
+        "peak_cuda_bytes": 2616342528
+      },
+      "summary": {
+        "mean_visibility": 0.64184,
+        "mean_confidence": 0.283148,
+        "in_bounds_fraction": 0.999961,
+        "maximum_source_query_error_pixels": 0.0
+      },
+      "checks": {
+        "source_checkpoints_match": true,
+        "baseline_query_points_preserved_exactly": true,
+        "baseline_tracks_preserved_exactly": true,
+        "all_queries_unique_per_source": true,
+        "all_tracks_in_bounds_above_95_percent": true,
+        "all_source_queries_preserved": true
+      },
+      "artifacts": {
+        "track_evidence": "dataset/phase_runs/v1/vggt_relief_hybrid_train_v1/ring_001/vggt_track_evidence.npz"
+      },
+      "claims": {
+        "track_accuracy_validated": false,
+        "physical_correspondence_validated": false,
+        "cad_fusion_authorized": false,
+        "manufacturing_accuracy_validated": false
+      }
+    },
+    {
+      "schema_version": "vggt_hybrid_track_evidence_v1",
+      "created_at_utc": "2026-10-18T14:11:03.261986+00:00",
+      "object_id": "ring_002",
+      "split": "train",
+      "views": [
+        "front",
+        "top",
+        "iso",
+        "lsv",
+        "rsv"
+      ],
+      "image_size": 518,
+      "query_count_per_view": 1024,
+      "query_selection": "baseline_384_plus_unique_relief_stratified_640",
+      "query_region_counts": {
+        "front": {
+          "depth_supported_relief": 640,
+          "silhouette_boundary": 0,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "top": {
+          "depth_supported_relief": 472,
+          "silhouette_boundary": 168,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "iso": {
+          "depth_supported_relief": 640,
+          "silhouette_boundary": 0,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "lsv": {
+          "depth_supported_relief": 385,
+          "silhouette_boundary": 127,
+          "textured_surface": 128,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "rsv": {
+          "depth_supported_relief": 305,
+          "silhouette_boundary": 154,
+          "textured_surface": 181,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        }
+      },
+      "sources": {
+        "baseline_report": "dataset/phase_runs/v1/vggt_full_stl1_track_evidence_v1/ring_002/report.json",
+        "stratified_report": "dataset/phase_runs/v1/vggt_relief_stratified_pilot_v1/ring_002/report.json",
+        "checkpoint_sha256": "d15bf50a8615c8225ed48b51ea5cac673d82442ec0309036df555a053253afe0"
+      },
+      "runtime": {
+        "composition_seconds": 0.066958,
+        "retained_source_gpu_seconds": 265.044,
+        "peak_cuda_bytes": 2616342528
+      },
+      "summary": {
+        "mean_visibility": 0.720609,
+        "mean_confidence": 0.268422,
+        "in_bounds_fraction": 1.0,
+        "maximum_source_query_error_pixels": 0.0
+      },
+      "checks": {
+        "source_checkpoints_match": true,
+        "baseline_query_points_preserved_exactly": true,
+        "baseline_tracks_preserved_exactly": true,
+        "all_queries_unique_per_source": true,
+        "all_tracks_in_bounds_above_95_percent": true,
+        "all_source_queries_preserved": true
+      },
+      "artifacts": {
+        "track_evidence": "dataset/phase_runs/v1/vggt_relief_hybrid_train_v1/ring_002/vggt_track_evidence.npz"
+      },
+      "claims": {
+        "track_accuracy_validated": false,
+        "physical_correspondence_validated": false,
+        "cad_fusion_authorized": false,
+        "manufacturing_accuracy_validated": false
+      }
+    },
+    {
+      "schema_version": "vggt_hybrid_track_evidence_v1",
+      "created_at_utc": "2026-10-18T14:11:03.332336+00:00",
+      "object_id": "ring_003",
+      "split": "train",
+      "views": [
+        "front",
+        "top",
+        "iso",
+        "lsv",
+        "rsv"
+      ],
+      "image_size": 518,
+      "query_count_per_view": 1024,
+      "query_selection": "baseline_384_plus_unique_relief_stratified_640",
+      "query_region_counts": {
+        "front": {
+          "depth_supported_relief": 640,
+          "silhouette_boundary": 0,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "top": {
+          "depth_supported_relief": 410,
+          "silhouette_boundary": 230,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "iso": {
+          "depth_supported_relief": 640,
+          "silhouette_boundary": 0,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "lsv": {
+          "depth_supported_relief": 532,
+          "silhouette_boundary": 108,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "rsv": {
+          "depth_supported_relief": 505,
+          "silhouette_boundary": 135,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        }
+      },
+      "sources": {
+        "baseline_report": "dataset/phase_runs/v1/vggt_full_stl1_track_evidence_v1/ring_003/report.json",
+        "stratified_report": "dataset/phase_runs/v1/vggt_relief_stratified_pilot_v1/ring_003/report.json",
+        "checkpoint_sha256": "d15bf50a8615c8225ed48b51ea5cac673d82442ec0309036df555a053253afe0"
+      },
+      "runtime": {
+        "composition_seconds": 0.06755,
+        "retained_source_gpu_seconds": 203.438,
+        "peak_cuda_bytes": 2615137792
+      },
+      "summary": {
+        "mean_visibility": 0.738389,
+        "mean_confidence": 0.269539,
+        "in_bounds_fraction": 1.0,
+        "maximum_source_query_error_pixels": 0.0
+      },
+      "checks": {
+        "source_checkpoints_match": true,
+        "baseline_query_points_preserved_exactly": true,
+        "baseline_tracks_preserved_exactly": true,
+        "all_queries_unique_per_source": true,
+        "all_tracks_in_bounds_above_95_percent": true,
+        "all_source_queries_preserved": true
+      },
+      "artifacts": {
+        "track_evidence": "dataset/phase_runs/v1/vggt_relief_hybrid_train_v1/ring_003/vggt_track_evidence.npz"
+      },
+      "claims": {
+        "track_accuracy_validated": false,
+        "physical_correspondence_validated": false,
+        "cad_fusion_authorized": false,
+        "manufacturing_accuracy_validated": false
+      }
+    },
+    {
+      "schema_version": "vggt_hybrid_track_evidence_v1",
+      "created_at_utc": "2026-10-18T14:11:03.407117+00:00",
+      "object_id": "ring_005",
+      "split": "train",
+      "views": [
+        "front",
+        "top",
+        "iso",
+        "lsv",
+        "rsv"
+      ],
+      "image_size": 518,
+      "query_count_per_view": 1024,
+      "query_selection": "baseline_384_plus_unique_relief_stratified_640",
+      "query_region_counts": {
+        "front": {
+          "depth_supported_relief": 640,
+          "silhouette_boundary": 0,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "top": {
+          "depth_supported_relief": 583,
+          "silhouette_boundary": 57,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "iso": {
+          "depth_supported_relief": 640,
+          "silhouette_boundary": 0,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "lsv": {
+          "depth_supported_relief": 497,
+          "silhouette_boundary": 143,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "rsv": {
+          "depth_supported_relief": 480,
+          "silhouette_boundary": 160,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        }
+      },
+      "sources": {
+        "baseline_report": "dataset/phase_runs/v1/vggt_full_stl1_track_evidence_v1/ring_005/report.json",
+        "stratified_report": "dataset/phase_runs/v1/vggt_relief_stratified_pilot_v1/ring_005/report.json",
+        "checkpoint_sha256": "d15bf50a8615c8225ed48b51ea5cac673d82442ec0309036df555a053253afe0"
+      },
+      "runtime": {
+        "composition_seconds": 0.071904,
+        "retained_source_gpu_seconds": 198.381,
+        "peak_cuda_bytes": 2615137792
+      },
+      "summary": {
+        "mean_visibility": 0.648664,
+        "mean_confidence": 0.270057,
+        "in_bounds_fraction": 1.0,
+        "maximum_source_query_error_pixels": 0.0
+      },
+      "checks": {
+        "source_checkpoints_match": true,
+        "baseline_query_points_preserved_exactly": true,
+        "baseline_tracks_preserved_exactly": true,
+        "all_queries_unique_per_source": true,
+        "all_tracks_in_bounds_above_95_percent": true,
+        "all_source_queries_preserved": true
+      },
+      "artifacts": {
+        "track_evidence": "dataset/phase_runs/v1/vggt_relief_hybrid_train_v1/ring_005/vggt_track_evidence.npz"
+      },
+      "claims": {
+        "track_accuracy_validated": false,
+        "physical_correspondence_validated": false,
+        "cad_fusion_authorized": false,
+        "manufacturing_accuracy_validated": false
+      }
+    },
+    {
+      "schema_version": "vggt_hybrid_track_evidence_v1",
+      "created_at_utc": "2026-10-18T14:11:03.479672+00:00",
+      "object_id": "ring_006",
+      "split": "train",
+      "views": [
+        "front",
+        "top",
+        "iso",
+        "lsv",
+        "rsv"
+      ],
+      "image_size": 518,
+      "query_count_per_view": 1024,
+      "query_selection": "baseline_384_plus_unique_relief_stratified_640",
+      "query_region_counts": {
+        "front": {
+          "depth_supported_relief": 640,
+          "silhouette_boundary": 0,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "top": {
+          "depth_supported_relief": 640,
+          "silhouette_boundary": 0,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "iso": {
+          "depth_supported_relief": 640,
+          "silhouette_boundary": 0,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "lsv": {
+          "depth_supported_relief": 640,
+          "silhouette_boundary": 0,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "rsv": {
+          "depth_supported_relief": 640,
+          "silhouette_boundary": 0,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        }
+      },
+      "sources": {
+        "baseline_report": "dataset/phase_runs/v1/vggt_full_stl1_track_evidence_v1/ring_006/report.json",
+        "stratified_report": "dataset/phase_runs/v1/vggt_relief_stratified_pilot_v1/ring_006/report.json",
+        "checkpoint_sha256": "d15bf50a8615c8225ed48b51ea5cac673d82442ec0309036df555a053253afe0"
+      },
+      "runtime": {
+        "composition_seconds": 0.069636,
+        "retained_source_gpu_seconds": 224.435,
+        "peak_cuda_bytes": 2615137792
+      },
+      "summary": {
+        "mean_visibility": 0.73337,
+        "mean_confidence": 0.258211,
+        "in_bounds_fraction": 1.0,
+        "maximum_source_query_error_pixels": 0.0
+      },
+      "checks": {
+        "source_checkpoints_match": true,
+        "baseline_query_points_preserved_exactly": true,
+        "baseline_tracks_preserved_exactly": true,
+        "all_queries_unique_per_source": true,
+        "all_tracks_in_bounds_above_95_percent": true,
+        "all_source_queries_preserved": true
+      },
+      "artifacts": {
+        "track_evidence": "dataset/phase_runs/v1/vggt_relief_hybrid_train_v1/ring_006/vggt_track_evidence.npz"
+      },
+      "claims": {
+        "track_accuracy_validated": false,
+        "physical_correspondence_validated": false,
+        "cad_fusion_authorized": false,
+        "manufacturing_accuracy_validated": false
+      }
+    },
+    {
+      "schema_version": "vggt_hybrid_track_evidence_v1",
+      "created_at_utc": "2026-10-18T14:11:03.544789+00:00",
+      "object_id": "ring_008",
+      "split": "train",
+      "views": [
+        "front",
+        "top",
+        "iso",
+        "lsv",
+        "rsv"
+      ],
+      "image_size": 518,
+      "query_count_per_view": 1024,
+      "query_selection": "baseline_384_plus_unique_relief_stratified_640",
+      "query_region_counts": {
+        "front": {
+          "depth_supported_relief": 640,
+          "silhouette_boundary": 0,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "top": {
+          "depth_supported_relief": 640,
+          "silhouette_boundary": 0,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "iso": {
+          "depth_supported_relief": 640,
+          "silhouette_boundary": 0,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "lsv": {
+          "depth_supported_relief": 640,
+          "silhouette_boundary": 0,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "rsv": {
+          "depth_supported_relief": 640,
+          "silhouette_boundary": 0,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        }
+      },
+      "sources": {
+        "baseline_report": "dataset/phase_runs/v1/vggt_full_stl1_track_evidence_v1/ring_008/report.json",
+        "stratified_report": "dataset/phase_runs/v1/vggt_relief_stratified_pilot_v1/ring_008/report.json",
+        "checkpoint_sha256": "d15bf50a8615c8225ed48b51ea5cac673d82442ec0309036df555a053253afe0"
+      },
+      "runtime": {
+        "composition_seconds": 0.062161,
+        "retained_source_gpu_seconds": 210.962,
+        "peak_cuda_bytes": 2616342528
+      },
+      "summary": {
+        "mean_visibility": 0.635077,
+        "mean_confidence": 0.263056,
+        "in_bounds_fraction": 1.0,
+        "maximum_source_query_error_pixels": 0.0
+      },
+      "checks": {
+        "source_checkpoints_match": true,
+        "baseline_query_points_preserved_exactly": true,
+        "baseline_tracks_preserved_exactly": true,
+        "all_queries_unique_per_source": true,
+        "all_tracks_in_bounds_above_95_percent": true,
+        "all_source_queries_preserved": true
+      },
+      "artifacts": {
+        "track_evidence": "dataset/phase_runs/v1/vggt_relief_hybrid_train_v1/ring_008/vggt_track_evidence.npz"
+      },
+      "claims": {
+        "track_accuracy_validated": false,
+        "physical_correspondence_validated": false,
+        "cad_fusion_authorized": false,
+        "manufacturing_accuracy_validated": false
+      }
+    },
+    {
+      "schema_version": "vggt_hybrid_track_evidence_v1",
+      "created_at_utc": "2026-10-18T14:11:03.609066+00:00",
+      "object_id": "ring_009",
+      "split": "train",
+      "views": [
+        "front",
+        "top",
+        "iso",
+        "lsv",
+        "rsv"
+      ],
+      "image_size": 518,
+      "query_count_per_view": 1024,
+      "query_selection": "baseline_384_plus_unique_relief_stratified_640",
+      "query_region_counts": {
+        "front": {
+          "depth_supported_relief": 640,
+          "silhouette_boundary": 0,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "top": {
+          "depth_supported_relief": 526,
+          "silhouette_boundary": 114,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "iso": {
+          "depth_supported_relief": 640,
+          "silhouette_boundary": 0,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "lsv": {
+          "depth_supported_relief": 612,
+          "silhouette_boundary": 28,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "rsv": {
+          "depth_supported_relief": 485,
+          "silhouette_boundary": 144,
+          "textured_surface": 11,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        }
+      },
+      "sources": {
+        "baseline_report": "dataset/phase_runs/v1/vggt_full_stl1_track_evidence_v1/ring_009/report.json",
+        "stratified_report": "dataset/phase_runs/v1/vggt_relief_stratified_pilot_v1/ring_009/report.json",
+        "checkpoint_sha256": "d15bf50a8615c8225ed48b51ea5cac673d82442ec0309036df555a053253afe0"
+      },
+      "runtime": {
+        "composition_seconds": 0.062014,
+        "retained_source_gpu_seconds": 190.792,
+        "peak_cuda_bytes": 2615137792
+      },
+      "summary": {
+        "mean_visibility": 0.726413,
+        "mean_confidence": 0.240901,
+        "in_bounds_fraction": 1.0,
+        "maximum_source_query_error_pixels": 0.0
+      },
+      "checks": {
+        "source_checkpoints_match": true,
+        "baseline_query_points_preserved_exactly": true,
+        "baseline_tracks_preserved_exactly": true,
+        "all_queries_unique_per_source": true,
+        "all_tracks_in_bounds_above_95_percent": true,
+        "all_source_queries_preserved": true
+      },
+      "artifacts": {
+        "track_evidence": "dataset/phase_runs/v1/vggt_relief_hybrid_train_v1/ring_009/vggt_track_evidence.npz"
+      },
+      "claims": {
+        "track_accuracy_validated": false,
+        "physical_correspondence_validated": false,
+        "cad_fusion_authorized": false,
+        "manufacturing_accuracy_validated": false
+      }
+    },
+    {
+      "schema_version": "vggt_hybrid_track_evidence_v1",
+      "created_at_utc": "2026-10-18T14:11:03.675414+00:00",
+      "object_id": "ring_010",
+      "split": "train",
+      "views": [
+        "front",
+        "top",
+        "iso",
+        "lsv",
+        "rsv"
+      ],
+      "image_size": 518,
+      "query_count_per_view": 1024,
+      "query_selection": "baseline_384_plus_unique_relief_stratified_640",
+      "query_region_counts": {
+        "front": {
+          "depth_supported_relief": 640,
+          "silhouette_boundary": 0,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "top": {
+          "depth_supported_relief": 517,
+          "silhouette_boundary": 123,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "iso": {
+          "depth_supported_relief": 640,
+          "silhouette_boundary": 0,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "lsv": {
+          "depth_supported_relief": 616,
+          "silhouette_boundary": 24,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "rsv": {
+          "depth_supported_relief": 576,
+          "silhouette_boundary": 64,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        }
+      },
+      "sources": {
+        "baseline_report": "dataset/phase_runs/v1/vggt_full_stl1_track_evidence_v1/ring_010/report.json",
+        "stratified_report": "dataset/phase_runs/v1/vggt_relief_stratified_pilot_v1/ring_010/report.json",
+        "checkpoint_sha256": "d15bf50a8615c8225ed48b51ea5cac673d82442ec0309036df555a053253afe0"
+      },
+      "runtime": {
+        "composition_seconds": 0.063951,
+        "retained_source_gpu_seconds": 233.48,
+        "peak_cuda_bytes": 2615137792
+      },
+      "summary": {
+        "mean_visibility": 0.654401,
+        "mean_confidence": 0.304239,
+        "in_bounds_fraction": 1.0,
+        "maximum_source_query_error_pixels": 0.0
+      },
+      "checks": {
+        "source_checkpoints_match": true,
+        "baseline_query_points_preserved_exactly": true,
+        "baseline_tracks_preserved_exactly": true,
+        "all_queries_unique_per_source": true,
+        "all_tracks_in_bounds_above_95_percent": true,
+        "all_source_queries_preserved": true
+      },
+      "artifacts": {
+        "track_evidence": "dataset/phase_runs/v1/vggt_relief_hybrid_train_v1/ring_010/vggt_track_evidence.npz"
+      },
+      "claims": {
+        "track_accuracy_validated": false,
+        "physical_correspondence_validated": false,
+        "cad_fusion_authorized": false,
+        "manufacturing_accuracy_validated": false
+      }
+    },
+    {
+      "schema_version": "vggt_hybrid_track_evidence_v1",
+      "created_at_utc": "2026-10-18T14:11:03.747929+00:00",
+      "object_id": "ring_011",
+      "split": "train",
+      "views": [
+        "front",
+        "top",
+        "iso",
+        "lsv",
+        "rsv"
+      ],
+      "image_size": 518,
+      "query_count_per_view": 1024,
+      "query_selection": "baseline_384_plus_unique_relief_stratified_640",
+      "query_region_counts": {
+        "front": {
+          "depth_supported_relief": 640,
+          "silhouette_boundary": 0,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "top": {
+          "depth_supported_relief": 455,
+          "silhouette_boundary": 185,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "iso": {
+          "depth_supported_relief": 640,
+          "silhouette_boundary": 0,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "lsv": {
+          "depth_supported_relief": 482,
+          "silhouette_boundary": 158,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "rsv": {
+          "depth_supported_relief": 640,
+          "silhouette_boundary": 0,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        }
+      },
+      "sources": {
+        "baseline_report": "dataset/phase_runs/v1/vggt_full_stl1_track_evidence_v1/ring_011/report.json",
+        "stratified_report": "dataset/phase_runs/v1/vggt_relief_stratified_pilot_v1/ring_011/report.json",
+        "checkpoint_sha256": "d15bf50a8615c8225ed48b51ea5cac673d82442ec0309036df555a053253afe0"
+      },
+      "runtime": {
+        "composition_seconds": 0.069548,
+        "retained_source_gpu_seconds": 281.406,
+        "peak_cuda_bytes": 2615137792
+      },
+      "summary": {
+        "mean_visibility": 0.616174,
+        "mean_confidence": 0.298731,
+        "in_bounds_fraction": 0.999531,
+        "maximum_source_query_error_pixels": 0.0
+      },
+      "checks": {
+        "source_checkpoints_match": true,
+        "baseline_query_points_preserved_exactly": true,
+        "baseline_tracks_preserved_exactly": true,
+        "all_queries_unique_per_source": true,
+        "all_tracks_in_bounds_above_95_percent": true,
+        "all_source_queries_preserved": true
+      },
+      "artifacts": {
+        "track_evidence": "dataset/phase_runs/v1/vggt_relief_hybrid_train_v1/ring_011/vggt_track_evidence.npz"
+      },
+      "claims": {
+        "track_accuracy_validated": false,
+        "physical_correspondence_validated": false,
+        "cad_fusion_authorized": false,
+        "manufacturing_accuracy_validated": false
+      }
+    },
+    {
+      "schema_version": "vggt_hybrid_track_evidence_v1",
+      "created_at_utc": "2026-10-18T14:11:03.821116+00:00",
+      "object_id": "ring_013",
+      "split": "train",
+      "views": [
+        "front",
+        "top",
+        "iso",
+        "lsv",
+        "rsv"
+      ],
+      "image_size": 518,
+      "query_count_per_view": 1024,
+      "query_selection": "baseline_384_plus_unique_relief_stratified_640",
+      "query_region_counts": {
+        "front": {
+          "depth_supported_relief": 640,
+          "silhouette_boundary": 0,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "top": {
+          "depth_supported_relief": 414,
+          "silhouette_boundary": 226,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "iso": {
+          "depth_supported_relief": 640,
+          "silhouette_boundary": 0,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "lsv": {
+          "depth_supported_relief": 375,
+          "silhouette_boundary": 189,
+          "textured_surface": 76,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "rsv": {
+          "depth_supported_relief": 367,
+          "silhouette_boundary": 199,
+          "textured_surface": 74,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        }
+      },
+      "sources": {
+        "baseline_report": "dataset/phase_runs/v1/vggt_full_stl1_track_evidence_v1/ring_013/report.json",
+        "stratified_report": "dataset/phase_runs/v1/vggt_relief_stratified_pilot_v1/ring_013/report.json",
+        "checkpoint_sha256": "d15bf50a8615c8225ed48b51ea5cac673d82442ec0309036df555a053253afe0"
+      },
+      "runtime": {
+        "composition_seconds": 0.070385,
+        "retained_source_gpu_seconds": 214.256,
+        "peak_cuda_bytes": 2615137792
+      },
+      "summary": {
+        "mean_visibility": 0.673283,
+        "mean_confidence": 0.260859,
+        "in_bounds_fraction": 1.0,
+        "maximum_source_query_error_pixels": 0.0
+      },
+      "checks": {
+        "source_checkpoints_match": true,
+        "baseline_query_points_preserved_exactly": true,
+        "baseline_tracks_preserved_exactly": true,
+        "all_queries_unique_per_source": true,
+        "all_tracks_in_bounds_above_95_percent": true,
+        "all_source_queries_preserved": true
+      },
+      "artifacts": {
+        "track_evidence": "dataset/phase_runs/v1/vggt_relief_hybrid_train_v1/ring_013/vggt_track_evidence.npz"
+      },
+      "claims": {
+        "track_accuracy_validated": false,
+        "physical_correspondence_validated": false,
+        "cad_fusion_authorized": false,
+        "manufacturing_accuracy_validated": false
+      }
+    },
+    {
+      "schema_version": "vggt_hybrid_track_evidence_v1",
+      "created_at_utc": "2026-10-18T14:11:03.892979+00:00",
+      "object_id": "ring_014",
+      "split": "train",
+      "views": [
+        "front",
+        "top",
+        "iso",
+        "lsv",
+        "rsv"
+      ],
+      "image_size": 518,
+      "query_count_per_view": 1024,
+      "query_selection": "baseline_384_plus_unique_relief_stratified_640",
+      "query_region_counts": {
+        "front": {
+          "depth_supported_relief": 640,
+          "silhouette_boundary": 0,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "top": {
+          "depth_supported_relief": 491,
+          "silhouette_boundary": 149,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "iso": {
+          "depth_supported_relief": 640,
+          "silhouette_boundary": 0,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "lsv": {
+          "depth_supported_relief": 630,
+          "silhouette_boundary": 10,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "rsv": {
+          "depth_supported_relief": 513,
+          "silhouette_boundary": 127,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        }
+      },
+      "sources": {
+        "baseline_report": "dataset/phase_runs/v1/vggt_full_stl1_track_evidence_v1/ring_014/report.json",
+        "stratified_report": "dataset/phase_runs/v1/vggt_relief_stratified_pilot_v1/ring_014/report.json",
+        "checkpoint_sha256": "d15bf50a8615c8225ed48b51ea5cac673d82442ec0309036df555a053253afe0"
+      },
+      "runtime": {
+        "composition_seconds": 0.069155,
+        "retained_source_gpu_seconds": 205.887,
+        "peak_cuda_bytes": 2615137792
+      },
+      "summary": {
+        "mean_visibility": 0.662647,
+        "mean_confidence": 0.262486,
+        "in_bounds_fraction": 1.0,
+        "maximum_source_query_error_pixels": 0.0
+      },
+      "checks": {
+        "source_checkpoints_match": true,
+        "baseline_query_points_preserved_exactly": true,
+        "baseline_tracks_preserved_exactly": true,
+        "all_queries_unique_per_source": true,
+        "all_tracks_in_bounds_above_95_percent": true,
+        "all_source_queries_preserved": true
+      },
+      "artifacts": {
+        "track_evidence": "dataset/phase_runs/v1/vggt_relief_hybrid_train_v1/ring_014/vggt_track_evidence.npz"
+      },
+      "claims": {
+        "track_accuracy_validated": false,
+        "physical_correspondence_validated": false,
+        "cad_fusion_authorized": false,
+        "manufacturing_accuracy_validated": false
+      }
+    },
+    {
+      "schema_version": "vggt_hybrid_track_evidence_v1",
+      "created_at_utc": "2026-10-18T14:11:03.965051+00:00",
+      "object_id": "ring_016",
+      "split": "train",
+      "views": [
+        "front",
+        "top",
+        "iso",
+        "lsv",
+        "rsv"
+      ],
+      "image_size": 518,
+      "query_count_per_view": 1024,
+      "query_selection": "baseline_384_plus_unique_relief_stratified_640",
+      "query_region_counts": {
+        "front": {
+          "depth_supported_relief": 640,
+          "silhouette_boundary": 0,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "top": {
+          "depth_supported_relief": 495,
+          "silhouette_boundary": 145,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "iso": {
+          "depth_supported_relief": 640,
+          "silhouette_boundary": 0,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "lsv": {
+          "depth_supported_relief": 398,
+          "silhouette_boundary": 152,
+          "textured_surface": 90,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "rsv": {
+          "depth_supported_relief": 371,
+          "silhouette_boundary": 172,
+          "textured_surface": 97,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        }
+      },
+      "sources": {
+        "baseline_report": "dataset/phase_runs/v1/vggt_full_stl1_track_evidence_v1/ring_016/report.json",
+        "stratified_report": "dataset/phase_runs/v1/vggt_relief_stratified_pilot_v1/ring_016/report.json",
+        "checkpoint_sha256": "d15bf50a8615c8225ed48b51ea5cac673d82442ec0309036df555a053253afe0"
+      },
+      "runtime": {
+        "composition_seconds": 0.06915,
+        "retained_source_gpu_seconds": 187.183,
+        "peak_cuda_bytes": 2615137792
+      },
+      "summary": {
+        "mean_visibility": 0.661154,
+        "mean_confidence": 0.272597,
+        "in_bounds_fraction": 1.0,
+        "maximum_source_query_error_pixels": 0.0
+      },
+      "checks": {
+        "source_checkpoints_match": true,
+        "baseline_query_points_preserved_exactly": true,
+        "baseline_tracks_preserved_exactly": true,
+        "all_queries_unique_per_source": true,
+        "all_tracks_in_bounds_above_95_percent": true,
+        "all_source_queries_preserved": true
+      },
+      "artifacts": {
+        "track_evidence": "dataset/phase_runs/v1/vggt_relief_hybrid_train_v1/ring_016/vggt_track_evidence.npz"
+      },
+      "claims": {
+        "track_accuracy_validated": false,
+        "physical_correspondence_validated": false,
+        "cad_fusion_authorized": false,
+        "manufacturing_accuracy_validated": false
+      }
+    },
+    {
+      "schema_version": "vggt_hybrid_track_evidence_v1",
+      "created_at_utc": "2026-10-18T14:11:04.041637+00:00",
+      "object_id": "ring_017",
+      "split": "train",
+      "views": [
+        "front",
+        "top",
+        "iso",
+        "lsv",
+        "rsv"
+      ],
+      "image_size": 518,
+      "query_count_per_view": 1024,
+      "query_selection": "baseline_384_plus_unique_relief_stratified_640",
+      "query_region_counts": {
+        "front": {
+          "depth_supported_relief": 640,
+          "silhouette_boundary": 0,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "top": {
+          "depth_supported_relief": 612,
+          "silhouette_boundary": 28,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "iso": {
+          "depth_supported_relief": 640,
+          "silhouette_boundary": 0,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "lsv": {
+          "depth_supported_relief": 640,
+          "silhouette_boundary": 0,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "rsv": {
+          "depth_supported_relief": 640,
+          "silhouette_boundary": 0,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        }
+      },
+      "sources": {
+        "baseline_report": "dataset/phase_runs/v1/vggt_full_stl1_track_evidence_v1/ring_017/report.json",
+        "stratified_report": "dataset/phase_runs/v1/vggt_relief_stratified_pilot_v1/ring_017/report.json",
+        "checkpoint_sha256": "d15bf50a8615c8225ed48b51ea5cac673d82442ec0309036df555a053253afe0"
+      },
+      "runtime": {
+        "composition_seconds": 0.07381,
+        "retained_source_gpu_seconds": 212.659,
+        "peak_cuda_bytes": 2615137792
+      },
+      "summary": {
+        "mean_visibility": 0.630815,
+        "mean_confidence": 0.28393,
+        "in_bounds_fraction": 0.999687,
+        "maximum_source_query_error_pixels": 0.0
+      },
+      "checks": {
+        "source_checkpoints_match": true,
+        "baseline_query_points_preserved_exactly": true,
+        "baseline_tracks_preserved_exactly": true,
+        "all_queries_unique_per_source": true,
+        "all_tracks_in_bounds_above_95_percent": true,
+        "all_source_queries_preserved": true
+      },
+      "artifacts": {
+        "track_evidence": "dataset/phase_runs/v1/vggt_relief_hybrid_train_v1/ring_017/vggt_track_evidence.npz"
+      },
+      "claims": {
+        "track_accuracy_validated": false,
+        "physical_correspondence_validated": false,
+        "cad_fusion_authorized": false,
+        "manufacturing_accuracy_validated": false
+      }
+    },
+    {
+      "schema_version": "vggt_hybrid_track_evidence_v1",
+      "created_at_utc": "2026-10-18T14:11:04.107771+00:00",
+      "object_id": "ring_018",
+      "split": "train",
+      "views": [
+        "front",
+        "top",
+        "iso",
+        "lsv",
+        "rsv"
+      ],
+      "image_size": 518,
+      "query_count_per_view": 1024,
+      "query_selection": "baseline_384_plus_unique_relief_stratified_640",
+      "query_region_counts": {
+        "front": {
+          "depth_supported_relief": 640,
+          "silhouette_boundary": 0,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "top": {
+          "depth_supported_relief": 557,
+          "silhouette_boundary": 83,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "iso": {
+          "depth_supported_relief": 640,
+          "silhouette_boundary": 0,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "lsv": {
+          "depth_supported_relief": 579,
+          "silhouette_boundary": 61,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "rsv": {
+          "depth_supported_relief": 502,
+          "silhouette_boundary": 129,
+          "textured_surface": 9,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        }
+      },
+      "sources": {
+        "baseline_report": "dataset/phase_runs/v1/vggt_full_stl1_track_evidence_v1/ring_018/report.json",
+        "stratified_report": "dataset/phase_runs/v1/vggt_relief_stratified_pilot_v1/ring_018/report.json",
+        "checkpoint_sha256": "d15bf50a8615c8225ed48b51ea5cac673d82442ec0309036df555a053253afe0"
+      },
+      "runtime": {
+        "composition_seconds": 0.063767,
+        "retained_source_gpu_seconds": 201.987,
+        "peak_cuda_bytes": 2615137792
+      },
+      "summary": {
+        "mean_visibility": 0.65267,
+        "mean_confidence": 0.255219,
+        "in_bounds_fraction": 0.999883,
+        "maximum_source_query_error_pixels": 0.0
+      },
+      "checks": {
+        "source_checkpoints_match": true,
+        "baseline_query_points_preserved_exactly": true,
+        "baseline_tracks_preserved_exactly": true,
+        "all_queries_unique_per_source": true,
+        "all_tracks_in_bounds_above_95_percent": true,
+        "all_source_queries_preserved": true
+      },
+      "artifacts": {
+        "track_evidence": "dataset/phase_runs/v1/vggt_relief_hybrid_train_v1/ring_018/vggt_track_evidence.npz"
+      },
+      "claims": {
+        "track_accuracy_validated": false,
+        "physical_correspondence_validated": false,
+        "cad_fusion_authorized": false,
+        "manufacturing_accuracy_validated": false
+      }
+    },
+    {
+      "schema_version": "vggt_hybrid_track_evidence_v1",
+      "created_at_utc": "2026-10-18T14:11:04.178833+00:00",
+      "object_id": "ring_019",
+      "split": "train",
+      "views": [
+        "front",
+        "top",
+        "iso",
+        "lsv",
+        "rsv"
+      ],
+      "image_size": 518,
+      "query_count_per_view": 1024,
+      "query_selection": "baseline_384_plus_unique_relief_stratified_640",
+      "query_region_counts": {
+        "front": {
+          "depth_supported_relief": 640,
+          "silhouette_boundary": 0,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "top": {
+          "depth_supported_relief": 512,
+          "silhouette_boundary": 128,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "iso": {
+          "depth_supported_relief": 640,
+          "silhouette_boundary": 0,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "lsv": {
+          "depth_supported_relief": 288,
+          "silhouette_boundary": 124,
+          "textured_surface": 228,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "rsv": {
+          "depth_supported_relief": 343,
+          "silhouette_boundary": 183,
+          "textured_surface": 114,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        }
+      },
+      "sources": {
+        "baseline_report": "dataset/phase_runs/v1/vggt_full_stl1_track_evidence_v1/ring_019/report.json",
+        "stratified_report": "dataset/phase_runs/v1/vggt_relief_stratified_pilot_v1/ring_019/report.json",
+        "checkpoint_sha256": "d15bf50a8615c8225ed48b51ea5cac673d82442ec0309036df555a053253afe0"
+      },
+      "runtime": {
+        "composition_seconds": 0.068286,
+        "retained_source_gpu_seconds": 222.424,
+        "peak_cuda_bytes": 2615137792
+      },
+      "summary": {
+        "mean_visibility": 0.699207,
+        "mean_confidence": 0.259621,
+        "in_bounds_fraction": 1.0,
+        "maximum_source_query_error_pixels": 0.0
+      },
+      "checks": {
+        "source_checkpoints_match": true,
+        "baseline_query_points_preserved_exactly": true,
+        "baseline_tracks_preserved_exactly": true,
+        "all_queries_unique_per_source": true,
+        "all_tracks_in_bounds_above_95_percent": true,
+        "all_source_queries_preserved": true
+      },
+      "artifacts": {
+        "track_evidence": "dataset/phase_runs/v1/vggt_relief_hybrid_train_v1/ring_019/vggt_track_evidence.npz"
+      },
+      "claims": {
+        "track_accuracy_validated": false,
+        "physical_correspondence_validated": false,
+        "cad_fusion_authorized": false,
+        "manufacturing_accuracy_validated": false
+      }
+    },
+    {
+      "schema_version": "vggt_hybrid_track_evidence_v1",
+      "created_at_utc": "2026-10-18T14:11:04.246657+00:00",
+      "object_id": "ring_021",
+      "split": "train",
+      "views": [
+        "front",
+        "top",
+        "iso",
+        "lsv",
+        "rsv"
+      ],
+      "image_size": 518,
+      "query_count_per_view": 1024,
+      "query_selection": "baseline_384_plus_unique_relief_stratified_640",
+      "query_region_counts": {
+        "front": {
+          "depth_supported_relief": 640,
+          "silhouette_boundary": 0,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "top": {
+          "depth_supported_relief": 621,
+          "silhouette_boundary": 19,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "iso": {
+          "depth_supported_relief": 640,
+          "silhouette_boundary": 0,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "lsv": {
+          "depth_supported_relief": 385,
+          "silhouette_boundary": 200,
+          "textured_surface": 55,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "rsv": {
+          "depth_supported_relief": 582,
+          "silhouette_boundary": 58,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        }
+      },
+      "sources": {
+        "baseline_report": "dataset/phase_runs/v1/vggt_full_stl1_track_evidence_v1/ring_021/report.json",
+        "stratified_report": "dataset/phase_runs/v1/vggt_relief_stratified_pilot_v1/ring_021/report.json",
+        "checkpoint_sha256": "d15bf50a8615c8225ed48b51ea5cac673d82442ec0309036df555a053253afe0"
+      },
+      "runtime": {
+        "composition_seconds": 0.065078,
+        "retained_source_gpu_seconds": 211.811,
+        "peak_cuda_bytes": 2615137792
+      },
+      "summary": {
+        "mean_visibility": 0.748819,
+        "mean_confidence": 0.260378,
+        "in_bounds_fraction": 1.0,
+        "maximum_source_query_error_pixels": 0.0
+      },
+      "checks": {
+        "source_checkpoints_match": true,
+        "baseline_query_points_preserved_exactly": true,
+        "baseline_tracks_preserved_exactly": true,
+        "all_queries_unique_per_source": true,
+        "all_tracks_in_bounds_above_95_percent": true,
+        "all_source_queries_preserved": true
+      },
+      "artifacts": {
+        "track_evidence": "dataset/phase_runs/v1/vggt_relief_hybrid_train_v1/ring_021/vggt_track_evidence.npz"
+      },
+      "claims": {
+        "track_accuracy_validated": false,
+        "physical_correspondence_validated": false,
+        "cad_fusion_authorized": false,
+        "manufacturing_accuracy_validated": false
+      }
+    },
+    {
+      "schema_version": "vggt_hybrid_track_evidence_v1",
+      "created_at_utc": "2026-10-18T14:11:04.315684+00:00",
+      "object_id": "ring_022",
+      "split": "train",
+      "views": [
+        "front",
+        "top",
+        "iso",
+        "lsv",
+        "rsv"
+      ],
+      "image_size": 518,
+      "query_count_per_view": 1024,
+      "query_selection": "baseline_384_plus_unique_relief_stratified_640",
+      "query_region_counts": {
+        "front": {
+          "depth_supported_relief": 640,
+          "silhouette_boundary": 0,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "top": {
+          "depth_supported_relief": 493,
+          "silhouette_boundary": 147,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "iso": {
+          "depth_supported_relief": 640,
+          "silhouette_boundary": 0,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "lsv": {
+          "depth_supported_relief": 382,
+          "silhouette_boundary": 169,
+          "textured_surface": 89,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "rsv": {
+          "depth_supported_relief": 451,
+          "silhouette_boundary": 176,
+          "textured_surface": 13,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        }
+      },
+      "sources": {
+        "baseline_report": "dataset/phase_runs/v1/vggt_full_stl1_track_evidence_v1/ring_022/report.json",
+        "stratified_report": "dataset/phase_runs/v1/vggt_relief_stratified_pilot_v1/ring_022/report.json",
+        "checkpoint_sha256": "d15bf50a8615c8225ed48b51ea5cac673d82442ec0309036df555a053253afe0"
+      },
+      "runtime": {
+        "composition_seconds": 0.066201,
+        "retained_source_gpu_seconds": 224.37,
+        "peak_cuda_bytes": 2615137792
+      },
+      "summary": {
+        "mean_visibility": 0.628865,
+        "mean_confidence": 0.25694,
+        "in_bounds_fraction": 0.999687,
+        "maximum_source_query_error_pixels": 0.0
+      },
+      "checks": {
+        "source_checkpoints_match": true,
+        "baseline_query_points_preserved_exactly": true,
+        "baseline_tracks_preserved_exactly": true,
+        "all_queries_unique_per_source": true,
+        "all_tracks_in_bounds_above_95_percent": true,
+        "all_source_queries_preserved": true
+      },
+      "artifacts": {
+        "track_evidence": "dataset/phase_runs/v1/vggt_relief_hybrid_train_v1/ring_022/vggt_track_evidence.npz"
+      },
+      "claims": {
+        "track_accuracy_validated": false,
+        "physical_correspondence_validated": false,
+        "cad_fusion_authorized": false,
+        "manufacturing_accuracy_validated": false
+      }
+    },
+    {
+      "schema_version": "vggt_hybrid_track_evidence_v1",
+      "created_at_utc": "2026-10-18T14:11:04.386076+00:00",
+      "object_id": "ring_024",
+      "split": "train",
+      "views": [
+        "front",
+        "top",
+        "iso",
+        "lsv",
+        "rsv"
+      ],
+      "image_size": 518,
+      "query_count_per_view": 1024,
+      "query_selection": "baseline_384_plus_unique_relief_stratified_640",
+      "query_region_counts": {
+        "front": {
+          "depth_supported_relief": 640,
+          "silhouette_boundary": 0,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "top": {
+          "depth_supported_relief": 261,
+          "silhouette_boundary": 353,
+          "textured_surface": 26,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "iso": {
+          "depth_supported_relief": 640,
+          "silhouette_boundary": 0,
+          "textured_surface": 0,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "lsv": {
+          "depth_supported_relief": 127,
+          "silhouette_boundary": 153,
+          "textured_surface": 360,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        },
+        "rsv": {
+          "depth_supported_relief": 296,
+          "silhouette_boundary": 155,
+          "textured_surface": 189,
+          "uniform_surface_fill": 0,
+          "retained_baseline_feature": 384
+        }
+      },
+      "sources": {
+        "baseline_report": "dataset/phase_runs/v1/vggt_full_stl1_track_evidence_v1/ring_024/report.json",
+        "stratified_report": "dataset/phase_runs/v1/vggt_relief_stratified_pilot_v1/ring_024/report.json",
+        "checkpoint_sha256": "d15bf50a8615c8225ed48b51ea5cac673d82442ec0309036df555a053253afe0"
+      },
+      "runtime": {
+        "composition_seconds": 0.067729,
+        "retained_source_gpu_seconds": 172.53,
+        "peak_cuda_bytes": 2615137792
+      },
+      "summary": {
+        "mean_visibility": 0.746449,
+        "mean_confidence": 0.260484,
+        "in_bounds_fraction": 1.0,
+        "maximum_source_query_error_pixels": 0.0
+      },
+      "checks": {
+        "source_checkpoints_match": true,
+        "baseline_query_points_preserved_exactly": true,
+        "baseline_tracks_preserved_exactly": true,
+        "all_queries_unique_per_source": true,
+        "all_tracks_in_bounds_above_95_percent": true,
+        "all_source_queries_preserved": true
+      },
+      "artifacts": {
+        "track_evidence": "dataset/phase_runs/v1/vggt_relief_hybrid_train_v1/ring_024/vggt_track_evidence.npz"
+      },
+      "claims": {
+        "track_accuracy_validated": false,
+        "physical_correspondence_validated": false,
+        "cad_fusion_authorized": false,
+        "manufacturing_accuracy_validated": false
+      }
+    }
+  ],
+  "checks": {
+    "all_objects_completed": true,
+    "all_object_checks_pass": true,
+    "test_objects_not_processed": true
+  },
+  "claims": {
+    "dense_correspondence_validated": false,
+    "physical_correspondence_validated": false,
+    "cad_fusion_authorized": false
+  }
+}

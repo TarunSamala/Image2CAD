@@ -210,6 +210,18 @@ function renderPhase4() {
   const fullReliefTrackSummary = fullReliefTracks.summary || {};
   const fullReliefTrackValidation = fullReliefTrackSummary.validation || {};
   const fullReliefTrackChecks = fullReliefTracks.checks || {};
+  const denseReliefTrain = phase5.dense_relief_training || {};
+  const denseReliefSummary = denseReliefTrain.summary || {};
+  const denseReliefChecks = denseReliefTrain.checks || {};
+  const denseReliefValidation = phase5.dense_relief_validation || {};
+  const denseValidationSummary = denseReliefValidation.summary || {};
+  const denseValidationChecks = denseReliefValidation.checks || {};
+  const normalCorroboration = phase5.normal_corroboration || {};
+  const normalCorroborationSummary = normalCorroboration.summary || {};
+  const normalCorroborationChecks = normalCorroboration.checks || {};
+  const visibilityGraph = phase5.visibility_graph || {};
+  const visibilitySummary = visibilityGraph.summary || {};
+  const visibilityChecks = visibilityGraph.checks || {};
   const checks = report.checks || {};
   const instances = report.prong_instances || {};
   const instanceSummary = instances.summary || {};
@@ -234,6 +246,10 @@ function renderPhase4() {
     <div class="key-value"><span>Exact negative-space cut trials</span><strong class="${openworkChecks.all_metals_valid_single_solids ? "good" : "bad"}">${openworkSummary.accepted_opening_count ?? "—"} / ${openworkSummary.input_candidate_count ?? "—"}</strong><small>Validation IoU ${score(openworkSummary.validation_mean_openwork_iou, 3)} · delta ${score(openworkSummary.validation_mean_iou_delta, 3)} · semantics unresolved · test split unscored</small></div>
     <div class="key-value"><span>Sculptural relief evidence</span><strong class="${reliefChecks.relief_kept_separate_from_exact_cad ? "warning" : "bad"}">${reliefSummary.front_relief_obj_count ?? "—"} OBJ layers</strong><small>${reliefSummary.view_count ?? "—"} views · validation detail supported ${score(reliefSummary.validation_mean_detail_supported_fraction, 3)} · unresolved ${score(reliefSummary.validation_mean_detail_unresolved_fraction, 3)} · not fused into STEP</small></div>
     <div class="key-value"><span>Full-dataset reciprocal relief tracks</span><strong class="${fullReliefTrackChecks.reciprocal_cycle_required ? "warning" : "bad"}">${fullReliefTrackValidation.front_supported_count ?? reliefTrackValidation.front_supported_count ?? "—"} / ${fullReliefTrackValidation.front_candidate_count ?? reliefTrackValidation.front_candidate_count ?? "—"}</strong><small>Validation support ${score(fullReliefTrackValidation.front_supported_fraction ?? reliefTrackValidation.front_supported_fraction, 3)} · ${fullReliefTrackSummary.object_count ?? reliefTrackSummary.object_count ?? "—"}/24 rings · 384 queries per view · sparse machine evidence · CAD fusion blocked</small></div>
+    <div class="key-value"><span>Hybrid relief-query training gate</span><strong class="${denseReliefChecks.baseline_acceptance_gate_preserved ? "warning" : "bad"}">${denseReliefTrain.object_count ?? "—"} / 18 training rings</strong><small>Mean supported-area delta ${score(denseReliefSummary.mean_supported_spatial_coverage_delta, 3)} · 384 baseline + 640 relief queries · validation/test excluded · CAD fusion blocked</small></div>
+    <div class="key-value"><span>Frozen hybrid validation gate</span><strong class="${denseValidationChecks.baseline_acceptance_gate_preserved && denseValidationSummary.all_objects_improve_supported_spatial_coverage ? "warning" : "bad"}">${denseReliefValidation.object_count ?? "—"} / 3 validation rings</strong><small>Mean supported-area delta ${score(denseValidationSummary.mean_supported_spatial_coverage_delta, 3)} · every validation ring improved · test still held out · top-view support remains weak · CAD fusion blocked</small></div>
+    <div class="key-value"><span>Independent normal corroboration</span><strong class="${normalCorroborationChecks.phase5_7_supported_counts_reproduced ? "warning" : "bad"}">${normalCorroborationSummary.normal_corroborated_count ?? "—"} / ${normalCorroborationSummary.phase5_7_supported_count ?? "—"}</strong><small>${score(normalCorroborationSummary.normal_corroborated_fraction, 3)} corroborated · ${normalCorroborationSummary.normal_unresolved_count ?? "—"} unresolved · Metric3D depth excluded from comparator · ${normalCorroborationSummary.top_target_accepted_count ?? "—"} front-to-top track · CAD fusion blocked</small></div>
+    <div class="key-value"><span>Visibility-aware relief graph</span><strong class="${visibilityChecks.phase5_8_normal_counts_reproduced ? "warning" : "bad"}">${visibilitySummary.query_class_counts?.multi_view_normal_corroborated ?? "—"} multi-view points</strong><small>${visibilitySummary.surface_region_count ?? "—"} observable image-space regions · ${visibilitySummary.normal_corroborated_query_count ?? "—"} normal-corroborated points total · validation only · CAD fusion blocked</small></div>
     <div class="key-value"><span>Individual prong proposals</span><strong class="warning">${instanceSummary.resolved_instance_view_count ?? "—"} / ${instanceSummary.view_count ?? 5} views</strong><small>Front · top · angled resolved; side/back retain overlap groups</small></div>
     <div class="key-value"><span>VGGT identity support</span><strong class="good">Top strong · angled moderate</strong><small>Permutation margins ${score(topTrack.permutation_margin_fraction, 3)} / ${score(angledTrack.permutation_margin_fraction, 3)} · non-metric machine evidence</small></div>
     <div class="key-value"><span>STL-1 enclosed candidates</span><strong>${datasetCandidates.candidate_count ?? "—"}</strong><small>${datasetCandidates.object_count ?? "—"} objects · ${datasetCandidates.view_count ?? "—"} views · negative space only</small></div>

@@ -1,0 +1,73 @@
+{
+  "schema_version": "vggt_track_evidence_v1",
+  "object_id": "ring_001",
+  "split": "train",
+  "views": [
+    "front",
+    "top",
+    "iso",
+    "lsv",
+    "rsv"
+  ],
+  "image_size": 518,
+  "query_count_per_view": 1024,
+  "query_selection": "relief_stratified",
+  "query_region_counts": {
+    "front": {
+      "depth_supported_relief": 666,
+      "silhouette_boundary": 154,
+      "textured_surface": 102,
+      "uniform_surface_fill": 102
+    },
+    "top": {
+      "depth_supported_relief": 263,
+      "silhouette_boundary": 379,
+      "textured_surface": 280,
+      "uniform_surface_fill": 102
+    },
+    "iso": {
+      "depth_supported_relief": 666,
+      "silhouette_boundary": 154,
+      "textured_surface": 102,
+      "uniform_surface_fill": 102
+    },
+    "lsv": {
+      "depth_supported_relief": 575,
+      "silhouette_boundary": 231,
+      "textured_surface": 116,
+      "uniform_surface_fill": 102
+    },
+    "rsv": {
+      "depth_supported_relief": 607,
+      "silhouette_boundary": 213,
+      "textured_surface": 102,
+      "uniform_surface_fill": 102
+    }
+  },
+  "tracker": {
+    "backend": "VGGT-1B track head",
+    "pinned_code_commit": "a288dd0f14786c93483e45524328726ab7b1b4ce",
+    "checkpoint_sha256": "d15bf50a8615c8225ed48b51ea5cac673d82442ec0309036df555a053253afe0",
+    "query_chunk_size": 24,
+    "dtype": "float16"
+  },
+  "summary": {
+    "mean_visibility": 0.643229,
+    "mean_confidence": 0.280068,
+    "in_bounds_fraction": 1.0,
+    "maximum_source_query_error_pixels": 0.0
+  },
+  "runtime": {
+    "seconds": 137.265,
+    "peak_cuda_bytes": 2616342528
+  },
+  "artifacts": {
+    "track_evidence": "dataset/phase_runs/v1/vggt_relief_stratified_pilot_v1/ring_001/vggt_track_evidence.npz"
+  },
+  "claims": {
+    "tracks_are_human_ground_truth": false,
+    "camera_calibration_validated": false,
+    "metric_scale_validated": false,
+    "geometry_accuracy_validated": false
+  }
+}

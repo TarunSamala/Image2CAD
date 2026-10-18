@@ -1,0 +1,170 @@
+{
+  "schema_version": "lalitha_phase5_normal_corroboration_v1",
+  "created_at_utc": "2026-10-18T16:30:54.733101+00:00",
+  "stage": "Phase 5.8 independent normal corroboration",
+  "scope": {
+    "object_ids": [
+      "ring_004",
+      "ring_012",
+      "ring_020"
+    ],
+    "split": "val",
+    "view_order": [
+      "front",
+      "top",
+      "iso",
+      "lsv",
+      "rsv"
+    ],
+    "normal_agreement_threshold": 0.4,
+    "normal_angle_scale_degrees": 35.0
+  },
+  "sources": {
+    "phase5_7_validation": "data/phase5_dense_relief_validation_v1/report.json",
+    "metric_depth": "dataset/phase_runs/v1/phase5_validation_metric_depth_v1/report.json",
+    "hybrid_tracks": "dataset/phase_runs/v1/vggt_relief_hybrid_validation_v1/report.json",
+    "direct_normal_backend": "metric3d_v2",
+    "independent_depth_normal_backends": [
+      "depth_anything_v2_metric",
+      "unidepth_v2"
+    ]
+  },
+  "summary": {
+    "object_count": 3,
+    "view_count": 15,
+    "phase5_7_supported_count": 736,
+    "normal_corroborated_count": 521,
+    "normal_corroborated_fraction": 0.70788,
+    "normal_unresolved_count": 215,
+    "top_target_accepted_count": 1,
+    "top_target_normal_corroborated_count": 1
+  },
+  "checks": {
+    "fixed_validation_objects_only": true,
+    "all_15_validation_views_have_three_model_outputs": true,
+    "metric3d_depth_excluded_from_independent_comparator": true,
+    "phase5_7_supported_counts_reproduced": true,
+    "test_objects_not_processed": true,
+    "phase5_7_tracks_unchanged": true,
+    "exact_cad_unchanged": true
+  },
+  "objects": [
+    {
+      "object_id": "ring_004",
+      "split": "val",
+      "phase5_7_supported_count": 72,
+      "phase5_7_report_count": 72,
+      "normal_corroborated_count": 49,
+      "normal_corroborated_fraction": 0.680556,
+      "normal_unresolved_count": 23,
+      "mean_source_normal_agreement_on_supported": 0.600886,
+      "mean_target_normal_agreement_on_accepted_tracks": 0.709155,
+      "target_views": {
+        "top": {
+          "accepted": 0,
+          "normal_corroborated": 0
+        },
+        "iso": {
+          "accepted": 56,
+          "normal_corroborated": 37
+        },
+        "lsv": {
+          "accepted": 11,
+          "normal_corroborated": 9
+        },
+        "rsv": {
+          "accepted": 8,
+          "normal_corroborated": 4
+        }
+      },
+      "phase5_7_count_reproduced": true,
+      "artifacts": {
+        "audit": "data/phase5_normal_corroboration_v1/ring_004_normal_corroboration.png"
+      }
+    },
+    {
+      "object_id": "ring_012",
+      "split": "val",
+      "phase5_7_supported_count": 453,
+      "phase5_7_report_count": 453,
+      "normal_corroborated_count": 331,
+      "normal_corroborated_fraction": 0.730684,
+      "normal_unresolved_count": 122,
+      "mean_source_normal_agreement_on_supported": 0.667314,
+      "mean_target_normal_agreement_on_accepted_tracks": 0.620419,
+      "target_views": {
+        "top": {
+          "accepted": 1,
+          "normal_corroborated": 1
+        },
+        "iso": {
+          "accepted": 352,
+          "normal_corroborated": 261
+        },
+        "lsv": {
+          "accepted": 70,
+          "normal_corroborated": 49
+        },
+        "rsv": {
+          "accepted": 115,
+          "normal_corroborated": 63
+        }
+      },
+      "phase5_7_count_reproduced": true,
+      "artifacts": {
+        "audit": "data/phase5_normal_corroboration_v1/ring_012_normal_corroboration.png"
+      }
+    },
+    {
+      "object_id": "ring_020",
+      "split": "val",
+      "phase5_7_supported_count": 211,
+      "phase5_7_report_count": 211,
+      "normal_corroborated_count": 141,
+      "normal_corroborated_fraction": 0.668246,
+      "normal_unresolved_count": 70,
+      "mean_source_normal_agreement_on_supported": 0.643766,
+      "mean_target_normal_agreement_on_accepted_tracks": 0.588468,
+      "target_views": {
+        "top": {
+          "accepted": 0,
+          "normal_corroborated": 0
+        },
+        "iso": {
+          "accepted": 185,
+          "normal_corroborated": 129
+        },
+        "lsv": {
+          "accepted": 24,
+          "normal_corroborated": 12
+        },
+        "rsv": {
+          "accepted": 5,
+          "normal_corroborated": 2
+        }
+      },
+      "phase5_7_count_reproduced": true,
+      "artifacts": {
+        "audit": "data/phase5_normal_corroboration_v1/ring_020_normal_corroboration.png"
+      }
+    }
+  ],
+  "decision": "retain_normal_corroboration_as_uncertainty_annotation_only",
+  "claims": {
+    "normal_accuracy_validated": false,
+    "physical_correspondence_validated": false,
+    "dense_correspondence_validated": false,
+    "cad_fusion_authorized": false,
+    "metric_scale_validated": false,
+    "manufacturing_accuracy_validated": false
+  },
+  "limitations": [
+    "There is no surface-normal ground truth.",
+    "Depth Anything V2 Metric and UniDepth V2 are independent model families but can share training-domain biases.",
+    "Camera-space normals are not compared directly across views because calibrated camera rotations are unavailable.",
+    "Normal corroboration annotates retained tracks and cannot recover ornament surfaces hidden from a view."
+  ],
+  "artifacts": {
+    "audit": "data/phase5_normal_corroboration_v1/validation_normal_corroboration_audit.png"
+  }
+}

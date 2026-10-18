@@ -2,7 +2,7 @@
 
 ![Development progress and implementation roadmap](assets/image_to_cad_progress_roadmap.png)
 
-Status snapshot: 14 October 2026.
+Status snapshot: 18 October 2026.
 
 This visual summarizes the active **images-only** execution profile. It does not
 replace or renumber the canonical [Project Bible roadmap](../bible_v1_0/19_DEVELOPMENT_ROADMAP.md).
@@ -192,9 +192,35 @@ have review artifacts but remain outside every aggregate. The broad per-ring
 spread and absent top-view support still block dense correspondence and CAD
 relief fusion.
 
-1. Review the proposed prong identities and build reviewed semantic component
-   identities, then group dense
-   correspondence by component and view direction. Image-plane fitting, rigid
+Phase 5.7 introduces a no-regression hybrid density policy: all 384 baseline
+queries and decisions remain exact, while 640 unique relief-focused queries are
+appended. Across all 18 training rings, mean reciprocally supported-area
+coverage increases by `0.159578`; the frozen policy then increases it by
+`0.156563` across all three validation rings, with every ring improving. The
+three test rings remain untouched. Visual review confirms denser coherent
+front/isometric evidence, but top-view support is still nearly absent. This is
+an evidence-coverage gain, not dense physical correspondence or CAD approval.
+
+Phase 5.8 adds complete three-model depth and normal evidence for all 15 fixed
+validation views. Metric3D direct normals are checked against a comparator made
+only from Depth Anything V2 and UniDepth, excluding Metric3D depth. The audit
+reproduces all 736 Phase 5.7 supported points, corroborates 521 (`0.707880`) and
+leaves 215 unresolved. Only one front-to-top track exists across the cohort.
+The result is retained as uncertainty annotation because there is no normal
+ground truth, calibrated cross-view rotation or physical geometry truth.
+
+Phase 5.9 converts those frozen validation observations into a visibility-aware
+graph. Every candidate front query has a stable ID; every accepted edge records
+its actual target view, reciprocal-cycle evidence, score and normal status.
+Nearby supported queries are grouped only when they share an observable target.
+The graph reproduces all 736 supported and 521 normal-corroborated points, but
+only 45 supported queries have normal-corroborated evidence from two or more
+target views. This prevents invisible surfaces from being forced into unrelated
+views. The graph is a routing and review layer, not physical visibility truth,
+semantic segmentation, hidden-geometry recovery or CAD authorization.
+
+1. Review the proposed prong identities and connect accepted semantic component
+   identities to the Phase 5.9 visibility regions. Image-plane fitting, rigid
    ICP, sparse VGGT tracks and denser reciprocal-cycle registration have all
    been rejected for global geometry movement by the fixed held-out split.
 2. Use pairwise camera-angle diagnostics, projected-surface precision and
@@ -202,11 +228,12 @@ relief fusion.
 3. Improve the current signed-depth minimum from `0.529` to at least `0.700`
    while raising mean IoU from `0.782` to at least `0.800`; the current method
    still fails the geometry gate.
-4. Improve fine-detail geometry beyond the Phase 5.4 depth-supported baseline
-   and densify the full-dataset sparse Phase 5.6 reciprocal tracks before any OBJ evidence
-   is converted into an exact CAD surface.
-5. Select a public-deployment-compatible independent normal comparator; DSINE
-   remains blocked without a separate site/commercial licence.
+4. Improve fine-detail geometry beyond the Phase 5.4 depth-supported baseline,
+   add independent normal corroboration and recover top-view reciprocal support
+   before any OBJ evidence is converted into an exact CAD surface.
+5. Keep the implemented Depth Anything V2 plus UniDepth normal comparator as a
+   deployability-safe uncertainty check; do not substitute DSINE without a
+   separate site/commercial licence.
 6. Review the 266 enclosed negative-space proposals retained across all 120
    STL-1 views; they are aperture/openwork evidence, not confirmed stones.
 7. Add labelled real-image multi-stone evidence and resolve each accepted

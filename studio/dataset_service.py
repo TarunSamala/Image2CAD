@@ -137,6 +137,30 @@ class DatasetRepository:
             / "phase5_full_relief_track_consistency_v1"
             / "report.json"
         )
+        self.phase5_dense_relief_train = self._read_json(
+            self.repo_root
+            / "data"
+            / "phase5_dense_relief_train_v1"
+            / "report.json"
+        )
+        self.phase5_dense_relief_validation = self._read_json(
+            self.repo_root
+            / "data"
+            / "phase5_dense_relief_validation_v1"
+            / "report.json"
+        )
+        self.phase5_normal_corroboration = self._read_json(
+            self.repo_root
+            / "data"
+            / "phase5_normal_corroboration_v1"
+            / "report.json"
+        )
+        self.phase5_visibility_graph = self._read_json(
+            self.repo_root
+            / "data"
+            / "phase5_visibility_graph_v1"
+            / "report.json"
+        )
         self.phase4_prong_instances = self._read_json(
             self.repo_root / "data" / "phase4_prong_instances_v1" / "report.json"
         )
@@ -739,6 +763,18 @@ class DatasetRepository:
                 "full_relief_track_consistency": deepcopy(
                     self.phase5_full_relief_tracks
                 ),
+                "dense_relief_training": deepcopy(
+                    self.phase5_dense_relief_train
+                ),
+                "dense_relief_validation": deepcopy(
+                    self.phase5_dense_relief_validation
+                ),
+                "normal_corroboration": deepcopy(
+                    self.phase5_normal_corroboration
+                ),
+                "visibility_graph": deepcopy(
+                    self.phase5_visibility_graph
+                ),
             },
             "limitations": deepcopy(self.dataset_report.get("limitations", [])),
         }
@@ -1149,6 +1185,9 @@ class DatasetRepository:
                     "Download reversible front-view relief OBJ evidence without modifying the exact STEP body",
                     "Review reciprocal front-to-isometric and side-view support without moving cameras or CAD geometry",
                     "Compare the frozen reciprocal relief gate across all 24 STL-1 rings while holding test rings out of aggregates",
+                    "Review the no-regression 1,024-query hybrid policy across the complete training and fixed validation splits",
+                    "Annotate retained validation tracks with Metric3D direct-normal agreement against an independent Depth Anything V2 and UniDepth consensus",
+                    "Route relief evidence through an explicit visibility graph instead of requiring every source surface to appear in every target view",
                 ],
                 "limitations": [
                     "Current STL and 3MF outputs are research meshes, not authoritative editable CAD.",
@@ -1159,6 +1198,9 @@ class DatasetRepository:
                     "Phase 5.4 relief OBJ files are open, scale-normalized evidence surfaces; they are not solids and are not fused into the STEP body.",
                     "Only a small fraction of fine validation detail is strongly supported by the retained depth evidence; unresolved detail remains visible in the audit.",
                     "Phase 5.6 covers all 24 rings, but the 384 queries per view remain sparse machine correspondence evidence; they are not dense or physically validated and cannot authorize CAD fusion.",
+                    "Phase 5.7 increases training and validation evidence coverage while preserving the Phase 5.6 gate; top-view support remains nearly absent and the tracks are not physically validated.",
+                    "Phase 5.8 normal agreement is an uncertainty annotation without normal ground truth; 215 of 736 validation points remain unresolved and only one accepted front-to-top track exists.",
+                    "Phase 5.9 finds only 45 supported front queries with normal-corroborated observations in two or more target views; graph regions are review evidence, not CAD surfaces.",
                     "Image-only inputs do not verify absolute millimetres without a known scale reference.",
                 ],
                 "actions": [
@@ -1177,6 +1219,14 @@ class DatasetRepository:
                     {"label": "Ring 004 relief tracks", "href": "/api/artifacts/phase5_ring004_relief_track_review"},
                     {"label": "Full-dataset track audit", "href": "/api/artifacts/phase5_full_relief_track_audit"},
                     {"label": "Full-dataset track report", "href": "/api/artifacts/phase5_full_relief_track_report"},
+                    {"label": "Dense training audit", "href": "/api/artifacts/phase5_dense_relief_train_audit"},
+                    {"label": "Dense training report", "href": "/api/artifacts/phase5_dense_relief_train_report"},
+                    {"label": "Dense validation audit", "href": "/api/artifacts/phase5_dense_relief_validation_audit"},
+                    {"label": "Dense validation report", "href": "/api/artifacts/phase5_dense_relief_validation_report"},
+                    {"label": "Normal corroboration audit", "href": "/api/artifacts/phase5_normal_corroboration_audit"},
+                    {"label": "Normal corroboration report", "href": "/api/artifacts/phase5_normal_corroboration_report"},
+                    {"label": "Visibility graph audit", "href": "/api/artifacts/phase5_visibility_graph_audit"},
+                    {"label": "Visibility graph report", "href": "/api/artifacts/phase5_visibility_graph_report"},
                     {"label": "Download baseline STEP", "href": "/api/artifacts/phase4_exact_cad_baseline_step"},
                 ],
             },
@@ -2061,6 +2111,70 @@ class DatasetRepository:
             / "objects"
             / "ring_004"
             / "ring_004_relief_track_review.png",
+            "phase5_dense_relief_train_report": self.repo_root
+            / "data"
+            / "phase5_dense_relief_train_v1"
+            / "report.json",
+            "phase5_dense_relief_train_audit": self.repo_root
+            / "data"
+            / "phase5_dense_relief_train_v1"
+            / "training_cohort_dense_relief_audit.png",
+            "phase5_dense_relief_validation_report": self.repo_root
+            / "data"
+            / "phase5_dense_relief_validation_v1"
+            / "report.json",
+            "phase5_dense_relief_validation_audit": self.repo_root
+            / "data"
+            / "phase5_dense_relief_validation_v1"
+            / "validation_cohort_dense_relief_audit.png",
+            "phase5_normal_corroboration_report": self.repo_root
+            / "data"
+            / "phase5_normal_corroboration_v1"
+            / "report.json",
+            "phase5_normal_corroboration_audit": self.repo_root
+            / "data"
+            / "phase5_normal_corroboration_v1"
+            / "validation_normal_corroboration_audit.png",
+            "phase5_visibility_graph_report": self.repo_root
+            / "data"
+            / "phase5_visibility_graph_v1"
+            / "report.json",
+            "phase5_visibility_graph_audit": self.repo_root
+            / "data"
+            / "phase5_visibility_graph_v1"
+            / "validation_visibility_graph_audit.png",
+            "phase5_ring004_visibility_graph": self.repo_root
+            / "data"
+            / "phase5_visibility_graph_v1"
+            / "ring_004"
+            / "visibility_graph.json",
+            "phase5_validation_metric_depth_report": self.repo_root
+            / "dataset"
+            / "phase_runs"
+            / "v1"
+            / "phase5_validation_metric_depth_v1"
+            / "report.json",
+            "phase5_ring004_validation_normals": self.repo_root
+            / "dataset"
+            / "phase_runs"
+            / "v1"
+            / "phase5_validation_surface_normal_v1"
+            / "previews"
+            / "ring_004_surface_normal_evidence.png",
+            "phase5_ring012_validation_normals": self.repo_root
+            / "dataset"
+            / "phase_runs"
+            / "v1"
+            / "phase5_validation_surface_normal_v1"
+            / "previews"
+            / "ring_012_surface_normal_evidence.png",
+            "phase5_ring020_validation_normals": self.repo_root
+            / "dataset"
+            / "phase_runs"
+            / "v1"
+            / "phase5_validation_surface_normal_v1"
+            / "previews"
+            / "ring_020_surface_normal_evidence.png",
             "phase5_round_solitaire_step": self.repo_root
             / "data"
             / "phase5_exact_cad_v2_v1"

@@ -1,0 +1,424 @@
+{
+  "schema_version": "image2cad_metric_depth_backend_v1",
+  "created_at_utc": "2026-10-18T16:27:05.144108+00:00",
+  "backend": "metric3d_v2",
+  "model": {
+    "model_id": "JUGGHM/Metric3D metric_depth_vit_small_800k",
+    "revision": "Metric3D code eb5b6fac0dc155e4e52f576e304fbf11655ff339",
+    "license": "BSD-2-Clause code; checkpoint terms require separate review",
+    "checkpoint_role": "metric-depth and surface-normal hypothesis"
+  },
+  "device": "cuda",
+  "checkpoint": "/workspace/models/metric_depth/metric3d_v2/metric_depth_vit_small_800k.pth",
+  "checkpoint_evidence": {
+    "kind": "file",
+    "sha256": "b34b2a2be9148054991cef7e417930e1320602ba7bc503b0ee4e7888543728f6",
+    "size_bytes": 150120967
+  },
+  "input_manifest": "dataset/phase_runs/v1/phase5_validation_metric_depth_v1/input_manifest.json",
+  "input_manifest_sha256": "059e0eed5ad2d780d2938db51bdce40221afa1722c13e98c2f63e8d666b85f7f",
+  "sample_count": 15,
+  "requested_sample_count": 15,
+  "coverage_complete": true,
+  "records": [
+    {
+      "sample_key": "ring_004:front",
+      "object_id": "ring_004",
+      "view": "front",
+      "source_sha256": "028fc8d1e7eea4a4d3ed507a4fb9a9dc78b5a94a7c863a91639d5e6dc95c3e30",
+      "artifacts": {
+        "depth_m": "dataset/phase_runs/v1/phase5_validation_metric_depth_v1/backends/metric3d_v2/ring_004/front_depth_m.npy",
+        "confidence": "dataset/phase_runs/v1/phase5_validation_metric_depth_v1/backends/metric3d_v2/ring_004/front_confidence.npy",
+        "normals": "dataset/phase_runs/v1/phase5_validation_metric_depth_v1/backends/metric3d_v2/ring_004/front_normals.npy"
+      },
+      "depth_sha256": "9aae959069f3e361fe87bc9f3a5f513c2d2817045ae8d19ae95fdfd1e9c9961a",
+      "depth_shape": [
+        768,
+        768
+      ],
+      "depth_unit": "metre_model_hypothesis",
+      "masked_depth_m": {
+        "p02": 0.505332350730896,
+        "median": 0.5515223145484924,
+        "p98": 0.6123486161231995
+      },
+      "runtime_seconds": 1.277129,
+      "auxiliary": {
+        "assumed_focal_length_px": 737.6571367569278
+      }
+    },
+    {
+      "sample_key": "ring_004:top",
+      "object_id": "ring_004",
+      "view": "top",
+      "source_sha256": "ddf4c248bf394d310d51de018d8b71d20f8d62f68f3aeb85842ebcd32ff18612",
+      "artifacts": {
+        "depth_m": "dataset/phase_runs/v1/phase5_validation_metric_depth_v1/backends/metric3d_v2/ring_004/top_depth_m.npy",
+        "confidence": "dataset/phase_runs/v1/phase5_validation_metric_depth_v1/backends/metric3d_v2/ring_004/top_confidence.npy",
+        "normals": "dataset/phase_runs/v1/phase5_validation_metric_depth_v1/backends/metric3d_v2/ring_004/top_normals.npy"
+      },
+      "depth_sha256": "4b79f0bd53574b83637596ff7c30b3bc5c2fdabcd46111c2a579462af1364ce9",
+      "depth_shape": [
+        768,
+        768
+      ],
+      "depth_unit": "metre_model_hypothesis",
+      "masked_depth_m": {
+        "p02": 0.42549508094787597,
+        "median": 0.4643068313598633,
+        "p98": 0.5454061257839203
+      },
+      "runtime_seconds": 0.386165,
+      "auxiliary": {
+        "assumed_focal_length_px": 737.6571367569278
+      }
+    },
+    {
+      "sample_key": "ring_004:iso",
+      "object_id": "ring_004",
+      "view": "iso",
+      "source_sha256": "30753c14902b55caaf5216bd42c4e3fbc2213b93ac104627c39facb50d03dd4f",
+      "artifacts": {
+        "depth_m": "dataset/phase_runs/v1/phase5_validation_metric_depth_v1/backends/metric3d_v2/ring_004/iso_depth_m.npy",
+        "confidence": "dataset/phase_runs/v1/phase5_validation_metric_depth_v1/backends/metric3d_v2/ring_004/iso_confidence.npy",
+        "normals": "dataset/phase_runs/v1/phase5_validation_metric_depth_v1/backends/metric3d_v2/ring_004/iso_normals.npy"
+      },
+      "depth_sha256": "c06fcef156df58d191b839d62fb6b04c2a1450194d332f43fc984b9923fd3c01",
+      "depth_shape": [
+        768,
+        768
+      ],
+      "depth_unit": "metre_model_hypothesis",
+      "masked_depth_m": {
+        "p02": 0.24669721424579621,
+        "median": 0.2921023368835449,
+        "p98": 0.3696725696325302
+      },
+      "runtime_seconds": 0.388479,
+      "auxiliary": {
+        "assumed_focal_length_px": 737.6571367569278
+      }
+    },
+    {
+      "sample_key": "ring_004:lsv",
+      "object_id": "ring_004",
+      "view": "lsv",
+      "source_sha256": "1316e5e81c1747778ada5691c9b5a30ed84e6855f2adfd089f41ecae5338bad7",
+      "artifacts": {
+        "depth_m": "dataset/phase_runs/v1/phase5_validation_metric_depth_v1/backends/metric3d_v2/ring_004/lsv_depth_m.npy",
+        "confidence": "dataset/phase_runs/v1/phase5_validation_metric_depth_v1/backends/metric3d_v2/ring_004/lsv_confidence.npy",
+        "normals": "dataset/phase_runs/v1/phase5_validation_metric_depth_v1/backends/metric3d_v2/ring_004/lsv_normals.npy"
+      },
+      "depth_sha256": "fecad8a1e138b21f15a6b31b24aba56589146c432d2a5d989bbea4c804ba722d",
+      "depth_shape": [
+        768,
+        768
+      ],
+      "depth_unit": "metre_model_hypothesis",
+      "masked_depth_m": {
+        "p02": 0.3715289556980133,
+        "median": 0.46084922552108765,
+        "p98": 0.6434236001968383
+      },
+      "runtime_seconds": 0.405073,
+      "auxiliary": {
+        "assumed_focal_length_px": 737.6571367569278
+      }
+    },
+    {
+      "sample_key": "ring_004:rsv",
+      "object_id": "ring_004",
+      "view": "rsv",
+      "source_sha256": "cb663aee7952a44d9435a18ffb15b7aaff74d83a252e6c820c36ccc6edaa3c0b",
+      "artifacts": {
+        "depth_m": "dataset/phase_runs/v1/phase5_validation_metric_depth_v1/backends/metric3d_v2/ring_004/rsv_depth_m.npy",
+        "confidence": "dataset/phase_runs/v1/phase5_validation_metric_depth_v1/backends/metric3d_v2/ring_004/rsv_confidence.npy",
+        "normals": "dataset/phase_runs/v1/phase5_validation_metric_depth_v1/backends/metric3d_v2/ring_004/rsv_normals.npy"
+      },
+      "depth_sha256": "5ab38c5644f64cf2cc82cc4a55d8488c1296fb5558bbc70e8d72fb73c5a45340",
+      "depth_shape": [
+        768,
+        768
+      ],
+      "depth_unit": "metre_model_hypothesis",
+      "masked_depth_m": {
+        "p02": 0.24754135221242904,
+        "median": 0.39597493410110474,
+        "p98": 0.5968586897850034
+      },
+      "runtime_seconds": 0.392774,
+      "auxiliary": {
+        "assumed_focal_length_px": 737.6571367569278
+      }
+    },
+    {
+      "sample_key": "ring_012:front",
+      "object_id": "ring_012",
+      "view": "front",
+      "source_sha256": "82377caca685fa1911c2bcf714272470def597a3a12ebafd61466804297e4e1f",
+      "artifacts": {
+        "depth_m": "dataset/phase_runs/v1/phase5_validation_metric_depth_v1/backends/metric3d_v2/ring_012/front_depth_m.npy",
+        "confidence": "dataset/phase_runs/v1/phase5_validation_metric_depth_v1/backends/metric3d_v2/ring_012/front_confidence.npy",
+        "normals": "dataset/phase_runs/v1/phase5_validation_metric_depth_v1/backends/metric3d_v2/ring_012/front_normals.npy"
+      },
+      "depth_sha256": "732930aac69a864d33cc03258f3f10c1184fdc538c39cf9c81ba2729695103c2",
+      "depth_shape": [
+        768,
+        768
+      ],
+      "depth_unit": "metre_model_hypothesis",
+      "masked_depth_m": {
+        "p02": 0.4412072330713272,
+        "median": 0.48029446601867676,
+        "p98": 0.5318028593063354
+      },
+      "runtime_seconds": 0.396339,
+      "auxiliary": {
+        "assumed_focal_length_px": 737.6571367569278
+      }
+    },
+    {
+      "sample_key": "ring_012:top",
+      "object_id": "ring_012",
+      "view": "top",
+      "source_sha256": "f4b5e524aaf776884facee27fb9abb298d5aa8aa3a78f870dd9b3753104b28de",
+      "artifacts": {
+        "depth_m": "dataset/phase_runs/v1/phase5_validation_metric_depth_v1/backends/metric3d_v2/ring_012/top_depth_m.npy",
+        "confidence": "dataset/phase_runs/v1/phase5_validation_metric_depth_v1/backends/metric3d_v2/ring_012/top_confidence.npy",
+        "normals": "dataset/phase_runs/v1/phase5_validation_metric_depth_v1/backends/metric3d_v2/ring_012/top_normals.npy"
+      },
+      "depth_sha256": "84a5ace528af12ffb7b2718f9878f877f38874718fbdff69d24e6c8c0b83827c",
+      "depth_shape": [
+        768,
+        768
+      ],
+      "depth_unit": "metre_model_hypothesis",
+      "masked_depth_m": {
+        "p02": 0.4266151010990143,
+        "median": 0.4872436821460724,
+        "p98": 0.5666300415992737
+      },
+      "runtime_seconds": 0.389553,
+      "auxiliary": {
+        "assumed_focal_length_px": 737.6571367569278
+      }
+    },
+    {
+      "sample_key": "ring_012:iso",
+      "object_id": "ring_012",
+      "view": "iso",
+      "source_sha256": "638ffd4ea458eb4838a27036951e72c95fa900add1a2e8504d478429257e9ad6",
+      "artifacts": {
+        "depth_m": "dataset/phase_runs/v1/phase5_validation_metric_depth_v1/backends/metric3d_v2/ring_012/iso_depth_m.npy",
+        "confidence": "dataset/phase_runs/v1/phase5_validation_metric_depth_v1/backends/metric3d_v2/ring_012/iso_confidence.npy",
+        "normals": "dataset/phase_runs/v1/phase5_validation_metric_depth_v1/backends/metric3d_v2/ring_012/iso_normals.npy"
+      },
+      "depth_sha256": "4c1a30eefd1b1f43a13bc2ae0652f1205d45acecc81363944dbfd300e212e79f",
+      "depth_shape": [
+        768,
+        768
+      ],
+      "depth_unit": "metre_model_hypothesis",
+      "masked_depth_m": {
+        "p02": 0.27441508531570435,
+        "median": 0.3199114501476288,
+        "p98": 0.4509206092357636
+      },
+      "runtime_seconds": 0.391394,
+      "auxiliary": {
+        "assumed_focal_length_px": 737.6571367569278
+      }
+    },
+    {
+      "sample_key": "ring_012:lsv",
+      "object_id": "ring_012",
+      "view": "lsv",
+      "source_sha256": "d9d743f1aefdebfc652a4e29c457f28fea6befe343d90c5428f1d75941e5f594",
+      "artifacts": {
+        "depth_m": "dataset/phase_runs/v1/phase5_validation_metric_depth_v1/backends/metric3d_v2/ring_012/lsv_depth_m.npy",
+        "confidence": "dataset/phase_runs/v1/phase5_validation_metric_depth_v1/backends/metric3d_v2/ring_012/lsv_confidence.npy",
+        "normals": "dataset/phase_runs/v1/phase5_validation_metric_depth_v1/backends/metric3d_v2/ring_012/lsv_normals.npy"
+      },
+      "depth_sha256": "87c65f0fc1caff000905a79dfa0c8ae3170fe8ef84317405be250e68f31c3722",
+      "depth_shape": [
+        768,
+        768
+      ],
+      "depth_unit": "metre_model_hypothesis",
+      "masked_depth_m": {
+        "p02": 0.31145149767398833,
+        "median": 0.3846181035041809,
+        "p98": 0.48438633024692535
+      },
+      "runtime_seconds": 0.390959,
+      "auxiliary": {
+        "assumed_focal_length_px": 737.6571367569278
+      }
+    },
+    {
+      "sample_key": "ring_012:rsv",
+      "object_id": "ring_012",
+      "view": "rsv",
+      "source_sha256": "4f77a49c13789c84e7cd1dc06845037002c4355f087990181e607bc48f9226d0",
+      "artifacts": {
+        "depth_m": "dataset/phase_runs/v1/phase5_validation_metric_depth_v1/backends/metric3d_v2/ring_012/rsv_depth_m.npy",
+        "confidence": "dataset/phase_runs/v1/phase5_validation_metric_depth_v1/backends/metric3d_v2/ring_012/rsv_confidence.npy",
+        "normals": "dataset/phase_runs/v1/phase5_validation_metric_depth_v1/backends/metric3d_v2/ring_012/rsv_normals.npy"
+      },
+      "depth_sha256": "3cdb1c140877bf4e19d55c09998b9ce579afe60225d30532583c436f173a9bf4",
+      "depth_shape": [
+        768,
+        768
+      ],
+      "depth_unit": "metre_model_hypothesis",
+      "masked_depth_m": {
+        "p02": 0.27043582022190094,
+        "median": 0.32983046770095825,
+        "p98": 0.430268894433975
+      },
+      "runtime_seconds": 0.390419,
+      "auxiliary": {
+        "assumed_focal_length_px": 737.6571367569278
+      }
+    },
+    {
+      "sample_key": "ring_020:front",
+      "object_id": "ring_020",
+      "view": "front",
+      "source_sha256": "a52aa4043b16b2077c31baba17396b85342c4518a2dafb919f51e8c3d7bafc3c",
+      "artifacts": {
+        "depth_m": "dataset/phase_runs/v1/phase5_validation_metric_depth_v1/backends/metric3d_v2/ring_020/front_depth_m.npy",
+        "confidence": "dataset/phase_runs/v1/phase5_validation_metric_depth_v1/backends/metric3d_v2/ring_020/front_confidence.npy",
+        "normals": "dataset/phase_runs/v1/phase5_validation_metric_depth_v1/backends/metric3d_v2/ring_020/front_normals.npy"
+      },
+      "depth_sha256": "b9e53c4a6dee11bcdc98af6db4d742138da319d01c76b3a948479411521af23a",
+      "depth_shape": [
+        768,
+        768
+      ],
+      "depth_unit": "metre_model_hypothesis",
+      "masked_depth_m": {
+        "p02": 0.3828991401195526,
+        "median": 0.4296053946018219,
+        "p98": 0.47560161232948306
+      },
+      "runtime_seconds": 0.393951,
+      "auxiliary": {
+        "assumed_focal_length_px": 737.6571367569278
+      }
+    },
+    {
+      "sample_key": "ring_020:top",
+      "object_id": "ring_020",
+      "view": "top",
+      "source_sha256": "f8cb2a537fe9dbcafa47a3d0c596979ed65e8e32ba2e4a2d4de8a0d61fad4113",
+      "artifacts": {
+        "depth_m": "dataset/phase_runs/v1/phase5_validation_metric_depth_v1/backends/metric3d_v2/ring_020/top_depth_m.npy",
+        "confidence": "dataset/phase_runs/v1/phase5_validation_metric_depth_v1/backends/metric3d_v2/ring_020/top_confidence.npy",
+        "normals": "dataset/phase_runs/v1/phase5_validation_metric_depth_v1/backends/metric3d_v2/ring_020/top_normals.npy"
+      },
+      "depth_sha256": "f8fcf2102eca63082f24d71b05a148bf932b3f7a69abc8b7b1ebf903b941749e",
+      "depth_shape": [
+        768,
+        768
+      ],
+      "depth_unit": "metre_model_hypothesis",
+      "masked_depth_m": {
+        "p02": 0.28854511082172396,
+        "median": 0.3244132995605469,
+        "p98": 0.3817800611257554
+      },
+      "runtime_seconds": 0.397709,
+      "auxiliary": {
+        "assumed_focal_length_px": 737.6571367569278
+      }
+    },
+    {
+      "sample_key": "ring_020:iso",
+      "object_id": "ring_020",
+      "view": "iso",
+      "source_sha256": "fd7b907853bd5ed2af74e4491b759b5eb281778b9adb40a71083efc18aa1a508",
+      "artifacts": {
+        "depth_m": "dataset/phase_runs/v1/phase5_validation_metric_depth_v1/backends/metric3d_v2/ring_020/iso_depth_m.npy",
+        "confidence": "dataset/phase_runs/v1/phase5_validation_metric_depth_v1/backends/metric3d_v2/ring_020/iso_confidence.npy",
+        "normals": "dataset/phase_runs/v1/phase5_validation_metric_depth_v1/backends/metric3d_v2/ring_020/iso_normals.npy"
+      },
+      "depth_sha256": "a619c702da385b4f88ddd13a3741f61d53ed1d44c6835f28fe0dec552fa45d9a",
+      "depth_shape": [
+        768,
+        768
+      ],
+      "depth_unit": "metre_model_hypothesis",
+      "masked_depth_m": {
+        "p02": 0.33591788649559023,
+        "median": 0.38013675808906555,
+        "p98": 0.5063902473449707
+      },
+      "runtime_seconds": 0.395809,
+      "auxiliary": {
+        "assumed_focal_length_px": 737.6571367569278
+      }
+    },
+    {
+      "sample_key": "ring_020:lsv",
+      "object_id": "ring_020",
+      "view": "lsv",
+      "source_sha256": "db4524303a1188ef0ed7f08eeacbf05b84a9b3674fd1719b44b7e985f39da057",
+      "artifacts": {
+        "depth_m": "dataset/phase_runs/v1/phase5_validation_metric_depth_v1/backends/metric3d_v2/ring_020/lsv_depth_m.npy",
+        "confidence": "dataset/phase_runs/v1/phase5_validation_metric_depth_v1/backends/metric3d_v2/ring_020/lsv_confidence.npy",
+        "normals": "dataset/phase_runs/v1/phase5_validation_metric_depth_v1/backends/metric3d_v2/ring_020/lsv_normals.npy"
+      },
+      "depth_sha256": "89d858d8bf90de4cacabf7079d3312a52b0c24d89a52c694340f583817631aac",
+      "depth_shape": [
+        768,
+        768
+      ],
+      "depth_unit": "metre_model_hypothesis",
+      "masked_depth_m": {
+        "p02": 0.26739685237407684,
+        "median": 0.33111220598220825,
+        "p98": 0.3983541429042816
+      },
+      "runtime_seconds": 0.396688,
+      "auxiliary": {
+        "assumed_focal_length_px": 737.6571367569278
+      }
+    },
+    {
+      "sample_key": "ring_020:rsv",
+      "object_id": "ring_020",
+      "view": "rsv",
+      "source_sha256": "7abe0b0492e33b90aaa5d97e62e6ed1013d56f6ea356843b969c8dd59d503a99",
+      "artifacts": {
+        "depth_m": "dataset/phase_runs/v1/phase5_validation_metric_depth_v1/backends/metric3d_v2/ring_020/rsv_depth_m.npy",
+        "confidence": "dataset/phase_runs/v1/phase5_validation_metric_depth_v1/backends/metric3d_v2/ring_020/rsv_confidence.npy",
+        "normals": "dataset/phase_runs/v1/phase5_validation_metric_depth_v1/backends/metric3d_v2/ring_020/rsv_normals.npy"
+      },
+      "depth_sha256": "512de8d89c0127671cce664d731857211633546b4824b834d2f29eb018529961",
+      "depth_shape": [
+        768,
+        768
+      ],
+      "depth_unit": "metre_model_hypothesis",
+      "masked_depth_m": {
+        "p02": 0.22126158565282822,
+        "median": 0.26602673530578613,
+        "p98": 0.34599838733673094
+      },
+      "runtime_seconds": 0.394287,
+      "auxiliary": {
+        "assumed_focal_length_px": 737.6571367569278
+      }
+    }
+  ],
+  "runtime_seconds": 6.93915,
+  "peak_gpu_memory_bytes": 742461952,
+  "claims": {
+    "model_outputs_metric_units": true,
+    "metric_accuracy_validated_on_jewellery": false,
+    "physical_scale_validated": false,
+    "manufacturing_measurements_validated": false
+  },
+  "decision": "research_only_model_hypothesis"
+}

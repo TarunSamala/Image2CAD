@@ -81,6 +81,26 @@ predate it, so this index prevents similarly numbered stages from being mixed.
   applies the same frozen gate to all 24 rings. It requires source and target
   relief support plus bounded forward/reverse cycles, retains test rings as
   non-aggregated evidence, and never moves or authorizes CAD geometry.
+- `extract_vggt_track_evidence.py --query-selection relief_stratified` -
+  Phase 5.7 query-density research. It allocates queries across depth-supported
+  relief, silhouette boundaries, textured metal and a deterministic surface
+  fill. `--train-only` protects validation and test while the policy is tuned.
+- `compose_vggt_hybrid_evidence.py` - preserves all 384 Phase 5.6 queries and
+  appends 640 unique relief-stratified queries from the same pinned VGGT
+  checkpoint. The composition is exact evidence reuse, not a new geometry run.
+- `evaluate_phase5_dense_relief_pilot.py` - compares baseline, stratified-only
+  and hybrid evidence with the frozen reciprocal gate. Baseline acceptance is
+  retained exactly; appended tracks can add review evidence but cannot move or
+  authorize CAD.
+- `evaluate_phase5_normal_corroboration.py` - Phase 5.8 validation annotation.
+  It checks frozen hybrid tracks against Metric3D direct normals and a separate
+  Depth Anything V2 plus UniDepth normal consensus. Metric3D depth is excluded
+  from the comparator; unresolved tracks stay visible and CAD remains unchanged.
+- `build_phase5_visibility_graph.py` - Phase 5.9 validation-only observability
+  graph. It retains every frozen reciprocal edge, records which named target
+  views actually observe each front query, annotates normal support, and groups
+  nearby supported points only when they share a target view. The graph routes
+  evidence for review; it does not infer hidden surfaces or modify CAD.
 
 ## Shared evidence and dataset tools
 

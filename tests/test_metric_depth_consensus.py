@@ -55,6 +55,26 @@ class MetricDepthConsensusTest(unittest.TestCase):
                 self.assertTrue((self.root / sample["image_path"]).is_file())
                 self.assertTrue((self.root / sample["mask_path"]).is_file())
 
+    def test_validation_manifest_can_exclude_ring01_and_test_objects(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            output = Path(temporary) / "experiment"
+            manifest = build_input_manifest(
+                self.root,
+                output,
+                ("ring_004", "ring_012", "ring_020"),
+                include_ring01_reference=False,
+            )
+            self.assertEqual(manifest["sample_count"], 15)
+            self.assertEqual(manifest["object_count"], 3)
+            self.assertFalse(manifest["ring01_reference_included"])
+            self.assertEqual(
+                {sample["split"] for sample in manifest["samples"]}, {"val"}
+            )
+            self.assertEqual(
+                {sample["object_id"] for sample in manifest["samples"]},
+                {"ring_004", "ring_012", "ring_020"},
+            )
+
     def test_two_backend_consensus_is_stability_not_accuracy(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)

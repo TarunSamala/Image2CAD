@@ -32,6 +32,8 @@ models/metric_depth/
 # Content hashes, backend reports and visual review sheets remain versioned.
 dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/backends/**/*.npy
 dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1/consensus/**/*.npy
+dataset/phase_runs/v1/phase5_validation_metric_depth_v1/backends/**/*.npy
+dataset/phase_runs/v1/phase5_validation_metric_depth_v1/consensus/**/*.npy
 
 # Reproducible high-volume STL-1 Phase 1 matrices.
 # The extractor, SHA-256 report and review sheets remain versioned.

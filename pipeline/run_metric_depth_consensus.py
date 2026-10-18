@@ -152,28 +152,36 @@ def panel(
     return canvas
 
 
-def build_input_manifest(root: Path, output: Path, stl1_objects: tuple[str, ...]) -> dict[str, Any]:
-    ring_manifest_path = root / "data" / "ring01_ground_truth_v1" / "manifest.json"
-    ring_manifest = json.loads(ring_manifest_path.read_text(encoding="utf-8"))
+def build_input_manifest(
+    root: Path,
+    output: Path,
+    stl1_objects: tuple[str, ...],
+    include_ring01_reference: bool = True,
+) -> dict[str, Any]:
     samples: list[dict[str, Any]] = []
-    for view in RING01_VIEW_ORDER:
-        record = ring_manifest["views"][view]
-        source = record["source"]
-        mask = record["proposals"]["jewelry"]
-        samples.append(
-            {
-                "sample_key": f"ring01_reference:{view}",
-                "dataset": "Ring01",
-                "object_id": "ring01_reference",
-                "split": "reference",
-                "view": view,
-                "image_path": source["path"],
-                "mask_path": mask["path"],
-                "source_sha256": source["sha256"],
-                "physical_scale": None,
-                "camera_calibrated": False,
-            }
+    if include_ring01_reference:
+        ring_manifest_path = (
+            root / "data" / "ring01_ground_truth_v1" / "manifest.json"
         )
+        ring_manifest = json.loads(ring_manifest_path.read_text(encoding="utf-8"))
+        for view in RING01_VIEW_ORDER:
+            record = ring_manifest["views"][view]
+            source = record["source"]
+            mask = record["proposals"]["jewelry"]
+            samples.append(
+                {
+                    "sample_key": f"ring01_reference:{view}",
+                    "dataset": "Ring01",
+                    "object_id": "ring01_reference",
+                    "split": "reference",
+                    "view": view,
+                    "image_path": source["path"],
+                    "mask_path": mask["path"],
+                    "source_sha256": source["sha256"],
+                    "physical_scale": None,
+                    "camera_calibrated": False,
+                }
+            )
 
     for object_id in stl1_objects:
         object_path = root / "dataset" / "prepared_v1" / "objects" / f"{object_id}.json"
@@ -201,12 +209,16 @@ def build_input_manifest(root: Path, output: Path, stl1_objects: tuple[str, ...]
         "code_commit": git_commit(root),
         "execution_profile": "image_only_reconstruction_v1",
         "sample_count": len(samples),
-        "object_count": 1 + len(stl1_objects),
+        "object_count": len(stl1_objects) + int(include_ring01_reference),
         "selected_stl1_objects": list(stl1_objects),
+        "ring01_reference_included": include_ring01_reference,
         "selection_reason": {
-            "ring_001": "train split representative",
-            "ring_004": "validation split and high prior depth instability",
-            "ring_007": "test split and high prior depth instability",
+            object_id: (
+                "fixed validation cohort for independent normal corroboration"
+                if object_id in {"ring_004", "ring_012", "ring_020"}
+                else "configured STL-1 metric-depth evidence object"
+            )
+            for object_id in stl1_objects
         },
         "samples": samples,
         "measurement_contract": {
@@ -491,13 +503,23 @@ def main() -> None:
         default=Path("dataset/phase_runs/v1/image_only_phase2_metric_depth_consensus_v1"),
     )
     parser.add_argument("--stl1-objects", nargs="*", default=list(DEFAULT_STL1_OBJECTS))
+    parser.add_argument(
+        "--exclude-ring01-reference",
+        action="store_true",
+        help="Build an STL-1-only manifest without the five Ring01 reference views.",
+    )
     parser.add_argument("--prepare-only", action="store_true")
     args = parser.parse_args()
     root = args.repo_root.resolve()
     output = (root / args.output_dir).resolve()
     manifest_path = output / "input_manifest.json"
     if args.prepare_only or not manifest_path.exists():
-        manifest = build_input_manifest(root, output, tuple(args.stl1_objects))
+        manifest = build_input_manifest(
+            root,
+            output,
+            tuple(args.stl1_objects),
+            include_ring01_reference=not args.exclude_ring01_reference,
+        )
     else:
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
     result = manifest if args.prepare_only else aggregate(root, output, manifest)

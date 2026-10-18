@@ -1,0 +1,503 @@
+{
+  "schema_version": "lalitha_phase5_dense_relief_pilot_v1",
+  "created_at_utc": "2026-10-18T14:23:09.742882+00:00",
+  "stage": "Phase 5.7 fixed-policy validation relief-query evaluation",
+  "object_ids": [
+    "ring_004",
+    "ring_012",
+    "ring_020"
+  ],
+  "object_count": 3,
+  "frozen_thresholds": {
+    "minimum_source_relief_confidence": 0.05,
+    "minimum_target_relief_confidence": 0.05,
+    "minimum_visibility": 0.5,
+    "minimum_track_confidence": 0.1,
+    "maximum_nearest_query_distance_pixels": 12.0,
+    "maximum_reciprocal_cycle_error_pixels": 16.0,
+    "minimum_normal_agreement_when_available": 0.4
+  },
+  "summary": {
+    "mean_candidate_spatial_coverage_delta": 0.439941,
+    "mean_supported_spatial_coverage_delta": 0.156563,
+    "mean_supported_fraction_delta": 0.030427,
+    "all_objects_improve_supported_spatial_coverage": true
+  },
+  "checks": {
+    "expected_split_only": true,
+    "test_objects_not_processed": true,
+    "frozen_phase5_5_gate_reused": true,
+    "dense_query_count_exceeds_baseline": true,
+    "baseline_acceptance_gate_preserved": true,
+    "exact_cad_unchanged": true
+  },
+  "objects": [
+    {
+      "object_id": "ring_004",
+      "split": "val",
+      "variants": {
+        "phase5_6_baseline": {
+          "query_count_per_view": 384,
+          "front_candidate_count": 135,
+          "front_supported_count": 6,
+          "front_supported_fraction": 0.044444,
+          "front_relief_domain_pixels": 31308,
+          "front_candidate_spatial_coverage": 0.267567,
+          "front_supported_spatial_coverage": 0.007474,
+          "accepted_by_target_view": {
+            "top": 0,
+            "iso": 6,
+            "lsv": 0,
+            "rsv": 0
+          },
+          "query_selection": "shi_tomasi_inside_silhouette_then_deterministic_mask_fill",
+          "query_region_counts": {},
+          "runtime": {
+            "seconds": 54.499,
+            "peak_cuda_bytes": 2616342528
+          }
+        },
+        "phase5_7_relief_stratified": {
+          "query_count_per_view": 1024,
+          "front_candidate_count": 659,
+          "front_supported_count": 68,
+          "front_supported_fraction": 0.103187,
+          "front_relief_domain_pixels": 31308,
+          "front_candidate_spatial_coverage": 0.898556,
+          "front_supported_spatial_coverage": 0.104638,
+          "accepted_by_target_view": {
+            "top": 0,
+            "iso": 50,
+            "lsv": 12,
+            "rsv": 9
+          },
+          "query_selection": "relief_stratified",
+          "query_region_counts": {
+            "front": {
+              "depth_supported_relief": 666,
+              "silhouette_boundary": 154,
+              "textured_surface": 102,
+              "uniform_surface_fill": 102,
+              "retained_baseline_feature": 0
+            },
+            "top": {
+              "depth_supported_relief": 233,
+              "silhouette_boundary": 400,
+              "textured_surface": 289,
+              "uniform_surface_fill": 102,
+              "retained_baseline_feature": 0
+            },
+            "iso": {
+              "depth_supported_relief": 666,
+              "silhouette_boundary": 154,
+              "textured_surface": 102,
+              "uniform_surface_fill": 102,
+              "retained_baseline_feature": 0
+            },
+            "lsv": {
+              "depth_supported_relief": 335,
+              "silhouette_boundary": 267,
+              "textured_surface": 320,
+              "uniform_surface_fill": 102,
+              "retained_baseline_feature": 0
+            },
+            "rsv": {
+              "depth_supported_relief": 382,
+              "silhouette_boundary": 241,
+              "textured_surface": 299,
+              "uniform_surface_fill": 102,
+              "retained_baseline_feature": 0
+            }
+          },
+          "runtime": {
+            "seconds": 136.103,
+            "peak_cuda_bytes": 2616342528
+          }
+        },
+        "phase5_7_hybrid": {
+          "query_count_per_view": 1024,
+          "front_candidate_count": 765,
+          "front_supported_count": 72,
+          "front_supported_fraction": 0.094118,
+          "front_relief_domain_pixels": 31308,
+          "front_candidate_spatial_coverage": 0.893574,
+          "front_supported_spatial_coverage": 0.107321,
+          "accepted_by_target_view": {
+            "top": 0,
+            "iso": 56,
+            "lsv": 11,
+            "rsv": 8
+          },
+          "query_selection": "baseline_384_plus_unique_relief_stratified_640",
+          "query_region_counts": {
+            "front": {
+              "depth_supported_relief": 640,
+              "silhouette_boundary": 0,
+              "textured_surface": 0,
+              "uniform_surface_fill": 0,
+              "retained_baseline_feature": 384
+            },
+            "top": {
+              "depth_supported_relief": 230,
+              "silhouette_boundary": 391,
+              "textured_surface": 19,
+              "uniform_surface_fill": 0,
+              "retained_baseline_feature": 384
+            },
+            "iso": {
+              "depth_supported_relief": 640,
+              "silhouette_boundary": 0,
+              "textured_surface": 0,
+              "uniform_surface_fill": 0,
+              "retained_baseline_feature": 384
+            },
+            "lsv": {
+              "depth_supported_relief": 329,
+              "silhouette_boundary": 260,
+              "textured_surface": 51,
+              "uniform_surface_fill": 0,
+              "retained_baseline_feature": 384
+            },
+            "rsv": {
+              "depth_supported_relief": 377,
+              "silhouette_boundary": 233,
+              "textured_surface": 30,
+              "uniform_surface_fill": 0,
+              "retained_baseline_feature": 384
+            }
+          },
+          "runtime": {
+            "composition_seconds": 0.072079,
+            "retained_source_gpu_seconds": 190.602,
+            "peak_cuda_bytes": 2616342528
+          }
+        }
+      },
+      "comparison": {
+        "query_count_multiplier": 2.666667,
+        "candidate_spatial_coverage_delta": 0.626007,
+        "supported_spatial_coverage_delta": 0.099847,
+        "supported_fraction_delta": 0.049674
+      },
+      "baseline_gate_preserved": true,
+      "artifacts": {
+        "audit": "data/phase5_dense_relief_validation_v1/ring_004_dense_relief_pilot_audit.png"
+      }
+    },
+    {
+      "object_id": "ring_012",
+      "split": "val",
+      "variants": {
+        "phase5_6_baseline": {
+          "query_count_per_view": 384,
+          "front_candidate_count": 239,
+          "front_supported_count": 121,
+          "front_supported_fraction": 0.506276,
+          "front_relief_domain_pixels": 83986,
+          "front_candidate_spatial_coverage": 0.253066,
+          "front_supported_spatial_coverage": 0.13045,
+          "accepted_by_target_view": {
+            "top": 0,
+            "iso": 94,
+            "lsv": 17,
+            "rsv": 36
+          },
+          "query_selection": "shi_tomasi_inside_silhouette_then_deterministic_mask_fill",
+          "query_region_counts": {},
+          "runtime": {
+            "seconds": 56.571,
+            "peak_cuda_bytes": 2615137792
+          }
+        },
+        "phase5_7_relief_stratified": {
+          "query_count_per_view": 1024,
+          "front_candidate_count": 741,
+          "front_supported_count": 400,
+          "front_supported_fraction": 0.539811,
+          "front_relief_domain_pixels": 83986,
+          "front_candidate_spatial_coverage": 0.596242,
+          "front_supported_spatial_coverage": 0.356559,
+          "accepted_by_target_view": {
+            "top": 1,
+            "iso": 308,
+            "lsv": 63,
+            "rsv": 98
+          },
+          "query_selection": "relief_stratified",
+          "query_region_counts": {
+            "front": {
+              "depth_supported_relief": 666,
+              "silhouette_boundary": 154,
+              "textured_surface": 102,
+              "uniform_surface_fill": 102,
+              "retained_baseline_feature": 0
+            },
+            "top": {
+              "depth_supported_relief": 463,
+              "silhouette_boundary": 349,
+              "textured_surface": 110,
+              "uniform_surface_fill": 102,
+              "retained_baseline_feature": 0
+            },
+            "iso": {
+              "depth_supported_relief": 666,
+              "silhouette_boundary": 154,
+              "textured_surface": 102,
+              "uniform_surface_fill": 102,
+              "retained_baseline_feature": 0
+            },
+            "lsv": {
+              "depth_supported_relief": 601,
+              "silhouette_boundary": 205,
+              "textured_surface": 116,
+              "uniform_surface_fill": 102,
+              "retained_baseline_feature": 0
+            },
+            "rsv": {
+              "depth_supported_relief": 666,
+              "silhouette_boundary": 154,
+              "textured_surface": 102,
+              "uniform_surface_fill": 102,
+              "retained_baseline_feature": 0
+            }
+          },
+          "runtime": {
+            "seconds": 111.041,
+            "peak_cuda_bytes": 2615137792
+          }
+        },
+        "phase5_7_hybrid": {
+          "query_count_per_view": 1024,
+          "front_candidate_count": 879,
+          "front_supported_count": 453,
+          "front_supported_fraction": 0.515358,
+          "front_relief_domain_pixels": 83986,
+          "front_candidate_spatial_coverage": 0.604922,
+          "front_supported_spatial_coverage": 0.36649,
+          "accepted_by_target_view": {
+            "top": 1,
+            "iso": 352,
+            "lsv": 70,
+            "rsv": 115
+          },
+          "query_selection": "baseline_384_plus_unique_relief_stratified_640",
+          "query_region_counts": {
+            "front": {
+              "depth_supported_relief": 640,
+              "silhouette_boundary": 0,
+              "textured_surface": 0,
+              "uniform_surface_fill": 0,
+              "retained_baseline_feature": 384
+            },
+            "top": {
+              "depth_supported_relief": 461,
+              "silhouette_boundary": 179,
+              "textured_surface": 0,
+              "uniform_surface_fill": 0,
+              "retained_baseline_feature": 384
+            },
+            "iso": {
+              "depth_supported_relief": 640,
+              "silhouette_boundary": 0,
+              "textured_surface": 0,
+              "uniform_surface_fill": 0,
+              "retained_baseline_feature": 384
+            },
+            "lsv": {
+              "depth_supported_relief": 593,
+              "silhouette_boundary": 47,
+              "textured_surface": 0,
+              "uniform_surface_fill": 0,
+              "retained_baseline_feature": 384
+            },
+            "rsv": {
+              "depth_supported_relief": 640,
+              "silhouette_boundary": 0,
+              "textured_surface": 0,
+              "uniform_surface_fill": 0,
+              "retained_baseline_feature": 384
+            }
+          },
+          "runtime": {
+            "composition_seconds": 0.065438,
+            "retained_source_gpu_seconds": 167.612,
+            "peak_cuda_bytes": 2615137792
+          }
+        }
+      },
+      "comparison": {
+        "query_count_multiplier": 2.666667,
+        "candidate_spatial_coverage_delta": 0.351856,
+        "supported_spatial_coverage_delta": 0.23604,
+        "supported_fraction_delta": 0.009082
+      },
+      "baseline_gate_preserved": true,
+      "artifacts": {
+        "audit": "data/phase5_dense_relief_validation_v1/ring_012_dense_relief_pilot_audit.png"
+      }
+    },
+    {
+      "object_id": "ring_020",
+      "split": "val",
+      "variants": {
+        "phase5_6_baseline": {
+          "query_count_per_view": 384,
+          "front_candidate_count": 249,
+          "front_supported_count": 51,
+          "front_supported_fraction": 0.204819,
+          "front_relief_domain_pixels": 93713,
+          "front_candidate_spatial_coverage": 0.239903,
+          "front_supported_spatial_coverage": 0.052533,
+          "accepted_by_target_view": {
+            "top": 0,
+            "iso": 45,
+            "lsv": 8,
+            "rsv": 0
+          },
+          "query_selection": "shi_tomasi_inside_silhouette_then_deterministic_mask_fill",
+          "query_region_counts": {},
+          "runtime": {
+            "seconds": 54.506,
+            "peak_cuda_bytes": 2615137792
+          }
+        },
+        "phase5_7_relief_stratified": {
+          "query_count_per_view": 1024,
+          "front_candidate_count": 714,
+          "front_supported_count": 168,
+          "front_supported_fraction": 0.235294,
+          "front_relief_domain_pixels": 93713,
+          "front_candidate_spatial_coverage": 0.546861,
+          "front_supported_spatial_coverage": 0.151249,
+          "accepted_by_target_view": {
+            "top": 0,
+            "iso": 152,
+            "lsv": 14,
+            "rsv": 5
+          },
+          "query_selection": "relief_stratified",
+          "query_region_counts": {
+            "front": {
+              "depth_supported_relief": 666,
+              "silhouette_boundary": 154,
+              "textured_surface": 102,
+              "uniform_surface_fill": 102,
+              "retained_baseline_feature": 0
+            },
+            "top": {
+              "depth_supported_relief": 438,
+              "silhouette_boundary": 308,
+              "textured_surface": 176,
+              "uniform_surface_fill": 102,
+              "retained_baseline_feature": 0
+            },
+            "iso": {
+              "depth_supported_relief": 666,
+              "silhouette_boundary": 154,
+              "textured_surface": 102,
+              "uniform_surface_fill": 102,
+              "retained_baseline_feature": 0
+            },
+            "lsv": {
+              "depth_supported_relief": 284,
+              "silhouette_boundary": 225,
+              "textured_surface": 413,
+              "uniform_surface_fill": 102,
+              "retained_baseline_feature": 0
+            },
+            "rsv": {
+              "depth_supported_relief": 501,
+              "silhouette_boundary": 200,
+              "textured_surface": 221,
+              "uniform_surface_fill": 102,
+              "retained_baseline_feature": 0
+            }
+          },
+          "runtime": {
+            "seconds": 111.179,
+            "peak_cuda_bytes": 2615137792
+          }
+        },
+        "phase5_7_hybrid": {
+          "query_count_per_view": 1024,
+          "front_candidate_count": 889,
+          "front_supported_count": 211,
+          "front_supported_fraction": 0.237345,
+          "front_relief_domain_pixels": 93713,
+          "front_candidate_spatial_coverage": 0.581862,
+          "front_supported_spatial_coverage": 0.186335,
+          "accepted_by_target_view": {
+            "top": 0,
+            "iso": 185,
+            "lsv": 24,
+            "rsv": 5
+          },
+          "query_selection": "baseline_384_plus_unique_relief_stratified_640",
+          "query_region_counts": {
+            "front": {
+              "depth_supported_relief": 640,
+              "silhouette_boundary": 0,
+              "textured_surface": 0,
+              "uniform_surface_fill": 0,
+              "retained_baseline_feature": 384
+            },
+            "top": {
+              "depth_supported_relief": 436,
+              "silhouette_boundary": 204,
+              "textured_surface": 0,
+              "uniform_surface_fill": 0,
+              "retained_baseline_feature": 384
+            },
+            "iso": {
+              "depth_supported_relief": 640,
+              "silhouette_boundary": 0,
+              "textured_surface": 0,
+              "uniform_surface_fill": 0,
+              "retained_baseline_feature": 384
+            },
+            "lsv": {
+              "depth_supported_relief": 278,
+              "silhouette_boundary": 218,
+              "textured_surface": 144,
+              "uniform_surface_fill": 0,
+              "retained_baseline_feature": 384
+            },
+            "rsv": {
+              "depth_supported_relief": 493,
+              "silhouette_boundary": 147,
+              "textured_surface": 0,
+              "uniform_surface_fill": 0,
+              "retained_baseline_feature": 384
+            }
+          },
+          "runtime": {
+            "composition_seconds": 0.066162,
+            "retained_source_gpu_seconds": 165.685,
+            "peak_cuda_bytes": 2615137792
+          }
+        }
+      },
+      "comparison": {
+        "query_count_multiplier": 2.666667,
+        "candidate_spatial_coverage_delta": 0.341959,
+        "supported_spatial_coverage_delta": 0.133802,
+        "supported_fraction_delta": 0.032526
+      },
+      "baseline_gate_preserved": true,
+      "artifacts": {
+        "audit": "data/phase5_dense_relief_validation_v1/ring_020_dense_relief_pilot_audit.png"
+      }
+    }
+  ],
+  "decision": "retain_validation_improvement_test_still_held_out",
+  "claims": {
+    "track_accuracy_validated": false,
+    "dense_correspondence_validated": false,
+    "physical_correspondence_validated": false,
+    "cad_fusion_authorized": false,
+    "manufacturing_accuracy_validated": false
+  },
+  "artifacts": {
+    "audit": "data/phase5_dense_relief_validation_v1/validation_cohort_dense_relief_audit.png"
+  }
+}

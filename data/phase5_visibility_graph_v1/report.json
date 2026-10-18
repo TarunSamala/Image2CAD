@@ -1,0 +1,209 @@
+{
+  "schema_version": "lalitha_phase5_visibility_graph_v1",
+  "created_at_utc": "2026-10-18T16:43:34.754444+00:00",
+  "stage": "Phase 5.9 visibility-aware relief evidence graph",
+  "scope": {
+    "object_ids": [
+      "ring_004",
+      "ring_012",
+      "ring_020"
+    ],
+    "split": "val",
+    "source_view": "front",
+    "target_views": [
+      "top",
+      "iso",
+      "lsv",
+      "rsv"
+    ],
+    "region_link_radius_pixels": 28.0
+  },
+  "sources": {
+    "phase5_7": "data/phase5_dense_relief_validation_v1/report.json",
+    "phase5_8": "data/phase5_normal_corroboration_v1/report.json",
+    "hybrid_tracks": "dataset/phase_runs/v1/vggt_relief_hybrid_validation_v1/report.json"
+  },
+  "summary": {
+    "object_count": 3,
+    "candidate_query_count": 2533,
+    "reciprocally_supported_query_count": 736,
+    "normal_corroborated_query_count": 521,
+    "observation_edge_count": 827,
+    "normal_corroborated_edge_count": 567,
+    "surface_region_count": 30,
+    "query_class_counts": {
+      "multi_view_normal_corroborated": 45,
+      "single_view_normal_corroborated": 476,
+      "reciprocal_normal_unresolved": 215,
+      "unobserved_source_candidate": 1797
+    },
+    "multi_view_normal_corroborated_fraction_of_supported": 0.061141
+  },
+  "checks": {
+    "fixed_validation_objects_only": true,
+    "phase5_7_supported_counts_reproduced": true,
+    "phase5_8_normal_counts_reproduced": true,
+    "all_edges_are_reciprocal_phase5_7_edges": true,
+    "test_objects_not_processed": true,
+    "source_tracks_unchanged": true,
+    "exact_cad_unchanged": true
+  },
+  "objects": [
+    {
+      "object_id": "ring_004",
+      "split": "val",
+      "candidate_query_count": 765,
+      "reciprocally_supported_query_count": 72,
+      "normal_corroborated_query_count": 49,
+      "observation_edge_count": 75,
+      "normal_corroborated_edge_count": 50,
+      "surface_region_count": 7,
+      "query_class_counts": {
+        "multi_view_normal_corroborated": 1,
+        "single_view_normal_corroborated": 48,
+        "reciprocal_normal_unresolved": 23,
+        "unobserved_source_candidate": 693
+      },
+      "region_class_counts": {
+        "multi_view_normal_corroborated": 1,
+        "single_view_normal_corroborated": 6,
+        "reciprocal_normal_unresolved": 0,
+        "unobserved_source_candidate": 0
+      },
+      "target_views": {
+        "top": {
+          "reciprocal_edges": 0,
+          "normal_corroborated_edges": 0
+        },
+        "iso": {
+          "reciprocal_edges": 56,
+          "normal_corroborated_edges": 37
+        },
+        "lsv": {
+          "reciprocal_edges": 11,
+          "normal_corroborated_edges": 9
+        },
+        "rsv": {
+          "reciprocal_edges": 8,
+          "normal_corroborated_edges": 4
+        }
+      },
+      "phase5_7_supported_count_reproduced": true,
+      "phase5_8_normal_count_reproduced": true,
+      "artifacts": {
+        "graph": "data/phase5_visibility_graph_v1/ring_004/visibility_graph.json",
+        "audit": "data/phase5_visibility_graph_v1/ring_004/visibility_graph_audit.png"
+      }
+    },
+    {
+      "object_id": "ring_012",
+      "split": "val",
+      "candidate_query_count": 879,
+      "reciprocally_supported_query_count": 453,
+      "normal_corroborated_query_count": 331,
+      "observation_edge_count": 538,
+      "normal_corroborated_edge_count": 374,
+      "surface_region_count": 8,
+      "query_class_counts": {
+        "multi_view_normal_corroborated": 42,
+        "single_view_normal_corroborated": 289,
+        "reciprocal_normal_unresolved": 122,
+        "unobserved_source_candidate": 426
+      },
+      "region_class_counts": {
+        "multi_view_normal_corroborated": 1,
+        "single_view_normal_corroborated": 5,
+        "reciprocal_normal_unresolved": 2,
+        "unobserved_source_candidate": 0
+      },
+      "target_views": {
+        "top": {
+          "reciprocal_edges": 1,
+          "normal_corroborated_edges": 1
+        },
+        "iso": {
+          "reciprocal_edges": 352,
+          "normal_corroborated_edges": 261
+        },
+        "lsv": {
+          "reciprocal_edges": 70,
+          "normal_corroborated_edges": 49
+        },
+        "rsv": {
+          "reciprocal_edges": 115,
+          "normal_corroborated_edges": 63
+        }
+      },
+      "phase5_7_supported_count_reproduced": true,
+      "phase5_8_normal_count_reproduced": true,
+      "artifacts": {
+        "graph": "data/phase5_visibility_graph_v1/ring_012/visibility_graph.json",
+        "audit": "data/phase5_visibility_graph_v1/ring_012/visibility_graph_audit.png"
+      }
+    },
+    {
+      "object_id": "ring_020",
+      "split": "val",
+      "candidate_query_count": 889,
+      "reciprocally_supported_query_count": 211,
+      "normal_corroborated_query_count": 141,
+      "observation_edge_count": 214,
+      "normal_corroborated_edge_count": 143,
+      "surface_region_count": 15,
+      "query_class_counts": {
+        "multi_view_normal_corroborated": 2,
+        "single_view_normal_corroborated": 139,
+        "reciprocal_normal_unresolved": 70,
+        "unobserved_source_candidate": 678
+      },
+      "region_class_counts": {
+        "multi_view_normal_corroborated": 1,
+        "single_view_normal_corroborated": 11,
+        "reciprocal_normal_unresolved": 3,
+        "unobserved_source_candidate": 0
+      },
+      "target_views": {
+        "top": {
+          "reciprocal_edges": 0,
+          "normal_corroborated_edges": 0
+        },
+        "iso": {
+          "reciprocal_edges": 185,
+          "normal_corroborated_edges": 129
+        },
+        "lsv": {
+          "reciprocal_edges": 24,
+          "normal_corroborated_edges": 12
+        },
+        "rsv": {
+          "reciprocal_edges": 5,
+          "normal_corroborated_edges": 2
+        }
+      },
+      "phase5_7_supported_count_reproduced": true,
+      "phase5_8_normal_count_reproduced": true,
+      "artifacts": {
+        "graph": "data/phase5_visibility_graph_v1/ring_020/visibility_graph.json",
+        "audit": "data/phase5_visibility_graph_v1/ring_020/visibility_graph_audit.png"
+      }
+    }
+  ],
+  "decision": "retain_visibility_graph_for_component_review_and_view_routing",
+  "claims": {
+    "visibility_physically_validated": false,
+    "hidden_geometry_recovered": false,
+    "physical_correspondence_validated": false,
+    "cad_fusion_authorized": false,
+    "metric_scale_validated": false,
+    "manufacturing_accuracy_validated": false
+  },
+  "limitations": [
+    "The graph records learned reciprocal observations; it is not physical visibility ground truth.",
+    "Multi-view means two or more named target views, not calibrated angular diversity.",
+    "Unobserved source candidates are unresolved; surfaces hidden from the front view are absent from this graph.",
+    "Region grouping is a deterministic image-space neighborhood used for review, not semantic component segmentation."
+  ],
+  "artifacts": {
+    "audit": "data/phase5_visibility_graph_v1/validation_visibility_graph_audit.png"
+  }
+}

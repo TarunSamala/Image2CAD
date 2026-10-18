@@ -1,0 +1,207 @@
+{
+  "schema_version": "image2cad_metric_depth_consensus_input_v1",
+  "created_at_utc": "2026-10-18T16:25:47.083849+00:00",
+  "code_commit": "d4ffd4e01c13f1bb12a8602787c267e9bbbe71a8",
+  "execution_profile": "image_only_reconstruction_v1",
+  "sample_count": 15,
+  "object_count": 3,
+  "selected_stl1_objects": [
+    "ring_004",
+    "ring_012",
+    "ring_020"
+  ],
+  "ring01_reference_included": false,
+  "selection_reason": {
+    "ring_004": "fixed validation cohort for independent normal corroboration",
+    "ring_012": "fixed validation cohort for independent normal corroboration",
+    "ring_020": "fixed validation cohort for independent normal corroboration"
+  },
+  "samples": [
+    {
+      "sample_key": "ring_004:front",
+      "dataset": "STL-1",
+      "object_id": "ring_004",
+      "split": "val",
+      "view": "front",
+      "image_path": "dataset/prepared_v1/images/ring_004/front.png",
+      "mask_path": "dataset/prepared_v1/masks/jewelry/ring_004/front.png",
+      "source_sha256": "028fc8d1e7eea4a4d3ed507a4fb9a9dc78b5a94a7c863a91639d5e6dc95c3e30",
+      "physical_scale": null,
+      "camera_calibrated": false
+    },
+    {
+      "sample_key": "ring_004:top",
+      "dataset": "STL-1",
+      "object_id": "ring_004",
+      "split": "val",
+      "view": "top",
+      "image_path": "dataset/prepared_v1/images/ring_004/top.png",
+      "mask_path": "dataset/prepared_v1/masks/jewelry/ring_004/top.png",
+      "source_sha256": "ddf4c248bf394d310d51de018d8b71d20f8d62f68f3aeb85842ebcd32ff18612",
+      "physical_scale": null,
+      "camera_calibrated": false
+    },
+    {
+      "sample_key": "ring_004:iso",
+      "dataset": "STL-1",
+      "object_id": "ring_004",
+      "split": "val",
+      "view": "iso",
+      "image_path": "dataset/prepared_v1/images/ring_004/iso.png",
+      "mask_path": "dataset/prepared_v1/masks/jewelry/ring_004/iso.png",
+      "source_sha256": "30753c14902b55caaf5216bd42c4e3fbc2213b93ac104627c39facb50d03dd4f",
+      "physical_scale": null,
+      "camera_calibrated": false
+    },
+    {
+      "sample_key": "ring_004:lsv",
+      "dataset": "STL-1",
+      "object_id": "ring_004",
+      "split": "val",
+      "view": "lsv",
+      "image_path": "dataset/prepared_v1/images/ring_004/lsv.png",
+      "mask_path": "dataset/prepared_v1/masks/jewelry/ring_004/lsv.png",
+      "source_sha256": "1316e5e81c1747778ada5691c9b5a30ed84e6855f2adfd089f41ecae5338bad7",
+      "physical_scale": null,
+      "camera_calibrated": false
+    },
+    {
+      "sample_key": "ring_004:rsv",
+      "dataset": "STL-1",
+      "object_id": "ring_004",
+      "split": "val",
+      "view": "rsv",
+      "image_path": "dataset/prepared_v1/images/ring_004/rsv.png",
+      "mask_path": "dataset/prepared_v1/masks/jewelry/ring_004/rsv.png",
+      "source_sha256": "cb663aee7952a44d9435a18ffb15b7aaff74d83a252e6c820c36ccc6edaa3c0b",
+      "physical_scale": null,
+      "camera_calibrated": false
+    },
+    {
+      "sample_key": "ring_012:front",
+      "dataset": "STL-1",
+      "object_id": "ring_012",
+      "split": "val",
+      "view": "front",
+      "image_path": "dataset/prepared_v1/images/ring_012/front.png",
+      "mask_path": "dataset/prepared_v1/masks/jewelry/ring_012/front.png",
+      "source_sha256": "82377caca685fa1911c2bcf714272470def597a3a12ebafd61466804297e4e1f",
+      "physical_scale": null,
+      "camera_calibrated": false
+    },
+    {
+      "sample_key": "ring_012:top",
+      "dataset": "STL-1",
+      "object_id": "ring_012",
+      "split": "val",
+      "view": "top",
+      "image_path": "dataset/prepared_v1/images/ring_012/top.png",
+      "mask_path": "dataset/prepared_v1/masks/jewelry/ring_012/top.png",
+      "source_sha256": "f4b5e524aaf776884facee27fb9abb298d5aa8aa3a78f870dd9b3753104b28de",
+      "physical_scale": null,
+      "camera_calibrated": false
+    },
+    {
+      "sample_key": "ring_012:iso",
+      "dataset": "STL-1",
+      "object_id": "ring_012",
+      "split": "val",
+      "view": "iso",
+      "image_path": "dataset/prepared_v1/images/ring_012/iso.png",
+      "mask_path": "dataset/prepared_v1/masks/jewelry/ring_012/iso.png",
+      "source_sha256": "638ffd4ea458eb4838a27036951e72c95fa900add1a2e8504d478429257e9ad6",
+      "physical_scale": null,
+      "camera_calibrated": false
+    },
+    {
+      "sample_key": "ring_012:lsv",
+      "dataset": "STL-1",
+      "object_id": "ring_012",
+      "split": "val",
+      "view": "lsv",
+      "image_path": "dataset/prepared_v1/images/ring_012/lsv.png",
+      "mask_path": "dataset/prepared_v1/masks/jewelry/ring_012/lsv.png",
+      "source_sha256": "d9d743f1aefdebfc652a4e29c457f28fea6befe343d90c5428f1d75941e5f594",
+      "physical_scale": null,
+      "camera_calibrated": false
+    },
+    {
+      "sample_key": "ring_012:rsv",
+      "dataset": "STL-1",
+      "object_id": "ring_012",
+      "split": "val",
+      "view": "rsv",
+      "image_path": "dataset/prepared_v1/images/ring_012/rsv.png",
+      "mask_path": "dataset/prepared_v1/masks/jewelry/ring_012/rsv.png",
+      "source_sha256": "4f77a49c13789c84e7cd1dc06845037002c4355f087990181e607bc48f9226d0",
+      "physical_scale": null,
+      "camera_calibrated": false
+    },
+    {
+      "sample_key": "ring_020:front",
+      "dataset": "STL-1",
+      "object_id": "ring_020",
+      "split": "val",
+      "view": "front",
+      "image_path": "dataset/prepared_v1/images/ring_020/front.png",
+      "mask_path": "dataset/prepared_v1/masks/jewelry/ring_020/front.png",
+      "source_sha256": "a52aa4043b16b2077c31baba17396b85342c4518a2dafb919f51e8c3d7bafc3c",
+      "physical_scale": null,
+      "camera_calibrated": false
+    },
+    {
+      "sample_key": "ring_020:top",
+      "dataset": "STL-1",
+      "object_id": "ring_020",
+      "split": "val",
+      "view": "top",
+      "image_path": "dataset/prepared_v1/images/ring_020/top.png",
+      "mask_path": "dataset/prepared_v1/masks/jewelry/ring_020/top.png",
+      "source_sha256": "f8cb2a537fe9dbcafa47a3d0c596979ed65e8e32ba2e4a2d4de8a0d61fad4113",
+      "physical_scale": null,
+      "camera_calibrated": false
+    },
+    {
+      "sample_key": "ring_020:iso",
+      "dataset": "STL-1",
+      "object_id": "ring_020",
+      "split": "val",
+      "view": "iso",
+      "image_path": "dataset/prepared_v1/images/ring_020/iso.png",
+      "mask_path": "dataset/prepared_v1/masks/jewelry/ring_020/iso.png",
+      "source_sha256": "fd7b907853bd5ed2af74e4491b759b5eb281778b9adb40a71083efc18aa1a508",
+      "physical_scale": null,
+      "camera_calibrated": false
+    },
+    {
+      "sample_key": "ring_020:lsv",
+      "dataset": "STL-1",
+      "object_id": "ring_020",
+      "split": "val",
+      "view": "lsv",
+      "image_path": "dataset/prepared_v1/images/ring_020/lsv.png",
+      "mask_path": "dataset/prepared_v1/masks/jewelry/ring_020/lsv.png",
+      "source_sha256": "db4524303a1188ef0ed7f08eeacbf05b84a9b3674fd1719b44b7e985f39da057",
+      "physical_scale": null,
+      "camera_calibrated": false
+    },
+    {
+      "sample_key": "ring_020:rsv",
+      "dataset": "STL-1",
+      "object_id": "ring_020",
+      "split": "val",
+      "view": "rsv",
+      "image_path": "dataset/prepared_v1/images/ring_020/rsv.png",
+      "mask_path": "dataset/prepared_v1/masks/jewelry/ring_020/rsv.png",
+      "source_sha256": "7abe0b0492e33b90aaa5d97e62e6ed1013d56f6ea356843b969c8dd59d503a99",
+      "physical_scale": null,
+      "camera_calibrated": false
+    }
+  ],
+  "measurement_contract": {
+    "pixel_measurements": "observed",
+    "normalized_shape": "machine_hypothesis",
+    "model_depth_unit": "metre_model_hypothesis",
+    "absolute_millimetres": "blocked_without_known_dimension"
+  }
+}

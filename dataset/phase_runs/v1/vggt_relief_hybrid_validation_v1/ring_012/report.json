@@ -1,0 +1,86 @@
+{
+  "schema_version": "vggt_hybrid_track_evidence_v1",
+  "created_at_utc": "2026-10-18T14:22:46.757437+00:00",
+  "object_id": "ring_012",
+  "split": "val",
+  "views": [
+    "front",
+    "top",
+    "iso",
+    "lsv",
+    "rsv"
+  ],
+  "image_size": 518,
+  "query_count_per_view": 1024,
+  "query_selection": "baseline_384_plus_unique_relief_stratified_640",
+  "query_region_counts": {
+    "front": {
+      "depth_supported_relief": 640,
+      "silhouette_boundary": 0,
+      "textured_surface": 0,
+      "uniform_surface_fill": 0,
+      "retained_baseline_feature": 384
+    },
+    "top": {
+      "depth_supported_relief": 461,
+      "silhouette_boundary": 179,
+      "textured_surface": 0,
+      "uniform_surface_fill": 0,
+      "retained_baseline_feature": 384
+    },
+    "iso": {
+      "depth_supported_relief": 640,
+      "silhouette_boundary": 0,
+      "textured_surface": 0,
+      "uniform_surface_fill": 0,
+      "retained_baseline_feature": 384
+    },
+    "lsv": {
+      "depth_supported_relief": 593,
+      "silhouette_boundary": 47,
+      "textured_surface": 0,
+      "uniform_surface_fill": 0,
+      "retained_baseline_feature": 384
+    },
+    "rsv": {
+      "depth_supported_relief": 640,
+      "silhouette_boundary": 0,
+      "textured_surface": 0,
+      "uniform_surface_fill": 0,
+      "retained_baseline_feature": 384
+    }
+  },
+  "sources": {
+    "baseline_report": "dataset/phase_runs/v1/vggt_full_stl1_track_evidence_v1/ring_012/report.json",
+    "stratified_report": "dataset/phase_runs/v1/vggt_relief_stratified_validation_v1/ring_012/report.json",
+    "checkpoint_sha256": "d15bf50a8615c8225ed48b51ea5cac673d82442ec0309036df555a053253afe0"
+  },
+  "runtime": {
+    "composition_seconds": 0.065438,
+    "retained_source_gpu_seconds": 167.612,
+    "peak_cuda_bytes": 2615137792
+  },
+  "summary": {
+    "mean_visibility": 0.641844,
+    "mean_confidence": 0.303498,
+    "in_bounds_fraction": 1.0,
+    "maximum_source_query_error_pixels": 0.0
+  },
+  "checks": {
+    "source_checkpoints_match": true,
+    "baseline_query_points_preserved_exactly": true,
+    "baseline_tracks_preserved_exactly": true,
+    "all_queries_unique_per_source": true,
+    "all_tracks_in_bounds_above_95_percent": true,
+    "all_source_queries_preserved": true
+  },
+  "artifacts": {
+    "track_evidence": "dataset/phase_runs/v1/vggt_relief_hybrid_validation_v1/ring_012/vggt_track_evidence.npz"
+  },
+  "claims": {
+    "track_accuracy_validated": false,
+    "physical_correspondence_validated": false,
+    "cad_fusion_authorized": false,
+    "manufacturing_accuracy_validated": false
+  }
+}

@@ -153,6 +153,77 @@ highly uneven and top-view reciprocity remains absent. These are sparse learned
 tracks, not dense correspondence, physical truth or authorization to fuse
 relief into the exact STEP body.
 
+## Phase 5.7 no-regression relief-query densification
+
+The fixed hybrid policy retains all 384 Phase 5.6 queries and their acceptance
+decisions exactly, then appends 640 unique queries targeted at depth-supported
+relief, silhouette boundaries and textured surfaces. The Phase 5.5 reciprocal
+thresholds, cameras and CAD remain unchanged. This prevents denser sampling
+from erasing earlier evidence while allowing additional regions to be tested.
+
+Policy selection used all 18 training rings. Mean candidate-area coverage rose
+by `0.357539`, mean reciprocally supported-area coverage rose by `0.159578`,
+and every training ring improved. The frozen policy was then run once on rings
+004, 012 and 020. Mean candidate-area coverage rose by `0.439941`, supported
+coverage rose by `0.156563`, supported fraction rose by `0.030427`, and every
+validation ring improved. All source queries were preserved with `0.0 px`
+maximum source error, at least `0.999961` of tracks were in bounds, and peak
+CUDA allocation remained about 2.62 GB. Rings 007, 015 and 023 remain untouched
+by this experiment.
+
+The validation audit was visually inspected and shows coherent additional
+front-to-isometric and limited side-view support. Top-view support remains
+nearly absent. Coverage improvement is therefore accepted as stronger review
+evidence only; it does not validate dense correspondence, physical geometry,
+metric scale, relief fusion or manufacturing accuracy.
+
+## Phase 5.8 independent normal corroboration
+
+All 15 views of the fixed validation rings now have retained outputs from Depth
+Anything V2 Metric, Metric3D V2 and UniDepth V2. Metric3D supplies the direct
+normal hypothesis. Its own depth output is excluded from the comparator, which
+is built only from Depth Anything and UniDepth screen-space normals. The frozen
+Phase 5.7 tracks and counts are reproduced exactly and are annotated, not
+deleted or moved.
+
+Of 736 front-source points supported by Phase 5.7, 521 (`0.707880`) also pass
+the existing `0.40` normal-agreement threshold at source and target; 215 remain
+unresolved. Per-ring corroboration is `49/72`, `331/453` and `141/211` for
+rings 004, 012 and 020. Only one accepted front-to-top track exists across the
+entire validation cohort, and it is corroborated. This confirms that missing
+view overlap is now a larger limitation than query density.
+
+The three-model depth stability score is `0.672911`, while Metric3D direct
+normals differ from the three-depth consensus by `22.7153` degrees on average.
+Visual inspection shows disagreement around fine carving, thin profiles and
+head-to-shank transitions. Without normal ground truth or calibrated camera
+rotations, Phase 5.8 remains an uncertainty annotation and cannot authorize
+relief fusion, metric dimensions or manufacturing use.
+
+## Phase 5.9 visibility-aware relief graph
+
+`build_phase5_visibility_graph.py` converts the frozen Phase 5.7 reciprocal
+tracks and Phase 5.8 normal annotations into explicit graph evidence for rings
+004, 012 and 020. Each candidate front query receives a stable node ID. Every
+accepted observation edge records the target view, target coordinate, reciprocal
+cycle error, nearest-query distance, track score and normal status. A missing
+edge stays missing; the pipeline no longer treats top or side views as if they
+must observe a front-facing ornament surface.
+
+The graph reproduces all 736 supported queries and all 521 normal-corroborated
+queries. It contains 827 reciprocal observation edges, 567 normal-corroborated
+edges and 30 deterministic image-space evidence regions. Only 45 supported
+queries (`0.061141`) are normal-corroborated in two or more target views; 476
+have one corroborated target, 215 remain reciprocal but normal-unresolved, and
+1,797 source candidates have no accepted target view.
+
+Visual inspection shows supported points following visible ornament regions,
+but several regions remain broad because nearby points can share the same view
+without being one semantic component. Region boxes therefore route later
+component review; they are not CAD patches. The graph does not recover surfaces
+hidden from the front view, prove calibrated angular diversity or authorize
+relief fusion.
+
 ## Claim boundary
 
 The dimensions are designed test parameters. The fixtures verify generator
@@ -261,12 +332,37 @@ docker run --rm --user "$(id -u):$(id -g)" \
   -v "$PWD:/workspace" -w /workspace \
   image2cad-validation:phase0 \
   python -m unittest tests.test_phase5_full_relief_tracks
+
+docker run --rm --user "$(id -u):$(id -g)" \
+  -e HOME=/tmp -e PYTHONPATH=/workspace:/workspace/pipeline \
+  -v "$PWD:/workspace" -w /workspace \
+  image2cad-validation:phase0 \
+  python -m unittest tests.test_phase5_dense_relief_pilot \
+    tests.test_phase5_dense_relief_validation
+
+docker run --rm --user "$(id -u):$(id -g)" \
+  -e HOME=/tmp -e PYTHONPATH=/workspace:/workspace/pipeline \
+  -v "$PWD:/workspace" -w /workspace \
+  image2cad-validation:phase0 \
+  python -m unittest tests.test_phase5_normal_corroboration
+
+docker run --rm --user "$(id -u):$(id -g)" \
+  -e HOME=/tmp -e PYTHONPATH=/workspace:/workspace/pipeline \
+  -v "$PWD:/workspace" -w /workspace \
+  image2cad-validation:phase0 \
+  python -m pipeline.build_phase5_visibility_graph
+
+docker run --rm --user "$(id -u):$(id -g)" \
+  -e HOME=/tmp -e PYTHONPATH=/workspace:/workspace/pipeline \
+  -v "$PWD:/workspace" -w /workspace \
+  image2cad-validation:phase0 \
+  python -m unittest tests.test_phase5_visibility_graph
 ```
 
 ## Next gate
 
-1. Densify Phase 5.6 reciprocal support and add a public-deployment-compatible
-   independent normal comparator before promoting relief into exact CAD.
+1. Attach reviewed semantic component identities to visibility regions, then
+   fit only regions with sufficient observable-view support.
 2. Resolve candidate semantics and cross-view opening identity before any
    retained cut is promoted to an approved cavity or manufacturing hole.
 3. Fit general gallery generators across side and iso evidence without

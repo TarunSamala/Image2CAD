@@ -400,6 +400,34 @@ class DatasetStudioServiceTest(unittest.TestCase):
                 "cad_fusion_authorized"
             ]
         )
+        dense_train = summary["phase5"]["dense_relief_training"]
+        self.assertEqual(dense_train["object_count"], 18)
+        self.assertTrue(dense_train["checks"]["baseline_acceptance_gate_preserved"])
+        dense_validation = summary["phase5"]["dense_relief_validation"]
+        self.assertEqual(dense_validation["object_count"], 3)
+        self.assertTrue(
+            dense_validation["summary"][
+                "all_objects_improve_supported_spatial_coverage"
+            ]
+        )
+        self.assertTrue(
+            dense_validation["checks"]["baseline_acceptance_gate_preserved"]
+        )
+        self.assertFalse(dense_validation["claims"]["cad_fusion_authorized"])
+        normal_corroboration = summary["phase5"]["normal_corroboration"]
+        self.assertEqual(normal_corroboration["summary"]["object_count"], 3)
+        self.assertEqual(
+            normal_corroboration["summary"]["normal_corroborated_count"], 521
+        )
+        self.assertEqual(
+            normal_corroboration["summary"]["normal_unresolved_count"], 215
+        )
+        self.assertTrue(
+            normal_corroboration["checks"][
+                "metric3d_depth_excluded_from_independent_comparator"
+            ]
+        )
+        self.assertFalse(normal_corroboration["claims"]["cad_fusion_authorized"])
         self.assertFalse(phase4["checks"]["phase4_exit_gate_passed"])
         self.assertTrue(phase4["checks"]["partial_ring01_prong_instances_available"])
         self.assertEqual(
@@ -1218,6 +1246,67 @@ class DatasetStudioApiTest(unittest.TestCase):
             phase5_full_ring004_relief_track_review.mimetype, "image/png"
         )
         phase5_full_ring004_relief_track_review.close()
+        phase5_dense_train_audit = self.client.get(
+            "/api/artifacts/phase5_dense_relief_train_audit"
+        )
+        self.assertEqual(phase5_dense_train_audit.status_code, 200)
+        self.assertEqual(phase5_dense_train_audit.mimetype, "image/png")
+        phase5_dense_train_audit.close()
+        phase5_dense_validation_audit = self.client.get(
+            "/api/artifacts/phase5_dense_relief_validation_audit"
+        )
+        self.assertEqual(phase5_dense_validation_audit.status_code, 200)
+        self.assertEqual(phase5_dense_validation_audit.mimetype, "image/png")
+        phase5_dense_validation_audit.close()
+        phase5_dense_validation_report = self.client.get(
+            "/api/artifacts/phase5_dense_relief_validation_report"
+        )
+        self.assertEqual(phase5_dense_validation_report.status_code, 200)
+        self.assertEqual(
+            phase5_dense_validation_report.mimetype, "application/json"
+        )
+        phase5_dense_validation_report.close()
+        phase5_normal_audit = self.client.get(
+            "/api/artifacts/phase5_normal_corroboration_audit"
+        )
+        self.assertEqual(phase5_normal_audit.status_code, 200)
+        self.assertEqual(phase5_normal_audit.mimetype, "image/png")
+        phase5_normal_audit.close()
+        phase5_normal_report = self.client.get(
+            "/api/artifacts/phase5_normal_corroboration_report"
+        )
+        self.assertEqual(phase5_normal_report.status_code, 200)
+        self.assertEqual(phase5_normal_report.mimetype, "application/json")
+        phase5_normal_report.close()
+        phase5_visibility_audit = self.client.get(
+            "/api/artifacts/phase5_visibility_graph_audit"
+        )
+        self.assertEqual(phase5_visibility_audit.status_code, 200)
+        self.assertEqual(phase5_visibility_audit.mimetype, "image/png")
+        phase5_visibility_audit.close()
+        phase5_visibility_report = self.client.get(
+            "/api/artifacts/phase5_visibility_graph_report"
+        )
+        self.assertEqual(phase5_visibility_report.status_code, 200)
+        self.assertEqual(phase5_visibility_report.mimetype, "application/json")
+        phase5_visibility_report.close()
+        phase5_ring004_visibility = self.client.get(
+            "/api/artifacts/phase5_ring004_visibility_graph"
+        )
+        self.assertEqual(phase5_ring004_visibility.status_code, 200)
+        self.assertEqual(
+            phase5_ring004_visibility.mimetype, "application/json"
+        )
+        phase5_ring004_visibility.close()
+        for artifact in (
+            "phase5_ring004_validation_normals",
+            "phase5_ring012_validation_normals",
+            "phase5_ring020_validation_normals",
+        ):
+            response = self.client.get(f"/api/artifacts/{artifact}")
+            self.assertEqual(response.status_code, 200)
+            self.assertEqual(response.mimetype, "image/png")
+            response.close()
         candidate_summary = self.client.get("/api/phase4/stl1-candidates")
         self.assertEqual(candidate_summary.status_code, 200)
         self.assertEqual(
