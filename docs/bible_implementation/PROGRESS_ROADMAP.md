@@ -284,9 +284,16 @@ stable triangles in validation, and Ring 020 has no stable right-side triangle.
 This leaves the independent Phase 5.13 relief gate at `5/56` passing target
 evaluations and no patch with two-target support. Test remains untouched.
 
-1. Continue the Phase 5.14 appearance/depth action on training rings by
-   developing a view-invariant relief representation for the 11
-   appearance/depth-blocked patches.
+Phase 5.17 tests four relief descriptors on fixed reciprocal tracks from all
+18 training rings. Displaced controls are matched for target confidence and
+photo-detail strength. On `3,259` eligible tracks, the existing signed-relief
+baseline scores `0.607` paired discrimination; unsigned depth `0.532`, photo
+detail `0.516`, and their fusion `0.547`. The three replacements are rejected.
+Only two top-view tracks have eligible controls. No validation descriptor test
+is run and the Phase 5.13 relief gate remains unchanged.
+
+1. Develop patch-level local shape evidence on training rings and require it
+   to beat the matched-control signed-relief baseline before validation.
 2. Investigate the front-to-top and Ring 020 right-side correspondence gaps
    using training images before another frozen validation attempt.
 3. Review or label the Phase 5.12 surface groups and the Phase 5.11 patches,

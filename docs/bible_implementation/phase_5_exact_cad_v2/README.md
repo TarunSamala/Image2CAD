@@ -362,6 +362,29 @@ This measures correspondence density, not independent relief transfer. The
 Phase 5.13 surface gate still passes only `5/56` evaluations and has no patch
 supported by two target views. No relief surface or CAD component is promoted.
 
+## Phase 5.17 training relief-descriptor discrimination
+
+The Phase 5.14 appearance/depth action was tested on all 18 training rings
+using the frozen reciprocal tracks. Signed relief was compared with unsigned
+depth detail, photo detail and a depth-photo fusion. Each accepted target
+location was scored against nearby displaced controls on the same ring. The
+controls had to satisfy the same relief-confidence floor and similar photo
+detail, so easy low-detail negatives could not inflate the result.
+
+The retained comparison includes `3,259` control-eligible tracks. Mean paired
+discrimination across rings is `0.607` for existing signed relief, `0.532` for
+unsigned depth, `0.516` for photo detail and `0.547` for the fusion. No
+replacement meets the prespecified training selection gate. Only two top-view
+tracks have eligible controls, which is insufficient for a top-view descriptor
+claim. The first, less controlled photo-detail result looked stronger; matching
+the controls exposed that bias. No candidate is sent to validation, and the
+Phase 5.13 surface gate remains unchanged.
+
+These are tests against machine-proposed correspondences, not physical point
+labels or measured relief. The next experiment needs a representation that
+retains local shape across viewpoint and reflection changes, plus a separate
+check that the same patch is actually visible in each compared view.
+
 ## Claim boundary
 
 The dimensions are designed test parameters. The fixtures verify generator
@@ -579,14 +602,26 @@ docker run --rm --user "$(id -u):$(id -g)" \
   -v "$PWD:/workspace" -w /workspace \
   image2cad-validation:phase0 \
   python -m unittest tests.test_phase5_validation_track_topology
+
+docker run --rm --user "$(id -u):$(id -g)" \
+  -e HOME=/tmp -e PYTHONPATH=/workspace:/workspace/pipeline \
+  -v "$PWD:/workspace" -w /workspace \
+  image2cad-validation:phase0 \
+  python -m pipeline.evaluate_phase5_training_relief_descriptors
+
+docker run --rm --user "$(id -u):$(id -g)" \
+  -e HOME=/tmp -e PYTHONPATH=/workspace:/workspace/pipeline \
+  -v "$PWD:/workspace" -w /workspace \
+  image2cad-validation:phase0 \
+  python -m unittest tests.test_phase5_training_relief_descriptors
 ```
 
 ## Next gate
 
-1. Develop the Phase 5.14 view-invariant relief action on training rings and
-   preserve the weak top-view and right-side routes as explicit unresolved
-   evidence. The Phase 5.13 surface gate must gain independent two-target
-   support before any promotion can be discussed.
+1. Develop a local shape or patch representation on training rings that beats
+   the Phase 5.17 signed-relief baseline under matched controls. Check actual
+   target visibility before requiring a front-to-top match. The Phase 5.13
+   surface gate must gain independent two-target support before any promotion.
 2. Resolve candidate semantics and cross-view opening identity before any
    retained cut is promoted to an approved cavity or manufacturing hole.
 3. Fit general gallery generators across side and iso evidence without

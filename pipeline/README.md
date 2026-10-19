@@ -135,6 +135,11 @@ predate it, so this index prevents similarly numbered stages from being mixed.
   transfer to the three validation rings. It verifies the Phase 5.15 integrity
   manifest before using the same topology construction and reports each target
   view separately. It does not update the Phase 5.13 relief-surface gate.
+- `evaluate_phase5_training_relief_descriptors.py` - Phase 5.17 training-only
+  comparison of signed relief with unsigned depth detail, photo detail and a
+  fused descriptor. Accepted reciprocal tracks are compared with displaced
+  controls matched for target relief confidence and photo-detail strength.
+  None of the alternatives passes the predeclared selection gate.
 
 ## Shared evidence and dataset tools
 
