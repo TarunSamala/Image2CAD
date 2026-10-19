@@ -131,6 +131,10 @@ predate it, so this index prevents similarly numbered stages from being mixed.
   same-target accepted vertices, and measures non-degenerate,
   orientation-preserved projections. It does not process validation or test
   rings, fit relief, create surfaces or authorize CAD.
+- `evaluate_phase5_validation_track_topology.py` - Phase 5.16 frozen-policy
+  transfer to the three validation rings. It verifies the Phase 5.15 integrity
+  manifest before using the same topology construction and reports each target
+  view separately. It does not update the Phase 5.13 relief-surface gate.
 
 ## Shared evidence and dataset tools
 

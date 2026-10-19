@@ -30,7 +30,7 @@ Start with the [documentation index](docs/README.md), the
 | Image-only Phase 2 | Reflection-resilient evidence and multi-view consistency | In progress; Ring01 angled inner-shank correction proposed |
 | Phase 3 | Camera, depth, normal and geometry evidence benchmark | Partial research evidence only; exit benchmark not complete |
 | Phase 4 | Component and constraint graph | Partial; synthetic exact-CAD locality passes 30/30, while reviewed image-derived component truth remains blocked |
-| Phase 5 | Exact CAD V2 | Phase 5.11–5.12 produce 40 reversible local OBJ trials. Phase 5.13 passes only 5/56 independent target gates with no two-target-supported patch. Phase 5.14 attributes the frozen failures. Phase 5.15 raises orientation-preserved local topology from 2,252 to 6,913 triangles across all 18 training rings, but front-to-top topology exists on only two rings and validation remains unevaluated; every surface remains review evidence and separate from STEP |
+| Phase 5 | Exact CAD V2 | Phase 5.11–5.12 produce 40 reversible local OBJ trials. Phase 5.13 passes only 5/56 independent target gates with no two-target-supported patch. Phase 5.14 attributes the frozen failures. Phase 5.15 raises stable local topology from 2,252 to 6,913 triangles on training rings; Phase 5.16 transfers this to validation (363 to 1,017) but top-view topology remains zero. Surfaces remain review evidence separate from STEP |
 | Phase 6–9 | Detail, manufacturing and pilot | Not started |
 
 ## Legacy checkpoint status

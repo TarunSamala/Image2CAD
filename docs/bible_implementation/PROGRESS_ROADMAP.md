@@ -277,12 +277,18 @@ front-to-top topology appears on only two training rings. The policy is frozen
 for one validation evaluation, while the Phase 5.13 scores and surfaces remain
 unchanged.
 
-1. Evaluate the frozen Phase 5.15 local-topology settings once on the three
-   validation rings, without threshold or parameter changes. Keep the test
-   split untouched and report weak target routes explicitly.
-2. Continue the Phase 5.14 appearance/depth action on training rings by
+Phase 5.16 applies those frozen settings to the three validation rings after
+verifying the training integrity manifest. Stable image-space triangles rise
+from `363` to `1,017`, with all three rings improving. The top view has zero
+stable triangles in validation, and Ring 020 has no stable right-side triangle.
+This leaves the independent Phase 5.13 relief gate at `5/56` passing target
+evaluations and no patch with two-target support. Test remains untouched.
+
+1. Continue the Phase 5.14 appearance/depth action on training rings by
    developing a view-invariant relief representation for the 11
    appearance/depth-blocked patches.
+2. Investigate the front-to-top and Ring 020 right-side correspondence gaps
+   using training images before another frozen validation attempt.
 3. Review or label the Phase 5.12 surface groups and the Phase 5.11 patches,
    then merge or split only with additional
    evidence where a patch still crosses ornaments. Image-plane fitting, rigid

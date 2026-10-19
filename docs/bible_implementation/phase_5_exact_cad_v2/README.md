@@ -348,6 +348,20 @@ route contributes `5,229`. The selected policy is therefore frozen only for
 one validation topology evaluation. No validation improvement, metric surface,
 hidden geometry, CAD fusion or manufacturing accuracy is claimed.
 
+## Phase 5.16 frozen validation topology transfer
+
+The selected Phase 5.15 topology settings were applied once to Ring 004, Ring
+012 and Ring 020 after verifying the frozen training report and implementation
+hashes. Stable local triangles increase from `363` to `1,017`, and all three
+validation rings improve with no per-ring regression. The cohort and all three
+target overlays were visually inspected: the triangles remain concentrated on
+visible ornament regions. Front-to-top topology is still `0` on all three
+rings, and Ring 020 has no stable right-side triangle.
+
+This measures correspondence density, not independent relief transfer. The
+Phase 5.13 surface gate still passes only `5/56` evaluations and has no patch
+supported by two target views. No relief surface or CAD component is promoted.
+
 ## Claim boundary
 
 The dimensions are designed test parameters. The fixtures verify generator
@@ -553,14 +567,26 @@ docker run --rm --user "$(id -u):$(id -g)" \
   -v "$PWD:/workspace" -w /workspace \
   image2cad-validation:phase0 \
   python -m unittest tests.test_phase5_training_track_topology
+
+docker run --rm --user "$(id -u):$(id -g)" \
+  -e HOME=/tmp -e PYTHONPATH=/workspace:/workspace/pipeline \
+  -v "$PWD:/workspace" -w /workspace \
+  image2cad-validation:phase0 \
+  python -m pipeline.evaluate_phase5_validation_track_topology
+
+docker run --rm --user "$(id -u):$(id -g)" \
+  -e HOME=/tmp -e PYTHONPATH=/workspace:/workspace/pipeline \
+  -v "$PWD:/workspace" -w /workspace \
+  image2cad-validation:phase0 \
+  python -m unittest tests.test_phase5_validation_track_topology
 ```
 
 ## Next gate
 
-1. Apply the frozen Phase 5.15 topology settings once to the three validation
-   rings without tuning. Only after that independent result may the unchanged
-   Phase 5.13 surface gate be reconsidered. At least one surface must gain
-   two-target support before promotion can be discussed.
+1. Develop the Phase 5.14 view-invariant relief action on training rings and
+   preserve the weak top-view and right-side routes as explicit unresolved
+   evidence. The Phase 5.13 surface gate must gain independent two-target
+   support before any promotion can be discussed.
 2. Resolve candidate semantics and cross-view opening identity before any
    retained cut is promoted to an approved cavity or manufacturing hole.
 3. Fit general gallery generators across side and iso evidence without
