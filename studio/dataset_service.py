@@ -185,6 +185,12 @@ class DatasetRepository:
             / "phase5_target_reprojection_v1"
             / "report.json"
         )
+        self.phase5_target_failure_attribution = self._read_json(
+            self.repo_root
+            / "data"
+            / "phase5_target_failure_attribution_v1"
+            / "report.json"
+        )
         self.phase4_prong_instances = self._read_json(
             self.repo_root / "data" / "phase4_prong_instances_v1" / "report.json"
         )
@@ -811,6 +817,9 @@ class DatasetRepository:
                 "target_reprojection": deepcopy(
                     self.phase5_target_reprojection
                 ),
+                "target_failure_attribution": deepcopy(
+                    self.phase5_target_failure_attribution
+                ),
             },
             "limitations": deepcopy(self.dataset_report.get("limitations", [])),
         }
@@ -1243,6 +1252,7 @@ class DatasetRepository:
                     "Phase 5.11 evidence patches remain sparse image observations; edge or depth changes can still come from reflection and do not define CAD surfaces.",
                     "Phase 5.12 local OBJ meshes interpolate only the retained front-view evidence inside eligible patches; they are open, scale-normalized review layers and remain separate from exact CAD.",
                     "Phase 5.13 independently checks those front-derived surfaces in tracked target views. Only 5 of 56 target evaluations pass, no patch has two-target support and no surface is authorized for CAD fusion.",
+                    "Phase 5.14 attributes the frozen Phase 5.13 failures without changing thresholds or surfaces. Recommendations are training-split research actions, not validation-set tuning or CAD authorization.",
                     "Image-only inputs do not verify absolute millimetres without a known scale reference.",
                 ],
                 "actions": [

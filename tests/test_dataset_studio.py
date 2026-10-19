@@ -458,6 +458,22 @@ class DatasetStudioServiceTest(unittest.TestCase):
         self.assertFalse(
             target_reprojection["claims"]["cad_fusion_authorized"]
         )
+        target_failures = summary["phase5"]["target_failure_attribution"]
+        self.assertEqual(target_failures["summary"]["patch_count"], 40)
+        self.assertEqual(
+            target_failures["summary"]["target_evaluation_count"], 56
+        )
+        self.assertEqual(
+            target_failures["summary"]["primary_blocker_counts"][
+                "insufficient_normal_tracks"
+            ],
+            12,
+        )
+        self.assertTrue(target_failures["checks"]["thresholds_unchanged"])
+        self.assertTrue(target_failures["checks"]["surfaces_unchanged"])
+        self.assertFalse(
+            target_failures["claims"]["cad_fusion_authorized"]
+        )
         self.assertFalse(phase4["checks"]["phase4_exit_gate_passed"])
         self.assertTrue(phase4["checks"]["partial_ring01_prong_instances_available"])
         self.assertEqual(
