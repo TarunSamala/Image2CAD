@@ -191,6 +191,12 @@ class DatasetRepository:
             / "phase5_target_failure_attribution_v1"
             / "report.json"
         )
+        self.phase5_training_track_topology = self._read_json(
+            self.repo_root
+            / "data"
+            / "phase5_training_track_topology_v1"
+            / "report.json"
+        )
         self.phase4_prong_instances = self._read_json(
             self.repo_root / "data" / "phase4_prong_instances_v1" / "report.json"
         )
@@ -820,6 +826,9 @@ class DatasetRepository:
                 "target_failure_attribution": deepcopy(
                     self.phase5_target_failure_attribution
                 ),
+                "training_track_topology": deepcopy(
+                    self.phase5_training_track_topology
+                ),
             },
             "limitations": deepcopy(self.dataset_report.get("limitations", [])),
         }
@@ -1253,6 +1262,7 @@ class DatasetRepository:
                     "Phase 5.12 local OBJ meshes interpolate only the retained front-view evidence inside eligible patches; they are open, scale-normalized review layers and remain separate from exact CAD.",
                     "Phase 5.13 independently checks those front-derived surfaces in tracked target views. Only 5 of 56 target evaluations pass, no patch has two-target support and no surface is authorized for CAD fusion.",
                     "Phase 5.14 attributes the frozen Phase 5.13 failures without changing thresholds or surfaces. Recommendations are training-split research actions, not validation-set tuning or CAD authorization.",
+                    "Phase 5.15 increases orientation-preserved local reciprocal topology on all 18 training rings, but front-to-top topology exists on only two rings. Validation remains unevaluated and CAD fusion remains blocked.",
                     "Image-only inputs do not verify absolute millimetres without a known scale reference.",
                 ],
                 "actions": [
@@ -1291,6 +1301,8 @@ class DatasetRepository:
                     {"label": "Failure attribution audit", "href": "/api/artifacts/phase5_target_failure_audit"},
                     {"label": "Failure attribution report", "href": "/api/artifacts/phase5_target_failure_report"},
                     {"label": "Patch action queue", "href": "/api/artifacts/phase5_target_failure_action_queue"},
+                    {"label": "Training topology audit", "href": "/api/artifacts/phase5_training_track_topology_audit"},
+                    {"label": "Training topology report", "href": "/api/artifacts/phase5_training_track_topology_report"},
                     {"label": "Download baseline STEP", "href": "/api/artifacts/phase4_exact_cad_baseline_step"},
                 ],
             },
@@ -2281,6 +2293,14 @@ class DatasetRepository:
             / "data"
             / "phase5_target_failure_attribution_v1"
             / "patch_action_queue.csv",
+            "phase5_training_track_topology_report": self.repo_root
+            / "data"
+            / "phase5_training_track_topology_v1"
+            / "report.json",
+            "phase5_training_track_topology_audit": self.repo_root
+            / "data"
+            / "phase5_training_track_topology_v1"
+            / "training_track_topology_audit.png",
             "phase5_validation_metric_depth_report": self.repo_root
             / "dataset"
             / "phase_runs"

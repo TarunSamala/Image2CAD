@@ -474,6 +474,28 @@ class DatasetStudioServiceTest(unittest.TestCase):
         self.assertFalse(
             target_failures["claims"]["cad_fusion_authorized"]
         )
+        training_topology = summary["phase5"]["training_track_topology"]
+        self.assertEqual(training_topology["summary"]["object_count"], 18)
+        self.assertEqual(
+            training_topology["summary"][
+                "hybrid_orientation_preserved_triangle_count"
+            ],
+            6913,
+        )
+        self.assertEqual(
+            training_topology["summary"]["improved_object_count"], 18
+        )
+        self.assertFalse(
+            training_topology["summary"][
+                "complete_target_view_coverage_available"
+            ]
+        )
+        self.assertTrue(
+            training_topology["checks"]["phase5_13_thresholds_unchanged"]
+        )
+        self.assertFalse(
+            training_topology["claims"]["validation_topology_improved"]
+        )
         self.assertFalse(phase4["checks"]["phase4_exit_gate_passed"])
         self.assertTrue(phase4["checks"]["partial_ring01_prong_instances_available"])
         self.assertEqual(
@@ -1461,6 +1483,22 @@ class DatasetStudioApiTest(unittest.TestCase):
             {"text/csv", "application/csv", "application/octet-stream"},
         )
         phase5_target_failure_queue.close()
+        phase5_training_topology_audit = self.client.get(
+            "/api/artifacts/phase5_training_track_topology_audit"
+        )
+        self.assertEqual(phase5_training_topology_audit.status_code, 200)
+        self.assertEqual(
+            phase5_training_topology_audit.mimetype, "image/png"
+        )
+        phase5_training_topology_audit.close()
+        phase5_training_topology_report = self.client.get(
+            "/api/artifacts/phase5_training_track_topology_report"
+        )
+        self.assertEqual(phase5_training_topology_report.status_code, 200)
+        self.assertEqual(
+            phase5_training_topology_report.mimetype, "application/json"
+        )
+        phase5_training_topology_report.close()
         for artifact in (
             "phase5_ring004_validation_normals",
             "phase5_ring012_validation_normals",
