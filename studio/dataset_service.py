@@ -1288,6 +1288,9 @@ class DatasetRepository:
                     {"label": "Ring 004 local relief OBJ", "href": "/api/artifacts/phase5_ring004_local_relief_obj"},
                     {"label": "Target reprojection audit", "href": "/api/artifacts/phase5_target_reprojection_audit"},
                     {"label": "Target reprojection report", "href": "/api/artifacts/phase5_target_reprojection_report"},
+                    {"label": "Failure attribution audit", "href": "/api/artifacts/phase5_target_failure_audit"},
+                    {"label": "Failure attribution report", "href": "/api/artifacts/phase5_target_failure_report"},
+                    {"label": "Patch action queue", "href": "/api/artifacts/phase5_target_failure_action_queue"},
                     {"label": "Download baseline STEP", "href": "/api/artifacts/phase4_exact_cad_baseline_step"},
                 ],
             },
@@ -2266,6 +2269,18 @@ class DatasetRepository:
             / "phase5_target_reprojection_v1"
             / "ring_004"
             / "report.json",
+            "phase5_target_failure_report": self.repo_root
+            / "data"
+            / "phase5_target_failure_attribution_v1"
+            / "report.json",
+            "phase5_target_failure_audit": self.repo_root
+            / "data"
+            / "phase5_target_failure_attribution_v1"
+            / "target_reprojection_failure_audit.png",
+            "phase5_target_failure_action_queue": self.repo_root
+            / "data"
+            / "phase5_target_failure_attribution_v1"
+            / "patch_action_queue.csv",
             "phase5_validation_metric_depth_report": self.repo_root
             / "dataset"
             / "phase_runs"

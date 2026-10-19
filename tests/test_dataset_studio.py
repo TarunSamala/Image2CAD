@@ -1438,6 +1438,29 @@ class DatasetStudioApiTest(unittest.TestCase):
             "application/json",
         )
         phase5_ring004_target_reprojection.close()
+        phase5_target_failure_audit = self.client.get(
+            "/api/artifacts/phase5_target_failure_audit"
+        )
+        self.assertEqual(phase5_target_failure_audit.status_code, 200)
+        self.assertEqual(phase5_target_failure_audit.mimetype, "image/png")
+        phase5_target_failure_audit.close()
+        phase5_target_failure_report = self.client.get(
+            "/api/artifacts/phase5_target_failure_report"
+        )
+        self.assertEqual(phase5_target_failure_report.status_code, 200)
+        self.assertEqual(
+            phase5_target_failure_report.mimetype, "application/json"
+        )
+        phase5_target_failure_report.close()
+        phase5_target_failure_queue = self.client.get(
+            "/api/artifacts/phase5_target_failure_action_queue"
+        )
+        self.assertEqual(phase5_target_failure_queue.status_code, 200)
+        self.assertIn(
+            phase5_target_failure_queue.mimetype,
+            {"text/csv", "application/csv", "application/octet-stream"},
+        )
+        phase5_target_failure_queue.close()
         for artifact in (
             "phase5_ring004_validation_normals",
             "phase5_ring012_validation_normals",
