@@ -234,6 +234,9 @@ function renderPhase4() {
   const targetReprojection = phase5.target_reprojection || {};
   const targetReprojectionSummary = targetReprojection.summary || {};
   const targetReprojectionChecks = targetReprojection.checks || {};
+  const targetFailures = phase5.target_failure_attribution || {};
+  const targetFailureSummary = targetFailures.summary || {};
+  const targetFailureChecks = targetFailures.checks || {};
   const checks = report.checks || {};
   const instances = report.prong_instances || {};
   const instanceSummary = instances.summary || {};
@@ -266,6 +269,7 @@ function renderPhase4() {
     <div class="key-value"><span>Edge-depth-view relief subdivision</span><strong class="${reliefSubdivisionChecks.all_source_queries_partitioned_exactly_once ? "warning" : "bad"}">${reliefSubdivisionSummary.patch_count ?? "—"} patches</strong><small>${reliefSubdivisionSummary.fit_review_eligible_patch_count ?? "—"} future-fit review eligible · ${reliefSubdivisionSummary.singleton_patch_count ?? "—"} unresolved singletons retained · semantic and CAD claims blocked</small></div>
     <div class="key-value"><span>Reversible local relief surfaces</span><strong class="${localReliefChecks.all_generated_geometry_finite ? "warning" : "bad"}">${localReliefSummary.generated_mesh_count ?? "—"} / ${localReliefSummary.eligible_patch_count ?? "—"}</strong><small>${localReliefSummary.face_count ?? "—"} open OBJ faces · same-view RMSE ${score(localReliefSummary.mean_dense_relief_rmse, 3)} · nominal scale · CAD fusion blocked</small></div>
     <div class="key-value"><span>Independent target-view relief gate</span><strong class="${targetReprojectionChecks.target_view_relief_not_used_to_refit_source_surfaces ? "warning" : "bad"}">${targetReprojectionSummary.passed_target_evaluation_count ?? "—"} / ${targetReprojectionSummary.target_evaluation_count ?? "—"}</strong><small>${targetReprojectionSummary.single_target_supported_patch_count ?? "—"} single-target patches · ${targetReprojectionSummary.multi_target_supported_patch_count ?? "—"} multi-target patches · ${targetReprojectionSummary.target_inconsistent_patch_count ?? "—"} rejected · CAD fusion blocked</small></div>
+    <div class="key-value"><span>Frozen-gate failure attribution</span><strong class="${targetFailureChecks.thresholds_unchanged && targetFailureChecks.surfaces_unchanged ? "warning" : "bad"}">${targetFailureSummary.patch_count ?? "—"} patches diagnosed</strong><small>${targetFailureSummary.primary_blocker_counts?.insufficient_normal_tracks ?? "—"} insufficient-track · ${targetFailureSummary.primary_blocker_counts?.no_relief_transfer_gain ?? "—"} no-transfer-gain · recommendations use training split only</small></div>
     <div class="key-value"><span>Individual prong proposals</span><strong class="warning">${instanceSummary.resolved_instance_view_count ?? "—"} / ${instanceSummary.view_count ?? 5} views</strong><small>Front · top · angled resolved; side/back retain overlap groups</small></div>
     <div class="key-value"><span>VGGT identity support</span><strong class="good">Top strong · angled moderate</strong><small>Permutation margins ${score(topTrack.permutation_margin_fraction, 3)} / ${score(angledTrack.permutation_margin_fraction, 3)} · non-metric machine evidence</small></div>
     <div class="key-value"><span>STL-1 enclosed candidates</span><strong>${datasetCandidates.candidate_count ?? "—"}</strong><small>${datasetCandidates.object_count ?? "—"} objects · ${datasetCandidates.view_count ?? "—"} views · negative space only</small></div>
