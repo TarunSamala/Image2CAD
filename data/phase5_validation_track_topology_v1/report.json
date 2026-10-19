@@ -1,0 +1,409 @@
+{
+  "schema_version": "lalitha_phase5_validation_track_topology_v1",
+  "created_at_utc": "2026-10-19T17:07:26.802821+00:00",
+  "stage": "Phase 5.16 frozen-policy validation topology transfer",
+  "scope": {
+    "object_ids": [
+      "ring_004",
+      "ring_012",
+      "ring_020"
+    ],
+    "split": "val",
+    "source_view": "front",
+    "target_views": [
+      "top",
+      "iso",
+      "lsv",
+      "rsv"
+    ]
+  },
+  "sources": {
+    "frozen_training_report": "data/phase5_training_track_topology_v1/report.json",
+    "frozen_training_manifest": "data/phase5_training_track_topology_v1/integrity_manifest.json",
+    "baseline_tracks": "dataset/phase_runs/v1/vggt_full_stl1_track_evidence_v1",
+    "hybrid_tracks": "dataset/phase_runs/v1/vggt_relief_hybrid_validation_v1"
+  },
+  "frozen_topology_settings": {
+    "local_neighbor_count": 6,
+    "local_neighbor_radius_pixels": 52.0,
+    "minimum_source_triangle_area_pixels2": 4.0,
+    "minimum_target_triangle_area_pixels2": 1.0,
+    "minimum_area_scale": 0.05,
+    "maximum_area_scale": 20.0
+  },
+  "summary": {
+    "object_count": 3,
+    "baseline_orientation_preserved_triangle_count": 363,
+    "hybrid_orientation_preserved_triangle_count": 1017,
+    "orientation_preserved_triangle_delta": 654,
+    "improved_object_count": 3,
+    "regressed_object_count": 0,
+    "target_views": {
+      "top": {
+        "stable_triangle_count": 0,
+        "objects_with_stable_topology": 0
+      },
+      "iso": {
+        "stable_triangle_count": 739,
+        "objects_with_stable_topology": 3
+      },
+      "lsv": {
+        "stable_triangle_count": 116,
+        "objects_with_stable_topology": 3
+      },
+      "rsv": {
+        "stable_triangle_count": 162,
+        "objects_with_stable_topology": 2
+      }
+    },
+    "complete_target_view_coverage_available": false
+  },
+  "checks": {
+    "frozen_training_manifest_verified": true,
+    "fixed_validation_objects_only": true,
+    "baseline_query_prefix_reproduced": true,
+    "test_objects_not_processed": true,
+    "phase5_13_thresholds_unchanged": true,
+    "phase5_13_surfaces_unchanged": true,
+    "no_step_files_generated": true
+  },
+  "objects": [
+    {
+      "object_id": "ring_004",
+      "split": "val",
+      "variants": {
+        "phase5_6_baseline": {
+          "targets": {
+            "top": {
+              "accepted_vertex_count": 0,
+              "complete_source_triangle_count": 0,
+              "nondegenerate_target_triangle_count": 0,
+              "orientation_preserved_triangle_count": 0,
+              "orientation_preservation_fraction": 0.0,
+              "stable_vertex_count": 0,
+              "stable_vertex_fraction_of_accepted": 0.0
+            },
+            "iso": {
+              "accepted_vertex_count": 6,
+              "complete_source_triangle_count": 1,
+              "nondegenerate_target_triangle_count": 1,
+              "orientation_preserved_triangle_count": 1,
+              "orientation_preservation_fraction": 1.0,
+              "stable_vertex_count": 3,
+              "stable_vertex_fraction_of_accepted": 0.5
+            },
+            "lsv": {
+              "accepted_vertex_count": 0,
+              "complete_source_triangle_count": 0,
+              "nondegenerate_target_triangle_count": 0,
+              "orientation_preserved_triangle_count": 0,
+              "orientation_preservation_fraction": 0.0,
+              "stable_vertex_count": 0,
+              "stable_vertex_fraction_of_accepted": 0.0
+            },
+            "rsv": {
+              "accepted_vertex_count": 0,
+              "complete_source_triangle_count": 0,
+              "nondegenerate_target_triangle_count": 0,
+              "orientation_preserved_triangle_count": 0,
+              "orientation_preservation_fraction": 0.0,
+              "stable_vertex_count": 0,
+              "stable_vertex_fraction_of_accepted": 0.0
+            }
+          },
+          "totals": {
+            "accepted_vertex_count": 6,
+            "complete_source_triangle_count": 1,
+            "nondegenerate_target_triangle_count": 1,
+            "orientation_preserved_triangle_count": 1,
+            "stable_vertex_count": 3,
+            "orientation_preservation_fraction": 1.0
+          }
+        },
+        "phase5_7_hybrid": {
+          "targets": {
+            "top": {
+              "accepted_vertex_count": 0,
+              "complete_source_triangle_count": 0,
+              "nondegenerate_target_triangle_count": 0,
+              "orientation_preserved_triangle_count": 0,
+              "orientation_preservation_fraction": 0.0,
+              "stable_vertex_count": 0,
+              "stable_vertex_fraction_of_accepted": 0.0
+            },
+            "iso": {
+              "accepted_vertex_count": 56,
+              "complete_source_triangle_count": 96,
+              "nondegenerate_target_triangle_count": 94,
+              "orientation_preserved_triangle_count": 83,
+              "orientation_preservation_fraction": 0.882979,
+              "stable_vertex_count": 55,
+              "stable_vertex_fraction_of_accepted": 0.982143
+            },
+            "lsv": {
+              "accepted_vertex_count": 11,
+              "complete_source_triangle_count": 8,
+              "nondegenerate_target_triangle_count": 5,
+              "orientation_preserved_triangle_count": 4,
+              "orientation_preservation_fraction": 0.8,
+              "stable_vertex_count": 7,
+              "stable_vertex_fraction_of_accepted": 0.636364
+            },
+            "rsv": {
+              "accepted_vertex_count": 8,
+              "complete_source_triangle_count": 21,
+              "nondegenerate_target_triangle_count": 21,
+              "orientation_preserved_triangle_count": 17,
+              "orientation_preservation_fraction": 0.809524,
+              "stable_vertex_count": 6,
+              "stable_vertex_fraction_of_accepted": 0.75
+            }
+          },
+          "totals": {
+            "accepted_vertex_count": 75,
+            "complete_source_triangle_count": 125,
+            "nondegenerate_target_triangle_count": 120,
+            "orientation_preserved_triangle_count": 104,
+            "stable_vertex_count": 68,
+            "orientation_preservation_fraction": 0.866667
+          }
+        }
+      },
+      "orientation_preserved_triangle_delta": 103,
+      "baseline_query_prefix_reproduced": true,
+      "artifacts": {
+        "audit": "data/phase5_validation_track_topology_v1/ring_004/validation_track_topology_audit.png"
+      }
+    },
+    {
+      "object_id": "ring_012",
+      "split": "val",
+      "variants": {
+        "phase5_6_baseline": {
+          "targets": {
+            "top": {
+              "accepted_vertex_count": 0,
+              "complete_source_triangle_count": 0,
+              "nondegenerate_target_triangle_count": 0,
+              "orientation_preserved_triangle_count": 0,
+              "orientation_preservation_fraction": 0.0,
+              "stable_vertex_count": 0,
+              "stable_vertex_fraction_of_accepted": 0.0
+            },
+            "iso": {
+              "accepted_vertex_count": 94,
+              "complete_source_triangle_count": 189,
+              "nondegenerate_target_triangle_count": 178,
+              "orientation_preserved_triangle_count": 164,
+              "orientation_preservation_fraction": 0.921348,
+              "stable_vertex_count": 87,
+              "stable_vertex_fraction_of_accepted": 0.925532
+            },
+            "lsv": {
+              "accepted_vertex_count": 17,
+              "complete_source_triangle_count": 10,
+              "nondegenerate_target_triangle_count": 8,
+              "orientation_preserved_triangle_count": 7,
+              "orientation_preservation_fraction": 0.875,
+              "stable_vertex_count": 11,
+              "stable_vertex_fraction_of_accepted": 0.647059
+            },
+            "rsv": {
+              "accepted_vertex_count": 36,
+              "complete_source_triangle_count": 112,
+              "nondegenerate_target_triangle_count": 109,
+              "orientation_preserved_triangle_count": 99,
+              "orientation_preservation_fraction": 0.908257,
+              "stable_vertex_count": 34,
+              "stable_vertex_fraction_of_accepted": 0.944444
+            }
+          },
+          "totals": {
+            "accepted_vertex_count": 147,
+            "complete_source_triangle_count": 311,
+            "nondegenerate_target_triangle_count": 295,
+            "orientation_preserved_triangle_count": 270,
+            "stable_vertex_count": 132,
+            "orientation_preservation_fraction": 0.915254
+          }
+        },
+        "phase5_7_hybrid": {
+          "targets": {
+            "top": {
+              "accepted_vertex_count": 1,
+              "complete_source_triangle_count": 0,
+              "nondegenerate_target_triangle_count": 0,
+              "orientation_preserved_triangle_count": 0,
+              "orientation_preservation_fraction": 0.0,
+              "stable_vertex_count": 0,
+              "stable_vertex_fraction_of_accepted": 0.0
+            },
+            "iso": {
+              "accepted_vertex_count": 352,
+              "complete_source_triangle_count": 518,
+              "nondegenerate_target_triangle_count": 467,
+              "orientation_preserved_triangle_count": 423,
+              "orientation_preservation_fraction": 0.905782,
+              "stable_vertex_count": 311,
+              "stable_vertex_fraction_of_accepted": 0.883523
+            },
+            "lsv": {
+              "accepted_vertex_count": 70,
+              "complete_source_triangle_count": 122,
+              "nondegenerate_target_triangle_count": 99,
+              "orientation_preserved_triangle_count": 89,
+              "orientation_preservation_fraction": 0.89899,
+              "stable_vertex_count": 60,
+              "stable_vertex_fraction_of_accepted": 0.857143
+            },
+            "rsv": {
+              "accepted_vertex_count": 115,
+              "complete_source_triangle_count": 195,
+              "nondegenerate_target_triangle_count": 171,
+              "orientation_preserved_triangle_count": 145,
+              "orientation_preservation_fraction": 0.847953,
+              "stable_vertex_count": 90,
+              "stable_vertex_fraction_of_accepted": 0.782609
+            }
+          },
+          "totals": {
+            "accepted_vertex_count": 538,
+            "complete_source_triangle_count": 835,
+            "nondegenerate_target_triangle_count": 737,
+            "orientation_preserved_triangle_count": 657,
+            "stable_vertex_count": 461,
+            "orientation_preservation_fraction": 0.891452
+          }
+        }
+      },
+      "orientation_preserved_triangle_delta": 387,
+      "baseline_query_prefix_reproduced": true,
+      "artifacts": {
+        "audit": "data/phase5_validation_track_topology_v1/ring_012/validation_track_topology_audit.png"
+      }
+    },
+    {
+      "object_id": "ring_020",
+      "split": "val",
+      "variants": {
+        "phase5_6_baseline": {
+          "targets": {
+            "top": {
+              "accepted_vertex_count": 0,
+              "complete_source_triangle_count": 0,
+              "nondegenerate_target_triangle_count": 0,
+              "orientation_preserved_triangle_count": 0,
+              "orientation_preservation_fraction": 0.0,
+              "stable_vertex_count": 0,
+              "stable_vertex_fraction_of_accepted": 0.0
+            },
+            "iso": {
+              "accepted_vertex_count": 45,
+              "complete_source_triangle_count": 96,
+              "nondegenerate_target_triangle_count": 92,
+              "orientation_preserved_triangle_count": 76,
+              "orientation_preservation_fraction": 0.826087,
+              "stable_vertex_count": 34,
+              "stable_vertex_fraction_of_accepted": 0.755556
+            },
+            "lsv": {
+              "accepted_vertex_count": 8,
+              "complete_source_triangle_count": 20,
+              "nondegenerate_target_triangle_count": 18,
+              "orientation_preserved_triangle_count": 16,
+              "orientation_preservation_fraction": 0.888889,
+              "stable_vertex_count": 8,
+              "stable_vertex_fraction_of_accepted": 1.0
+            },
+            "rsv": {
+              "accepted_vertex_count": 0,
+              "complete_source_triangle_count": 0,
+              "nondegenerate_target_triangle_count": 0,
+              "orientation_preserved_triangle_count": 0,
+              "orientation_preservation_fraction": 0.0,
+              "stable_vertex_count": 0,
+              "stable_vertex_fraction_of_accepted": 0.0
+            }
+          },
+          "totals": {
+            "accepted_vertex_count": 53,
+            "complete_source_triangle_count": 116,
+            "nondegenerate_target_triangle_count": 110,
+            "orientation_preserved_triangle_count": 92,
+            "stable_vertex_count": 42,
+            "orientation_preservation_fraction": 0.836364
+          }
+        },
+        "phase5_7_hybrid": {
+          "targets": {
+            "top": {
+              "accepted_vertex_count": 0,
+              "complete_source_triangle_count": 0,
+              "nondegenerate_target_triangle_count": 0,
+              "orientation_preserved_triangle_count": 0,
+              "orientation_preservation_fraction": 0.0,
+              "stable_vertex_count": 0,
+              "stable_vertex_fraction_of_accepted": 0.0
+            },
+            "iso": {
+              "accepted_vertex_count": 185,
+              "complete_source_triangle_count": 312,
+              "nondegenerate_target_triangle_count": 276,
+              "orientation_preserved_triangle_count": 233,
+              "orientation_preservation_fraction": 0.844203,
+              "stable_vertex_count": 160,
+              "stable_vertex_fraction_of_accepted": 0.864865
+            },
+            "lsv": {
+              "accepted_vertex_count": 24,
+              "complete_source_triangle_count": 47,
+              "nondegenerate_target_triangle_count": 35,
+              "orientation_preserved_triangle_count": 23,
+              "orientation_preservation_fraction": 0.657143,
+              "stable_vertex_count": 16,
+              "stable_vertex_fraction_of_accepted": 0.666667
+            },
+            "rsv": {
+              "accepted_vertex_count": 5,
+              "complete_source_triangle_count": 1,
+              "nondegenerate_target_triangle_count": 1,
+              "orientation_preserved_triangle_count": 0,
+              "orientation_preservation_fraction": 0.0,
+              "stable_vertex_count": 0,
+              "stable_vertex_fraction_of_accepted": 0.0
+            }
+          },
+          "totals": {
+            "accepted_vertex_count": 214,
+            "complete_source_triangle_count": 360,
+            "nondegenerate_target_triangle_count": 312,
+            "orientation_preserved_triangle_count": 256,
+            "stable_vertex_count": 176,
+            "orientation_preservation_fraction": 0.820513
+          }
+        }
+      },
+      "orientation_preserved_triangle_delta": 164,
+      "baseline_query_prefix_reproduced": true,
+      "artifacts": {
+        "audit": "data/phase5_validation_track_topology_v1/ring_020/validation_track_topology_audit.png"
+      }
+    }
+  ],
+  "decision": "retain_as_image_space_validation_topology_evidence_only",
+  "claims": {
+    "validation_topology_density_measured": true,
+    "independent_surface_gate_improved": false,
+    "metric_surface_recovered": false,
+    "cad_fusion_authorized": false,
+    "manufacturing_accuracy_validated": false
+  },
+  "limitations": [
+    "Local reciprocal triangles are image-space correspondence evidence, not physical mesh faces.",
+    "The existing Phase 5.13 target-view relief gate was not rerun or improved by this topology count.",
+    "No metric scale, hidden geometry or manufacturing dimensions are recovered."
+  ],
+  "artifacts": {
+    "audit": "data/phase5_validation_track_topology_v1/validation_track_topology_audit.png"
+  }
+}
