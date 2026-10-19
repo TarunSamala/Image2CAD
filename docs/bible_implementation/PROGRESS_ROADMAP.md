@@ -259,9 +259,19 @@ form a target triangle. The cohort audit was visually inspected and the
 projections land on the expected target ornaments. This retained negative
 result blocks surface promotion; it does not trigger threshold relaxation.
 
-1. Improve independent cross-view support without fitting against the target
-   gate. The immediate requirement is at least two target views for any surface
-   considered for promotion; the current count is zero.
+Phase 5.14 freezes the Phase 5.13 surfaces, scores and thresholds, then
+attributes each failure. The most common primary blockers are insufficient
+normal-supported tracks (`12`) and no improvement over flat relief (`12`),
+followed by orientation instability (`8`) and excessive target relief RMSE
+(`8`). The patch action queue sends 24 patches to cross-view topology research
+on the training split, 11 to view-invariant relief research and five to a
+second-target search. This diagnosis does not improve the gate by itself and
+does not authorize any surface or CAD operation.
+
+1. Use the Phase 5.14 action queue on training rings: improve reciprocal normal
+   track topology for the 24 structurally blocked patches and develop a
+   view-invariant relief representation for the 11 appearance/depth-blocked
+   patches. Freeze the method before rerunning validation.
 2. Review or label the Phase 5.12 surface groups and the Phase 5.11 patches,
    then merge or split only with additional
    evidence where a patch still crosses ornaments. Image-plane fitting, rigid

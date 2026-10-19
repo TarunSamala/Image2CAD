@@ -309,6 +309,25 @@ and target relief comes from the same family of image-depth estimators. A pass
 therefore supports review only. Physical accuracy, metric scale, semantics,
 hidden geometry, surface promotion and CAD fusion all remain unvalidated.
 
+## Phase 5.14 frozen-gate failure attribution
+
+`diagnose_phase5_target_reprojection.py` reads the retained Phase 5.13 reports
+without recomputing scores or changing thresholds. It assigns a primary blocker
+to each target evaluation and creates a ranked CSV action queue for every local
+surface patch.
+
+Twelve evaluations are primarily blocked by insufficient normal-supported
+tracks, 12 fail to transfer relief better than a flat baseline, eight have
+orientation instability, eight exceed the target-relief RMSE limit, six cannot
+form a stable target triangle and five have insufficient projected area. The
+five passing evaluations are preserved. At patch level, 24 are routed to
+cross-view track-topology research on the training split, 11 to view-invariant
+relief research and five to finding a second independent target view.
+
+These labels explain which frozen check failed first; they do not prove a
+unique physical cause. The action queue is a research plan, not validation-set
+tuning, geometric improvement or CAD authorization.
+
 ## Claim boundary
 
 The dimensions are designed test parameters. The fixtures verify generator
@@ -490,13 +509,25 @@ docker run --rm --user "$(id -u):$(id -g)" \
   -v "$PWD:/workspace" -w /workspace \
   image2cad-validation:phase0 \
   python -m unittest tests.test_phase5_target_reprojection
+
+docker run --rm --user "$(id -u):$(id -g)" \
+  -e HOME=/tmp -e PYTHONPATH=/workspace:/workspace/pipeline \
+  -v "$PWD:/workspace" -w /workspace \
+  image2cad-validation:phase0 \
+  python -m pipeline.diagnose_phase5_target_reprojection
+
+docker run --rm --user "$(id -u):$(id -g)" \
+  -e HOME=/tmp -e PYTHONPATH=/workspace:/workspace/pipeline \
+  -v "$PWD:/workspace" -w /workspace \
+  image2cad-validation:phase0 \
+  python -m unittest tests.test_phase5_target_failure_attribution
 ```
 
 ## Next gate
 
-1. Improve independent cross-view evidence until at least one surface has
-   support from two target views without weakening or fitting against the
-   frozen Phase 5.13 gate.
+1. Implement the Phase 5.14 action queue on training rings, freeze the selected
+   method and then rerun the unchanged Phase 5.13 validation gate. At least one
+   surface must gain two-target support without validation-set tuning.
 2. Resolve candidate semantics and cross-view opening identity before any
    retained cut is promoted to an approved cavity or manufacturing hole.
 3. Fit general gallery generators across side and iso evidence without

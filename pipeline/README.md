@@ -121,6 +121,10 @@ predate it, so this index prevents similarly numbered stages from being mixed.
   through normal-corroborated reciprocal tracks and compares source-derived
   relief with target-view evidence without refitting. Weak and unresolved
   results remain visible; no surface, semantic or CAD claim is promoted.
+- `diagnose_phase5_target_reprojection.py` - Phase 5.14 frozen-gate failure
+  attribution. It reproduces the Phase 5.13 counts, classifies structural and
+  relief-transfer blockers, and writes a ranked training-split action queue.
+  It does not change thresholds, surfaces, validation scores or CAD.
 
 ## Shared evidence and dataset tools
 
