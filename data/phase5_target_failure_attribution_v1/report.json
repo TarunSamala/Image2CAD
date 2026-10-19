@@ -1,0 +1,1478 @@
+{
+  "schema_version": "lalitha_phase5_target_failure_attribution_v1",
+  "created_at_utc": "2026-10-19T05:04:47.401502+00:00",
+  "stage": "Phase 5.14 frozen target-reprojection failure attribution",
+  "scope": {
+    "object_ids": [
+      "ring_004",
+      "ring_012",
+      "ring_020"
+    ],
+    "split": "val",
+    "phase5_13_gate_frozen": true
+  },
+  "source": "data/phase5_target_reprojection_v1/report.json",
+  "summary": {
+    "object_count": 3,
+    "patch_count": 40,
+    "target_evaluation_count": 56,
+    "passed_target_evaluation_count": 5,
+    "primary_blocker_counts": {
+      "insufficient_normal_tracks": 12,
+      "no_relief_transfer_gain": 12,
+      "orientation_instability": 8,
+      "target_relief_rmse_exceeded": 8,
+      "no_stable_target_triangle": 6,
+      "gate_passed": 5,
+      "insufficient_projected_area": 5
+    },
+    "patch_state_counts": {
+      "insufficient_projection_unresolved": 9,
+      "single_target_supported_review": 5,
+      "target_inconsistent_reject": 26
+    },
+    "recommended_action_counts": {
+      "improve_cross_view_track_topology_on_training_split": 24,
+      "develop_view_invariant_relief_on_training_split": 11,
+      "seek_second_independent_target_view": 5
+    }
+  },
+  "checks": {
+    "fixed_validation_objects_only": true,
+    "phase5_13_patch_count_reproduced": true,
+    "phase5_13_evaluation_count_reproduced": true,
+    "phase5_13_pass_count_reproduced": true,
+    "thresholds_unchanged": true,
+    "surfaces_unchanged": true,
+    "test_objects_not_processed": true,
+    "exact_cad_unchanged": true
+  },
+  "objects": [
+    {
+      "object_id": "ring_004",
+      "split": "val",
+      "eligible_patch_count": 6,
+      "target_evaluation_count": 7,
+      "passed_target_evaluation_count": 0,
+      "primary_blocker_counts": {
+        "insufficient_normal_tracks": 3,
+        "no_relief_transfer_gain": 1,
+        "target_relief_rmse_exceeded": 2,
+        "no_stable_target_triangle": 1
+      },
+      "recommended_action_counts": {
+        "improve_cross_view_track_topology_on_training_split": 3,
+        "develop_view_invariant_relief_on_training_split": 3
+      }
+    },
+    {
+      "object_id": "ring_012",
+      "split": "val",
+      "eligible_patch_count": 19,
+      "target_evaluation_count": 33,
+      "passed_target_evaluation_count": 3,
+      "primary_blocker_counts": {
+        "orientation_instability": 5,
+        "insufficient_normal_tracks": 7,
+        "no_relief_transfer_gain": 6,
+        "target_relief_rmse_exceeded": 5,
+        "insufficient_projected_area": 3,
+        "no_stable_target_triangle": 4,
+        "gate_passed": 3
+      },
+      "recommended_action_counts": {
+        "improve_cross_view_track_topology_on_training_split": 13,
+        "develop_view_invariant_relief_on_training_split": 3,
+        "seek_second_independent_target_view": 3
+      }
+    },
+    {
+      "object_id": "ring_020",
+      "split": "val",
+      "eligible_patch_count": 15,
+      "target_evaluation_count": 16,
+      "passed_target_evaluation_count": 2,
+      "primary_blocker_counts": {
+        "no_relief_transfer_gain": 5,
+        "orientation_instability": 3,
+        "target_relief_rmse_exceeded": 1,
+        "gate_passed": 2,
+        "insufficient_normal_tracks": 2,
+        "no_stable_target_triangle": 1,
+        "insufficient_projected_area": 2
+      },
+      "recommended_action_counts": {
+        "develop_view_invariant_relief_on_training_split": 5,
+        "improve_cross_view_track_topology_on_training_split": 8,
+        "seek_second_independent_target_view": 2
+      }
+    }
+  ],
+  "patch_action_queue": [
+    {
+      "object_id": "ring_012",
+      "patch_id": "ring_012_relief_component_002_patch_016",
+      "independent_target_state": "single_target_supported_review",
+      "query_count": 24,
+      "target_evaluation_count": 2,
+      "passed_target_evaluation_count": 1,
+      "priority": 1,
+      "recommended_action": "seek_second_independent_target_view",
+      "blockers": [
+        "insufficient_projected_area",
+        "no_relief_transfer_gain",
+        "no_stable_target_triangle",
+        "orientation_instability",
+        "target_relief_rmse_exceeded",
+        "target_support_gap"
+      ],
+      "target_diagnostics": [
+        {
+          "target_view": "iso",
+          "gate_passed": true,
+          "primary_blocker": "gate_passed",
+          "all_blockers": []
+        },
+        {
+          "target_view": "rsv",
+          "gate_passed": false,
+          "primary_blocker": "no_stable_target_triangle",
+          "all_blockers": [
+            "no_stable_target_triangle",
+            "insufficient_projected_area",
+            "orientation_instability",
+            "target_support_gap",
+            "target_relief_rmse_exceeded",
+            "no_relief_transfer_gain"
+          ]
+        }
+      ],
+      "surface_promotion_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "object_id": "ring_012",
+      "patch_id": "ring_012_relief_component_002_patch_020",
+      "independent_target_state": "single_target_supported_review",
+      "query_count": 24,
+      "target_evaluation_count": 2,
+      "passed_target_evaluation_count": 1,
+      "priority": 1,
+      "recommended_action": "seek_second_independent_target_view",
+      "blockers": [
+        "insufficient_projected_area",
+        "no_relief_transfer_gain",
+        "no_stable_target_triangle",
+        "orientation_instability",
+        "target_relief_rmse_exceeded",
+        "target_support_gap"
+      ],
+      "target_diagnostics": [
+        {
+          "target_view": "iso",
+          "gate_passed": true,
+          "primary_blocker": "gate_passed",
+          "all_blockers": []
+        },
+        {
+          "target_view": "rsv",
+          "gate_passed": false,
+          "primary_blocker": "no_stable_target_triangle",
+          "all_blockers": [
+            "no_stable_target_triangle",
+            "insufficient_projected_area",
+            "orientation_instability",
+            "target_support_gap",
+            "target_relief_rmse_exceeded",
+            "no_relief_transfer_gain"
+          ]
+        }
+      ],
+      "surface_promotion_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "object_id": "ring_012",
+      "patch_id": "ring_012_relief_component_002_patch_023",
+      "independent_target_state": "single_target_supported_review",
+      "query_count": 24,
+      "target_evaluation_count": 1,
+      "passed_target_evaluation_count": 1,
+      "priority": 1,
+      "recommended_action": "seek_second_independent_target_view",
+      "blockers": [],
+      "target_diagnostics": [
+        {
+          "target_view": "iso",
+          "gate_passed": true,
+          "primary_blocker": "gate_passed",
+          "all_blockers": []
+        }
+      ],
+      "surface_promotion_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "object_id": "ring_020",
+      "patch_id": "ring_020_relief_component_001_patch_005",
+      "independent_target_state": "single_target_supported_review",
+      "query_count": 11,
+      "target_evaluation_count": 1,
+      "passed_target_evaluation_count": 1,
+      "priority": 1,
+      "recommended_action": "seek_second_independent_target_view",
+      "blockers": [],
+      "target_diagnostics": [
+        {
+          "target_view": "iso",
+          "gate_passed": true,
+          "primary_blocker": "gate_passed",
+          "all_blockers": []
+        }
+      ],
+      "surface_promotion_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "object_id": "ring_020",
+      "patch_id": "ring_020_relief_component_001_patch_006",
+      "independent_target_state": "single_target_supported_review",
+      "query_count": 16,
+      "target_evaluation_count": 1,
+      "passed_target_evaluation_count": 1,
+      "priority": 1,
+      "recommended_action": "seek_second_independent_target_view",
+      "blockers": [],
+      "target_diagnostics": [
+        {
+          "target_view": "iso",
+          "gate_passed": true,
+          "primary_blocker": "gate_passed",
+          "all_blockers": []
+        }
+      ],
+      "surface_promotion_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "object_id": "ring_004",
+      "patch_id": "ring_004_relief_component_001_patch_001",
+      "independent_target_state": "insufficient_projection_unresolved",
+      "query_count": 3,
+      "target_evaluation_count": 1,
+      "passed_target_evaluation_count": 0,
+      "priority": 2,
+      "recommended_action": "improve_cross_view_track_topology_on_training_split",
+      "blockers": [
+        "insufficient_normal_tracks",
+        "insufficient_projected_area",
+        "no_relief_transfer_gain",
+        "no_stable_target_triangle",
+        "orientation_instability",
+        "target_relief_rmse_exceeded",
+        "target_support_gap"
+      ],
+      "target_diagnostics": [
+        {
+          "target_view": "lsv",
+          "gate_passed": false,
+          "primary_blocker": "insufficient_normal_tracks",
+          "all_blockers": [
+            "insufficient_normal_tracks",
+            "no_stable_target_triangle",
+            "insufficient_projected_area",
+            "orientation_instability",
+            "target_support_gap",
+            "target_relief_rmse_exceeded",
+            "no_relief_transfer_gain"
+          ]
+        }
+      ],
+      "surface_promotion_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "object_id": "ring_004",
+      "patch_id": "ring_004_relief_component_002_patch_004",
+      "independent_target_state": "insufficient_projection_unresolved",
+      "query_count": 7,
+      "target_evaluation_count": 2,
+      "passed_target_evaluation_count": 0,
+      "priority": 2,
+      "recommended_action": "improve_cross_view_track_topology_on_training_split",
+      "blockers": [
+        "insufficient_normal_tracks",
+        "insufficient_projected_area",
+        "no_relief_transfer_gain",
+        "no_stable_target_triangle",
+        "orientation_instability",
+        "target_relief_rmse_exceeded",
+        "target_support_gap"
+      ],
+      "target_diagnostics": [
+        {
+          "target_view": "iso",
+          "gate_passed": false,
+          "primary_blocker": "no_stable_target_triangle",
+          "all_blockers": [
+            "no_stable_target_triangle",
+            "insufficient_projected_area",
+            "orientation_instability",
+            "target_support_gap",
+            "target_relief_rmse_exceeded",
+            "no_relief_transfer_gain"
+          ]
+        },
+        {
+          "target_view": "rsv",
+          "gate_passed": false,
+          "primary_blocker": "insufficient_normal_tracks",
+          "all_blockers": [
+            "insufficient_normal_tracks",
+            "no_stable_target_triangle",
+            "insufficient_projected_area",
+            "orientation_instability",
+            "target_support_gap",
+            "target_relief_rmse_exceeded",
+            "no_relief_transfer_gain"
+          ]
+        }
+      ],
+      "surface_promotion_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "object_id": "ring_004",
+      "patch_id": "ring_004_relief_component_003_patch_001",
+      "independent_target_state": "insufficient_projection_unresolved",
+      "query_count": 3,
+      "target_evaluation_count": 1,
+      "passed_target_evaluation_count": 0,
+      "priority": 2,
+      "recommended_action": "improve_cross_view_track_topology_on_training_split",
+      "blockers": [
+        "insufficient_normal_tracks",
+        "insufficient_projected_area",
+        "no_relief_transfer_gain",
+        "no_stable_target_triangle",
+        "orientation_instability",
+        "target_relief_rmse_exceeded",
+        "target_support_gap"
+      ],
+      "target_diagnostics": [
+        {
+          "target_view": "iso",
+          "gate_passed": false,
+          "primary_blocker": "insufficient_normal_tracks",
+          "all_blockers": [
+            "insufficient_normal_tracks",
+            "no_stable_target_triangle",
+            "insufficient_projected_area",
+            "orientation_instability",
+            "target_support_gap",
+            "target_relief_rmse_exceeded",
+            "no_relief_transfer_gain"
+          ]
+        }
+      ],
+      "surface_promotion_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "object_id": "ring_012",
+      "patch_id": "ring_012_relief_component_002_patch_001",
+      "independent_target_state": "target_inconsistent_reject",
+      "query_count": 15,
+      "target_evaluation_count": 2,
+      "passed_target_evaluation_count": 0,
+      "priority": 2,
+      "recommended_action": "improve_cross_view_track_topology_on_training_split",
+      "blockers": [
+        "insufficient_normal_tracks",
+        "insufficient_projected_area",
+        "no_relief_transfer_gain",
+        "no_stable_target_triangle",
+        "orientation_instability",
+        "target_relief_rmse_exceeded",
+        "target_support_gap"
+      ],
+      "target_diagnostics": [
+        {
+          "target_view": "lsv",
+          "gate_passed": false,
+          "primary_blocker": "orientation_instability",
+          "all_blockers": [
+            "orientation_instability",
+            "target_relief_rmse_exceeded",
+            "no_relief_transfer_gain"
+          ]
+        },
+        {
+          "target_view": "rsv",
+          "gate_passed": false,
+          "primary_blocker": "insufficient_normal_tracks",
+          "all_blockers": [
+            "insufficient_normal_tracks",
+            "no_stable_target_triangle",
+            "insufficient_projected_area",
+            "orientation_instability",
+            "target_support_gap",
+            "target_relief_rmse_exceeded",
+            "no_relief_transfer_gain"
+          ]
+        }
+      ],
+      "surface_promotion_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "object_id": "ring_012",
+      "patch_id": "ring_012_relief_component_002_patch_007",
+      "independent_target_state": "target_inconsistent_reject",
+      "query_count": 24,
+      "target_evaluation_count": 2,
+      "passed_target_evaluation_count": 0,
+      "priority": 2,
+      "recommended_action": "improve_cross_view_track_topology_on_training_split",
+      "blockers": [
+        "no_relief_transfer_gain",
+        "orientation_instability",
+        "target_relief_rmse_exceeded"
+      ],
+      "target_diagnostics": [
+        {
+          "target_view": "iso",
+          "gate_passed": false,
+          "primary_blocker": "orientation_instability",
+          "all_blockers": [
+            "orientation_instability",
+            "target_relief_rmse_exceeded",
+            "no_relief_transfer_gain"
+          ]
+        },
+        {
+          "target_view": "rsv",
+          "gate_passed": false,
+          "primary_blocker": "orientation_instability",
+          "all_blockers": [
+            "orientation_instability",
+            "no_relief_transfer_gain"
+          ]
+        }
+      ],
+      "surface_promotion_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "object_id": "ring_012",
+      "patch_id": "ring_012_relief_component_002_patch_010",
+      "independent_target_state": "target_inconsistent_reject",
+      "query_count": 48,
+      "target_evaluation_count": 3,
+      "passed_target_evaluation_count": 0,
+      "priority": 2,
+      "recommended_action": "improve_cross_view_track_topology_on_training_split",
+      "blockers": [
+        "insufficient_projected_area",
+        "no_relief_transfer_gain",
+        "target_relief_rmse_exceeded"
+      ],
+      "target_diagnostics": [
+        {
+          "target_view": "iso",
+          "gate_passed": false,
+          "primary_blocker": "no_relief_transfer_gain",
+          "all_blockers": [
+            "no_relief_transfer_gain"
+          ]
+        },
+        {
+          "target_view": "lsv",
+          "gate_passed": false,
+          "primary_blocker": "insufficient_projected_area",
+          "all_blockers": [
+            "insufficient_projected_area",
+            "target_relief_rmse_exceeded",
+            "no_relief_transfer_gain"
+          ]
+        },
+        {
+          "target_view": "rsv",
+          "gate_passed": false,
+          "primary_blocker": "no_relief_transfer_gain",
+          "all_blockers": [
+            "no_relief_transfer_gain"
+          ]
+        }
+      ],
+      "surface_promotion_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "object_id": "ring_012",
+      "patch_id": "ring_012_relief_component_002_patch_011",
+      "independent_target_state": "target_inconsistent_reject",
+      "query_count": 48,
+      "target_evaluation_count": 3,
+      "passed_target_evaluation_count": 0,
+      "priority": 2,
+      "recommended_action": "improve_cross_view_track_topology_on_training_split",
+      "blockers": [
+        "insufficient_normal_tracks",
+        "insufficient_projected_area",
+        "no_relief_transfer_gain",
+        "no_stable_target_triangle",
+        "orientation_instability",
+        "target_relief_rmse_exceeded",
+        "target_support_gap"
+      ],
+      "target_diagnostics": [
+        {
+          "target_view": "top",
+          "gate_passed": false,
+          "primary_blocker": "insufficient_normal_tracks",
+          "all_blockers": [
+            "insufficient_normal_tracks",
+            "no_stable_target_triangle",
+            "insufficient_projected_area",
+            "orientation_instability",
+            "target_support_gap",
+            "target_relief_rmse_exceeded",
+            "no_relief_transfer_gain"
+          ]
+        },
+        {
+          "target_view": "iso",
+          "gate_passed": false,
+          "primary_blocker": "target_relief_rmse_exceeded",
+          "all_blockers": [
+            "target_relief_rmse_exceeded",
+            "no_relief_transfer_gain"
+          ]
+        },
+        {
+          "target_view": "rsv",
+          "gate_passed": false,
+          "primary_blocker": "no_relief_transfer_gain",
+          "all_blockers": [
+            "no_relief_transfer_gain"
+          ]
+        }
+      ],
+      "surface_promotion_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "object_id": "ring_012",
+      "patch_id": "ring_012_relief_component_002_patch_012",
+      "independent_target_state": "target_inconsistent_reject",
+      "query_count": 24,
+      "target_evaluation_count": 2,
+      "passed_target_evaluation_count": 0,
+      "priority": 2,
+      "recommended_action": "improve_cross_view_track_topology_on_training_split",
+      "blockers": [
+        "insufficient_projected_area",
+        "no_relief_transfer_gain",
+        "no_stable_target_triangle",
+        "orientation_instability",
+        "target_relief_rmse_exceeded",
+        "target_support_gap"
+      ],
+      "target_diagnostics": [
+        {
+          "target_view": "iso",
+          "gate_passed": false,
+          "primary_blocker": "orientation_instability",
+          "all_blockers": [
+            "orientation_instability",
+            "target_relief_rmse_exceeded",
+            "no_relief_transfer_gain"
+          ]
+        },
+        {
+          "target_view": "rsv",
+          "gate_passed": false,
+          "primary_blocker": "no_stable_target_triangle",
+          "all_blockers": [
+            "no_stable_target_triangle",
+            "insufficient_projected_area",
+            "orientation_instability",
+            "target_support_gap",
+            "target_relief_rmse_exceeded",
+            "no_relief_transfer_gain"
+          ]
+        }
+      ],
+      "surface_promotion_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "object_id": "ring_012",
+      "patch_id": "ring_012_relief_component_002_patch_014",
+      "independent_target_state": "target_inconsistent_reject",
+      "query_count": 24,
+      "target_evaluation_count": 2,
+      "passed_target_evaluation_count": 0,
+      "priority": 2,
+      "recommended_action": "improve_cross_view_track_topology_on_training_split",
+      "blockers": [
+        "insufficient_projected_area",
+        "no_relief_transfer_gain"
+      ],
+      "target_diagnostics": [
+        {
+          "target_view": "iso",
+          "gate_passed": false,
+          "primary_blocker": "no_relief_transfer_gain",
+          "all_blockers": [
+            "no_relief_transfer_gain"
+          ]
+        },
+        {
+          "target_view": "lsv",
+          "gate_passed": false,
+          "primary_blocker": "insufficient_projected_area",
+          "all_blockers": [
+            "insufficient_projected_area",
+            "no_relief_transfer_gain"
+          ]
+        }
+      ],
+      "surface_promotion_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "object_id": "ring_012",
+      "patch_id": "ring_012_relief_component_002_patch_015",
+      "independent_target_state": "target_inconsistent_reject",
+      "query_count": 24,
+      "target_evaluation_count": 2,
+      "passed_target_evaluation_count": 0,
+      "priority": 2,
+      "recommended_action": "improve_cross_view_track_topology_on_training_split",
+      "blockers": [
+        "insufficient_projected_area",
+        "no_relief_transfer_gain",
+        "no_stable_target_triangle",
+        "orientation_instability",
+        "target_relief_rmse_exceeded",
+        "target_support_gap"
+      ],
+      "target_diagnostics": [
+        {
+          "target_view": "iso",
+          "gate_passed": false,
+          "primary_blocker": "target_relief_rmse_exceeded",
+          "all_blockers": [
+            "target_relief_rmse_exceeded",
+            "no_relief_transfer_gain"
+          ]
+        },
+        {
+          "target_view": "rsv",
+          "gate_passed": false,
+          "primary_blocker": "no_stable_target_triangle",
+          "all_blockers": [
+            "no_stable_target_triangle",
+            "insufficient_projected_area",
+            "orientation_instability",
+            "target_support_gap",
+            "target_relief_rmse_exceeded",
+            "no_relief_transfer_gain"
+          ]
+        }
+      ],
+      "surface_promotion_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "object_id": "ring_012",
+      "patch_id": "ring_012_relief_component_002_patch_017",
+      "independent_target_state": "insufficient_projection_unresolved",
+      "query_count": 4,
+      "target_evaluation_count": 2,
+      "passed_target_evaluation_count": 0,
+      "priority": 2,
+      "recommended_action": "improve_cross_view_track_topology_on_training_split",
+      "blockers": [
+        "insufficient_normal_tracks",
+        "insufficient_projected_area",
+        "no_relief_transfer_gain",
+        "no_stable_target_triangle",
+        "orientation_instability",
+        "target_relief_rmse_exceeded",
+        "target_support_gap"
+      ],
+      "target_diagnostics": [
+        {
+          "target_view": "iso",
+          "gate_passed": false,
+          "primary_blocker": "insufficient_normal_tracks",
+          "all_blockers": [
+            "insufficient_normal_tracks",
+            "no_stable_target_triangle",
+            "insufficient_projected_area",
+            "orientation_instability",
+            "target_support_gap",
+            "target_relief_rmse_exceeded",
+            "no_relief_transfer_gain"
+          ]
+        },
+        {
+          "target_view": "rsv",
+          "gate_passed": false,
+          "primary_blocker": "insufficient_normal_tracks",
+          "all_blockers": [
+            "insufficient_normal_tracks",
+            "no_stable_target_triangle",
+            "insufficient_projected_area",
+            "orientation_instability",
+            "target_support_gap",
+            "target_relief_rmse_exceeded",
+            "no_relief_transfer_gain"
+          ]
+        }
+      ],
+      "surface_promotion_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "object_id": "ring_012",
+      "patch_id": "ring_012_relief_component_002_patch_018",
+      "independent_target_state": "target_inconsistent_reject",
+      "query_count": 24,
+      "target_evaluation_count": 2,
+      "passed_target_evaluation_count": 0,
+      "priority": 2,
+      "recommended_action": "improve_cross_view_track_topology_on_training_split",
+      "blockers": [
+        "insufficient_normal_tracks",
+        "insufficient_projected_area",
+        "no_relief_transfer_gain",
+        "no_stable_target_triangle",
+        "orientation_instability",
+        "target_relief_rmse_exceeded",
+        "target_support_gap"
+      ],
+      "target_diagnostics": [
+        {
+          "target_view": "iso",
+          "gate_passed": false,
+          "primary_blocker": "target_relief_rmse_exceeded",
+          "all_blockers": [
+            "target_relief_rmse_exceeded"
+          ]
+        },
+        {
+          "target_view": "rsv",
+          "gate_passed": false,
+          "primary_blocker": "insufficient_normal_tracks",
+          "all_blockers": [
+            "insufficient_normal_tracks",
+            "no_stable_target_triangle",
+            "insufficient_projected_area",
+            "orientation_instability",
+            "target_support_gap",
+            "target_relief_rmse_exceeded",
+            "no_relief_transfer_gain"
+          ]
+        }
+      ],
+      "surface_promotion_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "object_id": "ring_012",
+      "patch_id": "ring_012_relief_component_002_patch_019",
+      "independent_target_state": "insufficient_projection_unresolved",
+      "query_count": 3,
+      "target_evaluation_count": 1,
+      "passed_target_evaluation_count": 0,
+      "priority": 2,
+      "recommended_action": "improve_cross_view_track_topology_on_training_split",
+      "blockers": [
+        "insufficient_normal_tracks",
+        "insufficient_projected_area",
+        "no_relief_transfer_gain",
+        "no_stable_target_triangle",
+        "orientation_instability",
+        "target_relief_rmse_exceeded",
+        "target_support_gap"
+      ],
+      "target_diagnostics": [
+        {
+          "target_view": "lsv",
+          "gate_passed": false,
+          "primary_blocker": "insufficient_normal_tracks",
+          "all_blockers": [
+            "insufficient_normal_tracks",
+            "no_stable_target_triangle",
+            "insufficient_projected_area",
+            "orientation_instability",
+            "target_support_gap",
+            "target_relief_rmse_exceeded",
+            "no_relief_transfer_gain"
+          ]
+        }
+      ],
+      "surface_promotion_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "object_id": "ring_012",
+      "patch_id": "ring_012_relief_component_004_patch_001",
+      "independent_target_state": "target_inconsistent_reject",
+      "query_count": 15,
+      "target_evaluation_count": 1,
+      "passed_target_evaluation_count": 0,
+      "priority": 2,
+      "recommended_action": "improve_cross_view_track_topology_on_training_split",
+      "blockers": [
+        "no_relief_transfer_gain",
+        "orientation_instability"
+      ],
+      "target_diagnostics": [
+        {
+          "target_view": "lsv",
+          "gate_passed": false,
+          "primary_blocker": "orientation_instability",
+          "all_blockers": [
+            "orientation_instability",
+            "no_relief_transfer_gain"
+          ]
+        }
+      ],
+      "surface_promotion_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "object_id": "ring_012",
+      "patch_id": "ring_012_relief_component_005_patch_001",
+      "independent_target_state": "target_inconsistent_reject",
+      "query_count": 3,
+      "target_evaluation_count": 1,
+      "passed_target_evaluation_count": 0,
+      "priority": 2,
+      "recommended_action": "improve_cross_view_track_topology_on_training_split",
+      "blockers": [
+        "insufficient_projected_area",
+        "no_relief_transfer_gain",
+        "target_relief_rmse_exceeded"
+      ],
+      "target_diagnostics": [
+        {
+          "target_view": "lsv",
+          "gate_passed": false,
+          "primary_blocker": "insufficient_projected_area",
+          "all_blockers": [
+            "insufficient_projected_area",
+            "target_relief_rmse_exceeded",
+            "no_relief_transfer_gain"
+          ]
+        }
+      ],
+      "surface_promotion_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "object_id": "ring_012",
+      "patch_id": "ring_012_relief_component_006_patch_001",
+      "independent_target_state": "insufficient_projection_unresolved",
+      "query_count": 3,
+      "target_evaluation_count": 1,
+      "passed_target_evaluation_count": 0,
+      "priority": 2,
+      "recommended_action": "improve_cross_view_track_topology_on_training_split",
+      "blockers": [
+        "insufficient_normal_tracks",
+        "insufficient_projected_area",
+        "no_relief_transfer_gain",
+        "no_stable_target_triangle",
+        "orientation_instability",
+        "target_relief_rmse_exceeded",
+        "target_support_gap"
+      ],
+      "target_diagnostics": [
+        {
+          "target_view": "lsv",
+          "gate_passed": false,
+          "primary_blocker": "insufficient_normal_tracks",
+          "all_blockers": [
+            "insufficient_normal_tracks",
+            "no_stable_target_triangle",
+            "insufficient_projected_area",
+            "orientation_instability",
+            "target_support_gap",
+            "target_relief_rmse_exceeded",
+            "no_relief_transfer_gain"
+          ]
+        }
+      ],
+      "surface_promotion_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "object_id": "ring_020",
+      "patch_id": "ring_020_relief_component_001_patch_002",
+      "independent_target_state": "target_inconsistent_reject",
+      "query_count": 26,
+      "target_evaluation_count": 2,
+      "passed_target_evaluation_count": 0,
+      "priority": 2,
+      "recommended_action": "improve_cross_view_track_topology_on_training_split",
+      "blockers": [
+        "no_relief_transfer_gain",
+        "orientation_instability"
+      ],
+      "target_diagnostics": [
+        {
+          "target_view": "iso",
+          "gate_passed": false,
+          "primary_blocker": "no_relief_transfer_gain",
+          "all_blockers": [
+            "no_relief_transfer_gain"
+          ]
+        },
+        {
+          "target_view": "lsv",
+          "gate_passed": false,
+          "primary_blocker": "orientation_instability",
+          "all_blockers": [
+            "orientation_instability",
+            "no_relief_transfer_gain"
+          ]
+        }
+      ],
+      "surface_promotion_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "object_id": "ring_020",
+      "patch_id": "ring_020_relief_component_001_patch_007",
+      "independent_target_state": "insufficient_projection_unresolved",
+      "query_count": 5,
+      "target_evaluation_count": 1,
+      "passed_target_evaluation_count": 0,
+      "priority": 2,
+      "recommended_action": "improve_cross_view_track_topology_on_training_split",
+      "blockers": [
+        "insufficient_normal_tracks",
+        "insufficient_projected_area",
+        "no_relief_transfer_gain",
+        "no_stable_target_triangle",
+        "orientation_instability",
+        "target_relief_rmse_exceeded",
+        "target_support_gap"
+      ],
+      "target_diagnostics": [
+        {
+          "target_view": "iso",
+          "gate_passed": false,
+          "primary_blocker": "insufficient_normal_tracks",
+          "all_blockers": [
+            "insufficient_normal_tracks",
+            "no_stable_target_triangle",
+            "insufficient_projected_area",
+            "orientation_instability",
+            "target_support_gap",
+            "target_relief_rmse_exceeded",
+            "no_relief_transfer_gain"
+          ]
+        }
+      ],
+      "surface_promotion_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "object_id": "ring_020",
+      "patch_id": "ring_020_relief_component_004_patch_001",
+      "independent_target_state": "insufficient_projection_unresolved",
+      "query_count": 13,
+      "target_evaluation_count": 1,
+      "passed_target_evaluation_count": 0,
+      "priority": 2,
+      "recommended_action": "improve_cross_view_track_topology_on_training_split",
+      "blockers": [
+        "insufficient_projected_area",
+        "no_relief_transfer_gain",
+        "no_stable_target_triangle",
+        "orientation_instability",
+        "target_relief_rmse_exceeded",
+        "target_support_gap"
+      ],
+      "target_diagnostics": [
+        {
+          "target_view": "lsv",
+          "gate_passed": false,
+          "primary_blocker": "no_stable_target_triangle",
+          "all_blockers": [
+            "no_stable_target_triangle",
+            "insufficient_projected_area",
+            "orientation_instability",
+            "target_support_gap",
+            "target_relief_rmse_exceeded",
+            "no_relief_transfer_gain"
+          ]
+        }
+      ],
+      "surface_promotion_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "object_id": "ring_020",
+      "patch_id": "ring_020_relief_component_005_patch_002",
+      "independent_target_state": "target_inconsistent_reject",
+      "query_count": 5,
+      "target_evaluation_count": 1,
+      "passed_target_evaluation_count": 0,
+      "priority": 2,
+      "recommended_action": "improve_cross_view_track_topology_on_training_split",
+      "blockers": [
+        "insufficient_projected_area",
+        "no_relief_transfer_gain",
+        "target_relief_rmse_exceeded"
+      ],
+      "target_diagnostics": [
+        {
+          "target_view": "iso",
+          "gate_passed": false,
+          "primary_blocker": "insufficient_projected_area",
+          "all_blockers": [
+            "insufficient_projected_area",
+            "target_relief_rmse_exceeded",
+            "no_relief_transfer_gain"
+          ]
+        }
+      ],
+      "surface_promotion_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "object_id": "ring_020",
+      "patch_id": "ring_020_relief_component_007_patch_001",
+      "independent_target_state": "target_inconsistent_reject",
+      "query_count": 4,
+      "target_evaluation_count": 1,
+      "passed_target_evaluation_count": 0,
+      "priority": 2,
+      "recommended_action": "improve_cross_view_track_topology_on_training_split",
+      "blockers": [
+        "no_relief_transfer_gain",
+        "orientation_instability",
+        "target_relief_rmse_exceeded"
+      ],
+      "target_diagnostics": [
+        {
+          "target_view": "iso",
+          "gate_passed": false,
+          "primary_blocker": "orientation_instability",
+          "all_blockers": [
+            "orientation_instability",
+            "target_relief_rmse_exceeded",
+            "no_relief_transfer_gain"
+          ]
+        }
+      ],
+      "surface_promotion_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "object_id": "ring_020",
+      "patch_id": "ring_020_relief_component_007_patch_003",
+      "independent_target_state": "insufficient_projection_unresolved",
+      "query_count": 3,
+      "target_evaluation_count": 1,
+      "passed_target_evaluation_count": 0,
+      "priority": 2,
+      "recommended_action": "improve_cross_view_track_topology_on_training_split",
+      "blockers": [
+        "insufficient_normal_tracks",
+        "insufficient_projected_area",
+        "no_relief_transfer_gain",
+        "no_stable_target_triangle",
+        "orientation_instability",
+        "target_relief_rmse_exceeded",
+        "target_support_gap"
+      ],
+      "target_diagnostics": [
+        {
+          "target_view": "iso",
+          "gate_passed": false,
+          "primary_blocker": "insufficient_normal_tracks",
+          "all_blockers": [
+            "insufficient_normal_tracks",
+            "no_stable_target_triangle",
+            "insufficient_projected_area",
+            "orientation_instability",
+            "target_support_gap",
+            "target_relief_rmse_exceeded",
+            "no_relief_transfer_gain"
+          ]
+        }
+      ],
+      "surface_promotion_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "object_id": "ring_020",
+      "patch_id": "ring_020_relief_component_007_patch_006",
+      "independent_target_state": "target_inconsistent_reject",
+      "query_count": 10,
+      "target_evaluation_count": 1,
+      "passed_target_evaluation_count": 0,
+      "priority": 2,
+      "recommended_action": "improve_cross_view_track_topology_on_training_split",
+      "blockers": [
+        "insufficient_projected_area",
+        "no_relief_transfer_gain"
+      ],
+      "target_diagnostics": [
+        {
+          "target_view": "iso",
+          "gate_passed": false,
+          "primary_blocker": "insufficient_projected_area",
+          "all_blockers": [
+            "insufficient_projected_area",
+            "no_relief_transfer_gain"
+          ]
+        }
+      ],
+      "surface_promotion_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "object_id": "ring_020",
+      "patch_id": "ring_020_relief_component_010_patch_001",
+      "independent_target_state": "target_inconsistent_reject",
+      "query_count": 13,
+      "target_evaluation_count": 1,
+      "passed_target_evaluation_count": 0,
+      "priority": 2,
+      "recommended_action": "improve_cross_view_track_topology_on_training_split",
+      "blockers": [
+        "orientation_instability"
+      ],
+      "target_diagnostics": [
+        {
+          "target_view": "iso",
+          "gate_passed": false,
+          "primary_blocker": "orientation_instability",
+          "all_blockers": [
+            "orientation_instability"
+          ]
+        }
+      ],
+      "surface_promotion_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "object_id": "ring_004",
+      "patch_id": "ring_004_relief_component_002_patch_001",
+      "independent_target_state": "target_inconsistent_reject",
+      "query_count": 29,
+      "target_evaluation_count": 1,
+      "passed_target_evaluation_count": 0,
+      "priority": 3,
+      "recommended_action": "develop_view_invariant_relief_on_training_split",
+      "blockers": [
+        "no_relief_transfer_gain"
+      ],
+      "target_diagnostics": [
+        {
+          "target_view": "iso",
+          "gate_passed": false,
+          "primary_blocker": "no_relief_transfer_gain",
+          "all_blockers": [
+            "no_relief_transfer_gain"
+          ]
+        }
+      ],
+      "surface_promotion_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "object_id": "ring_004",
+      "patch_id": "ring_004_relief_component_002_patch_002",
+      "independent_target_state": "target_inconsistent_reject",
+      "query_count": 5,
+      "target_evaluation_count": 1,
+      "passed_target_evaluation_count": 0,
+      "priority": 3,
+      "recommended_action": "develop_view_invariant_relief_on_training_split",
+      "blockers": [
+        "no_relief_transfer_gain",
+        "target_relief_rmse_exceeded"
+      ],
+      "target_diagnostics": [
+        {
+          "target_view": "iso",
+          "gate_passed": false,
+          "primary_blocker": "target_relief_rmse_exceeded",
+          "all_blockers": [
+            "target_relief_rmse_exceeded",
+            "no_relief_transfer_gain"
+          ]
+        }
+      ],
+      "surface_promotion_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "object_id": "ring_004",
+      "patch_id": "ring_004_relief_component_002_patch_003",
+      "independent_target_state": "target_inconsistent_reject",
+      "query_count": 11,
+      "target_evaluation_count": 1,
+      "passed_target_evaluation_count": 0,
+      "priority": 3,
+      "recommended_action": "develop_view_invariant_relief_on_training_split",
+      "blockers": [
+        "no_relief_transfer_gain",
+        "target_relief_rmse_exceeded"
+      ],
+      "target_diagnostics": [
+        {
+          "target_view": "iso",
+          "gate_passed": false,
+          "primary_blocker": "target_relief_rmse_exceeded",
+          "all_blockers": [
+            "target_relief_rmse_exceeded",
+            "no_relief_transfer_gain"
+          ]
+        }
+      ],
+      "surface_promotion_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "object_id": "ring_012",
+      "patch_id": "ring_012_relief_component_002_patch_004",
+      "independent_target_state": "target_inconsistent_reject",
+      "query_count": 48,
+      "target_evaluation_count": 2,
+      "passed_target_evaluation_count": 0,
+      "priority": 3,
+      "recommended_action": "develop_view_invariant_relief_on_training_split",
+      "blockers": [
+        "no_relief_transfer_gain",
+        "target_relief_rmse_exceeded"
+      ],
+      "target_diagnostics": [
+        {
+          "target_view": "iso",
+          "gate_passed": false,
+          "primary_blocker": "no_relief_transfer_gain",
+          "all_blockers": [
+            "no_relief_transfer_gain"
+          ]
+        },
+        {
+          "target_view": "rsv",
+          "gate_passed": false,
+          "primary_blocker": "target_relief_rmse_exceeded",
+          "all_blockers": [
+            "target_relief_rmse_exceeded",
+            "no_relief_transfer_gain"
+          ]
+        }
+      ],
+      "surface_promotion_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "object_id": "ring_012",
+      "patch_id": "ring_012_relief_component_002_patch_013",
+      "independent_target_state": "target_inconsistent_reject",
+      "query_count": 48,
+      "target_evaluation_count": 1,
+      "passed_target_evaluation_count": 0,
+      "priority": 3,
+      "recommended_action": "develop_view_invariant_relief_on_training_split",
+      "blockers": [
+        "no_relief_transfer_gain"
+      ],
+      "target_diagnostics": [
+        {
+          "target_view": "iso",
+          "gate_passed": false,
+          "primary_blocker": "no_relief_transfer_gain",
+          "all_blockers": [
+            "no_relief_transfer_gain"
+          ]
+        }
+      ],
+      "surface_promotion_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "object_id": "ring_012",
+      "patch_id": "ring_012_relief_component_007_patch_001",
+      "independent_target_state": "target_inconsistent_reject",
+      "query_count": 6,
+      "target_evaluation_count": 1,
+      "passed_target_evaluation_count": 0,
+      "priority": 3,
+      "recommended_action": "develop_view_invariant_relief_on_training_split",
+      "blockers": [
+        "no_relief_transfer_gain",
+        "target_relief_rmse_exceeded"
+      ],
+      "target_diagnostics": [
+        {
+          "target_view": "lsv",
+          "gate_passed": false,
+          "primary_blocker": "target_relief_rmse_exceeded",
+          "all_blockers": [
+            "target_relief_rmse_exceeded",
+            "no_relief_transfer_gain"
+          ]
+        }
+      ],
+      "surface_promotion_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "object_id": "ring_020",
+      "patch_id": "ring_020_relief_component_001_patch_001",
+      "independent_target_state": "target_inconsistent_reject",
+      "query_count": 26,
+      "target_evaluation_count": 1,
+      "passed_target_evaluation_count": 0,
+      "priority": 3,
+      "recommended_action": "develop_view_invariant_relief_on_training_split",
+      "blockers": [
+        "no_relief_transfer_gain"
+      ],
+      "target_diagnostics": [
+        {
+          "target_view": "iso",
+          "gate_passed": false,
+          "primary_blocker": "no_relief_transfer_gain",
+          "all_blockers": [
+            "no_relief_transfer_gain"
+          ]
+        }
+      ],
+      "surface_promotion_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "object_id": "ring_020",
+      "patch_id": "ring_020_relief_component_001_patch_004",
+      "independent_target_state": "target_inconsistent_reject",
+      "query_count": 11,
+      "target_evaluation_count": 1,
+      "passed_target_evaluation_count": 0,
+      "priority": 3,
+      "recommended_action": "develop_view_invariant_relief_on_training_split",
+      "blockers": [
+        "target_relief_rmse_exceeded"
+      ],
+      "target_diagnostics": [
+        {
+          "target_view": "iso",
+          "gate_passed": false,
+          "primary_blocker": "target_relief_rmse_exceeded",
+          "all_blockers": [
+            "target_relief_rmse_exceeded"
+          ]
+        }
+      ],
+      "surface_promotion_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "object_id": "ring_020",
+      "patch_id": "ring_020_relief_component_001_patch_008",
+      "independent_target_state": "target_inconsistent_reject",
+      "query_count": 15,
+      "target_evaluation_count": 1,
+      "passed_target_evaluation_count": 0,
+      "priority": 3,
+      "recommended_action": "develop_view_invariant_relief_on_training_split",
+      "blockers": [
+        "no_relief_transfer_gain"
+      ],
+      "target_diagnostics": [
+        {
+          "target_view": "iso",
+          "gate_passed": false,
+          "primary_blocker": "no_relief_transfer_gain",
+          "all_blockers": [
+            "no_relief_transfer_gain"
+          ]
+        }
+      ],
+      "surface_promotion_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "object_id": "ring_020",
+      "patch_id": "ring_020_relief_component_007_patch_007",
+      "independent_target_state": "target_inconsistent_reject",
+      "query_count": 13,
+      "target_evaluation_count": 1,
+      "passed_target_evaluation_count": 0,
+      "priority": 3,
+      "recommended_action": "develop_view_invariant_relief_on_training_split",
+      "blockers": [
+        "no_relief_transfer_gain"
+      ],
+      "target_diagnostics": [
+        {
+          "target_view": "iso",
+          "gate_passed": false,
+          "primary_blocker": "no_relief_transfer_gain",
+          "all_blockers": [
+            "no_relief_transfer_gain"
+          ]
+        }
+      ],
+      "surface_promotion_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "object_id": "ring_020",
+      "patch_id": "ring_020_relief_component_007_patch_008",
+      "independent_target_state": "target_inconsistent_reject",
+      "query_count": 14,
+      "target_evaluation_count": 1,
+      "passed_target_evaluation_count": 0,
+      "priority": 3,
+      "recommended_action": "develop_view_invariant_relief_on_training_split",
+      "blockers": [
+        "no_relief_transfer_gain"
+      ],
+      "target_diagnostics": [
+        {
+          "target_view": "iso",
+          "gate_passed": false,
+          "primary_blocker": "no_relief_transfer_gain",
+          "all_blockers": [
+            "no_relief_transfer_gain"
+          ]
+        }
+      ],
+      "surface_promotion_authorized": false,
+      "cad_fusion_authorized": false
+    }
+  ],
+  "decision": "use_failure_attribution_to_design_training_split_improvements",
+  "claims": {
+    "physical_accuracy_validated": false,
+    "target_gate_improved": false,
+    "surface_promotion_authorized": false,
+    "cad_fusion_authorized": false,
+    "manufacturing_accuracy_validated": false
+  },
+  "limitations": [
+    "Failure labels explain the frozen Phase 5.13 checks; they do not prove a unique physical root cause.",
+    "Recommended actions must be developed on training data before the validation gate is rerun.",
+    "A passing target evaluation remains review evidence and does not authorize CAD fusion."
+  ],
+  "artifacts": {
+    "audit": "data/phase5_target_failure_attribution_v1/target_reprojection_failure_audit.png",
+    "patch_action_queue_csv": "data/phase5_target_failure_attribution_v1/patch_action_queue.csv"
+  }
+}
