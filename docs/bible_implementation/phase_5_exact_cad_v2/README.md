@@ -328,6 +328,26 @@ These labels explain which frozen check failed first; they do not prove a
 unique physical cause. The action queue is a research plan, not validation-set
 tuning, geometric improvement or CAD authorization.
 
+## Phase 5.15 training reciprocal-topology density
+
+`evaluate_phase5_training_track_topology.py` implements the structural part of
+the Phase 5.14 action queue on the 18 training rings only. It reuses the
+existing reciprocal gate and preserves the first 384 baseline queries exactly.
+For each target view, it forms a bounded local triangle only when all three
+source vertices are accepted in that same target. Degenerate projections and
+orientation flips are retained as failures rather than hidden.
+
+The Phase 5.7 hybrid policy raises orientation-preserved local triangles from
+`2,252` to `6,913`. All 18 training objects improve and none regresses. Visual
+inspection shows that the retained triangles remain local to visible relief
+regions rather than crossing the ring opening or image background.
+
+This is not complete cross-view geometry. Front-to-top topology exists on only
+two of 18 training rings (`24` retained triangles total), while the isometric
+route contributes `5,229`. The selected policy is therefore frozen only for
+one validation topology evaluation. No validation improvement, metric surface,
+hidden geometry, CAD fusion or manufacturing accuracy is claimed.
+
 ## Claim boundary
 
 The dimensions are designed test parameters. The fixtures verify generator
@@ -521,13 +541,26 @@ docker run --rm --user "$(id -u):$(id -g)" \
   -v "$PWD:/workspace" -w /workspace \
   image2cad-validation:phase0 \
   python -m unittest tests.test_phase5_target_failure_attribution
+
+docker run --rm --user "$(id -u):$(id -g)" \
+  -e HOME=/tmp -e PYTHONPATH=/workspace:/workspace/pipeline \
+  -v "$PWD:/workspace" -w /workspace \
+  image2cad-validation:phase0 \
+  python -m pipeline.evaluate_phase5_training_track_topology
+
+docker run --rm --user "$(id -u):$(id -g)" \
+  -e HOME=/tmp -e PYTHONPATH=/workspace:/workspace/pipeline \
+  -v "$PWD:/workspace" -w /workspace \
+  image2cad-validation:phase0 \
+  python -m unittest tests.test_phase5_training_track_topology
 ```
 
 ## Next gate
 
-1. Implement the Phase 5.14 action queue on training rings, freeze the selected
-   method and then rerun the unchanged Phase 5.13 validation gate. At least one
-   surface must gain two-target support without validation-set tuning.
+1. Apply the frozen Phase 5.15 topology settings once to the three validation
+   rings without tuning. Only after that independent result may the unchanged
+   Phase 5.13 surface gate be reconsidered. At least one surface must gain
+   two-target support before promotion can be discussed.
 2. Resolve candidate semantics and cross-view opening identity before any
    retained cut is promoted to an approved cavity or manufacturing hole.
 3. Fit general gallery generators across side and iso evidence without

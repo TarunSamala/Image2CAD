@@ -125,6 +125,12 @@ predate it, so this index prevents similarly numbered stages from being mixed.
   attribution. It reproduces the Phase 5.13 counts, classifies structural and
   relief-transfer blockers, and writes a ranked training-split action queue.
   It does not change thresholds, surfaces, validation scores or CAD.
+- `evaluate_phase5_training_track_topology.py` - Phase 5.15 training-only
+  reciprocal topology experiment. It compares the Phase 5.6 baseline with the
+  Phase 5.7 hybrid query policy, forms bounded local triangles only from three
+  same-target accepted vertices, and measures non-degenerate,
+  orientation-preserved projections. It does not process validation or test
+  rings, fit relief, create surfaces or authorize CAD.
 
 ## Shared evidence and dataset tools
 

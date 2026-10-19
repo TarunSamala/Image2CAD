@@ -268,35 +268,46 @@ on the training split, 11 to view-invariant relief research and five to a
 second-target search. This diagnosis does not improve the gate by itself and
 does not authorize any surface or CAD operation.
 
-1. Use the Phase 5.14 action queue on training rings: improve reciprocal normal
-   track topology for the 24 structurally blocked patches and develop a
-   view-invariant relief representation for the 11 appearance/depth-blocked
-   patches. Freeze the method before rerunning validation.
-2. Review or label the Phase 5.12 surface groups and the Phase 5.11 patches,
+Phase 5.15 implements the structural action on training data only. Bounded
+local triangles require three reciprocal vertices in the same target view and
+must remain non-degenerate and orientation-preserving after projection. The
+hybrid query policy raises the retained count from `2,252` to `6,913`; all 18
+training rings improve and none regresses. The result is still incomplete:
+front-to-top topology appears on only two training rings. The policy is frozen
+for one validation evaluation, while the Phase 5.13 scores and surfaces remain
+unchanged.
+
+1. Evaluate the frozen Phase 5.15 local-topology settings once on the three
+   validation rings, without threshold or parameter changes. Keep the test
+   split untouched and report weak target routes explicitly.
+2. Continue the Phase 5.14 appearance/depth action on training rings by
+   developing a view-invariant relief representation for the 11
+   appearance/depth-blocked patches.
+3. Review or label the Phase 5.12 surface groups and the Phase 5.11 patches,
    then merge or split only with additional
    evidence where a patch still crosses ornaments. Image-plane fitting, rigid
    ICP, sparse VGGT tracks and denser reciprocal-cycle registration have all
    been rejected for global geometry movement by the fixed held-out split.
-3. Use pairwise camera-angle diagnostics, projected-surface precision and
+4. Use pairwise camera-angle diagnostics, projected-surface precision and
    completion recall separately instead of treating IoU as camera accuracy.
-4. Improve the current signed-depth minimum from `0.529` to at least `0.700`
+5. Improve the current signed-depth minimum from `0.529` to at least `0.700`
    while raising mean IoU from `0.782` to at least `0.800`; the current method
    still fails the geometry gate.
-5. Improve fine-detail geometry beyond the Phase 5.4 depth-supported baseline,
+6. Improve fine-detail geometry beyond the Phase 5.4 depth-supported baseline,
    add independent normal corroboration and recover top-view reciprocal support
    before any OBJ evidence is converted into an exact CAD surface.
-6. Keep the implemented Depth Anything V2 plus UniDepth normal comparator as a
+7. Keep the implemented Depth Anything V2 plus UniDepth normal comparator as a
    deployability-safe uncertainty check; do not substitute DSINE without a
    separate site/commercial licence.
-7. Review the 266 enclosed negative-space proposals retained across all 120
+8. Review the 266 enclosed negative-space proposals retained across all 120
    STL-1 views; they are aperture/openwork evidence, not confirmed stones.
-8. Add labelled real-image multi-stone evidence and resolve each accepted
+9. Add labelled real-image multi-stone evidence and resolve each accepted
    stone across views before creating seat or cavity relationships.
-9. Extend the implemented normalized ring adapter to head, shoulder, gallery,
+10. Extend the implemented normalized ring adapter to head, shoulder, gallery,
    relief and accepted component-track parameters, including uncertainty.
-10. Connect reviewed image observations to the validated independently editable
+11. Connect reviewed image observations to the validated independently editable
    stone, prong, seat and cavity generators; add relief generators separately.
-11. Add collision, clearance, minimum-wall and manufacturability checks to the
+12. Add collision, clearance, minimum-wall and manufacturability checks to the
    synthetic exact-CAD benchmark.
 12. Generate image-derived parametric CAD and refine it through
     render-and-compare validation.
