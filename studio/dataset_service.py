@@ -203,6 +203,12 @@ class DatasetRepository:
             / "phase5_validation_track_topology_v1"
             / "report.json"
         )
+        self.phase5_training_relief_descriptors = self._read_json(
+            self.repo_root
+            / "data"
+            / "phase5_training_relief_descriptors_v1"
+            / "report.json"
+        )
         self.phase4_prong_instances = self._read_json(
             self.repo_root / "data" / "phase4_prong_instances_v1" / "report.json"
         )
@@ -838,6 +844,9 @@ class DatasetRepository:
                 "validation_track_topology": deepcopy(
                     self.phase5_validation_track_topology
                 ),
+                "training_relief_descriptors": deepcopy(
+                    self.phase5_training_relief_descriptors
+                ),
             },
             "limitations": deepcopy(self.dataset_report.get("limitations", [])),
         }
@@ -1273,6 +1282,7 @@ class DatasetRepository:
                     "Phase 5.14 attributes the frozen Phase 5.13 failures without changing thresholds or surfaces. Recommendations are training-split research actions, not validation-set tuning or CAD authorization.",
                     "Phase 5.15 increases orientation-preserved local reciprocal topology on all 18 training rings, but front-to-top topology exists on only two rings. The frozen policy is evaluated separately in Phase 5.16; CAD fusion remains blocked.",
                     "Phase 5.16 applies the frozen topology policy to all three validation rings. Local stable triangles rise from 363 to 1,017, but the top route contributes zero and the independent surface gate remains unpassed.",
+                    "Phase 5.17 uses salience-matched displaced controls on 18 training rings. No unsigned-depth, photo-detail or fused descriptor beats the signed-relief baseline, so none is selected for validation or CAD.",
                     "Image-only inputs do not verify absolute millimetres without a known scale reference.",
                 ],
                 "actions": [
@@ -1315,6 +1325,8 @@ class DatasetRepository:
                     {"label": "Training topology report", "href": "/api/artifacts/phase5_training_track_topology_report"},
                     {"label": "Validation topology audit", "href": "/api/artifacts/phase5_validation_track_topology_audit"},
                     {"label": "Validation topology report", "href": "/api/artifacts/phase5_validation_track_topology_report"},
+                    {"label": "Training relief-descriptor audit", "href": "/api/artifacts/phase5_training_relief_descriptor_audit"},
+                    {"label": "Training relief-descriptor report", "href": "/api/artifacts/phase5_training_relief_descriptor_report"},
                     {"label": "Download baseline STEP", "href": "/api/artifacts/phase4_exact_cad_baseline_step"},
                 ],
             },
@@ -2321,6 +2333,14 @@ class DatasetRepository:
             / "data"
             / "phase5_validation_track_topology_v1"
             / "validation_track_topology_audit.png",
+            "phase5_training_relief_descriptor_report": self.repo_root
+            / "data"
+            / "phase5_training_relief_descriptors_v1"
+            / "report.json",
+            "phase5_training_relief_descriptor_audit": self.repo_root
+            / "data"
+            / "phase5_training_relief_descriptors_v1"
+            / "training_relief_descriptor_audit.png",
             "phase5_validation_metric_depth_report": self.repo_root
             / "dataset"
             / "phase_runs"

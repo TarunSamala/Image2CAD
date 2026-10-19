@@ -510,6 +510,15 @@ class DatasetStudioServiceTest(unittest.TestCase):
         self.assertFalse(
             validation_topology["claims"]["independent_surface_gate_improved"]
         )
+        training_descriptors = summary["phase5"]["training_relief_descriptors"]
+        self.assertEqual(training_descriptors["summary"]["object_count"], 18)
+        self.assertEqual(
+            training_descriptors["summary"]["selected_descriptor"], "none"
+        )
+        self.assertTrue(training_descriptors["checks"]["training_objects_only"])
+        self.assertFalse(
+            training_descriptors["claims"]["validation_relief_improved"]
+        )
         self.assertFalse(phase4["checks"]["phase4_exit_gate_passed"])
         self.assertTrue(phase4["checks"]["partial_ring01_prong_instances_available"])
         self.assertEqual(
@@ -1529,6 +1538,18 @@ class DatasetStudioApiTest(unittest.TestCase):
             phase5_validation_topology_report.mimetype, "application/json"
         )
         phase5_validation_topology_report.close()
+        descriptor_audit = self.client.get(
+            "/api/artifacts/phase5_training_relief_descriptor_audit"
+        )
+        self.assertEqual(descriptor_audit.status_code, 200)
+        self.assertEqual(descriptor_audit.mimetype, "image/png")
+        descriptor_audit.close()
+        descriptor_report = self.client.get(
+            "/api/artifacts/phase5_training_relief_descriptor_report"
+        )
+        self.assertEqual(descriptor_report.status_code, 200)
+        self.assertEqual(descriptor_report.mimetype, "application/json")
+        descriptor_report.close()
         for artifact in (
             "phase5_ring004_validation_normals",
             "phase5_ring012_validation_normals",
