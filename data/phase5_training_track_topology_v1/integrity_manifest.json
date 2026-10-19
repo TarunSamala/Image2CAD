@@ -1,0 +1,26 @@
+{
+  "schema_version": "lalitha_phase5_training_track_topology_integrity_v1",
+  "created_at_utc": "2026-10-19T16:58:19.997231+00:00",
+  "files": {
+    "phase5_7_training_source_report": {
+      "path": "data/phase5_dense_relief_train_v1/report.json",
+      "sha256": "e1af55c1413202178cda1bc3492f34a0e70d432f554b8afa8496389196b57816",
+      "size_bytes": 95394
+    },
+    "phase5_15_report": {
+      "path": "data/phase5_training_track_topology_v1/report.json",
+      "sha256": "c9e7a0af81cb97db73a08681e5a14121ade44c916ced7a19948e0b799cbdc1d3",
+      "size_bytes": 84672
+    },
+    "phase5_15_audit": {
+      "path": "data/phase5_training_track_topology_v1/training_track_topology_audit.png",
+      "sha256": "ce114cb38cf170f74f8a9e403e11f3061a205526938f336c152ebc06fc36a382",
+      "size_bytes": 200166
+    },
+    "phase5_15_implementation": {
+      "path": "pipeline/evaluate_phase5_training_track_topology.py",
+      "sha256": "cb34df01e699bd7bd4ec20a7958c7e261189dc3c938243c18661a63cbd5a8997",
+      "size_bytes": 25093
+    }
+  }
+}

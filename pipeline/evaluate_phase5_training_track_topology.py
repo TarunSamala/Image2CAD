@@ -15,6 +15,7 @@ from __future__ import annotations
 
 import argparse
 from datetime import datetime, timezone
+import hashlib
 import json
 from pathlib import Path
 from typing import Any
@@ -56,6 +57,14 @@ MAXIMUM_AREA_SCALE = 20.0
 
 def _relative(path: Path, root: Path) -> str:
     return path.resolve().relative_to(root.resolve()).as_posix()
+
+
+def _sha256(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as stream:
+        for block in iter(lambda: stream.read(1024 * 1024), b""):
+            digest.update(block)
+    return digest.hexdigest()
 
 
 def _load_tracks(path: Path) -> dict[str, np.ndarray]:
@@ -508,6 +517,8 @@ def run(root: Path, output: Path) -> dict[str, Any]:
             ),
         }
     audit_path = output / "training_track_topology_audit.png"
+    report_path = output / "report.json"
+    manifest_path = output / "integrity_manifest.json"
     _render_cohort_audit(objects, audit_path)
     selected = (
         "phase5_7_hybrid"
@@ -587,10 +598,39 @@ def run(root: Path, output: Path) -> dict[str, Any]:
             "The front-to-top route remains sparse across the cohort and must not be inferred from the improved angled and side views.",
             "Polished metal, stones, shadows and occlusion can still produce appearance-driven correspondences.",
         ],
-        "artifacts": {"audit": _relative(audit_path, root)},
+        "artifacts": {
+            "audit": _relative(audit_path, root),
+            "integrity_manifest": _relative(manifest_path, root),
+        },
     }
-    (output / "report.json").write_text(
+    report_path.write_text(
         json.dumps(report, indent=2) + "\n", encoding="utf-8"
+    )
+    integrity_targets = {
+        "phase5_7_training_source_report": root
+        / "data"
+        / "phase5_dense_relief_train_v1"
+        / "report.json",
+        "phase5_15_report": report_path,
+        "phase5_15_audit": audit_path,
+        "phase5_15_implementation": root
+        / "pipeline"
+        / "evaluate_phase5_training_track_topology.py",
+    }
+    manifest = {
+        "schema_version": "lalitha_phase5_training_track_topology_integrity_v1",
+        "created_at_utc": datetime.now(timezone.utc).isoformat(),
+        "files": {
+            label: {
+                "path": _relative(path, root),
+                "sha256": _sha256(path),
+                "size_bytes": path.stat().st_size,
+            }
+            for label, path in integrity_targets.items()
+        },
+    }
+    manifest_path.write_text(
+        json.dumps(manifest, indent=2) + "\n", encoding="utf-8"
     )
     return report
 

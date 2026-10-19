@@ -1,4 +1,5 @@
 import json
+import hashlib
 from pathlib import Path
 import unittest
 
@@ -61,6 +62,16 @@ class Phase5TrainingTrackTopologyTests(unittest.TestCase):
         self.assertFalse(report["claims"]["validation_topology_improved"])
         self.assertFalse(report["claims"]["cad_fusion_authorized"])
         self.assertTrue((ROOT / report["artifacts"]["audit"]).is_file())
+        manifest_path = ROOT / report["artifacts"]["integrity_manifest"]
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        self.assertEqual(len(manifest["files"]), 4)
+        for item in manifest["files"].values():
+            artifact = ROOT / item["path"]
+            self.assertEqual(
+                hashlib.sha256(artifact.read_bytes()).hexdigest(),
+                item["sha256"],
+            )
+            self.assertEqual(artifact.stat().st_size, item["size_bytes"])
         self.assertEqual(len(report["objects"]), 18)
         for item in report["objects"]:
             self.assertEqual(item["split"], "train")

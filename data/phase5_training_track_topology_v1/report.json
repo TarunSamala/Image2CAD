@@ -1,6 +1,6 @@
 {
   "schema_version": "lalitha_phase5_training_track_topology_v1",
-  "created_at_utc": "2026-10-19T16:52:16.529064+00:00",
+  "created_at_utc": "2026-10-19T16:58:19.994260+00:00",
   "stage": "Phase 5.15 training-split reciprocal topology density",
   "scope": {
     "object_ids": [
@@ -2092,6 +2092,7 @@
     "Polished metal, stones, shadows and occlusion can still produce appearance-driven correspondences."
   ],
   "artifacts": {
-    "audit": "data/phase5_training_track_topology_v1/training_track_topology_audit.png"
+    "audit": "data/phase5_training_track_topology_v1/training_track_topology_audit.png",
+    "integrity_manifest": "data/phase5_training_track_topology_v1/integrity_manifest.json"
   }
 }
