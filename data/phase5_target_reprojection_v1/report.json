@@ -1,0 +1,125 @@
+{
+  "schema_version": "lalitha_phase5_target_reprojection_v1",
+  "created_at_utc": "2026-10-19T04:54:32.033944+00:00",
+  "stage": "Phase 5.13 independent target-view reprojection validation",
+  "scope": {
+    "object_ids": [
+      "ring_004",
+      "ring_012",
+      "ring_020"
+    ],
+    "split": "val",
+    "source_view": "front",
+    "target_views": [
+      "top",
+      "iso",
+      "lsv",
+      "rsv"
+    ]
+  },
+  "sources": {
+    "local_surfaces": "data/phase5_local_relief_surfaces_v1/report.json",
+    "subdivision": "data/phase5_relief_subdivision_v1/report.json",
+    "visibility": "data/phase5_visibility_graph_v1/report.json",
+    "phase1_features": "dataset/phase_runs/v1/phase1_complete_features_v1/report.json"
+  },
+  "thresholds": {
+    "minimum_tracked_query_count": 3,
+    "minimum_projected_face_count": 1,
+    "minimum_projected_pixel_count": 8,
+    "minimum_target_support_fraction": 0.25,
+    "maximum_target_relief_rmse": 0.45,
+    "minimum_zero_baseline_improvement_fraction": 0.0,
+    "minimum_orientation_preservation_fraction": 0.75,
+    "minimum_target_triangle_area_pixels2": 1.0
+  },
+  "summary": {
+    "object_count": 3,
+    "eligible_patch_count": 40,
+    "target_evaluation_count": 56,
+    "passed_target_evaluation_count": 5,
+    "multi_target_supported_patch_count": 0,
+    "single_target_supported_patch_count": 5,
+    "target_inconsistent_patch_count": 26,
+    "unresolved_patch_count": 9
+  },
+  "checks": {
+    "fixed_validation_objects_only": true,
+    "phase5_12_eligible_counts_reproduced": true,
+    "normal_corroborated_target_edges_only": true,
+    "target_view_relief_not_used_to_refit_source_surfaces": true,
+    "test_objects_not_processed": true,
+    "exact_cad_unchanged": true,
+    "no_step_files_generated": true
+  },
+  "objects": [
+    {
+      "object_id": "ring_004",
+      "split": "val",
+      "eligible_patch_count": 6,
+      "phase5_12_eligible_count_reproduced": true,
+      "target_evaluation_count": 7,
+      "passed_target_evaluation_count": 0,
+      "multi_target_supported_review": 0,
+      "single_target_supported_review": 0,
+      "target_inconsistent_reject": 3,
+      "insufficient_projection_unresolved": 3,
+      "artifacts": {
+        "report": "data/phase5_target_reprojection_v1/ring_004/report.json",
+        "audit": "data/phase5_target_reprojection_v1/ring_004/target_reprojection_audit.png"
+      }
+    },
+    {
+      "object_id": "ring_012",
+      "split": "val",
+      "eligible_patch_count": 19,
+      "phase5_12_eligible_count_reproduced": true,
+      "target_evaluation_count": 33,
+      "passed_target_evaluation_count": 3,
+      "multi_target_supported_review": 0,
+      "single_target_supported_review": 3,
+      "target_inconsistent_reject": 13,
+      "insufficient_projection_unresolved": 3,
+      "artifacts": {
+        "report": "data/phase5_target_reprojection_v1/ring_012/report.json",
+        "audit": "data/phase5_target_reprojection_v1/ring_012/target_reprojection_audit.png"
+      }
+    },
+    {
+      "object_id": "ring_020",
+      "split": "val",
+      "eligible_patch_count": 15,
+      "phase5_12_eligible_count_reproduced": true,
+      "target_evaluation_count": 16,
+      "passed_target_evaluation_count": 2,
+      "multi_target_supported_review": 0,
+      "single_target_supported_review": 2,
+      "target_inconsistent_reject": 10,
+      "insufficient_projection_unresolved": 3,
+      "artifacts": {
+        "report": "data/phase5_target_reprojection_v1/ring_020/report.json",
+        "audit": "data/phase5_target_reprojection_v1/ring_020/target_reprojection_audit.png"
+      }
+    }
+  ],
+  "decision": "retain_only_as_independent_target_view_review_evidence",
+  "claims": {
+    "independent_target_image_evidence_evaluated": true,
+    "physical_relief_accuracy_validated": false,
+    "semantic_accuracy_validated": false,
+    "metric_scale_validated": false,
+    "hidden_geometry_recovered": false,
+    "surface_promotion_authorized": false,
+    "cad_fusion_authorized": false,
+    "manufacturing_accuracy_validated": false
+  },
+  "limitations": [
+    "Target coordinates come from retained reciprocal VGGT tracks and are not calibrated physical projections.",
+    "Target relief is independent by view but is produced by the same conservative image-depth evidence family.",
+    "Sparse projected triangles evaluate only observed front-surface patches and do not recover hidden geometry.",
+    "A passed target gate supports review only; it does not establish semantic identity, metric scale or CAD accuracy."
+  ],
+  "artifacts": {
+    "audit": "data/phase5_target_reprojection_v1/validation_target_reprojection_audit.png"
+  }
+}

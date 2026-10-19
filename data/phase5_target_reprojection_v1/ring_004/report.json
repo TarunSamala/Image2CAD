@@ -1,0 +1,292 @@
+{
+  "schema_version": "lalitha_phase5_target_reprojection_object_v1",
+  "object_id": "ring_004",
+  "split": "val",
+  "eligible_patch_count": 6,
+  "target_evaluation_count": 7,
+  "passed_target_evaluation_count": 0,
+  "multi_target_supported_patch_count": 0,
+  "single_target_supported_patch_count": 0,
+  "target_inconsistent_patch_count": 3,
+  "unresolved_patch_count": 3,
+  "patches": [
+    {
+      "patch_id": "ring_004_relief_component_001_patch_001",
+      "parent_component_id": "ring_004_relief_component_001",
+      "query_count": 3,
+      "target_evaluation_count": 1,
+      "passed_target_evaluation_count": 0,
+      "independent_target_state": "insufficient_projection_unresolved",
+      "target_evaluations": [
+        {
+          "target_view": "lsv",
+          "tracked_query_count": 2,
+          "projected_face_count": 0,
+          "projected_pixel_count": 0,
+          "target_supported_pixel_count": 0,
+          "target_support_fraction": 0.0,
+          "target_relief_mae": null,
+          "target_relief_rmse": null,
+          "zero_relief_baseline_rmse": null,
+          "zero_baseline_improvement_fraction": null,
+          "orientation_preservation_fraction": 0.0,
+          "informative_sign_sample_count": 2,
+          "relief_sign_agreement": 0.5,
+          "mean_track_score": 0.241492,
+          "mean_cycle_error_pixels": 12.953494,
+          "checks": {
+            "minimum_tracked_queries": false,
+            "minimum_projected_faces": false,
+            "minimum_projected_pixels": false,
+            "minimum_target_support_fraction": false,
+            "maximum_target_relief_rmse": false,
+            "beats_zero_relief_baseline": false,
+            "orientation_preserved": false
+          },
+          "independent_target_gate_passed": false
+        }
+      ],
+      "semantic_label": "unknown_ornamental_relief_patch",
+      "surface_promotion_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "patch_id": "ring_004_relief_component_002_patch_001",
+      "parent_component_id": "ring_004_relief_component_002",
+      "query_count": 29,
+      "target_evaluation_count": 1,
+      "passed_target_evaluation_count": 0,
+      "independent_target_state": "target_inconsistent_reject",
+      "target_evaluations": [
+        {
+          "target_view": "iso",
+          "tracked_query_count": 18,
+          "projected_face_count": 11,
+          "projected_pixel_count": 1232,
+          "target_supported_pixel_count": 1232,
+          "target_support_fraction": 1.0,
+          "target_relief_mae": 0.372466,
+          "target_relief_rmse": 0.447651,
+          "zero_relief_baseline_rmse": 0.12377,
+          "zero_baseline_improvement_fraction": -2.616809,
+          "orientation_preservation_fraction": 0.818182,
+          "informative_sign_sample_count": 17,
+          "relief_sign_agreement": 0.529412,
+          "mean_track_score": 0.270677,
+          "mean_cycle_error_pixels": 4.699639,
+          "checks": {
+            "minimum_tracked_queries": true,
+            "minimum_projected_faces": true,
+            "minimum_projected_pixels": true,
+            "minimum_target_support_fraction": true,
+            "maximum_target_relief_rmse": true,
+            "beats_zero_relief_baseline": false,
+            "orientation_preserved": true
+          },
+          "independent_target_gate_passed": false
+        }
+      ],
+      "semantic_label": "unknown_ornamental_relief_patch",
+      "surface_promotion_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "patch_id": "ring_004_relief_component_002_patch_002",
+      "parent_component_id": "ring_004_relief_component_002",
+      "query_count": 5,
+      "target_evaluation_count": 1,
+      "passed_target_evaluation_count": 0,
+      "independent_target_state": "target_inconsistent_reject",
+      "target_evaluations": [
+        {
+          "target_view": "iso",
+          "tracked_query_count": 5,
+          "projected_face_count": 4,
+          "projected_pixel_count": 404,
+          "target_supported_pixel_count": 404,
+          "target_support_fraction": 1.0,
+          "target_relief_mae": 0.432993,
+          "target_relief_rmse": 0.485293,
+          "zero_relief_baseline_rmse": 0.089996,
+          "zero_baseline_improvement_fraction": -4.392398,
+          "orientation_preservation_fraction": 1.0,
+          "informative_sign_sample_count": 2,
+          "relief_sign_agreement": 1.0,
+          "mean_track_score": 0.225982,
+          "mean_cycle_error_pixels": 8.434488,
+          "checks": {
+            "minimum_tracked_queries": true,
+            "minimum_projected_faces": true,
+            "minimum_projected_pixels": true,
+            "minimum_target_support_fraction": true,
+            "maximum_target_relief_rmse": false,
+            "beats_zero_relief_baseline": false,
+            "orientation_preserved": true
+          },
+          "independent_target_gate_passed": false
+        }
+      ],
+      "semantic_label": "unknown_ornamental_relief_patch",
+      "surface_promotion_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "patch_id": "ring_004_relief_component_002_patch_003",
+      "parent_component_id": "ring_004_relief_component_002",
+      "query_count": 11,
+      "target_evaluation_count": 1,
+      "passed_target_evaluation_count": 0,
+      "independent_target_state": "target_inconsistent_reject",
+      "target_evaluations": [
+        {
+          "target_view": "iso",
+          "tracked_query_count": 6,
+          "projected_face_count": 4,
+          "projected_pixel_count": 577,
+          "target_supported_pixel_count": 577,
+          "target_support_fraction": 1.0,
+          "target_relief_mae": 0.541669,
+          "target_relief_rmse": 0.674855,
+          "zero_relief_baseline_rmse": 0.373059,
+          "zero_baseline_improvement_fraction": -0.808975,
+          "orientation_preservation_fraction": 1.0,
+          "informative_sign_sample_count": 3,
+          "relief_sign_agreement": 0.333333,
+          "mean_track_score": 0.259427,
+          "mean_cycle_error_pixels": 6.742893,
+          "checks": {
+            "minimum_tracked_queries": true,
+            "minimum_projected_faces": true,
+            "minimum_projected_pixels": true,
+            "minimum_target_support_fraction": true,
+            "maximum_target_relief_rmse": false,
+            "beats_zero_relief_baseline": false,
+            "orientation_preserved": true
+          },
+          "independent_target_gate_passed": false
+        }
+      ],
+      "semantic_label": "unknown_ornamental_relief_patch",
+      "surface_promotion_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "patch_id": "ring_004_relief_component_002_patch_004",
+      "parent_component_id": "ring_004_relief_component_002",
+      "query_count": 7,
+      "target_evaluation_count": 2,
+      "passed_target_evaluation_count": 0,
+      "independent_target_state": "insufficient_projection_unresolved",
+      "target_evaluations": [
+        {
+          "target_view": "iso",
+          "tracked_query_count": 3,
+          "projected_face_count": 0,
+          "projected_pixel_count": 0,
+          "target_supported_pixel_count": 0,
+          "target_support_fraction": 0.0,
+          "target_relief_mae": null,
+          "target_relief_rmse": null,
+          "zero_relief_baseline_rmse": null,
+          "zero_baseline_improvement_fraction": null,
+          "orientation_preservation_fraction": 0.0,
+          "informative_sign_sample_count": 2,
+          "relief_sign_agreement": 0.0,
+          "mean_track_score": 0.307533,
+          "mean_cycle_error_pixels": 3.378102,
+          "checks": {
+            "minimum_tracked_queries": true,
+            "minimum_projected_faces": false,
+            "minimum_projected_pixels": false,
+            "minimum_target_support_fraction": false,
+            "maximum_target_relief_rmse": false,
+            "beats_zero_relief_baseline": false,
+            "orientation_preserved": false
+          },
+          "independent_target_gate_passed": false
+        },
+        {
+          "target_view": "rsv",
+          "tracked_query_count": 2,
+          "projected_face_count": 0,
+          "projected_pixel_count": 0,
+          "target_supported_pixel_count": 0,
+          "target_support_fraction": 0.0,
+          "target_relief_mae": null,
+          "target_relief_rmse": null,
+          "zero_relief_baseline_rmse": null,
+          "zero_baseline_improvement_fraction": null,
+          "orientation_preservation_fraction": 0.0,
+          "informative_sign_sample_count": 1,
+          "relief_sign_agreement": 0.0,
+          "mean_track_score": 0.238785,
+          "mean_cycle_error_pixels": 8.959868,
+          "checks": {
+            "minimum_tracked_queries": false,
+            "minimum_projected_faces": false,
+            "minimum_projected_pixels": false,
+            "minimum_target_support_fraction": false,
+            "maximum_target_relief_rmse": false,
+            "beats_zero_relief_baseline": false,
+            "orientation_preserved": false
+          },
+          "independent_target_gate_passed": false
+        }
+      ],
+      "semantic_label": "unknown_ornamental_relief_patch",
+      "surface_promotion_authorized": false,
+      "cad_fusion_authorized": false
+    },
+    {
+      "patch_id": "ring_004_relief_component_003_patch_001",
+      "parent_component_id": "ring_004_relief_component_003",
+      "query_count": 3,
+      "target_evaluation_count": 1,
+      "passed_target_evaluation_count": 0,
+      "independent_target_state": "insufficient_projection_unresolved",
+      "target_evaluations": [
+        {
+          "target_view": "iso",
+          "tracked_query_count": 2,
+          "projected_face_count": 0,
+          "projected_pixel_count": 0,
+          "target_supported_pixel_count": 0,
+          "target_support_fraction": 0.0,
+          "target_relief_mae": null,
+          "target_relief_rmse": null,
+          "zero_relief_baseline_rmse": null,
+          "zero_baseline_improvement_fraction": null,
+          "orientation_preservation_fraction": 0.0,
+          "informative_sign_sample_count": 2,
+          "relief_sign_agreement": 1.0,
+          "mean_track_score": 0.298323,
+          "mean_cycle_error_pixels": 1.609629,
+          "checks": {
+            "minimum_tracked_queries": false,
+            "minimum_projected_faces": false,
+            "minimum_projected_pixels": false,
+            "minimum_target_support_fraction": false,
+            "maximum_target_relief_rmse": false,
+            "beats_zero_relief_baseline": false,
+            "orientation_preserved": false
+          },
+          "independent_target_gate_passed": false
+        }
+      ],
+      "semantic_label": "unknown_ornamental_relief_patch",
+      "surface_promotion_authorized": false,
+      "cad_fusion_authorized": false
+    }
+  ],
+  "claims": {
+    "independent_target_image_evidence_evaluated": true,
+    "physical_relief_accuracy_validated": false,
+    "semantic_accuracy_validated": false,
+    "surface_promotion_authorized": false,
+    "cad_fusion_authorized": false
+  },
+  "artifacts": {
+    "report": "data/phase5_target_reprojection_v1/ring_004/report.json",
+    "audit": "data/phase5_target_reprojection_v1/ring_004/target_reprojection_audit.png"
+  }
+}
