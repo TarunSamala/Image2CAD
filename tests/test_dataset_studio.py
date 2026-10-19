@@ -434,6 +434,30 @@ class DatasetStudioServiceTest(unittest.TestCase):
         self.assertTrue(local_relief["checks"]["all_generated_geometry_finite"])
         self.assertTrue(local_relief["checks"]["test_objects_not_processed"])
         self.assertFalse(local_relief["claims"]["cad_fusion_authorized"])
+        target_reprojection = summary["phase5"]["target_reprojection"]
+        self.assertEqual(
+            target_reprojection["summary"]["target_evaluation_count"], 56
+        )
+        self.assertEqual(
+            target_reprojection["summary"][
+                "passed_target_evaluation_count"
+            ],
+            5,
+        )
+        self.assertEqual(
+            target_reprojection["summary"][
+                "multi_target_supported_patch_count"
+            ],
+            0,
+        )
+        self.assertTrue(
+            target_reprojection["checks"][
+                "target_view_relief_not_used_to_refit_source_surfaces"
+            ]
+        )
+        self.assertFalse(
+            target_reprojection["claims"]["cad_fusion_authorized"]
+        )
         self.assertFalse(phase4["checks"]["phase4_exit_gate_passed"])
         self.assertTrue(phase4["checks"]["partial_ring01_prong_instances_available"])
         self.assertEqual(
@@ -1371,6 +1395,33 @@ class DatasetStudioApiTest(unittest.TestCase):
         self.assertEqual(phase5_local_surface_preview.status_code, 200)
         self.assertEqual(phase5_local_surface_preview.mimetype, "image/png")
         phase5_local_surface_preview.close()
+        phase5_target_reprojection_audit = self.client.get(
+            "/api/artifacts/phase5_target_reprojection_audit"
+        )
+        self.assertEqual(phase5_target_reprojection_audit.status_code, 200)
+        self.assertEqual(
+            phase5_target_reprojection_audit.mimetype, "image/png"
+        )
+        phase5_target_reprojection_audit.close()
+        phase5_target_reprojection_report = self.client.get(
+            "/api/artifacts/phase5_target_reprojection_report"
+        )
+        self.assertEqual(phase5_target_reprojection_report.status_code, 200)
+        self.assertEqual(
+            phase5_target_reprojection_report.mimetype, "application/json"
+        )
+        phase5_target_reprojection_report.close()
+        phase5_ring004_target_reprojection = self.client.get(
+            "/api/artifacts/phase5_ring004_target_reprojection_report"
+        )
+        self.assertEqual(
+            phase5_ring004_target_reprojection.status_code, 200
+        )
+        self.assertEqual(
+            phase5_ring004_target_reprojection.mimetype,
+            "application/json",
+        )
+        phase5_ring004_target_reprojection.close()
         for artifact in (
             "phase5_ring004_validation_normals",
             "phase5_ring012_validation_normals",

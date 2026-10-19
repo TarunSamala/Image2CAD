@@ -179,6 +179,12 @@ class DatasetRepository:
             / "phase5_local_relief_surfaces_v1"
             / "report.json"
         )
+        self.phase5_target_reprojection = self._read_json(
+            self.repo_root
+            / "data"
+            / "phase5_target_reprojection_v1"
+            / "report.json"
+        )
         self.phase4_prong_instances = self._read_json(
             self.repo_root / "data" / "phase4_prong_instances_v1" / "report.json"
         )
@@ -802,6 +808,9 @@ class DatasetRepository:
                 "local_relief_surfaces": deepcopy(
                     self.phase5_local_relief_surfaces
                 ),
+                "target_reprojection": deepcopy(
+                    self.phase5_target_reprojection
+                ),
             },
             "limitations": deepcopy(self.dataset_report.get("limitations", [])),
         }
@@ -1233,6 +1242,7 @@ class DatasetRepository:
                     "Phase 5.10 creates stable component proposals but does not infer stone, prong, face or cavity semantics from unlabelled STL-1 images.",
                     "Phase 5.11 evidence patches remain sparse image observations; edge or depth changes can still come from reflection and do not define CAD surfaces.",
                     "Phase 5.12 local OBJ meshes interpolate only the retained front-view evidence inside eligible patches; they are open, scale-normalized review layers and remain separate from exact CAD.",
+                    "Phase 5.13 independently checks those front-derived surfaces in tracked target views. Only 5 of 56 target evaluations pass, no patch has two-target support and no surface is authorized for CAD fusion.",
                     "Image-only inputs do not verify absolute millimetres without a known scale reference.",
                 ],
                 "actions": [
@@ -1266,6 +1276,8 @@ class DatasetRepository:
                     {"label": "Local relief-surface audit", "href": "/api/artifacts/phase5_local_relief_surface_audit"},
                     {"label": "Local relief-surface report", "href": "/api/artifacts/phase5_local_relief_surface_report"},
                     {"label": "Ring 004 local relief OBJ", "href": "/api/artifacts/phase5_ring004_local_relief_obj"},
+                    {"label": "Target reprojection audit", "href": "/api/artifacts/phase5_target_reprojection_audit"},
+                    {"label": "Target reprojection report", "href": "/api/artifacts/phase5_target_reprojection_report"},
                     {"label": "Download baseline STEP", "href": "/api/artifacts/phase4_exact_cad_baseline_step"},
                 ],
             },
@@ -2231,6 +2243,19 @@ class DatasetRepository:
             / "phase5_local_relief_surfaces_v1"
             / "ring_004"
             / "ring_004_local_relief_trials_preview.png",
+            "phase5_target_reprojection_report": self.repo_root
+            / "data"
+            / "phase5_target_reprojection_v1"
+            / "report.json",
+            "phase5_target_reprojection_audit": self.repo_root
+            / "data"
+            / "phase5_target_reprojection_v1"
+            / "validation_target_reprojection_audit.png",
+            "phase5_ring004_target_reprojection_report": self.repo_root
+            / "data"
+            / "phase5_target_reprojection_v1"
+            / "ring_004"
+            / "report.json",
             "phase5_validation_metric_depth_report": self.repo_root
             / "dataset"
             / "phase_runs"
