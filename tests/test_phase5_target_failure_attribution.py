@@ -1,4 +1,5 @@
 import csv
+import hashlib
 import json
 from pathlib import Path
 import unittest
@@ -84,6 +85,15 @@ class Phase5TargetFailureAttributionTests(unittest.TestCase):
         self.assertTrue(
             all(row["surface_promotion_authorized"] == "False" for row in rows)
         )
+
+        manifest_path = ROOT / report["artifacts"]["integrity_manifest"]
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        self.assertEqual(len(manifest["files"]), 5)
+        for item in manifest["files"].values():
+            artifact = ROOT / item["path"]
+            digest = hashlib.sha256(artifact.read_bytes()).hexdigest()
+            self.assertEqual(digest, item["sha256"])
+            self.assertEqual(artifact.stat().st_size, item["size_bytes"])
 
 
 if __name__ == "__main__":

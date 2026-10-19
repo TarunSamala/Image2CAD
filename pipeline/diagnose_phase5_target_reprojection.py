@@ -11,6 +11,7 @@ from __future__ import annotations
 import argparse
 import csv
 from datetime import datetime, timezone
+import hashlib
 import json
 from pathlib import Path
 from typing import Any
@@ -47,6 +48,14 @@ STRUCTURAL_BLOCKERS = {
 
 def _relative(path: Path, root: Path) -> str:
     return path.resolve().relative_to(root.resolve()).as_posix()
+
+
+def _sha256(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as stream:
+        for block in iter(lambda: stream.read(1024 * 1024), b""):
+            digest.update(block)
+    return digest.hexdigest()
 
 
 def _blockers(checks: dict[str, bool]) -> list[str]:
@@ -250,6 +259,8 @@ def run(root: Path, output: Path) -> dict[str, Any]:
             )
 
     audit_path = output / "target_reprojection_failure_audit.png"
+    report_path = output / "report.json"
+    manifest_path = output / "integrity_manifest.json"
     report = {
         "schema_version": "lalitha_phase5_target_failure_attribution_v1",
         "created_at_utc": datetime.now(timezone.utc).isoformat(),
@@ -320,11 +331,36 @@ def run(root: Path, output: Path) -> dict[str, Any]:
         "artifacts": {
             "audit": _relative(audit_path, root),
             "patch_action_queue_csv": _relative(queue_path, root),
+            "integrity_manifest": _relative(manifest_path, root),
         },
     }
     _render_audit(report, audit_path)
-    (output / "report.json").write_text(
+    report_path.write_text(
         json.dumps(report, indent=2) + "\n", encoding="utf-8"
+    )
+    integrity_targets = {
+        "phase5_13_source_report": root / TARGET_REPORT_ROOT / "report.json",
+        "phase5_14_report": report_path,
+        "phase5_14_action_queue": queue_path,
+        "phase5_14_audit": audit_path,
+        "phase5_14_implementation": root
+        / "pipeline"
+        / "diagnose_phase5_target_reprojection.py",
+    }
+    manifest = {
+        "schema_version": "lalitha_phase5_target_failure_integrity_v1",
+        "created_at_utc": datetime.now(timezone.utc).isoformat(),
+        "files": {
+            label: {
+                "path": _relative(path, root),
+                "sha256": _sha256(path),
+                "size_bytes": path.stat().st_size,
+            }
+            for label, path in integrity_targets.items()
+        },
+    }
+    manifest_path.write_text(
+        json.dumps(manifest, indent=2) + "\n", encoding="utf-8"
     )
     return report
 

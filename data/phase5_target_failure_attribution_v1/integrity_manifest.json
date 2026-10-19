@@ -1,0 +1,31 @@
+{
+  "schema_version": "lalitha_phase5_target_failure_integrity_v1",
+  "created_at_utc": "2026-10-19T05:10:06.276760+00:00",
+  "files": {
+    "phase5_13_source_report": {
+      "path": "data/phase5_target_reprojection_v1/report.json",
+      "sha256": "e30f9d2cda1d0d283ef7e34202709aca6a269ac857a5ec392a3ca021af6aab72",
+      "size_bytes": 4632
+    },
+    "phase5_14_report": {
+      "path": "data/phase5_target_failure_attribution_v1/report.json",
+      "sha256": "17ac52a581f62cc2537df04a24507111e592cda79fd786fa098380e2c7e6e4f2",
+      "size_bytes": 47960
+    },
+    "phase5_14_action_queue": {
+      "path": "data/phase5_target_failure_attribution_v1/patch_action_queue.csv",
+      "sha256": "3d26933297e5ee5a868c1b1cdf9d091bc99c3c8c7e962575cc41752922482e13",
+      "size_bytes": 9835
+    },
+    "phase5_14_audit": {
+      "path": "data/phase5_target_failure_attribution_v1/target_reprojection_failure_audit.png",
+      "sha256": "7d61d57a4c236b728c593941f254a340549f59c700eb94bb29781d7935dfcb92",
+      "size_bytes": 180817
+    },
+    "phase5_14_implementation": {
+      "path": "pipeline/diagnose_phase5_target_reprojection.py",
+      "sha256": "3d066bbadcc37378f8c8fe0d421bcf71ccc1698e6a5cb0e5f08758af5f16f3c3",
+      "size_bytes": 15044
+    }
+  }
+}

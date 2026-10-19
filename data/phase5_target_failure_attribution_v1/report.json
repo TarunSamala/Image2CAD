@@ -1,6 +1,6 @@
 {
   "schema_version": "lalitha_phase5_target_failure_attribution_v1",
-  "created_at_utc": "2026-10-19T05:04:47.401502+00:00",
+  "created_at_utc": "2026-10-19T05:10:05.792497+00:00",
   "stage": "Phase 5.14 frozen target-reprojection failure attribution",
   "scope": {
     "object_ids": [
@@ -1473,6 +1473,7 @@
   ],
   "artifacts": {
     "audit": "data/phase5_target_failure_attribution_v1/target_reprojection_failure_audit.png",
-    "patch_action_queue_csv": "data/phase5_target_failure_attribution_v1/patch_action_queue.csv"
+    "patch_action_queue_csv": "data/phase5_target_failure_attribution_v1/patch_action_queue.csv",
+    "integrity_manifest": "data/phase5_target_failure_attribution_v1/integrity_manifest.json"
   }
 }
