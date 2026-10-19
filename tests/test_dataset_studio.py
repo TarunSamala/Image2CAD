@@ -496,6 +496,20 @@ class DatasetStudioServiceTest(unittest.TestCase):
         self.assertFalse(
             training_topology["claims"]["validation_topology_improved"]
         )
+        validation_topology = summary["phase5"]["validation_track_topology"]
+        self.assertEqual(validation_topology["summary"]["object_count"], 3)
+        self.assertEqual(
+            validation_topology["summary"][
+                "hybrid_orientation_preserved_triangle_count"
+            ],
+            1017,
+        )
+        self.assertTrue(
+            validation_topology["checks"]["frozen_training_manifest_verified"]
+        )
+        self.assertFalse(
+            validation_topology["claims"]["independent_surface_gate_improved"]
+        )
         self.assertFalse(phase4["checks"]["phase4_exit_gate_passed"])
         self.assertTrue(phase4["checks"]["partial_ring01_prong_instances_available"])
         self.assertEqual(
@@ -1499,6 +1513,22 @@ class DatasetStudioApiTest(unittest.TestCase):
             phase5_training_topology_report.mimetype, "application/json"
         )
         phase5_training_topology_report.close()
+        phase5_validation_topology_audit = self.client.get(
+            "/api/artifacts/phase5_validation_track_topology_audit"
+        )
+        self.assertEqual(phase5_validation_topology_audit.status_code, 200)
+        self.assertEqual(
+            phase5_validation_topology_audit.mimetype, "image/png"
+        )
+        phase5_validation_topology_audit.close()
+        phase5_validation_topology_report = self.client.get(
+            "/api/artifacts/phase5_validation_track_topology_report"
+        )
+        self.assertEqual(phase5_validation_topology_report.status_code, 200)
+        self.assertEqual(
+            phase5_validation_topology_report.mimetype, "application/json"
+        )
+        phase5_validation_topology_report.close()
         for artifact in (
             "phase5_ring004_validation_normals",
             "phase5_ring012_validation_normals",
