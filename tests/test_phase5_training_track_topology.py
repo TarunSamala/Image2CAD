@@ -5,7 +5,10 @@ import unittest
 
 import numpy as np
 
-from pipeline.evaluate_phase5_training_track_topology import _local_triangles
+from pipeline.evaluate_phase5_training_track_topology import (
+    _local_triangles,
+    _target_topology,
+)
 from pipeline.extract_vggt_track_evidence import TRAIN_OBJECTS
 
 
@@ -27,6 +30,20 @@ class Phase5TrainingTrackTopologyTests(unittest.TestCase):
         self.assertEqual(set(triangles[0]), {0, 1, 2})
         accepted[2] = False
         self.assertEqual(_local_triangles(points, accepted).shape, (0, 3))
+
+    def test_target_orientation_flip_is_not_stable(self) -> None:
+        source = np.asarray(
+            ((10.0, 10.0), (30.0, 10.0), (20.0, 30.0)), np.float32
+        )
+        folded = np.asarray(
+            ((10.0, 10.0), (30.0, 10.0), (20.0, -10.0)), np.float32
+        )
+        metrics, _ = _target_topology(
+            source, folded, np.ones(3, dtype=bool)
+        )
+        self.assertEqual(metrics["complete_source_triangle_count"], 1)
+        self.assertEqual(metrics["nondegenerate_target_triangle_count"], 1)
+        self.assertEqual(metrics["orientation_preserved_triangle_count"], 0)
 
     def test_retained_report_is_training_only_and_reproducible(self) -> None:
         report = json.loads(REPORT.read_text(encoding="utf-8"))
