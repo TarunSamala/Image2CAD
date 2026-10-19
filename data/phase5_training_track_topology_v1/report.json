@@ -1,0 +1,2097 @@
+{
+  "schema_version": "lalitha_phase5_training_track_topology_v1",
+  "created_at_utc": "2026-10-19T16:52:16.529064+00:00",
+  "stage": "Phase 5.15 training-split reciprocal topology density",
+  "scope": {
+    "object_ids": [
+      "ring_001",
+      "ring_002",
+      "ring_003",
+      "ring_005",
+      "ring_006",
+      "ring_008",
+      "ring_009",
+      "ring_010",
+      "ring_011",
+      "ring_013",
+      "ring_014",
+      "ring_016",
+      "ring_017",
+      "ring_018",
+      "ring_019",
+      "ring_021",
+      "ring_022",
+      "ring_024"
+    ],
+    "split": "train",
+    "source_view": "front",
+    "target_views": [
+      "top",
+      "iso",
+      "lsv",
+      "rsv"
+    ]
+  },
+  "sources": {
+    "phase1": "dataset/phase_runs/v1/phase1_complete_features_v1/report.json",
+    "baseline_tracks": "dataset/phase_runs/v1/vggt_full_stl1_track_evidence_v1",
+    "hybrid_tracks": "dataset/phase_runs/v1/vggt_relief_hybrid_train_v1",
+    "failure_attribution": "data/phase5_target_failure_attribution_v1/report.json"
+  },
+  "topology_settings": {
+    "local_neighbor_count": 6,
+    "local_neighbor_radius_pixels": 52.0,
+    "minimum_source_triangle_area_pixels2": 4.0,
+    "minimum_target_triangle_area_pixels2": 1.0,
+    "minimum_area_scale": 0.05,
+    "maximum_area_scale": 20.0
+  },
+  "summary": {
+    "object_count": 18,
+    "baseline_orientation_preserved_triangle_count": 2252,
+    "hybrid_orientation_preserved_triangle_count": 6913,
+    "orientation_preserved_triangle_delta": 4661,
+    "improved_object_count": 18,
+    "unchanged_object_count": 0,
+    "regressed_object_count": 0,
+    "selected_training_policy": "phase5_7_hybrid",
+    "target_views": {
+      "top": {
+        "baseline_orientation_preserved_triangle_count": 1,
+        "hybrid_orientation_preserved_triangle_count": 24,
+        "orientation_preserved_triangle_delta": 23,
+        "objects_with_hybrid_topology": 2
+      },
+      "iso": {
+        "baseline_orientation_preserved_triangle_count": 1756,
+        "hybrid_orientation_preserved_triangle_count": 5229,
+        "orientation_preserved_triangle_delta": 3473,
+        "objects_with_hybrid_topology": 18
+      },
+      "lsv": {
+        "baseline_orientation_preserved_triangle_count": 254,
+        "hybrid_orientation_preserved_triangle_count": 770,
+        "orientation_preserved_triangle_delta": 516,
+        "objects_with_hybrid_topology": 18
+      },
+      "rsv": {
+        "baseline_orientation_preserved_triangle_count": 241,
+        "hybrid_orientation_preserved_triangle_count": 890,
+        "orientation_preserved_triangle_delta": 649,
+        "objects_with_hybrid_topology": 16
+      }
+    },
+    "complete_target_view_coverage_available": false
+  },
+  "checks": {
+    "training_objects_only": true,
+    "validation_objects_not_processed": true,
+    "test_objects_not_processed": true,
+    "baseline_query_prefix_reproduced": true,
+    "existing_reciprocal_gate_reused": true,
+    "phase5_13_thresholds_unchanged": true,
+    "phase5_13_surfaces_unchanged": true,
+    "no_step_files_generated": true
+  },
+  "objects": [
+    {
+      "object_id": "ring_001",
+      "split": "train",
+      "variants": {
+        "phase5_6_baseline": {
+          "targets": {
+            "top": {
+              "accepted_vertex_count": 0,
+              "complete_source_triangle_count": 0,
+              "nondegenerate_target_triangle_count": 0,
+              "orientation_preserved_triangle_count": 0,
+              "orientation_preservation_fraction": 0.0,
+              "stable_vertex_count": 0,
+              "stable_vertex_fraction_of_accepted": 0.0
+            },
+            "iso": {
+              "accepted_vertex_count": 33,
+              "complete_source_triangle_count": 27,
+              "nondegenerate_target_triangle_count": 27,
+              "orientation_preserved_triangle_count": 26,
+              "orientation_preservation_fraction": 0.962963,
+              "stable_vertex_count": 22,
+              "stable_vertex_fraction_of_accepted": 0.666667
+            },
+            "lsv": {
+              "accepted_vertex_count": 9,
+              "complete_source_triangle_count": 27,
+              "nondegenerate_target_triangle_count": 25,
+              "orientation_preserved_triangle_count": 23,
+              "orientation_preservation_fraction": 0.92,
+              "stable_vertex_count": 8,
+              "stable_vertex_fraction_of_accepted": 0.888889
+            },
+            "rsv": {
+              "accepted_vertex_count": 19,
+              "complete_source_triangle_count": 30,
+              "nondegenerate_target_triangle_count": 27,
+              "orientation_preserved_triangle_count": 27,
+              "orientation_preservation_fraction": 1.0,
+              "stable_vertex_count": 18,
+              "stable_vertex_fraction_of_accepted": 0.947368
+            }
+          },
+          "totals": {
+            "accepted_vertex_count": 61,
+            "complete_source_triangle_count": 84,
+            "nondegenerate_target_triangle_count": 79,
+            "orientation_preserved_triangle_count": 76,
+            "stable_vertex_count": 48,
+            "orientation_preservation_fraction": 0.962025
+          }
+        },
+        "phase5_7_hybrid": {
+          "targets": {
+            "top": {
+              "accepted_vertex_count": 0,
+              "complete_source_triangle_count": 0,
+              "nondegenerate_target_triangle_count": 0,
+              "orientation_preserved_triangle_count": 0,
+              "orientation_preservation_fraction": 0.0,
+              "stable_vertex_count": 0,
+              "stable_vertex_fraction_of_accepted": 0.0
+            },
+            "iso": {
+              "accepted_vertex_count": 153,
+              "complete_source_triangle_count": 234,
+              "nondegenerate_target_triangle_count": 212,
+              "orientation_preserved_triangle_count": 194,
+              "orientation_preservation_fraction": 0.915094,
+              "stable_vertex_count": 136,
+              "stable_vertex_fraction_of_accepted": 0.888889
+            },
+            "lsv": {
+              "accepted_vertex_count": 44,
+              "complete_source_triangle_count": 79,
+              "nondegenerate_target_triangle_count": 68,
+              "orientation_preserved_triangle_count": 63,
+              "orientation_preservation_fraction": 0.926471,
+              "stable_vertex_count": 42,
+              "stable_vertex_fraction_of_accepted": 0.954545
+            },
+            "rsv": {
+              "accepted_vertex_count": 83,
+              "complete_source_triangle_count": 121,
+              "nondegenerate_target_triangle_count": 105,
+              "orientation_preserved_triangle_count": 96,
+              "orientation_preservation_fraction": 0.914286,
+              "stable_vertex_count": 70,
+              "stable_vertex_fraction_of_accepted": 0.843373
+            }
+          },
+          "totals": {
+            "accepted_vertex_count": 280,
+            "complete_source_triangle_count": 434,
+            "nondegenerate_target_triangle_count": 385,
+            "orientation_preserved_triangle_count": 353,
+            "stable_vertex_count": 248,
+            "orientation_preservation_fraction": 0.916883
+          }
+        }
+      },
+      "comparison": {
+        "orientation_preserved_triangle_delta": 277,
+        "orientation_preserved_triangle_multiplier": 4.644737
+      },
+      "baseline_query_prefix_reproduced": true,
+      "artifacts": {
+        "audit": "data/phase5_training_track_topology_v1/ring_001/training_track_topology_audit.png"
+      }
+    },
+    {
+      "object_id": "ring_002",
+      "split": "train",
+      "variants": {
+        "phase5_6_baseline": {
+          "targets": {
+            "top": {
+              "accepted_vertex_count": 0,
+              "complete_source_triangle_count": 0,
+              "nondegenerate_target_triangle_count": 0,
+              "orientation_preserved_triangle_count": 0,
+              "orientation_preservation_fraction": 0.0,
+              "stable_vertex_count": 0,
+              "stable_vertex_fraction_of_accepted": 0.0
+            },
+            "iso": {
+              "accepted_vertex_count": 89,
+              "complete_source_triangle_count": 156,
+              "nondegenerate_target_triangle_count": 147,
+              "orientation_preserved_triangle_count": 134,
+              "orientation_preservation_fraction": 0.911565,
+              "stable_vertex_count": 80,
+              "stable_vertex_fraction_of_accepted": 0.898876
+            },
+            "lsv": {
+              "accepted_vertex_count": 24,
+              "complete_source_triangle_count": 55,
+              "nondegenerate_target_triangle_count": 46,
+              "orientation_preserved_triangle_count": 34,
+              "orientation_preservation_fraction": 0.73913,
+              "stable_vertex_count": 20,
+              "stable_vertex_fraction_of_accepted": 0.833333
+            },
+            "rsv": {
+              "accepted_vertex_count": 3,
+              "complete_source_triangle_count": 0,
+              "nondegenerate_target_triangle_count": 0,
+              "orientation_preserved_triangle_count": 0,
+              "orientation_preservation_fraction": 0.0,
+              "stable_vertex_count": 0,
+              "stable_vertex_fraction_of_accepted": 0.0
+            }
+          },
+          "totals": {
+            "accepted_vertex_count": 116,
+            "complete_source_triangle_count": 211,
+            "nondegenerate_target_triangle_count": 193,
+            "orientation_preserved_triangle_count": 168,
+            "stable_vertex_count": 100,
+            "orientation_preservation_fraction": 0.870466
+          }
+        },
+        "phase5_7_hybrid": {
+          "targets": {
+            "top": {
+              "accepted_vertex_count": 0,
+              "complete_source_triangle_count": 0,
+              "nondegenerate_target_triangle_count": 0,
+              "orientation_preserved_triangle_count": 0,
+              "orientation_preservation_fraction": 0.0,
+              "stable_vertex_count": 0,
+              "stable_vertex_fraction_of_accepted": 0.0
+            },
+            "iso": {
+              "accepted_vertex_count": 363,
+              "complete_source_triangle_count": 462,
+              "nondegenerate_target_triangle_count": 377,
+              "orientation_preserved_triangle_count": 334,
+              "orientation_preservation_fraction": 0.885942,
+              "stable_vertex_count": 305,
+              "stable_vertex_fraction_of_accepted": 0.84022
+            },
+            "lsv": {
+              "accepted_vertex_count": 53,
+              "complete_source_triangle_count": 128,
+              "nondegenerate_target_triangle_count": 87,
+              "orientation_preserved_triangle_count": 45,
+              "orientation_preservation_fraction": 0.517241,
+              "stable_vertex_count": 41,
+              "stable_vertex_fraction_of_accepted": 0.773585
+            },
+            "rsv": {
+              "accepted_vertex_count": 9,
+              "complete_source_triangle_count": 9,
+              "nondegenerate_target_triangle_count": 4,
+              "orientation_preserved_triangle_count": 2,
+              "orientation_preservation_fraction": 0.5,
+              "stable_vertex_count": 4,
+              "stable_vertex_fraction_of_accepted": 0.444444
+            }
+          },
+          "totals": {
+            "accepted_vertex_count": 425,
+            "complete_source_triangle_count": 599,
+            "nondegenerate_target_triangle_count": 468,
+            "orientation_preserved_triangle_count": 381,
+            "stable_vertex_count": 350,
+            "orientation_preservation_fraction": 0.814103
+          }
+        }
+      },
+      "comparison": {
+        "orientation_preserved_triangle_delta": 213,
+        "orientation_preserved_triangle_multiplier": 2.267857
+      },
+      "baseline_query_prefix_reproduced": true,
+      "artifacts": {
+        "audit": "data/phase5_training_track_topology_v1/ring_002/training_track_topology_audit.png"
+      }
+    },
+    {
+      "object_id": "ring_003",
+      "split": "train",
+      "variants": {
+        "phase5_6_baseline": {
+          "targets": {
+            "top": {
+              "accepted_vertex_count": 0,
+              "complete_source_triangle_count": 0,
+              "nondegenerate_target_triangle_count": 0,
+              "orientation_preserved_triangle_count": 0,
+              "orientation_preservation_fraction": 0.0,
+              "stable_vertex_count": 0,
+              "stable_vertex_fraction_of_accepted": 0.0
+            },
+            "iso": {
+              "accepted_vertex_count": 70,
+              "complete_source_triangle_count": 134,
+              "nondegenerate_target_triangle_count": 129,
+              "orientation_preserved_triangle_count": 124,
+              "orientation_preservation_fraction": 0.96124,
+              "stable_vertex_count": 64,
+              "stable_vertex_fraction_of_accepted": 0.914286
+            },
+            "lsv": {
+              "accepted_vertex_count": 15,
+              "complete_source_triangle_count": 8,
+              "nondegenerate_target_triangle_count": 6,
+              "orientation_preserved_triangle_count": 2,
+              "orientation_preservation_fraction": 0.333333,
+              "stable_vertex_count": 4,
+              "stable_vertex_fraction_of_accepted": 0.266667
+            },
+            "rsv": {
+              "accepted_vertex_count": 16,
+              "complete_source_triangle_count": 28,
+              "nondegenerate_target_triangle_count": 28,
+              "orientation_preserved_triangle_count": 28,
+              "orientation_preservation_fraction": 1.0,
+              "stable_vertex_count": 11,
+              "stable_vertex_fraction_of_accepted": 0.6875
+            }
+          },
+          "totals": {
+            "accepted_vertex_count": 101,
+            "complete_source_triangle_count": 170,
+            "nondegenerate_target_triangle_count": 163,
+            "orientation_preserved_triangle_count": 154,
+            "stable_vertex_count": 79,
+            "orientation_preservation_fraction": 0.944785
+          }
+        },
+        "phase5_7_hybrid": {
+          "targets": {
+            "top": {
+              "accepted_vertex_count": 0,
+              "complete_source_triangle_count": 0,
+              "nondegenerate_target_triangle_count": 0,
+              "orientation_preserved_triangle_count": 0,
+              "orientation_preservation_fraction": 0.0,
+              "stable_vertex_count": 0,
+              "stable_vertex_fraction_of_accepted": 0.0
+            },
+            "iso": {
+              "accepted_vertex_count": 348,
+              "complete_source_triangle_count": 549,
+              "nondegenerate_target_triangle_count": 507,
+              "orientation_preserved_triangle_count": 478,
+              "orientation_preservation_fraction": 0.942801,
+              "stable_vertex_count": 317,
+              "stable_vertex_fraction_of_accepted": 0.91092
+            },
+            "lsv": {
+              "accepted_vertex_count": 53,
+              "complete_source_triangle_count": 82,
+              "nondegenerate_target_triangle_count": 62,
+              "orientation_preserved_triangle_count": 29,
+              "orientation_preservation_fraction": 0.467742,
+              "stable_vertex_count": 36,
+              "stable_vertex_fraction_of_accepted": 0.679245
+            },
+            "rsv": {
+              "accepted_vertex_count": 78,
+              "complete_source_triangle_count": 106,
+              "nondegenerate_target_triangle_count": 83,
+              "orientation_preserved_triangle_count": 73,
+              "orientation_preservation_fraction": 0.879518,
+              "stable_vertex_count": 61,
+              "stable_vertex_fraction_of_accepted": 0.782051
+            }
+          },
+          "totals": {
+            "accepted_vertex_count": 479,
+            "complete_source_triangle_count": 737,
+            "nondegenerate_target_triangle_count": 652,
+            "orientation_preserved_triangle_count": 580,
+            "stable_vertex_count": 414,
+            "orientation_preservation_fraction": 0.889571
+          }
+        }
+      },
+      "comparison": {
+        "orientation_preserved_triangle_delta": 426,
+        "orientation_preserved_triangle_multiplier": 3.766234
+      },
+      "baseline_query_prefix_reproduced": true,
+      "artifacts": {
+        "audit": "data/phase5_training_track_topology_v1/ring_003/training_track_topology_audit.png"
+      }
+    },
+    {
+      "object_id": "ring_005",
+      "split": "train",
+      "variants": {
+        "phase5_6_baseline": {
+          "targets": {
+            "top": {
+              "accepted_vertex_count": 0,
+              "complete_source_triangle_count": 0,
+              "nondegenerate_target_triangle_count": 0,
+              "orientation_preserved_triangle_count": 0,
+              "orientation_preservation_fraction": 0.0,
+              "stable_vertex_count": 0,
+              "stable_vertex_fraction_of_accepted": 0.0
+            },
+            "iso": {
+              "accepted_vertex_count": 70,
+              "complete_source_triangle_count": 126,
+              "nondegenerate_target_triangle_count": 124,
+              "orientation_preserved_triangle_count": 119,
+              "orientation_preservation_fraction": 0.959677,
+              "stable_vertex_count": 63,
+              "stable_vertex_fraction_of_accepted": 0.9
+            },
+            "lsv": {
+              "accepted_vertex_count": 21,
+              "complete_source_triangle_count": 41,
+              "nondegenerate_target_triangle_count": 39,
+              "orientation_preserved_triangle_count": 35,
+              "orientation_preservation_fraction": 0.897436,
+              "stable_vertex_count": 17,
+              "stable_vertex_fraction_of_accepted": 0.809524
+            },
+            "rsv": {
+              "accepted_vertex_count": 5,
+              "complete_source_triangle_count": 0,
+              "nondegenerate_target_triangle_count": 0,
+              "orientation_preserved_triangle_count": 0,
+              "orientation_preservation_fraction": 0.0,
+              "stable_vertex_count": 0,
+              "stable_vertex_fraction_of_accepted": 0.0
+            }
+          },
+          "totals": {
+            "accepted_vertex_count": 96,
+            "complete_source_triangle_count": 167,
+            "nondegenerate_target_triangle_count": 163,
+            "orientation_preserved_triangle_count": 154,
+            "stable_vertex_count": 80,
+            "orientation_preservation_fraction": 0.944785
+          }
+        },
+        "phase5_7_hybrid": {
+          "targets": {
+            "top": {
+              "accepted_vertex_count": 1,
+              "complete_source_triangle_count": 0,
+              "nondegenerate_target_triangle_count": 0,
+              "orientation_preserved_triangle_count": 0,
+              "orientation_preservation_fraction": 0.0,
+              "stable_vertex_count": 0,
+              "stable_vertex_fraction_of_accepted": 0.0
+            },
+            "iso": {
+              "accepted_vertex_count": 169,
+              "complete_source_triangle_count": 247,
+              "nondegenerate_target_triangle_count": 230,
+              "orientation_preserved_triangle_count": 216,
+              "orientation_preservation_fraction": 0.93913,
+              "stable_vertex_count": 140,
+              "stable_vertex_fraction_of_accepted": 0.828402
+            },
+            "lsv": {
+              "accepted_vertex_count": 79,
+              "complete_source_triangle_count": 155,
+              "nondegenerate_target_triangle_count": 112,
+              "orientation_preserved_triangle_count": 74,
+              "orientation_preservation_fraction": 0.660714,
+              "stable_vertex_count": 62,
+              "stable_vertex_fraction_of_accepted": 0.78481
+            },
+            "rsv": {
+              "accepted_vertex_count": 25,
+              "complete_source_triangle_count": 30,
+              "nondegenerate_target_triangle_count": 25,
+              "orientation_preserved_triangle_count": 8,
+              "orientation_preservation_fraction": 0.32,
+              "stable_vertex_count": 17,
+              "stable_vertex_fraction_of_accepted": 0.68
+            }
+          },
+          "totals": {
+            "accepted_vertex_count": 274,
+            "complete_source_triangle_count": 432,
+            "nondegenerate_target_triangle_count": 367,
+            "orientation_preserved_triangle_count": 298,
+            "stable_vertex_count": 219,
+            "orientation_preservation_fraction": 0.811989
+          }
+        }
+      },
+      "comparison": {
+        "orientation_preserved_triangle_delta": 144,
+        "orientation_preserved_triangle_multiplier": 1.935065
+      },
+      "baseline_query_prefix_reproduced": true,
+      "artifacts": {
+        "audit": "data/phase5_training_track_topology_v1/ring_005/training_track_topology_audit.png"
+      }
+    },
+    {
+      "object_id": "ring_006",
+      "split": "train",
+      "variants": {
+        "phase5_6_baseline": {
+          "targets": {
+            "top": {
+              "accepted_vertex_count": 0,
+              "complete_source_triangle_count": 0,
+              "nondegenerate_target_triangle_count": 0,
+              "orientation_preserved_triangle_count": 0,
+              "orientation_preservation_fraction": 0.0,
+              "stable_vertex_count": 0,
+              "stable_vertex_fraction_of_accepted": 0.0
+            },
+            "iso": {
+              "accepted_vertex_count": 23,
+              "complete_source_triangle_count": 28,
+              "nondegenerate_target_triangle_count": 27,
+              "orientation_preserved_triangle_count": 26,
+              "orientation_preservation_fraction": 0.962963,
+              "stable_vertex_count": 17,
+              "stable_vertex_fraction_of_accepted": 0.73913
+            },
+            "lsv": {
+              "accepted_vertex_count": 12,
+              "complete_source_triangle_count": 14,
+              "nondegenerate_target_triangle_count": 14,
+              "orientation_preserved_triangle_count": 11,
+              "orientation_preservation_fraction": 0.785714,
+              "stable_vertex_count": 7,
+              "stable_vertex_fraction_of_accepted": 0.583333
+            },
+            "rsv": {
+              "accepted_vertex_count": 6,
+              "complete_source_triangle_count": 0,
+              "nondegenerate_target_triangle_count": 0,
+              "orientation_preserved_triangle_count": 0,
+              "orientation_preservation_fraction": 0.0,
+              "stable_vertex_count": 0,
+              "stable_vertex_fraction_of_accepted": 0.0
+            }
+          },
+          "totals": {
+            "accepted_vertex_count": 41,
+            "complete_source_triangle_count": 42,
+            "nondegenerate_target_triangle_count": 41,
+            "orientation_preserved_triangle_count": 37,
+            "stable_vertex_count": 24,
+            "orientation_preservation_fraction": 0.902439
+          }
+        },
+        "phase5_7_hybrid": {
+          "targets": {
+            "top": {
+              "accepted_vertex_count": 0,
+              "complete_source_triangle_count": 0,
+              "nondegenerate_target_triangle_count": 0,
+              "orientation_preserved_triangle_count": 0,
+              "orientation_preservation_fraction": 0.0,
+              "stable_vertex_count": 0,
+              "stable_vertex_fraction_of_accepted": 0.0
+            },
+            "iso": {
+              "accepted_vertex_count": 115,
+              "complete_source_triangle_count": 201,
+              "nondegenerate_target_triangle_count": 194,
+              "orientation_preserved_triangle_count": 172,
+              "orientation_preservation_fraction": 0.886598,
+              "stable_vertex_count": 108,
+              "stable_vertex_fraction_of_accepted": 0.93913
+            },
+            "lsv": {
+              "accepted_vertex_count": 27,
+              "complete_source_triangle_count": 28,
+              "nondegenerate_target_triangle_count": 21,
+              "orientation_preserved_triangle_count": 12,
+              "orientation_preservation_fraction": 0.571429,
+              "stable_vertex_count": 14,
+              "stable_vertex_fraction_of_accepted": 0.518519
+            },
+            "rsv": {
+              "accepted_vertex_count": 30,
+              "complete_source_triangle_count": 57,
+              "nondegenerate_target_triangle_count": 52,
+              "orientation_preserved_triangle_count": 42,
+              "orientation_preservation_fraction": 0.807692,
+              "stable_vertex_count": 27,
+              "stable_vertex_fraction_of_accepted": 0.9
+            }
+          },
+          "totals": {
+            "accepted_vertex_count": 172,
+            "complete_source_triangle_count": 286,
+            "nondegenerate_target_triangle_count": 267,
+            "orientation_preserved_triangle_count": 226,
+            "stable_vertex_count": 149,
+            "orientation_preservation_fraction": 0.846442
+          }
+        }
+      },
+      "comparison": {
+        "orientation_preserved_triangle_delta": 189,
+        "orientation_preserved_triangle_multiplier": 6.108108
+      },
+      "baseline_query_prefix_reproduced": true,
+      "artifacts": {
+        "audit": "data/phase5_training_track_topology_v1/ring_006/training_track_topology_audit.png"
+      }
+    },
+    {
+      "object_id": "ring_008",
+      "split": "train",
+      "variants": {
+        "phase5_6_baseline": {
+          "targets": {
+            "top": {
+              "accepted_vertex_count": 2,
+              "complete_source_triangle_count": 0,
+              "nondegenerate_target_triangle_count": 0,
+              "orientation_preserved_triangle_count": 0,
+              "orientation_preservation_fraction": 0.0,
+              "stable_vertex_count": 0,
+              "stable_vertex_fraction_of_accepted": 0.0
+            },
+            "iso": {
+              "accepted_vertex_count": 125,
+              "complete_source_triangle_count": 243,
+              "nondegenerate_target_triangle_count": 235,
+              "orientation_preserved_triangle_count": 226,
+              "orientation_preservation_fraction": 0.961702,
+              "stable_vertex_count": 116,
+              "stable_vertex_fraction_of_accepted": 0.928
+            },
+            "lsv": {
+              "accepted_vertex_count": 9,
+              "complete_source_triangle_count": 4,
+              "nondegenerate_target_triangle_count": 4,
+              "orientation_preserved_triangle_count": 0,
+              "orientation_preservation_fraction": 0.0,
+              "stable_vertex_count": 0,
+              "stable_vertex_fraction_of_accepted": 0.0
+            },
+            "rsv": {
+              "accepted_vertex_count": 23,
+              "complete_source_triangle_count": 30,
+              "nondegenerate_target_triangle_count": 27,
+              "orientation_preserved_triangle_count": 26,
+              "orientation_preservation_fraction": 0.962963,
+              "stable_vertex_count": 18,
+              "stable_vertex_fraction_of_accepted": 0.782609
+            }
+          },
+          "totals": {
+            "accepted_vertex_count": 159,
+            "complete_source_triangle_count": 277,
+            "nondegenerate_target_triangle_count": 266,
+            "orientation_preserved_triangle_count": 252,
+            "stable_vertex_count": 134,
+            "orientation_preservation_fraction": 0.947368
+          }
+        },
+        "phase5_7_hybrid": {
+          "targets": {
+            "top": {
+              "accepted_vertex_count": 2,
+              "complete_source_triangle_count": 0,
+              "nondegenerate_target_triangle_count": 0,
+              "orientation_preserved_triangle_count": 0,
+              "orientation_preservation_fraction": 0.0,
+              "stable_vertex_count": 0,
+              "stable_vertex_fraction_of_accepted": 0.0
+            },
+            "iso": {
+              "accepted_vertex_count": 444,
+              "complete_source_triangle_count": 666,
+              "nondegenerate_target_triangle_count": 631,
+              "orientation_preserved_triangle_count": 584,
+              "orientation_preservation_fraction": 0.925515,
+              "stable_vertex_count": 402,
+              "stable_vertex_fraction_of_accepted": 0.905405
+            },
+            "lsv": {
+              "accepted_vertex_count": 39,
+              "complete_source_triangle_count": 48,
+              "nondegenerate_target_triangle_count": 26,
+              "orientation_preserved_triangle_count": 11,
+              "orientation_preservation_fraction": 0.423077,
+              "stable_vertex_count": 23,
+              "stable_vertex_fraction_of_accepted": 0.589744
+            },
+            "rsv": {
+              "accepted_vertex_count": 97,
+              "complete_source_triangle_count": 183,
+              "nondegenerate_target_triangle_count": 156,
+              "orientation_preserved_triangle_count": 134,
+              "orientation_preservation_fraction": 0.858974,
+              "stable_vertex_count": 85,
+              "stable_vertex_fraction_of_accepted": 0.876289
+            }
+          },
+          "totals": {
+            "accepted_vertex_count": 582,
+            "complete_source_triangle_count": 897,
+            "nondegenerate_target_triangle_count": 813,
+            "orientation_preserved_triangle_count": 729,
+            "stable_vertex_count": 510,
+            "orientation_preservation_fraction": 0.896679
+          }
+        }
+      },
+      "comparison": {
+        "orientation_preserved_triangle_delta": 477,
+        "orientation_preserved_triangle_multiplier": 2.892857
+      },
+      "baseline_query_prefix_reproduced": true,
+      "artifacts": {
+        "audit": "data/phase5_training_track_topology_v1/ring_008/training_track_topology_audit.png"
+      }
+    },
+    {
+      "object_id": "ring_009",
+      "split": "train",
+      "variants": {
+        "phase5_6_baseline": {
+          "targets": {
+            "top": {
+              "accepted_vertex_count": 0,
+              "complete_source_triangle_count": 0,
+              "nondegenerate_target_triangle_count": 0,
+              "orientation_preserved_triangle_count": 0,
+              "orientation_preservation_fraction": 0.0,
+              "stable_vertex_count": 0,
+              "stable_vertex_fraction_of_accepted": 0.0
+            },
+            "iso": {
+              "accepted_vertex_count": 8,
+              "complete_source_triangle_count": 1,
+              "nondegenerate_target_triangle_count": 1,
+              "orientation_preserved_triangle_count": 0,
+              "orientation_preservation_fraction": 0.0,
+              "stable_vertex_count": 0,
+              "stable_vertex_fraction_of_accepted": 0.0
+            },
+            "lsv": {
+              "accepted_vertex_count": 17,
+              "complete_source_triangle_count": 22,
+              "nondegenerate_target_triangle_count": 16,
+              "orientation_preserved_triangle_count": 11,
+              "orientation_preservation_fraction": 0.6875,
+              "stable_vertex_count": 15,
+              "stable_vertex_fraction_of_accepted": 0.882353
+            },
+            "rsv": {
+              "accepted_vertex_count": 1,
+              "complete_source_triangle_count": 0,
+              "nondegenerate_target_triangle_count": 0,
+              "orientation_preserved_triangle_count": 0,
+              "orientation_preservation_fraction": 0.0,
+              "stable_vertex_count": 0,
+              "stable_vertex_fraction_of_accepted": 0.0
+            }
+          },
+          "totals": {
+            "accepted_vertex_count": 26,
+            "complete_source_triangle_count": 23,
+            "nondegenerate_target_triangle_count": 17,
+            "orientation_preserved_triangle_count": 11,
+            "stable_vertex_count": 15,
+            "orientation_preservation_fraction": 0.647059
+          }
+        },
+        "phase5_7_hybrid": {
+          "targets": {
+            "top": {
+              "accepted_vertex_count": 0,
+              "complete_source_triangle_count": 0,
+              "nondegenerate_target_triangle_count": 0,
+              "orientation_preserved_triangle_count": 0,
+              "orientation_preservation_fraction": 0.0,
+              "stable_vertex_count": 0,
+              "stable_vertex_fraction_of_accepted": 0.0
+            },
+            "iso": {
+              "accepted_vertex_count": 11,
+              "complete_source_triangle_count": 10,
+              "nondegenerate_target_triangle_count": 9,
+              "orientation_preserved_triangle_count": 2,
+              "orientation_preservation_fraction": 0.222222,
+              "stable_vertex_count": 5,
+              "stable_vertex_fraction_of_accepted": 0.454545
+            },
+            "lsv": {
+              "accepted_vertex_count": 41,
+              "complete_source_triangle_count": 70,
+              "nondegenerate_target_triangle_count": 51,
+              "orientation_preserved_triangle_count": 41,
+              "orientation_preservation_fraction": 0.803922,
+              "stable_vertex_count": 35,
+              "stable_vertex_fraction_of_accepted": 0.853659
+            },
+            "rsv": {
+              "accepted_vertex_count": 1,
+              "complete_source_triangle_count": 0,
+              "nondegenerate_target_triangle_count": 0,
+              "orientation_preserved_triangle_count": 0,
+              "orientation_preservation_fraction": 0.0,
+              "stable_vertex_count": 0,
+              "stable_vertex_fraction_of_accepted": 0.0
+            }
+          },
+          "totals": {
+            "accepted_vertex_count": 53,
+            "complete_source_triangle_count": 80,
+            "nondegenerate_target_triangle_count": 60,
+            "orientation_preserved_triangle_count": 43,
+            "stable_vertex_count": 40,
+            "orientation_preservation_fraction": 0.716667
+          }
+        }
+      },
+      "comparison": {
+        "orientation_preserved_triangle_delta": 32,
+        "orientation_preserved_triangle_multiplier": 3.909091
+      },
+      "baseline_query_prefix_reproduced": true,
+      "artifacts": {
+        "audit": "data/phase5_training_track_topology_v1/ring_009/training_track_topology_audit.png"
+      }
+    },
+    {
+      "object_id": "ring_010",
+      "split": "train",
+      "variants": {
+        "phase5_6_baseline": {
+          "targets": {
+            "top": {
+              "accepted_vertex_count": 0,
+              "complete_source_triangle_count": 0,
+              "nondegenerate_target_triangle_count": 0,
+              "orientation_preserved_triangle_count": 0,
+              "orientation_preservation_fraction": 0.0,
+              "stable_vertex_count": 0,
+              "stable_vertex_fraction_of_accepted": 0.0
+            },
+            "iso": {
+              "accepted_vertex_count": 130,
+              "complete_source_triangle_count": 226,
+              "nondegenerate_target_triangle_count": 222,
+              "orientation_preserved_triangle_count": 209,
+              "orientation_preservation_fraction": 0.941441,
+              "stable_vertex_count": 118,
+              "stable_vertex_fraction_of_accepted": 0.907692
+            },
+            "lsv": {
+              "accepted_vertex_count": 36,
+              "complete_source_triangle_count": 61,
+              "nondegenerate_target_triangle_count": 53,
+              "orientation_preserved_triangle_count": 44,
+              "orientation_preservation_fraction": 0.830189,
+              "stable_vertex_count": 33,
+              "stable_vertex_fraction_of_accepted": 0.916667
+            },
+            "rsv": {
+              "accepted_vertex_count": 20,
+              "complete_source_triangle_count": 42,
+              "nondegenerate_target_triangle_count": 37,
+              "orientation_preserved_triangle_count": 30,
+              "orientation_preservation_fraction": 0.810811,
+              "stable_vertex_count": 19,
+              "stable_vertex_fraction_of_accepted": 0.95
+            }
+          },
+          "totals": {
+            "accepted_vertex_count": 186,
+            "complete_source_triangle_count": 329,
+            "nondegenerate_target_triangle_count": 312,
+            "orientation_preserved_triangle_count": 283,
+            "stable_vertex_count": 170,
+            "orientation_preservation_fraction": 0.907051
+          }
+        },
+        "phase5_7_hybrid": {
+          "targets": {
+            "top": {
+              "accepted_vertex_count": 1,
+              "complete_source_triangle_count": 0,
+              "nondegenerate_target_triangle_count": 0,
+              "orientation_preserved_triangle_count": 0,
+              "orientation_preservation_fraction": 0.0,
+              "stable_vertex_count": 0,
+              "stable_vertex_fraction_of_accepted": 0.0
+            },
+            "iso": {
+              "accepted_vertex_count": 414,
+              "complete_source_triangle_count": 541,
+              "nondegenerate_target_triangle_count": 504,
+              "orientation_preserved_triangle_count": 484,
+              "orientation_preservation_fraction": 0.960317,
+              "stable_vertex_count": 359,
+              "stable_vertex_fraction_of_accepted": 0.86715
+            },
+            "lsv": {
+              "accepted_vertex_count": 103,
+              "complete_source_triangle_count": 175,
+              "nondegenerate_target_triangle_count": 140,
+              "orientation_preserved_triangle_count": 88,
+              "orientation_preservation_fraction": 0.628571,
+              "stable_vertex_count": 78,
+              "stable_vertex_fraction_of_accepted": 0.757282
+            },
+            "rsv": {
+              "accepted_vertex_count": 68,
+              "complete_source_triangle_count": 124,
+              "nondegenerate_target_triangle_count": 109,
+              "orientation_preserved_triangle_count": 101,
+              "orientation_preservation_fraction": 0.926606,
+              "stable_vertex_count": 58,
+              "stable_vertex_fraction_of_accepted": 0.852941
+            }
+          },
+          "totals": {
+            "accepted_vertex_count": 586,
+            "complete_source_triangle_count": 840,
+            "nondegenerate_target_triangle_count": 753,
+            "orientation_preserved_triangle_count": 673,
+            "stable_vertex_count": 495,
+            "orientation_preservation_fraction": 0.893758
+          }
+        }
+      },
+      "comparison": {
+        "orientation_preserved_triangle_delta": 390,
+        "orientation_preserved_triangle_multiplier": 2.378092
+      },
+      "baseline_query_prefix_reproduced": true,
+      "artifacts": {
+        "audit": "data/phase5_training_track_topology_v1/ring_010/training_track_topology_audit.png"
+      }
+    },
+    {
+      "object_id": "ring_011",
+      "split": "train",
+      "variants": {
+        "phase5_6_baseline": {
+          "targets": {
+            "top": {
+              "accepted_vertex_count": 3,
+              "complete_source_triangle_count": 1,
+              "nondegenerate_target_triangle_count": 1,
+              "orientation_preserved_triangle_count": 0,
+              "orientation_preservation_fraction": 0.0,
+              "stable_vertex_count": 0,
+              "stable_vertex_fraction_of_accepted": 0.0
+            },
+            "iso": {
+              "accepted_vertex_count": 96,
+              "complete_source_triangle_count": 169,
+              "nondegenerate_target_triangle_count": 165,
+              "orientation_preserved_triangle_count": 159,
+              "orientation_preservation_fraction": 0.963636,
+              "stable_vertex_count": 89,
+              "stable_vertex_fraction_of_accepted": 0.927083
+            },
+            "lsv": {
+              "accepted_vertex_count": 22,
+              "complete_source_triangle_count": 28,
+              "nondegenerate_target_triangle_count": 19,
+              "orientation_preserved_triangle_count": 16,
+              "orientation_preservation_fraction": 0.842105,
+              "stable_vertex_count": 13,
+              "stable_vertex_fraction_of_accepted": 0.590909
+            },
+            "rsv": {
+              "accepted_vertex_count": 38,
+              "complete_source_triangle_count": 75,
+              "nondegenerate_target_triangle_count": 70,
+              "orientation_preserved_triangle_count": 62,
+              "orientation_preservation_fraction": 0.885714,
+              "stable_vertex_count": 29,
+              "stable_vertex_fraction_of_accepted": 0.763158
+            }
+          },
+          "totals": {
+            "accepted_vertex_count": 159,
+            "complete_source_triangle_count": 273,
+            "nondegenerate_target_triangle_count": 255,
+            "orientation_preserved_triangle_count": 237,
+            "stable_vertex_count": 131,
+            "orientation_preservation_fraction": 0.929412
+          }
+        },
+        "phase5_7_hybrid": {
+          "targets": {
+            "top": {
+              "accepted_vertex_count": 10,
+              "complete_source_triangle_count": 21,
+              "nondegenerate_target_triangle_count": 15,
+              "orientation_preserved_triangle_count": 13,
+              "orientation_preservation_fraction": 0.866667,
+              "stable_vertex_count": 8,
+              "stable_vertex_fraction_of_accepted": 0.8
+            },
+            "iso": {
+              "accepted_vertex_count": 301,
+              "complete_source_triangle_count": 488,
+              "nondegenerate_target_triangle_count": 458,
+              "orientation_preserved_triangle_count": 426,
+              "orientation_preservation_fraction": 0.930131,
+              "stable_vertex_count": 274,
+              "stable_vertex_fraction_of_accepted": 0.910299
+            },
+            "lsv": {
+              "accepted_vertex_count": 97,
+              "complete_source_triangle_count": 163,
+              "nondegenerate_target_triangle_count": 134,
+              "orientation_preserved_triangle_count": 108,
+              "orientation_preservation_fraction": 0.80597,
+              "stable_vertex_count": 80,
+              "stable_vertex_fraction_of_accepted": 0.824742
+            },
+            "rsv": {
+              "accepted_vertex_count": 124,
+              "complete_source_triangle_count": 169,
+              "nondegenerate_target_triangle_count": 133,
+              "orientation_preserved_triangle_count": 114,
+              "orientation_preservation_fraction": 0.857143,
+              "stable_vertex_count": 94,
+              "stable_vertex_fraction_of_accepted": 0.758065
+            }
+          },
+          "totals": {
+            "accepted_vertex_count": 532,
+            "complete_source_triangle_count": 841,
+            "nondegenerate_target_triangle_count": 740,
+            "orientation_preserved_triangle_count": 661,
+            "stable_vertex_count": 456,
+            "orientation_preservation_fraction": 0.893243
+          }
+        }
+      },
+      "comparison": {
+        "orientation_preserved_triangle_delta": 424,
+        "orientation_preserved_triangle_multiplier": 2.78903
+      },
+      "baseline_query_prefix_reproduced": true,
+      "artifacts": {
+        "audit": "data/phase5_training_track_topology_v1/ring_011/training_track_topology_audit.png"
+      }
+    },
+    {
+      "object_id": "ring_013",
+      "split": "train",
+      "variants": {
+        "phase5_6_baseline": {
+          "targets": {
+            "top": {
+              "accepted_vertex_count": 0,
+              "complete_source_triangle_count": 0,
+              "nondegenerate_target_triangle_count": 0,
+              "orientation_preserved_triangle_count": 0,
+              "orientation_preservation_fraction": 0.0,
+              "stable_vertex_count": 0,
+              "stable_vertex_fraction_of_accepted": 0.0
+            },
+            "iso": {
+              "accepted_vertex_count": 36,
+              "complete_source_triangle_count": 88,
+              "nondegenerate_target_triangle_count": 87,
+              "orientation_preserved_triangle_count": 81,
+              "orientation_preservation_fraction": 0.931034,
+              "stable_vertex_count": 30,
+              "stable_vertex_fraction_of_accepted": 0.833333
+            },
+            "lsv": {
+              "accepted_vertex_count": 12,
+              "complete_source_triangle_count": 25,
+              "nondegenerate_target_triangle_count": 17,
+              "orientation_preserved_triangle_count": 10,
+              "orientation_preservation_fraction": 0.588235,
+              "stable_vertex_count": 7,
+              "stable_vertex_fraction_of_accepted": 0.583333
+            },
+            "rsv": {
+              "accepted_vertex_count": 4,
+              "complete_source_triangle_count": 0,
+              "nondegenerate_target_triangle_count": 0,
+              "orientation_preserved_triangle_count": 0,
+              "orientation_preservation_fraction": 0.0,
+              "stable_vertex_count": 0,
+              "stable_vertex_fraction_of_accepted": 0.0
+            }
+          },
+          "totals": {
+            "accepted_vertex_count": 52,
+            "complete_source_triangle_count": 113,
+            "nondegenerate_target_triangle_count": 104,
+            "orientation_preserved_triangle_count": 91,
+            "stable_vertex_count": 37,
+            "orientation_preservation_fraction": 0.875
+          }
+        },
+        "phase5_7_hybrid": {
+          "targets": {
+            "top": {
+              "accepted_vertex_count": 0,
+              "complete_source_triangle_count": 0,
+              "nondegenerate_target_triangle_count": 0,
+              "orientation_preserved_triangle_count": 0,
+              "orientation_preservation_fraction": 0.0,
+              "stable_vertex_count": 0,
+              "stable_vertex_fraction_of_accepted": 0.0
+            },
+            "iso": {
+              "accepted_vertex_count": 128,
+              "complete_source_triangle_count": 191,
+              "nondegenerate_target_triangle_count": 172,
+              "orientation_preserved_triangle_count": 157,
+              "orientation_preservation_fraction": 0.912791,
+              "stable_vertex_count": 113,
+              "stable_vertex_fraction_of_accepted": 0.882812
+            },
+            "lsv": {
+              "accepted_vertex_count": 32,
+              "complete_source_triangle_count": 54,
+              "nondegenerate_target_triangle_count": 35,
+              "orientation_preserved_triangle_count": 16,
+              "orientation_preservation_fraction": 0.457143,
+              "stable_vertex_count": 21,
+              "stable_vertex_fraction_of_accepted": 0.65625
+            },
+            "rsv": {
+              "accepted_vertex_count": 17,
+              "complete_source_triangle_count": 31,
+              "nondegenerate_target_triangle_count": 29,
+              "orientation_preserved_triangle_count": 29,
+              "orientation_preservation_fraction": 1.0,
+              "stable_vertex_count": 15,
+              "stable_vertex_fraction_of_accepted": 0.882353
+            }
+          },
+          "totals": {
+            "accepted_vertex_count": 177,
+            "complete_source_triangle_count": 276,
+            "nondegenerate_target_triangle_count": 236,
+            "orientation_preserved_triangle_count": 202,
+            "stable_vertex_count": 149,
+            "orientation_preservation_fraction": 0.855932
+          }
+        }
+      },
+      "comparison": {
+        "orientation_preserved_triangle_delta": 111,
+        "orientation_preserved_triangle_multiplier": 2.21978
+      },
+      "baseline_query_prefix_reproduced": true,
+      "artifacts": {
+        "audit": "data/phase5_training_track_topology_v1/ring_013/training_track_topology_audit.png"
+      }
+    },
+    {
+      "object_id": "ring_014",
+      "split": "train",
+      "variants": {
+        "phase5_6_baseline": {
+          "targets": {
+            "top": {
+              "accepted_vertex_count": 0,
+              "complete_source_triangle_count": 0,
+              "nondegenerate_target_triangle_count": 0,
+              "orientation_preserved_triangle_count": 0,
+              "orientation_preservation_fraction": 0.0,
+              "stable_vertex_count": 0,
+              "stable_vertex_fraction_of_accepted": 0.0
+            },
+            "iso": {
+              "accepted_vertex_count": 28,
+              "complete_source_triangle_count": 37,
+              "nondegenerate_target_triangle_count": 37,
+              "orientation_preserved_triangle_count": 30,
+              "orientation_preservation_fraction": 0.810811,
+              "stable_vertex_count": 21,
+              "stable_vertex_fraction_of_accepted": 0.75
+            },
+            "lsv": {
+              "accepted_vertex_count": 12,
+              "complete_source_triangle_count": 10,
+              "nondegenerate_target_triangle_count": 10,
+              "orientation_preserved_triangle_count": 10,
+              "orientation_preservation_fraction": 1.0,
+              "stable_vertex_count": 8,
+              "stable_vertex_fraction_of_accepted": 0.666667
+            },
+            "rsv": {
+              "accepted_vertex_count": 9,
+              "complete_source_triangle_count": 7,
+              "nondegenerate_target_triangle_count": 7,
+              "orientation_preserved_triangle_count": 6,
+              "orientation_preservation_fraction": 0.857143,
+              "stable_vertex_count": 5,
+              "stable_vertex_fraction_of_accepted": 0.555556
+            }
+          },
+          "totals": {
+            "accepted_vertex_count": 49,
+            "complete_source_triangle_count": 54,
+            "nondegenerate_target_triangle_count": 54,
+            "orientation_preserved_triangle_count": 46,
+            "stable_vertex_count": 34,
+            "orientation_preservation_fraction": 0.851852
+          }
+        },
+        "phase5_7_hybrid": {
+          "targets": {
+            "top": {
+              "accepted_vertex_count": 0,
+              "complete_source_triangle_count": 0,
+              "nondegenerate_target_triangle_count": 0,
+              "orientation_preserved_triangle_count": 0,
+              "orientation_preservation_fraction": 0.0,
+              "stable_vertex_count": 0,
+              "stable_vertex_fraction_of_accepted": 0.0
+            },
+            "iso": {
+              "accepted_vertex_count": 119,
+              "complete_source_triangle_count": 199,
+              "nondegenerate_target_triangle_count": 190,
+              "orientation_preserved_triangle_count": 161,
+              "orientation_preservation_fraction": 0.847368,
+              "stable_vertex_count": 108,
+              "stable_vertex_fraction_of_accepted": 0.907563
+            },
+            "lsv": {
+              "accepted_vertex_count": 41,
+              "complete_source_triangle_count": 97,
+              "nondegenerate_target_triangle_count": 78,
+              "orientation_preserved_triangle_count": 62,
+              "orientation_preservation_fraction": 0.794872,
+              "stable_vertex_count": 34,
+              "stable_vertex_fraction_of_accepted": 0.829268
+            },
+            "rsv": {
+              "accepted_vertex_count": 46,
+              "complete_source_triangle_count": 88,
+              "nondegenerate_target_triangle_count": 79,
+              "orientation_preserved_triangle_count": 68,
+              "orientation_preservation_fraction": 0.860759,
+              "stable_vertex_count": 44,
+              "stable_vertex_fraction_of_accepted": 0.956522
+            }
+          },
+          "totals": {
+            "accepted_vertex_count": 206,
+            "complete_source_triangle_count": 384,
+            "nondegenerate_target_triangle_count": 347,
+            "orientation_preserved_triangle_count": 291,
+            "stable_vertex_count": 186,
+            "orientation_preservation_fraction": 0.838617
+          }
+        }
+      },
+      "comparison": {
+        "orientation_preserved_triangle_delta": 245,
+        "orientation_preserved_triangle_multiplier": 6.326087
+      },
+      "baseline_query_prefix_reproduced": true,
+      "artifacts": {
+        "audit": "data/phase5_training_track_topology_v1/ring_014/training_track_topology_audit.png"
+      }
+    },
+    {
+      "object_id": "ring_016",
+      "split": "train",
+      "variants": {
+        "phase5_6_baseline": {
+          "targets": {
+            "top": {
+              "accepted_vertex_count": 0,
+              "complete_source_triangle_count": 0,
+              "nondegenerate_target_triangle_count": 0,
+              "orientation_preserved_triangle_count": 0,
+              "orientation_preservation_fraction": 0.0,
+              "stable_vertex_count": 0,
+              "stable_vertex_fraction_of_accepted": 0.0
+            },
+            "iso": {
+              "accepted_vertex_count": 67,
+              "complete_source_triangle_count": 125,
+              "nondegenerate_target_triangle_count": 123,
+              "orientation_preserved_triangle_count": 114,
+              "orientation_preservation_fraction": 0.926829,
+              "stable_vertex_count": 59,
+              "stable_vertex_fraction_of_accepted": 0.880597
+            },
+            "lsv": {
+              "accepted_vertex_count": 21,
+              "complete_source_triangle_count": 30,
+              "nondegenerate_target_triangle_count": 26,
+              "orientation_preserved_triangle_count": 16,
+              "orientation_preservation_fraction": 0.615385,
+              "stable_vertex_count": 15,
+              "stable_vertex_fraction_of_accepted": 0.714286
+            },
+            "rsv": {
+              "accepted_vertex_count": 5,
+              "complete_source_triangle_count": 0,
+              "nondegenerate_target_triangle_count": 0,
+              "orientation_preserved_triangle_count": 0,
+              "orientation_preservation_fraction": 0.0,
+              "stable_vertex_count": 0,
+              "stable_vertex_fraction_of_accepted": 0.0
+            }
+          },
+          "totals": {
+            "accepted_vertex_count": 93,
+            "complete_source_triangle_count": 155,
+            "nondegenerate_target_triangle_count": 149,
+            "orientation_preserved_triangle_count": 130,
+            "stable_vertex_count": 74,
+            "orientation_preservation_fraction": 0.872483
+          }
+        },
+        "phase5_7_hybrid": {
+          "targets": {
+            "top": {
+              "accepted_vertex_count": 2,
+              "complete_source_triangle_count": 0,
+              "nondegenerate_target_triangle_count": 0,
+              "orientation_preserved_triangle_count": 0,
+              "orientation_preservation_fraction": 0.0,
+              "stable_vertex_count": 0,
+              "stable_vertex_fraction_of_accepted": 0.0
+            },
+            "iso": {
+              "accepted_vertex_count": 285,
+              "complete_source_triangle_count": 393,
+              "nondegenerate_target_triangle_count": 342,
+              "orientation_preserved_triangle_count": 313,
+              "orientation_preservation_fraction": 0.915205,
+              "stable_vertex_count": 246,
+              "stable_vertex_fraction_of_accepted": 0.863158
+            },
+            "lsv": {
+              "accepted_vertex_count": 73,
+              "complete_source_triangle_count": 100,
+              "nondegenerate_target_triangle_count": 79,
+              "orientation_preserved_triangle_count": 53,
+              "orientation_preservation_fraction": 0.670886,
+              "stable_vertex_count": 51,
+              "stable_vertex_fraction_of_accepted": 0.69863
+            },
+            "rsv": {
+              "accepted_vertex_count": 23,
+              "complete_source_triangle_count": 26,
+              "nondegenerate_target_triangle_count": 22,
+              "orientation_preserved_triangle_count": 20,
+              "orientation_preservation_fraction": 0.909091,
+              "stable_vertex_count": 14,
+              "stable_vertex_fraction_of_accepted": 0.608696
+            }
+          },
+          "totals": {
+            "accepted_vertex_count": 383,
+            "complete_source_triangle_count": 519,
+            "nondegenerate_target_triangle_count": 443,
+            "orientation_preserved_triangle_count": 386,
+            "stable_vertex_count": 311,
+            "orientation_preservation_fraction": 0.871332
+          }
+        }
+      },
+      "comparison": {
+        "orientation_preserved_triangle_delta": 256,
+        "orientation_preserved_triangle_multiplier": 2.969231
+      },
+      "baseline_query_prefix_reproduced": true,
+      "artifacts": {
+        "audit": "data/phase5_training_track_topology_v1/ring_016/training_track_topology_audit.png"
+      }
+    },
+    {
+      "object_id": "ring_017",
+      "split": "train",
+      "variants": {
+        "phase5_6_baseline": {
+          "targets": {
+            "top": {
+              "accepted_vertex_count": 4,
+              "complete_source_triangle_count": 3,
+              "nondegenerate_target_triangle_count": 2,
+              "orientation_preserved_triangle_count": 1,
+              "orientation_preservation_fraction": 0.5,
+              "stable_vertex_count": 3,
+              "stable_vertex_fraction_of_accepted": 0.75
+            },
+            "iso": {
+              "accepted_vertex_count": 84,
+              "complete_source_triangle_count": 149,
+              "nondegenerate_target_triangle_count": 149,
+              "orientation_preserved_triangle_count": 144,
+              "orientation_preservation_fraction": 0.966443,
+              "stable_vertex_count": 80,
+              "stable_vertex_fraction_of_accepted": 0.952381
+            },
+            "lsv": {
+              "accepted_vertex_count": 18,
+              "complete_source_triangle_count": 20,
+              "nondegenerate_target_triangle_count": 19,
+              "orientation_preserved_triangle_count": 14,
+              "orientation_preservation_fraction": 0.736842,
+              "stable_vertex_count": 12,
+              "stable_vertex_fraction_of_accepted": 0.666667
+            },
+            "rsv": {
+              "accepted_vertex_count": 30,
+              "complete_source_triangle_count": 68,
+              "nondegenerate_target_triangle_count": 65,
+              "orientation_preserved_triangle_count": 49,
+              "orientation_preservation_fraction": 0.753846,
+              "stable_vertex_count": 25,
+              "stable_vertex_fraction_of_accepted": 0.833333
+            }
+          },
+          "totals": {
+            "accepted_vertex_count": 136,
+            "complete_source_triangle_count": 240,
+            "nondegenerate_target_triangle_count": 235,
+            "orientation_preserved_triangle_count": 208,
+            "stable_vertex_count": 120,
+            "orientation_preservation_fraction": 0.885106
+          }
+        },
+        "phase5_7_hybrid": {
+          "targets": {
+            "top": {
+              "accepted_vertex_count": 11,
+              "complete_source_triangle_count": 27,
+              "nondegenerate_target_triangle_count": 20,
+              "orientation_preserved_triangle_count": 11,
+              "orientation_preservation_fraction": 0.55,
+              "stable_vertex_count": 11,
+              "stable_vertex_fraction_of_accepted": 1.0
+            },
+            "iso": {
+              "accepted_vertex_count": 311,
+              "complete_source_triangle_count": 512,
+              "nondegenerate_target_triangle_count": 492,
+              "orientation_preserved_triangle_count": 464,
+              "orientation_preservation_fraction": 0.943089,
+              "stable_vertex_count": 281,
+              "stable_vertex_fraction_of_accepted": 0.903537
+            },
+            "lsv": {
+              "accepted_vertex_count": 71,
+              "complete_source_triangle_count": 160,
+              "nondegenerate_target_triangle_count": 121,
+              "orientation_preserved_triangle_count": 70,
+              "orientation_preservation_fraction": 0.578512,
+              "stable_vertex_count": 66,
+              "stable_vertex_fraction_of_accepted": 0.929577
+            },
+            "rsv": {
+              "accepted_vertex_count": 102,
+              "complete_source_triangle_count": 164,
+              "nondegenerate_target_triangle_count": 125,
+              "orientation_preserved_triangle_count": 101,
+              "orientation_preservation_fraction": 0.808,
+              "stable_vertex_count": 80,
+              "stable_vertex_fraction_of_accepted": 0.784314
+            }
+          },
+          "totals": {
+            "accepted_vertex_count": 495,
+            "complete_source_triangle_count": 863,
+            "nondegenerate_target_triangle_count": 758,
+            "orientation_preserved_triangle_count": 646,
+            "stable_vertex_count": 438,
+            "orientation_preservation_fraction": 0.852243
+          }
+        }
+      },
+      "comparison": {
+        "orientation_preserved_triangle_delta": 438,
+        "orientation_preserved_triangle_multiplier": 3.105769
+      },
+      "baseline_query_prefix_reproduced": true,
+      "artifacts": {
+        "audit": "data/phase5_training_track_topology_v1/ring_017/training_track_topology_audit.png"
+      }
+    },
+    {
+      "object_id": "ring_018",
+      "split": "train",
+      "variants": {
+        "phase5_6_baseline": {
+          "targets": {
+            "top": {
+              "accepted_vertex_count": 0,
+              "complete_source_triangle_count": 0,
+              "nondegenerate_target_triangle_count": 0,
+              "orientation_preserved_triangle_count": 0,
+              "orientation_preservation_fraction": 0.0,
+              "stable_vertex_count": 0,
+              "stable_vertex_fraction_of_accepted": 0.0
+            },
+            "iso": {
+              "accepted_vertex_count": 38,
+              "complete_source_triangle_count": 37,
+              "nondegenerate_target_triangle_count": 37,
+              "orientation_preserved_triangle_count": 36,
+              "orientation_preservation_fraction": 0.972973,
+              "stable_vertex_count": 31,
+              "stable_vertex_fraction_of_accepted": 0.815789
+            },
+            "lsv": {
+              "accepted_vertex_count": 8,
+              "complete_source_triangle_count": 16,
+              "nondegenerate_target_triangle_count": 10,
+              "orientation_preserved_triangle_count": 6,
+              "orientation_preservation_fraction": 0.6,
+              "stable_vertex_count": 6,
+              "stable_vertex_fraction_of_accepted": 0.75
+            },
+            "rsv": {
+              "accepted_vertex_count": 4,
+              "complete_source_triangle_count": 1,
+              "nondegenerate_target_triangle_count": 1,
+              "orientation_preserved_triangle_count": 1,
+              "orientation_preservation_fraction": 1.0,
+              "stable_vertex_count": 3,
+              "stable_vertex_fraction_of_accepted": 0.75
+            }
+          },
+          "totals": {
+            "accepted_vertex_count": 50,
+            "complete_source_triangle_count": 54,
+            "nondegenerate_target_triangle_count": 48,
+            "orientation_preserved_triangle_count": 43,
+            "stable_vertex_count": 40,
+            "orientation_preservation_fraction": 0.895833
+          }
+        },
+        "phase5_7_hybrid": {
+          "targets": {
+            "top": {
+              "accepted_vertex_count": 0,
+              "complete_source_triangle_count": 0,
+              "nondegenerate_target_triangle_count": 0,
+              "orientation_preserved_triangle_count": 0,
+              "orientation_preservation_fraction": 0.0,
+              "stable_vertex_count": 0,
+              "stable_vertex_fraction_of_accepted": 0.0
+            },
+            "iso": {
+              "accepted_vertex_count": 171,
+              "complete_source_triangle_count": 249,
+              "nondegenerate_target_triangle_count": 227,
+              "orientation_preserved_triangle_count": 202,
+              "orientation_preservation_fraction": 0.889868,
+              "stable_vertex_count": 149,
+              "stable_vertex_fraction_of_accepted": 0.871345
+            },
+            "lsv": {
+              "accepted_vertex_count": 13,
+              "complete_source_triangle_count": 23,
+              "nondegenerate_target_triangle_count": 7,
+              "orientation_preserved_triangle_count": 4,
+              "orientation_preservation_fraction": 0.571429,
+              "stable_vertex_count": 8,
+              "stable_vertex_fraction_of_accepted": 0.615385
+            },
+            "rsv": {
+              "accepted_vertex_count": 7,
+              "complete_source_triangle_count": 2,
+              "nondegenerate_target_triangle_count": 2,
+              "orientation_preserved_triangle_count": 1,
+              "orientation_preservation_fraction": 0.5,
+              "stable_vertex_count": 3,
+              "stable_vertex_fraction_of_accepted": 0.428571
+            }
+          },
+          "totals": {
+            "accepted_vertex_count": 191,
+            "complete_source_triangle_count": 274,
+            "nondegenerate_target_triangle_count": 236,
+            "orientation_preserved_triangle_count": 207,
+            "stable_vertex_count": 160,
+            "orientation_preservation_fraction": 0.877119
+          }
+        }
+      },
+      "comparison": {
+        "orientation_preserved_triangle_delta": 164,
+        "orientation_preserved_triangle_multiplier": 4.813953
+      },
+      "baseline_query_prefix_reproduced": true,
+      "artifacts": {
+        "audit": "data/phase5_training_track_topology_v1/ring_018/training_track_topology_audit.png"
+      }
+    },
+    {
+      "object_id": "ring_019",
+      "split": "train",
+      "variants": {
+        "phase5_6_baseline": {
+          "targets": {
+            "top": {
+              "accepted_vertex_count": 1,
+              "complete_source_triangle_count": 0,
+              "nondegenerate_target_triangle_count": 0,
+              "orientation_preserved_triangle_count": 0,
+              "orientation_preservation_fraction": 0.0,
+              "stable_vertex_count": 0,
+              "stable_vertex_fraction_of_accepted": 0.0
+            },
+            "iso": {
+              "accepted_vertex_count": 65,
+              "complete_source_triangle_count": 104,
+              "nondegenerate_target_triangle_count": 103,
+              "orientation_preserved_triangle_count": 97,
+              "orientation_preservation_fraction": 0.941748,
+              "stable_vertex_count": 61,
+              "stable_vertex_fraction_of_accepted": 0.938462
+            },
+            "lsv": {
+              "accepted_vertex_count": 5,
+              "complete_source_triangle_count": 0,
+              "nondegenerate_target_triangle_count": 0,
+              "orientation_preserved_triangle_count": 0,
+              "orientation_preservation_fraction": 0.0,
+              "stable_vertex_count": 0,
+              "stable_vertex_fraction_of_accepted": 0.0
+            },
+            "rsv": {
+              "accepted_vertex_count": 1,
+              "complete_source_triangle_count": 0,
+              "nondegenerate_target_triangle_count": 0,
+              "orientation_preserved_triangle_count": 0,
+              "orientation_preservation_fraction": 0.0,
+              "stable_vertex_count": 0,
+              "stable_vertex_fraction_of_accepted": 0.0
+            }
+          },
+          "totals": {
+            "accepted_vertex_count": 72,
+            "complete_source_triangle_count": 104,
+            "nondegenerate_target_triangle_count": 103,
+            "orientation_preserved_triangle_count": 97,
+            "stable_vertex_count": 61,
+            "orientation_preservation_fraction": 0.941748
+          }
+        },
+        "phase5_7_hybrid": {
+          "targets": {
+            "top": {
+              "accepted_vertex_count": 1,
+              "complete_source_triangle_count": 0,
+              "nondegenerate_target_triangle_count": 0,
+              "orientation_preserved_triangle_count": 0,
+              "orientation_preservation_fraction": 0.0,
+              "stable_vertex_count": 0,
+              "stable_vertex_fraction_of_accepted": 0.0
+            },
+            "iso": {
+              "accepted_vertex_count": 212,
+              "complete_source_triangle_count": 343,
+              "nondegenerate_target_triangle_count": 311,
+              "orientation_preserved_triangle_count": 277,
+              "orientation_preservation_fraction": 0.890675,
+              "stable_vertex_count": 192,
+              "stable_vertex_fraction_of_accepted": 0.90566
+            },
+            "lsv": {
+              "accepted_vertex_count": 22,
+              "complete_source_triangle_count": 26,
+              "nondegenerate_target_triangle_count": 15,
+              "orientation_preserved_triangle_count": 5,
+              "orientation_preservation_fraction": 0.333333,
+              "stable_vertex_count": 11,
+              "stable_vertex_fraction_of_accepted": 0.5
+            },
+            "rsv": {
+              "accepted_vertex_count": 5,
+              "complete_source_triangle_count": 5,
+              "nondegenerate_target_triangle_count": 0,
+              "orientation_preserved_triangle_count": 0,
+              "orientation_preservation_fraction": 0.0,
+              "stable_vertex_count": 0,
+              "stable_vertex_fraction_of_accepted": 0.0
+            }
+          },
+          "totals": {
+            "accepted_vertex_count": 240,
+            "complete_source_triangle_count": 374,
+            "nondegenerate_target_triangle_count": 326,
+            "orientation_preserved_triangle_count": 282,
+            "stable_vertex_count": 203,
+            "orientation_preservation_fraction": 0.865031
+          }
+        }
+      },
+      "comparison": {
+        "orientation_preserved_triangle_delta": 185,
+        "orientation_preserved_triangle_multiplier": 2.907216
+      },
+      "baseline_query_prefix_reproduced": true,
+      "artifacts": {
+        "audit": "data/phase5_training_track_topology_v1/ring_019/training_track_topology_audit.png"
+      }
+    },
+    {
+      "object_id": "ring_021",
+      "split": "train",
+      "variants": {
+        "phase5_6_baseline": {
+          "targets": {
+            "top": {
+              "accepted_vertex_count": 0,
+              "complete_source_triangle_count": 0,
+              "nondegenerate_target_triangle_count": 0,
+              "orientation_preserved_triangle_count": 0,
+              "orientation_preservation_fraction": 0.0,
+              "stable_vertex_count": 0,
+              "stable_vertex_fraction_of_accepted": 0.0
+            },
+            "iso": {
+              "accepted_vertex_count": 24,
+              "complete_source_triangle_count": 29,
+              "nondegenerate_target_triangle_count": 29,
+              "orientation_preserved_triangle_count": 26,
+              "orientation_preservation_fraction": 0.896552,
+              "stable_vertex_count": 16,
+              "stable_vertex_fraction_of_accepted": 0.666667
+            },
+            "lsv": {
+              "accepted_vertex_count": 23,
+              "complete_source_triangle_count": 31,
+              "nondegenerate_target_triangle_count": 25,
+              "orientation_preserved_triangle_count": 21,
+              "orientation_preservation_fraction": 0.84,
+              "stable_vertex_count": 19,
+              "stable_vertex_fraction_of_accepted": 0.826087
+            },
+            "rsv": {
+              "accepted_vertex_count": 13,
+              "complete_source_triangle_count": 23,
+              "nondegenerate_target_triangle_count": 13,
+              "orientation_preserved_triangle_count": 11,
+              "orientation_preservation_fraction": 0.846154,
+              "stable_vertex_count": 13,
+              "stable_vertex_fraction_of_accepted": 1.0
+            }
+          },
+          "totals": {
+            "accepted_vertex_count": 60,
+            "complete_source_triangle_count": 83,
+            "nondegenerate_target_triangle_count": 67,
+            "orientation_preserved_triangle_count": 58,
+            "stable_vertex_count": 48,
+            "orientation_preservation_fraction": 0.865672
+          }
+        },
+        "phase5_7_hybrid": {
+          "targets": {
+            "top": {
+              "accepted_vertex_count": 0,
+              "complete_source_triangle_count": 0,
+              "nondegenerate_target_triangle_count": 0,
+              "orientation_preserved_triangle_count": 0,
+              "orientation_preservation_fraction": 0.0,
+              "stable_vertex_count": 0,
+              "stable_vertex_fraction_of_accepted": 0.0
+            },
+            "iso": {
+              "accepted_vertex_count": 70,
+              "complete_source_triangle_count": 128,
+              "nondegenerate_target_triangle_count": 122,
+              "orientation_preserved_triangle_count": 112,
+              "orientation_preservation_fraction": 0.918033,
+              "stable_vertex_count": 66,
+              "stable_vertex_fraction_of_accepted": 0.942857
+            },
+            "lsv": {
+              "accepted_vertex_count": 84,
+              "complete_source_triangle_count": 155,
+              "nondegenerate_target_triangle_count": 103,
+              "orientation_preserved_triangle_count": 66,
+              "orientation_preservation_fraction": 0.640777,
+              "stable_vertex_count": 60,
+              "stable_vertex_fraction_of_accepted": 0.714286
+            },
+            "rsv": {
+              "accepted_vertex_count": 40,
+              "complete_source_triangle_count": 70,
+              "nondegenerate_target_triangle_count": 41,
+              "orientation_preserved_triangle_count": 29,
+              "orientation_preservation_fraction": 0.707317,
+              "stable_vertex_count": 31,
+              "stable_vertex_fraction_of_accepted": 0.775
+            }
+          },
+          "totals": {
+            "accepted_vertex_count": 194,
+            "complete_source_triangle_count": 353,
+            "nondegenerate_target_triangle_count": 266,
+            "orientation_preserved_triangle_count": 207,
+            "stable_vertex_count": 157,
+            "orientation_preservation_fraction": 0.778195
+          }
+        }
+      },
+      "comparison": {
+        "orientation_preserved_triangle_delta": 149,
+        "orientation_preserved_triangle_multiplier": 3.568966
+      },
+      "baseline_query_prefix_reproduced": true,
+      "artifacts": {
+        "audit": "data/phase5_training_track_topology_v1/ring_021/training_track_topology_audit.png"
+      }
+    },
+    {
+      "object_id": "ring_022",
+      "split": "train",
+      "variants": {
+        "phase5_6_baseline": {
+          "targets": {
+            "top": {
+              "accepted_vertex_count": 0,
+              "complete_source_triangle_count": 0,
+              "nondegenerate_target_triangle_count": 0,
+              "orientation_preserved_triangle_count": 0,
+              "orientation_preservation_fraction": 0.0,
+              "stable_vertex_count": 0,
+              "stable_vertex_fraction_of_accepted": 0.0
+            },
+            "iso": {
+              "accepted_vertex_count": 82,
+              "complete_source_triangle_count": 149,
+              "nondegenerate_target_triangle_count": 149,
+              "orientation_preserved_triangle_count": 142,
+              "orientation_preservation_fraction": 0.95302,
+              "stable_vertex_count": 73,
+              "stable_vertex_fraction_of_accepted": 0.890244
+            },
+            "lsv": {
+              "accepted_vertex_count": 3,
+              "complete_source_triangle_count": 1,
+              "nondegenerate_target_triangle_count": 1,
+              "orientation_preserved_triangle_count": 1,
+              "orientation_preservation_fraction": 1.0,
+              "stable_vertex_count": 3,
+              "stable_vertex_fraction_of_accepted": 1.0
+            },
+            "rsv": {
+              "accepted_vertex_count": 10,
+              "complete_source_triangle_count": 1,
+              "nondegenerate_target_triangle_count": 1,
+              "orientation_preserved_triangle_count": 1,
+              "orientation_preservation_fraction": 1.0,
+              "stable_vertex_count": 3,
+              "stable_vertex_fraction_of_accepted": 0.3
+            }
+          },
+          "totals": {
+            "accepted_vertex_count": 95,
+            "complete_source_triangle_count": 151,
+            "nondegenerate_target_triangle_count": 151,
+            "orientation_preserved_triangle_count": 144,
+            "stable_vertex_count": 79,
+            "orientation_preservation_fraction": 0.953642
+          }
+        },
+        "phase5_7_hybrid": {
+          "targets": {
+            "top": {
+              "accepted_vertex_count": 0,
+              "complete_source_triangle_count": 0,
+              "nondegenerate_target_triangle_count": 0,
+              "orientation_preserved_triangle_count": 0,
+              "orientation_preservation_fraction": 0.0,
+              "stable_vertex_count": 0,
+              "stable_vertex_fraction_of_accepted": 0.0
+            },
+            "iso": {
+              "accepted_vertex_count": 382,
+              "complete_source_triangle_count": 630,
+              "nondegenerate_target_triangle_count": 584,
+              "orientation_preserved_triangle_count": 522,
+              "orientation_preservation_fraction": 0.893836,
+              "stable_vertex_count": 340,
+              "stable_vertex_fraction_of_accepted": 0.890052
+            },
+            "lsv": {
+              "accepted_vertex_count": 12,
+              "complete_source_triangle_count": 12,
+              "nondegenerate_target_triangle_count": 11,
+              "orientation_preserved_triangle_count": 9,
+              "orientation_preservation_fraction": 0.818182,
+              "stable_vertex_count": 6,
+              "stable_vertex_fraction_of_accepted": 0.5
+            },
+            "rsv": {
+              "accepted_vertex_count": 45,
+              "complete_source_triangle_count": 103,
+              "nondegenerate_target_triangle_count": 75,
+              "orientation_preserved_triangle_count": 57,
+              "orientation_preservation_fraction": 0.76,
+              "stable_vertex_count": 39,
+              "stable_vertex_fraction_of_accepted": 0.866667
+            }
+          },
+          "totals": {
+            "accepted_vertex_count": 439,
+            "complete_source_triangle_count": 745,
+            "nondegenerate_target_triangle_count": 670,
+            "orientation_preserved_triangle_count": 588,
+            "stable_vertex_count": 385,
+            "orientation_preservation_fraction": 0.877612
+          }
+        }
+      },
+      "comparison": {
+        "orientation_preserved_triangle_delta": 444,
+        "orientation_preserved_triangle_multiplier": 4.083333
+      },
+      "baseline_query_prefix_reproduced": true,
+      "artifacts": {
+        "audit": "data/phase5_training_track_topology_v1/ring_022/training_track_topology_audit.png"
+      }
+    },
+    {
+      "object_id": "ring_024",
+      "split": "train",
+      "variants": {
+        "phase5_6_baseline": {
+          "targets": {
+            "top": {
+              "accepted_vertex_count": 0,
+              "complete_source_triangle_count": 0,
+              "nondegenerate_target_triangle_count": 0,
+              "orientation_preserved_triangle_count": 0,
+              "orientation_preservation_fraction": 0.0,
+              "stable_vertex_count": 0,
+              "stable_vertex_fraction_of_accepted": 0.0
+            },
+            "iso": {
+              "accepted_vertex_count": 38,
+              "complete_source_triangle_count": 69,
+              "nondegenerate_target_triangle_count": 67,
+              "orientation_preserved_triangle_count": 63,
+              "orientation_preservation_fraction": 0.940299,
+              "stable_vertex_count": 35,
+              "stable_vertex_fraction_of_accepted": 0.921053
+            },
+            "lsv": {
+              "accepted_vertex_count": 0,
+              "complete_source_triangle_count": 0,
+              "nondegenerate_target_triangle_count": 0,
+              "orientation_preserved_triangle_count": 0,
+              "orientation_preservation_fraction": 0.0,
+              "stable_vertex_count": 0,
+              "stable_vertex_fraction_of_accepted": 0.0
+            },
+            "rsv": {
+              "accepted_vertex_count": 1,
+              "complete_source_triangle_count": 0,
+              "nondegenerate_target_triangle_count": 0,
+              "orientation_preserved_triangle_count": 0,
+              "orientation_preservation_fraction": 0.0,
+              "stable_vertex_count": 0,
+              "stable_vertex_fraction_of_accepted": 0.0
+            }
+          },
+          "totals": {
+            "accepted_vertex_count": 39,
+            "complete_source_triangle_count": 69,
+            "nondegenerate_target_triangle_count": 67,
+            "orientation_preserved_triangle_count": 63,
+            "stable_vertex_count": 35,
+            "orientation_preservation_fraction": 0.940299
+          }
+        },
+        "phase5_7_hybrid": {
+          "targets": {
+            "top": {
+              "accepted_vertex_count": 0,
+              "complete_source_triangle_count": 0,
+              "nondegenerate_target_triangle_count": 0,
+              "orientation_preserved_triangle_count": 0,
+              "orientation_preservation_fraction": 0.0,
+              "stable_vertex_count": 0,
+              "stable_vertex_fraction_of_accepted": 0.0
+            },
+            "iso": {
+              "accepted_vertex_count": 124,
+              "complete_source_triangle_count": 187,
+              "nondegenerate_target_triangle_count": 164,
+              "orientation_preserved_triangle_count": 131,
+              "orientation_preservation_fraction": 0.79878,
+              "stable_vertex_count": 105,
+              "stable_vertex_fraction_of_accepted": 0.846774
+            },
+            "lsv": {
+              "accepted_vertex_count": 8,
+              "complete_source_triangle_count": 23,
+              "nondegenerate_target_triangle_count": 16,
+              "orientation_preserved_triangle_count": 14,
+              "orientation_preservation_fraction": 0.875,
+              "stable_vertex_count": 7,
+              "stable_vertex_fraction_of_accepted": 0.875
+            },
+            "rsv": {
+              "accepted_vertex_count": 22,
+              "complete_source_triangle_count": 28,
+              "nondegenerate_target_triangle_count": 15,
+              "orientation_preserved_triangle_count": 15,
+              "orientation_preservation_fraction": 1.0,
+              "stable_vertex_count": 16,
+              "stable_vertex_fraction_of_accepted": 0.727273
+            }
+          },
+          "totals": {
+            "accepted_vertex_count": 154,
+            "complete_source_triangle_count": 238,
+            "nondegenerate_target_triangle_count": 195,
+            "orientation_preserved_triangle_count": 160,
+            "stable_vertex_count": 128,
+            "orientation_preservation_fraction": 0.820513
+          }
+        }
+      },
+      "comparison": {
+        "orientation_preserved_triangle_delta": 97,
+        "orientation_preserved_triangle_multiplier": 2.539683
+      },
+      "baseline_query_prefix_reproduced": true,
+      "artifacts": {
+        "audit": "data/phase5_training_track_topology_v1/ring_024/training_track_topology_audit.png"
+      }
+    }
+  ],
+  "decision": "freeze_hybrid_query_policy_for_one_validation_topology_evaluation",
+  "claims": {
+    "training_topology_density_measured": true,
+    "validation_topology_improved": false,
+    "metric_surface_recovered": false,
+    "hidden_geometry_recovered": false,
+    "cad_fusion_authorized": false,
+    "manufacturing_accuracy_validated": false
+  },
+  "limitations": [
+    "The triangles are local image-space cliques built from reciprocal correspondences, not a physical surface mesh.",
+    "Training improvement does not establish validation or test improvement.",
+    "Orientation preservation rejects obvious folds but does not prove metric geometry.",
+    "The front-to-top route remains sparse across the cohort and must not be inferred from the improved angled and side views.",
+    "Polished metal, stones, shadows and occlusion can still produce appearance-driven correspondences."
+  ],
+  "artifacts": {
+    "audit": "data/phase5_training_track_topology_v1/training_track_topology_audit.png"
+  }
+}
