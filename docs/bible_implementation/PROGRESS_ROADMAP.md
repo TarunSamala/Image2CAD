@@ -249,10 +249,21 @@ is not physical ground truth because the vertices and validation target come
 from the same retained image-depth evidence. Test remains untouched, no STEP is
 written and exact CAD is unchanged.
 
-1. Review or label the Phase 5.12 surface groups and merge/split only with
-   independent cross-view evidence. Reject rather than promote groups such as
-   the current higher-error Ring 004 trials.
-2. Review or label the Phase 5.11 patches and merge/split only with additional
+Phase 5.13 tests the unchanged Phase 5.12 surfaces outside the front view that
+created them. Existing triangle connectivity is projected through retained
+normal-corroborated reciprocal tracks, then source-derived relief is compared
+with separately prepared target-view relief without target refitting. Only 5 of
+56 target evaluations pass. Five patches have single-target review support, no
+patch has support from two targets, 26 are target-inconsistent and nine cannot
+form a target triangle. The cohort audit was visually inspected and the
+projections land on the expected target ornaments. This retained negative
+result blocks surface promotion; it does not trigger threshold relaxation.
+
+1. Improve independent cross-view support without fitting against the target
+   gate. The immediate requirement is at least two target views for any surface
+   considered for promotion; the current count is zero.
+2. Review or label the Phase 5.12 surface groups and the Phase 5.11 patches,
+   then merge or split only with additional
    evidence where a patch still crosses ornaments. Image-plane fitting, rigid
    ICP, sparse VGGT tracks and denser reciprocal-cycle registration have all
    been rejected for global geometry movement by the fixed held-out split.
@@ -271,15 +282,15 @@ written and exact CAD is unchanged.
    STL-1 views; they are aperture/openwork evidence, not confirmed stones.
 8. Add labelled real-image multi-stone evidence and resolve each accepted
    stone across views before creating seat or cavity relationships.
-8. Extend the implemented normalized ring adapter to head, shoulder, gallery,
+9. Extend the implemented normalized ring adapter to head, shoulder, gallery,
    relief and accepted component-track parameters, including uncertainty.
-9. Connect reviewed image observations to the validated independently editable
+10. Connect reviewed image observations to the validated independently editable
    stone, prong, seat and cavity generators; add relief generators separately.
-10. Add collision, clearance, minimum-wall and manufacturability checks to the
+11. Add collision, clearance, minimum-wall and manufacturability checks to the
    synthetic exact-CAD benchmark.
-11. Generate image-derived parametric CAD and refine it through
+12. Generate image-derived parametric CAD and refine it through
     render-and-compare validation.
-12. Export editable STEP plus derived STL and 3MF artifacts with explicit
+13. Export editable STEP plus derived STL and 3MF artifacts with explicit
     image-fit and uncertainty reports.
 
 The target is a high-fidelity, structurally editable reconstruction. Under the

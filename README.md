@@ -30,7 +30,7 @@ Start with the [documentation index](docs/README.md), the
 | Image-only Phase 2 | Reflection-resilient evidence and multi-view consistency | In progress; Ring01 angled inner-shank correction proposed |
 | Phase 3 | Camera, depth, normal and geometry evidence benchmark | Partial research evidence only; exit benchmark not complete |
 | Phase 4 | Component and constraint graph | Partial; synthetic exact-CAD locality passes 30/30, while reviewed image-derived component truth remains blocked |
-| Phase 5 | Exact CAD V2 | Phase 5.7–5.10 improve, corroborate, route and organize relief observations without touching test. Phase 5.11 subdivides 30 broad validation components into 83 bounded patches. Phase 5.12 turns the 40 eligible patches into finite, reversible open OBJ trials; they remain nominal-scale, semantically unknown and separate from STEP |
+| Phase 5 | Exact CAD V2 | Phase 5.11–5.12 produce 40 reversible local OBJ trials from bounded validation patches. Phase 5.13 independently projects them into tracked target views: only 5/56 target gates pass and no patch has two-target support, so every surface remains review evidence and separate from STEP |
 | Phase 6–9 | Detail, manufacturing and pilot | Not started |
 
 ## Legacy checkpoint status

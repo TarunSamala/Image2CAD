@@ -116,6 +116,11 @@ predate it, so this index prevents similarly numbered stages from being mixed.
   fitting review, samples conservative signed-relief evidence and writes open
   nominal-scale OBJ groups with same-view interpolation audits. It does not
   process test rings, infer semantics, generate STEP or authorize CAD fusion.
+- `validate_phase5_local_relief_reprojection.py` - Phase 5.13 independent
+  target-view gate. It projects unchanged Phase 5.12 triangle connectivity
+  through normal-corroborated reciprocal tracks and compares source-derived
+  relief with target-view evidence without refitting. Weak and unresolved
+  results remain visible; no surface, semantic or CAD claim is promoted.
 
 ## Shared evidence and dataset tools
 

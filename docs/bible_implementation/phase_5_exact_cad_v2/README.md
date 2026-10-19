@@ -288,6 +288,27 @@ construct the vertices. They do not establish physical relief accuracy,
 semantic identity, metric scale or hidden geometry. Test objects are untouched,
 no STEP is generated and CAD fusion remains blocked.
 
+## Phase 5.13 independent target-view reprojection
+
+`validate_phase5_local_relief_reprojection.py` keeps every Phase 5.12 OBJ
+surface unchanged and projects its existing triangle connectivity through the
+normal-corroborated reciprocal tracks retained in Phase 5.9. Source-derived
+relief values are compared with separately prepared target-view relief. Target
+evidence is never used to refit the source surface.
+
+Across the three validation rings, 56 target-view evaluations are possible.
+Only five pass the complete image-evidence gate. Five patches receive
+single-target review support, none receives support from two targets, 26 are
+target-inconsistent and nine remain unresolved because the sparse tracks cannot
+form a projected triangle. Ring 004 has no passing target evaluation. Visual
+inspection confirms that the projected triangles land on the expected target
+ornaments, so the weak result is retained rather than hidden by relaxed gates.
+
+Target coordinates remain VGGT hypotheses rather than calibrated projections,
+and target relief comes from the same family of image-depth estimators. A pass
+therefore supports review only. Physical accuracy, metric scale, semantics,
+hidden geometry, surface promotion and CAD fusion all remain unvalidated.
+
 ## Claim boundary
 
 The dimensions are designed test parameters. The fixtures verify generator
@@ -457,12 +478,25 @@ docker run --rm --user "$(id -u):$(id -g)" \
   -v "$PWD:/workspace" -w /workspace \
   image2cad-validation:phase0 \
   python -m unittest tests.test_phase5_local_relief_surfaces
+
+docker run --rm --user "$(id -u):$(id -g)" \
+  -e HOME=/tmp -e PYTHONPATH=/workspace:/workspace/pipeline \
+  -v "$PWD:/workspace" -w /workspace \
+  image2cad-validation:phase0 \
+  python -m pipeline.validate_phase5_local_relief_reprojection
+
+docker run --rm --user "$(id -u):$(id -g)" \
+  -e HOME=/tmp -e PYTHONPATH=/workspace:/workspace/pipeline \
+  -v "$PWD:/workspace" -w /workspace \
+  image2cad-validation:phase0 \
+  python -m unittest tests.test_phase5_target_reprojection
 ```
 
 ## Next gate
 
-1. Add independent target-view reprojection checks to the Phase 5.12 local
-   surfaces; same-view interpolation alone cannot promote them into CAD.
+1. Improve independent cross-view evidence until at least one surface has
+   support from two target views without weakening or fitting against the
+   frozen Phase 5.13 gate.
 2. Resolve candidate semantics and cross-view opening identity before any
    retained cut is promoted to an approved cavity or manufacturing hole.
 3. Fit general gallery generators across side and iso evidence without
