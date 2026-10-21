@@ -227,6 +227,12 @@ class DatasetRepository:
             / "phase5_training_region_routes_v1"
             / "report.json"
         )
+        self.phase5_training_observability_review = self._read_json(
+            self.repo_root
+            / "data"
+            / "phase5_training_observability_review_v1"
+            / "report.json"
+        )
         self.phase4_prong_instances = self._read_json(
             self.repo_root / "data" / "phase4_prong_instances_v1" / "report.json"
         )
@@ -874,6 +880,9 @@ class DatasetRepository:
                 "training_region_routes": deepcopy(
                     self.phase5_training_region_routes
                 ),
+                "training_observability_review": deepcopy(
+                    self.phase5_training_observability_review
+                ),
             },
             "limitations": deepcopy(self.dataset_report.get("limitations", [])),
         }
@@ -1360,6 +1369,8 @@ class DatasetRepository:
                     {"label": "Training local-shape report", "href": "/api/artifacts/phase5_training_local_shape_report"},
                     {"label": "Training region-route audit", "href": "/api/artifacts/phase5_training_region_route_audit"},
                     {"label": "Training region-route report", "href": "/api/artifacts/phase5_training_region_route_report"},
+                    {"label": "Training observability review", "href": "/api/artifacts/phase5_training_observability_review"},
+                    {"label": "Training observability report", "href": "/api/artifacts/phase5_training_observability_report"},
                     {"label": "Download baseline STEP", "href": "/api/artifacts/phase4_exact_cad_baseline_step"},
                 ],
             },
@@ -2398,6 +2409,14 @@ class DatasetRepository:
             / "data"
             / "phase5_training_region_routes_v1"
             / "training_region_route_audit.png",
+            "phase5_training_observability_report": self.repo_root
+            / "data"
+            / "phase5_training_observability_review_v1"
+            / "report.json",
+            "phase5_training_observability_review": self.repo_root
+            / "data"
+            / "phase5_training_observability_review_v1"
+            / "training_observability_review.png",
             "phase5_validation_metric_depth_report": self.repo_root
             / "dataset"
             / "phase_runs"

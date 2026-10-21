@@ -1586,6 +1586,18 @@ class DatasetStudioApiTest(unittest.TestCase):
         self.assertEqual(region_route_report.status_code, 200)
         self.assertEqual(region_route_report.mimetype, "application/json")
         region_route_report.close()
+        observability_review = self.client.get(
+            "/api/artifacts/phase5_training_observability_review"
+        )
+        self.assertEqual(observability_review.status_code, 200)
+        self.assertEqual(observability_review.mimetype, "image/png")
+        observability_review.close()
+        observability_report = self.client.get(
+            "/api/artifacts/phase5_training_observability_report"
+        )
+        self.assertEqual(observability_report.status_code, 200)
+        self.assertEqual(observability_report.mimetype, "application/json")
+        observability_report.close()
         for artifact in (
             "phase5_ring004_validation_normals",
             "phase5_ring012_validation_normals",

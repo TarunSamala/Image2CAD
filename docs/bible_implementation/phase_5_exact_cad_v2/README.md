@@ -435,6 +435,21 @@ Phase 5.13 result or CAD decision. Next, annotate selected training-image
 regions for observability and correspondence quality before testing a routing
 policy against held-out data.
 
+## Phase 5.21 training image-content review
+
+`build_phase5_training_observability_review.py` verifies the original images
+against Phase 1 hashes and renders a [front/top/isometric review sheet](../../../data/phase5_training_observability_review_v1/training_observability_review.png)
+for Rings 001, 011 and 017. Their manually inspected front sculpted-face
+regions are partly recognizable in isometric, but not in the supplied top
+images. The [labels](../../../data/phase5_training_observability_review_v1/labels.json)
+and [report](../../../data/phase5_training_observability_review_v1/report.json)
+are explicit about the small selected training scope and unreviewed side
+views. Rings 011 and 017 have 10 and 11 accepted front-to-top machine tracks,
+respectively, across the entire front; those counts are not evidence that the face matches
+the top image. No point-level match is labelled, no physical occlusion is
+proven, and no validation or CAD gate is changed. Expand the review to positive
+and negative training examples before testing a region-aware routing policy.
+
 ## Claim boundary
 
 The dimensions are designed test parameters. The fixtures verify generator

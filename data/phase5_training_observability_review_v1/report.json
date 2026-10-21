@@ -1,0 +1,178 @@
+{
+  "schema_version": "lalitha_phase5_training_observability_review_v1",
+  "stage": "Phase 5.21 small training-image content review",
+  "label_source": "data/phase5_training_observability_review_v1/labels.json",
+  "scope": {
+    "split": "train",
+    "object_ids": [
+      "ring_001",
+      "ring_011",
+      "ring_017"
+    ],
+    "source_view": "front",
+    "reviewed_target_views": [
+      "top",
+      "iso"
+    ],
+    "unreviewed_views": [
+      "lsv",
+      "rsv"
+    ]
+  },
+  "status_vocabulary": {
+    "recognizable_partial": "Some recognizable detail from the annotated front region is visible, but no point-level identity is asserted",
+    "no_recognizable_detail": "The annotated front detail cannot be recognized in this target image; physical occlusion and geometry are not inferred"
+  },
+  "observations": [
+    {
+      "object_id": "ring_001",
+      "split": "train",
+      "region_id": "sculpted_face_review_1",
+      "front_bbox_xyxy_fraction": [
+        0.42,
+        0.27,
+        0.58,
+        0.47
+      ],
+      "sources": {
+        "front": {
+          "path": "dataset/STL-1/Ring 1/R1 - Front.png",
+          "sha256": "ce6feba3286c91e88cfd6db712480a8edcf3ac21e14f373b03e5e029f0df50ba"
+        },
+        "top": {
+          "path": "dataset/STL-1/Ring 1/R1 - Top.png",
+          "sha256": "5532fde1686ed430c9a107d88583033769482520d34a6b7414b262088f3f9d6a"
+        },
+        "iso": {
+          "path": "dataset/STL-1/Ring 1/R1 - iso.png",
+          "sha256": "6f60e04c94eee09a2302a1430fd40457a64cfc151bf88334635323a2753986d2"
+        }
+      },
+      "target_views": {
+        "top": {
+          "status": "no_recognizable_detail",
+          "note": "The top image shows the shank and reverse/profile of the head, not the deity's facial features."
+        },
+        "iso": {
+          "status": "recognizable_partial",
+          "note": "The side of the face, crown and adjacent relief are recognizable."
+        }
+      },
+      "machine_accepted_tracks_whole_front": {
+        "top": 0,
+        "iso": 153
+      },
+      "track_count_scope": "whole front relief query set, not the annotated face bbox"
+    },
+    {
+      "object_id": "ring_011",
+      "split": "train",
+      "region_id": "sculpted_face_review_1",
+      "front_bbox_xyxy_fraction": [
+        0.43,
+        0.3,
+        0.58,
+        0.46
+      ],
+      "sources": {
+        "front": {
+          "path": "dataset/STL-1/Ring 11/R11 - Front View.png",
+          "sha256": "c68ed9544f7deb91a2e3488354cd1535e7b468607f4675644e71c3a744449187"
+        },
+        "top": {
+          "path": "dataset/STL-1/Ring 11/R11 - Top View.png",
+          "sha256": "2e7a713138ea0960455d80632280dd96e0ea3f9fbca7c722a4677363d96cf4cc"
+        },
+        "iso": {
+          "path": "dataset/STL-1/Ring 11/R11 - Iso.png",
+          "sha256": "75264a1e87de8fbc270bc688145a60e7eef6169b6d93f91158b02e46958e03ff"
+        }
+      },
+      "target_views": {
+        "top": {
+          "status": "no_recognizable_detail",
+          "note": "The top image shows the shank and rear of the head; front facial features are not recognizable."
+        },
+        "iso": {
+          "status": "recognizable_partial",
+          "note": "The angled image shows the crown and part of the face."
+        }
+      },
+      "machine_accepted_tracks_whole_front": {
+        "top": 10,
+        "iso": 301
+      },
+      "track_count_scope": "whole front relief query set, not the annotated face bbox"
+    },
+    {
+      "object_id": "ring_017",
+      "split": "train",
+      "region_id": "sculpted_face_review_1",
+      "front_bbox_xyxy_fraction": [
+        0.477,
+        0.35,
+        0.522,
+        0.46
+      ],
+      "sources": {
+        "front": {
+          "path": "dataset/STL-1/Ring 17/R17 - Front View.png",
+          "sha256": "d6d1502ac3200c88b44982245fd299d91e316ed4a45a4212009fd42441b63093"
+        },
+        "top": {
+          "path": "dataset/STL-1/Ring 17/R17 - Top View.png",
+          "sha256": "4ecc06f4d15af3ba5803fa233d54b2f4f9da0a74982f3b8ae98c0d378d205478"
+        },
+        "iso": {
+          "path": "dataset/STL-1/Ring 17/R17 - Iso.png",
+          "sha256": "ebdcab1bb06092fd869e0eed048dc40ff2c71095d23fb8e5c9293bf3e875ecc5"
+        }
+      },
+      "target_views": {
+        "top": {
+          "status": "no_recognizable_detail",
+          "note": "The top image shows the shank and rear of the relief assembly, not the central facial features."
+        },
+        "iso": {
+          "status": "recognizable_partial",
+          "note": "The angled image shows a narrow but recognizable side of the sculpted face."
+        }
+      },
+      "machine_accepted_tracks_whole_front": {
+        "top": 11,
+        "iso": 311
+      },
+      "track_count_scope": "whole front relief query set, not the annotated face bbox"
+    }
+  ],
+  "summary": {
+    "object_count": 3,
+    "top_without_recognizable_face_detail": 3,
+    "iso_with_partial_recognizable_face_detail": 3,
+    "top_tracks_can_exist_without_reviewed_face_detail": true
+  },
+  "checks": {
+    "all_training": true,
+    "source_files_match_phase1": true,
+    "view_statuses_explicit": true,
+    "validation_test_untouched": true
+  },
+  "claims": {
+    "point_correspondence_ground_truth": false,
+    "physical_occlusion_proven": false,
+    "full_training_set_reviewed": false,
+    "matching_accuracy_improved": false,
+    "surface_promotion_authorized": false,
+    "cad_fusion_authorized": false
+  },
+  "decision": "expand_review_to_more_training_regions_before_learning_or_gating_routes",
+  "limitations": [
+    "These three selected training rings are not a random or held-out accuracy sample.",
+    "The bbox is an approximate visual region for review, not a pixel-accurate segmentation.",
+    "No image-only review proves physical occlusion, exact 3D coordinates or metric scale.",
+    "A target-view status does not certify or reject any individual reciprocal track."
+  ],
+  "artifacts": {
+    "preview": "data/phase5_training_observability_review_v1/training_observability_review.png"
+  }
+}

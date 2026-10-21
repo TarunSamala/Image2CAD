@@ -317,9 +317,20 @@ physical-visibility label. This is a review map for training-image visibility
 annotations, not a new matcher. The frozen Phase 5.13 `5/56` result, validation
 split, CAD fusion and hidden-geometry claims remain unchanged.
 
-1. Label selected training-image regions for observable correspondences versus
-   unsupported/ambiguous views, then evaluate a region-specific routing rule
-   against those labels before a frozen validation run. Preserve unresolved
+Phase 5.21 adds a small direct image-content review before any matcher change.
+The front sculpted-face region in training Rings 001, 011 and 017 is partly
+recognizable in each isometric image but not in the supplied top image, which
+shows the shank and rear/profile of the head. Rings 011 and 017 still have
+10 and 11 accepted front-to-top tracks respectively across the *whole front*,
+so a view's track count cannot be substituted for face-region support. Approximate front
+bboxes, source-file hashes, labels and a contact sheet are retained for audit.
+This is three selected training examples, not point correspondence truth,
+physical occlusion proof, a new route classifier or a validation result.
+
+1. Expand the direct content review across varied training regions, including
+   cases where top view does contain recognizable target detail. Then evaluate
+   a region-specific routing rule against reviewed labels before a frozen
+   validation run. Preserve unresolved
    regions rather than treating missing tracks as physical occlusion.
 2. Develop patch-level local shape evidence on training rings and require it
    to beat the matched-control signed-relief baseline before validation.
