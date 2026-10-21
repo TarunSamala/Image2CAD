@@ -327,6 +327,15 @@ bboxes, source-file hashes, labels and a contact sheet are retained for audit.
 This is three selected training examples, not point correspondence truth,
 physical occlusion proof, a new route classifier or a validation result.
 
+Phase 5.22 maps those three reviewed source boxes through the frozen prepared
+crop/placement transform into the VGGT query images. Of 156 relief candidates
+inside the face boxes, zero pass the unchanged front-to-top reciprocal gate;
+66 pass to isometric. The 21 accepted front-to-top tracks across the same
+rings come from outside those face boxes. This resolves a reporting ambiguity:
+whole-front coverage cannot stand in for face-detail coverage. The accepted
+isometric tracks are still unlabelled machine hypotheses, not verified 3D
+correspondences. Validation/test, Phase 5.13 gates and CAD fusion stay frozen.
+
 1. Expand the direct content review across varied training regions, including
    cases where top view does contain recognizable target detail. Then evaluate
    a region-specific routing rule against reviewed labels before a frozen

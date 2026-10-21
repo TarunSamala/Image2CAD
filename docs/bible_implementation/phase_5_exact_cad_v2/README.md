@@ -450,6 +450,20 @@ the top image. No point-level match is labelled, no physical occlusion is
 proven, and no validation or CAD gate is changed. Expand the review to positive
 and negative training examples before testing a region-aware routing policy.
 
+## Phase 5.22 reviewed-face track locality
+
+`audit_phase5_reviewed_face_tracks.py` maps those original-source face boxes
+through the retained dataset crop, resize and placement transform to the
+518-pixel VGGT query frame. It re-evaluates the unchanged training hybrid and
+baseline tracks with the frozen reciprocal gate. The [audit](../../../data/phase5_reviewed_face_tracks_v1/reviewed_face_track_audit.png)
+shows 156 relief candidates inside the three reviewed boxes: no accepted
+front-to-top tracks, 66 accepted front-to-isometric tracks. The 21 top tracks
+across the three whole-front query sets are outside these boxes. The
+[report](../../../data/phase5_reviewed_face_tracks_v1/report.json) retains
+per-ring counts and projected accepted target points. This is local machine
+track evidence; the visual labels do not validate point identity, camera
+calibration, physical occlusion, metric scale or CAD relief.
+
 ## Claim boundary
 
 The dimensions are designed test parameters. The fixtures verify generator

@@ -233,6 +233,12 @@ class DatasetRepository:
             / "phase5_training_observability_review_v1"
             / "report.json"
         )
+        self.phase5_reviewed_face_tracks = self._read_json(
+            self.repo_root
+            / "data"
+            / "phase5_reviewed_face_tracks_v1"
+            / "report.json"
+        )
         self.phase4_prong_instances = self._read_json(
             self.repo_root / "data" / "phase4_prong_instances_v1" / "report.json"
         )
@@ -883,6 +889,9 @@ class DatasetRepository:
                 "training_observability_review": deepcopy(
                     self.phase5_training_observability_review
                 ),
+                "reviewed_face_tracks": deepcopy(
+                    self.phase5_reviewed_face_tracks
+                ),
             },
             "limitations": deepcopy(self.dataset_report.get("limitations", [])),
         }
@@ -1371,6 +1380,8 @@ class DatasetRepository:
                     {"label": "Training region-route report", "href": "/api/artifacts/phase5_training_region_route_report"},
                     {"label": "Training observability review", "href": "/api/artifacts/phase5_training_observability_review"},
                     {"label": "Training observability report", "href": "/api/artifacts/phase5_training_observability_report"},
+                    {"label": "Reviewed face-track audit", "href": "/api/artifacts/phase5_reviewed_face_track_audit"},
+                    {"label": "Reviewed face-track report", "href": "/api/artifacts/phase5_reviewed_face_track_report"},
                     {"label": "Download baseline STEP", "href": "/api/artifacts/phase4_exact_cad_baseline_step"},
                 ],
             },
@@ -2417,6 +2428,14 @@ class DatasetRepository:
             / "data"
             / "phase5_training_observability_review_v1"
             / "training_observability_review.png",
+            "phase5_reviewed_face_track_report": self.repo_root
+            / "data"
+            / "phase5_reviewed_face_tracks_v1"
+            / "report.json",
+            "phase5_reviewed_face_track_audit": self.repo_root
+            / "data"
+            / "phase5_reviewed_face_tracks_v1"
+            / "reviewed_face_track_audit.png",
             "phase5_validation_metric_depth_report": self.repo_root
             / "dataset"
             / "phase_runs"

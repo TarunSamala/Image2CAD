@@ -1598,6 +1598,18 @@ class DatasetStudioApiTest(unittest.TestCase):
         self.assertEqual(observability_report.status_code, 200)
         self.assertEqual(observability_report.mimetype, "application/json")
         observability_report.close()
+        face_track_audit = self.client.get(
+            "/api/artifacts/phase5_reviewed_face_track_audit"
+        )
+        self.assertEqual(face_track_audit.status_code, 200)
+        self.assertEqual(face_track_audit.mimetype, "image/png")
+        face_track_audit.close()
+        face_track_report = self.client.get(
+            "/api/artifacts/phase5_reviewed_face_track_report"
+        )
+        self.assertEqual(face_track_report.status_code, 200)
+        self.assertEqual(face_track_report.mimetype, "application/json")
+        face_track_report.close()
         for artifact in (
             "phase5_ring004_validation_normals",
             "phase5_ring012_validation_normals",

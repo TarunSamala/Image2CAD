@@ -1,0 +1,427 @@
+{
+  "schema_version": "lalitha_phase5_reviewed_face_tracks_v1",
+  "stage": "Phase 5.22 training-only reviewed region track audit",
+  "scope": {
+    "split": "train",
+    "object_ids": [
+      "ring_001",
+      "ring_011",
+      "ring_017"
+    ],
+    "source_view": "front",
+    "target_views": [
+      "top",
+      "iso"
+    ]
+  },
+  "source_labels": "data/phase5_training_observability_review_v1/labels.json",
+  "mapping": "original source fractional bbox -> prepared crop/scale/placement -> 518px VGGT query image",
+  "frozen_reciprocal_gate_reused": true,
+  "objects": [
+    {
+      "object_id": "ring_001",
+      "split": "train",
+      "review_bbox_xyxy_track_pixels": [
+        217.2832,
+        155.6239,
+        311.6629,
+        245.6253
+      ],
+      "review_bbox_query_count": 57,
+      "review_bbox_relief_candidate_count": 34,
+      "target_views": {
+        "top": {
+          "visual_review_status": "no_recognizable_detail",
+          "accepted_inside_review_bbox": 0,
+          "accepted_whole_front": 0,
+          "accepted_target_points_xy": []
+        },
+        "iso": {
+          "visual_review_status": "recognizable_partial",
+          "accepted_inside_review_bbox": 13,
+          "accepted_whole_front": 153,
+          "accepted_target_points_xy": [
+            [
+              111.5,
+              260.0
+            ],
+            [
+              106.75,
+              261.5
+            ],
+            [
+              105.80999755859375,
+              262.5
+            ],
+            [
+              109.5,
+              261.0
+            ],
+            [
+              179.3800048828125,
+              249.3800048828125
+            ],
+            [
+              120.37999725341797,
+              249.8800048828125
+            ],
+            [
+              119.55999755859375,
+              267.75
+            ],
+            [
+              130.0,
+              254.25
+            ],
+            [
+              105.5,
+              261.75
+            ],
+            [
+              105.87999725341797,
+              259.0
+            ],
+            [
+              114.05999755859375,
+              261.25
+            ],
+            [
+              168.75,
+              250.6199951171875
+            ],
+            [
+              112.69000244140625,
+              268.5
+            ]
+          ]
+        }
+      },
+      "prepared_views": {
+        "front": "dataset/prepared_v1/images/ring_001/front.png",
+        "top": "dataset/prepared_v1/images/ring_001/top.png",
+        "iso": "dataset/prepared_v1/images/ring_001/iso.png"
+      },
+      "prepared_front_sha256": "958e32f547d19aa55756153690927306c1c60562fb8fdf72a24dfa4ae0bcb51b",
+      "checks": {
+        "top_subset_of_whole_front": true,
+        "iso_subset_of_whole_front": true
+      }
+    },
+    {
+      "object_id": "ring_011",
+      "split": "train",
+      "review_bbox_xyxy_track_pixels": [
+        217.8108,
+        148.5929,
+        303.231,
+        238.3334
+      ],
+      "review_bbox_query_count": 87,
+      "review_bbox_relief_candidate_count": 84,
+      "target_views": {
+        "top": {
+          "visual_review_status": "no_recognizable_detail",
+          "accepted_inside_review_bbox": 0,
+          "accepted_whole_front": 10,
+          "accepted_target_points_xy": []
+        },
+        "iso": {
+          "visual_review_status": "recognizable_partial",
+          "accepted_inside_review_bbox": 37,
+          "accepted_whole_front": 301,
+          "accepted_target_points_xy": [
+            [
+              116.44000244140625,
+              220.75
+            ],
+            [
+              138.5,
+              219.3800048828125
+            ],
+            [
+              123.05999755859375,
+              221.3800048828125
+            ],
+            [
+              104.19000244140625,
+              234.5
+            ],
+            [
+              135.1199951171875,
+              226.8800048828125
+            ],
+            [
+              116.37999725341797,
+              223.0
+            ],
+            [
+              121.55999755859375,
+              231.75
+            ],
+            [
+              101.75,
+              244.3800048828125
+            ],
+            [
+              102.0,
+              227.75
+            ],
+            [
+              109.19000244140625,
+              217.8800048828125
+            ],
+            [
+              116.62000274658203,
+              238.3800048828125
+            ],
+            [
+              112.62000274658203,
+              254.8800048828125
+            ],
+            [
+              122.5,
+              234.25
+            ],
+            [
+              118.05999755859375,
+              254.8800048828125
+            ],
+            [
+              156.25,
+              229.1199951171875
+            ],
+            [
+              99.87999725341797,
+              244.25
+            ],
+            [
+              113.87999725341797,
+              234.6199951171875
+            ],
+            [
+              101.37999725341797,
+              228.0
+            ],
+            [
+              111.19000244140625,
+              245.3800048828125
+            ],
+            [
+              124.0,
+              238.3800048828125
+            ],
+            [
+              155.75,
+              228.75
+            ],
+            [
+              110.55999755859375,
+              250.6199951171875
+            ],
+            [
+              157.25,
+              233.0
+            ],
+            [
+              116.12000274658203,
+              236.75
+            ],
+            [
+              108.37999725341797,
+              237.3800048828125
+            ],
+            [
+              106.5,
+              247.1199951171875
+            ],
+            [
+              162.8800048828125,
+              222.1199951171875
+            ],
+            [
+              120.94000244140625,
+              229.8800048828125
+            ],
+            [
+              101.75,
+              245.1199951171875
+            ],
+            [
+              119.94000244140625,
+              247.0
+            ],
+            [
+              110.19000244140625,
+              224.0
+            ],
+            [
+              109.87999725341797,
+              252.25
+            ],
+            [
+              110.94000244140625,
+              249.1199951171875
+            ],
+            [
+              146.3800048828125,
+              248.6199951171875
+            ],
+            [
+              102.12000274658203,
+              227.1199951171875
+            ],
+            [
+              121.37999725341797,
+              223.25
+            ],
+            [
+              109.12000274658203,
+              222.3800048828125
+            ]
+          ]
+        }
+      },
+      "prepared_views": {
+        "front": "dataset/prepared_v1/images/ring_011/front.png",
+        "top": "dataset/prepared_v1/images/ring_011/top.png",
+        "iso": "dataset/prepared_v1/images/ring_011/iso.png"
+      },
+      "prepared_front_sha256": "04d1a7687ec9e1f2dacb00d38930767fb879b4898bc924543ca240d360ad2d98",
+      "checks": {
+        "top_subset_of_whole_front": true,
+        "iso_subset_of_whole_front": true
+      }
+    },
+    {
+      "object_id": "ring_017",
+      "split": "train",
+      "review_bbox_xyxy_track_pixels": [
+        237.6627,
+        180.3208,
+        279.3675,
+        239.2578
+      ],
+      "review_bbox_query_count": 39,
+      "review_bbox_relief_candidate_count": 38,
+      "target_views": {
+        "top": {
+          "visual_review_status": "no_recognizable_detail",
+          "accepted_inside_review_bbox": 0,
+          "accepted_whole_front": 11,
+          "accepted_target_points_xy": []
+        },
+        "iso": {
+          "visual_review_status": "recognizable_partial",
+          "accepted_inside_review_bbox": 16,
+          "accepted_whole_front": 311,
+          "accepted_target_points_xy": [
+            [
+              112.05999755859375,
+              236.75
+            ],
+            [
+              121.44000244140625,
+              266.75
+            ],
+            [
+              120.94000244140625,
+              261.0
+            ],
+            [
+              117.69000244140625,
+              275.25
+            ],
+            [
+              129.8800048828125,
+              230.75
+            ],
+            [
+              104.55999755859375,
+              263.25
+            ],
+            [
+              110.87999725341797,
+              233.25
+            ],
+            [
+              109.62000274658203,
+              231.5
+            ],
+            [
+              117.30999755859375,
+              233.6199951171875
+            ],
+            [
+              113.62000274658203,
+              230.3800048828125
+            ],
+            [
+              121.5,
+              279.5
+            ],
+            [
+              130.0,
+              262.25
+            ],
+            [
+              115.69000244140625,
+              236.8800048828125
+            ],
+            [
+              127.44000244140625,
+              254.6199951171875
+            ],
+            [
+              116.12000274658203,
+              264.5
+            ],
+            [
+              107.75,
+              235.0
+            ]
+          ]
+        }
+      },
+      "prepared_views": {
+        "front": "dataset/prepared_v1/images/ring_017/front.png",
+        "top": "dataset/prepared_v1/images/ring_017/top.png",
+        "iso": "dataset/prepared_v1/images/ring_017/iso.png"
+      },
+      "prepared_front_sha256": "2232e135cf691bca264072da453df1da2775d318f3ef19cdc65e16d902e69f1c",
+      "checks": {
+        "top_subset_of_whole_front": true,
+        "iso_subset_of_whole_front": true
+      }
+    }
+  ],
+  "summary": {
+    "object_count": 3,
+    "face_bbox_candidate_count": 156,
+    "top_accepted_inside_review_boxes": 0,
+    "iso_accepted_inside_review_boxes": 66,
+    "top_accepted_whole_front": 21
+  },
+  "checks": {
+    "training_only": true,
+    "prepared_front_matches_phase1": true,
+    "subset_counts_valid": true,
+    "validation_and_test_untouched": true,
+    "phase5_13_gate_unchanged": true
+  },
+  "claims": {
+    "face_correspondence_validated": false,
+    "physical_occlusion_proven": false,
+    "matching_accuracy_improved": false,
+    "surface_promotion_authorized": false,
+    "cad_fusion_authorized": false
+  },
+  "limitations": [
+    "Three selected training face boxes do not estimate population accuracy.",
+    "Approximate boxes are not pixel-accurate face segmentation.",
+    "Machine-accepted points are not ground-truth 3D surface identities.",
+    "Visual absence in a target image is not proof of a hidden physical surface."
+  ],
+  "artifacts": {
+    "audit": "data/phase5_reviewed_face_tracks_v1/reviewed_face_track_audit.png"
+  }
+}
