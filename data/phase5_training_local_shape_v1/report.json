@@ -1,0 +1,2748 @@
+{
+  "schema_version": "lalitha_phase5_training_local_shape_v1",
+  "created_at_utc": "2026-10-21T05:55:04.480974+00:00",
+  "stage": "Phase 5.19 training local-shape descriptor experiment",
+  "scope": {
+    "split": "train",
+    "object_ids": [
+      "ring_001",
+      "ring_002",
+      "ring_003",
+      "ring_005",
+      "ring_006",
+      "ring_008",
+      "ring_009",
+      "ring_010",
+      "ring_011",
+      "ring_013",
+      "ring_014",
+      "ring_016",
+      "ring_017",
+      "ring_018",
+      "ring_019",
+      "ring_021",
+      "ring_022",
+      "ring_024"
+    ],
+    "source_view": "front",
+    "target_views": [
+      "top",
+      "iso",
+      "lsv",
+      "rsv"
+    ]
+  },
+  "policy": {
+    "fixed_gaussian_scales_image_pixels": [
+      4.0,
+      10.0,
+      20.0
+    ],
+    "descriptor_weights": {
+      "signed_relief_baseline": [
+        1.0
+      ],
+      "local_signed_profile": [
+        0.55,
+        0.25,
+        0.12,
+        0.08
+      ],
+      "radial_relief_profile": [
+        0.3,
+        0.25,
+        0.15,
+        0.2,
+        0.1
+      ],
+      "multiscale_shape_fusion": [
+        0.35,
+        0.25,
+        0.15,
+        0.1,
+        0.1,
+        0.05
+      ]
+    },
+    "matched_control_policy": "unchanged Phase 5.17 target offsets, support, confidence and photo-detail matching",
+    "minimum_positive_count_for_view": 8,
+    "selection_minimum_mean_auc_delta": 0.02,
+    "selection_minimum_improved_object_count": 12,
+    "selection_maximum_object_auc_regression": 0.05
+  },
+  "summary": {
+    "object_count": 18,
+    "included_track_count": 3259,
+    "target_view_eligible_track_count": {
+      "top": 2,
+      "iso": 2518,
+      "lsv": 383,
+      "rsv": 379
+    },
+    "descriptors": {
+      "signed_relief_baseline": {
+        "mean_object_auc": 0.606918,
+        "mean_auc_delta_vs_signed_relief": 0.0,
+        "improved_object_count": 0,
+        "regressed_object_count": 0,
+        "maximum_object_auc_regression": -0.0
+      },
+      "local_signed_profile": {
+        "mean_object_auc": 0.617398,
+        "mean_auc_delta_vs_signed_relief": 0.01048,
+        "improved_object_count": 12,
+        "regressed_object_count": 3,
+        "maximum_object_auc_regression": 0.022988
+      },
+      "radial_relief_profile": {
+        "mean_object_auc": 0.594537,
+        "mean_auc_delta_vs_signed_relief": -0.012381,
+        "improved_object_count": 5,
+        "regressed_object_count": 12,
+        "maximum_object_auc_regression": 0.1
+      },
+      "multiscale_shape_fusion": {
+        "mean_object_auc": 0.611276,
+        "mean_auc_delta_vs_signed_relief": 0.004358,
+        "improved_object_count": 11,
+        "regressed_object_count": 6,
+        "maximum_object_auc_regression": 0.057471
+      }
+    },
+    "selected_descriptor": "none"
+  },
+  "checks": {
+    "training_objects_only": true,
+    "validation_and_test_objects_not_processed": true,
+    "baseline_query_prefix_reproduced": true,
+    "phase5_17_matched_control_baseline_reproduced": true,
+    "phase5_13_surface_gate_unchanged": true
+  },
+  "objects": [
+    {
+      "object_id": "ring_001",
+      "split": "train",
+      "target_views": {
+        "top": {
+          "accepted_track_count": 0,
+          "control_eligible_track_count": 0,
+          "descriptors": {}
+        },
+        "iso": {
+          "accepted_track_count": 153,
+          "control_eligible_track_count": 70,
+          "descriptors": {
+            "signed_relief_baseline": {
+              "positive_error": 0.676175,
+              "control_error": 0.659652,
+              "mean_margin": -0.016523,
+              "paired_discrimination_auc": 0.535714,
+              "positive_beats_control_count": 37
+            },
+            "local_signed_profile": {
+              "positive_error": 0.491034,
+              "control_error": 0.481065,
+              "mean_margin": -0.009969,
+              "paired_discrimination_auc": 0.585714,
+              "positive_beats_control_count": 41
+            },
+            "radial_relief_profile": {
+              "positive_error": 0.235122,
+              "control_error": 0.214998,
+              "mean_margin": -0.020124,
+              "paired_discrimination_auc": 0.442857,
+              "positive_beats_control_count": 31
+            },
+            "multiscale_shape_fusion": {
+              "positive_error": 0.388712,
+              "control_error": 0.379035,
+              "mean_margin": -0.009677,
+              "paired_discrimination_auc": 0.585714,
+              "positive_beats_control_count": 41
+            }
+          }
+        },
+        "lsv": {
+          "accepted_track_count": 44,
+          "control_eligible_track_count": 17,
+          "descriptors": {
+            "signed_relief_baseline": {
+              "positive_error": 0.739602,
+              "control_error": 0.599163,
+              "mean_margin": -0.140439,
+              "paired_discrimination_auc": 0.470588,
+              "positive_beats_control_count": 8
+            },
+            "local_signed_profile": {
+              "positive_error": 0.54799,
+              "control_error": 0.442779,
+              "mean_margin": -0.105211,
+              "paired_discrimination_auc": 0.470588,
+              "positive_beats_control_count": 8
+            },
+            "radial_relief_profile": {
+              "positive_error": 0.18509,
+              "control_error": 0.157778,
+              "mean_margin": -0.027312,
+              "paired_discrimination_auc": 0.470588,
+              "positive_beats_control_count": 8
+            },
+            "multiscale_shape_fusion": {
+              "positive_error": 0.431735,
+              "control_error": 0.350431,
+              "mean_margin": -0.081304,
+              "paired_discrimination_auc": 0.470588,
+              "positive_beats_control_count": 8
+            }
+          }
+        },
+        "rsv": {
+          "accepted_track_count": 83,
+          "control_eligible_track_count": 37,
+          "descriptors": {
+            "signed_relief_baseline": {
+              "positive_error": 0.663164,
+              "control_error": 0.60359,
+              "mean_margin": -0.059574,
+              "paired_discrimination_auc": 0.459459,
+              "positive_beats_control_count": 17
+            },
+            "local_signed_profile": {
+              "positive_error": 0.480877,
+              "control_error": 0.441535,
+              "mean_margin": -0.039342,
+              "paired_discrimination_auc": 0.459459,
+              "positive_beats_control_count": 17
+            },
+            "radial_relief_profile": {
+              "positive_error": 0.203621,
+              "control_error": 0.208804,
+              "mean_margin": 0.005183,
+              "paired_discrimination_auc": 0.486486,
+              "positive_beats_control_count": 18
+            },
+            "multiscale_shape_fusion": {
+              "positive_error": 0.38039,
+              "control_error": 0.349845,
+              "mean_margin": -0.030545,
+              "paired_discrimination_auc": 0.432432,
+              "positive_beats_control_count": 16
+            }
+          }
+        }
+      },
+      "included_target_views": [
+        "iso",
+        "lsv",
+        "rsv"
+      ],
+      "included_track_count": 124,
+      "descriptors": {
+        "signed_relief_baseline": {
+          "paired_discrimination_auc": 0.504032
+        },
+        "local_signed_profile": {
+          "paired_discrimination_auc": 0.532258
+        },
+        "radial_relief_profile": {
+          "paired_discrimination_auc": 0.459677
+        },
+        "multiscale_shape_fusion": {
+          "paired_discrimination_auc": 0.524193
+        }
+      },
+      "baseline_query_prefix_reproduced": true
+    },
+    {
+      "object_id": "ring_002",
+      "split": "train",
+      "target_views": {
+        "top": {
+          "accepted_track_count": 0,
+          "control_eligible_track_count": 0,
+          "descriptors": {}
+        },
+        "iso": {
+          "accepted_track_count": 363,
+          "control_eligible_track_count": 228,
+          "descriptors": {
+            "signed_relief_baseline": {
+              "positive_error": 0.390274,
+              "control_error": 0.413069,
+              "mean_margin": 0.022795,
+              "paired_discrimination_auc": 0.52193,
+              "positive_beats_control_count": 119
+            },
+            "local_signed_profile": {
+              "positive_error": 0.281991,
+              "control_error": 0.297412,
+              "mean_margin": 0.015421,
+              "paired_discrimination_auc": 0.535088,
+              "positive_beats_control_count": 122
+            },
+            "radial_relief_profile": {
+              "positive_error": 0.183615,
+              "control_error": 0.177491,
+              "mean_margin": -0.006123,
+              "paired_discrimination_auc": 0.504386,
+              "positive_beats_control_count": 115
+            },
+            "multiscale_shape_fusion": {
+              "positive_error": 0.232826,
+              "control_error": 0.243125,
+              "mean_margin": 0.010299,
+              "paired_discrimination_auc": 0.530702,
+              "positive_beats_control_count": 121
+            }
+          }
+        },
+        "lsv": {
+          "accepted_track_count": 53,
+          "control_eligible_track_count": 24,
+          "descriptors": {
+            "signed_relief_baseline": {
+              "positive_error": 0.3218,
+              "control_error": 0.515241,
+              "mean_margin": 0.193441,
+              "paired_discrimination_auc": 0.875,
+              "positive_beats_control_count": 21
+            },
+            "local_signed_profile": {
+              "positive_error": 0.239326,
+              "control_error": 0.374345,
+              "mean_margin": 0.135019,
+              "paired_discrimination_auc": 0.875,
+              "positive_beats_control_count": 21
+            },
+            "radial_relief_profile": {
+              "positive_error": 0.120586,
+              "control_error": 0.19434,
+              "mean_margin": 0.073754,
+              "paired_discrimination_auc": 0.791667,
+              "positive_beats_control_count": 19
+            },
+            "multiscale_shape_fusion": {
+              "positive_error": 0.19888,
+              "control_error": 0.309034,
+              "mean_margin": 0.110154,
+              "paired_discrimination_auc": 0.875,
+              "positive_beats_control_count": 21
+            }
+          }
+        },
+        "rsv": {
+          "accepted_track_count": 9,
+          "control_eligible_track_count": 2,
+          "descriptors": {
+            "signed_relief_baseline": {
+              "positive_error": 0.247022,
+              "control_error": 0.371152,
+              "mean_margin": 0.12413,
+              "paired_discrimination_auc": 0.5,
+              "positive_beats_control_count": 1
+            },
+            "local_signed_profile": {
+              "positive_error": 0.168621,
+              "control_error": 0.264383,
+              "mean_margin": 0.095762,
+              "paired_discrimination_auc": 0.5,
+              "positive_beats_control_count": 1
+            },
+            "radial_relief_profile": {
+              "positive_error": 0.140602,
+              "control_error": 0.158159,
+              "mean_margin": 0.017557,
+              "paired_discrimination_auc": 0.5,
+              "positive_beats_control_count": 1
+            },
+            "multiscale_shape_fusion": {
+              "positive_error": 0.137316,
+              "control_error": 0.213994,
+              "mean_margin": 0.076677,
+              "paired_discrimination_auc": 0.5,
+              "positive_beats_control_count": 1
+            }
+          }
+        }
+      },
+      "included_target_views": [
+        "iso",
+        "lsv"
+      ],
+      "included_track_count": 252,
+      "descriptors": {
+        "signed_relief_baseline": {
+          "paired_discrimination_auc": 0.555556
+        },
+        "local_signed_profile": {
+          "paired_discrimination_auc": 0.567461
+        },
+        "radial_relief_profile": {
+          "paired_discrimination_auc": 0.531746
+        },
+        "multiscale_shape_fusion": {
+          "paired_discrimination_auc": 0.563492
+        }
+      },
+      "baseline_query_prefix_reproduced": true
+    },
+    {
+      "object_id": "ring_003",
+      "split": "train",
+      "target_views": {
+        "top": {
+          "accepted_track_count": 0,
+          "control_eligible_track_count": 0,
+          "descriptors": {}
+        },
+        "iso": {
+          "accepted_track_count": 348,
+          "control_eligible_track_count": 219,
+          "descriptors": {
+            "signed_relief_baseline": {
+              "positive_error": 0.404827,
+              "control_error": 0.495032,
+              "mean_margin": 0.090206,
+              "paired_discrimination_auc": 0.6621,
+              "positive_beats_control_count": 145
+            },
+            "local_signed_profile": {
+              "positive_error": 0.294719,
+              "control_error": 0.354896,
+              "mean_margin": 0.060177,
+              "paired_discrimination_auc": 0.675799,
+              "positive_beats_control_count": 148
+            },
+            "radial_relief_profile": {
+              "positive_error": 0.159967,
+              "control_error": 0.191677,
+              "mean_margin": 0.03171,
+              "paired_discrimination_auc": 0.6621,
+              "positive_beats_control_count": 145
+            },
+            "multiscale_shape_fusion": {
+              "positive_error": 0.245329,
+              "control_error": 0.290302,
+              "mean_margin": 0.044974,
+              "paired_discrimination_auc": 0.666667,
+              "positive_beats_control_count": 146
+            }
+          }
+        },
+        "lsv": {
+          "accepted_track_count": 53,
+          "control_eligible_track_count": 26,
+          "descriptors": {
+            "signed_relief_baseline": {
+              "positive_error": 0.577712,
+              "control_error": 0.567452,
+              "mean_margin": -0.010259,
+              "paired_discrimination_auc": 0.615385,
+              "positive_beats_control_count": 16
+            },
+            "local_signed_profile": {
+              "positive_error": 0.411754,
+              "control_error": 0.410825,
+              "mean_margin": -0.000929,
+              "paired_discrimination_auc": 0.653846,
+              "positive_beats_control_count": 17
+            },
+            "radial_relief_profile": {
+              "positive_error": 0.277553,
+              "control_error": 0.252781,
+              "mean_margin": -0.024772,
+              "paired_discrimination_auc": 0.538462,
+              "positive_beats_control_count": 14
+            },
+            "multiscale_shape_fusion": {
+              "positive_error": 0.328227,
+              "control_error": 0.332014,
+              "mean_margin": 0.003787,
+              "paired_discrimination_auc": 0.615385,
+              "positive_beats_control_count": 16
+            }
+          }
+        },
+        "rsv": {
+          "accepted_track_count": 78,
+          "control_eligible_track_count": 32,
+          "descriptors": {
+            "signed_relief_baseline": {
+              "positive_error": 0.544678,
+              "control_error": 0.622052,
+              "mean_margin": 0.077374,
+              "paired_discrimination_auc": 0.75,
+              "positive_beats_control_count": 24
+            },
+            "local_signed_profile": {
+              "positive_error": 0.384655,
+              "control_error": 0.442147,
+              "mean_margin": 0.057492,
+              "paired_discrimination_auc": 0.8125,
+              "positive_beats_control_count": 26
+            },
+            "radial_relief_profile": {
+              "positive_error": 0.213472,
+              "control_error": 0.225428,
+              "mean_margin": 0.011957,
+              "paired_discrimination_auc": 0.53125,
+              "positive_beats_control_count": 17
+            },
+            "multiscale_shape_fusion": {
+              "positive_error": 0.313382,
+              "control_error": 0.35462,
+              "mean_margin": 0.041237,
+              "paired_discrimination_auc": 0.6875,
+              "positive_beats_control_count": 22
+            }
+          }
+        }
+      },
+      "included_target_views": [
+        "iso",
+        "lsv",
+        "rsv"
+      ],
+      "included_track_count": 277,
+      "descriptors": {
+        "signed_relief_baseline": {
+          "paired_discrimination_auc": 0.66787
+        },
+        "local_signed_profile": {
+          "paired_discrimination_auc": 0.689531
+        },
+        "radial_relief_profile": {
+          "paired_discrimination_auc": 0.635379
+        },
+        "multiscale_shape_fusion": {
+          "paired_discrimination_auc": 0.66426
+        }
+      },
+      "baseline_query_prefix_reproduced": true
+    },
+    {
+      "object_id": "ring_005",
+      "split": "train",
+      "target_views": {
+        "top": {
+          "accepted_track_count": 1,
+          "control_eligible_track_count": 0,
+          "descriptors": {
+            "signed_relief_baseline": {
+              "positive_error": null,
+              "control_error": null,
+              "mean_margin": null,
+              "paired_discrimination_auc": null,
+              "positive_beats_control_count": 0
+            },
+            "local_signed_profile": {
+              "positive_error": null,
+              "control_error": null,
+              "mean_margin": null,
+              "paired_discrimination_auc": null,
+              "positive_beats_control_count": 0
+            },
+            "radial_relief_profile": {
+              "positive_error": null,
+              "control_error": null,
+              "mean_margin": null,
+              "paired_discrimination_auc": null,
+              "positive_beats_control_count": 0
+            },
+            "multiscale_shape_fusion": {
+              "positive_error": null,
+              "control_error": null,
+              "mean_margin": null,
+              "paired_discrimination_auc": null,
+              "positive_beats_control_count": 0
+            }
+          }
+        },
+        "iso": {
+          "accepted_track_count": 169,
+          "control_eligible_track_count": 97,
+          "descriptors": {
+            "signed_relief_baseline": {
+              "positive_error": 0.221027,
+              "control_error": 0.314762,
+              "mean_margin": 0.093734,
+              "paired_discrimination_auc": 0.773196,
+              "positive_beats_control_count": 75
+            },
+            "local_signed_profile": {
+              "positive_error": 0.162587,
+              "control_error": 0.227985,
+              "mean_margin": 0.065398,
+              "paired_discrimination_auc": 0.773196,
+              "positive_beats_control_count": 75
+            },
+            "radial_relief_profile": {
+              "positive_error": 0.119255,
+              "control_error": 0.144933,
+              "mean_margin": 0.025678,
+              "paired_discrimination_auc": 0.701031,
+              "positive_beats_control_count": 68
+            },
+            "multiscale_shape_fusion": {
+              "positive_error": 0.14136,
+              "control_error": 0.190578,
+              "mean_margin": 0.049218,
+              "paired_discrimination_auc": 0.752577,
+              "positive_beats_control_count": 73
+            }
+          }
+        },
+        "lsv": {
+          "accepted_track_count": 79,
+          "control_eligible_track_count": 28,
+          "descriptors": {
+            "signed_relief_baseline": {
+              "positive_error": 0.362681,
+              "control_error": 0.693026,
+              "mean_margin": 0.330345,
+              "paired_discrimination_auc": 0.821429,
+              "positive_beats_control_count": 23
+            },
+            "local_signed_profile": {
+              "positive_error": 0.287456,
+              "control_error": 0.504886,
+              "mean_margin": 0.21743,
+              "paired_discrimination_auc": 0.821429,
+              "positive_beats_control_count": 23
+            },
+            "radial_relief_profile": {
+              "positive_error": 0.167076,
+              "control_error": 0.222202,
+              "mean_margin": 0.055126,
+              "paired_discrimination_auc": 0.785714,
+              "positive_beats_control_count": 22
+            },
+            "multiscale_shape_fusion": {
+              "positive_error": 0.241854,
+              "control_error": 0.405557,
+              "mean_margin": 0.163702,
+              "paired_discrimination_auc": 0.857143,
+              "positive_beats_control_count": 24
+            }
+          }
+        },
+        "rsv": {
+          "accepted_track_count": 25,
+          "control_eligible_track_count": 9,
+          "descriptors": {
+            "signed_relief_baseline": {
+              "positive_error": 0.501584,
+              "control_error": 0.492499,
+              "mean_margin": -0.009084,
+              "paired_discrimination_auc": 0.444444,
+              "positive_beats_control_count": 4
+            },
+            "local_signed_profile": {
+              "positive_error": 0.363795,
+              "control_error": 0.363252,
+              "mean_margin": -0.000544,
+              "paired_discrimination_auc": 0.444444,
+              "positive_beats_control_count": 4
+            },
+            "radial_relief_profile": {
+              "positive_error": 0.16829,
+              "control_error": 0.176927,
+              "mean_margin": 0.008637,
+              "paired_discrimination_auc": 0.555556,
+              "positive_beats_control_count": 5
+            },
+            "multiscale_shape_fusion": {
+              "positive_error": 0.300156,
+              "control_error": 0.305741,
+              "mean_margin": 0.005585,
+              "paired_discrimination_auc": 0.555556,
+              "positive_beats_control_count": 5
+            }
+          }
+        }
+      },
+      "included_target_views": [
+        "iso",
+        "lsv",
+        "rsv"
+      ],
+      "included_track_count": 134,
+      "descriptors": {
+        "signed_relief_baseline": {
+          "paired_discrimination_auc": 0.761194
+        },
+        "local_signed_profile": {
+          "paired_discrimination_auc": 0.761194
+        },
+        "radial_relief_profile": {
+          "paired_discrimination_auc": 0.708955
+        },
+        "multiscale_shape_fusion": {
+          "paired_discrimination_auc": 0.761194
+        }
+      },
+      "baseline_query_prefix_reproduced": true
+    },
+    {
+      "object_id": "ring_006",
+      "split": "train",
+      "target_views": {
+        "top": {
+          "accepted_track_count": 0,
+          "control_eligible_track_count": 0,
+          "descriptors": {}
+        },
+        "iso": {
+          "accepted_track_count": 115,
+          "control_eligible_track_count": 61,
+          "descriptors": {
+            "signed_relief_baseline": {
+              "positive_error": 0.369827,
+              "control_error": 0.496347,
+              "mean_margin": 0.12652,
+              "paired_discrimination_auc": 0.688525,
+              "positive_beats_control_count": 42
+            },
+            "local_signed_profile": {
+              "positive_error": 0.276584,
+              "control_error": 0.363106,
+              "mean_margin": 0.086522,
+              "paired_discrimination_auc": 0.704918,
+              "positive_beats_control_count": 43
+            },
+            "radial_relief_profile": {
+              "positive_error": 0.145331,
+              "control_error": 0.159708,
+              "mean_margin": 0.014377,
+              "paired_discrimination_auc": 0.57377,
+              "positive_beats_control_count": 35
+            },
+            "multiscale_shape_fusion": {
+              "positive_error": 0.228643,
+              "control_error": 0.289655,
+              "mean_margin": 0.061013,
+              "paired_discrimination_auc": 0.688525,
+              "positive_beats_control_count": 42
+            }
+          }
+        },
+        "lsv": {
+          "accepted_track_count": 27,
+          "control_eligible_track_count": 18,
+          "descriptors": {
+            "signed_relief_baseline": {
+              "positive_error": 0.41767,
+              "control_error": 0.493322,
+              "mean_margin": 0.075652,
+              "paired_discrimination_auc": 0.611111,
+              "positive_beats_control_count": 11
+            },
+            "local_signed_profile": {
+              "positive_error": 0.331393,
+              "control_error": 0.366386,
+              "mean_margin": 0.034994,
+              "paired_discrimination_auc": 0.555556,
+              "positive_beats_control_count": 10
+            },
+            "radial_relief_profile": {
+              "positive_error": 0.213806,
+              "control_error": 0.212272,
+              "mean_margin": -0.001534,
+              "paired_discrimination_auc": 0.5,
+              "positive_beats_control_count": 9
+            },
+            "multiscale_shape_fusion": {
+              "positive_error": 0.285941,
+              "control_error": 0.301439,
+              "mean_margin": 0.015498,
+              "paired_discrimination_auc": 0.555556,
+              "positive_beats_control_count": 10
+            }
+          }
+        },
+        "rsv": {
+          "accepted_track_count": 30,
+          "control_eligible_track_count": 21,
+          "descriptors": {
+            "signed_relief_baseline": {
+              "positive_error": 0.436658,
+              "control_error": 0.544978,
+              "mean_margin": 0.108321,
+              "paired_discrimination_auc": 0.619048,
+              "positive_beats_control_count": 13
+            },
+            "local_signed_profile": {
+              "positive_error": 0.321909,
+              "control_error": 0.384764,
+              "mean_margin": 0.062855,
+              "paired_discrimination_auc": 0.619048,
+              "positive_beats_control_count": 13
+            },
+            "radial_relief_profile": {
+              "positive_error": 0.166111,
+              "control_error": 0.206175,
+              "mean_margin": 0.040064,
+              "paired_discrimination_auc": 0.571429,
+              "positive_beats_control_count": 12
+            },
+            "multiscale_shape_fusion": {
+              "positive_error": 0.256265,
+              "control_error": 0.301944,
+              "mean_margin": 0.045679,
+              "paired_discrimination_auc": 0.619048,
+              "positive_beats_control_count": 13
+            }
+          }
+        }
+      },
+      "included_target_views": [
+        "iso",
+        "lsv",
+        "rsv"
+      ],
+      "included_track_count": 100,
+      "descriptors": {
+        "signed_relief_baseline": {
+          "paired_discrimination_auc": 0.66
+        },
+        "local_signed_profile": {
+          "paired_discrimination_auc": 0.66
+        },
+        "radial_relief_profile": {
+          "paired_discrimination_auc": 0.56
+        },
+        "multiscale_shape_fusion": {
+          "paired_discrimination_auc": 0.65
+        }
+      },
+      "baseline_query_prefix_reproduced": true
+    },
+    {
+      "object_id": "ring_008",
+      "split": "train",
+      "target_views": {
+        "top": {
+          "accepted_track_count": 2,
+          "control_eligible_track_count": 0,
+          "descriptors": {
+            "signed_relief_baseline": {
+              "positive_error": null,
+              "control_error": null,
+              "mean_margin": null,
+              "paired_discrimination_auc": null,
+              "positive_beats_control_count": 0
+            },
+            "local_signed_profile": {
+              "positive_error": null,
+              "control_error": null,
+              "mean_margin": null,
+              "paired_discrimination_auc": null,
+              "positive_beats_control_count": 0
+            },
+            "radial_relief_profile": {
+              "positive_error": null,
+              "control_error": null,
+              "mean_margin": null,
+              "paired_discrimination_auc": null,
+              "positive_beats_control_count": 0
+            },
+            "multiscale_shape_fusion": {
+              "positive_error": null,
+              "control_error": null,
+              "mean_margin": null,
+              "paired_discrimination_auc": null,
+              "positive_beats_control_count": 0
+            }
+          }
+        },
+        "iso": {
+          "accepted_track_count": 444,
+          "control_eligible_track_count": 299,
+          "descriptors": {
+            "signed_relief_baseline": {
+              "positive_error": 0.366229,
+              "control_error": 0.389524,
+              "mean_margin": 0.023295,
+              "paired_discrimination_auc": 0.628763,
+              "positive_beats_control_count": 188
+            },
+            "local_signed_profile": {
+              "positive_error": 0.263916,
+              "control_error": 0.279597,
+              "mean_margin": 0.015681,
+              "paired_discrimination_auc": 0.64214,
+              "positive_beats_control_count": 192
+            },
+            "radial_relief_profile": {
+              "positive_error": 0.156184,
+              "control_error": 0.161994,
+              "mean_margin": 0.00581,
+              "paired_discrimination_auc": 0.628763,
+              "positive_beats_control_count": 188
+            },
+            "multiscale_shape_fusion": {
+              "positive_error": 0.2176,
+              "control_error": 0.229058,
+              "mean_margin": 0.011458,
+              "paired_discrimination_auc": 0.640468,
+              "positive_beats_control_count": 191
+            }
+          }
+        },
+        "lsv": {
+          "accepted_track_count": 39,
+          "control_eligible_track_count": 16,
+          "descriptors": {
+            "signed_relief_baseline": {
+              "positive_error": 1.074309,
+              "control_error": 0.923276,
+              "mean_margin": -0.151033,
+              "paired_discrimination_auc": 0.34375,
+              "positive_beats_control_count": 5
+            },
+            "local_signed_profile": {
+              "positive_error": 0.721639,
+              "control_error": 0.629472,
+              "mean_margin": -0.092167,
+              "paired_discrimination_auc": 0.375,
+              "positive_beats_control_count": 6
+            },
+            "radial_relief_profile": {
+              "positive_error": 0.511725,
+              "control_error": 0.386656,
+              "mean_margin": -0.125069,
+              "paired_discrimination_auc": 0.25,
+              "positive_beats_control_count": 4
+            },
+            "multiscale_shape_fusion": {
+              "positive_error": 0.548747,
+              "control_error": 0.47239,
+              "mean_margin": -0.076357,
+              "paired_discrimination_auc": 0.4375,
+              "positive_beats_control_count": 7
+            }
+          }
+        },
+        "rsv": {
+          "accepted_track_count": 97,
+          "control_eligible_track_count": 48,
+          "descriptors": {
+            "signed_relief_baseline": {
+              "positive_error": 0.693512,
+              "control_error": 0.734484,
+              "mean_margin": 0.040972,
+              "paired_discrimination_auc": 0.604167,
+              "positive_beats_control_count": 29
+            },
+            "local_signed_profile": {
+              "positive_error": 0.473602,
+              "control_error": 0.499924,
+              "mean_margin": 0.026322,
+              "paired_discrimination_auc": 0.625,
+              "positive_beats_control_count": 30
+            },
+            "radial_relief_profile": {
+              "positive_error": 0.305466,
+              "control_error": 0.303667,
+              "mean_margin": -0.001799,
+              "paired_discrimination_auc": 0.541667,
+              "positive_beats_control_count": 26
+            },
+            "multiscale_shape_fusion": {
+              "positive_error": 0.365985,
+              "control_error": 0.384424,
+              "mean_margin": 0.018439,
+              "paired_discrimination_auc": 0.604167,
+              "positive_beats_control_count": 29
+            }
+          }
+        }
+      },
+      "included_target_views": [
+        "iso",
+        "lsv",
+        "rsv"
+      ],
+      "included_track_count": 363,
+      "descriptors": {
+        "signed_relief_baseline": {
+          "paired_discrimination_auc": 0.612948
+        },
+        "local_signed_profile": {
+          "paired_discrimination_auc": 0.628099
+        },
+        "radial_relief_profile": {
+          "paired_discrimination_auc": 0.600551
+        },
+        "multiscale_shape_fusion": {
+          "paired_discrimination_auc": 0.626722
+        }
+      },
+      "baseline_query_prefix_reproduced": true
+    },
+    {
+      "object_id": "ring_009",
+      "split": "train",
+      "target_views": {
+        "top": {
+          "accepted_track_count": 0,
+          "control_eligible_track_count": 0,
+          "descriptors": {}
+        },
+        "iso": {
+          "accepted_track_count": 11,
+          "control_eligible_track_count": 8,
+          "descriptors": {
+            "signed_relief_baseline": {
+              "positive_error": 0.439875,
+              "control_error": 0.555742,
+              "mean_margin": 0.115867,
+              "paired_discrimination_auc": 0.625,
+              "positive_beats_control_count": 5
+            },
+            "local_signed_profile": {
+              "positive_error": 0.340652,
+              "control_error": 0.420406,
+              "mean_margin": 0.079754,
+              "paired_discrimination_auc": 0.625,
+              "positive_beats_control_count": 5
+            },
+            "radial_relief_profile": {
+              "positive_error": 0.195277,
+              "control_error": 0.210183,
+              "mean_margin": 0.014905,
+              "paired_discrimination_auc": 0.625,
+              "positive_beats_control_count": 5
+            },
+            "multiscale_shape_fusion": {
+              "positive_error": 0.285896,
+              "control_error": 0.353785,
+              "mean_margin": 0.067889,
+              "paired_discrimination_auc": 0.625,
+              "positive_beats_control_count": 5
+            }
+          }
+        },
+        "lsv": {
+          "accepted_track_count": 41,
+          "control_eligible_track_count": 23,
+          "descriptors": {
+            "signed_relief_baseline": {
+              "positive_error": 0.381816,
+              "control_error": 0.510235,
+              "mean_margin": 0.128419,
+              "paired_discrimination_auc": 0.565217,
+              "positive_beats_control_count": 13
+            },
+            "local_signed_profile": {
+              "positive_error": 0.287931,
+              "control_error": 0.368276,
+              "mean_margin": 0.080345,
+              "paired_discrimination_auc": 0.652174,
+              "positive_beats_control_count": 15
+            },
+            "radial_relief_profile": {
+              "positive_error": 0.146333,
+              "control_error": 0.244913,
+              "mean_margin": 0.09858,
+              "paired_discrimination_auc": 0.73913,
+              "positive_beats_control_count": 17
+            },
+            "multiscale_shape_fusion": {
+              "positive_error": 0.234103,
+              "control_error": 0.296602,
+              "mean_margin": 0.062499,
+              "paired_discrimination_auc": 0.608696,
+              "positive_beats_control_count": 14
+            }
+          }
+        },
+        "rsv": {
+          "accepted_track_count": 1,
+          "control_eligible_track_count": 0,
+          "descriptors": {
+            "signed_relief_baseline": {
+              "positive_error": null,
+              "control_error": null,
+              "mean_margin": null,
+              "paired_discrimination_auc": null,
+              "positive_beats_control_count": 0
+            },
+            "local_signed_profile": {
+              "positive_error": null,
+              "control_error": null,
+              "mean_margin": null,
+              "paired_discrimination_auc": null,
+              "positive_beats_control_count": 0
+            },
+            "radial_relief_profile": {
+              "positive_error": null,
+              "control_error": null,
+              "mean_margin": null,
+              "paired_discrimination_auc": null,
+              "positive_beats_control_count": 0
+            },
+            "multiscale_shape_fusion": {
+              "positive_error": null,
+              "control_error": null,
+              "mean_margin": null,
+              "paired_discrimination_auc": null,
+              "positive_beats_control_count": 0
+            }
+          }
+        }
+      },
+      "included_target_views": [
+        "iso",
+        "lsv"
+      ],
+      "included_track_count": 31,
+      "descriptors": {
+        "signed_relief_baseline": {
+          "paired_discrimination_auc": 0.580645
+        },
+        "local_signed_profile": {
+          "paired_discrimination_auc": 0.645161
+        },
+        "radial_relief_profile": {
+          "paired_discrimination_auc": 0.709677
+        },
+        "multiscale_shape_fusion": {
+          "paired_discrimination_auc": 0.612903
+        }
+      },
+      "baseline_query_prefix_reproduced": true
+    },
+    {
+      "object_id": "ring_010",
+      "split": "train",
+      "target_views": {
+        "top": {
+          "accepted_track_count": 1,
+          "control_eligible_track_count": 0,
+          "descriptors": {
+            "signed_relief_baseline": {
+              "positive_error": null,
+              "control_error": null,
+              "mean_margin": null,
+              "paired_discrimination_auc": null,
+              "positive_beats_control_count": 0
+            },
+            "local_signed_profile": {
+              "positive_error": null,
+              "control_error": null,
+              "mean_margin": null,
+              "paired_discrimination_auc": null,
+              "positive_beats_control_count": 0
+            },
+            "radial_relief_profile": {
+              "positive_error": null,
+              "control_error": null,
+              "mean_margin": null,
+              "paired_discrimination_auc": null,
+              "positive_beats_control_count": 0
+            },
+            "multiscale_shape_fusion": {
+              "positive_error": null,
+              "control_error": null,
+              "mean_margin": null,
+              "paired_discrimination_auc": null,
+              "positive_beats_control_count": 0
+            }
+          }
+        },
+        "iso": {
+          "accepted_track_count": 414,
+          "control_eligible_track_count": 291,
+          "descriptors": {
+            "signed_relief_baseline": {
+              "positive_error": 0.419254,
+              "control_error": 0.493257,
+              "mean_margin": 0.074003,
+              "paired_discrimination_auc": 0.659794,
+              "positive_beats_control_count": 192
+            },
+            "local_signed_profile": {
+              "positive_error": 0.309289,
+              "control_error": 0.356854,
+              "mean_margin": 0.047565,
+              "paired_discrimination_auc": 0.67354,
+              "positive_beats_control_count": 196
+            },
+            "radial_relief_profile": {
+              "positive_error": 0.166322,
+              "control_error": 0.190674,
+              "mean_margin": 0.024352,
+              "paired_discrimination_auc": 0.687285,
+              "positive_beats_control_count": 200
+            },
+            "multiscale_shape_fusion": {
+              "positive_error": 0.258266,
+              "control_error": 0.292275,
+              "mean_margin": 0.034009,
+              "paired_discrimination_auc": 0.666667,
+              "positive_beats_control_count": 194
+            }
+          }
+        },
+        "lsv": {
+          "accepted_track_count": 103,
+          "control_eligible_track_count": 55,
+          "descriptors": {
+            "signed_relief_baseline": {
+              "positive_error": 0.526147,
+              "control_error": 0.534916,
+              "mean_margin": 0.00877,
+              "paired_discrimination_auc": 0.545455,
+              "positive_beats_control_count": 30
+            },
+            "local_signed_profile": {
+              "positive_error": 0.386037,
+              "control_error": 0.390409,
+              "mean_margin": 0.004372,
+              "paired_discrimination_auc": 0.527273,
+              "positive_beats_control_count": 29
+            },
+            "radial_relief_profile": {
+              "positive_error": 0.200204,
+              "control_error": 0.216002,
+              "mean_margin": 0.015798,
+              "paired_discrimination_auc": 0.581818,
+              "positive_beats_control_count": 32
+            },
+            "multiscale_shape_fusion": {
+              "positive_error": 0.316382,
+              "control_error": 0.316125,
+              "mean_margin": -0.000257,
+              "paired_discrimination_auc": 0.527273,
+              "positive_beats_control_count": 29
+            }
+          }
+        },
+        "rsv": {
+          "accepted_track_count": 68,
+          "control_eligible_track_count": 34,
+          "descriptors": {
+            "signed_relief_baseline": {
+              "positive_error": 0.474055,
+              "control_error": 0.630938,
+              "mean_margin": 0.156883,
+              "paired_discrimination_auc": 0.558824,
+              "positive_beats_control_count": 19
+            },
+            "local_signed_profile": {
+              "positive_error": 0.355121,
+              "control_error": 0.448467,
+              "mean_margin": 0.093346,
+              "paired_discrimination_auc": 0.558824,
+              "positive_beats_control_count": 19
+            },
+            "radial_relief_profile": {
+              "positive_error": 0.233194,
+              "control_error": 0.24464,
+              "mean_margin": 0.011446,
+              "paired_discrimination_auc": 0.558824,
+              "positive_beats_control_count": 19
+            },
+            "multiscale_shape_fusion": {
+              "positive_error": 0.299666,
+              "control_error": 0.360264,
+              "mean_margin": 0.060598,
+              "paired_discrimination_auc": 0.558824,
+              "positive_beats_control_count": 19
+            }
+          }
+        }
+      },
+      "included_target_views": [
+        "iso",
+        "lsv",
+        "rsv"
+      ],
+      "included_track_count": 380,
+      "descriptors": {
+        "signed_relief_baseline": {
+          "paired_discrimination_auc": 0.634211
+        },
+        "local_signed_profile": {
+          "paired_discrimination_auc": 0.642106
+        },
+        "radial_relief_profile": {
+          "paired_discrimination_auc": 0.660526
+        },
+        "multiscale_shape_fusion": {
+          "paired_discrimination_auc": 0.636842
+        }
+      },
+      "baseline_query_prefix_reproduced": true
+    },
+    {
+      "object_id": "ring_011",
+      "split": "train",
+      "target_views": {
+        "top": {
+          "accepted_track_count": 10,
+          "control_eligible_track_count": 1,
+          "descriptors": {
+            "signed_relief_baseline": {
+              "positive_error": 0.681762,
+              "control_error": 0.363848,
+              "mean_margin": -0.317913,
+              "paired_discrimination_auc": 0.0,
+              "positive_beats_control_count": 0
+            },
+            "local_signed_profile": {
+              "positive_error": 0.512506,
+              "control_error": 0.275258,
+              "mean_margin": -0.237248,
+              "paired_discrimination_auc": 0.0,
+              "positive_beats_control_count": 0
+            },
+            "radial_relief_profile": {
+              "positive_error": 0.204196,
+              "control_error": 0.144442,
+              "mean_margin": -0.059754,
+              "paired_discrimination_auc": 0.0,
+              "positive_beats_control_count": 0
+            },
+            "multiscale_shape_fusion": {
+              "positive_error": 0.442413,
+              "control_error": 0.23785,
+              "mean_margin": -0.204562,
+              "paired_discrimination_auc": 0.0,
+              "positive_beats_control_count": 0
+            }
+          }
+        },
+        "iso": {
+          "accepted_track_count": 301,
+          "control_eligible_track_count": 160,
+          "descriptors": {
+            "signed_relief_baseline": {
+              "positive_error": 0.337936,
+              "control_error": 0.470373,
+              "mean_margin": 0.132438,
+              "paired_discrimination_auc": 0.725,
+              "positive_beats_control_count": 116
+            },
+            "local_signed_profile": {
+              "positive_error": 0.256783,
+              "control_error": 0.344827,
+              "mean_margin": 0.088044,
+              "paired_discrimination_auc": 0.7375,
+              "positive_beats_control_count": 118
+            },
+            "radial_relief_profile": {
+              "positive_error": 0.118835,
+              "control_error": 0.157632,
+              "mean_margin": 0.038798,
+              "paired_discrimination_auc": 0.7,
+              "positive_beats_control_count": 112
+            },
+            "multiscale_shape_fusion": {
+              "positive_error": 0.215371,
+              "control_error": 0.280516,
+              "mean_margin": 0.065145,
+              "paired_discrimination_auc": 0.71875,
+              "positive_beats_control_count": 115
+            }
+          }
+        },
+        "lsv": {
+          "accepted_track_count": 97,
+          "control_eligible_track_count": 45,
+          "descriptors": {
+            "signed_relief_baseline": {
+              "positive_error": 0.632733,
+              "control_error": 0.660876,
+              "mean_margin": 0.028143,
+              "paired_discrimination_auc": 0.544444,
+              "positive_beats_control_count": 24
+            },
+            "local_signed_profile": {
+              "positive_error": 0.452237,
+              "control_error": 0.475728,
+              "mean_margin": 0.023491,
+              "paired_discrimination_auc": 0.577778,
+              "positive_beats_control_count": 26
+            },
+            "radial_relief_profile": {
+              "positive_error": 0.22449,
+              "control_error": 0.243053,
+              "mean_margin": 0.018562,
+              "paired_discrimination_auc": 0.644444,
+              "positive_beats_control_count": 29
+            },
+            "multiscale_shape_fusion": {
+              "positive_error": 0.355628,
+              "control_error": 0.376995,
+              "mean_margin": 0.021367,
+              "paired_discrimination_auc": 0.577778,
+              "positive_beats_control_count": 26
+            }
+          }
+        },
+        "rsv": {
+          "accepted_track_count": 124,
+          "control_eligible_track_count": 70,
+          "descriptors": {
+            "signed_relief_baseline": {
+              "positive_error": 0.664756,
+              "control_error": 0.657363,
+              "mean_margin": -0.007393,
+              "paired_discrimination_auc": 0.457143,
+              "positive_beats_control_count": 32
+            },
+            "local_signed_profile": {
+              "positive_error": 0.486238,
+              "control_error": 0.48284,
+              "mean_margin": -0.003397,
+              "paired_discrimination_auc": 0.457143,
+              "positive_beats_control_count": 32
+            },
+            "radial_relief_profile": {
+              "positive_error": 0.205125,
+              "control_error": 0.213595,
+              "mean_margin": 0.008471,
+              "paired_discrimination_auc": 0.528571,
+              "positive_beats_control_count": 37
+            },
+            "multiscale_shape_fusion": {
+              "positive_error": 0.395255,
+              "control_error": 0.395402,
+              "mean_margin": 0.000147,
+              "paired_discrimination_auc": 0.457143,
+              "positive_beats_control_count": 32
+            }
+          }
+        }
+      },
+      "included_target_views": [
+        "iso",
+        "lsv",
+        "rsv"
+      ],
+      "included_track_count": 275,
+      "descriptors": {
+        "signed_relief_baseline": {
+          "paired_discrimination_auc": 0.627273
+        },
+        "local_signed_profile": {
+          "paired_discrimination_auc": 0.64
+        },
+        "radial_relief_profile": {
+          "paired_discrimination_auc": 0.647273
+        },
+        "multiscale_shape_fusion": {
+          "paired_discrimination_auc": 0.629091
+        }
+      },
+      "baseline_query_prefix_reproduced": true
+    },
+    {
+      "object_id": "ring_013",
+      "split": "train",
+      "target_views": {
+        "top": {
+          "accepted_track_count": 0,
+          "control_eligible_track_count": 0,
+          "descriptors": {}
+        },
+        "iso": {
+          "accepted_track_count": 128,
+          "control_eligible_track_count": 39,
+          "descriptors": {
+            "signed_relief_baseline": {
+              "positive_error": 0.254076,
+              "control_error": 0.271882,
+              "mean_margin": 0.017806,
+              "paired_discrimination_auc": 0.487179,
+              "positive_beats_control_count": 19
+            },
+            "local_signed_profile": {
+              "positive_error": 0.191264,
+              "control_error": 0.199295,
+              "mean_margin": 0.008031,
+              "paired_discrimination_auc": 0.461538,
+              "positive_beats_control_count": 18
+            },
+            "radial_relief_profile": {
+              "positive_error": 0.113114,
+              "control_error": 0.111863,
+              "mean_margin": -0.001251,
+              "paired_discrimination_auc": 0.641026,
+              "positive_beats_control_count": 25
+            },
+            "multiscale_shape_fusion": {
+              "positive_error": 0.162704,
+              "control_error": 0.166746,
+              "mean_margin": 0.004041,
+              "paired_discrimination_auc": 0.512821,
+              "positive_beats_control_count": 20
+            }
+          }
+        },
+        "lsv": {
+          "accepted_track_count": 32,
+          "control_eligible_track_count": 9,
+          "descriptors": {
+            "signed_relief_baseline": {
+              "positive_error": 0.6252,
+              "control_error": 0.471721,
+              "mean_margin": -0.153479,
+              "paired_discrimination_auc": 0.333333,
+              "positive_beats_control_count": 3
+            },
+            "local_signed_profile": {
+              "positive_error": 0.415795,
+              "control_error": 0.339336,
+              "mean_margin": -0.07646,
+              "paired_discrimination_auc": 0.444444,
+              "positive_beats_control_count": 4
+            },
+            "radial_relief_profile": {
+              "positive_error": 0.28747,
+              "control_error": 0.175247,
+              "mean_margin": -0.112223,
+              "paired_discrimination_auc": 0.0,
+              "positive_beats_control_count": 0
+            },
+            "multiscale_shape_fusion": {
+              "positive_error": 0.321338,
+              "control_error": 0.27276,
+              "mean_margin": -0.048578,
+              "paired_discrimination_auc": 0.444444,
+              "positive_beats_control_count": 4
+            }
+          }
+        },
+        "rsv": {
+          "accepted_track_count": 17,
+          "control_eligible_track_count": 7,
+          "descriptors": {
+            "signed_relief_baseline": {
+              "positive_error": 0.357483,
+              "control_error": 0.409004,
+              "mean_margin": 0.051522,
+              "paired_discrimination_auc": 0.571429,
+              "positive_beats_control_count": 4
+            },
+            "local_signed_profile": {
+              "positive_error": 0.255863,
+              "control_error": 0.297876,
+              "mean_margin": 0.042013,
+              "paired_discrimination_auc": 0.571429,
+              "positive_beats_control_count": 4
+            },
+            "radial_relief_profile": {
+              "positive_error": 0.17576,
+              "control_error": 0.16256,
+              "mean_margin": -0.0132,
+              "paired_discrimination_auc": 0.571429,
+              "positive_beats_control_count": 4
+            },
+            "multiscale_shape_fusion": {
+              "positive_error": 0.214458,
+              "control_error": 0.237153,
+              "mean_margin": 0.022695,
+              "paired_discrimination_auc": 0.571429,
+              "positive_beats_control_count": 4
+            }
+          }
+        }
+      },
+      "included_target_views": [
+        "iso",
+        "lsv"
+      ],
+      "included_track_count": 48,
+      "descriptors": {
+        "signed_relief_baseline": {
+          "paired_discrimination_auc": 0.458333
+        },
+        "local_signed_profile": {
+          "paired_discrimination_auc": 0.458333
+        },
+        "radial_relief_profile": {
+          "paired_discrimination_auc": 0.520834
+        },
+        "multiscale_shape_fusion": {
+          "paired_discrimination_auc": 0.5
+        }
+      },
+      "baseline_query_prefix_reproduced": true
+    },
+    {
+      "object_id": "ring_014",
+      "split": "train",
+      "target_views": {
+        "top": {
+          "accepted_track_count": 0,
+          "control_eligible_track_count": 0,
+          "descriptors": {}
+        },
+        "iso": {
+          "accepted_track_count": 119,
+          "control_eligible_track_count": 61,
+          "descriptors": {
+            "signed_relief_baseline": {
+              "positive_error": 0.348791,
+              "control_error": 0.479497,
+              "mean_margin": 0.130706,
+              "paired_discrimination_auc": 0.688525,
+              "positive_beats_control_count": 42
+            },
+            "local_signed_profile": {
+              "positive_error": 0.259172,
+              "control_error": 0.347791,
+              "mean_margin": 0.088619,
+              "paired_discrimination_auc": 0.688525,
+              "positive_beats_control_count": 42
+            },
+            "radial_relief_profile": {
+              "positive_error": 0.141787,
+              "control_error": 0.175315,
+              "mean_margin": 0.033528,
+              "paired_discrimination_auc": 0.704918,
+              "positive_beats_control_count": 43
+            },
+            "multiscale_shape_fusion": {
+              "positive_error": 0.214223,
+              "control_error": 0.28238,
+              "mean_margin": 0.068157,
+              "paired_discrimination_auc": 0.655738,
+              "positive_beats_control_count": 40
+            }
+          }
+        },
+        "lsv": {
+          "accepted_track_count": 41,
+          "control_eligible_track_count": 15,
+          "descriptors": {
+            "signed_relief_baseline": {
+              "positive_error": 0.418154,
+              "control_error": 0.418713,
+              "mean_margin": 0.00056,
+              "paired_discrimination_auc": 0.6,
+              "positive_beats_control_count": 9
+            },
+            "local_signed_profile": {
+              "positive_error": 0.298211,
+              "control_error": 0.30544,
+              "mean_margin": 0.007229,
+              "paired_discrimination_auc": 0.666667,
+              "positive_beats_control_count": 10
+            },
+            "radial_relief_profile": {
+              "positive_error": 0.171378,
+              "control_error": 0.185903,
+              "mean_margin": 0.014525,
+              "paired_discrimination_auc": 0.6,
+              "positive_beats_control_count": 9
+            },
+            "multiscale_shape_fusion": {
+              "positive_error": 0.234113,
+              "control_error": 0.24968,
+              "mean_margin": 0.015567,
+              "paired_discrimination_auc": 0.666667,
+              "positive_beats_control_count": 10
+            }
+          }
+        },
+        "rsv": {
+          "accepted_track_count": 46,
+          "control_eligible_track_count": 23,
+          "descriptors": {
+            "signed_relief_baseline": {
+              "positive_error": 0.517886,
+              "control_error": 0.518542,
+              "mean_margin": 0.000656,
+              "paired_discrimination_auc": 0.478261,
+              "positive_beats_control_count": 11
+            },
+            "local_signed_profile": {
+              "positive_error": 0.372294,
+              "control_error": 0.373933,
+              "mean_margin": 0.001639,
+              "paired_discrimination_auc": 0.478261,
+              "positive_beats_control_count": 11
+            },
+            "radial_relief_profile": {
+              "positive_error": 0.194635,
+              "control_error": 0.189462,
+              "mean_margin": -0.005173,
+              "paired_discrimination_auc": 0.565217,
+              "positive_beats_control_count": 13
+            },
+            "multiscale_shape_fusion": {
+              "positive_error": 0.30217,
+              "control_error": 0.302316,
+              "mean_margin": 0.000146,
+              "paired_discrimination_auc": 0.478261,
+              "positive_beats_control_count": 11
+            }
+          }
+        }
+      },
+      "included_target_views": [
+        "iso",
+        "lsv",
+        "rsv"
+      ],
+      "included_track_count": 99,
+      "descriptors": {
+        "signed_relief_baseline": {
+          "paired_discrimination_auc": 0.626263
+        },
+        "local_signed_profile": {
+          "paired_discrimination_auc": 0.636364
+        },
+        "radial_relief_profile": {
+          "paired_discrimination_auc": 0.656566
+        },
+        "multiscale_shape_fusion": {
+          "paired_discrimination_auc": 0.616162
+        }
+      },
+      "baseline_query_prefix_reproduced": true
+    },
+    {
+      "object_id": "ring_016",
+      "split": "train",
+      "target_views": {
+        "top": {
+          "accepted_track_count": 2,
+          "control_eligible_track_count": 0,
+          "descriptors": {
+            "signed_relief_baseline": {
+              "positive_error": null,
+              "control_error": null,
+              "mean_margin": null,
+              "paired_discrimination_auc": null,
+              "positive_beats_control_count": 0
+            },
+            "local_signed_profile": {
+              "positive_error": null,
+              "control_error": null,
+              "mean_margin": null,
+              "paired_discrimination_auc": null,
+              "positive_beats_control_count": 0
+            },
+            "radial_relief_profile": {
+              "positive_error": null,
+              "control_error": null,
+              "mean_margin": null,
+              "paired_discrimination_auc": null,
+              "positive_beats_control_count": 0
+            },
+            "multiscale_shape_fusion": {
+              "positive_error": null,
+              "control_error": null,
+              "mean_margin": null,
+              "paired_discrimination_auc": null,
+              "positive_beats_control_count": 0
+            }
+          }
+        },
+        "iso": {
+          "accepted_track_count": 285,
+          "control_eligible_track_count": 182,
+          "descriptors": {
+            "signed_relief_baseline": {
+              "positive_error": 0.411433,
+              "control_error": 0.479162,
+              "mean_margin": 0.067728,
+              "paired_discrimination_auc": 0.681319,
+              "positive_beats_control_count": 124
+            },
+            "local_signed_profile": {
+              "positive_error": 0.294454,
+              "control_error": 0.338886,
+              "mean_margin": 0.044432,
+              "paired_discrimination_auc": 0.675824,
+              "positive_beats_control_count": 123
+            },
+            "radial_relief_profile": {
+              "positive_error": 0.198285,
+              "control_error": 0.213741,
+              "mean_margin": 0.015456,
+              "paired_discrimination_auc": 0.642857,
+              "positive_beats_control_count": 117
+            },
+            "multiscale_shape_fusion": {
+              "positive_error": 0.242192,
+              "control_error": 0.272483,
+              "mean_margin": 0.030291,
+              "paired_discrimination_auc": 0.653846,
+              "positive_beats_control_count": 119
+            }
+          }
+        },
+        "lsv": {
+          "accepted_track_count": 73,
+          "control_eligible_track_count": 27,
+          "descriptors": {
+            "signed_relief_baseline": {
+              "positive_error": 0.702004,
+              "control_error": 0.40614,
+              "mean_margin": -0.295863,
+              "paired_discrimination_auc": 0.203704,
+              "positive_beats_control_count": 5
+            },
+            "local_signed_profile": {
+              "positive_error": 0.483034,
+              "control_error": 0.292671,
+              "mean_margin": -0.190363,
+              "paired_discrimination_auc": 0.259259,
+              "positive_beats_control_count": 7
+            },
+            "radial_relief_profile": {
+              "positive_error": 0.341539,
+              "control_error": 0.217648,
+              "mean_margin": -0.123891,
+              "paired_discrimination_auc": 0.185185,
+              "positive_beats_control_count": 5
+            },
+            "multiscale_shape_fusion": {
+              "positive_error": 0.406104,
+              "control_error": 0.24783,
+              "mean_margin": -0.158274,
+              "paired_discrimination_auc": 0.222222,
+              "positive_beats_control_count": 6
+            }
+          }
+        },
+        "rsv": {
+          "accepted_track_count": 23,
+          "control_eligible_track_count": 9,
+          "descriptors": {
+            "signed_relief_baseline": {
+              "positive_error": 0.722258,
+              "control_error": 0.687714,
+              "mean_margin": -0.034544,
+              "paired_discrimination_auc": 0.666667,
+              "positive_beats_control_count": 6
+            },
+            "local_signed_profile": {
+              "positive_error": 0.499701,
+              "control_error": 0.47738,
+              "mean_margin": -0.022321,
+              "paired_discrimination_auc": 0.666667,
+              "positive_beats_control_count": 6
+            },
+            "radial_relief_profile": {
+              "positive_error": 0.336108,
+              "control_error": 0.312564,
+              "mean_margin": -0.023544,
+              "paired_discrimination_auc": 0.555556,
+              "positive_beats_control_count": 5
+            },
+            "multiscale_shape_fusion": {
+              "positive_error": 0.418315,
+              "control_error": 0.400355,
+              "mean_margin": -0.017959,
+              "paired_discrimination_auc": 0.666667,
+              "positive_beats_control_count": 6
+            }
+          }
+        }
+      },
+      "included_target_views": [
+        "iso",
+        "lsv",
+        "rsv"
+      ],
+      "included_track_count": 218,
+      "descriptors": {
+        "signed_relief_baseline": {
+          "paired_discrimination_auc": 0.62156
+        },
+        "local_signed_profile": {
+          "paired_discrimination_auc": 0.623853
+        },
+        "radial_relief_profile": {
+          "paired_discrimination_auc": 0.582569
+        },
+        "multiscale_shape_fusion": {
+          "paired_discrimination_auc": 0.600917
+        }
+      },
+      "baseline_query_prefix_reproduced": true
+    },
+    {
+      "object_id": "ring_017",
+      "split": "train",
+      "target_views": {
+        "top": {
+          "accepted_track_count": 11,
+          "control_eligible_track_count": 1,
+          "descriptors": {
+            "signed_relief_baseline": {
+              "positive_error": 0.780726,
+              "control_error": 0.087431,
+              "mean_margin": -0.693295,
+              "paired_discrimination_auc": 0.0,
+              "positive_beats_control_count": 0
+            },
+            "local_signed_profile": {
+              "positive_error": 0.526819,
+              "control_error": 0.074443,
+              "mean_margin": -0.452377,
+              "paired_discrimination_auc": 0.0,
+              "positive_beats_control_count": 0
+            },
+            "radial_relief_profile": {
+              "positive_error": 0.365119,
+              "control_error": 0.046162,
+              "mean_margin": -0.318958,
+              "paired_discrimination_auc": 0.0,
+              "positive_beats_control_count": 0
+            },
+            "multiscale_shape_fusion": {
+              "positive_error": 0.433392,
+              "control_error": 0.064713,
+              "mean_margin": -0.368678,
+              "paired_discrimination_auc": 0.0,
+              "positive_beats_control_count": 0
+            }
+          }
+        },
+        "iso": {
+          "accepted_track_count": 311,
+          "control_eligible_track_count": 200,
+          "descriptors": {
+            "signed_relief_baseline": {
+              "positive_error": 0.296018,
+              "control_error": 0.374606,
+              "mean_margin": 0.078588,
+              "paired_discrimination_auc": 0.655,
+              "positive_beats_control_count": 131
+            },
+            "local_signed_profile": {
+              "positive_error": 0.224854,
+              "control_error": 0.273927,
+              "mean_margin": 0.049073,
+              "paired_discrimination_auc": 0.68,
+              "positive_beats_control_count": 136
+            },
+            "radial_relief_profile": {
+              "positive_error": 0.121039,
+              "control_error": 0.143233,
+              "mean_margin": 0.022194,
+              "paired_discrimination_auc": 0.66,
+              "positive_beats_control_count": 132
+            },
+            "multiscale_shape_fusion": {
+              "positive_error": 0.191803,
+              "control_error": 0.22497,
+              "mean_margin": 0.033167,
+              "paired_discrimination_auc": 0.69,
+              "positive_beats_control_count": 138
+            }
+          }
+        },
+        "lsv": {
+          "accepted_track_count": 71,
+          "control_eligible_track_count": 34,
+          "descriptors": {
+            "signed_relief_baseline": {
+              "positive_error": 0.591868,
+              "control_error": 0.642804,
+              "mean_margin": 0.050936,
+              "paired_discrimination_auc": 0.617647,
+              "positive_beats_control_count": 21
+            },
+            "local_signed_profile": {
+              "positive_error": 0.437576,
+              "control_error": 0.470075,
+              "mean_margin": 0.032499,
+              "paired_discrimination_auc": 0.617647,
+              "positive_beats_control_count": 21
+            },
+            "radial_relief_profile": {
+              "positive_error": 0.210669,
+              "control_error": 0.223298,
+              "mean_margin": 0.012629,
+              "paired_discrimination_auc": 0.529412,
+              "positive_beats_control_count": 18
+            },
+            "multiscale_shape_fusion": {
+              "positive_error": 0.355552,
+              "control_error": 0.384014,
+              "mean_margin": 0.028463,
+              "paired_discrimination_auc": 0.617647,
+              "positive_beats_control_count": 21
+            }
+          }
+        },
+        "rsv": {
+          "accepted_track_count": 102,
+          "control_eligible_track_count": 47,
+          "descriptors": {
+            "signed_relief_baseline": {
+              "positive_error": 0.474035,
+              "control_error": 0.61139,
+              "mean_margin": 0.137355,
+              "paired_discrimination_auc": 0.659574,
+              "positive_beats_control_count": 31
+            },
+            "local_signed_profile": {
+              "positive_error": 0.346759,
+              "control_error": 0.438558,
+              "mean_margin": 0.091799,
+              "paired_discrimination_auc": 0.659574,
+              "positive_beats_control_count": 31
+            },
+            "radial_relief_profile": {
+              "positive_error": 0.211056,
+              "control_error": 0.226939,
+              "mean_margin": 0.015883,
+              "paired_discrimination_auc": 0.531915,
+              "positive_beats_control_count": 25
+            },
+            "multiscale_shape_fusion": {
+              "positive_error": 0.284428,
+              "control_error": 0.354337,
+              "mean_margin": 0.069909,
+              "paired_discrimination_auc": 0.659574,
+              "positive_beats_control_count": 31
+            }
+          }
+        }
+      },
+      "included_target_views": [
+        "iso",
+        "lsv",
+        "rsv"
+      ],
+      "included_track_count": 281,
+      "descriptors": {
+        "signed_relief_baseline": {
+          "paired_discrimination_auc": 0.651245
+        },
+        "local_signed_profile": {
+          "paired_discrimination_auc": 0.669039
+        },
+        "radial_relief_profile": {
+          "paired_discrimination_auc": 0.622776
+        },
+        "multiscale_shape_fusion": {
+          "paired_discrimination_auc": 0.676156
+        }
+      },
+      "baseline_query_prefix_reproduced": true
+    },
+    {
+      "object_id": "ring_018",
+      "split": "train",
+      "target_views": {
+        "top": {
+          "accepted_track_count": 0,
+          "control_eligible_track_count": 0,
+          "descriptors": {}
+        },
+        "iso": {
+          "accepted_track_count": 171,
+          "control_eligible_track_count": 87,
+          "descriptors": {
+            "signed_relief_baseline": {
+              "positive_error": 0.359946,
+              "control_error": 0.347444,
+              "mean_margin": -0.012502,
+              "paired_discrimination_auc": 0.563218,
+              "positive_beats_control_count": 49
+            },
+            "local_signed_profile": {
+              "positive_error": 0.259861,
+              "control_error": 0.253751,
+              "mean_margin": -0.00611,
+              "paired_discrimination_auc": 0.54023,
+              "positive_beats_control_count": 47
+            },
+            "radial_relief_profile": {
+              "positive_error": 0.175647,
+              "control_error": 0.144212,
+              "mean_margin": -0.031435,
+              "paired_discrimination_auc": 0.563218,
+              "positive_beats_control_count": 49
+            },
+            "multiscale_shape_fusion": {
+              "positive_error": 0.219354,
+              "control_error": 0.210634,
+              "mean_margin": -0.008719,
+              "paired_discrimination_auc": 0.505747,
+              "positive_beats_control_count": 44
+            }
+          }
+        },
+        "lsv": {
+          "accepted_track_count": 13,
+          "control_eligible_track_count": 4,
+          "descriptors": {
+            "signed_relief_baseline": {
+              "positive_error": 0.847605,
+              "control_error": 0.662408,
+              "mean_margin": -0.185197,
+              "paired_discrimination_auc": 0.0,
+              "positive_beats_control_count": 0
+            },
+            "local_signed_profile": {
+              "positive_error": 0.568079,
+              "control_error": 0.440703,
+              "mean_margin": -0.127376,
+              "paired_discrimination_auc": 0.0,
+              "positive_beats_control_count": 0
+            },
+            "radial_relief_profile": {
+              "positive_error": 0.389606,
+              "control_error": 0.330507,
+              "mean_margin": -0.059098,
+              "paired_discrimination_auc": 0.25,
+              "positive_beats_control_count": 1
+            },
+            "multiscale_shape_fusion": {
+              "positive_error": 0.434873,
+              "control_error": 0.344042,
+              "mean_margin": -0.090832,
+              "paired_discrimination_auc": 0.0,
+              "positive_beats_control_count": 0
+            }
+          }
+        },
+        "rsv": {
+          "accepted_track_count": 7,
+          "control_eligible_track_count": 1,
+          "descriptors": {
+            "signed_relief_baseline": {
+              "positive_error": 0.036196,
+              "control_error": 0.230996,
+              "mean_margin": 0.1948,
+              "paired_discrimination_auc": 1.0,
+              "positive_beats_control_count": 1
+            },
+            "local_signed_profile": {
+              "positive_error": 0.034831,
+              "control_error": 0.1567,
+              "mean_margin": 0.121869,
+              "paired_discrimination_auc": 1.0,
+              "positive_beats_control_count": 1
+            },
+            "radial_relief_profile": {
+              "positive_error": 0.030489,
+              "control_error": 0.161302,
+              "mean_margin": 0.130813,
+              "paired_discrimination_auc": 1.0,
+              "positive_beats_control_count": 1
+            },
+            "multiscale_shape_fusion": {
+              "positive_error": 0.033184,
+              "control_error": 0.133324,
+              "mean_margin": 0.10014,
+              "paired_discrimination_auc": 1.0,
+              "positive_beats_control_count": 1
+            }
+          }
+        }
+      },
+      "included_target_views": [
+        "iso"
+      ],
+      "included_track_count": 87,
+      "descriptors": {
+        "signed_relief_baseline": {
+          "paired_discrimination_auc": 0.563218
+        },
+        "local_signed_profile": {
+          "paired_discrimination_auc": 0.54023
+        },
+        "radial_relief_profile": {
+          "paired_discrimination_auc": 0.563218
+        },
+        "multiscale_shape_fusion": {
+          "paired_discrimination_auc": 0.505747
+        }
+      },
+      "baseline_query_prefix_reproduced": true
+    },
+    {
+      "object_id": "ring_019",
+      "split": "train",
+      "target_views": {
+        "top": {
+          "accepted_track_count": 1,
+          "control_eligible_track_count": 0,
+          "descriptors": {
+            "signed_relief_baseline": {
+              "positive_error": null,
+              "control_error": null,
+              "mean_margin": null,
+              "paired_discrimination_auc": null,
+              "positive_beats_control_count": 0
+            },
+            "local_signed_profile": {
+              "positive_error": null,
+              "control_error": null,
+              "mean_margin": null,
+              "paired_discrimination_auc": null,
+              "positive_beats_control_count": 0
+            },
+            "radial_relief_profile": {
+              "positive_error": null,
+              "control_error": null,
+              "mean_margin": null,
+              "paired_discrimination_auc": null,
+              "positive_beats_control_count": 0
+            },
+            "multiscale_shape_fusion": {
+              "positive_error": null,
+              "control_error": null,
+              "mean_margin": null,
+              "paired_discrimination_auc": null,
+              "positive_beats_control_count": 0
+            }
+          }
+        },
+        "iso": {
+          "accepted_track_count": 212,
+          "control_eligible_track_count": 127,
+          "descriptors": {
+            "signed_relief_baseline": {
+              "positive_error": 0.316657,
+              "control_error": 0.354454,
+              "mean_margin": 0.037796,
+              "paired_discrimination_auc": 0.653543,
+              "positive_beats_control_count": 83
+            },
+            "local_signed_profile": {
+              "positive_error": 0.226627,
+              "control_error": 0.254487,
+              "mean_margin": 0.02786,
+              "paired_discrimination_auc": 0.645669,
+              "positive_beats_control_count": 82
+            },
+            "radial_relief_profile": {
+              "positive_error": 0.128022,
+              "control_error": 0.138654,
+              "mean_margin": 0.010632,
+              "paired_discrimination_auc": 0.574803,
+              "positive_beats_control_count": 73
+            },
+            "multiscale_shape_fusion": {
+              "positive_error": 0.183712,
+              "control_error": 0.20623,
+              "mean_margin": 0.022518,
+              "paired_discrimination_auc": 0.661417,
+              "positive_beats_control_count": 84
+            }
+          }
+        },
+        "lsv": {
+          "accepted_track_count": 22,
+          "control_eligible_track_count": 2,
+          "descriptors": {
+            "signed_relief_baseline": {
+              "positive_error": 1.461544,
+              "control_error": 1.001567,
+              "mean_margin": -0.459978,
+              "paired_discrimination_auc": 0.0,
+              "positive_beats_control_count": 0
+            },
+            "local_signed_profile": {
+              "positive_error": 1.015312,
+              "control_error": 0.677944,
+              "mean_margin": -0.337368,
+              "paired_discrimination_auc": 0.0,
+              "positive_beats_control_count": 0
+            },
+            "radial_relief_profile": {
+              "positive_error": 0.453155,
+              "control_error": 0.370438,
+              "mean_margin": -0.082717,
+              "paired_discrimination_auc": 0.0,
+              "positive_beats_control_count": 0
+            },
+            "multiscale_shape_fusion": {
+              "positive_error": 0.748888,
+              "control_error": 0.496502,
+              "mean_margin": -0.252385,
+              "paired_discrimination_auc": 0.0,
+              "positive_beats_control_count": 0
+            }
+          }
+        },
+        "rsv": {
+          "accepted_track_count": 5,
+          "control_eligible_track_count": 1,
+          "descriptors": {
+            "signed_relief_baseline": {
+              "positive_error": 0.855626,
+              "control_error": 0.672235,
+              "mean_margin": -0.183391,
+              "paired_discrimination_auc": 0.0,
+              "positive_beats_control_count": 0
+            },
+            "local_signed_profile": {
+              "positive_error": 0.613093,
+              "control_error": 0.481001,
+              "mean_margin": -0.132092,
+              "paired_discrimination_auc": 0.0,
+              "positive_beats_control_count": 0
+            },
+            "radial_relief_profile": {
+              "positive_error": 0.25873,
+              "control_error": 0.229613,
+              "mean_margin": -0.029117,
+              "paired_discrimination_auc": 0.0,
+              "positive_beats_control_count": 0
+            },
+            "multiscale_shape_fusion": {
+              "positive_error": 0.49078,
+              "control_error": 0.396436,
+              "mean_margin": -0.094344,
+              "paired_discrimination_auc": 0.0,
+              "positive_beats_control_count": 0
+            }
+          }
+        }
+      },
+      "included_target_views": [
+        "iso"
+      ],
+      "included_track_count": 127,
+      "descriptors": {
+        "signed_relief_baseline": {
+          "paired_discrimination_auc": 0.653543
+        },
+        "local_signed_profile": {
+          "paired_discrimination_auc": 0.645669
+        },
+        "radial_relief_profile": {
+          "paired_discrimination_auc": 0.574803
+        },
+        "multiscale_shape_fusion": {
+          "paired_discrimination_auc": 0.661417
+        }
+      },
+      "baseline_query_prefix_reproduced": true
+    },
+    {
+      "object_id": "ring_021",
+      "split": "train",
+      "target_views": {
+        "top": {
+          "accepted_track_count": 0,
+          "control_eligible_track_count": 0,
+          "descriptors": {}
+        },
+        "iso": {
+          "accepted_track_count": 70,
+          "control_eligible_track_count": 42,
+          "descriptors": {
+            "signed_relief_baseline": {
+              "positive_error": 0.361612,
+              "control_error": 0.481762,
+              "mean_margin": 0.120151,
+              "paired_discrimination_auc": 0.690476,
+              "positive_beats_control_count": 29
+            },
+            "local_signed_profile": {
+              "positive_error": 0.267256,
+              "control_error": 0.345577,
+              "mean_margin": 0.078321,
+              "paired_discrimination_auc": 0.666667,
+              "positive_beats_control_count": 28
+            },
+            "radial_relief_profile": {
+              "positive_error": 0.136478,
+              "control_error": 0.177772,
+              "mean_margin": 0.041294,
+              "paired_discrimination_auc": 0.738095,
+              "positive_beats_control_count": 31
+            },
+            "multiscale_shape_fusion": {
+              "positive_error": 0.221068,
+              "control_error": 0.279885,
+              "mean_margin": 0.058816,
+              "paired_discrimination_auc": 0.666667,
+              "positive_beats_control_count": 28
+            }
+          }
+        },
+        "lsv": {
+          "accepted_track_count": 84,
+          "control_eligible_track_count": 36,
+          "descriptors": {
+            "signed_relief_baseline": {
+              "positive_error": 0.663171,
+              "control_error": 0.469104,
+              "mean_margin": -0.194068,
+              "paired_discrimination_auc": 0.263889,
+              "positive_beats_control_count": 9
+            },
+            "local_signed_profile": {
+              "positive_error": 0.475215,
+              "control_error": 0.344406,
+              "mean_margin": -0.13081,
+              "paired_discrimination_auc": 0.305556,
+              "positive_beats_control_count": 11
+            },
+            "radial_relief_profile": {
+              "positive_error": 0.279684,
+              "control_error": 0.20895,
+              "mean_margin": -0.070734,
+              "paired_discrimination_auc": 0.194444,
+              "positive_beats_control_count": 7
+            },
+            "multiscale_shape_fusion": {
+              "positive_error": 0.38433,
+              "control_error": 0.286412,
+              "mean_margin": -0.097918,
+              "paired_discrimination_auc": 0.277778,
+              "positive_beats_control_count": 10
+            }
+          }
+        },
+        "rsv": {
+          "accepted_track_count": 40,
+          "control_eligible_track_count": 12,
+          "descriptors": {
+            "signed_relief_baseline": {
+              "positive_error": 0.553042,
+              "control_error": 0.507465,
+              "mean_margin": -0.045577,
+              "paired_discrimination_auc": 0.416667,
+              "positive_beats_control_count": 5
+            },
+            "local_signed_profile": {
+              "positive_error": 0.404514,
+              "control_error": 0.374784,
+              "mean_margin": -0.02973,
+              "paired_discrimination_auc": 0.416667,
+              "positive_beats_control_count": 5
+            },
+            "radial_relief_profile": {
+              "positive_error": 0.192545,
+              "control_error": 0.182436,
+              "mean_margin": -0.010108,
+              "paired_discrimination_auc": 0.416667,
+              "positive_beats_control_count": 5
+            },
+            "multiscale_shape_fusion": {
+              "positive_error": 0.323364,
+              "control_error": 0.30529,
+              "mean_margin": -0.018075,
+              "paired_discrimination_auc": 0.5,
+              "positive_beats_control_count": 6
+            }
+          }
+        }
+      },
+      "included_target_views": [
+        "iso",
+        "lsv",
+        "rsv"
+      ],
+      "included_track_count": 90,
+      "descriptors": {
+        "signed_relief_baseline": {
+          "paired_discrimination_auc": 0.483333
+        },
+        "local_signed_profile": {
+          "paired_discrimination_auc": 0.488889
+        },
+        "radial_relief_profile": {
+          "paired_discrimination_auc": 0.477778
+        },
+        "multiscale_shape_fusion": {
+          "paired_discrimination_auc": 0.488889
+        }
+      },
+      "baseline_query_prefix_reproduced": true
+    },
+    {
+      "object_id": "ring_022",
+      "split": "train",
+      "target_views": {
+        "top": {
+          "accepted_track_count": 0,
+          "control_eligible_track_count": 0,
+          "descriptors": {}
+        },
+        "iso": {
+          "accepted_track_count": 382,
+          "control_eligible_track_count": 257,
+          "descriptors": {
+            "signed_relief_baseline": {
+              "positive_error": 0.437692,
+              "control_error": 0.534794,
+              "mean_margin": 0.097102,
+              "paired_discrimination_auc": 0.715953,
+              "positive_beats_control_count": 184
+            },
+            "local_signed_profile": {
+              "positive_error": 0.31463,
+              "control_error": 0.380884,
+              "mean_margin": 0.066254,
+              "paired_discrimination_auc": 0.700389,
+              "positive_beats_control_count": 180
+            },
+            "radial_relief_profile": {
+              "positive_error": 0.183379,
+              "control_error": 0.21106,
+              "mean_margin": 0.027682,
+              "paired_discrimination_auc": 0.669261,
+              "positive_beats_control_count": 172
+            },
+            "multiscale_shape_fusion": {
+              "positive_error": 0.255973,
+              "control_error": 0.305562,
+              "mean_margin": 0.04959,
+              "paired_discrimination_auc": 0.700389,
+              "positive_beats_control_count": 180
+            }
+          }
+        },
+        "lsv": {
+          "accepted_track_count": 12,
+          "control_eligible_track_count": 4,
+          "descriptors": {
+            "signed_relief_baseline": {
+              "positive_error": 0.627505,
+              "control_error": 0.571928,
+              "mean_margin": -0.055577,
+              "paired_discrimination_auc": 0.5,
+              "positive_beats_control_count": 2
+            },
+            "local_signed_profile": {
+              "positive_error": 0.423785,
+              "control_error": 0.42479,
+              "mean_margin": 0.001004,
+              "paired_discrimination_auc": 0.5,
+              "positive_beats_control_count": 2
+            },
+            "radial_relief_profile": {
+              "positive_error": 0.274393,
+              "control_error": 0.201347,
+              "mean_margin": -0.073047,
+              "paired_discrimination_auc": 0.25,
+              "positive_beats_control_count": 1
+            },
+            "multiscale_shape_fusion": {
+              "positive_error": 0.336511,
+              "control_error": 0.344574,
+              "mean_margin": 0.008063,
+              "paired_discrimination_auc": 0.5,
+              "positive_beats_control_count": 2
+            }
+          }
+        },
+        "rsv": {
+          "accepted_track_count": 45,
+          "control_eligible_track_count": 16,
+          "descriptors": {
+            "signed_relief_baseline": {
+              "positive_error": 0.423547,
+              "control_error": 0.429307,
+              "mean_margin": 0.005761,
+              "paired_discrimination_auc": 0.5,
+              "positive_beats_control_count": 8
+            },
+            "local_signed_profile": {
+              "positive_error": 0.312262,
+              "control_error": 0.31647,
+              "mean_margin": 0.004208,
+              "paired_discrimination_auc": 0.4375,
+              "positive_beats_control_count": 7
+            },
+            "radial_relief_profile": {
+              "positive_error": 0.187025,
+              "control_error": 0.150444,
+              "mean_margin": -0.036582,
+              "paired_discrimination_auc": 0.5,
+              "positive_beats_control_count": 8
+            },
+            "multiscale_shape_fusion": {
+              "positive_error": 0.25926,
+              "control_error": 0.257795,
+              "mean_margin": -0.001466,
+              "paired_discrimination_auc": 0.4375,
+              "positive_beats_control_count": 7
+            }
+          }
+        }
+      },
+      "included_target_views": [
+        "iso",
+        "rsv"
+      ],
+      "included_track_count": 273,
+      "descriptors": {
+        "signed_relief_baseline": {
+          "paired_discrimination_auc": 0.703296
+        },
+        "local_signed_profile": {
+          "paired_discrimination_auc": 0.684982
+        },
+        "radial_relief_profile": {
+          "paired_discrimination_auc": 0.659341
+        },
+        "multiscale_shape_fusion": {
+          "paired_discrimination_auc": 0.684982
+        }
+      },
+      "baseline_query_prefix_reproduced": true
+    },
+    {
+      "object_id": "ring_024",
+      "split": "train",
+      "target_views": {
+        "top": {
+          "accepted_track_count": 0,
+          "control_eligible_track_count": 0,
+          "descriptors": {}
+        },
+        "iso": {
+          "accepted_track_count": 124,
+          "control_eligible_track_count": 90,
+          "descriptors": {
+            "signed_relief_baseline": {
+              "positive_error": 0.28688,
+              "control_error": 0.364581,
+              "mean_margin": 0.077701,
+              "paired_discrimination_auc": 0.555556,
+              "positive_beats_control_count": 50
+            },
+            "local_signed_profile": {
+              "positive_error": 0.210509,
+              "control_error": 0.260521,
+              "mean_margin": 0.050011,
+              "paired_discrimination_auc": 0.588889,
+              "positive_beats_control_count": 53
+            },
+            "radial_relief_profile": {
+              "positive_error": 0.130329,
+              "control_error": 0.153272,
+              "mean_margin": 0.022943,
+              "paired_discrimination_auc": 0.533333,
+              "positive_beats_control_count": 48
+            },
+            "multiscale_shape_fusion": {
+              "positive_error": 0.174065,
+              "control_error": 0.21168,
+              "mean_margin": 0.037615,
+              "paired_discrimination_auc": 0.588889,
+              "positive_beats_control_count": 53
+            }
+          }
+        },
+        "lsv": {
+          "accepted_track_count": 8,
+          "control_eligible_track_count": 0,
+          "descriptors": {
+            "signed_relief_baseline": {
+              "positive_error": null,
+              "control_error": null,
+              "mean_margin": null,
+              "paired_discrimination_auc": null,
+              "positive_beats_control_count": 0
+            },
+            "local_signed_profile": {
+              "positive_error": null,
+              "control_error": null,
+              "mean_margin": null,
+              "paired_discrimination_auc": null,
+              "positive_beats_control_count": 0
+            },
+            "radial_relief_profile": {
+              "positive_error": null,
+              "control_error": null,
+              "mean_margin": null,
+              "paired_discrimination_auc": null,
+              "positive_beats_control_count": 0
+            },
+            "multiscale_shape_fusion": {
+              "positive_error": null,
+              "control_error": null,
+              "mean_margin": null,
+              "paired_discrimination_auc": null,
+              "positive_beats_control_count": 0
+            }
+          }
+        },
+        "rsv": {
+          "accepted_track_count": 22,
+          "control_eligible_track_count": 10,
+          "descriptors": {
+            "signed_relief_baseline": {
+              "positive_error": 0.736652,
+              "control_error": 0.751983,
+              "mean_margin": 0.015331,
+              "paired_discrimination_auc": 0.6,
+              "positive_beats_control_count": 5
+            },
+            "local_signed_profile": {
+              "positive_error": 0.544962,
+              "control_error": 0.555614,
+              "mean_margin": 0.010652,
+              "paired_discrimination_auc": 0.7,
+              "positive_beats_control_count": 7
+            },
+            "radial_relief_profile": {
+              "positive_error": 0.200067,
+              "control_error": 0.203778,
+              "mean_margin": 0.003711,
+              "paired_discrimination_auc": 0.5,
+              "positive_beats_control_count": 5
+            },
+            "multiscale_shape_fusion": {
+              "positive_error": 0.436194,
+              "control_error": 0.450537,
+              "mean_margin": 0.014343,
+              "paired_discrimination_auc": 0.7,
+              "positive_beats_control_count": 7
+            }
+          }
+        }
+      },
+      "included_target_views": [
+        "iso",
+        "rsv"
+      ],
+      "included_track_count": 100,
+      "descriptors": {
+        "signed_relief_baseline": {
+          "paired_discrimination_auc": 0.56
+        },
+        "local_signed_profile": {
+          "paired_discrimination_auc": 0.6
+        },
+        "radial_relief_profile": {
+          "paired_discrimination_auc": 0.53
+        },
+        "multiscale_shape_fusion": {
+          "paired_discrimination_auc": 0.6
+        }
+      },
+      "baseline_query_prefix_reproduced": true
+    }
+  ],
+  "decision": "reject_all_local_shape_candidates_on_training",
+  "claims": {
+    "training_descriptor_discrimination_measured": true,
+    "validation_relief_improved": false,
+    "physical_relief_validated": false,
+    "surface_promotion_authorized": false,
+    "cad_fusion_authorized": false
+  },
+  "limitations": [
+    "Accepted VGGT tracks are machine hypotheses, not physical correspondences.",
+    "The retained field name paired_discrimination_auc denotes a paired win fraction, not a full ROC AUC.",
+    "Gaussian patch pooling is rotation-tolerant, not perspective-invariant or reflection-proof.",
+    "Only two top-view tracks have eligible controls; this experiment cannot settle top-view matching.",
+    "The same training cohort selects among three fixed candidates; validation and test remain untouched.",
+    "Discrimination does not measure transferred 3D relief or CAD accuracy."
+  ],
+  "artifacts": {
+    "audit": "data/phase5_training_local_shape_v1/training_local_shape_audit.png"
+  }
+}

@@ -385,6 +385,56 @@ labels or measured relief. The next experiment needs a representation that
 retains local shape across viewpoint and reflection changes, plus a separate
 check that the same patch is actually visible in each compared view.
 
+## Phase 5.18 training visibility-route audit
+
+`diagnose_phase5_training_visibility.py` traces the unchanged training tracks
+through target image bounds, the jewellery segmentation mask, VGGT's learned
+forward-visibility estimate, target relief support, reciprocal acceptance and
+available original Metric3D direct-normal evidence. It keeps the 18 training
+rings separate from validation and test, and exposes the per-ring counts in
+Studio. Neither the mask nor VGGT visibility is a physical occlusion label.
+
+Front-to-top retains `28` reciprocal tracks from `16,128` front relief
+candidate queries, but zero have direct-normal corroboration in this *training*
+audit. The important attribution is availability: original direct-normal pairs
+exist for only one training ring, and that ring has no accepted front-to-top
+tracks. This is not evidence that 28 normals disagree. The validation split
+uses the separate Phase 5.8 three-model normal pipeline, so these training
+normal counts must not be compared with its gate totals. Accepted-track
+topology has `24` front-to-top triangles on two training rings, but those are
+not normal-corroborated surfaces. Phase 5.13 remains at `5/56` target passes
+with no two-target-supported patch. Next, address the top reciprocal-track
+gap and train a genuinely view-stable local-shape descriptor; do not fill
+missing evidence by lowering thresholds.
+
+## Phase 5.19 training local-shape descriptors
+
+`evaluate_phase5_training_local_shape.py` tests fixed, support-aware Gaussian
+patch features at 4, 10 and 20 image pixels. It reuses the exact Phase 5.17
+reciprocal tracks, displaced controls, split and selection gate. The signed
+relief baseline reproduces `0.606918` on `3,259` included training tracks.
+The best local signed profile scores `0.617398`, improving 12 of 18 rings,
+but its `+0.010480` mean gain misses the pre-set `+0.020000` requirement.
+The radial profile scores `0.594537`; the multiscale fusion scores `0.611276`.
+No descriptor is selected or transferred to validation. These are image-space
+matching scores, not visible-relief accuracy, physical scale or CAD evidence.
+The front-to-top route still has only two matched-control eligible tracks.
+
+## Phase 5.20 training region-route backtrack
+
+`audit_phase5_training_region_routes.py` bins front relief queries into a
+3-by-3 grid per training ring and counts unchanged reciprocal tracks by target
+view. All 18 train rings and 16,128 candidates partition exactly. There are
+28 accepted front-to-top tracks, compared with 4,120 isometric, 892 left-side
+and 822 right-side tracks. The [audit image](../../../data/phase5_training_region_routes_v1/training_region_route_audit.png)
+shows strong spatial variation between views; the [report](../../../data/phase5_training_region_routes_v1/report.json)
+preserves per-ring and per-region counts. These are image-space bins and machine
+tracks, not semantic component IDs, observed physical occlusion or ground-truth
+correspondences. This audit changes no matching rule, validation split, frozen
+Phase 5.13 result or CAD decision. Next, annotate selected training-image
+regions for observability and correspondence quality before testing a routing
+policy against held-out data.
+
 ## Claim boundary
 
 The dimensions are designed test parameters. The fixtures verify generator

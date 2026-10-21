@@ -209,6 +209,24 @@ class DatasetRepository:
             / "phase5_training_relief_descriptors_v1"
             / "report.json"
         )
+        self.phase5_training_visibility_route = self._read_json(
+            self.repo_root
+            / "data"
+            / "phase5_training_visibility_route_v1"
+            / "report.json"
+        )
+        self.phase5_training_local_shape = self._read_json(
+            self.repo_root
+            / "data"
+            / "phase5_training_local_shape_v1"
+            / "report.json"
+        )
+        self.phase5_training_region_routes = self._read_json(
+            self.repo_root
+            / "data"
+            / "phase5_training_region_routes_v1"
+            / "report.json"
+        )
         self.phase4_prong_instances = self._read_json(
             self.repo_root / "data" / "phase4_prong_instances_v1" / "report.json"
         )
@@ -847,6 +865,15 @@ class DatasetRepository:
                 "training_relief_descriptors": deepcopy(
                     self.phase5_training_relief_descriptors
                 ),
+                "training_visibility_route": deepcopy(
+                    self.phase5_training_visibility_route
+                ),
+                "training_local_shape": deepcopy(
+                    self.phase5_training_local_shape
+                ),
+                "training_region_routes": deepcopy(
+                    self.phase5_training_region_routes
+                ),
             },
             "limitations": deepcopy(self.dataset_report.get("limitations", [])),
         }
@@ -1327,6 +1354,12 @@ class DatasetRepository:
                     {"label": "Validation topology report", "href": "/api/artifacts/phase5_validation_track_topology_report"},
                     {"label": "Training relief-descriptor audit", "href": "/api/artifacts/phase5_training_relief_descriptor_audit"},
                     {"label": "Training relief-descriptor report", "href": "/api/artifacts/phase5_training_relief_descriptor_report"},
+                    {"label": "Training visibility-route audit", "href": "/api/artifacts/phase5_training_visibility_route_audit"},
+                    {"label": "Training visibility-route report", "href": "/api/artifacts/phase5_training_visibility_route_report"},
+                    {"label": "Training local-shape audit", "href": "/api/artifacts/phase5_training_local_shape_audit"},
+                    {"label": "Training local-shape report", "href": "/api/artifacts/phase5_training_local_shape_report"},
+                    {"label": "Training region-route audit", "href": "/api/artifacts/phase5_training_region_route_audit"},
+                    {"label": "Training region-route report", "href": "/api/artifacts/phase5_training_region_route_report"},
                     {"label": "Download baseline STEP", "href": "/api/artifacts/phase4_exact_cad_baseline_step"},
                 ],
             },
@@ -2341,6 +2374,30 @@ class DatasetRepository:
             / "data"
             / "phase5_training_relief_descriptors_v1"
             / "training_relief_descriptor_audit.png",
+            "phase5_training_visibility_route_report": self.repo_root
+            / "data"
+            / "phase5_training_visibility_route_v1"
+            / "report.json",
+            "phase5_training_visibility_route_audit": self.repo_root
+            / "data"
+            / "phase5_training_visibility_route_v1"
+            / "training_visibility_route_audit.png",
+            "phase5_training_local_shape_report": self.repo_root
+            / "data"
+            / "phase5_training_local_shape_v1"
+            / "report.json",
+            "phase5_training_local_shape_audit": self.repo_root
+            / "data"
+            / "phase5_training_local_shape_v1"
+            / "training_local_shape_audit.png",
+            "phase5_training_region_route_report": self.repo_root
+            / "data"
+            / "phase5_training_region_routes_v1"
+            / "report.json",
+            "phase5_training_region_route_audit": self.repo_root
+            / "data"
+            / "phase5_training_region_routes_v1"
+            / "training_region_route_audit.png",
             "phase5_validation_metric_depth_report": self.repo_root
             / "dataset"
             / "phase_runs"

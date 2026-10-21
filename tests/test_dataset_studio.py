@@ -1550,6 +1550,42 @@ class DatasetStudioApiTest(unittest.TestCase):
         self.assertEqual(descriptor_report.status_code, 200)
         self.assertEqual(descriptor_report.mimetype, "application/json")
         descriptor_report.close()
+        visibility_route_audit = self.client.get(
+            "/api/artifacts/phase5_training_visibility_route_audit"
+        )
+        self.assertEqual(visibility_route_audit.status_code, 200)
+        self.assertEqual(visibility_route_audit.mimetype, "image/png")
+        visibility_route_audit.close()
+        visibility_route_report = self.client.get(
+            "/api/artifacts/phase5_training_visibility_route_report"
+        )
+        self.assertEqual(visibility_route_report.status_code, 200)
+        self.assertEqual(visibility_route_report.mimetype, "application/json")
+        visibility_route_report.close()
+        local_shape_audit = self.client.get(
+            "/api/artifacts/phase5_training_local_shape_audit"
+        )
+        self.assertEqual(local_shape_audit.status_code, 200)
+        self.assertEqual(local_shape_audit.mimetype, "image/png")
+        local_shape_audit.close()
+        local_shape_report = self.client.get(
+            "/api/artifacts/phase5_training_local_shape_report"
+        )
+        self.assertEqual(local_shape_report.status_code, 200)
+        self.assertEqual(local_shape_report.mimetype, "application/json")
+        local_shape_report.close()
+        region_route_audit = self.client.get(
+            "/api/artifacts/phase5_training_region_route_audit"
+        )
+        self.assertEqual(region_route_audit.status_code, 200)
+        self.assertEqual(region_route_audit.mimetype, "image/png")
+        region_route_audit.close()
+        region_route_report = self.client.get(
+            "/api/artifacts/phase5_training_region_route_report"
+        )
+        self.assertEqual(region_route_report.status_code, 200)
+        self.assertEqual(region_route_report.mimetype, "application/json")
+        region_route_report.close()
         for artifact in (
             "phase5_ring004_validation_normals",
             "phase5_ring012_validation_normals",

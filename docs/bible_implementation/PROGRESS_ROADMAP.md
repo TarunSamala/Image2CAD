@@ -292,39 +292,68 @@ detail `0.516`, and their fusion `0.547`. The three replacements are rejected.
 Only two top-view tracks have eligible controls. No validation descriptor test
 is run and the Phase 5.13 relief gate remains unchanged.
 
-1. Develop patch-level local shape evidence on training rings and require it
+Phase 5.18 adds a training-only visibility-route audit. Of `16,128` front
+relief candidate queries, the front-to-top route retains `28` reciprocal
+tracks. None receives original direct-normal corroboration because direct
+normal pairs cover just one training ring and it has no accepted top track.
+This is missing evidence, not a measured normal disagreement or proof of
+physical occlusion. Validation uses a separate three-model normal gate;
+Phase 5.13 still passes `5/56` target evaluations with no two-target patch.
+
+Phase 5.19 tests three fixed local-shape descriptors on the same `3,259`
+training tracks and matched decoys as Phase 5.17. The best increases mean
+paired discrimination from `0.606918` to `0.617398` and improves 12 of 18
+rings, but its `+0.010480` gain misses the pre-set `+0.020000` selection
+threshold. No candidate is transferred to validation; the top-view track gap
+and Phase 5.13 surface/CAD gates are unchanged.
+
+Phase 5.20 backtracks to training-only front-region view routing before relief
+surface fitting. A 3-by-3 grid over each ring's front relief-query bounds
+partitions all `16,128` candidates and reproduces the unchanged reciprocal
+counts: top `28`, isometric `4,120`, left side `892`, right side `822`.
+Isometric and side evidence is spatially uneven; a global view choice would
+discard useful local routes. The grid is image-space only, not a semantic or
+physical-visibility label. This is a review map for training-image visibility
+annotations, not a new matcher. The frozen Phase 5.13 `5/56` result, validation
+split, CAD fusion and hidden-geometry claims remain unchanged.
+
+1. Label selected training-image regions for observable correspondences versus
+   unsupported/ambiguous views, then evaluate a region-specific routing rule
+   against those labels before a frozen validation run. Preserve unresolved
+   regions rather than treating missing tracks as physical occlusion.
+2. Develop patch-level local shape evidence on training rings and require it
    to beat the matched-control signed-relief baseline before validation.
-2. Investigate the front-to-top and Ring 020 right-side correspondence gaps
+3. Investigate the front-to-top and Ring 020 right-side correspondence gaps
    using training images before another frozen validation attempt.
-3. Review or label the Phase 5.12 surface groups and the Phase 5.11 patches,
+4. Review or label the Phase 5.12 surface groups and the Phase 5.11 patches,
    then merge or split only with additional
    evidence where a patch still crosses ornaments. Image-plane fitting, rigid
    ICP, sparse VGGT tracks and denser reciprocal-cycle registration have all
    been rejected for global geometry movement by the fixed held-out split.
-4. Use pairwise camera-angle diagnostics, projected-surface precision and
+5. Use pairwise camera-angle diagnostics, projected-surface precision and
    completion recall separately instead of treating IoU as camera accuracy.
-5. Improve the current signed-depth minimum from `0.529` to at least `0.700`
+6. Improve the current signed-depth minimum from `0.529` to at least `0.700`
    while raising mean IoU from `0.782` to at least `0.800`; the current method
    still fails the geometry gate.
-6. Improve fine-detail geometry beyond the Phase 5.4 depth-supported baseline,
+7. Improve fine-detail geometry beyond the Phase 5.4 depth-supported baseline,
    add independent normal corroboration and recover top-view reciprocal support
    before any OBJ evidence is converted into an exact CAD surface.
-7. Keep the implemented Depth Anything V2 plus UniDepth normal comparator as a
+8. Keep the implemented Depth Anything V2 plus UniDepth normal comparator as a
    deployability-safe uncertainty check; do not substitute DSINE without a
    separate site/commercial licence.
-8. Review the 266 enclosed negative-space proposals retained across all 120
+9. Review the 266 enclosed negative-space proposals retained across all 120
    STL-1 views; they are aperture/openwork evidence, not confirmed stones.
-9. Add labelled real-image multi-stone evidence and resolve each accepted
+10. Add labelled real-image multi-stone evidence and resolve each accepted
    stone across views before creating seat or cavity relationships.
-10. Extend the implemented normalized ring adapter to head, shoulder, gallery,
+11. Extend the implemented normalized ring adapter to head, shoulder, gallery,
    relief and accepted component-track parameters, including uncertainty.
-11. Connect reviewed image observations to the validated independently editable
+12. Connect reviewed image observations to the validated independently editable
    stone, prong, seat and cavity generators; add relief generators separately.
-12. Add collision, clearance, minimum-wall and manufacturability checks to the
+13. Add collision, clearance, minimum-wall and manufacturability checks to the
    synthetic exact-CAD benchmark.
-12. Generate image-derived parametric CAD and refine it through
+14. Generate image-derived parametric CAD and refine it through
     render-and-compare validation.
-13. Export editable STEP plus derived STL and 3MF artifacts with explicit
+15. Export editable STEP plus derived STL and 3MF artifacts with explicit
     image-fit and uncertainty reports.
 
 The target is a high-fidelity, structurally editable reconstruction. Under the

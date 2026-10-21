@@ -1,0 +1,1918 @@
+{
+  "schema_version": "lalitha_phase5_training_visibility_route_v1",
+  "created_at_utc": "2026-10-19T17:48:15.858730+00:00",
+  "stage": "Phase 5.18 training visibility and correspondence route audit",
+  "scope": {
+    "split": "train",
+    "object_ids": [
+      "ring_001",
+      "ring_002",
+      "ring_003",
+      "ring_005",
+      "ring_006",
+      "ring_008",
+      "ring_009",
+      "ring_010",
+      "ring_011",
+      "ring_013",
+      "ring_014",
+      "ring_016",
+      "ring_017",
+      "ring_018",
+      "ring_019",
+      "ring_021",
+      "ring_022",
+      "ring_024"
+    ],
+    "source_view": "front",
+    "target_views": [
+      "top",
+      "iso",
+      "lsv",
+      "rsv"
+    ]
+  },
+  "policy": {
+    "normal_evidence": "original Metric3D direct-normal records only",
+    "not_comparable_to": "Phase 5.8 validation-specific three-model normal corroboration",
+    "gate_changed": false
+  },
+  "summary": {
+    "object_count": 18,
+    "target_views": {
+      "top": {
+        "cumulative_query_counts": {
+          "source_relief_candidate": 16128,
+          "target_projection_in_frame": 16128,
+          "target_jewelry_mask_proxy": 15849,
+          "vggt_forward_visibility_proxy": 9689,
+          "target_relief_support": 4334,
+          "reciprocal_track_accepted": 28,
+          "available_direct_normal_corroborated": 0
+        },
+        "stable_triangle_count": 24,
+        "objects_with_stable_triangles": 2,
+        "normal_diagnostic": {
+          "objects_with_normal_pair": 1,
+          "accepted_track_count": 28,
+          "accepted_with_normal_pair_count": 0,
+          "source_normal_pass_count": 0,
+          "target_normal_pass_count": 0,
+          "both_normal_pass_count": 0
+        }
+      },
+      "iso": {
+        "cumulative_query_counts": {
+          "source_relief_candidate": 16128,
+          "target_projection_in_frame": 16128,
+          "target_jewelry_mask_proxy": 16062,
+          "vggt_forward_visibility_proxy": 14289,
+          "target_relief_support": 8065,
+          "reciprocal_track_accepted": 4120,
+          "available_direct_normal_corroborated": 51
+        },
+        "stable_triangle_count": 5229,
+        "objects_with_stable_triangles": 18,
+        "normal_diagnostic": {
+          "objects_with_normal_pair": 1,
+          "accepted_track_count": 4120,
+          "accepted_with_normal_pair_count": 153,
+          "source_normal_pass_count": 108,
+          "target_normal_pass_count": 70,
+          "both_normal_pass_count": 51
+        }
+      },
+      "lsv": {
+        "cumulative_query_counts": {
+          "source_relief_candidate": 16128,
+          "target_projection_in_frame": 16128,
+          "target_jewelry_mask_proxy": 15938,
+          "vggt_forward_visibility_proxy": 8300,
+          "target_relief_support": 3260,
+          "reciprocal_track_accepted": 892,
+          "available_direct_normal_corroborated": 9
+        },
+        "stable_triangle_count": 770,
+        "objects_with_stable_triangles": 18,
+        "normal_diagnostic": {
+          "objects_with_normal_pair": 1,
+          "accepted_track_count": 892,
+          "accepted_with_normal_pair_count": 44,
+          "source_normal_pass_count": 30,
+          "target_normal_pass_count": 16,
+          "both_normal_pass_count": 9
+        }
+      },
+      "rsv": {
+        "cumulative_query_counts": {
+          "source_relief_candidate": 16128,
+          "target_projection_in_frame": 16128,
+          "target_jewelry_mask_proxy": 15925,
+          "vggt_forward_visibility_proxy": 9400,
+          "target_relief_support": 3855,
+          "reciprocal_track_accepted": 822,
+          "available_direct_normal_corroborated": 20
+        },
+        "stable_triangle_count": 890,
+        "objects_with_stable_triangles": 16,
+        "normal_diagnostic": {
+          "objects_with_normal_pair": 1,
+          "accepted_track_count": 822,
+          "accepted_with_normal_pair_count": 83,
+          "source_normal_pass_count": 59,
+          "target_normal_pass_count": 34,
+          "both_normal_pass_count": 20
+        }
+      }
+    }
+  },
+  "objects": [
+    {
+      "object_id": "ring_001",
+      "split": "train",
+      "target_views": {
+        "top": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 819,
+            "target_projection_in_frame": 819,
+            "target_jewelry_mask_proxy": 777,
+            "vggt_forward_visibility_proxy": 325,
+            "target_relief_support": 32,
+            "reciprocal_track_accepted": 0,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 0,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": true,
+            "target_normal_map_available": true,
+            "normal_pair_available": true,
+            "accepted_track_count": 0,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": 0,
+            "target_normal_pass_count": 0,
+            "both_normal_pass_count": 0
+          }
+        },
+        "iso": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 819,
+            "target_projection_in_frame": 819,
+            "target_jewelry_mask_proxy": 815,
+            "vggt_forward_visibility_proxy": 594,
+            "target_relief_support": 194,
+            "reciprocal_track_accepted": 153,
+            "available_direct_normal_corroborated": 51
+          },
+          "stable_triangle_count": 194,
+          "normal_corroborated_track_count": 51,
+          "normal_diagnostic": {
+            "source_normal_map_available": true,
+            "target_normal_map_available": true,
+            "normal_pair_available": true,
+            "accepted_track_count": 153,
+            "accepted_with_normal_pair_count": 153,
+            "source_normal_pass_count": 108,
+            "target_normal_pass_count": 70,
+            "both_normal_pass_count": 51
+          }
+        },
+        "lsv": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 819,
+            "target_projection_in_frame": 819,
+            "target_jewelry_mask_proxy": 819,
+            "vggt_forward_visibility_proxy": 384,
+            "target_relief_support": 93,
+            "reciprocal_track_accepted": 44,
+            "available_direct_normal_corroborated": 9
+          },
+          "stable_triangle_count": 63,
+          "normal_corroborated_track_count": 9,
+          "normal_diagnostic": {
+            "source_normal_map_available": true,
+            "target_normal_map_available": true,
+            "normal_pair_available": true,
+            "accepted_track_count": 44,
+            "accepted_with_normal_pair_count": 44,
+            "source_normal_pass_count": 30,
+            "target_normal_pass_count": 16,
+            "both_normal_pass_count": 9
+          }
+        },
+        "rsv": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 819,
+            "target_projection_in_frame": 819,
+            "target_jewelry_mask_proxy": 815,
+            "vggt_forward_visibility_proxy": 475,
+            "target_relief_support": 122,
+            "reciprocal_track_accepted": 83,
+            "available_direct_normal_corroborated": 20
+          },
+          "stable_triangle_count": 96,
+          "normal_corroborated_track_count": 20,
+          "normal_diagnostic": {
+            "source_normal_map_available": true,
+            "target_normal_map_available": true,
+            "normal_pair_available": true,
+            "accepted_track_count": 83,
+            "accepted_with_normal_pair_count": 83,
+            "source_normal_pass_count": 59,
+            "target_normal_pass_count": 34,
+            "both_normal_pass_count": 20
+          }
+        }
+      }
+    },
+    {
+      "object_id": "ring_002",
+      "split": "train",
+      "target_views": {
+        "top": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 923,
+            "target_projection_in_frame": 923,
+            "target_jewelry_mask_proxy": 910,
+            "vggt_forward_visibility_proxy": 650,
+            "target_relief_support": 507,
+            "reciprocal_track_accepted": 0,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 0,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 0,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        },
+        "iso": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 923,
+            "target_projection_in_frame": 923,
+            "target_jewelry_mask_proxy": 911,
+            "vggt_forward_visibility_proxy": 859,
+            "target_relief_support": 509,
+            "reciprocal_track_accepted": 363,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 334,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 363,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        },
+        "lsv": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 923,
+            "target_projection_in_frame": 923,
+            "target_jewelry_mask_proxy": 902,
+            "vggt_forward_visibility_proxy": 455,
+            "target_relief_support": 130,
+            "reciprocal_track_accepted": 53,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 45,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 53,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        },
+        "rsv": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 923,
+            "target_projection_in_frame": 923,
+            "target_jewelry_mask_proxy": 918,
+            "vggt_forward_visibility_proxy": 700,
+            "target_relief_support": 191,
+            "reciprocal_track_accepted": 9,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 2,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 9,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        }
+      }
+    },
+    {
+      "object_id": "ring_003",
+      "split": "train",
+      "target_views": {
+        "top": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 877,
+            "target_projection_in_frame": 877,
+            "target_jewelry_mask_proxy": 869,
+            "vggt_forward_visibility_proxy": 838,
+            "target_relief_support": 329,
+            "reciprocal_track_accepted": 0,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 0,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 0,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        },
+        "iso": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 877,
+            "target_projection_in_frame": 877,
+            "target_jewelry_mask_proxy": 873,
+            "vggt_forward_visibility_proxy": 788,
+            "target_relief_support": 486,
+            "reciprocal_track_accepted": 348,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 478,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 348,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        },
+        "lsv": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 877,
+            "target_projection_in_frame": 877,
+            "target_jewelry_mask_proxy": 860,
+            "vggt_forward_visibility_proxy": 411,
+            "target_relief_support": 174,
+            "reciprocal_track_accepted": 53,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 29,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 53,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        },
+        "rsv": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 877,
+            "target_projection_in_frame": 877,
+            "target_jewelry_mask_proxy": 872,
+            "vggt_forward_visibility_proxy": 606,
+            "target_relief_support": 185,
+            "reciprocal_track_accepted": 78,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 73,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 78,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        }
+      }
+    },
+    {
+      "object_id": "ring_005",
+      "split": "train",
+      "target_views": {
+        "top": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 917,
+            "target_projection_in_frame": 917,
+            "target_jewelry_mask_proxy": 891,
+            "vggt_forward_visibility_proxy": 410,
+            "target_relief_support": 148,
+            "reciprocal_track_accepted": 1,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 0,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 1,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        },
+        "iso": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 917,
+            "target_projection_in_frame": 917,
+            "target_jewelry_mask_proxy": 915,
+            "vggt_forward_visibility_proxy": 757,
+            "target_relief_support": 416,
+            "reciprocal_track_accepted": 169,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 216,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 169,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        },
+        "lsv": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 917,
+            "target_projection_in_frame": 917,
+            "target_jewelry_mask_proxy": 901,
+            "vggt_forward_visibility_proxy": 460,
+            "target_relief_support": 210,
+            "reciprocal_track_accepted": 79,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 74,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 79,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        },
+        "rsv": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 917,
+            "target_projection_in_frame": 917,
+            "target_jewelry_mask_proxy": 889,
+            "vggt_forward_visibility_proxy": 552,
+            "target_relief_support": 243,
+            "reciprocal_track_accepted": 25,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 8,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 25,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        }
+      }
+    },
+    {
+      "object_id": "ring_006",
+      "split": "train",
+      "target_views": {
+        "top": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 881,
+            "target_projection_in_frame": 881,
+            "target_jewelry_mask_proxy": 869,
+            "vggt_forward_visibility_proxy": 864,
+            "target_relief_support": 331,
+            "reciprocal_track_accepted": 0,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 0,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 0,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        },
+        "iso": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 881,
+            "target_projection_in_frame": 881,
+            "target_jewelry_mask_proxy": 872,
+            "vggt_forward_visibility_proxy": 799,
+            "target_relief_support": 323,
+            "reciprocal_track_accepted": 115,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 172,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 115,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        },
+        "lsv": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 881,
+            "target_projection_in_frame": 881,
+            "target_jewelry_mask_proxy": 851,
+            "vggt_forward_visibility_proxy": 322,
+            "target_relief_support": 126,
+            "reciprocal_track_accepted": 27,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 12,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 27,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        },
+        "rsv": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 881,
+            "target_projection_in_frame": 881,
+            "target_jewelry_mask_proxy": 871,
+            "vggt_forward_visibility_proxy": 651,
+            "target_relief_support": 306,
+            "reciprocal_track_accepted": 30,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 42,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 30,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        }
+      }
+    },
+    {
+      "object_id": "ring_008",
+      "split": "train",
+      "target_views": {
+        "top": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 890,
+            "target_projection_in_frame": 890,
+            "target_jewelry_mask_proxy": 875,
+            "vggt_forward_visibility_proxy": 513,
+            "target_relief_support": 261,
+            "reciprocal_track_accepted": 2,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 0,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 2,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        },
+        "iso": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 890,
+            "target_projection_in_frame": 890,
+            "target_jewelry_mask_proxy": 890,
+            "vggt_forward_visibility_proxy": 845,
+            "target_relief_support": 624,
+            "reciprocal_track_accepted": 444,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 584,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 444,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        },
+        "lsv": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 890,
+            "target_projection_in_frame": 890,
+            "target_jewelry_mask_proxy": 885,
+            "vggt_forward_visibility_proxy": 315,
+            "target_relief_support": 203,
+            "reciprocal_track_accepted": 39,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 11,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 39,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        },
+        "rsv": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 890,
+            "target_projection_in_frame": 890,
+            "target_jewelry_mask_proxy": 879,
+            "vggt_forward_visibility_proxy": 639,
+            "target_relief_support": 355,
+            "reciprocal_track_accepted": 97,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 134,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 97,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        }
+      }
+    },
+    {
+      "object_id": "ring_009",
+      "split": "train",
+      "target_views": {
+        "top": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 930,
+            "target_projection_in_frame": 930,
+            "target_jewelry_mask_proxy": 900,
+            "vggt_forward_visibility_proxy": 620,
+            "target_relief_support": 191,
+            "reciprocal_track_accepted": 0,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 0,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 0,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        },
+        "iso": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 930,
+            "target_projection_in_frame": 930,
+            "target_jewelry_mask_proxy": 930,
+            "vggt_forward_visibility_proxy": 929,
+            "target_relief_support": 678,
+            "reciprocal_track_accepted": 11,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 2,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 11,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        },
+        "lsv": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 930,
+            "target_projection_in_frame": 930,
+            "target_jewelry_mask_proxy": 924,
+            "vggt_forward_visibility_proxy": 618,
+            "target_relief_support": 302,
+            "reciprocal_track_accepted": 41,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 41,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 41,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        },
+        "rsv": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 930,
+            "target_projection_in_frame": 930,
+            "target_jewelry_mask_proxy": 917,
+            "vggt_forward_visibility_proxy": 540,
+            "target_relief_support": 208,
+            "reciprocal_track_accepted": 1,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 0,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 1,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        }
+      }
+    },
+    {
+      "object_id": "ring_010",
+      "split": "train",
+      "target_views": {
+        "top": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 944,
+            "target_projection_in_frame": 944,
+            "target_jewelry_mask_proxy": 925,
+            "vggt_forward_visibility_proxy": 516,
+            "target_relief_support": 114,
+            "reciprocal_track_accepted": 1,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 0,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 1,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        },
+        "iso": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 944,
+            "target_projection_in_frame": 944,
+            "target_jewelry_mask_proxy": 942,
+            "vggt_forward_visibility_proxy": 830,
+            "target_relief_support": 528,
+            "reciprocal_track_accepted": 414,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 484,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 414,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        },
+        "lsv": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 944,
+            "target_projection_in_frame": 944,
+            "target_jewelry_mask_proxy": 925,
+            "vggt_forward_visibility_proxy": 486,
+            "target_relief_support": 286,
+            "reciprocal_track_accepted": 103,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 88,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 103,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        },
+        "rsv": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 944,
+            "target_projection_in_frame": 944,
+            "target_jewelry_mask_proxy": 935,
+            "vggt_forward_visibility_proxy": 491,
+            "target_relief_support": 173,
+            "reciprocal_track_accepted": 68,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 101,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 68,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        }
+      }
+    },
+    {
+      "object_id": "ring_011",
+      "split": "train",
+      "target_views": {
+        "top": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 902,
+            "target_projection_in_frame": 902,
+            "target_jewelry_mask_proxy": 891,
+            "vggt_forward_visibility_proxy": 342,
+            "target_relief_support": 197,
+            "reciprocal_track_accepted": 10,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 13,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 10,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        },
+        "iso": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 902,
+            "target_projection_in_frame": 902,
+            "target_jewelry_mask_proxy": 898,
+            "vggt_forward_visibility_proxy": 681,
+            "target_relief_support": 349,
+            "reciprocal_track_accepted": 301,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 426,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 301,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        },
+        "lsv": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 902,
+            "target_projection_in_frame": 902,
+            "target_jewelry_mask_proxy": 892,
+            "vggt_forward_visibility_proxy": 340,
+            "target_relief_support": 152,
+            "reciprocal_track_accepted": 97,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 108,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 97,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        },
+        "rsv": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 902,
+            "target_projection_in_frame": 902,
+            "target_jewelry_mask_proxy": 888,
+            "vggt_forward_visibility_proxy": 543,
+            "target_relief_support": 304,
+            "reciprocal_track_accepted": 124,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 114,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 124,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        }
+      }
+    },
+    {
+      "object_id": "ring_013",
+      "split": "train",
+      "target_views": {
+        "top": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 859,
+            "target_projection_in_frame": 859,
+            "target_jewelry_mask_proxy": 857,
+            "vggt_forward_visibility_proxy": 380,
+            "target_relief_support": 104,
+            "reciprocal_track_accepted": 0,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 0,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 0,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        },
+        "iso": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 859,
+            "target_projection_in_frame": 859,
+            "target_jewelry_mask_proxy": 859,
+            "vggt_forward_visibility_proxy": 820,
+            "target_relief_support": 234,
+            "reciprocal_track_accepted": 128,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 157,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 128,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        },
+        "lsv": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 859,
+            "target_projection_in_frame": 859,
+            "target_jewelry_mask_proxy": 859,
+            "vggt_forward_visibility_proxy": 457,
+            "target_relief_support": 147,
+            "reciprocal_track_accepted": 32,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 16,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 32,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        },
+        "rsv": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 859,
+            "target_projection_in_frame": 859,
+            "target_jewelry_mask_proxy": 852,
+            "vggt_forward_visibility_proxy": 519,
+            "target_relief_support": 238,
+            "reciprocal_track_accepted": 17,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 29,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 17,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        }
+      }
+    },
+    {
+      "object_id": "ring_014",
+      "split": "train",
+      "target_views": {
+        "top": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 917,
+            "target_projection_in_frame": 917,
+            "target_jewelry_mask_proxy": 908,
+            "vggt_forward_visibility_proxy": 411,
+            "target_relief_support": 153,
+            "reciprocal_track_accepted": 0,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 0,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 0,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        },
+        "iso": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 917,
+            "target_projection_in_frame": 917,
+            "target_jewelry_mask_proxy": 914,
+            "vggt_forward_visibility_proxy": 730,
+            "target_relief_support": 411,
+            "reciprocal_track_accepted": 119,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 161,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 119,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        },
+        "lsv": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 917,
+            "target_projection_in_frame": 917,
+            "target_jewelry_mask_proxy": 906,
+            "vggt_forward_visibility_proxy": 477,
+            "target_relief_support": 167,
+            "reciprocal_track_accepted": 41,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 62,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 41,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        },
+        "rsv": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 917,
+            "target_projection_in_frame": 917,
+            "target_jewelry_mask_proxy": 898,
+            "vggt_forward_visibility_proxy": 478,
+            "target_relief_support": 168,
+            "reciprocal_track_accepted": 46,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 68,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 46,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        }
+      }
+    },
+    {
+      "object_id": "ring_016",
+      "split": "train",
+      "target_views": {
+        "top": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 891,
+            "target_projection_in_frame": 891,
+            "target_jewelry_mask_proxy": 887,
+            "vggt_forward_visibility_proxy": 463,
+            "target_relief_support": 266,
+            "reciprocal_track_accepted": 2,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 0,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 2,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        },
+        "iso": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 891,
+            "target_projection_in_frame": 891,
+            "target_jewelry_mask_proxy": 881,
+            "vggt_forward_visibility_proxy": 670,
+            "target_relief_support": 445,
+            "reciprocal_track_accepted": 285,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 313,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 285,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        },
+        "lsv": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 891,
+            "target_projection_in_frame": 891,
+            "target_jewelry_mask_proxy": 890,
+            "vggt_forward_visibility_proxy": 619,
+            "target_relief_support": 269,
+            "reciprocal_track_accepted": 73,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 53,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 73,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        },
+        "rsv": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 891,
+            "target_projection_in_frame": 891,
+            "target_jewelry_mask_proxy": 882,
+            "vggt_forward_visibility_proxy": 413,
+            "target_relief_support": 171,
+            "reciprocal_track_accepted": 23,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 20,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 23,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        }
+      }
+    },
+    {
+      "object_id": "ring_017",
+      "split": "train",
+      "target_views": {
+        "top": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 878,
+            "target_projection_in_frame": 878,
+            "target_jewelry_mask_proxy": 869,
+            "vggt_forward_visibility_proxy": 438,
+            "target_relief_support": 166,
+            "reciprocal_track_accepted": 11,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 11,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 11,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        },
+        "iso": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 878,
+            "target_projection_in_frame": 878,
+            "target_jewelry_mask_proxy": 876,
+            "vggt_forward_visibility_proxy": 718,
+            "target_relief_support": 432,
+            "reciprocal_track_accepted": 311,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 464,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 311,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        },
+        "lsv": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 878,
+            "target_projection_in_frame": 878,
+            "target_jewelry_mask_proxy": 874,
+            "vggt_forward_visibility_proxy": 444,
+            "target_relief_support": 225,
+            "reciprocal_track_accepted": 71,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 70,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 71,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        },
+        "rsv": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 878,
+            "target_projection_in_frame": 878,
+            "target_jewelry_mask_proxy": 870,
+            "vggt_forward_visibility_proxy": 488,
+            "target_relief_support": 191,
+            "reciprocal_track_accepted": 102,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 101,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 102,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        }
+      }
+    },
+    {
+      "object_id": "ring_018",
+      "split": "train",
+      "target_views": {
+        "top": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 933,
+            "target_projection_in_frame": 933,
+            "target_jewelry_mask_proxy": 922,
+            "vggt_forward_visibility_proxy": 477,
+            "target_relief_support": 181,
+            "reciprocal_track_accepted": 0,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 0,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 0,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        },
+        "iso": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 933,
+            "target_projection_in_frame": 933,
+            "target_jewelry_mask_proxy": 932,
+            "vggt_forward_visibility_proxy": 800,
+            "target_relief_support": 419,
+            "reciprocal_track_accepted": 171,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 202,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 171,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        },
+        "lsv": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 933,
+            "target_projection_in_frame": 933,
+            "target_jewelry_mask_proxy": 918,
+            "vggt_forward_visibility_proxy": 500,
+            "target_relief_support": 192,
+            "reciprocal_track_accepted": 13,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 4,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 13,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        },
+        "rsv": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 933,
+            "target_projection_in_frame": 933,
+            "target_jewelry_mask_proxy": 902,
+            "vggt_forward_visibility_proxy": 328,
+            "target_relief_support": 143,
+            "reciprocal_track_accepted": 7,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 1,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 7,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        }
+      }
+    },
+    {
+      "object_id": "ring_019",
+      "split": "train",
+      "target_views": {
+        "top": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 915,
+            "target_projection_in_frame": 915,
+            "target_jewelry_mask_proxy": 910,
+            "vggt_forward_visibility_proxy": 587,
+            "target_relief_support": 438,
+            "reciprocal_track_accepted": 1,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 0,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 1,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        },
+        "iso": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 915,
+            "target_projection_in_frame": 915,
+            "target_jewelry_mask_proxy": 907,
+            "vggt_forward_visibility_proxy": 881,
+            "target_relief_support": 468,
+            "reciprocal_track_accepted": 212,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 277,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 212,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        },
+        "lsv": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 915,
+            "target_projection_in_frame": 915,
+            "target_jewelry_mask_proxy": 911,
+            "vggt_forward_visibility_proxy": 565,
+            "target_relief_support": 118,
+            "reciprocal_track_accepted": 22,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 5,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 22,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        },
+        "rsv": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 915,
+            "target_projection_in_frame": 915,
+            "target_jewelry_mask_proxy": 910,
+            "vggt_forward_visibility_proxy": 481,
+            "target_relief_support": 163,
+            "reciprocal_track_accepted": 5,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 0,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 5,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        }
+      }
+    },
+    {
+      "object_id": "ring_021",
+      "split": "train",
+      "target_views": {
+        "top": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 947,
+            "target_projection_in_frame": 947,
+            "target_jewelry_mask_proxy": 940,
+            "vggt_forward_visibility_proxy": 813,
+            "target_relief_support": 362,
+            "reciprocal_track_accepted": 0,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 0,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 0,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        },
+        "iso": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 947,
+            "target_projection_in_frame": 947,
+            "target_jewelry_mask_proxy": 945,
+            "vggt_forward_visibility_proxy": 918,
+            "target_relief_support": 438,
+            "reciprocal_track_accepted": 70,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 112,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 70,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        },
+        "lsv": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 947,
+            "target_projection_in_frame": 947,
+            "target_jewelry_mask_proxy": 934,
+            "vggt_forward_visibility_proxy": 575,
+            "target_relief_support": 266,
+            "reciprocal_track_accepted": 84,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 66,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 84,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        },
+        "rsv": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 947,
+            "target_projection_in_frame": 947,
+            "target_jewelry_mask_proxy": 939,
+            "vggt_forward_visibility_proxy": 674,
+            "target_relief_support": 380,
+            "reciprocal_track_accepted": 40,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 29,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 40,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        }
+      }
+    },
+    {
+      "object_id": "ring_022",
+      "split": "train",
+      "target_views": {
+        "top": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 857,
+            "target_projection_in_frame": 857,
+            "target_jewelry_mask_proxy": 834,
+            "vggt_forward_visibility_proxy": 407,
+            "target_relief_support": 193,
+            "reciprocal_track_accepted": 0,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 0,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 0,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        },
+        "iso": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 857,
+            "target_projection_in_frame": 857,
+            "target_jewelry_mask_proxy": 857,
+            "vggt_forward_visibility_proxy": 827,
+            "target_relief_support": 586,
+            "reciprocal_track_accepted": 382,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 522,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 382,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        },
+        "lsv": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 857,
+            "target_projection_in_frame": 857,
+            "target_jewelry_mask_proxy": 844,
+            "vggt_forward_visibility_proxy": 312,
+            "target_relief_support": 165,
+            "reciprocal_track_accepted": 12,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 9,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 12,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        },
+        "rsv": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 857,
+            "target_projection_in_frame": 857,
+            "target_jewelry_mask_proxy": 848,
+            "vggt_forward_visibility_proxy": 352,
+            "target_relief_support": 183,
+            "reciprocal_track_accepted": 45,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 57,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 45,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        }
+      }
+    },
+    {
+      "object_id": "ring_024",
+      "split": "train",
+      "target_views": {
+        "top": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 848,
+            "target_projection_in_frame": 848,
+            "target_jewelry_mask_proxy": 815,
+            "vggt_forward_visibility_proxy": 635,
+            "target_relief_support": 361,
+            "reciprocal_track_accepted": 0,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 0,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 0,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        },
+        "iso": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 848,
+            "target_projection_in_frame": 848,
+            "target_jewelry_mask_proxy": 845,
+            "vggt_forward_visibility_proxy": 843,
+            "target_relief_support": 525,
+            "reciprocal_track_accepted": 124,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 131,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 124,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        },
+        "lsv": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 848,
+            "target_projection_in_frame": 848,
+            "target_jewelry_mask_proxy": 843,
+            "vggt_forward_visibility_proxy": 560,
+            "target_relief_support": 35,
+            "reciprocal_track_accepted": 8,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 14,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 8,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        },
+        "rsv": {
+          "cumulative_query_counts": {
+            "source_relief_candidate": 848,
+            "target_projection_in_frame": 848,
+            "target_jewelry_mask_proxy": 840,
+            "vggt_forward_visibility_proxy": 470,
+            "target_relief_support": 131,
+            "reciprocal_track_accepted": 22,
+            "available_direct_normal_corroborated": 0
+          },
+          "stable_triangle_count": 15,
+          "normal_corroborated_track_count": 0,
+          "normal_diagnostic": {
+            "source_normal_map_available": false,
+            "target_normal_map_available": false,
+            "normal_pair_available": false,
+            "accepted_track_count": 22,
+            "accepted_with_normal_pair_count": 0,
+            "source_normal_pass_count": null,
+            "target_normal_pass_count": null,
+            "both_normal_pass_count": null
+          }
+        }
+      }
+    }
+  ],
+  "checks": {
+    "training_objects_only": true,
+    "validation_objects_not_processed": true,
+    "frozen_phase5_13_gate_unchanged": true
+  },
+  "claims": {
+    "physical_occlusion_identified": false,
+    "validation_relief_improved": false,
+    "surface_promotion_authorized": false,
+    "cad_fusion_authorized": false
+  },
+  "limitations": [
+    "Target jewelry mask is segmentation, not physical visibility ground truth.",
+    "VGGT visibility and reciprocal tracks are machine hypotheses.",
+    "Normal pass counts are defined only where both original direct-normal maps exist; missing maps are not failures of normal agreement.",
+    "The validation split has a separate Phase 5.8 three-model normal gate; this training-only route audit does not estimate that gate's outcome.",
+    "Track-topology triangles use accepted tracks, not normal-corroborated tracks or measured surfaces.",
+    "A missing front-to-top route can reflect occlusion, foreshortening, weak texture, or model failure.",
+    "This diagnostic does not rerun or improve the independent Phase 5.13 surface gate."
+  ],
+  "artifacts": {
+    "audit": "data/phase5_training_visibility_route_v1/training_visibility_route_audit.png"
+  }
+}
