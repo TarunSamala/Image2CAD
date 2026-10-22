@@ -9,6 +9,7 @@ const state = {
   phase4Graph: null,
   phase4CandidateSummary: null,
   phase4CandidateObject: null,
+  worklist: null,
 };
 
 const $ = (selector) => document.querySelector(selector);
@@ -45,6 +46,133 @@ function showError(error) {
 }
 
 function clearError() { $("#error-banner").classList.add("hidden"); }
+
+function renderReviewNotes(selector, review) {
+  const container = $(selector);
+  const entries = (review?.history || []).filter((item) => item.note).map((item) => ({
+    kind: `Review · ${humanize(item.decision || "note")}`,
+    reviewer: item.reviewer,
+    timestamp: item.reviewed_at_utc,
+    text: item.note,
+  }));
+  if (review?.note && !entries.some((item) => item.timestamp === review.reviewed_at_utc && item.text === review.note)) {
+    entries.push({
+      kind: `Review · ${humanize(review.decision || "note")}`,
+      reviewer: review.reviewer,
+      timestamp: review.reviewed_at_utc,
+      text: review.note,
+    });
+  }
+  for (const comment of review?.comments || []) {
+    entries.push({ kind: "Comment", reviewer: comment.reviewer, timestamp: comment.created_at_utc, text: comment.text });
+  }
+  entries.sort((a, b) => (a.timestamp || "").localeCompare(b.timestamp || ""));
+  container.replaceChildren();
+  if (!entries.length) {
+    const empty = document.createElement("span");
+    empty.className = "review-thread-empty";
+    empty.textContent = "No saved notes or comments for this item yet.";
+    container.append(empty);
+    return;
+  }
+  for (const entry of entries) {
+    const item = document.createElement("div");
+    item.className = "review-thread-item";
+    const title = document.createElement("strong");
+    const date = entry.timestamp ? new Date(entry.timestamp).toLocaleString() : "Date unavailable";
+    title.textContent = `${entry.kind} · ${entry.reviewer || "Unknown reviewer"} · ${date}`;
+    const body = document.createElement("p");
+    body.textContent = entry.text;
+    item.append(title, body);
+    container.append(item);
+  }
+}
+
+function renderWorklist(worklist) {
+  state.worklist = worklist;
+  const ratio = worklist.total ? Math.floor(1000 * worklist.approved / worklist.total) / 10 : 0;
+  $("#worklist-count").textContent = `${worklist.approved.toLocaleString()} / ${worklist.total.toLocaleString()}`;
+  $("#worklist-progress-label").textContent = `${ratio}% of available human-review decisions approved`;
+  $("#worklist-progress").value = ratio;
+  $("#worklist-status").textContent = worklist.approved === worklist.total ? "Review checklist complete" : `${worklist.total - worklist.approved} decisions remain`;
+  $("#worklist-status").className = `pill ${worklist.approved === worklist.total ? "pass" : "warning"}`;
+  $("#worklist-groups").innerHTML = worklist.groups.map((group) => `
+    <article class="worklist-card">
+      <div><span class="worklist-card-kicker">${group.destination === "ring01" ? "RING01" : group.destination === "candidates" ? "PHASE 4" : "STL-1 / PHASE 1"}</span>
+      <h3>${escapeHtml(group.title)}</h3></div>
+      <strong>${group.approved.toLocaleString()} <span>/ ${group.total.toLocaleString()}</span></strong>
+      <progress max="${group.total}" value="${group.approved}">${group.approved} of ${group.total}</progress>
+      <button type="button" class="button secondary worklist-open" data-destination="${group.destination}" data-group="${group.id}">${group.pending ? "Continue review" : "Inspect completed"}</button>
+    </article>`).join("");
+  $("#worklist-queue").innerHTML = worklist.queue.map((item) => `
+    <div class="worklist-row">
+      <div><strong>${escapeHtml(item.source_name)}</strong><span>${escapeHtml(item.object_id)} · ${escapeHtml(item.split)}</span></div>
+      <span>${item.evidence_pending} evidence · ${item.inventory_pending ? "inventory needed" : "inventory done"} · ${item.candidate_pending} regions</span>
+      <button type="button" class="button secondary worklist-open" data-object-id="${escapeHtml(item.object_id)}" data-destination="${item.next_action === "candidates" ? "candidates" : "stl1"}" data-group="${item.next_action}">${item.next_action === "complete" ? "Inspect" : "Open"}</button>
+    </div>`).join("");
+}
+
+async function refreshWorklist() {
+  renderWorklist(await api("/api/reviewer-worklist"));
+}
+
+async function openReview(destination, objectId = null, group = null) {
+  if (destination === "ring01") {
+    document.querySelector("#phase1-review-console").scrollIntoView({ behavior: "smooth", block: "start" });
+    if (group === "ring01_labels") {
+      const pending = state.phase1Review?.exit_gate?.pending_label_reviews?.[0];
+      if (pending) {
+        const [view, label] = pending.split(":");
+        $("#phase1-review-view").value = view;
+        $("#phase1-review-label").value = label;
+      }
+    } else if (group === "ring01_identities") {
+      const pending = state.phase1Review?.exit_gate?.pending_component_identities?.[0];
+      if (pending) $("#phase1-component").value = pending;
+    } else if (group === "ring01_cameras") {
+      const pending = state.phase1Review?.exit_gate?.pending_camera_records?.[0];
+      if (pending) $("#phase1-camera-view").value = pending;
+    }
+    selectedPhase1Review();
+    return;
+  }
+  const queueItem = state.worklist?.queue.find((item) => item.object_id === objectId)
+    || state.worklist?.queue.find((item) => destination === "candidates" ? item.candidate_pending > 0
+      : group === "inventory" ? item.inventory_pending : item.evidence_pending > 0)
+    || state.worklist?.queue.find((item) => item.next_action !== "complete");
+  const target = queueItem?.object_id || state.worklist?.queue[0]?.object_id;
+  if (!target) return;
+  if (destination === "candidates") {
+    $("#phase4-candidate-object").value = target;
+    await loadPhase4CandidateObject(target);
+    const pending = Object.entries(state.phase4CandidateObject.object.views).find(([, record]) =>
+      record.candidates.some((candidate) => candidate.decision !== "approved"));
+    if (pending) {
+      $("#phase4-candidate-view").value = pending[0];
+      renderPhase4CandidateSelection();
+      $("#phase4-candidate-id").value = pending[1].candidates.find((candidate) => candidate.decision !== "approved").candidate_id;
+      renderPhase4CandidateSelection();
+    }
+    document.querySelector('[data-panel="phase4"]').click();
+    $("#phase4-candidate-review-status").scrollIntoView({ behavior: "smooth", block: "start" });
+    return;
+  }
+  $("#split-filter").value = "all";
+  if (!state.objects.some((item) => item.object_id === target)) await loadObjects("all", target);
+  else await selectObject(target);
+  if (group !== "inventory") {
+    const pending = Object.entries(state.stl1ReviewObject?.object?.views || {}).flatMap(([view, record]) =>
+      Object.entries(record.evidence).filter(([, review]) => review.decision !== "approved")
+        .map(([evidenceType]) => ({ view, evidenceType })))[0];
+    if (pending) {
+      $("#stl1-review-view").value = pending.view;
+      $("#stl1-review-evidence").value = pending.evidenceType;
+      updateStl1ReviewSelection();
+    }
+  }
+  document.querySelector('[data-panel="phase1-review"]').click();
+  $(group === "inventory" ? "#stl1-inventory-status" : "#stl1-review-title").scrollIntoView({ behavior: "smooth", block: "start" });
+}
 
 function renderSummary(summary) {
   const featureContract = summary.phase1.complete_features?.feature_contract || {};
@@ -363,6 +491,7 @@ function renderPhase4CandidateSelection() {
   if (!candidate) {
     $("#phase4-candidate-mask").removeAttribute("src");
     $("#phase4-candidate-current").textContent = "No enclosed candidate is available in this view.";
+    $("#phase4-candidate-notes").replaceChildren();
     $("#phase4-candidate-submit").classList.add("hidden");
     return;
   }
@@ -373,6 +502,7 @@ function renderPhase4CandidateSelection() {
     `${candidate.candidate_id} · proposal ${humanize(candidate.proposal_subtype)} · ` +
     `${candidate.area_px2} px · current ${humanize(candidate.decision)} / ${humanize(candidate.semantic_label)}` +
     `${candidate.reviewer ? ` · ${candidate.reviewer}` : ""}`;
+  renderReviewNotes("#phase4-candidate-notes", candidate);
 }
 
 function renderPhase4CandidateObject(payload) {
@@ -423,6 +553,28 @@ async function submitPhase4CandidateReview(decision) {
   });
   renderPhase4CandidateObject(payload);
   state.phase4CandidateSummary = await api("/api/phase4/stl1-candidates");
+  $("#phase4-candidate-note").value = "";
+  await refreshWorklist();
+}
+
+async function submitCandidateComment() {
+  const reviewer = $("#phase4-candidate-reviewer").value.trim();
+  const note = $("#phase4-candidate-note").value.trim();
+  if (!reviewer || !note) throw new Error("Enter your name and a comment before saving.");
+  const objectId = $("#phase4-candidate-object").value;
+  const payload = await api("/api/phase4/stl1-candidates/comment", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      object_id: objectId,
+      view: $("#phase4-candidate-view").value,
+      candidate_id: $("#phase4-candidate-id").value,
+      reviewer,
+      note,
+    }),
+  });
+  renderPhase4CandidateObject(payload);
+  $("#phase4-candidate-note").value = "";
 }
 
 const PHASE1_VIEWS = ["front", "side", "top", "angled", "back"];
@@ -444,10 +596,13 @@ function selectedPhase1Review() {
   $("#phase1-proposal-preview").src = phase1AssetUrl(view, "proposal", label);
   const labelReview = manifest.views[view].reviews[label];
   $("#phase1-label-current").textContent = `Current: ${humanize(labelReview.decision)}${labelReview.reviewer ? ` · ${labelReview.reviewer}` : ""}`;
+  renderReviewNotes("#phase1-label-notes", labelReview);
   const component = manifest.component_catalog.find((item) => item.component_id === componentId);
   $("#phase1-component-current").textContent = `Current: ${humanize(component.review.decision)} · ${humanize(component.class)}`;
+  renderReviewNotes("#phase1-component-notes", component.review);
   const camera = manifest.camera_records[cameraView];
   $("#phase1-camera-current").textContent = `Current: ${humanize(camera.review.decision)} · ${humanize(camera.projection_model)}`;
+  renderReviewNotes("#phase1-camera-notes", camera.review);
 }
 
 function renderPhase1Review(manifest) {
@@ -490,6 +645,26 @@ async function submitPhase1(path, payload) {
   state.summary = await api("/api/summary");
   renderSummary(state.summary);
   await loadPhase1Review();
+  $("#phase1-review-note").value = "";
+  await refreshWorklist();
+}
+
+async function submitRing01Comment(scope) {
+  const common = phase1ReviewerPayload();
+  if (!common.note) throw new Error("Enter a comment before saving.");
+  const payload = {
+    ...common,
+    scope,
+    view: scope === "camera" ? $("#phase1-camera-view").value : $("#phase1-review-view").value,
+    label: $("#phase1-review-label").value,
+    component_id: $("#phase1-component").value,
+  };
+  renderPhase1Review(await api("/api/phase1/reviews/comment", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  }));
+  $("#phase1-review-note").value = "";
 }
 
 const STL1_VIEWS = ["front", "top", "iso", "lsv", "rsv"];
@@ -531,6 +706,7 @@ function renderStl1ReviewObject(payload) {
   $("#stl1-has-relief").value = inventory.has_sculptural_relief || "unknown";
   $("#stl1-cross-view").value = inventory.cross_view_identity_consistent || "unknown";
   $("#stl1-inventory-current").textContent = `Current: ${humanize(objectReview.decision)}${objectReview.reviewer ? ` · ${objectReview.reviewer}` : ""}`;
+  renderReviewNotes("#stl1-inventory-notes", objectReview);
   const inventoryStatus = $("#stl1-inventory-status");
   inventoryStatus.textContent = humanize(objectReview.decision);
   inventoryStatus.className = `pill ${objectReview.decision === "approved" ? "pass" : "warning"}`;
@@ -550,6 +726,7 @@ function updateStl1ReviewSelection() {
   $("#stl1-review-question").textContent = definition.question;
   $("#stl1-review-evidence-caption").textContent = review.corrected_path ? "Corrected active evidence" : "Machine proposal";
   $("#stl1-review-current").textContent = `Current: ${humanize(review.decision)}${review.reviewer ? ` · ${review.reviewer}` : ""}${review.corrected_path ? " · corrected mask" : ""}`;
+  renderReviewNotes("#stl1-review-notes", review);
   $("#stl1-mask-correction").classList.toggle("hidden", evidenceType !== "silhouette");
 }
 
@@ -575,6 +752,7 @@ async function submitStl1Evidence(decision) {
     }),
   });
   renderStl1ReviewObject(payload);
+  $("#stl1-review-note").value = "";
   await refreshStl1ReviewState();
 }
 
@@ -591,6 +769,7 @@ async function approveStl1View() {
     }),
   });
   renderStl1ReviewObject(payload);
+  $("#stl1-review-note").value = "";
   await refreshStl1ReviewState();
 }
 
@@ -614,7 +793,26 @@ async function submitStl1ObjectReview(decision) {
     }),
   });
   renderStl1ReviewObject(payload);
+  $("#stl1-review-note").value = "";
   await refreshStl1ReviewState();
+}
+
+async function submitStl1Comment(scope) {
+  const common = stl1ReviewerPayload();
+  if (!common.note) throw new Error("Enter a comment before saving.");
+  const payload = await api("/api/phase1/stl1/reviews/comment", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      ...common,
+      scope,
+      object_id: state.selected.object_id,
+      view: $("#stl1-review-view").value,
+      evidence_type: $("#stl1-review-evidence").value,
+    }),
+  });
+  renderStl1ReviewObject(payload);
+  $("#stl1-review-note").value = "";
 }
 
 async function uploadStl1CorrectedMask() {
@@ -632,6 +830,7 @@ async function uploadStl1CorrectedMask() {
     body: form,
   });
   $("#stl1-corrected-mask").value = "";
+  $("#stl1-review-note").value = "";
   renderStl1ReviewObject(payload);
   await refreshStl1ReviewState();
 }
@@ -641,6 +840,7 @@ async function refreshStl1ReviewState() {
   state.summary = await api("/api/summary");
   renderSummary(state.summary);
   await loadObjects($("#split-filter").value, state.selected?.object_id);
+  await refreshWorklist();
 }
 
 async function selectNextStl1Pending() {
@@ -1008,6 +1208,22 @@ async function loadObjects(split = "all", preferredId = null) {
 }
 
 function bindControls() {
+  $("#review-plan").addEventListener("click", (event) => {
+    const button = event.target.closest(".worklist-open");
+    if (!button) return;
+    clearError();
+    openReview(button.dataset.destination, button.dataset.objectId, button.dataset.group).catch(showError);
+  });
+  $("#worklist-next").addEventListener("click", () => {
+    const next = state.worklist?.queue.find((item) => item.next_action !== "complete");
+    clearError();
+    if (!next) {
+      const ringTask = state.worklist?.groups.find((group) => group.destination === "ring01" && group.pending);
+      if (ringTask) openReview("ring01", null, ringTask.id).catch(showError);
+      return;
+    }
+    openReview(next.next_action === "candidates" ? "candidates" : "stl1", next.object_id, next.next_action).catch(showError);
+  });
   ["#phase1-review-view", "#phase1-review-label", "#phase1-component", "#phase1-camera-view"].forEach((selector) => {
     $(selector).addEventListener("change", selectedPhase1Review);
   });
@@ -1038,6 +1254,10 @@ function bindControls() {
       decision: button.dataset.decision,
     }).catch(showError);
   }));
+  $$(".phase1-comment").forEach((button) => button.addEventListener("click", () => {
+    clearError();
+    submitRing01Comment(button.dataset.scope).catch(showError);
+  }));
   ["#stl1-review-view", "#stl1-review-evidence"].forEach((selector) => {
     $(selector).addEventListener("change", updateStl1ReviewSelection);
   });
@@ -1049,6 +1269,14 @@ function bindControls() {
     clearError();
     submitStl1ObjectReview(button.dataset.decision).catch(showError);
   }));
+  $("#stl1-comment-evidence").addEventListener("click", () => {
+    clearError();
+    submitStl1Comment("evidence").catch(showError);
+  });
+  $("#stl1-comment-inventory").addEventListener("click", () => {
+    clearError();
+    submitStl1Comment("object").catch(showError);
+  });
   $("#stl1-upload-mask").addEventListener("click", () => {
     clearError();
     uploadStl1CorrectedMask().catch(showError);
@@ -1076,6 +1304,10 @@ function bindControls() {
     clearError();
     submitPhase4CandidateReview(button.dataset.decision).catch(showError);
   }));
+  $("#phase4-candidate-comment").addEventListener("click", () => {
+    clearError();
+    submitCandidateComment().catch(showError);
+  });
   $$("#layer-switcher button").forEach((button) => button.addEventListener("click", () => {
     state.layer = button.dataset.layer;
     $$("#layer-switcher button").forEach((item) => item.classList.toggle("active", item === button));
@@ -1097,6 +1329,7 @@ async function start() {
     await loadPhase1Review();
     await loadStl1ReviewSummary();
     await loadObjects("all", "ring_001");
+    await refreshWorklist();
   } catch (error) { showError(error); }
 }
 

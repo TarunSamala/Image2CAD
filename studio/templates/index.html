@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="color-scheme" content="dark">
     <title>Lalitha Studio</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='studio.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='studio.css', v='review-comments-2') }}">
   </head>
   <body>
     <div class="app-shell">
@@ -56,6 +56,48 @@
         </header>
 
         <div id="error-banner" class="error-banner hidden" role="alert"></div>
+
+        <section id="review-plan" class="review-plan" aria-labelledby="review-plan-title">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">YOUR SIDE / REVIEW WORKSPACE</p>
+              <h2 id="review-plan-title">What you can work on now</h2>
+              <p class="subtitle">Inspect the image evidence, correct errors, and record your decision. Every approval here is image-space review—not proof of perfect CAD.</p>
+            </div>
+            <span id="worklist-status" class="pill warning">Loading review work</span>
+          </div>
+          <div class="review-plan-top">
+            <article class="review-plan-progress">
+              <p class="eyebrow">REVIEW CHECKLIST</p>
+              <strong id="worklist-count">— / —</strong>
+              <span id="worklist-progress-label">Approved decisions</span>
+              <progress id="worklist-progress" max="100" value="0">0%</progress>
+              <small>100% means these review decisions are approved. Never approve inaccurate evidence to fill the bar; this is not reconstruction accuracy.</small>
+            </article>
+            <article class="review-plan-next">
+              <p class="eyebrow">NEXT PRACTICAL STEP</p>
+              <h3>Review one ring from all five views</h3>
+              <p>Check source quality, view labels, silhouette, edges, depth and uncertainty; then record its stone/prong/relief inventory.</p>
+              <button id="worklist-next" type="button" class="button primary">Open next pending review</button>
+            </article>
+          </div>
+          <div id="worklist-groups" class="worklist-groups" aria-live="polite"></div>
+          <details class="worklist-queue">
+            <summary>All 24 rings · live review queue</summary>
+            <div id="worklist-queue" class="worklist-queue-rows"></div>
+          </details>
+          <div class="review-plan-footer">
+            <div>
+              <strong>Helpful image inputs from your side</strong>
+              <p>If available: overlapping close-ups of difficult details, all-around views, and a known scale marker visible in a photo. Keep originals; never guess hidden cavities.</p>
+            </div>
+            <div>
+              <strong>Not yet covered by this checklist</strong>
+              <p>Individual stone/prong pixel masks, reviewed relief correspondences, held-out CAD fit and manufacturing checks still need tooling and validation.</p>
+            </div>
+          </div>
+          <p class="worklist-security-note">Local review only for now: review-write endpoints do not have user authentication. Do not expose this Studio publicly until access control is added.</p>
+        </section>
 
         <section id="dataset-metrics" class="metric-grid loading-block" aria-label="Dataset summary"></section>
 
@@ -145,19 +187,23 @@
                   <figure><img id="phase1-proposal-preview" alt="Selected mask proposal"><figcaption>Proposal</figcaption></figure>
                 </div>
                 <p id="phase1-label-current" class="review-current"></p>
+                <div id="phase1-label-notes" class="review-thread" aria-live="polite"></div>
                 <div class="review-actions">
                   <button type="button" class="button primary phase1-label-decision" data-decision="approved">Approve inspected mask</button>
                   <button type="button" class="button secondary phase1-label-decision" data-decision="needs_correction">Needs correction</button>
                   <button type="button" class="button secondary phase1-label-decision" data-decision="rejected">Reject</button>
+                  <button type="button" class="button secondary phase1-comment" data-scope="label">Save comment only</button>
                 </div>
               </section>
               <section class="review-block">
                 <h4>Cross-view component identity</h4>
                 <label>Component<select id="phase1-component"></select></label>
                 <p id="phase1-component-current" class="review-current"></p>
+                <div id="phase1-component-notes" class="review-thread" aria-live="polite"></div>
                 <div class="review-actions">
                   <button type="button" class="button primary phase1-identity-decision" data-decision="approved">Approve identity</button>
                   <button type="button" class="button secondary phase1-identity-decision" data-decision="needs_correction">Needs correction</button>
+                  <button type="button" class="button secondary phase1-comment" data-scope="identity">Save comment only</button>
                 </div>
                 <h4>View / camera semantics</h4>
                 <div class="review-fields">
@@ -166,9 +212,11 @@
                 </div>
                 <label>Uncertainty<input id="phase1-camera-uncertainty" type="text" value="Camera calibration unavailable; view label reviewed from image only"></label>
                 <p id="phase1-camera-current" class="review-current"></p>
+                <div id="phase1-camera-notes" class="review-thread" aria-live="polite"></div>
                 <div class="review-actions">
                   <button type="button" class="button primary phase1-camera-decision" data-decision="approved">Approve semantics</button>
                   <button type="button" class="button secondary phase1-camera-decision" data-decision="needs_correction">Needs correction</button>
+                  <button type="button" class="button secondary phase1-comment" data-scope="camera">Save comment only</button>
                 </div>
               </section>
             </div>
@@ -456,10 +504,12 @@
                 <figure><img id="stl1-review-evidence-image" alt="Selected Phase 1 evidence"><figcaption id="stl1-review-evidence-caption">Active proposal</figcaption></figure>
               </div>
               <p id="stl1-review-current" class="review-current"></p>
+              <div id="stl1-review-notes" class="review-thread" aria-live="polite"></div>
               <div class="review-actions">
                 <button type="button" class="button primary stl1-evidence-decision" data-decision="approved">Approve inspected evidence</button>
                 <button type="button" class="button secondary stl1-evidence-decision" data-decision="needs_correction">Needs correction</button>
                 <button type="button" class="button secondary stl1-evidence-decision" data-decision="rejected">Reject</button>
+                <button type="button" id="stl1-comment-evidence" class="button secondary">Save comment only</button>
                 <button type="button" id="stl1-approve-view" class="button secondary">Approve all 7 inspected items in this view</button>
                 <button type="button" id="stl1-next-pending" class="button secondary">Next pending item</button>
               </div>
@@ -488,10 +538,12 @@
                 <label>Identity consistent across views<select id="stl1-cross-view"><option value="unknown">Unknown</option><option value="yes">Yes</option><option value="no">No</option></select></label>
               </div>
               <p id="stl1-inventory-current" class="review-current"></p>
+              <div id="stl1-inventory-notes" class="review-thread" aria-live="polite"></div>
               <div class="review-actions">
                 <button type="button" class="button primary stl1-object-decision" data-decision="approved">Approve object inventory</button>
                 <button type="button" class="button secondary stl1-object-decision" data-decision="needs_correction">Needs correction</button>
                 <button type="button" class="button secondary stl1-object-decision" data-decision="rejected">Reject</button>
+                <button type="button" id="stl1-comment-inventory" class="button secondary">Save comment only</button>
               </div>
             </article>
           </div>
@@ -931,6 +983,7 @@
                 <figure><img id="phase4-candidate-mask" alt="Selected candidate mask"><figcaption>Selected mask</figcaption></figure>
               </div>
               <p id="phase4-candidate-current" class="review-current"></p>
+              <div id="phase4-candidate-notes" class="review-thread" aria-live="polite"></div>
               <div class="review-fields reviewer-fields">
                 <label>Reviewer<input id="phase4-candidate-reviewer" type="text" maxlength="120" placeholder="Your name" autocomplete="name"></label>
                 <label>Review note<input id="phase4-candidate-note" type="text" maxlength="1000" placeholder="Why this visible classification is appropriate"></label>
@@ -939,6 +992,7 @@
                 <button type="button" class="button primary phase4-candidate-decision" data-decision="approved">Approve inspected label</button>
                 <button type="button" class="button secondary phase4-candidate-decision" data-decision="needs_correction">Needs correction</button>
                 <button type="button" class="button secondary phase4-candidate-decision" data-decision="rejected">Reject proposal</button>
+                <button type="button" id="phase4-candidate-comment" class="button secondary">Save comment only</button>
               </div>
             </article>
             <article class="evidence-card">
@@ -1065,6 +1119,6 @@
         <footer>Lalitha Studio · Evidence-first local research interface · No cloud uploads</footer>
       </main>
     </div>
-    <script src="{{ url_for('static', filename='studio.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='studio.js', v='review-comments-2') }}" defer></script>
   </body>
 </html>

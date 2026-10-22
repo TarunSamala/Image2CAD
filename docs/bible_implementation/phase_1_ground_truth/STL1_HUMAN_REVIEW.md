@@ -52,8 +52,18 @@ python -m pip install -r requirements-studio.txt
 python -m studio.app
 ```
 
-Open `http://127.0.0.1:8501`, select a ring, then open **Phase 1 review**.
+Open `http://127.0.0.1:8501`. The **What you can work on now** dashboard
+shows live Ring01, STL-1 and ambiguous-region review counts. Use **Open next
+pending review** or a ring in the 24-object queue to jump to the existing
+review controls. The progress bar measures only identified human decisions;
+it is not a CAD-accuracy or manufacturing-completion percentage.
+
+Select a ring, then open **Phase 1 review**.
 Enter the reviewer name, inspect each view/evidence pair and record a decision.
+For feedback that is not yet a decision, enter a note and choose **Save comment
+only**. The comment is attached to the selected evidence item or ring inventory,
+shown when that item is revisited, and does not approve it or advance the gate.
+Prior decision notes remain visible alongside these comments.
 Use **Next pending item** to move through the selected ring.
 After inspecting all seven categories for one view, **Approve all 7 inspected
 items in this view** records the same identified approval on those seven items

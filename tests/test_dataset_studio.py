@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 from studio.dataset_service import (
     AssetNotFoundError,
@@ -660,6 +661,27 @@ class DatasetStudioServiceTest(unittest.TestCase):
         with self.assertRaises(AssetNotFoundError):
             self.repository.asset_path("ring_001", "source", "../../front")
 
+    def test_reviewer_worklist_uses_live_review_manifests(self) -> None:
+        worklist = self.repository.reviewer_worklist()
+        groups = {group["id"]: group for group in worklist["groups"]}
+        self.assertEqual(worklist["scope"], "identified_human_image_space_review_only")
+        self.assertEqual(groups["stl1_evidence"]["total"], 840)
+        self.assertEqual(groups["stl1_inventory"]["total"], 24)
+        self.assertEqual(len(worklist["queue"]), 24)
+        self.assertEqual(worklist["approved"], sum(group["approved"] for group in groups.values()))
+        self.assertEqual(worklist["total"], sum(group["total"] for group in groups.values()))
+        self.assertFalse(any("manufacturing_accuracy" in group for group in worklist["groups"]))
+
+        changed = self.repository.stl1_phase1_review_summary()
+        changed["gate"]["approved_evidence_count"] = 1
+        changed["gate"]["pending_evidence_count"] = 839
+        changed["objects"][0]["pending_evidence_count"] = 34
+        with patch.object(self.repository, "stl1_phase1_review_summary", return_value=changed):
+            updated = self.repository.reviewer_worklist()
+        updated_groups = {group["id"]: group for group in updated["groups"]}
+        self.assertEqual(updated_groups["stl1_evidence"]["approved"], 1)
+        self.assertEqual(updated["queue"][0]["evidence_pending"], 34)
+
 
 try:
     import flask  # noqa: F401
@@ -688,6 +710,9 @@ class DatasetStudioApiTest(unittest.TestCase):
         summary = self.client.get("/api/summary")
         self.assertEqual(summary.status_code, 200)
         self.assertEqual(summary.get_json()["dataset"]["image_count"], 120)
+        worklist = self.client.get("/api/reviewer-worklist")
+        self.assertEqual(worklist.status_code, 200)
+        self.assertEqual(worklist.get_json()["schema_version"], "studio_reviewer_worklist_v1")
         capabilities = self.client.get("/api/capabilities")
         self.assertEqual(capabilities.status_code, 200)
         self.assertEqual(
@@ -706,6 +731,15 @@ class DatasetStudioApiTest(unittest.TestCase):
         self.assertEqual(page.status_code, 200)
         markup = page.get_data(as_text=True)
         for marker in (
+            'id="phase1-label-notes"',
+            'id="stl1-review-notes"',
+            'id="stl1-comment-evidence"',
+            'id="phase4-candidate-notes"',
+            'id="phase4-candidate-comment"',
+            'id="review-plan"',
+            'id="worklist-progress"',
+            'id="worklist-groups"',
+            'id="worklist-queue"',
             'id="cv-index-title"',
             'class="cv-layer-grid"',
             'id="metric-depth-color-convention"',
@@ -912,6 +946,23 @@ class DatasetStudioApiTest(unittest.TestCase):
             },
         )
         self.assertEqual(invalid_stl1.status_code, 400)
+
+    def test_comment_routes_reject_blank_feedback_without_changing_gates(self) -> None:
+        approved_before = self.client.get("/api/reviewer-worklist").get_json()["approved"]
+        payloads = (
+            ("/api/phase1/reviews/comment", {"scope": "label", "view": "front", "label": "prongs"}),
+            ("/api/phase1/stl1/reviews/comment", {
+                "scope": "evidence", "object_id": "ring_001", "view": "front", "evidence_type": "silhouette",
+            }),
+            ("/api/phase4/stl1-candidates/comment", {
+                "object_id": "ring_001", "view": "front", "candidate_id": "candidate_999",
+            }),
+        )
+        for route, scope in payloads:
+            with self.subTest(route=route):
+                response = self.client.post(route, json={**scope, "reviewer": "Reviewer", "note": ""})
+                self.assertEqual(response.status_code, 400)
+        self.assertEqual(self.client.get("/api/reviewer-worklist").get_json()["approved"], approved_before)
 
     def test_object_and_asset_routes(self) -> None:
         detail = self.client.get("/api/objects/ring_001")
