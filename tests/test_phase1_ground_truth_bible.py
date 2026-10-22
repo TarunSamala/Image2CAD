@@ -99,6 +99,27 @@ class Phase1GroundTruthBibleTest(unittest.TestCase):
                 "needs_correction",
             )
 
+    def test_comment_does_not_approve_ring01_evidence(self) -> None:
+        from pipeline.phase1_review import add_review_comment
+
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            workspace = root / "data" / "ring01_ground_truth_v1"
+            workspace.mkdir(parents=True)
+            (workspace / "manifest.json").write_text(
+                json.dumps(deepcopy(self.manifest)), encoding="utf-8"
+            )
+            before = deepcopy(self.manifest["exit_gate"])
+            with self.assertRaisesRegex(ValueError, "Comment must be"):
+                add_review_comment(root, "label", "Reviewer", "", "front", "prongs")
+            with self.assertRaisesRegex(ValueError, "Unknown Ring01 review scope"):
+                add_review_comment(root, "label", "Reviewer", "check", "back", "not_a_label")
+            updated = add_review_comment(root, "label", "Reviewer", "Check fourth prong", "front", "prongs")
+            review = updated["views"]["front"]["reviews"]["prongs"]
+            self.assertEqual(review["decision"], "pending")
+            self.assertEqual(review["comments"][0]["text"], "Check fourth prong")
+            self.assertEqual(updated["exit_gate"]["pending_label_reviews"], before["pending_label_reviews"])
+
     def test_all_five_views_have_binary_review_proposals(self) -> None:
         self.assertEqual(
             set(self.manifest["views"]), {"front", "side", "top", "angled", "back"}

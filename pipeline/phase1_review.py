@@ -113,6 +113,42 @@ def _clean_note(note: str | None) -> str | None:
     return note.strip() if isinstance(note, str) and note.strip() else None
 
 
+def add_review_comment(
+    root: Path,
+    scope: str,
+    reviewer: str,
+    note: str,
+    view: str | None = None,
+    label: str | None = None,
+    component_id: str | None = None,
+) -> dict[str, Any]:
+    """Attach feedback without changing any human-review decision or gate."""
+    reviewer_name = _validated_reviewer(str(reviewer or ""))
+    comment = _clean_note(note)
+    if not comment or len(comment) > 500:
+        raise ValueError("Comment must be 1 to 500 characters")
+    path, manifest = load_manifest(root)
+    if scope == "label" and view in VIEWS and label in LABELS:
+        review = manifest["views"][view]["reviews"][label]
+    elif scope == "identity":
+        item = next(
+            (item for item in manifest["component_catalog"] if item["component_id"] == component_id),
+            None,
+        )
+        if item is None:
+            raise ValueError("Unknown component ID")
+        review = item["review"]
+    elif scope == "camera" and view in VIEWS:
+        review = manifest["camera_records"][view]["review"]
+    else:
+        raise ValueError("Unknown Ring01 review scope")
+    review.setdefault("comments", []).append(
+        {"reviewer": reviewer_name, "created_at_utc": utc_now(), "text": comment}
+    )
+    save_manifest(path, manifest)
+    return manifest
+
+
 def apply_label_review(
     root: Path,
     view: str,
