@@ -234,6 +234,38 @@ def apply_candidate_review(
         return manifest
 
 
+def add_candidate_comment(
+    root: Path,
+    object_id: str,
+    view: str,
+    candidate_id: str,
+    reviewer: str,
+    note: Any,
+) -> dict[str, Any]:
+    """Comment on one candidate without changing its decision or semantics."""
+    if view not in VIEWS:
+        raise ValueError(f"Invalid view: {view}")
+    reviewer_name = _reviewer(reviewer)
+    comment = _note(note)
+    if not comment:
+        raise ValueError("Comment is required")
+    with _LOCK:
+        path, manifest = load_manifest(root)
+        try:
+            candidates = manifest["objects"][object_id]["views"][view]["candidates"]
+        except KeyError as exc:
+            raise ValueError(f"Unknown candidate scope: {object_id}:{view}") from exc
+        candidate = next((item for item in candidates if item["candidate_id"] == candidate_id), None)
+        if candidate is None:
+            raise ValueError(f"Unknown candidate ID for {object_id}:{view}: {candidate_id}")
+        candidate.setdefault("comments", []).append(
+            {"reviewer": reviewer_name, "created_at_utc": _now(), "text": comment}
+        )
+        refresh_gate(manifest)
+        _write_atomic(path, manifest)
+        return manifest
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path("."))

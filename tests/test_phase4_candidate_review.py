@@ -8,6 +8,7 @@ from tempfile import TemporaryDirectory
 import unittest
 
 from pipeline.phase4_candidate_review import (
+    add_candidate_comment,
     apply_candidate_review,
     initialize_manifest,
     load_manifest,
@@ -112,6 +113,18 @@ class Phase4CandidateReviewTest(unittest.TestCase):
                 "approved",
                 "Test Reviewer",
             )
+
+    def test_comment_keeps_candidate_pending_and_geometry_blocked(self) -> None:
+        manifest = initialize_manifest(self.root)
+        candidate_id = manifest["objects"]["ring_001"]["views"]["front"]["candidates"][0]["candidate_id"]
+        with self.assertRaisesRegex(ValueError, "Comment is required"):
+            add_candidate_comment(self.root, "ring_001", "front", candidate_id, "Reviewer", "")
+        updated = add_candidate_comment(self.root, "ring_001", "front", candidate_id, "Reviewer", "Looks like an opening")
+        selected = updated["objects"]["ring_001"]["views"]["front"]["candidates"][0]
+        self.assertEqual(selected["decision"], "pending")
+        self.assertEqual(selected["comments"][0]["text"], "Looks like an opening")
+        self.assertEqual(updated["gate"]["pending_candidate_count"], 266)
+        self.assertFalse(updated["gate"]["component_graph_generation_authorized"])
 
 
 if __name__ == "__main__":
