@@ -411,6 +411,34 @@ def _object_view_evidence(
     return manifest["objects"][object_id]["views"][view]["evidence"][evidence_type]
 
 
+def add_review_comment(
+    root: Path,
+    object_id: str,
+    scope: str,
+    reviewer: str,
+    note: Any,
+    view: str | None = None,
+    evidence_type: str | None = None,
+) -> dict[str, Any]:
+    """Record a scoped comment without approving or rejecting evidence."""
+    reviewer_name = _reviewer(reviewer)
+    comment = _clean_note(note)
+    if not comment:
+        raise ValueError("Comment is required")
+    path, manifest = load_manifest(root)
+    if scope == "evidence":
+        record = _object_view_evidence(manifest, object_id, view, evidence_type)
+    elif scope == "object" and object_id in manifest["objects"]:
+        record = manifest["objects"][object_id]["object_review"]
+    else:
+        raise ValueError("Unknown STL-1 review scope")
+    record.setdefault("comments", []).append(
+        {"reviewer": reviewer_name, "created_at_utc": utc_now(), "text": comment}
+    )
+    save_manifest(path, manifest)
+    return manifest
+
+
 def apply_evidence_review(
     root: Path,
     object_id: str,

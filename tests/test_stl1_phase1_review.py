@@ -14,6 +14,7 @@ from pipeline.stl1_phase1_review import (
     apply_evidence_review,
     apply_object_review,
     apply_view_review,
+    add_review_comment,
     load_manifest,
     save_corrected_silhouette,
 )
@@ -93,6 +94,21 @@ class STL1Phase1ReviewMutationTest(unittest.TestCase):
         self.assertEqual(review["decision"], "needs_correction")
         self.assertEqual(review["reviewer"], "Dataset Reviewer")
         self.assertEqual(len(review["history"]), 1)
+
+    def test_comment_is_scoped_and_does_not_change_review_gate(self) -> None:
+        with self.assertRaisesRegex(ValueError, "Comment is required"):
+            add_review_comment(self.root, "ring_001", "evidence", "Reviewer", "", "front", "silhouette")
+        before = load_manifest(self.root)[1]["gate"]["pending_evidence_count"]
+        updated = add_review_comment(
+            self.root, "ring_001", "evidence", "Reviewer", "Inner reflection is not an edge",
+            "front", "silhouette",
+        )
+        selected = updated["objects"]["ring_001"]["views"]["front"]["evidence"]["silhouette"]
+        self.assertEqual(selected["decision"], "pending")
+        self.assertEqual(selected["comments"][0]["text"], "Inner reflection is not an edge")
+        self.assertEqual(updated["gate"]["pending_evidence_count"], before)
+        inventory = add_review_comment(self.root, "ring_001", "object", "Reviewer", "Count stones carefully")
+        self.assertEqual(inventory["objects"]["ring_001"]["object_review"]["comments"][0]["text"], "Count stones carefully")
 
     def test_object_inventory_is_addressable_per_ring(self) -> None:
         manifest = apply_object_review(
