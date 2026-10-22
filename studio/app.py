@@ -42,6 +42,10 @@ def create_app(repo_root: str | Path | None = None) -> Flask:
     def summary():
         return jsonify(repository.summary())
 
+    @app.get("/api/reviewer-worklist")
+    def reviewer_worklist():
+        return jsonify(repository.reviewer_worklist())
+
     @app.get("/api/capabilities")
     def capabilities():
         return jsonify(repository.capabilities())
@@ -83,6 +87,10 @@ def create_app(repo_root: str | Path | None = None) -> Flask:
             )
         )
 
+    @app.post("/api/phase4/stl1-candidates/comment")
+    def phase4_candidate_comment():
+        return jsonify(repository.comment_phase4_candidate(request.get_json(silent=True) or {}))
+
     @app.get("/api/phase1/review")
     def phase1_review():
         return jsonify(repository.phase1_review_manifest())
@@ -109,6 +117,10 @@ def create_app(repo_root: str | Path | None = None) -> Flask:
         return jsonify(
             repository.review_phase1_camera(request.get_json(silent=True) or {})
         )
+
+    @app.post("/api/phase1/reviews/comment")
+    def phase1_review_comment():
+        return jsonify(repository.comment_phase1_review(request.get_json(silent=True) or {}))
 
     @app.get("/api/phase1/stl1/review")
     def stl1_phase1_review_summary():
@@ -147,6 +159,10 @@ def create_app(repo_root: str | Path | None = None) -> Flask:
                 request.get_json(silent=True) or {}
             )
         )
+
+    @app.post("/api/phase1/stl1/reviews/comment")
+    def stl1_phase1_review_comment():
+        return jsonify(repository.comment_stl1_phase1_review(request.get_json(silent=True) or {}))
 
     @app.post("/api/phase1/stl1/reviews/view")
     def stl1_phase1_view_review():

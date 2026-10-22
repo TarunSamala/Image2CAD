@@ -17,12 +17,14 @@ from pipeline.component_constraint_graph import (
     apply_local_edit,
 )
 from pipeline.phase4_candidate_review import (
+    add_candidate_comment,
     apply_candidate_review as apply_phase4_candidate_review,
     load_manifest as load_phase4_candidate_review,
 )
 from pipeline.phase1_review import (
     LABELS as PHASE1_LABELS,
     VIEWS as PHASE1_VIEWS,
+    add_review_comment as add_ring01_comment,
     apply_camera_review,
     apply_identity_review,
     apply_label_review,
@@ -30,6 +32,7 @@ from pipeline.phase1_review import (
 from pipeline.stl1_phase1_review import (
     EVIDENCE_TYPES as STL1_PHASE1_EVIDENCE_TYPES,
     VIEWS as STL1_PHASE1_VIEWS,
+    add_review_comment as add_stl1_comment,
     apply_evidence_review as apply_stl1_evidence_review,
     apply_object_review as apply_stl1_object_review,
     apply_view_review as apply_stl1_view_review,
@@ -940,6 +943,94 @@ class DatasetRepository:
         self._reload_phase4_candidate_review()
         return self._phase4_candidate_review_summary()
 
+    def reviewer_worklist(self) -> dict[str, Any]:
+        """Live human-review workload, separate from reconstruction accuracy."""
+        ring01 = self.phase1_review_manifest()
+        stl1 = self.stl1_phase1_review_summary()
+        candidates = self.phase4_candidate_review_summary()
+        ring_gate = ring01["exit_gate"]
+        stl1_gate = stl1["gate"]
+        candidate_gate = candidates["gate"]
+        ring_tasks = [
+            (
+                "ring01_labels", "Ring01 masks and feature labels",
+                sum(len(view["reviews"]) for view in ring01["views"].values()),
+                len(ring_gate["pending_label_reviews"]),
+            ),
+            (
+                "ring01_identities", "Ring01 component identities",
+                len(ring01["component_catalog"]),
+                len(ring_gate["pending_component_identities"]),
+            ),
+            (
+                "ring01_cameras", "Ring01 view and camera semantics",
+                len(ring01["camera_records"]),
+                len(ring_gate["pending_camera_records"]),
+            ),
+        ]
+        groups = [
+            *(
+                {
+                    "id": key, "title": title, "total": total,
+                    "approved": total - pending, "pending": pending,
+                    "destination": "ring01",
+                }
+                for key, title, total, pending in ring_tasks
+            ),
+            {
+                "id": "stl1_evidence", "title": "STL-1 five-view evidence",
+                "total": stl1_gate["evidence_review_count"],
+                "approved": stl1_gate["approved_evidence_count"],
+                "pending": stl1_gate["pending_evidence_count"],
+                "destination": "stl1",
+            },
+            {
+                "id": "stl1_inventory", "title": "STL-1 component inventories",
+                "total": stl1_gate["object_count"],
+                "approved": stl1_gate["object_count"] - stl1_gate["pending_object_review_count"],
+                "pending": stl1_gate["pending_object_review_count"],
+                "destination": "stl1",
+            },
+            {
+                "id": "candidate_semantics", "title": "Ambiguous region labels",
+                "total": candidate_gate["candidate_count"],
+                "approved": candidate_gate["approved_candidate_count"],
+                "pending": candidate_gate["pending_candidate_count"],
+                "destination": "candidates",
+            },
+        ]
+        queue = []
+        candidate_by_id = {item["object_id"]: item for item in candidates["objects"]}
+        for item in stl1["objects"]:
+            candidate = candidate_by_id.get(item["object_id"], {})
+            evidence = item["pending_evidence_count"]
+            inventory = item["object_review_pending"]
+            ambiguous = candidate.get("pending_candidate_count", 0)
+            queue.append({
+                "object_id": item["object_id"],
+                "source_name": item["source_name"],
+                "split": item["split"],
+                "evidence_pending": evidence, "inventory_pending": inventory,
+                "candidate_pending": ambiguous,
+                "next_action": (
+                    "evidence" if evidence else "inventory" if inventory
+                    else "candidates" if ambiguous else "complete"
+                ),
+            })
+        return {
+            "schema_version": "studio_reviewer_worklist_v1",
+            "scope": "identified_human_image_space_review_only",
+            "groups": groups,
+            "approved": sum(group["approved"] for group in groups),
+            "total": sum(group["total"] for group in groups),
+            "queue": queue,
+            "image_only_limits": [
+                "Review completion does not validate millimetres, hidden geometry, CAD fit or manufacturing accuracy.",
+                "Individual stone/prong pixel masks and relief-region annotations still need dedicated review tools.",
+                "Additional overlapping, high-resolution views and an in-image scale marker would reduce ambiguity when available.",
+            ],
+        }
+
     def phase4_candidate_review_object(self, object_id: str) -> dict[str, Any]:
         self._record(object_id)
         manifest = self._reload_phase4_candidate_review()
@@ -1011,6 +1102,20 @@ class DatasetRepository:
         return self.phase4_candidate_review_object(
             str(payload.get("object_id", ""))
         )
+
+    def comment_phase4_candidate(self, payload: dict[str, Any]) -> dict[str, Any]:
+        try:
+            self.phase4_candidate_review = add_candidate_comment(
+                self.repo_root,
+                str(payload.get("object_id", "")),
+                str(payload.get("view", "")),
+                str(payload.get("candidate_id", "")),
+                str(payload.get("reviewer", "")),
+                payload.get("note"),
+            )
+        except (KeyError, TypeError, ValueError) as exc:
+            raise DatasetError(str(exc)) from exc
+        return self.phase4_candidate_review_object(str(payload.get("object_id", "")))
 
     def preview_phase4_edit(
         self, graph_name: str, payload: dict[str, Any]
@@ -1448,6 +1553,21 @@ class DatasetRepository:
     def phase1_review_manifest(self) -> dict[str, Any]:
         return deepcopy(self._reload_phase1_ground_truth())
 
+    def comment_phase1_review(self, payload: dict[str, Any]) -> dict[str, Any]:
+        try:
+            self.phase1_ground_truth = add_ring01_comment(
+                self.repo_root,
+                str(payload.get("scope", "")),
+                str(payload.get("reviewer", "")),
+                payload.get("note"),
+                payload.get("view"),
+                payload.get("label"),
+                payload.get("component_id"),
+            )
+        except (KeyError, TypeError, ValueError) as exc:
+            raise DatasetError(str(exc)) from exc
+        return self.phase1_review_manifest()
+
     def review_phase1_label(self, payload: dict[str, Any]) -> dict[str, Any]:
         try:
             manifest = apply_label_review(
@@ -1652,6 +1772,22 @@ class DatasetRepository:
             "dataset_gate": deepcopy(manifest.get("gate", {})),
             "object": deepcopy(record),
         }
+
+    def comment_stl1_phase1_review(self, payload: dict[str, Any]) -> dict[str, Any]:
+        object_id = str(payload.get("object_id", ""))
+        try:
+            self.stl1_phase1_review = add_stl1_comment(
+                self.repo_root,
+                object_id,
+                str(payload.get("scope", "")),
+                str(payload.get("reviewer", "")),
+                payload.get("note"),
+                payload.get("view"),
+                payload.get("evidence_type"),
+            )
+        except (KeyError, TypeError, ValueError) as exc:
+            raise DatasetError(str(exc)) from exc
+        return self.stl1_phase1_review_object(object_id)
 
     def review_stl1_phase1_evidence(self, payload: dict[str, Any]) -> dict[str, Any]:
         try:
