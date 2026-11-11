@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import json
 import re
+import struct
 from copy import deepcopy
 from pathlib import Path
 from typing import Any
@@ -50,6 +51,27 @@ VIEW_LABELS = {
     "rsv": "Right side",
 }
 
+SHOWCASE_MODELS = {
+    "ring-1": {
+        "title": "Ring 1",
+        "format": "OBJ",
+        "model": "dataset/STL-1/Ring 1/Ring_01.obj",
+        "preview": "dataset/STL-1/Ring 1/R1 - iso.png",
+    },
+    "ring-2": {
+        "title": "Ring 2",
+        "format": "STL",
+        "model": "dataset/STL-1/Ring 2/Ring_02.stl",
+        "preview": "dataset/STL-1/Ring 2/R2 - Iso.png",
+    },
+    "ring-3": {
+        "title": "Ring 3",
+        "format": "OBJ",
+        "model": "dataset/STL-1/Ring 3/Ring_03.obj",
+        "preview": "dataset/STL-1/Ring 3/R3 - Iso.png",
+    },
+}
+
 
 class DatasetError(RuntimeError):
     """Base exception for unavailable or invalid dataset state."""
@@ -74,6 +96,7 @@ class DatasetRepository:
         self.repo_root = Path(repo_root or Path(__file__).resolve().parents[1]).resolve()
         self.prepared_root = self.repo_root / "dataset" / "prepared_v1"
         self.phase_root = self.repo_root / "dataset" / "phase_runs" / "v1"
+        self._showcase_cache: list[dict[str, Any]] | None = None
 
         self.dataset_report = self._read_json(self.prepared_root / "dataset_report.json")
         self.phase_summary = self._read_json(self.phase_root / "summary.json")
@@ -1884,6 +1907,60 @@ class DatasetRepository:
                 f"{variant} {evidence_type} is unavailable for {object_id}:{view}"
             )
         return self._safe_path(candidate)
+
+    def showcase_models(self) -> list[dict[str, Any]]:
+        """Describe the three explicitly uploaded inspection models."""
+        if self._showcase_cache is not None:
+            return deepcopy(self._showcase_cache)
+        models: list[dict[str, Any]] = []
+        for model_id, record in SHOWCASE_MODELS.items():
+            path = self._safe_path(record["model"])
+            preview = self._safe_path(record["preview"])
+            vertices: int | None = None
+            triangles: int | None = None
+            if record["format"] == "OBJ":
+                vertices = 0
+                triangles = 0
+                with path.open("rb") as handle:
+                    for line in handle:
+                        if line.startswith(b"v "):
+                            vertices += 1
+                        elif line.startswith(b"f "):
+                            corners = len(line.split()) - 1
+                            triangles += max(0, corners - 2)
+            else:
+                with path.open("rb") as handle:
+                    handle.seek(80)
+                    count = handle.read(4)
+                if len(count) == 4:
+                    triangles = struct.unpack("<I", count)[0]
+                    vertices = triangles * 3
+            models.append(
+                {
+                    "id": model_id,
+                    "title": record["title"],
+                    "format": record["format"],
+                    "filename": path.name,
+                    "size_bytes": path.stat().st_size,
+                    "vertices": vertices,
+                    "triangles": triangles,
+                    "model_url": f"/api/showcase-models/{model_id}/model",
+                    "download_url": f"/api/showcase-models/{model_id}/model?download=1",
+                    "preview_url": f"/api/showcase-models/{model_id}/preview",
+                    "preview_filename": preview.name,
+                }
+            )
+        self._showcase_cache = models
+        return deepcopy(models)
+
+    def showcase_asset(self, model_id: str, kind: str) -> Path:
+        """Resolve a model or preview from the fixed three-model allowlist."""
+        record = SHOWCASE_MODELS.get(model_id)
+        if record is None:
+            raise AssetNotFoundError(f"Unknown inspection model: {model_id}")
+        if kind not in {"model", "preview"}:
+            raise AssetNotFoundError(f"Unknown inspection asset: {kind}")
+        return self._safe_path(record[kind])
 
     def list_objects(self, split: str | None = None) -> list[dict[str, Any]]:
         if split not in {None, "all", "train", "val", "test"}:
