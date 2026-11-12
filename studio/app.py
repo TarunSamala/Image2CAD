@@ -42,6 +42,19 @@ def create_app(repo_root: str | Path | None = None) -> Flask:
     def summary():
         return jsonify(repository.summary())
 
+    @app.get("/api/showcase-models")
+    def showcase_models():
+        return jsonify({"models": repository.showcase_models()})
+
+    @app.get("/api/showcase-models/<model_id>/<kind>")
+    def showcase_model_asset(model_id: str, kind: str):
+        path = repository.showcase_asset(model_id, kind)
+        return send_file(
+            path,
+            as_attachment=kind == "model" and request.args.get("download") == "1",
+            conditional=True,
+        )
+
     @app.get("/api/reviewer-worklist")
     def reviewer_worklist():
         return jsonify(repository.reviewer_worklist())
