@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="color-scheme" content="dark">
     <title>Lalitha Studio</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='studio.css', v='review-comments-2') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='studio.css', v='model-inspector-5') }}">
+    <script type="importmap">
+      {"imports":{"three":"{{ url_for('static', filename='vendor/three/three.module.min.js') }}","three/addons/":"{{ url_for('static', filename='vendor/three/addons/') }}"}}
+    </script>
   </head>
   <body>
     <div class="app-shell">
@@ -43,6 +46,10 @@
       </aside>
 
       <main class="main-content">
+        <nav class="workspace-mode-nav" aria-label="Studio workspace">
+          <button type="button" class="workspace-mode-tab active" data-workspace-tab="images" aria-selected="true">Image workspace</button>
+          <button type="button" class="workspace-mode-tab" data-workspace-tab="models" aria-selected="false">Ring models</button>
+        </nav>
         <header class="topbar">
           <div>
             <p class="eyebrow">LALITHA / IMAGE EVIDENCE</p>
@@ -57,7 +64,83 @@
 
         <div id="error-banner" class="error-banner hidden" role="alert"></div>
 
-        <section id="review-plan" class="review-plan" aria-labelledby="review-plan-title">
+        <section id="model-inspector" class="model-inspector" aria-labelledby="model-inspector-title">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">RING MODEL WORKSPACE</p>
+              <h2 id="model-inspector-title">Ring models</h2>
+              <p class="subtitle">Choose a reference image or select a ring below. Its reference and interactive 3D model open together.</p>
+            </div>
+            <span id="model-load-status" class="pill">Choose a model</span>
+          </div>
+          <div class="model-input-row">
+            <label class="model-image-upload" for="ring-reference-upload">
+              <span class="model-upload-icon" aria-hidden="true">+</span>
+              <span>
+                <strong>Choose reference image</strong>
+                <small>PNG, JPG or WebP · used locally as the reference image</small>
+              </span>
+              <span id="ring-reference-action" class="button secondary">Choose image</span>
+              <input id="ring-reference-upload" type="file" accept="image/png,image/jpeg,image/webp" hidden>
+              <span id="ring-upload-feedback" class="reference-upload-feedback hidden" aria-live="polite">
+                <span class="reference-upload-track"><span id="ring-upload-progress"></span></span>
+                <small id="ring-upload-status">Preparing reference image…</small>
+              </span>
+            </label>
+            <div class="model-input-copy">
+              <strong id="ring-reference-name">No reference selected</strong>
+              <span>Clicking another ring replaces the active reference and 3D model.</span>
+            </div>
+          </div>
+          <div id="showcase-model-list" class="showcase-model-list" aria-label="Available 3D models"></div>
+          <div class="model-inspector-layout">
+            <article class="model-stage-card">
+              <div class="model-toolbar">
+                <div>
+                  <strong id="model-active-title">No model selected</strong>
+                  <span id="model-active-file">Choose a reference image to open Ring 1</span>
+                </div>
+                <div class="model-toolbar-actions">
+                  <button id="model-reset" type="button" class="button secondary">Reset view</button>
+                  <button id="model-wireframe" type="button" class="button secondary" aria-pressed="false">Wireframe</button>
+                  <button id="model-fullscreen" type="button" class="button secondary">Fullscreen</button>
+                  <a id="model-download" class="button primary disabled" href="#" download>Download model</a>
+                </div>
+              </div>
+              <div id="model-canvas-wrap" class="model-canvas-wrap">
+                <canvas id="model-canvas" aria-label="Interactive 3D ring viewer"></canvas>
+                <div id="model-empty-state" class="model-empty-state">
+                  <span class="model-empty-icon" aria-hidden="true">3D</span>
+                  <strong>Viewer is empty</strong>
+                </div>
+                <div id="model-loading" class="model-loading hidden" role="status">
+                  <span class="model-spinner"></span>
+                  <strong id="model-loading-title">Loading 3D model</strong>
+                  <small id="model-loading-detail">Preparing geometry…</small>
+                </div>
+                <div class="model-help">Drag to rotate · Scroll to zoom · Right-drag to pan</div>
+              </div>
+            </article>
+            <aside class="model-inspector-side">
+              <article class="model-reference-card">
+                <p class="eyebrow">REFERENCE VIEW</p>
+                <div id="model-reference-empty" class="model-reference-empty">No reference selected</div>
+                <img id="model-reference-image" alt="Selected ring isometric reference">
+              </article>
+              <article class="model-stat-card">
+                <p class="eyebrow">MODEL DETAILS</p>
+                <dl id="model-stats" class="model-stats">
+                  <div><dt>Format</dt><dd>—</dd></div>
+                  <div><dt>File size</dt><dd>—</dd></div>
+                  <div><dt>Vertices</dt><dd>—</dd></div>
+                  <div><dt>Triangles</dt><dd>—</dd></div>
+                </dl>
+              </article>
+            </aside>
+          </div>
+        </section>
+
+        <section id="review-plan" class="review-plan hidden" aria-labelledby="review-plan-title" hidden>
           <div class="section-heading">
             <div>
               <p class="eyebrow">YOUR SIDE / REVIEW WORKSPACE</p>
@@ -1119,6 +1202,7 @@
         <footer>Lalitha Studio · Evidence-first local research interface · No cloud uploads</footer>
       </main>
     </div>
-    <script src="{{ url_for('static', filename='studio.js', v='review-comments-2') }}" defer></script>
+    <script src="{{ url_for('static', filename='studio.js', v='model-inspector-5') }}" defer></script>
+    <script type="module" src="{{ url_for('static', filename='model-inspector.js', v='model-inspector-5') }}"></script>
   </body>
 </html>
