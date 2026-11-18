@@ -731,6 +731,20 @@ class DatasetStudioApiTest(unittest.TestCase):
         self.assertEqual(page.status_code, 200)
         markup = page.get_data(as_text=True)
         for marker in (
+            'data-workspace-tab="images"',
+            'data-workspace-tab="models"',
+            'id="model-inspector"',
+            'id="ring-reference-upload"',
+            'id="ring-reference-name"',
+            'id="ring-upload-feedback"',
+            'id="ring-upload-progress"',
+            'id="showcase-model-list"',
+            'id="model-canvas"',
+            'id="model-empty-state"',
+            'id="model-reference-empty"',
+            'id="model-loading-title"',
+            'id="model-wireframe"',
+            'id="model-download"',
             'id="phase1-label-notes"',
             'id="stl1-review-notes"',
             'id="stl1-comment-evidence"',
@@ -808,6 +822,18 @@ class DatasetStudioApiTest(unittest.TestCase):
         self.assertIn('$("#metric-depth-color-convention")', javascript)
         self.assertIn('$("#feature-rows")', javascript)
         self.assertIn('$("#phase1-summary")', javascript)
+
+        inspector = self.client.get("/static/model-inspector.js")
+        self.assertEqual(inspector.status_code, 200)
+        inspector_script = inspector.get_data(as_text=True)
+        self.assertIn("OrbitControls", inspector_script)
+        self.assertIn('fetch("/api/showcase-models")', inspector_script)
+        self.assertIn('activateWorkspace("models")', inspector_script)
+        self.assertIn("uploadedRingOneReference", inspector_script)
+        self.assertIn("readReferenceImage", inspector_script)
+        self.assertIn("setReferenceUploadState", inspector_script)
+        inspector.close()
+
         self.assertIn("loadPhase1Review()", javascript)
         self.assertIn("/api/phase1/reviews/label", javascript)
         self.assertIn('$("#phase1-deep-summary")', javascript)
@@ -887,6 +913,26 @@ class DatasetStudioApiTest(unittest.TestCase):
         upload_doc.close()
         script.close()
         page.close()
+
+    def test_showcase_exposes_only_three_uploaded_models_and_downloads(self) -> None:
+        response = self.client.get("/api/showcase-models")
+        self.assertEqual(response.status_code, 200)
+        models = response.get_json()["models"]
+        self.assertEqual([model["id"] for model in models], ["ring-1", "ring-2", "ring-3"])
+        self.assertEqual([model["format"] for model in models], ["OBJ", "STL", "OBJ"])
+        self.assertTrue(all(model["size_bytes"] > 0 for model in models))
+        self.assertTrue(all(model["triangles"] > 0 for model in models))
+
+        preview = self.client.get("/api/showcase-models/ring-1/preview")
+        self.assertEqual(preview.status_code, 200)
+        self.assertEqual(preview.mimetype, "image/png")
+        preview.close()
+        model = self.client.get("/api/showcase-models/ring-2/model?download=1")
+        self.assertEqual(model.status_code, 200)
+        self.assertIn("attachment", model.headers["Content-Disposition"])
+        model.close()
+        self.assertEqual(self.client.get("/api/showcase-models/ring-4/model").status_code, 404)
+        self.assertEqual(self.client.get("/api/showcase-models/ring-1/unknown").status_code, 404)
 
     def test_phase1_review_routes_are_scoped_and_fail_closed(self) -> None:
         manifest = self.client.get("/api/phase1/review")
