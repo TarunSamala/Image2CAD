@@ -53,22 +53,28 @@ VIEW_LABELS = {
 
 SHOWCASE_MODELS = {
     "ring-1": {
-        "title": "Ring 1",
+        "title": "Goddess Emblem",
         "format": "OBJ",
-        "model": "dataset/STL-1/Ring 1/Ring_01.obj",
-        "preview": "dataset/STL-1/Ring 1/R1 - iso.png",
+        "model": "dataset/Model Test 3d/Goddess Emblem.obj",
+        "preview": "dataset/Model Test/Goddess Emblem.png",
     },
     "ring-2": {
-        "title": "Ring 2",
-        "format": "STL",
-        "model": "dataset/STL-1/Ring 2/Ring_02.stl",
-        "preview": "dataset/STL-1/Ring 2/R2 - Iso.png",
+        "title": "Saraswati",
+        "format": "OBJ",
+        "model": "dataset/Model Test 3d/Saraswati.obj",
+        "preview": "dataset/Model Test/Saraswati.png",
     },
     "ring-3": {
-        "title": "Ring 3",
+        "title": "Laxshmi",
         "format": "OBJ",
-        "model": "dataset/STL-1/Ring 3/Ring_03.obj",
-        "preview": "dataset/STL-1/Ring 3/R3 - Iso.png",
+        "model": "dataset/Model Test 3d/Laxshmi.obj",
+        "preview": "dataset/Model Test/Laxshmi.png",
+    },
+    "ring-4": {
+        "title": "Goddess Bracelet",
+        "format": "OBJ",
+        "model": "dataset/Model Test 3d/Goddess Bracelet.obj",
+        "preview": "dataset/Model Test/Goddess Bracelet.png",
     },
 }
 
@@ -1909,7 +1915,7 @@ class DatasetRepository:
         return self._safe_path(candidate)
 
     def showcase_models(self) -> list[dict[str, Any]]:
-        """Describe the three explicitly uploaded inspection models."""
+        """Describe the fixed inspection models and their reference images."""
         if self._showcase_cache is not None:
             return deepcopy(self._showcase_cache)
         models: list[dict[str, Any]] = []
@@ -1954,7 +1960,7 @@ class DatasetRepository:
         return deepcopy(models)
 
     def showcase_asset(self, model_id: str, kind: str) -> Path:
-        """Resolve a model or preview from the fixed three-model allowlist."""
+        """Resolve a model or preview from the fixed model allowlist."""
         record = SHOWCASE_MODELS.get(model_id)
         if record is None:
             raise AssetNotFoundError(f"Unknown inspection model: {model_id}")
