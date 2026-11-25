@@ -213,6 +213,29 @@ docker run --rm --gpus all --user "$(id -u):$(id -g)" \
 
 The reconstruction first aligns shared X, Y, and Z silhouette extents across independently normalized views, then carves a 128-voxel visual hull. The outputs are watertight research meshes and are explicitly named `non_metric`. They are not editable parametric CAD or manufacturing geometry: hidden concavities, semantic components, camera calibration, and physical scale remain unavailable. Phase 3.3 is therefore not claimed.
 
+### Saraswati blind image-to-3D benchmark
+
+The Ring 2 benchmark reconstructs a proposal from four images before the
+provided `Saraswati.obj` is opened. The reconstruction record freezes the
+proposal hash and records that no ground-truth path was available to the
+reconstruction function. The withheld OBJ is then used only for normalized
+surface alignment and scoring:
+
+```bash
+PYTHONPATH=.:pipeline python -m pipeline.run_saraswati_blind_benchmark
+```
+
+The first 128-voxel baseline produces a watertight 16,078-vertex visual hull.
+Its aligned surface F-scores are `0.2981` at 1% of object size, `0.5731` at 2%,
+and `0.9266` at 5%. A 256-voxel run improves those values only to `0.3017`,
+`0.5878`, and `0.9393`, showing that missing depth and relief—not voxel density—
+are the main limitation. A fixed 8% front-depth carve raises the 1% score to
+`0.3471` but worsens Chamfer and the 2%/5% scores, so it is retained as a
+rejected experiment rather than replacing the 256-voxel baseline. This
+validates coarse shape recovery only: metric scale, fine relief, hidden
+geometry, editable CAD and manufacturing accuracy remain unvalidated.
+Evidence is stored under `dataset/phase_runs/v1/saraswati_blind_*`.
+
 ## Browse STL-1 in Lalitha Studio
 
 The Bible-aligned Flask interface reads existing versioned evidence and records explicit Phase 1 human-review decisions for Ring01 and all 24 STL-1 rings. Corrected silhouettes are stored separately from immutable proposals. It never starts training or reconstruction from a browser request:
