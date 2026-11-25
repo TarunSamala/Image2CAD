@@ -1,0 +1,42 @@
+{
+  "schema_version": "image2cad_multiview_relief_v1",
+  "created_at": "2026-11-25T14:39:33.308801+00:00",
+  "ground_truth_accessed": false,
+  "ground_truth_path_recorded": false,
+  "method": "confidence_gated_multi_axis_relative_depth_carve",
+  "selected_side_consensus": "union",
+  "evidence": {
+    "selected_views": [
+      "front",
+      "top"
+    ],
+    "excluded_views": [
+      "lsv",
+      "rsv"
+    ],
+    "left_right_correlation": -0.277787
+  },
+  "operations": [
+    {
+      "view": "front",
+      "direction": "high",
+      "strength": 0.06,
+      "removed_voxels": 17892,
+      "affected_columns": 7689
+    },
+    {
+      "view": "top",
+      "direction": "high",
+      "strength": 0.06,
+      "removed_voxels": 5281,
+      "affected_columns": 5022
+    }
+  ],
+  "proposal": {
+    "path": "dataset/phase_runs/v1/saraswati_blind_multiview_relief_v1/high_0.060/multiview_relief_proposal.obj",
+    "sha256": "c6ef6bdde8f2743e2f62952555257f8e8717cc5940ee10476c9cfee3617843cd",
+    "vertices": 70537,
+    "faces": 141218,
+    "watertight": true
+  }
+}

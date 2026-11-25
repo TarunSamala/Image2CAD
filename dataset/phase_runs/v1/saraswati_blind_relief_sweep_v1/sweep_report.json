@@ -1,0 +1,85 @@
+{
+  "schema_version": "image2cad_blind_relief_sweep_v1",
+  "created_at": "2026-11-25T14:36:05.996658+00:00",
+  "blind_reconstruction_contract": true,
+  "baseline": {
+    "chamfer_l1_normalized": 0.04103341,
+    "hausdorff_95_normalized": 0.05392454,
+    "f_score_1pct": 0.301749,
+    "f_score_2pct": 0.587753,
+    "f_score_5pct": 0.939316
+  },
+  "candidates": [
+    {
+      "strength": 0.01,
+      "metrics": {
+        "chamfer_l1_normalized": 0.0413195,
+        "hausdorff_95_normalized": 0.05424327,
+        "f_score_1pct": 0.305465,
+        "f_score_2pct": 0.585162,
+        "f_score_5pct": 0.935228
+      },
+      "non_regressing": false,
+      "proposal": "dataset/phase_runs/v1/saraswati_blind_relief_sweep_v1/strength_0.010/saraswati_image_depth_relief_proposal.obj",
+      "evaluation": "dataset/phase_runs/v1/saraswati_blind_relief_sweep_v1/strength_0.010/evaluation_report.json"
+    },
+    {
+      "strength": 0.02,
+      "metrics": {
+        "chamfer_l1_normalized": 0.04131013,
+        "hausdorff_95_normalized": 0.05475444,
+        "f_score_1pct": 0.307975,
+        "f_score_2pct": 0.597986,
+        "f_score_5pct": 0.933663
+      },
+      "non_regressing": false,
+      "proposal": "dataset/phase_runs/v1/saraswati_blind_relief_sweep_v1/strength_0.020/saraswati_image_depth_relief_proposal.obj",
+      "evaluation": "dataset/phase_runs/v1/saraswati_blind_relief_sweep_v1/strength_0.020/evaluation_report.json"
+    },
+    {
+      "strength": 0.04,
+      "metrics": {
+        "chamfer_l1_normalized": 0.04165833,
+        "hausdorff_95_normalized": 0.05757649,
+        "f_score_1pct": 0.322155,
+        "f_score_2pct": 0.58864,
+        "f_score_5pct": 0.929248
+      },
+      "non_regressing": false,
+      "proposal": "dataset/phase_runs/v1/saraswati_blind_relief_sweep_v1/strength_0.040/saraswati_image_depth_relief_proposal.obj",
+      "evaluation": "dataset/phase_runs/v1/saraswati_blind_relief_sweep_v1/strength_0.040/evaluation_report.json"
+    },
+    {
+      "strength": 0.06,
+      "metrics": {
+        "chamfer_l1_normalized": 0.04199187,
+        "hausdorff_95_normalized": 0.06053948,
+        "f_score_1pct": 0.352899,
+        "f_score_2pct": 0.586631,
+        "f_score_5pct": 0.922999
+      },
+      "non_regressing": false,
+      "proposal": "dataset/phase_runs/v1/saraswati_blind_relief_sweep_v1/strength_0.060/saraswati_image_depth_relief_proposal.obj",
+      "evaluation": "dataset/phase_runs/v1/saraswati_blind_relief_sweep_v1/strength_0.060/evaluation_report.json"
+    },
+    {
+      "strength": 0.1,
+      "metrics": {
+        "chamfer_l1_normalized": 0.04572835,
+        "hausdorff_95_normalized": 0.06811889,
+        "f_score_1pct": 0.316511,
+        "f_score_2pct": 0.558309,
+        "f_score_5pct": 0.902477
+      },
+      "non_regressing": false,
+      "proposal": "dataset/phase_runs/v1/saraswati_blind_relief_sweep_v1/strength_0.100/saraswati_image_depth_relief_proposal.obj",
+      "evaluation": "dataset/phase_runs/v1/saraswati_blind_relief_sweep_v1/strength_0.100/evaluation_report.json"
+    }
+  ],
+  "decision": "retain_visual_hull_baseline",
+  "selected": null,
+  "limits": [
+    "This sweep tunes one relative-depth carving method on one held-out ring.",
+    "Selection does not establish generalization or manufacturing accuracy."
+  ]
+}

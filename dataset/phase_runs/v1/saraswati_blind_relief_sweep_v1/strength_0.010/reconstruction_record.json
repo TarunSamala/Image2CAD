@@ -1,0 +1,36 @@
+{
+  "schema_version": "saraswati_blind_relief_reconstruction_v1",
+  "created_at": "2026-11-25T14:35:25.803071+00:00",
+  "stage": "reconstruction_refinement",
+  "input_contract": "four_images_plus_depth_hypothesis_no_ground_truth_mesh",
+  "ground_truth_accessed": false,
+  "ground_truth_path_recorded": false,
+  "baseline_reconstruction_record": "dataset/phase_runs/v1/saraswati_blind_benchmark_256_v1/reconstruction_record.json",
+  "depth_audit": "dataset/phase_runs/v1/saraswati_blind_benchmark_256_v1/depth_audit.json",
+  "depth_artifact": {
+    "path": "dataset/phase_runs/v1/saraswati_blind_benchmark_256_v1/depth_backends/depth_anything_v2_metric/saraswati_blind/front_depth_m.npy",
+    "sha256": "55e5b50d1c73070db5de0729322a02ef76d01b761221aa25c9fa4d8dcfdfd33d",
+    "p02_m": 0.9605728995800018,
+    "p98_m": 1.2618646121025086
+  },
+  "method": "bounded_front_surface_relative_depth_carve",
+  "side_candidate": "union",
+  "carve": {
+    "strength_fraction_of_local_visual_hull_thickness": 0.01,
+    "removed_voxels": 1737,
+    "affected_front_columns": 1737,
+    "remaining_fraction": 0.9955754
+  },
+  "proposal": {
+    "path": "dataset/phase_runs/v1/saraswati_blind_relief_sweep_v1/strength_0.010/saraswati_image_depth_relief_proposal.obj",
+    "sha256": "2373421a7dc84e1598660e7738658e3780399879cc0191dbbc7603ff5e24d6d9",
+    "vertices": 70136,
+    "faces": 140320,
+    "watertight": true
+  },
+  "claims": {
+    "fine_relief_recovered": false,
+    "metric_scale_recovered": false,
+    "manufacturing_accuracy_validated": false
+  }
+}

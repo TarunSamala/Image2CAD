@@ -1,0 +1,76 @@
+{
+  "schema_version": "saraswati_blind_evaluation_v1",
+  "created_at": "2026-11-25T14:39:22.207412+00:00",
+  "stage": "post_hoc_evaluation",
+  "blind_contract": {
+    "ground_truth_excluded_from_reconstruction": true,
+    "reconstruction_record": "dataset/phase_runs/v1/saraswati_blind_multiview_relief_v1/high_0.010/reconstruction_record.json",
+    "proposal_sha256": "a29dbd57f614e1c547e4a25a8ffd978528417435bb38979b146e8129570ff6c0",
+    "ground_truth_revealed_after_proposal": "/workspace/dataset/Model Test 3d/Saraswati.obj",
+    "ground_truth_sha256": "2989eee256c0e66f1be79ef42bf255a52f84d41762b45db3a1eaa1cf7ae4183f"
+  },
+  "sampling": {
+    "proposal_points": 50000,
+    "ground_truth_points": 50000,
+    "seed": 17
+  },
+  "alignment": {
+    "method": "24_axis_hypotheses_plus_trimmed_point_to_point_icp",
+    "iterations": 23,
+    "mean_distance_history": [
+      0.01728053,
+      0.01679376,
+      0.01631556,
+      0.01589763,
+      0.01564993,
+      0.01552734,
+      0.01546317,
+      0.01542741,
+      0.01540503,
+      0.01539222,
+      0.01538359,
+      0.01537695,
+      0.01537082,
+      0.01536611,
+      0.01536246,
+      0.0153596,
+      0.01535727,
+      0.01535553,
+      0.01535431,
+      0.01535359,
+      0.01535313,
+      0.01535287,
+      0.01535281
+    ]
+  },
+  "surface_metrics": {
+    "chamfer_l1_normalized": 0.04069865,
+    "predicted_to_target_mean": 0.01930988,
+    "target_to_predicted_mean": 0.02138878,
+    "hausdorff_95_normalized": 0.05367694,
+    "surface_f_scores": {
+      "1pct": {
+        "precision": 0.31856,
+        "recall": 0.29434,
+        "f_score": 0.305971
+      },
+      "2pct": {
+        "precision": 0.62492,
+        "recall": 0.56366,
+        "f_score": 0.592711
+      },
+      "5pct": {
+        "precision": 0.94824,
+        "recall": 0.93134,
+        "f_score": 0.939714
+      }
+    }
+  },
+  "preview": "dataset/phase_runs/v1/saraswati_blind_multiview_relief_v1/high_0.010/aligned_front_comparison.png",
+  "interpretation": {
+    "measures_normalized_shape_similarity": true,
+    "measures_metric_accuracy": false,
+    "validates_manufacturing_accuracy": false,
+    "expected_baseline": "coarse silhouette hull; fine relief is intentionally absent"
+  }
+}

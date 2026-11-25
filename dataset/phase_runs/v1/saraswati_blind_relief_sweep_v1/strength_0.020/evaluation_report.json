@@ -1,0 +1,83 @@
+{
+  "schema_version": "saraswati_blind_evaluation_v1",
+  "created_at": "2026-11-25T14:35:39.911545+00:00",
+  "stage": "post_hoc_evaluation",
+  "blind_contract": {
+    "ground_truth_excluded_from_reconstruction": true,
+    "reconstruction_record": "dataset/phase_runs/v1/saraswati_blind_relief_sweep_v1/strength_0.020/reconstruction_record.json",
+    "proposal_sha256": "20bb9994c965765331d671274bc6059787e10b4d678482c6d64a819f44ebe8bc",
+    "ground_truth_revealed_after_proposal": "/workspace/dataset/Model Test 3d/Saraswati.obj",
+    "ground_truth_sha256": "2989eee256c0e66f1be79ef42bf255a52f84d41762b45db3a1eaa1cf7ae4183f"
+  },
+  "sampling": {
+    "proposal_points": 50000,
+    "ground_truth_points": 50000,
+    "seed": 17
+  },
+  "alignment": {
+    "method": "24_axis_hypotheses_plus_trimmed_point_to_point_icp",
+    "iterations": 30,
+    "mean_distance_history": [
+      0.01747202,
+      0.0169741,
+      0.01646803,
+      0.0160396,
+      0.01583611,
+      0.01572323,
+      0.01565979,
+      0.01562304,
+      0.01560054,
+      0.01558495,
+      0.01557443,
+      0.01556678,
+      0.01556089,
+      0.01555653,
+      0.01555271,
+      0.0155497,
+      0.01554726,
+      0.01554556,
+      0.01554402,
+      0.0155426,
+      0.01554164,
+      0.01554105,
+      0.01554051,
+      0.01554011,
+      0.01553986,
+      0.01553965,
+      0.0155394,
+      0.01553908,
+      0.01553885,
+      0.0155387
+    ]
+  },
+  "surface_metrics": {
+    "chamfer_l1_normalized": 0.04131013,
+    "predicted_to_target_mean": 0.01982405,
+    "target_to_predicted_mean": 0.02148608,
+    "hausdorff_95_normalized": 0.05475444,
+    "surface_f_scores": {
+      "1pct": {
+        "precision": 0.31764,
+        "recall": 0.29888,
+        "f_score": 0.307975
+      },
+      "2pct": {
+        "precision": 0.6258,
+        "recall": 0.57254,
+        "f_score": 0.597986
+      },
+      "5pct": {
+        "precision": 0.9387,
+        "recall": 0.92868,
+        "f_score": 0.933663
+      }
+    }
+  },
+  "preview": "dataset/phase_runs/v1/saraswati_blind_relief_sweep_v1/strength_0.020/aligned_front_comparison.png",
+  "interpretation": {
+    "measures_normalized_shape_similarity": true,
+    "measures_metric_accuracy": false,
+    "validates_manufacturing_accuracy": false,
+    "expected_baseline": "coarse silhouette hull; fine relief is intentionally absent"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "schema_version": "image2cad_metric_depth_consensus_input_v1",
+  "created_at_utc": "2026-11-25T14:20:17.480707+00:00",
+  "execution_profile": "saraswati_blind_four_view",
+  "measurement_contract": "model_hypothesis_only_no_physical_scale",
+  "object_count": 1,
+  "sample_count": 4,
+  "selected_stl1_objects": [
+    "ring_002"
+  ],
+  "selection_reason": "blind depth refinement after proposal freeze",
+  "samples": [
+    {
+      "sample_key": "saraswati_blind:front",
+      "dataset": "STL-1/Ring 2",
+      "object_id": "saraswati_blind",
+      "split": "blind_benchmark",
+      "view": "front",
+      "image_path": "dataset/STL-1/Ring 2/R2 - Front - Saraswati.png",
+      "mask_path": "dataset/phase_runs/v1/saraswati_blind_benchmark_256_v1/masks/front.png",
+      "source_sha256": "b9357a148d07e593dd55d391ed01aa5f738d44cc7d74118f63e21aa767ab0094",
+      "physical_scale": null,
+      "camera_calibrated": false
+    },
+    {
+      "sample_key": "saraswati_blind:lsv",
+      "dataset": "STL-1/Ring 2",
+      "object_id": "saraswati_blind",
+      "split": "blind_benchmark",
+      "view": "lsv",
+      "image_path": "dataset/STL-1/Ring 2/R2 - LSV.png",
+      "mask_path": "dataset/phase_runs/v1/saraswati_blind_benchmark_256_v1/masks/lsv.png",
+      "source_sha256": "b66d0f227e7a06040c332df54ba70c0698a99770832bcb22644515ef5a628848",
+      "physical_scale": null,
+      "camera_calibrated": false
+    },
+    {
+      "sample_key": "saraswati_blind:rsv",
+      "dataset": "STL-1/Ring 2",
+      "object_id": "saraswati_blind",
+      "split": "blind_benchmark",
+      "view": "rsv",
+      "image_path": "dataset/STL-1/Ring 2/R2 - RSV.png",
+      "mask_path": "dataset/phase_runs/v1/saraswati_blind_benchmark_256_v1/masks/rsv.png",
+      "source_sha256": "305baf864f47d0ef4d7101604679ca5b5037d5a128494e6dcab0879ff3895dba",
+      "physical_scale": null,
+      "camera_calibrated": false
+    },
+    {
+      "sample_key": "saraswati_blind:top",
+      "dataset": "STL-1/Ring 2",
+      "object_id": "saraswati_blind",
+      "split": "blind_benchmark",
+      "view": "top",
+      "image_path": "dataset/STL-1/Ring 2/R2 - Top.png",
+      "mask_path": "dataset/phase_runs/v1/saraswati_blind_benchmark_256_v1/masks/top.png",
+      "source_sha256": "35234e235e24bac7e35698bac8e329c6748b0ba69ac925b446f11dc9c0301e50",
+      "physical_scale": null,
+      "camera_calibrated": false
+    }
+  ]
+}

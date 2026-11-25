@@ -1,0 +1,143 @@
+{
+  "schema_version": "image2cad_multiview_relief_sweep_v1",
+  "created_at": "2026-11-25T14:39:37.689417+00:00",
+  "baseline": {
+    "chamfer_l1_normalized": 0.04103341,
+    "hausdorff_95_normalized": 0.05392454,
+    "f_score_1pct": 0.301749,
+    "f_score_2pct": 0.587753,
+    "f_score_5pct": 0.939316
+  },
+  "evidence_gate": {
+    "selected_views": [
+      "front",
+      "top"
+    ],
+    "excluded_views": [
+      "lsv",
+      "rsv"
+    ],
+    "left_right_correlation": -0.277787
+  },
+  "candidates": [
+    {
+      "direction": "low",
+      "strength": 0.01,
+      "metrics": {
+        "chamfer_l1_normalized": 0.04133972,
+        "hausdorff_95_normalized": 0.05432969,
+        "f_score_1pct": 0.305101,
+        "f_score_2pct": 0.586587,
+        "f_score_5pct": 0.934984
+      },
+      "non_regressing": false,
+      "proposal": "dataset/phase_runs/v1/saraswati_blind_multiview_relief_v1/low_0.010/multiview_relief_proposal.obj"
+    },
+    {
+      "direction": "low",
+      "strength": 0.02,
+      "metrics": {
+        "chamfer_l1_normalized": 0.0411234,
+        "hausdorff_95_normalized": 0.05453081,
+        "f_score_1pct": 0.308775,
+        "f_score_2pct": 0.599558,
+        "f_score_5pct": 0.935368
+      },
+      "non_regressing": false,
+      "proposal": "dataset/phase_runs/v1/saraswati_blind_multiview_relief_v1/low_0.020/multiview_relief_proposal.obj"
+    },
+    {
+      "direction": "low",
+      "strength": 0.04,
+      "metrics": {
+        "chamfer_l1_normalized": 0.04112816,
+        "hausdorff_95_normalized": 0.05640943,
+        "f_score_1pct": 0.333084,
+        "f_score_2pct": 0.595101,
+        "f_score_5pct": 0.930861
+      },
+      "non_regressing": false,
+      "proposal": "dataset/phase_runs/v1/saraswati_blind_multiview_relief_v1/low_0.040/multiview_relief_proposal.obj"
+    },
+    {
+      "direction": "low",
+      "strength": 0.06,
+      "metrics": {
+        "chamfer_l1_normalized": 0.04164177,
+        "hausdorff_95_normalized": 0.05947056,
+        "f_score_1pct": 0.3636,
+        "f_score_2pct": 0.589192,
+        "f_score_5pct": 0.92323
+      },
+      "non_regressing": false,
+      "proposal": "dataset/phase_runs/v1/saraswati_blind_multiview_relief_v1/low_0.060/multiview_relief_proposal.obj"
+    },
+    {
+      "direction": "high",
+      "strength": 0.01,
+      "metrics": {
+        "chamfer_l1_normalized": 0.04069865,
+        "hausdorff_95_normalized": 0.05367694,
+        "f_score_1pct": 0.305971,
+        "f_score_2pct": 0.592711,
+        "f_score_5pct": 0.939714
+      },
+      "non_regressing": true,
+      "proposal": "dataset/phase_runs/v1/saraswati_blind_multiview_relief_v1/high_0.010/multiview_relief_proposal.obj"
+    },
+    {
+      "direction": "high",
+      "strength": 0.02,
+      "metrics": {
+        "chamfer_l1_normalized": 0.04023056,
+        "hausdorff_95_normalized": 0.05306356,
+        "f_score_1pct": 0.312774,
+        "f_score_2pct": 0.592251,
+        "f_score_5pct": 0.942735
+      },
+      "non_regressing": true,
+      "proposal": "dataset/phase_runs/v1/saraswati_blind_multiview_relief_v1/high_0.020/multiview_relief_proposal.obj"
+    },
+    {
+      "direction": "high",
+      "strength": 0.04,
+      "metrics": {
+        "chamfer_l1_normalized": 0.0392215,
+        "hausdorff_95_normalized": 0.05156972,
+        "f_score_1pct": 0.32592,
+        "f_score_2pct": 0.602023,
+        "f_score_5pct": 0.946633
+      },
+      "non_regressing": true,
+      "proposal": "dataset/phase_runs/v1/saraswati_blind_multiview_relief_v1/high_0.040/multiview_relief_proposal.obj"
+    },
+    {
+      "direction": "high",
+      "strength": 0.06,
+      "metrics": {
+        "chamfer_l1_normalized": 0.0384117,
+        "hausdorff_95_normalized": 0.05031219,
+        "f_score_1pct": 0.335993,
+        "f_score_2pct": 0.609478,
+        "f_score_5pct": 0.951719
+      },
+      "non_regressing": true,
+      "proposal": "dataset/phase_runs/v1/saraswati_blind_multiview_relief_v1/high_0.060/multiview_relief_proposal.obj"
+    }
+  ],
+  "decision": "accept_best_non_regressing",
+  "selected": {
+    "direction": "high",
+    "strength": 0.06,
+    "metrics": {
+      "chamfer_l1_normalized": 0.0384117,
+      "hausdorff_95_normalized": 0.05031219,
+      "f_score_1pct": 0.335993,
+      "f_score_2pct": 0.609478,
+      "f_score_5pct": 0.951719
+    },
+    "non_regressing": true,
+    "proposal": "dataset/phase_runs/v1/saraswati_blind_multiview_relief_v1/high_0.060/multiview_relief_proposal.obj"
+  },
+  "manufacturing_accuracy_validated": false
+}

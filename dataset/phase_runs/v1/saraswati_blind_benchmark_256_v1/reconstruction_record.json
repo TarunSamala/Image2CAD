@@ -1,0 +1,141 @@
+{
+  "schema_version": "saraswati_blind_reconstruction_v1",
+  "created_at": "2026-11-25T14:20:18.135715+00:00",
+  "stage": "reconstruction",
+  "input_contract": "four_images_only",
+  "source_images": {
+    "front": {
+      "path": "/workspace/dataset/STL-1/Ring 2/R2 - Front - Saraswati.png",
+      "sha256": "b9357a148d07e593dd55d391ed01aa5f738d44cc7d74118f63e21aa767ab0094"
+    },
+    "lsv": {
+      "path": "/workspace/dataset/STL-1/Ring 2/R2 - LSV.png",
+      "sha256": "b66d0f227e7a06040c332df54ba70c0698a99770832bcb22644515ef5a628848"
+    },
+    "rsv": {
+      "path": "/workspace/dataset/STL-1/Ring 2/R2 - RSV.png",
+      "sha256": "305baf864f47d0ef4d7101604679ca5b5037d5a128494e6dcab0879ff3895dba"
+    },
+    "top": {
+      "path": "/workspace/dataset/STL-1/Ring 2/R2 - Top.png",
+      "sha256": "35234e235e24bac7e35698bac8e329c6748b0ba69ac925b446f11dc9c0301e50"
+    }
+  },
+  "ground_truth_accessed": false,
+  "ground_truth_path_recorded": false,
+  "reconstruction_method": "four_view_silhouette_visual_hull",
+  "resolution": 256,
+  "side_candidate": "union",
+  "mask_extraction": {
+    "front": {
+      "image_size_wh": [
+        1480,
+        1110
+      ],
+      "background_bgr": [
+        182.0,
+        173.0,
+        167.0
+      ],
+      "distance_threshold": 89.0,
+      "mask_occupancy": 0.2916107,
+      "retained_components": 1,
+      "mask_path": "dataset/phase_runs/v1/saraswati_blind_benchmark_256_v1/masks/front.png"
+    },
+    "lsv": {
+      "image_size_wh": [
+        1275,
+        1110
+      ],
+      "background_bgr": [
+        182.0,
+        173.0,
+        167.0
+      ],
+      "distance_threshold": 89.0,
+      "mask_occupancy": 0.052879,
+      "retained_components": 1,
+      "mask_path": "dataset/phase_runs/v1/saraswati_blind_benchmark_256_v1/masks/lsv.png"
+    },
+    "rsv": {
+      "image_size_wh": [
+        1312,
+        1110
+      ],
+      "background_bgr": [
+        182.0,
+        173.0,
+        167.0
+      ],
+      "distance_threshold": 75.0,
+      "mask_occupancy": 0.0693206,
+      "retained_components": 1,
+      "mask_path": "dataset/phase_runs/v1/saraswati_blind_benchmark_256_v1/masks/rsv.png"
+    },
+    "top": {
+      "image_size_wh": [
+        1275,
+        1110
+      ],
+      "background_bgr": [
+        182.0,
+        173.0,
+        167.0
+      ],
+      "distance_threshold": 85.0,
+      "mask_occupancy": 0.0839074,
+      "retained_components": 1,
+      "mask_path": "dataset/phase_runs/v1/saraswati_blind_benchmark_256_v1/masks/top.png"
+    }
+  },
+  "metric_depth_input_manifest": "dataset/phase_runs/v1/saraswati_blind_benchmark_256_v1/metric_depth_input_manifest.json",
+  "fit": {
+    "selection_objective": 0.856651,
+    "candidate_objectives": {
+      "intersection": 0.832908,
+      "union": 0.856651,
+      "left": 0.854469,
+      "mirrored_right": 0.844278
+    },
+    "selected_projection_iou": {
+      "front": 0.98909,
+      "top": 0.918063,
+      "lsv": 0.794047,
+      "rsv": 0.725405
+    },
+    "axis_alignment": {
+      "method": "least_squares_shared_axis_scale_v1",
+      "warp_scales_input_px_to_voxel": {
+        "front": 0.1477177,
+        "top": 0.25274739,
+        "lsv": 0.31876607,
+        "rsv": 0.31876607
+      },
+      "relative_view_scales": {
+        "front": 0.64699675,
+        "top": 1.107022,
+        "side": 1.39618077
+      },
+      "log_constraint_residual": 0.03363143,
+      "calibrated": false
+    }
+  },
+  "proposal": {
+    "path": "dataset/phase_runs/v1/saraswati_blind_benchmark_256_v1/saraswati_image_only_proposal.obj",
+    "sha256": "4663e9c4f6b357b28a9ba6a26803f03323f56c1d275d977431dfe274ee2bbf9f",
+    "vertices": 70262,
+    "faces": 140572,
+    "watertight": true,
+    "extents_non_metric": [
+      32.524273,
+      50.0,
+      31.553398
+    ]
+  },
+  "claims": {
+    "independent_image_to_3d_proposal": true,
+    "metric_scale_recovered": false,
+    "fine_relief_recovered": false,
+    "manufacturing_accuracy_validated": false
+  }
+}

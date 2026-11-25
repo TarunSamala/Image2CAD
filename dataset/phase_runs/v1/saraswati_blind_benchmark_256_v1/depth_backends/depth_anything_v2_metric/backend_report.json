@@ -1,0 +1,122 @@
+{
+  "schema_version": "image2cad_metric_depth_backend_v1",
+  "created_at_utc": "2026-11-25T14:15:38.297289+00:00",
+  "backend": "depth_anything_v2_metric",
+  "model": {
+    "model_id": "depth-anything/Depth-Anything-V2-Metric-Hypersim-Small",
+    "revision": "3bc65d4e14a6786a61acec16453c50e12bf5f338",
+    "license": "Apache-2.0",
+    "checkpoint_role": "indoor metric-depth hypothesis"
+  },
+  "device": "cuda",
+  "checkpoint": "/workspace/models/metric_depth/depth_anything_v2_metric_hypersim_small/depth_anything_v2_metric_hypersim_vits.pth",
+  "checkpoint_evidence": {
+    "kind": "file",
+    "sha256": "b782898d8a3e8be1f639de33837ed85e9b4b73e40f8f5e5cd99067588d722545",
+    "size_bytes": 99222290
+  },
+  "input_manifest": "dataset/phase_runs/v1/saraswati_blind_benchmark_256_v1/metric_depth_input_manifest.json",
+  "input_manifest_sha256": "c25ff94a976ff09c72815102f1809353bd31e388668a5b47ec8f3164124f3a76",
+  "sample_count": 4,
+  "requested_sample_count": 4,
+  "coverage_complete": true,
+  "records": [
+    {
+      "sample_key": "saraswati_blind:front",
+      "object_id": "saraswati_blind",
+      "view": "front",
+      "source_sha256": "b9357a148d07e593dd55d391ed01aa5f738d44cc7d74118f63e21aa767ab0094",
+      "artifacts": {
+        "depth_m": "dataset/phase_runs/v1/saraswati_blind_benchmark_256_v1/depth_backends/depth_anything_v2_metric/saraswati_blind/front_depth_m.npy"
+      },
+      "depth_sha256": "55e5b50d1c73070db5de0729322a02ef76d01b761221aa25c9fa4d8dcfdfd33d",
+      "depth_shape": [
+        1110,
+        1480
+      ],
+      "depth_unit": "metre_model_hypothesis",
+      "masked_depth_m": {
+        "p02": 0.9605728983879089,
+        "median": 1.08835768699646,
+        "p98": 1.2618646621704102
+      },
+      "runtime_seconds": 1.083979,
+      "auxiliary": {}
+    },
+    {
+      "sample_key": "saraswati_blind:lsv",
+      "object_id": "saraswati_blind",
+      "view": "lsv",
+      "source_sha256": "b66d0f227e7a06040c332df54ba70c0698a99770832bcb22644515ef5a628848",
+      "artifacts": {
+        "depth_m": "dataset/phase_runs/v1/saraswati_blind_benchmark_256_v1/depth_backends/depth_anything_v2_metric/saraswati_blind/lsv_depth_m.npy"
+      },
+      "depth_sha256": "849bb45f0590d3ebbeaf86f863541490cfc0b91f6e3980f032b0ba2f1c1a00d4",
+      "depth_shape": [
+        1110,
+        1275
+      ],
+      "depth_unit": "metre_model_hypothesis",
+      "masked_depth_m": {
+        "p02": 0.5015688538551331,
+        "median": 0.5780078768730164,
+        "p98": 0.8051095008850098
+      },
+      "runtime_seconds": 0.136395,
+      "auxiliary": {}
+    },
+    {
+      "sample_key": "saraswati_blind:rsv",
+      "object_id": "saraswati_blind",
+      "view": "rsv",
+      "source_sha256": "305baf864f47d0ef4d7101604679ca5b5037d5a128494e6dcab0879ff3895dba",
+      "artifacts": {
+        "depth_m": "dataset/phase_runs/v1/saraswati_blind_benchmark_256_v1/depth_backends/depth_anything_v2_metric/saraswati_blind/rsv_depth_m.npy"
+      },
+      "depth_sha256": "efecddf02cbedfc40b7fd616841d5b697edb36a822da2d3c42bcd9ffc2c98a06",
+      "depth_shape": [
+        1110,
+        1312
+      ],
+      "depth_unit": "metre_model_hypothesis",
+      "masked_depth_m": {
+        "p02": 0.40213248133659363,
+        "median": 0.4576224982738495,
+        "p98": 0.5662557482719421
+      },
+      "runtime_seconds": 0.131279,
+      "auxiliary": {}
+    },
+    {
+      "sample_key": "saraswati_blind:top",
+      "object_id": "saraswati_blind",
+      "view": "top",
+      "source_sha256": "35234e235e24bac7e35698bac8e329c6748b0ba69ac925b446f11dc9c0301e50",
+      "artifacts": {
+        "depth_m": "dataset/phase_runs/v1/saraswati_blind_benchmark_256_v1/depth_backends/depth_anything_v2_metric/saraswati_blind/top_depth_m.npy"
+      },
+      "depth_sha256": "f419a4d18e720d2b3df1f7ce73f802bbfad9b716f1783de00f77d50a05ae8132",
+      "depth_shape": [
+        1110,
+        1275
+      ],
+      "depth_unit": "metre_model_hypothesis",
+      "masked_depth_m": {
+        "p02": 0.6574803590774536,
+        "median": 0.7944815158843994,
+        "p98": 0.9695214629173279
+      },
+      "runtime_seconds": 0.123864,
+      "auxiliary": {}
+    }
+  ],
+  "runtime_seconds": 1.715868,
+  "peak_gpu_memory_bytes": 297328128,
+  "claims": {
+    "model_outputs_metric_units": true,
+    "metric_accuracy_validated_on_jewellery": false,
+    "physical_scale_validated": false,
+    "manufacturing_measurements_validated": false
+  },
+  "decision": "research_only_model_hypothesis"
+}
