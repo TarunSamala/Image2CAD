@@ -735,14 +735,16 @@ class DatasetStudioApiTest(unittest.TestCase):
             'data-workspace-tab="models"',
             'id="model-inspector"',
             'id="ring-reference-upload"',
-            'id="ring-reference-name"',
             'id="ring-upload-feedback"',
             'id="ring-upload-progress"',
-            'id="showcase-model-list"',
             'id="model-canvas"',
             'id="model-empty-state"',
             'id="model-reference-empty"',
+            'id="model-reference-gallery"',
             'id="model-loading-title"',
+            'id="model-generate"',
+            'id="model-prompt"',
+            'id="prompt-generate"',
             'id="model-wireframe"',
             'id="model-download"',
             'id="phase1-label-notes"',
@@ -829,9 +831,16 @@ class DatasetStudioApiTest(unittest.TestCase):
         self.assertIn("OrbitControls", inspector_script)
         self.assertIn('fetch("/api/showcase-models")', inspector_script)
         self.assertIn('activateWorkspace("models")', inspector_script)
-        self.assertIn("uploadedRingOneReference", inspector_script)
+        self.assertIn("uploadedReferenceModelId", inspector_script)
         self.assertIn("readReferenceImage", inspector_script)
+        self.assertIn("detectPromptModel", inspector_script)
+        self.assertIn('selectModel(target, "text")', inspector_script)
+        self.assertIn("files.length !== 4", inspector_script)
+        self.assertIn("classifyReferenceViews", inspector_script)
+        self.assertIn('fetch("/api/reconstruct/image-to-3d"', inspector_script)
+        self.assertIn("uploadedReferenceFiles", inspector_script)
         self.assertIn("setReferenceUploadState", inspector_script)
+        self.assertIn("MODEL_GENERATION_MS = 12000", inspector_script)
         inspector.close()
 
         self.assertIn("loadPhase1Review()", javascript)
@@ -914,12 +923,12 @@ class DatasetStudioApiTest(unittest.TestCase):
         script.close()
         page.close()
 
-    def test_showcase_exposes_only_three_uploaded_models_and_downloads(self) -> None:
+    def test_showcase_exposes_four_models_and_downloads(self) -> None:
         response = self.client.get("/api/showcase-models")
         self.assertEqual(response.status_code, 200)
         models = response.get_json()["models"]
-        self.assertEqual([model["id"] for model in models], ["ring-1", "ring-2", "ring-3"])
-        self.assertEqual([model["format"] for model in models], ["OBJ", "STL", "OBJ"])
+        self.assertEqual([model["id"] for model in models], ["ring-1", "ring-2", "ring-3", "ring-4"])
+        self.assertEqual([model["format"] for model in models], ["OBJ", "OBJ", "OBJ", "OBJ"])
         self.assertTrue(all(model["size_bytes"] > 0 for model in models))
         self.assertTrue(all(model["triangles"] > 0 for model in models))
 
@@ -931,8 +940,24 @@ class DatasetStudioApiTest(unittest.TestCase):
         self.assertEqual(model.status_code, 200)
         self.assertIn("attachment", model.headers["Content-Disposition"])
         model.close()
-        self.assertEqual(self.client.get("/api/showcase-models/ring-4/model").status_code, 404)
+        fourth_model = self.client.get("/api/showcase-models/ring-4/model")
+        self.assertEqual(fourth_model.status_code, 200)
+        fourth_model.close()
+        self.assertEqual(self.client.get("/api/showcase-models/ring-5/model").status_code, 404)
         self.assertEqual(self.client.get("/api/showcase-models/ring-1/unknown").status_code, 404)
+
+    def test_image_to_3d_requires_all_four_labelled_views(self) -> None:
+        response = self.client.post("/api/reconstruct/image-to-3d", data={})
+        self.assertEqual(response.status_code, 400)
+        self.assertIn("Front, Top, Left and Right", response.get_json()["error"])
+
+    def test_generated_model_route_fails_closed(self) -> None:
+        invalid = self.client.get("/api/generated-models/not-a-job/model")
+        self.assertEqual(invalid.status_code, 404)
+        missing = self.client.get(
+            "/api/generated-models/00000000000000000000000000000000/model"
+        )
+        self.assertEqual(missing.status_code, 404)
 
     def test_phase1_review_routes_are_scoped_and_fail_closed(self) -> None:
         manifest = self.client.get("/api/phase1/review")

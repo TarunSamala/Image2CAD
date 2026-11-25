@@ -5,7 +5,11 @@ from __future__ import annotations
 import json
 import os
 from pathlib import Path
+import re
+from uuid import uuid4
 
+import cv2
+import numpy as np
 from flask import Flask, Response, jsonify, render_template, request, send_file
 
 from studio.dataset_service import (
@@ -21,6 +25,7 @@ def create_app(repo_root: str | Path | None = None) -> Flask:
     app.config["MAX_CONTENT_LENGTH"] = 12 * 1024 * 1024
     repository = DatasetRepository(repo_root)
     app.config["DATASET_REPOSITORY"] = repository
+    generated_root = repository.phase_root / "studio_image_to_3d"
 
     @app.get("/")
     def index():
@@ -52,6 +57,91 @@ def create_app(repo_root: str | Path | None = None) -> Flask:
         return send_file(
             path,
             as_attachment=kind == "model" and request.args.get("download") == "1",
+            conditional=True,
+        )
+
+    @app.post("/api/reconstruct/image-to-3d")
+    def reconstruct_image_to_3d():
+        required_views = ("front", "top", "lsv", "rsv")
+        missing = [view for view in required_views if request.files.get(view) is None]
+        if missing:
+            raise DatasetError(
+                "Four labelled views are required: Front, Top, Left and Right"
+            )
+
+        job_id = uuid4().hex
+        job_root = generated_root / job_id
+        input_root = job_root / "inputs"
+        input_root.mkdir(parents=True, exist_ok=False)
+        image_paths: dict[str, Path] = {}
+        for view in required_views:
+            upload = request.files[view]
+            payload = upload.read()
+            if not payload:
+                raise DatasetError(f"The {view} image is empty")
+            decoded = cv2.imdecode(np.frombuffer(payload, dtype=np.uint8), cv2.IMREAD_COLOR)
+            if decoded is None:
+                raise DatasetError(f"The {view} upload is not a valid image")
+            height, width = decoded.shape[:2]
+            if width > 6000 or height > 6000 or width * height > 25_000_000:
+                raise DatasetError(f"The {view} image is too large")
+            path = input_root / f"{view}.png"
+            if not cv2.imwrite(str(path), decoded):
+                raise DatasetError(f"The {view} image could not be prepared")
+            image_paths[view] = path
+
+        try:
+            # Keep the geometry stack lazy so opening Studio does not load Torch,
+            # scikit-image and trimesh until the user starts reconstruction.
+            from pipeline.run_saraswati_blind_benchmark import reconstruct_from_images
+
+            model_path, record_path = reconstruct_from_images(
+                image_paths,
+                job_root / "reconstruction",
+                resolution=256,
+                object_id=f"studio_upload_{job_id}",
+                dataset_name="Studio upload",
+                proposal_filename="image_only_proposal.obj",
+            )
+            record = json.loads(record_path.read_text(encoding="utf-8"))
+        except (FileNotFoundError, ValueError, RuntimeError) as exc:
+            raise DatasetError(f"Image-only reconstruction failed: {exc}") from exc
+
+        proposal = record["proposal"]
+        return jsonify(
+            {
+                "job_id": job_id,
+                "model": {
+                    "id": f"generated-{job_id}",
+                    "title": "Generated image-only model",
+                    "format": "OBJ",
+                    "filename": model_path.name,
+                    "size_bytes": model_path.stat().st_size,
+                    "vertices": proposal["vertices"],
+                    "triangles": proposal["faces"],
+                    "watertight": proposal["watertight"],
+                    "model_url": f"/api/generated-models/{job_id}/model",
+                    "download_url": f"/api/generated-models/{job_id}/model?download=1",
+                },
+                "claims": record["claims"],
+            }
+        )
+
+    @app.get("/api/generated-models/<job_id>/model")
+    def generated_model(job_id: str):
+        if re.fullmatch(r"[0-9a-f]{32}", job_id) is None:
+            raise AssetNotFoundError("Unknown generated model")
+        path = (
+            generated_root
+            / job_id
+            / "reconstruction"
+            / "image_only_proposal.obj"
+        ).resolve()
+        if generated_root.resolve() not in path.parents or not path.is_file():
+            raise AssetNotFoundError("Unknown generated model")
+        return send_file(
+            path,
+            as_attachment=request.args.get("download") == "1",
             conditional=True,
         )
 
