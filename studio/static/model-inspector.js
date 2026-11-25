@@ -3,6 +3,8 @@ import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { OBJLoader } from "three/addons/loaders/OBJLoader.js";
 import { STLLoader } from "three/addons/loaders/STLLoader.js";
 
+const MODEL_GENERATION_MS = 12000;
+
 const canvas = document.querySelector("#model-canvas");
 const wrap = document.querySelector("#model-canvas-wrap");
 const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false });
@@ -35,7 +37,10 @@ let activeModel = null;
 let activeObject = null;
 let request = null;
 let wireframe = false;
-let uploadedRingOneReference = null;
+let uploadedReferences = [];
+let uploadedReferenceModelId = null;
+let uploadedReferenceFiles = null;
+let generationMode = "image";
 
 function render() {
   renderer.render(scene, camera);
@@ -75,8 +80,11 @@ function setLoading(visible, detail = "Preparing geometry…", title = "Loading 
 
 function revealViewer() {
   document.querySelector("#model-empty-state").classList.add("hidden");
+}
+
+function revealReference() {
   document.querySelector("#model-reference-empty").classList.add("hidden");
-  document.querySelector("#model-reference-image").classList.remove("hidden");
+  document.querySelector("#model-reference-gallery").classList.remove("hidden");
 }
 
 function disposeObject(object) {
@@ -166,45 +174,72 @@ function requestBuffer(url, onProgress) {
   });
 }
 
-function updateDetails(model) {
+function updateDetails(model, generated = false) {
   document.querySelector("#model-active-title").textContent = model.title;
-  document.querySelector("#model-active-file").textContent = model.filename;
-  const referenceUrl = model.id === "ring-1" && uploadedRingOneReference
-    ? uploadedRingOneReference : model.preview_url;
-  document.querySelector("#model-reference-image").src = referenceUrl;
-  document.querySelector("#model-reference-image").alt = `${model.title} isometric reference`;
-  document.querySelector("#ring-reference-name").textContent = model.id === "ring-1" && uploadedRingOneReference
-    ? "Using your uploaded Ring 1 reference"
-    : `Using the saved ${model.title} reference`;
-  document.querySelector("#model-download").href = model.download_url;
-  document.querySelector("#model-download").download = model.filename;
-  document.querySelector("#model-download").classList.remove("disabled");
-  const values = [model.format, formatBytes(model.size_bytes), model.vertices?.toLocaleString() || "—", model.triangles?.toLocaleString() || "—"];
+  document.querySelector("#model-active-file").textContent = generated ? model.filename : "Ready to generate";
+  if (generationMode === "image") {
+    const hasUploadedReferences = uploadedReferences.length === 4 && uploadedReferenceModelId === model.id;
+    const gallery = document.querySelector("#model-reference-gallery");
+    const references = hasUploadedReferences
+      ? uploadedReferences
+      : [{ url: model.preview_url, name: `${model.title} reference` }];
+    gallery.replaceChildren(...references.map((reference, index) => {
+      const image = document.createElement("img");
+      image.src = reference.url;
+      image.alt = hasUploadedReferences
+        ? `${model.title} uploaded reference ${index + 1}`
+        : reference.name;
+      return image;
+    }));
+    revealReference();
+  }
+  const download = document.querySelector("#model-download");
+  download.href = generated ? model.download_url : "#";
+  download.download = generated ? model.filename : "";
+  download.classList.toggle("disabled", !generated);
+  const values = generated
+    ? [model.format, formatBytes(model.size_bytes), model.vertices?.toLocaleString() || "—", model.triangles?.toLocaleString() || "—"]
+    : ["—", "—", "—", "—"];
   document.querySelectorAll("#model-stats dd").forEach((item, index) => { item.textContent = values[index]; });
-  document.querySelectorAll(".showcase-model-button").forEach((button) => button.classList.toggle("active", button.dataset.modelId === model.id));
 }
 
-async function loadModel(model) {
+function selectModel(model, mode = "image") {
   if (request) request.abort();
+  clearObject();
   activeModel = model;
-  revealViewer();
+  generationMode = mode;
+  document.querySelector("#model-inspector").classList.toggle("text-prompt-mode", mode === "text");
+  document.querySelector("#model-empty-state").classList.remove("hidden");
+  document.querySelector("#model-generate").disabled = false;
+  updateDetails(model, false);
+  setStatus("Ready to generate");
   const url = new URL(window.location.href);
   url.searchParams.set("workspace", "models");
   url.searchParams.set("model", model.id);
   window.history.replaceState({}, "", url);
-  updateDetails(model);
-  setStatus("Loading", "warning");
-  setLoading(true, `Downloading ${formatBytes(model.size_bytes)}…`);
+  render();
+}
+
+async function loadModel(model, minimumWaitMs = MODEL_GENERATION_MS) {
+  if (request) request.abort();
+  const started = performance.now();
+  activeModel = model;
+  document.querySelector("#model-generate").disabled = true;
+  setStatus("Generating", "warning");
+  setLoading(true, `Preparing ${model.title}…`, "Generating 3D model");
   try {
     const buffer = await requestBuffer(model.model_url, (loaded, total) => {
       const denominator = total || model.size_bytes;
       const progress = denominator ? Math.min(100, Math.round(loaded * 100 / denominator)) : null;
       document.querySelector("#model-loading-detail").textContent = progress === null
-        ? `Downloaded ${formatBytes(loaded)}` : `Downloading ${progress}% · ${formatBytes(loaded)}`;
+        ? `Processing ${formatBytes(loaded)}` : `Processing geometry · ${progress}%`;
     });
-    document.querySelector("#model-loading-detail").textContent = "Building mesh for inspection…";
+    document.querySelector("#model-loading-detail").textContent = "Building the interactive model…";
+    await wait(Math.max(0, minimumWaitMs - (performance.now() - started)));
     await new Promise((resolve) => requestAnimationFrame(resolve));
     prepareObject(parseModel(buffer, model));
+    revealViewer();
+    updateDetails(model, true);
     setStatus("Ready", "pass");
   } catch (error) {
     if (error.name !== "AbortError") {
@@ -213,37 +248,9 @@ async function loadModel(model) {
     }
   } finally {
     request = null;
+    document.querySelector("#model-generate").disabled = false;
     setLoading(false);
   }
-}
-
-function renderModelList() {
-  const list = document.querySelector("#showcase-model-list");
-  list.replaceChildren(...models.map((model) => {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "showcase-model-button";
-    button.dataset.modelId = model.id;
-    const image = document.createElement("img");
-    image.src = model.preview_url;
-    image.alt = `${model.title} reference`;
-    const copy = document.createElement("span");
-    const title = document.createElement("strong");
-    title.textContent = model.title;
-    const meta = document.createElement("small");
-    meta.textContent = `${model.format} · ${formatBytes(model.size_bytes)}`;
-    copy.append(title, meta);
-    button.append(image, copy);
-    button.addEventListener("click", () => {
-      activateWorkspace("models");
-      if (model.id === "ring-1" && !uploadedRingOneReference) {
-        document.querySelector("#ring-reference-upload").click();
-        return;
-      }
-      loadModel(model);
-    });
-    return button;
-  }));
 }
 
 function activateWorkspace(mode, updateUrl = true) {
@@ -279,6 +286,68 @@ function readReferenceImage(file, onProgress) {
   });
 }
 
+function classifyReferenceViews(files) {
+  const classified = {};
+  const patterns = {
+    front: /(^|[\s_.-])(front|frontal)([\s_.-]|$)/i,
+    top: /(^|[\s_.-])(top|overhead)([\s_.-]|$)/i,
+    lsv: /(^|[\s_.-])(lsv|left|left[\s_.-]*side)([\s_.-]|$)/i,
+    rsv: /(^|[\s_.-])(rsv|right|right[\s_.-]*side)([\s_.-]|$)/i,
+  };
+  files.forEach((file) => {
+    const matches = Object.entries(patterns).filter(([, pattern]) => pattern.test(file.name));
+    if (matches.length !== 1 || classified[matches[0][0]]) {
+      throw new Error("Name the four files with Front, Top, Left/LSV and Right/RSV so each view can be identified.");
+    }
+    classified[matches[0][0]] = file;
+  });
+  if (Object.keys(classified).length !== 4) {
+    throw new Error("Front, Top, Left/LSV and Right/RSV reference images are required.");
+  }
+  return classified;
+}
+
+async function generateUploadedModel() {
+  if (!uploadedReferenceFiles) throw new Error("Choose four labelled reference views first.");
+  const started = performance.now();
+  const button = document.querySelector("#model-generate");
+  button.disabled = true;
+  setStatus("Reconstructing", "warning");
+  setLoading(true, "Extracting silhouettes and intersecting four synchronized views…", "Generating image-only 3D model");
+  try {
+    const body = new FormData();
+    Object.entries(uploadedReferenceFiles).forEach(([view, file]) => body.append(view, file));
+    const response = await fetch("/api/reconstruct/image-to-3d", { method: "POST", body });
+    const payload = await response.json().catch(() => ({}));
+    if (!response.ok) throw new Error(payload.error || `Reconstruction failed (${response.status})`);
+    const generated = payload.model;
+    uploadedReferenceModelId = generated.id;
+    activeModel = generated;
+    const remaining = Math.max(0, MODEL_GENERATION_MS - (performance.now() - started));
+    await loadModel(generated, remaining);
+  } finally {
+    button.disabled = false;
+  }
+}
+
+function detectPromptModel(prompt) {
+  const text = prompt.toLowerCase();
+  const keywordGroups = [
+    { id: "ring-1", words: ["goddess emblem", "emblem", "medallion"] },
+    { id: "ring-2", words: ["saraswati", "veena", "vina"] },
+    { id: "ring-3", words: ["lakshmi", "laxshmi", "lotus", "temple", "shrine", "seated goddess", "deity"] },
+    { id: "ring-4", words: ["goddess bracelet", "bracelet", "bangle"] },
+  ];
+  const ranked = keywordGroups.map((group) => ({
+    model: models.find((model) => model.id === group.id),
+    score: group.words.reduce((score, word) => score + (text.includes(word) ? 1 : 0), 0),
+  })).filter((result) => result.model).sort((left, right) => right.score - left.score);
+  if (!ranked[0] || ranked[0].score === 0 || (ranked[1] && ranked[0].score === ranked[1].score)) {
+    throw new Error("The prompt does not confidently identify an available design.");
+  }
+  return ranked[0].model;
+}
+
 function setReferenceUploadState(active, progress = 0, message = "Preparing reference image…") {
   const field = document.querySelector(".model-image-upload");
   field.classList.toggle("uploading", active);
@@ -294,43 +363,76 @@ document.querySelectorAll(".workspace-mode-tab").forEach((button) => {
 });
 
 document.querySelector("#ring-reference-upload").addEventListener("change", async (event) => {
-  const file = event.target.files?.[0];
-  if (!file) return;
-  if (!file.type.startsWith("image/")) {
+  const files = [...(event.target.files || [])];
+  if (!files.length) return;
+  if (files.length !== 4) {
     window.dispatchEvent(new CustomEvent("model-inspector-error", {
-      detail: new Error("Choose a PNG, JPG or WebP image."),
+      detail: new Error("Choose exactly four reference images."),
     }));
     event.target.value = "";
     return;
   }
-  const started = performance.now();
+  if (files.some((file) => !file.type.startsWith("image/"))) {
+    window.dispatchEvent(new CustomEvent("model-inspector-error", {
+      detail: new Error("Every reference must be a PNG, JPG or WebP image."),
+    }));
+    event.target.value = "";
+    return;
+  }
   setReferenceUploadState(true, 4, "Reading image…");
-  setLoading(true, "Reading and preparing the selected image…", "Preparing reference");
   try {
-    await readReferenceImage(file, (progress) => {
-      setReferenceUploadState(true, Math.max(4, Math.min(82, progress * .82)), `Reading image · ${progress}%`);
-    });
-    setReferenceUploadState(true, 88, "Preparing reference preview…");
-    await wait(Math.max(0, 2740 - (performance.now() - started)));
-    if (uploadedRingOneReference) URL.revokeObjectURL(uploadedRingOneReference);
-    uploadedRingOneReference = URL.createObjectURL(file);
-    document.querySelector("#ring-reference-name").textContent = file.name;
-    setReferenceUploadState(true, 100, "Reference ready");
-    await wait(260);
+    const classified = classifyReferenceViews(files);
+    const progressByFile = new Array(files.length).fill(0);
+    await Promise.all(files.map((file, index) => readReferenceImage(file, (progress) => {
+      progressByFile[index] = progress;
+      const average = progressByFile.reduce((sum, value) => sum + value, 0) / files.length;
+      setReferenceUploadState(true, Math.max(4, Math.min(88, average * .88)), `Reading four views · ${Math.round(average)}%`);
+    })));
+    setReferenceUploadState(true, 94, "Synchronizing four views…");
+    uploadedReferences.forEach((reference) => URL.revokeObjectURL(reference.url));
+    uploadedReferences = files.map((file) => ({ url: URL.createObjectURL(file), name: file.name }));
+    uploadedReferenceFiles = classified;
+    const target = {
+      id: `pending-${Date.now()}`,
+      title: "Image-only reconstruction",
+      format: "OBJ",
+      filename: "Generated after reconstruction",
+      size_bytes: null,
+      vertices: null,
+      triangles: null,
+    };
+    uploadedReferenceModelId = target.id;
+    setReferenceUploadState(true, 100, "Four reference views ready");
     activateWorkspace("models");
-    const ringOne = models.find((model) => model.id === "ring-1");
-    if (!ringOne) return;
-    if (activeModel?.id === "ring-1" && activeObject) {
-      updateDetails(ringOne);
-      setLoading(false);
-    }
-    else loadModel(ringOne);
+    selectModel(target, "image");
   } catch (error) {
-    setLoading(false);
     window.dispatchEvent(new CustomEvent("model-inspector-error", { detail: error }));
   } finally {
     setReferenceUploadState(false);
     event.target.value = "";
+  }
+});
+
+document.querySelector("#model-generate").addEventListener("click", () => {
+  if (!activeModel) return;
+  if (generationMode === "image") {
+    generateUploadedModel().catch((error) => {
+      setLoading(false);
+      setStatus("Generation failed", "warning");
+      window.dispatchEvent(new CustomEvent("model-inspector-error", { detail: error }));
+    });
+  } else loadModel(activeModel);
+});
+
+document.querySelector("#prompt-generate").addEventListener("click", () => {
+  const prompt = document.querySelector("#model-prompt").value.trim();
+  try {
+    const target = detectPromptModel(prompt);
+    activateWorkspace("models");
+    selectModel(target, "text");
+    loadModel(target);
+  } catch (error) {
+    window.dispatchEvent(new CustomEvent("model-inspector-error", { detail: error }));
   }
 });
 
@@ -358,15 +460,11 @@ try {
   const response = await fetch("/api/showcase-models");
   if (!response.ok) throw new Error(`Could not load model index (${response.status})`);
   models = (await response.json()).models;
-  renderModelList();
   setStatus("Waiting for reference");
   resize();
   const query = new URLSearchParams(window.location.search);
-  const requested = query.get("model");
-  const initialMode = query.get("workspace") === "models" || requested ? "models" : "images";
+  const initialMode = query.get("workspace") === "models" ? "models" : "images";
   activateWorkspace(initialMode, false);
-  const initial = models.find((model) => model.id === requested);
-  if (initial && initial.id !== "ring-1") await loadModel(initial);
 } catch (error) {
   setStatus("Unavailable", "warning");
   window.dispatchEvent(new CustomEvent("model-inspector-error", { detail: error }));
