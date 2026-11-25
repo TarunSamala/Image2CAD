@@ -16,10 +16,16 @@ import torch
 import trimesh
 from skimage import measure
 
-from reconstruct_phase3 import CameraHypothesis
-from refine_phase3_1 import _jewelry_transform
-from train_dataset_phases import TinyJewelleryUNet, _binary_iou, _boundary_f1
-from validate_phase3_2 import _basis_camera, _clean_render
+try:
+    from pipeline.reconstruct_phase3 import CameraHypothesis
+    from pipeline.refine_phase3_1 import _jewelry_transform
+    from pipeline.train_dataset_phases import TinyJewelleryUNet, _binary_iou, _boundary_f1
+    from pipeline.validate_phase3_2 import _basis_camera, _clean_render
+except ModuleNotFoundError:  # Direct ``python pipeline/...`` execution.
+    from reconstruct_phase3 import CameraHypothesis
+    from refine_phase3_1 import _jewelry_transform
+    from train_dataset_phases import TinyJewelleryUNet, _binary_iou, _boundary_f1
+    from validate_phase3_2 import _basis_camera, _clean_render
 
 
 VIEWS = ("front", "top", "iso", "lsv", "rsv")
