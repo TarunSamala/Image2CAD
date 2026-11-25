@@ -68,6 +68,14 @@ dataset/external_sources/raw/
 dataset/external_sources/archives/
 dataset/external_ring_v1/artifacts/
 
+# Browser-generated reconstruction jobs are local runtime outputs.
+dataset/phase_runs/v1/studio_image_to_3d/
+
+# Blind benchmark meshes and depth tensors are reproducible from the retained
+# source assets and scripts. Compact reports and comparison previews stay tracked.
+dataset/phase_runs/v1/saraswati_blind_*/**/*.obj
+dataset/phase_runs/v1/saraswati_blind_*/**/*.npy
+
 # Local environment and secrets
 .env
 .env.*
