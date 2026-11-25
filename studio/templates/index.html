@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="color-scheme" content="dark">
     <title>Lalitha Studio</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='studio.css', v='model-inspector-5') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='studio.css', v='model-inspector-17') }}">
     <script type="importmap">
       {"imports":{"three":"{{ url_for('static', filename='vendor/three/three.module.min.js') }}","three/addons/":"{{ url_for('static', filename='vendor/three/addons/') }}"}}
     </script>
@@ -48,7 +48,7 @@
       <main class="main-content">
         <nav class="workspace-mode-nav" aria-label="Studio workspace">
           <button type="button" class="workspace-mode-tab active" data-workspace-tab="images" aria-selected="true">Image workspace</button>
-          <button type="button" class="workspace-mode-tab" data-workspace-tab="models" aria-selected="false">Ring models</button>
+          <button type="button" class="workspace-mode-tab" data-workspace-tab="models" aria-selected="false">3D Design Studio</button>
         </nav>
         <header class="topbar">
           <div>
@@ -67,38 +67,42 @@
         <section id="model-inspector" class="model-inspector" aria-labelledby="model-inspector-title">
           <div class="section-heading">
             <div>
-              <p class="eyebrow">RING MODEL WORKSPACE</p>
-              <h2 id="model-inspector-title">Ring models</h2>
-              <p class="subtitle">Choose a reference image or select a ring below. Its reference and interactive 3D model open together.</p>
+              <p class="eyebrow">3D MODEL WORKSPACE</p>
+              <h2 id="model-inspector-title">3D Design Studio</h2>
             </div>
-            <span id="model-load-status" class="pill">Choose a model</span>
+            <span id="model-load-status" class="pill">Choose a reference</span>
           </div>
           <div class="model-input-row">
             <label class="model-image-upload" for="ring-reference-upload">
               <span class="model-upload-icon" aria-hidden="true">+</span>
               <span>
-                <strong>Choose reference image</strong>
-                <small>PNG, JPG or WebP · used locally as the reference image</small>
+                <strong>Choose four reference images</strong>
+                <small>PNG, JPG or WebP · Front, Top, Left and Right views</small>
               </span>
               <span id="ring-reference-action" class="button secondary">Choose image</span>
-              <input id="ring-reference-upload" type="file" accept="image/png,image/jpeg,image/webp" hidden>
+              <input id="ring-reference-upload" type="file" accept="image/png,image/jpeg,image/webp" multiple hidden>
               <span id="ring-upload-feedback" class="reference-upload-feedback hidden" aria-live="polite">
                 <span class="reference-upload-track"><span id="ring-upload-progress"></span></span>
                 <small id="ring-upload-status">Preparing reference image…</small>
               </span>
             </label>
             <div class="model-input-copy">
-              <strong id="ring-reference-name">No reference selected</strong>
-              <span>Clicking another ring replaces the active reference and 3D model.</span>
+              <button id="model-generate" type="button" class="button generate" disabled>Generate 3D</button>
             </div>
           </div>
-          <div id="showcase-model-list" class="showcase-model-list" aria-label="Available 3D models"></div>
+          <div class="model-prompt-row">
+            <label for="model-prompt">
+              <strong>Describe the 3D model</strong>
+              <textarea id="model-prompt" rows="4">Generate a highly detailed, front-facing 3D model of an ornate temple-style statement ring featuring a seated goddess Lakshmi centered on a layered lotus pedestal beneath a domed shrine arch. Include a crowned halo, symmetrical carved pillars, curled floral scrollwork, ribbed canopy, sculpted top finial, layered petal borders, bead-like openings along the lower frame, detailed jewellery and garment relief, deep ornamental carving, open negative spaces and ring-ready supporting geometry.</textarea>
+            </label>
+            <button id="prompt-generate" type="button" class="button generate">Generate 3D</button>
+          </div>
           <div class="model-inspector-layout">
             <article class="model-stage-card">
               <div class="model-toolbar">
                 <div>
                   <strong id="model-active-title">No model selected</strong>
-                  <span id="model-active-file">Choose a reference image to open Ring 1</span>
+                  <span id="model-active-file">Upload a reference image</span>
                 </div>
                 <div class="model-toolbar-actions">
                   <button id="model-reset" type="button" class="button secondary">Reset view</button>
@@ -124,8 +128,8 @@
             <aside class="model-inspector-side">
               <article class="model-reference-card">
                 <p class="eyebrow">REFERENCE VIEW</p>
-                <div id="model-reference-empty" class="model-reference-empty">No reference selected</div>
-                <img id="model-reference-image" alt="Selected ring isometric reference">
+                <div id="model-reference-empty" class="model-reference-empty">No references selected</div>
+                <div id="model-reference-gallery" class="model-reference-gallery hidden" aria-label="Uploaded reference views"></div>
               </article>
               <article class="model-stat-card">
                 <p class="eyebrow">MODEL DETAILS</p>
@@ -1202,7 +1206,7 @@
         <footer>Lalitha Studio · Evidence-first local research interface · No cloud uploads</footer>
       </main>
     </div>
-    <script src="{{ url_for('static', filename='studio.js', v='model-inspector-5') }}" defer></script>
-    <script type="module" src="{{ url_for('static', filename='model-inspector.js', v='model-inspector-5') }}"></script>
+    <script src="{{ url_for('static', filename='studio.js', v='model-inspector-17') }}" defer></script>
+    <script type="module" src="{{ url_for('static', filename='model-inspector.js', v='model-inspector-17') }}"></script>
   </body>
 </html>
