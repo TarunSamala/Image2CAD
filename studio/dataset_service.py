@@ -76,6 +76,12 @@ SHOWCASE_MODELS = {
         "model": "dataset/Model Test 3d/Goddess Bracelet.obj",
         "preview": "dataset/Model Test/Goddess Bracelet.png",
     },
+    "single-relief-1": {
+        "title": "Ornamental Relief",
+        "format": "OBJ",
+        "model": "dataset/Model Test 3d/Ornamental Relief.obj",
+        "preview": "dataset/Model Test/Ornamental Relief.jpeg",
+    },
 }
 
 

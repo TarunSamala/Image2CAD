@@ -177,8 +177,8 @@ function requestBuffer(url, onProgress) {
 function updateDetails(model, generated = false) {
   document.querySelector("#model-active-title").textContent = model.title;
   document.querySelector("#model-active-file").textContent = generated ? model.filename : "Ready to generate";
-  if (generationMode === "image") {
-    const hasUploadedReferences = uploadedReferences.length === 4 && uploadedReferenceModelId === model.id;
+  if (generationMode !== "text") {
+    const hasUploadedReferences = uploadedReferences.length > 0 && uploadedReferenceModelId === model.id;
     const gallery = document.querySelector("#model-reference-gallery");
     const references = hasUploadedReferences
       ? uploadedReferences
@@ -337,6 +337,7 @@ function detectPromptModel(prompt) {
     { id: "ring-2", words: ["saraswati", "veena", "vina"] },
     { id: "ring-3", words: ["lakshmi", "laxshmi", "lotus", "temple", "shrine", "seated goddess", "deity"] },
     { id: "ring-4", words: ["goddess bracelet", "bracelet", "bangle"] },
+    { id: "single-relief-1", words: ["ornamental relief", "relief panel", "floral frame"] },
   ];
   const ranked = keywordGroups.map((group) => ({
     model: models.find((model) => model.id === group.id),
@@ -365,9 +366,9 @@ document.querySelectorAll(".workspace-mode-tab").forEach((button) => {
 document.querySelector("#ring-reference-upload").addEventListener("change", async (event) => {
   const files = [...(event.target.files || [])];
   if (!files.length) return;
-  if (files.length !== 4) {
+  if (![1, 4].includes(files.length)) {
     window.dispatchEvent(new CustomEvent("model-inspector-error", {
-      detail: new Error("Choose exactly four reference images."),
+      detail: new Error("Choose one reference image, or exactly four synchronized views."),
     }));
     event.target.value = "";
     return;
@@ -381,30 +382,43 @@ document.querySelector("#ring-reference-upload").addEventListener("change", asyn
   }
   setReferenceUploadState(true, 4, "Reading image…");
   try {
-    const classified = classifyReferenceViews(files);
+    const classified = files.length === 4 ? classifyReferenceViews(files) : null;
     const progressByFile = new Array(files.length).fill(0);
     await Promise.all(files.map((file, index) => readReferenceImage(file, (progress) => {
       progressByFile[index] = progress;
       const average = progressByFile.reduce((sum, value) => sum + value, 0) / files.length;
-      setReferenceUploadState(true, Math.max(4, Math.min(88, average * .88)), `Reading four views · ${Math.round(average)}%`);
+      const label = files.length === 4 ? "Reading four views" : "Reading reference";
+      setReferenceUploadState(true, Math.max(4, Math.min(88, average * .88)), `${label} · ${Math.round(average)}%`);
     })));
-    setReferenceUploadState(true, 94, "Synchronizing four views…");
+    setReferenceUploadState(true, 94, files.length === 4 ? "Synchronizing four views…" : "Identifying reference…");
     uploadedReferences.forEach((reference) => URL.revokeObjectURL(reference.url));
     uploadedReferences = files.map((file) => ({ url: URL.createObjectURL(file), name: file.name }));
     uploadedReferenceFiles = classified;
-    const target = {
-      id: `pending-${Date.now()}`,
-      title: "Image-only reconstruction",
-      format: "OBJ",
-      filename: "Generated after reconstruction",
-      size_bytes: null,
-      vertices: null,
-      triangles: null,
-    };
+    let target;
+    let mode = "image";
+    if (files.length === 1) {
+      const body = new FormData();
+      body.append("reference", files[0]);
+      const response = await fetch("/api/reference-match", { method: "POST", body });
+      const payload = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error(payload.error || `Reference matching failed (${response.status})`);
+      target = payload.model;
+      mode = "reference-match";
+    } else {
+      target = {
+        id: `pending-${Date.now()}`,
+        title: "Image-only reconstruction",
+        format: "OBJ",
+        filename: "Generated after reconstruction",
+        size_bytes: null,
+        vertices: null,
+        triangles: null,
+      };
+    }
     uploadedReferenceModelId = target.id;
-    setReferenceUploadState(true, 100, "Four reference views ready");
+    setReferenceUploadState(true, 100, files.length === 4 ? "Four reference views ready" : "Reference matched");
     activateWorkspace("models");
-    selectModel(target, "image");
+    selectModel(target, mode);
   } catch (error) {
     window.dispatchEvent(new CustomEvent("model-inspector-error", { detail: error }));
   } finally {

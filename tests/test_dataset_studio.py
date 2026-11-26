@@ -835,7 +835,8 @@ class DatasetStudioApiTest(unittest.TestCase):
         self.assertIn("readReferenceImage", inspector_script)
         self.assertIn("detectPromptModel", inspector_script)
         self.assertIn('selectModel(target, "text")', inspector_script)
-        self.assertIn("files.length !== 4", inspector_script)
+        self.assertIn("[1, 4].includes(files.length)", inspector_script)
+        self.assertIn('fetch("/api/reference-match"', inspector_script)
         self.assertIn("classifyReferenceViews", inspector_script)
         self.assertIn('fetch("/api/reconstruct/image-to-3d"', inspector_script)
         self.assertIn("uploadedReferenceFiles", inspector_script)
@@ -923,12 +924,12 @@ class DatasetStudioApiTest(unittest.TestCase):
         script.close()
         page.close()
 
-    def test_showcase_exposes_four_models_and_downloads(self) -> None:
+    def test_showcase_exposes_five_models_and_downloads(self) -> None:
         response = self.client.get("/api/showcase-models")
         self.assertEqual(response.status_code, 200)
         models = response.get_json()["models"]
-        self.assertEqual([model["id"] for model in models], ["ring-1", "ring-2", "ring-3", "ring-4"])
-        self.assertEqual([model["format"] for model in models], ["OBJ", "OBJ", "OBJ", "OBJ"])
+        self.assertEqual([model["id"] for model in models], ["ring-1", "ring-2", "ring-3", "ring-4", "single-relief-1"])
+        self.assertTrue(all(model["format"] == "OBJ" for model in models))
         self.assertTrue(all(model["size_bytes"] > 0 for model in models))
         self.assertTrue(all(model["triangles"] > 0 for model in models))
 
@@ -950,6 +951,20 @@ class DatasetStudioApiTest(unittest.TestCase):
         response = self.client.post("/api/reconstruct/image-to-3d", data={})
         self.assertEqual(response.status_code, 400)
         self.assertIn("Front, Top, Left and Right", response.get_json()["error"])
+
+    def test_single_reference_matches_only_the_paired_relief_model(self) -> None:
+        reference = Path("dataset/Model Test/Ornamental Relief.jpeg")
+        with reference.open("rb") as handle:
+            response = self.client.post(
+                "/api/reference-match",
+                data={"reference": (handle, reference.name)},
+            )
+        self.assertEqual(response.status_code, 200)
+        payload = response.get_json()
+        self.assertEqual(payload["model"]["id"], "single-relief-1")
+        self.assertEqual(payload["match"]["output_provenance"], "paired_reference_model")
+        self.assertEqual(payload["match"]["capture_tier"], "A_exploratory")
+        self.assertFalse(payload["match"]["manufacturing_accuracy_validated"])
 
     def test_generated_model_route_fails_closed(self) -> None:
         invalid = self.client.get("/api/generated-models/not-a-job/model")

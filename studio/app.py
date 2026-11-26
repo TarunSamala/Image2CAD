@@ -6,6 +6,7 @@ import json
 import os
 from pathlib import Path
 import re
+from threading import Lock
 from uuid import uuid4
 
 import cv2
@@ -26,6 +27,24 @@ def create_app(repo_root: str | Path | None = None) -> Flask:
     repository = DatasetRepository(repo_root)
     app.config["DATASET_REPOSITORY"] = repository
     generated_root = repository.phase_root / "studio_image_to_3d"
+    depth_checkpoint = os.environ.get("IMAGE2CAD_DEPTH_ANYTHING_CHECKPOINT")
+    depth_device = os.environ.get("IMAGE2CAD_DEPTH_DEVICE", "cuda")
+    depth_infer = None
+    depth_lock = Lock()
+
+    def get_depth_infer():
+        nonlocal depth_infer
+        if not depth_checkpoint:
+            return None
+        with depth_lock:
+            if depth_infer is None:
+                from pipeline.infer_metric_depth_backend import load_depth_anything_v2
+
+                checkpoint = Path(depth_checkpoint).resolve()
+                if not checkpoint.is_file():
+                    raise DatasetError("Configured Depth Anything V2 checkpoint is unavailable")
+                depth_infer = load_depth_anything_v2(checkpoint, depth_device)
+        return depth_infer
 
     @app.get("/")
     def index():
@@ -58,6 +77,49 @@ def create_app(repo_root: str | Path | None = None) -> Flask:
             path,
             as_attachment=kind == "model" and request.args.get("download") == "1",
             conditional=True,
+        )
+
+    @app.post("/api/reference-match")
+    def reference_match():
+        upload = request.files.get("reference")
+        if upload is None:
+            raise DatasetError("A single reference image is required")
+        payload = upload.read()
+        decoded = cv2.imdecode(np.frombuffer(payload, dtype=np.uint8), cv2.IMREAD_COLOR)
+        if decoded is None:
+            raise DatasetError("The reference upload is not a valid image")
+
+        def difference_hash(image: np.ndarray) -> np.ndarray:
+            gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+            resized = cv2.resize(gray, (9, 8), interpolation=cv2.INTER_AREA)
+            return (resized[:, 1:] > resized[:, :-1]).reshape(-1)
+
+        uploaded_hash = difference_hash(decoded)
+        candidates = []
+        for model in repository.showcase_models():
+            preview = cv2.imread(
+                str(repository.showcase_asset(model["id"], "preview")),
+                cv2.IMREAD_COLOR,
+            )
+            distance = int(np.count_nonzero(uploaded_hash != difference_hash(preview)))
+            candidates.append((distance, model))
+        distance, model = min(candidates, key=lambda item: item[0])
+        if distance > 8:
+            raise AssetNotFoundError(
+                "No validated single-image model matches this reference"
+            )
+        return jsonify(
+            {
+                "model": model,
+                "match": {
+                    "method": "64_bit_difference_hash",
+                    "hamming_distance": distance,
+                    "confidence": round(1.0 - distance / 64.0, 6),
+                    "output_provenance": "paired_reference_model",
+                    "capture_tier": "A_exploratory",
+                    "manufacturing_accuracy_validated": False,
+                },
+            }
         )
 
     @app.post("/api/reconstruct/image-to-3d")
@@ -107,7 +169,30 @@ def create_app(repo_root: str | Path | None = None) -> Flask:
         except (FileNotFoundError, ValueError, RuntimeError) as exc:
             raise DatasetError(f"Image-only reconstruction failed: {exc}") from exc
 
-        proposal = record["proposal"]
+        selected_path = model_path
+        selected_record = record
+        refinement = {"attempted": False, "accepted": False}
+        infer_depth = get_depth_infer()
+        if infer_depth is not None:
+            from pipeline.refine_uploaded_multiview_depth import refine_uploaded_views
+
+            refined_path, refined_record_path = refine_uploaded_views(
+                image_paths,
+                job_root / "depth_refinement",
+                infer_depth,
+                resolution=256,
+            )
+            refined_record = json.loads(refined_record_path.read_text(encoding="utf-8"))
+            refinement = {
+                "attempted": True,
+                "accepted": refined_path is not None,
+                "record": refined_record,
+            }
+            if refined_path is not None:
+                selected_path = refined_path
+                selected_record = refined_record
+
+        proposal = selected_record["proposal"]
         return jsonify(
             {
                 "job_id": job_id,
@@ -115,15 +200,16 @@ def create_app(repo_root: str | Path | None = None) -> Flask:
                     "id": f"generated-{job_id}",
                     "title": "Generated image-only model",
                     "format": "OBJ",
-                    "filename": model_path.name,
-                    "size_bytes": model_path.stat().st_size,
+                    "filename": selected_path.name,
+                    "size_bytes": selected_path.stat().st_size,
                     "vertices": proposal["vertices"],
                     "triangles": proposal["faces"],
                     "watertight": proposal["watertight"],
                     "model_url": f"/api/generated-models/{job_id}/model",
                     "download_url": f"/api/generated-models/{job_id}/model?download=1",
                 },
-                "claims": record["claims"],
+                "claims": selected_record["claims"],
+                "depth_refinement": refinement,
             }
         )
 
@@ -131,12 +217,10 @@ def create_app(repo_root: str | Path | None = None) -> Flask:
     def generated_model(job_id: str):
         if re.fullmatch(r"[0-9a-f]{32}", job_id) is None:
             raise AssetNotFoundError("Unknown generated model")
-        path = (
-            generated_root
-            / job_id
-            / "reconstruction"
-            / "image_only_proposal.obj"
-        ).resolve()
+        job_root = generated_root / job_id
+        refined = job_root / "depth_refinement" / "image_depth_relief_proposal.obj"
+        baseline = job_root / "reconstruction" / "image_only_proposal.obj"
+        path = (refined if refined.is_file() else baseline).resolve()
         if generated_root.resolve() not in path.parents or not path.is_file():
             raise AssetNotFoundError("Unknown generated model")
         return send_file(
