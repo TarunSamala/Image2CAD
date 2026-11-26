@@ -1,0 +1,182 @@
+{
+  "object_id": "ring_005",
+  "split": "train",
+  "input_view_count": {
+    "triposr": 1,
+    "visual_hull": 4
+  },
+  "evaluation_camera": {
+    "azimuth": 60,
+    "elevation": 40
+  },
+  "candidate_sha256": "a7d81749f21125be7785c0dcca39991637946e30d09ae5fa437c4cb78e323498",
+  "angled_reference_sha256": "bc40926663acf1a326557f13913b9e4972d2b21c48d7bbe6246225fe402785df",
+  "triposr_alignment": {
+    "method": "24_axis_hypotheses_plus_trimmed_point_to_point_icp",
+    "iterations": 30,
+    "mean_distance_history": [
+      0.1101119,
+      0.10536874,
+      0.10258585,
+      0.10120385,
+      0.10077204,
+      0.10081134,
+      0.10101846,
+      0.10127056,
+      0.10151087,
+      0.10168737,
+      0.10181573,
+      0.10192471,
+      0.10198674,
+      0.10202985,
+      0.1020686,
+      0.10210167,
+      0.10213532,
+      0.10216394,
+      0.102182,
+      0.10217078,
+      0.10217573,
+      0.10218061,
+      0.10218968,
+      0.10219389,
+      0.10219065,
+      0.10219328,
+      0.10219712,
+      0.1022016,
+      0.10220456,
+      0.10221161
+    ],
+    "rotation_source_to_target": [
+      [
+        0.1036434737,
+        -0.0449998782,
+        -0.9935960151
+      ],
+      [
+        0.1724197771,
+        -0.9830382928,
+        0.0625070825
+      ],
+      [
+        -0.9795557416,
+        -0.1777940546,
+        -0.0941266345
+      ]
+    ],
+    "source_center": [
+      -0.012965258547095931,
+      0.0019866568021515707,
+      0.0007821370947281581
+    ],
+    "source_extent": 1.003187181165439,
+    "normalized_translation": [
+      -0.008932461116539276,
+      -0.1318927228487348,
+      0.0004620585464478506
+    ]
+  },
+  "alignment_reference": "dataset/phase_runs/v1/stl1_four_view_holdout_v1/ring_005/four_view_proposal.obj",
+  "paired_obj": {
+    "path": "dataset/STL-1/Ring 5/R5.obj",
+    "role": "secondary generated comparison mesh"
+  },
+  "metrics": {
+    "visual_hull": {
+      "angled": {
+        "silhouette_iou": 0.68969,
+        "boundary_f1_2px": 0.238432,
+        "enclosed_openings_largest_first": [
+          {
+            "target_area_px": 6001,
+            "projected_empty_fraction": 0.776871
+          },
+          {
+            "target_area_px": 24,
+            "projected_empty_fraction": 0.0
+          },
+          {
+            "target_area_px": 24,
+            "projected_empty_fraction": 0.0
+          }
+        ]
+      },
+      "faces": 48896,
+      "head_side_iou": 0.826569,
+      "shank_side_iou": 0.481071,
+      "watertight": true,
+      "connected_bodies": 1,
+      "paired_obj_agreement": {
+        "chamfer_l1_normalized": 0.04122096,
+        "predicted_to_target_mean": 0.02097393,
+        "target_to_predicted_mean": 0.02024704,
+        "hausdorff_95_normalized": 0.06827424,
+        "surface_f_scores": {
+          "1pct": {
+            "precision": 0.36635,
+            "recall": 0.29,
+            "f_score": 0.323734
+          },
+          "2pct": {
+            "precision": 0.6464,
+            "recall": 0.5736,
+            "f_score": 0.607828
+          },
+          "5pct": {
+            "precision": 0.921,
+            "recall": 0.95745,
+            "f_score": 0.938871
+          }
+        }
+      }
+    },
+    "triposr": {
+      "angled": {
+        "silhouette_iou": 0.572659,
+        "boundary_f1_2px": 0.137784,
+        "enclosed_openings_largest_first": [
+          {
+            "target_area_px": 6001,
+            "projected_empty_fraction": 0.0
+          },
+          {
+            "target_area_px": 24,
+            "projected_empty_fraction": 0.0
+          },
+          {
+            "target_area_px": 24,
+            "projected_empty_fraction": 0.0
+          }
+        ]
+      },
+      "faces": 125116,
+      "head_side_iou": 0.751092,
+      "shank_side_iou": 0.388996,
+      "watertight": true,
+      "connected_bodies": 49,
+      "paired_obj_agreement": {
+        "chamfer_l1_normalized": 0.20214749,
+        "predicted_to_target_mean": 0.12863976,
+        "target_to_predicted_mean": 0.07350772,
+        "hausdorff_95_normalized": 0.31235414,
+        "surface_f_scores": {
+          "1pct": {
+            "precision": 0.021,
+            "recall": 0.02845,
+            "f_score": 0.024164
+          },
+          "2pct": {
+            "precision": 0.0457,
+            "recall": 0.08035,
+            "f_score": 0.058263
+          },
+          "5pct": {
+            "precision": 0.1624,
+            "recall": 0.2883,
+            "f_score": 0.207765
+          }
+        }
+      }
+    }
+  },
+  "preview": "dataset/phase_runs/v1/stl1_triposr_pilot_v1/ring_005/shape_comparison.png"
+}
