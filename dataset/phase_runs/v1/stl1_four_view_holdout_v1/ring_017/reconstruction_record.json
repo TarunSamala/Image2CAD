@@ -1,0 +1,141 @@
+{
+  "schema_version": "image2cad_image_only_reconstruction_v1",
+  "created_at": "2026-11-26T14:14:06.826537+00:00",
+  "stage": "reconstruction",
+  "input_contract": "four_images_only",
+  "source_images": {
+    "front": {
+      "path": "/workspace/dataset/prepared_v1/images/ring_017/front.png",
+      "sha256": "2232e135cf691bca264072da453df1da2775d318f3ef19cdc65e16d902e69f1c"
+    },
+    "lsv": {
+      "path": "/workspace/dataset/prepared_v1/images/ring_017/lsv.png",
+      "sha256": "87c3c6e1df0fbf94b55cc05709ced983d08af8fab0c53ceb2c2766a6fc04e1bf"
+    },
+    "rsv": {
+      "path": "/workspace/dataset/prepared_v1/images/ring_017/rsv.png",
+      "sha256": "7ab51d764246699937f6cf33803670653a0efd99e31a5922fc3d13c8dbcd1c3f"
+    },
+    "top": {
+      "path": "/workspace/dataset/prepared_v1/images/ring_017/top.png",
+      "sha256": "2a78afe091488ce2bd97a1cc5eb7a5c59dc3a5ab3ce42bac579afe5a8afea6f9"
+    }
+  },
+  "ground_truth_accessed": false,
+  "ground_truth_path_recorded": false,
+  "reconstruction_method": "four_view_silhouette_visual_hull",
+  "resolution": 128,
+  "side_candidate": "union",
+  "mask_extraction": {
+    "front": {
+      "image_size_wh": [
+        768,
+        768
+      ],
+      "background_bgr": [
+        182.0,
+        173.0,
+        167.0
+      ],
+      "distance_threshold": 90.0,
+      "mask_occupancy": 0.2727593,
+      "retained_components": 1,
+      "mask_path": "dataset/phase_runs/v1/stl1_four_view_holdout_v1/ring_017/masks/front.png"
+    },
+    "lsv": {
+      "image_size_wh": [
+        768,
+        768
+      ],
+      "background_bgr": [
+        182.0,
+        173.0,
+        167.0
+      ],
+      "distance_threshold": 88.0,
+      "mask_occupancy": 0.1552192,
+      "retained_components": 1,
+      "mask_path": "dataset/phase_runs/v1/stl1_four_view_holdout_v1/ring_017/masks/lsv.png"
+    },
+    "rsv": {
+      "image_size_wh": [
+        768,
+        768
+      ],
+      "background_bgr": [
+        182.0,
+        173.0,
+        167.0
+      ],
+      "distance_threshold": 75.0,
+      "mask_occupancy": 0.1547411,
+      "retained_components": 1,
+      "mask_path": "dataset/phase_runs/v1/stl1_four_view_holdout_v1/ring_017/masks/rsv.png"
+    },
+    "top": {
+      "image_size_wh": [
+        768,
+        768
+      ],
+      "background_bgr": [
+        182.0,
+        173.0,
+        167.0
+      ],
+      "distance_threshold": 84.0,
+      "mask_occupancy": 0.1399061,
+      "retained_components": 1,
+      "mask_path": "dataset/phase_runs/v1/stl1_four_view_holdout_v1/ring_017/masks/top.png"
+    }
+  },
+  "metric_depth_input_manifest": "dataset/phase_runs/v1/stl1_four_view_holdout_v1/ring_017/metric_depth_input_manifest.json",
+  "fit": {
+    "selection_objective": 0.977193,
+    "candidate_objectives": {
+      "intersection": 0.976081,
+      "union": 0.977193,
+      "left": 0.977103,
+      "mirrored_right": 0.97656
+    },
+    "selected_projection_iou": {
+      "front": 0.997346,
+      "top": 0.991686,
+      "lsv": 0.961744,
+      "rsv": 0.957995
+    },
+    "axis_alignment": {
+      "method": "least_squares_shared_axis_scale_v1",
+      "warp_scales_input_px_to_voxel": {
+        "front": 0.19943964,
+        "top": 0.20540679,
+        "lsv": 0.21428571,
+        "rsv": 0.21428571
+      },
+      "relative_view_scales": {
+        "front": 0.96680372,
+        "top": 0.99573009,
+        "side": 1.03877157
+      },
+      "log_constraint_residual": 0.00492818,
+      "calibrated": false
+    }
+  },
+  "proposal": {
+    "path": "dataset/phase_runs/v1/stl1_four_view_holdout_v1/ring_017/four_view_proposal.obj",
+    "sha256": "adb115216ffa8ebb23ba8339ddead626e1644ed6e106072fec67091415dad707",
+    "vertices": 39088,
+    "faces": 78244,
+    "watertight": true,
+    "extents_non_metric": [
+      39.130432,
+      49.999998,
+      46.95652
+    ]
+  },
+  "claims": {
+    "independent_image_to_3d_proposal": true,
+    "metric_scale_recovered": false,
+    "fine_relief_recovered": false,
+    "manufacturing_accuracy_validated": false
+  }
+}

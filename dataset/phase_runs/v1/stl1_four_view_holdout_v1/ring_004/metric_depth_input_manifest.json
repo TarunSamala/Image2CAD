@@ -1,0 +1,62 @@
+{
+  "schema_version": "image2cad_metric_depth_consensus_input_v1",
+  "created_at_utc": "2026-11-26T14:14:14.172898+00:00",
+  "execution_profile": "image_only_four_view",
+  "measurement_contract": "model_hypothesis_only_no_physical_scale",
+  "object_count": 1,
+  "sample_count": 4,
+  "selected_objects": [
+    "ring_004"
+  ],
+  "selection_reason": "four-view image-only reconstruction",
+  "samples": [
+    {
+      "sample_key": "ring_004:front",
+      "dataset": "STL-1",
+      "object_id": "ring_004",
+      "split": "blind_benchmark",
+      "view": "front",
+      "image_path": "dataset/prepared_v1/images/ring_004/front.png",
+      "mask_path": "dataset/phase_runs/v1/stl1_four_view_holdout_v1/ring_004/masks/front.png",
+      "source_sha256": "028fc8d1e7eea4a4d3ed507a4fb9a9dc78b5a94a7c863a91639d5e6dc95c3e30",
+      "physical_scale": null,
+      "camera_calibrated": false
+    },
+    {
+      "sample_key": "ring_004:lsv",
+      "dataset": "STL-1",
+      "object_id": "ring_004",
+      "split": "blind_benchmark",
+      "view": "lsv",
+      "image_path": "dataset/prepared_v1/images/ring_004/lsv.png",
+      "mask_path": "dataset/phase_runs/v1/stl1_four_view_holdout_v1/ring_004/masks/lsv.png",
+      "source_sha256": "1316e5e81c1747778ada5691c9b5a30ed84e6855f2adfd089f41ecae5338bad7",
+      "physical_scale": null,
+      "camera_calibrated": false
+    },
+    {
+      "sample_key": "ring_004:rsv",
+      "dataset": "STL-1",
+      "object_id": "ring_004",
+      "split": "blind_benchmark",
+      "view": "rsv",
+      "image_path": "dataset/prepared_v1/images/ring_004/rsv.png",
+      "mask_path": "dataset/phase_runs/v1/stl1_four_view_holdout_v1/ring_004/masks/rsv.png",
+      "source_sha256": "cb663aee7952a44d9435a18ffb15b7aaff74d83a252e6c820c36ccc6edaa3c0b",
+      "physical_scale": null,
+      "camera_calibrated": false
+    },
+    {
+      "sample_key": "ring_004:top",
+      "dataset": "STL-1",
+      "object_id": "ring_004",
+      "split": "blind_benchmark",
+      "view": "top",
+      "image_path": "dataset/prepared_v1/images/ring_004/top.png",
+      "mask_path": "dataset/phase_runs/v1/stl1_four_view_holdout_v1/ring_004/masks/top.png",
+      "source_sha256": "ddf4c248bf394d310d51de018d8b71d20f8d62f68f3aeb85842ebcd32ff18612",
+      "physical_scale": null,
+      "camera_calibrated": false
+    }
+  ]
+}

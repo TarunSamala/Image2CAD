@@ -1,0 +1,61 @@
+{
+  "object_id": "ring_024",
+  "split": "train",
+  "iso_path": "dataset/prepared_v1/images/ring_024/iso.png",
+  "iso_sha256": "c101c412d85e30de3bf41c9f2b2b70a251174cfd001109e76da68bf81f7637fe",
+  "generation_record": "dataset/phase_runs/v1/stl1_four_view_holdout_v1/ring_024/reconstruction_record.json",
+  "mesh": "dataset/phase_runs/v1/stl1_four_view_holdout_v1/ring_024/four_view_proposal.obj",
+  "preview": "dataset/phase_runs/v1/stl1_four_view_holdout_v1/ring_024/angled_comparison.png",
+  "input_view_iou": {
+    "front": 0.987019,
+    "top": 0.94964,
+    "lsv": 0.892171,
+    "rsv": 0.859954
+  },
+  "watertight": true,
+  "bodies": 1,
+  "four_view": {
+    "silhouette_iou": 0.670628,
+    "boundary_f1_2px": 0.35682,
+    "enclosed_openings_largest_first": [
+      {
+        "target_area_px": 8374,
+        "projected_empty_fraction": 0.868999
+      },
+      {
+        "target_area_px": 104,
+        "projected_empty_fraction": 0.0
+      },
+      {
+        "target_area_px": 21,
+        "projected_empty_fraction": 0.0
+      },
+      {
+        "target_area_px": 17,
+        "projected_empty_fraction": 0.0
+      }
+    ]
+  },
+  "archived_hull": {
+    "silhouette_iou": 0.665276,
+    "boundary_f1_2px": 0.321427,
+    "enclosed_openings_largest_first": [
+      {
+        "target_area_px": 8374,
+        "projected_empty_fraction": 0.831741
+      },
+      {
+        "target_area_px": 104,
+        "projected_empty_fraction": 0.0
+      },
+      {
+        "target_area_px": 21,
+        "projected_empty_fraction": 0.0
+      },
+      {
+        "target_area_px": 17,
+        "projected_empty_fraction": 0.0
+      }
+    ]
+  }
+}

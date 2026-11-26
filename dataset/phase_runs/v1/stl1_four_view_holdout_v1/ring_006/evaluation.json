@@ -1,0 +1,85 @@
+{
+  "object_id": "ring_006",
+  "split": "train",
+  "iso_path": "dataset/prepared_v1/images/ring_006/iso.png",
+  "iso_sha256": "f52218818739e8e6682794dcf38599e50403b7a40cab22f5e85535e0c5a2ddad",
+  "generation_record": "dataset/phase_runs/v1/stl1_four_view_holdout_v1/ring_006/reconstruction_record.json",
+  "mesh": "dataset/phase_runs/v1/stl1_four_view_holdout_v1/ring_006/four_view_proposal.obj",
+  "preview": "dataset/phase_runs/v1/stl1_four_view_holdout_v1/ring_006/angled_comparison.png",
+  "input_view_iou": {
+    "front": 0.996464,
+    "top": 0.98968,
+    "lsv": 0.96909,
+    "rsv": 0.8992
+  },
+  "watertight": true,
+  "bodies": 2,
+  "four_view": {
+    "silhouette_iou": 0.698231,
+    "boundary_f1_2px": 0.26382,
+    "enclosed_openings_largest_first": [
+      {
+        "target_area_px": 5111,
+        "projected_empty_fraction": 0.781452
+      },
+      {
+        "target_area_px": 326,
+        "projected_empty_fraction": 0.0
+      },
+      {
+        "target_area_px": 43,
+        "projected_empty_fraction": 1.0
+      },
+      {
+        "target_area_px": 38,
+        "projected_empty_fraction": 0.052632
+      },
+      {
+        "target_area_px": 35,
+        "projected_empty_fraction": 0.0
+      },
+      {
+        "target_area_px": 28,
+        "projected_empty_fraction": 0.142857
+      },
+      {
+        "target_area_px": 16,
+        "projected_empty_fraction": 0.0
+      }
+    ]
+  },
+  "archived_hull": {
+    "silhouette_iou": 0.6953,
+    "boundary_f1_2px": 0.258281,
+    "enclosed_openings_largest_first": [
+      {
+        "target_area_px": 5111,
+        "projected_empty_fraction": 0.75993
+      },
+      {
+        "target_area_px": 326,
+        "projected_empty_fraction": 0.0
+      },
+      {
+        "target_area_px": 43,
+        "projected_empty_fraction": 1.0
+      },
+      {
+        "target_area_px": 38,
+        "projected_empty_fraction": 0.0
+      },
+      {
+        "target_area_px": 35,
+        "projected_empty_fraction": 0.0
+      },
+      {
+        "target_area_px": 28,
+        "projected_empty_fraction": 0.0
+      },
+      {
+        "target_area_px": 16,
+        "projected_empty_fraction": 0.0
+      }
+    ]
+  }
+}

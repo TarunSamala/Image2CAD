@@ -1,0 +1,141 @@
+{
+  "schema_version": "image2cad_image_only_reconstruction_v1",
+  "created_at": "2026-11-26T14:14:08.335935+00:00",
+  "stage": "reconstruction",
+  "input_contract": "four_images_only",
+  "source_images": {
+    "front": {
+      "path": "/workspace/dataset/prepared_v1/images/ring_018/front.png",
+      "sha256": "71fcbd25523dfa78386daf61ba26d851ce60fceebeba24707a2eab1f0d50e90f"
+    },
+    "lsv": {
+      "path": "/workspace/dataset/prepared_v1/images/ring_018/lsv.png",
+      "sha256": "4819497e317deb79e1e8a766424389ac97b671fecea08a725287924d8244fc6e"
+    },
+    "rsv": {
+      "path": "/workspace/dataset/prepared_v1/images/ring_018/rsv.png",
+      "sha256": "5f547518d168ba879ee2fa0cada1135a0cda3063ba5bf7ab45b0bc9e6ae69b7b"
+    },
+    "top": {
+      "path": "/workspace/dataset/prepared_v1/images/ring_018/top.png",
+      "sha256": "50c9a9e2224e6078c45055fab20ad7760ee7c1436b546762d8767313f05ab6ab"
+    }
+  },
+  "ground_truth_accessed": false,
+  "ground_truth_path_recorded": false,
+  "reconstruction_method": "four_view_silhouette_visual_hull",
+  "resolution": 128,
+  "side_candidate": "union",
+  "mask_extraction": {
+    "front": {
+      "image_size_wh": [
+        768,
+        768
+      ],
+      "background_bgr": [
+        182.0,
+        173.0,
+        167.0
+      ],
+      "distance_threshold": 88.0,
+      "mask_occupancy": 0.3356866,
+      "retained_components": 1,
+      "mask_path": "dataset/phase_runs/v1/stl1_four_view_holdout_v1/ring_018/masks/front.png"
+    },
+    "lsv": {
+      "image_size_wh": [
+        768,
+        768
+      ],
+      "background_bgr": [
+        182.0,
+        173.0,
+        167.0
+      ],
+      "distance_threshold": 88.0,
+      "mask_occupancy": 0.1172774,
+      "retained_components": 1,
+      "mask_path": "dataset/phase_runs/v1/stl1_four_view_holdout_v1/ring_018/masks/lsv.png"
+    },
+    "rsv": {
+      "image_size_wh": [
+        768,
+        768
+      ],
+      "background_bgr": [
+        182.0,
+        173.0,
+        167.0
+      ],
+      "distance_threshold": 75.0,
+      "mask_occupancy": 0.1166399,
+      "retained_components": 1,
+      "mask_path": "dataset/phase_runs/v1/stl1_four_view_holdout_v1/ring_018/masks/rsv.png"
+    },
+    "top": {
+      "image_size_wh": [
+        768,
+        768
+      ],
+      "background_bgr": [
+        182.0,
+        173.0,
+        167.0
+      ],
+      "distance_threshold": 85.0,
+      "mask_occupancy": 0.121187,
+      "retained_components": 1,
+      "mask_path": "dataset/phase_runs/v1/stl1_four_view_holdout_v1/ring_018/masks/top.png"
+    }
+  },
+  "metric_depth_input_manifest": "dataset/phase_runs/v1/stl1_four_view_holdout_v1/ring_018/metric_depth_input_manifest.json",
+  "fit": {
+    "selection_objective": 0.966972,
+    "candidate_objectives": {
+      "intersection": 0.96555,
+      "union": 0.966972,
+      "left": 0.966947,
+      "mirrored_right": 0.966937
+    },
+    "selected_projection_iou": {
+      "front": 0.998744,
+      "top": 0.97532,
+      "lsv": 0.946455,
+      "rsv": 0.947368
+    },
+    "axis_alignment": {
+      "method": "least_squares_shared_axis_scale_v1",
+      "warp_scales_input_px_to_voxel": {
+        "front": 0.14170642,
+        "top": 0.21070344,
+        "lsv": 0.21428571,
+        "rsv": 0.21428571
+      },
+      "relative_view_scales": {
+        "front": 0.76331666,
+        "top": 1.13497641,
+        "side": 1.15427269
+      },
+      "log_constraint_residual": 0.00076467,
+      "calibrated": false
+    }
+  },
+  "proposal": {
+    "path": "dataset/phase_runs/v1/stl1_four_view_holdout_v1/ring_018/four_view_proposal.obj",
+    "sha256": "753c2c4343f26f99d9508401c776deb08e1b2d4af5d57540c02d0f623f564e53",
+    "vertices": 27158,
+    "faces": 54332,
+    "watertight": true,
+    "extents_non_metric": [
+      33.05085,
+      50.0,
+      32.203392
+    ]
+  },
+  "claims": {
+    "independent_image_to_3d_proposal": true,
+    "metric_scale_recovered": false,
+    "fine_relief_recovered": false,
+    "manufacturing_accuracy_validated": false
+  }
+}

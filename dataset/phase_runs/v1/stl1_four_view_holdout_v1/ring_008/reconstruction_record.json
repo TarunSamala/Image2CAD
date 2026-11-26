@@ -1,0 +1,141 @@
+{
+  "schema_version": "image2cad_image_only_reconstruction_v1",
+  "created_at": "2026-11-26T14:13:58.660894+00:00",
+  "stage": "reconstruction",
+  "input_contract": "four_images_only",
+  "source_images": {
+    "front": {
+      "path": "/workspace/dataset/prepared_v1/images/ring_008/front.png",
+      "sha256": "3750d312b2860fb99d588ac4b5cfd22dabefb12714dc828d75915716248697eb"
+    },
+    "lsv": {
+      "path": "/workspace/dataset/prepared_v1/images/ring_008/lsv.png",
+      "sha256": "7c6ec1a18420f8ebe652bda2634d746d53fcdb6eebb47618c74f8398a6e084e6"
+    },
+    "rsv": {
+      "path": "/workspace/dataset/prepared_v1/images/ring_008/rsv.png",
+      "sha256": "150bf01ab8ee887d6e2b48fc7c1c1e4bf489e77355a6d60593a9e34d18b3dce6"
+    },
+    "top": {
+      "path": "/workspace/dataset/prepared_v1/images/ring_008/top.png",
+      "sha256": "909d737ce4281c330589d5ee885e10113dab9e75d3c4cebee8a605fd97ba88e1"
+    }
+  },
+  "ground_truth_accessed": false,
+  "ground_truth_path_recorded": false,
+  "reconstruction_method": "four_view_silhouette_visual_hull",
+  "resolution": 128,
+  "side_candidate": "union",
+  "mask_extraction": {
+    "front": {
+      "image_size_wh": [
+        768,
+        768
+      ],
+      "background_bgr": [
+        182.0,
+        173.0,
+        167.0
+      ],
+      "distance_threshold": 90.0,
+      "mask_occupancy": 0.2887082,
+      "retained_components": 1,
+      "mask_path": "dataset/phase_runs/v1/stl1_four_view_holdout_v1/ring_008/masks/front.png"
+    },
+    "lsv": {
+      "image_size_wh": [
+        768,
+        768
+      ],
+      "background_bgr": [
+        182.0,
+        173.0,
+        167.0
+      ],
+      "distance_threshold": 87.0,
+      "mask_occupancy": 0.1435225,
+      "retained_components": 1,
+      "mask_path": "dataset/phase_runs/v1/stl1_four_view_holdout_v1/ring_008/masks/lsv.png"
+    },
+    "rsv": {
+      "image_size_wh": [
+        768,
+        768
+      ],
+      "background_bgr": [
+        182.0,
+        173.0,
+        167.0
+      ],
+      "distance_threshold": 75.0,
+      "mask_occupancy": 0.1497226,
+      "retained_components": 1,
+      "mask_path": "dataset/phase_runs/v1/stl1_four_view_holdout_v1/ring_008/masks/rsv.png"
+    },
+    "top": {
+      "image_size_wh": [
+        768,
+        768
+      ],
+      "background_bgr": [
+        182.0,
+        173.0,
+        167.0
+      ],
+      "distance_threshold": 87.0,
+      "mask_occupancy": 0.1511264,
+      "retained_components": 1,
+      "mask_path": "dataset/phase_runs/v1/stl1_four_view_holdout_v1/ring_008/masks/top.png"
+    }
+  },
+  "metric_depth_input_manifest": "dataset/phase_runs/v1/stl1_four_view_holdout_v1/ring_008/metric_depth_input_manifest.json",
+  "fit": {
+    "selection_objective": 0.964534,
+    "candidate_objectives": {
+      "intersection": 0.962468,
+      "union": 0.964534,
+      "left": 0.962523,
+      "mirrored_right": 0.96451
+    },
+    "selected_projection_iou": {
+      "front": 0.995264,
+      "top": 0.980738,
+      "lsv": 0.929388,
+      "rsv": 0.952744
+    },
+    "axis_alignment": {
+      "method": "least_squares_shared_axis_scale_v1",
+      "warp_scales_input_px_to_voxel": {
+        "front": 0.17259586,
+        "top": 0.20312059,
+        "lsv": 0.21428571,
+        "rsv": 0.21428571
+      },
+      "relative_view_scales": {
+        "front": 0.88126095,
+        "top": 1.03711784,
+        "side": 1.09412608
+      },
+      "log_constraint_residual": 0.00859009,
+      "calibrated": false
+    }
+  },
+  "proposal": {
+    "path": "dataset/phase_runs/v1/stl1_four_view_holdout_v1/ring_008/four_view_proposal.obj",
+    "sha256": "496b47817055c72a9a1bfbb634d2a8e47774098727b28e1289de259599cb9827",
+    "vertices": 35542,
+    "faces": 71152,
+    "watertight": true,
+    "extents_non_metric": [
+      42.477875,
+      50.0,
+      30.088495
+    ]
+  },
+  "claims": {
+    "independent_image_to_3d_proposal": true,
+    "metric_scale_recovered": false,
+    "fine_relief_recovered": false,
+    "manufacturing_accuracy_validated": false
+  }
+}

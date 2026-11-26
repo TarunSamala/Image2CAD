@@ -1,0 +1,141 @@
+{
+  "schema_version": "image2cad_image_only_reconstruction_v1",
+  "created_at": "2026-11-26T14:14:10.679885+00:00",
+  "stage": "reconstruction",
+  "input_contract": "four_images_only",
+  "source_images": {
+    "front": {
+      "path": "/workspace/dataset/prepared_v1/images/ring_021/front.png",
+      "sha256": "826d1d9db9af599cadc96b5a5aab0615869050dff075403681f4ee917b5226b1"
+    },
+    "lsv": {
+      "path": "/workspace/dataset/prepared_v1/images/ring_021/lsv.png",
+      "sha256": "fde0eb40e6a43e2d12d31c3ed11f8f302ff9585055457c6159405be03344d6b3"
+    },
+    "rsv": {
+      "path": "/workspace/dataset/prepared_v1/images/ring_021/rsv.png",
+      "sha256": "4d8d5ef12271c7128933b74fa99b737fe0c5d689ff26326b12e125fae8b2a8ff"
+    },
+    "top": {
+      "path": "/workspace/dataset/prepared_v1/images/ring_021/top.png",
+      "sha256": "28e76a5e74ca820bec512da45d8e6dff4b8be10cf7be61bc76110da3fc75fcfb"
+    }
+  },
+  "ground_truth_accessed": false,
+  "ground_truth_path_recorded": false,
+  "reconstruction_method": "four_view_silhouette_visual_hull",
+  "resolution": 128,
+  "side_candidate": "union",
+  "mask_extraction": {
+    "front": {
+      "image_size_wh": [
+        768,
+        768
+      ],
+      "background_bgr": [
+        182.0,
+        173.0,
+        167.0
+      ],
+      "distance_threshold": 87.0,
+      "mask_occupancy": 0.2770216,
+      "retained_components": 1,
+      "mask_path": "dataset/phase_runs/v1/stl1_four_view_holdout_v1/ring_021/masks/front.png"
+    },
+    "lsv": {
+      "image_size_wh": [
+        768,
+        768
+      ],
+      "background_bgr": [
+        182.0,
+        173.0,
+        167.0
+      ],
+      "distance_threshold": 90.0,
+      "mask_occupancy": 0.1308645,
+      "retained_components": 1,
+      "mask_path": "dataset/phase_runs/v1/stl1_four_view_holdout_v1/ring_021/masks/lsv.png"
+    },
+    "rsv": {
+      "image_size_wh": [
+        768,
+        768
+      ],
+      "background_bgr": [
+        182.0,
+        173.0,
+        167.0
+      ],
+      "distance_threshold": 71.0,
+      "mask_occupancy": 0.1265496,
+      "retained_components": 1,
+      "mask_path": "dataset/phase_runs/v1/stl1_four_view_holdout_v1/ring_021/masks/rsv.png"
+    },
+    "top": {
+      "image_size_wh": [
+        768,
+        768
+      ],
+      "background_bgr": [
+        182.0,
+        173.0,
+        167.0
+      ],
+      "distance_threshold": 86.0,
+      "mask_occupancy": 0.1214159,
+      "retained_components": 1,
+      "mask_path": "dataset/phase_runs/v1/stl1_four_view_holdout_v1/ring_021/masks/top.png"
+    }
+  },
+  "metric_depth_input_manifest": "dataset/phase_runs/v1/stl1_four_view_holdout_v1/ring_021/metric_depth_input_manifest.json",
+  "fit": {
+    "selection_objective": 0.958467,
+    "candidate_objectives": {
+      "intersection": 0.953035,
+      "union": 0.958467,
+      "left": 0.958149,
+      "mirrored_right": 0.956239
+    },
+    "selected_projection_iou": {
+      "front": 0.998298,
+      "top": 0.990151,
+      "lsv": 0.93297,
+      "rsv": 0.912449
+    },
+    "axis_alignment": {
+      "method": "least_squares_shared_axis_scale_v1",
+      "warp_scales_input_px_to_voxel": {
+        "front": 0.1696275,
+        "top": 0.20568458,
+        "lsv": 0.21428571,
+        "rsv": 0.21428571
+      },
+      "relative_view_scales": {
+        "front": 0.86749274,
+        "top": 1.05189243,
+        "side": 1.09587955
+      },
+      "log_constraint_residual": 0.00503474,
+      "calibrated": false
+    }
+  },
+  "proposal": {
+    "path": "dataset/phase_runs/v1/stl1_four_view_holdout_v1/ring_021/four_view_proposal.obj",
+    "sha256": "0ac4eca01b6585c9e850864c99ba8d88c4ee533ef8658edd97bc46470f252fd7",
+    "vertices": 32220,
+    "faces": 64448,
+    "watertight": true,
+    "extents_non_metric": [
+      36.206898,
+      50.0,
+      39.65517
+    ]
+  },
+  "claims": {
+    "independent_image_to_3d_proposal": true,
+    "metric_scale_recovered": false,
+    "fine_relief_recovered": false,
+    "manufacturing_accuracy_validated": false
+  }
+}

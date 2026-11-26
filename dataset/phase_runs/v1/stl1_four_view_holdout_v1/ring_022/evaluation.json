@@ -1,0 +1,37 @@
+{
+  "object_id": "ring_022",
+  "split": "train",
+  "iso_path": "dataset/prepared_v1/images/ring_022/iso.png",
+  "iso_sha256": "a2a28f926bbe48f093f76e1cc2f07a8de2c06c1cacb9154d2f86b0c494376bfe",
+  "generation_record": "dataset/phase_runs/v1/stl1_four_view_holdout_v1/ring_022/reconstruction_record.json",
+  "mesh": "dataset/phase_runs/v1/stl1_four_view_holdout_v1/ring_022/four_view_proposal.obj",
+  "preview": "dataset/phase_runs/v1/stl1_four_view_holdout_v1/ring_022/angled_comparison.png",
+  "input_view_iou": {
+    "front": 0.989824,
+    "top": 0.98103,
+    "lsv": 0.955142,
+    "rsv": 0.952828
+  },
+  "watertight": true,
+  "bodies": 1,
+  "four_view": {
+    "silhouette_iou": 0.706292,
+    "boundary_f1_2px": 0.188389,
+    "enclosed_openings_largest_first": [
+      {
+        "target_area_px": 2667,
+        "projected_empty_fraction": 0.785527
+      }
+    ]
+  },
+  "archived_hull": {
+    "silhouette_iou": 0.711132,
+    "boundary_f1_2px": 0.191375,
+    "enclosed_openings_largest_first": [
+      {
+        "target_area_px": 2667,
+        "projected_empty_fraction": 0.775028
+      }
+    ]
+  }
+}

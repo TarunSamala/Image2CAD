@@ -1,0 +1,69 @@
+{
+  "object_id": "ring_004",
+  "split": "val",
+  "iso_path": "dataset/prepared_v1/images/ring_004/iso.png",
+  "iso_sha256": "30753c14902b55caaf5216bd42c4e3fbc2213b93ac104627c39facb50d03dd4f",
+  "generation_record": "dataset/phase_runs/v1/stl1_four_view_holdout_v1/ring_004/reconstruction_record.json",
+  "mesh": "dataset/phase_runs/v1/stl1_four_view_holdout_v1/ring_004/four_view_proposal.obj",
+  "preview": "dataset/phase_runs/v1/stl1_four_view_holdout_v1/ring_004/angled_comparison.png",
+  "input_view_iou": {
+    "front": 0.995635,
+    "top": 0.990643,
+    "lsv": 0.886601,
+    "rsv": 0.875902
+  },
+  "watertight": true,
+  "bodies": 1,
+  "four_view": {
+    "silhouette_iou": 0.654518,
+    "boundary_f1_2px": 0.203456,
+    "enclosed_openings_largest_first": [
+      {
+        "target_area_px": 4707,
+        "projected_empty_fraction": 0.82218
+      },
+      {
+        "target_area_px": 21,
+        "projected_empty_fraction": 0.0
+      },
+      {
+        "target_area_px": 18,
+        "projected_empty_fraction": 0.666667
+      },
+      {
+        "target_area_px": 18,
+        "projected_empty_fraction": 0.0
+      },
+      {
+        "target_area_px": 18,
+        "projected_empty_fraction": 0.0
+      }
+    ]
+  },
+  "archived_hull": {
+    "silhouette_iou": 0.657678,
+    "boundary_f1_2px": 0.187115,
+    "enclosed_openings_largest_first": [
+      {
+        "target_area_px": 4707,
+        "projected_empty_fraction": 0.782877
+      },
+      {
+        "target_area_px": 21,
+        "projected_empty_fraction": 0.142857
+      },
+      {
+        "target_area_px": 18,
+        "projected_empty_fraction": 0.888889
+      },
+      {
+        "target_area_px": 18,
+        "projected_empty_fraction": 0.0
+      },
+      {
+        "target_area_px": 18,
+        "projected_empty_fraction": 0.0
+      }
+    ]
+  }
+}
