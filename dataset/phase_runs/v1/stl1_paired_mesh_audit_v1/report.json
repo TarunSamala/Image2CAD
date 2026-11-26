@@ -1,0 +1,1243 @@
+{
+  "schema_version": "image2cad_stl1_paired_mesh_audit_v1",
+  "created_at": "2026-11-26T08:16:25.111011+00:00",
+  "dataset": "STL-1",
+  "capture_tier": "A_exploratory",
+  "object_count": 24,
+  "mesh_count": 24,
+  "view_count": 120,
+  "splits": {
+    "train": 18,
+    "val": 3,
+    "test": 3
+  },
+  "checks": {
+    "exactly_24_objects": true,
+    "one_mesh_per_object": true,
+    "five_views_per_object": true,
+    "all_source_images_exist": true,
+    "all_vertices_finite": true,
+    "all_meshes_unique": true
+  },
+  "mesh_quality": {
+    "watertight_count": 0,
+    "volume_count": 0,
+    "single_component_count": 0,
+    "material_file_count": 0,
+    "duplicate_groups": []
+  },
+  "claim_policy": {
+    "allowed": [
+      "paired image-to-mesh benchmarking",
+      "normalized geometry comparison",
+      "pseudo-ground-truth training experiments"
+    ],
+    "forbidden": [
+      "manufacturing-accurate CAD ground truth",
+      "physical scale without a known dimension",
+      "hidden geometry correctness"
+    ]
+  },
+  "objects": [
+    {
+      "object_id": "ring_001",
+      "source_object_name": "Ring 1",
+      "split": "train",
+      "capture_tier": "A_exploratory",
+      "target_class": "online_generated_paired_mesh_pseudo_ground_truth",
+      "images": {
+        "count": 5,
+        "views": [
+          "front",
+          "iso",
+          "lsv",
+          "rsv",
+          "top"
+        ],
+        "all_source_paths_exist": true
+      },
+      "mesh": {
+        "path": "dataset/STL-1/Ring 1/R1.obj",
+        "sha256": "6ec9a49463637dea7e4fbc45845eeb510acbab8695deaa0c434aee6b99965513",
+        "size_bytes": 54950293,
+        "vertices": 495516,
+        "faces": 500000,
+        "finite_vertices": true,
+        "watertight": false,
+        "winding_consistent": true,
+        "is_volume": false,
+        "connected_components": 64063,
+        "euler_number": 62069,
+        "bounds": [
+          [
+            -0.791597,
+            0.0,
+            -0.949171
+          ],
+          [
+            0.791572,
+            1.223456,
+            0.949706
+          ]
+        ],
+        "extents": [
+          1.583169,
+          1.223456,
+          1.898877
+        ],
+        "units": null,
+        "material_file_declared": false
+      }
+    },
+    {
+      "object_id": "ring_002",
+      "source_object_name": "Ring 2",
+      "split": "train",
+      "capture_tier": "A_exploratory",
+      "target_class": "online_generated_paired_mesh_pseudo_ground_truth",
+      "images": {
+        "count": 5,
+        "views": [
+          "front",
+          "iso",
+          "lsv",
+          "rsv",
+          "top"
+        ],
+        "all_source_paths_exist": true
+      },
+      "mesh": {
+        "path": "dataset/STL-1/Ring 2/R2.obj",
+        "sha256": "08d41db58c65d5c833c4ebc2735081205a9253ca20f132496f5038e0186099f0",
+        "size_bytes": 54221194,
+        "vertices": 470599,
+        "faces": 500000,
+        "finite_vertices": true,
+        "watertight": false,
+        "winding_consistent": true,
+        "is_volume": false,
+        "connected_components": 54767,
+        "euler_number": 53156,
+        "bounds": [
+          [
+            -0.709037,
+            0.0,
+            -0.949253
+          ],
+          [
+            0.708857,
+            1.088126,
+            0.950416
+          ]
+        ],
+        "extents": [
+          1.417894,
+          1.088126,
+          1.899669
+        ],
+        "units": null,
+        "material_file_declared": false
+      }
+    },
+    {
+      "object_id": "ring_003",
+      "source_object_name": "Ring 3",
+      "split": "train",
+      "capture_tier": "A_exploratory",
+      "target_class": "online_generated_paired_mesh_pseudo_ground_truth",
+      "images": {
+        "count": 5,
+        "views": [
+          "front",
+          "iso",
+          "lsv",
+          "rsv",
+          "top"
+        ],
+        "all_source_paths_exist": true
+      },
+      "mesh": {
+        "path": "dataset/STL-1/Ring 3/R3.obj",
+        "sha256": "2f7092750c69c8895a2279aff679178d419b75efeaba6e3f20a6f24a51c48aa8",
+        "size_bytes": 53511693,
+        "vertices": 442103,
+        "faces": 500000,
+        "finite_vertices": true,
+        "watertight": false,
+        "winding_consistent": true,
+        "is_volume": false,
+        "connected_components": 46141,
+        "euler_number": 44470,
+        "bounds": [
+          [
+            -0.663611,
+            0.0,
+            -0.945823
+          ],
+          [
+            0.663248,
+            1.36814,
+            0.948101
+          ]
+        ],
+        "extents": [
+          1.326859,
+          1.36814,
+          1.893924
+        ],
+        "units": null,
+        "material_file_declared": false
+      }
+    },
+    {
+      "object_id": "ring_004",
+      "source_object_name": "Ring 4",
+      "split": "val",
+      "capture_tier": "A_exploratory",
+      "target_class": "online_generated_paired_mesh_pseudo_ground_truth",
+      "images": {
+        "count": 5,
+        "views": [
+          "front",
+          "iso",
+          "lsv",
+          "rsv",
+          "top"
+        ],
+        "all_source_paths_exist": true
+      },
+      "mesh": {
+        "path": "dataset/STL-1/Ring 4/R4.obj",
+        "sha256": "ccd1d0453872b6d336520a9bea9303b302ae0d9728b514ddace0453d6af27e21",
+        "size_bytes": 54213746,
+        "vertices": 455315,
+        "faces": 500000,
+        "finite_vertices": true,
+        "watertight": false,
+        "winding_consistent": true,
+        "is_volume": false,
+        "connected_components": 49189,
+        "euler_number": 46745,
+        "bounds": [
+          [
+            -0.799326,
+            0.0,
+            -0.947844
+          ],
+          [
+            0.799375,
+            1.005318,
+            0.949074
+          ]
+        ],
+        "extents": [
+          1.598701,
+          1.005318,
+          1.896918
+        ],
+        "units": null,
+        "material_file_declared": false
+      }
+    },
+    {
+      "object_id": "ring_005",
+      "source_object_name": "Ring 5",
+      "split": "train",
+      "capture_tier": "A_exploratory",
+      "target_class": "online_generated_paired_mesh_pseudo_ground_truth",
+      "images": {
+        "count": 5,
+        "views": [
+          "front",
+          "iso",
+          "lsv",
+          "rsv",
+          "top"
+        ],
+        "all_source_paths_exist": true
+      },
+      "mesh": {
+        "path": "dataset/STL-1/Ring 5/R5.obj",
+        "sha256": "b684fda0253e7dd78204f23028f8fd8083a7da1523b2aabbb0dd519e20d8a895",
+        "size_bytes": 53684759,
+        "vertices": 440990,
+        "faces": 500000,
+        "finite_vertices": true,
+        "watertight": false,
+        "winding_consistent": true,
+        "is_volume": false,
+        "connected_components": 46706,
+        "euler_number": 44501,
+        "bounds": [
+          [
+            -0.711479,
+            0.0,
+            -0.946204
+          ],
+          [
+            0.711554,
+            1.181703,
+            0.950219
+          ]
+        ],
+        "extents": [
+          1.423033,
+          1.181703,
+          1.896423
+        ],
+        "units": null,
+        "material_file_declared": false
+      }
+    },
+    {
+      "object_id": "ring_006",
+      "source_object_name": "Ring 6",
+      "split": "train",
+      "capture_tier": "A_exploratory",
+      "target_class": "online_generated_paired_mesh_pseudo_ground_truth",
+      "images": {
+        "count": 5,
+        "views": [
+          "front",
+          "iso",
+          "lsv",
+          "rsv",
+          "top"
+        ],
+        "all_source_paths_exist": true
+      },
+      "mesh": {
+        "path": "dataset/STL-1/Ring 6/R6.obj",
+        "sha256": "3bc5da38d1b132ba133e7cb505dbf45f3b68cb9f47a26d2cafc1ed910b079295",
+        "size_bytes": 54508453,
+        "vertices": 472808,
+        "faces": 500000,
+        "finite_vertices": true,
+        "watertight": false,
+        "winding_consistent": true,
+        "is_volume": false,
+        "connected_components": 57121,
+        "euler_number": 55488,
+        "bounds": [
+          [
+            -0.727416,
+            0.0,
+            -0.949294
+          ],
+          [
+            0.725306,
+            1.126998,
+            0.950461
+          ]
+        ],
+        "extents": [
+          1.452722,
+          1.126998,
+          1.899755
+        ],
+        "units": null,
+        "material_file_declared": false
+      }
+    },
+    {
+      "object_id": "ring_007",
+      "source_object_name": "Ring 7",
+      "split": "test",
+      "capture_tier": "A_exploratory",
+      "target_class": "online_generated_paired_mesh_pseudo_ground_truth",
+      "images": {
+        "count": 5,
+        "views": [
+          "front",
+          "iso",
+          "lsv",
+          "rsv",
+          "top"
+        ],
+        "all_source_paths_exist": true
+      },
+      "mesh": {
+        "path": "dataset/STL-1/Ring 7/R7.obj",
+        "sha256": "5784a109f4f9ac3b7a6e257dd040489c438e6e663a5febf33a22bf1cf069398d",
+        "size_bytes": 55271522,
+        "vertices": 487566,
+        "faces": 500000,
+        "finite_vertices": true,
+        "watertight": false,
+        "winding_consistent": true,
+        "is_volume": false,
+        "connected_components": 61252,
+        "euler_number": 58704,
+        "bounds": [
+          [
+            -0.665265,
+            0.0,
+            -0.949756
+          ],
+          [
+            0.665647,
+            1.617007,
+            0.951858
+          ]
+        ],
+        "extents": [
+          1.330912,
+          1.617007,
+          1.901614
+        ],
+        "units": null,
+        "material_file_declared": false
+      }
+    },
+    {
+      "object_id": "ring_008",
+      "source_object_name": "Ring 8",
+      "split": "train",
+      "capture_tier": "A_exploratory",
+      "target_class": "online_generated_paired_mesh_pseudo_ground_truth",
+      "images": {
+        "count": 5,
+        "views": [
+          "front",
+          "iso",
+          "lsv",
+          "rsv",
+          "top"
+        ],
+        "all_source_paths_exist": true
+      },
+      "mesh": {
+        "path": "dataset/STL-1/Ring 8/R8.obj",
+        "sha256": "1daf5b449924096b03cf8253957624a39786cb718a59f35d7c68fab94fd3c567",
+        "size_bytes": 54498236,
+        "vertices": 466227,
+        "faces": 500000,
+        "finite_vertices": true,
+        "watertight": false,
+        "winding_consistent": true,
+        "is_volume": false,
+        "connected_components": 53119,
+        "euler_number": 50853,
+        "bounds": [
+          [
+            -0.827622,
+            0.0,
+            -0.944065
+          ],
+          [
+            0.826142,
+            1.041818,
+            0.94832
+          ]
+        ],
+        "extents": [
+          1.653764,
+          1.041818,
+          1.892385
+        ],
+        "units": null,
+        "material_file_declared": false
+      }
+    },
+    {
+      "object_id": "ring_009",
+      "source_object_name": "Ring 9",
+      "split": "train",
+      "capture_tier": "A_exploratory",
+      "target_class": "online_generated_paired_mesh_pseudo_ground_truth",
+      "images": {
+        "count": 5,
+        "views": [
+          "front",
+          "iso",
+          "lsv",
+          "rsv",
+          "top"
+        ],
+        "all_source_paths_exist": true
+      },
+      "mesh": {
+        "path": "dataset/STL-1/Ring 9/R9.obj",
+        "sha256": "5a3c54161f893dc001ccf1aed0f63e8912d8a7b331f65e26fd7833380bd0bbf2",
+        "size_bytes": 54023993,
+        "vertices": 463969,
+        "faces": 500000,
+        "finite_vertices": true,
+        "watertight": false,
+        "winding_consistent": true,
+        "is_volume": false,
+        "connected_components": 52930,
+        "euler_number": 51021,
+        "bounds": [
+          [
+            -0.715731,
+            0.0,
+            -0.951016
+          ],
+          [
+            0.716983,
+            1.124696,
+            0.948193
+          ]
+        ],
+        "extents": [
+          1.432714,
+          1.124696,
+          1.899209
+        ],
+        "units": null,
+        "material_file_declared": false
+      }
+    },
+    {
+      "object_id": "ring_010",
+      "source_object_name": "Ring 10",
+      "split": "train",
+      "capture_tier": "A_exploratory",
+      "target_class": "online_generated_paired_mesh_pseudo_ground_truth",
+      "images": {
+        "count": 5,
+        "views": [
+          "front",
+          "iso",
+          "lsv",
+          "rsv",
+          "top"
+        ],
+        "all_source_paths_exist": true
+      },
+      "mesh": {
+        "path": "dataset/STL-1/Ring 10/R10.obj",
+        "sha256": "4f5e1b0c2ab4aa0f9d101f1afa087b1e850cf4d2e7bacc537890dee1b225fefc",
+        "size_bytes": 54910565,
+        "vertices": 502428,
+        "faces": 500000,
+        "finite_vertices": true,
+        "watertight": false,
+        "winding_consistent": true,
+        "is_volume": false,
+        "connected_components": 66095,
+        "euler_number": 64494,
+        "bounds": [
+          [
+            -0.679521,
+            0.0,
+            -0.951331
+          ],
+          [
+            0.679283,
+            1.520717,
+            0.95004
+          ]
+        ],
+        "extents": [
+          1.358804,
+          1.520717,
+          1.901371
+        ],
+        "units": null,
+        "material_file_declared": false
+      }
+    },
+    {
+      "object_id": "ring_011",
+      "source_object_name": "Ring 11",
+      "split": "train",
+      "capture_tier": "A_exploratory",
+      "target_class": "online_generated_paired_mesh_pseudo_ground_truth",
+      "images": {
+        "count": 5,
+        "views": [
+          "front",
+          "iso",
+          "lsv",
+          "rsv",
+          "top"
+        ],
+        "all_source_paths_exist": true
+      },
+      "mesh": {
+        "path": "dataset/STL-1/Ring 11/R11.obj",
+        "sha256": "6a625f02cdf68c718ee72e5ebf71bb67df9f3e2ef5a7cd7308444a03ee7b429b",
+        "size_bytes": 54557609,
+        "vertices": 474118,
+        "faces": 500000,
+        "finite_vertices": true,
+        "watertight": false,
+        "winding_consistent": true,
+        "is_volume": false,
+        "connected_components": 55300,
+        "euler_number": 52440,
+        "bounds": [
+          [
+            -0.685342,
+            0.0,
+            -0.946163
+          ],
+          [
+            0.685327,
+            1.271497,
+            0.944938
+          ]
+        ],
+        "extents": [
+          1.370669,
+          1.271497,
+          1.891101
+        ],
+        "units": null,
+        "material_file_declared": false
+      }
+    },
+    {
+      "object_id": "ring_012",
+      "source_object_name": "Ring 12",
+      "split": "val",
+      "capture_tier": "A_exploratory",
+      "target_class": "online_generated_paired_mesh_pseudo_ground_truth",
+      "images": {
+        "count": 5,
+        "views": [
+          "front",
+          "iso",
+          "lsv",
+          "rsv",
+          "top"
+        ],
+        "all_source_paths_exist": true
+      },
+      "mesh": {
+        "path": "dataset/STL-1/Ring 12/R12.obj",
+        "sha256": "9ccc6380a983292c555799be7dd78ab071176aca5f1398de3046a57055727cdc",
+        "size_bytes": 54328682,
+        "vertices": 471589,
+        "faces": 500000,
+        "finite_vertices": true,
+        "watertight": false,
+        "winding_consistent": true,
+        "is_volume": false,
+        "connected_components": 56696,
+        "euler_number": 54636,
+        "bounds": [
+          [
+            -0.739973,
+            0.0,
+            -0.952204
+          ],
+          [
+            0.739902,
+            1.392927,
+            0.952267
+          ]
+        ],
+        "extents": [
+          1.479875,
+          1.392927,
+          1.904471
+        ],
+        "units": null,
+        "material_file_declared": false
+      }
+    },
+    {
+      "object_id": "ring_013",
+      "source_object_name": "Ring 13",
+      "split": "train",
+      "capture_tier": "A_exploratory",
+      "target_class": "online_generated_paired_mesh_pseudo_ground_truth",
+      "images": {
+        "count": 5,
+        "views": [
+          "front",
+          "iso",
+          "lsv",
+          "rsv",
+          "top"
+        ],
+        "all_source_paths_exist": true
+      },
+      "mesh": {
+        "path": "dataset/STL-1/Ring 13/R13.obj",
+        "sha256": "3a54fbb153006efc61feb1f6d26f85f8a6b338ddc4845b5c76ddc02e113f5850",
+        "size_bytes": 53085335,
+        "vertices": 421910,
+        "faces": 500000,
+        "finite_vertices": true,
+        "watertight": false,
+        "winding_consistent": true,
+        "is_volume": false,
+        "connected_components": 39597,
+        "euler_number": 37032,
+        "bounds": [
+          [
+            -0.747829,
+            0.0,
+            -0.95112
+          ],
+          [
+            0.748809,
+            1.315747,
+            0.949913
+          ]
+        ],
+        "extents": [
+          1.496638,
+          1.315747,
+          1.901033
+        ],
+        "units": null,
+        "material_file_declared": false
+      }
+    },
+    {
+      "object_id": "ring_014",
+      "source_object_name": "Ring 14",
+      "split": "train",
+      "capture_tier": "A_exploratory",
+      "target_class": "online_generated_paired_mesh_pseudo_ground_truth",
+      "images": {
+        "count": 5,
+        "views": [
+          "front",
+          "iso",
+          "lsv",
+          "rsv",
+          "top"
+        ],
+        "all_source_paths_exist": true
+      },
+      "mesh": {
+        "path": "dataset/STL-1/Ring 14/R14.obj",
+        "sha256": "ccb3278c86393a7d21922eff93f3f3ed3f6efcb514e184192860c22ce43ff306",
+        "size_bytes": 53400242,
+        "vertices": 423456,
+        "faces": 500000,
+        "finite_vertices": true,
+        "watertight": false,
+        "winding_consistent": true,
+        "is_volume": false,
+        "connected_components": 41496,
+        "euler_number": 38968,
+        "bounds": [
+          [
+            -0.801947,
+            0.0,
+            -0.944381
+          ],
+          [
+            0.803931,
+            1.156923,
+            0.946835
+          ]
+        ],
+        "extents": [
+          1.605878,
+          1.156923,
+          1.891216
+        ],
+        "units": null,
+        "material_file_declared": false
+      }
+    },
+    {
+      "object_id": "ring_015",
+      "source_object_name": "Ring 15",
+      "split": "test",
+      "capture_tier": "A_exploratory",
+      "target_class": "online_generated_paired_mesh_pseudo_ground_truth",
+      "images": {
+        "count": 5,
+        "views": [
+          "front",
+          "iso",
+          "lsv",
+          "rsv",
+          "top"
+        ],
+        "all_source_paths_exist": true
+      },
+      "mesh": {
+        "path": "dataset/STL-1/Ring 15/R15.obj",
+        "sha256": "48c07f5ef184257bfaa7ed352bcf3fe60c1067abbe902107c6dc26e99760aafe",
+        "size_bytes": 54888379,
+        "vertices": 495266,
+        "faces": 500000,
+        "finite_vertices": true,
+        "watertight": false,
+        "winding_consistent": true,
+        "is_volume": false,
+        "connected_components": 63825,
+        "euler_number": 61566,
+        "bounds": [
+          [
+            -0.707718,
+            0.0,
+            -0.943379
+          ],
+          [
+            0.708068,
+            1.018284,
+            0.954105
+          ]
+        ],
+        "extents": [
+          1.415786,
+          1.018284,
+          1.897484
+        ],
+        "units": null,
+        "material_file_declared": false
+      }
+    },
+    {
+      "object_id": "ring_016",
+      "source_object_name": "Ring 16",
+      "split": "train",
+      "capture_tier": "A_exploratory",
+      "target_class": "online_generated_paired_mesh_pseudo_ground_truth",
+      "images": {
+        "count": 5,
+        "views": [
+          "front",
+          "iso",
+          "lsv",
+          "rsv",
+          "top"
+        ],
+        "all_source_paths_exist": true
+      },
+      "mesh": {
+        "path": "dataset/STL-1/Ring 16/R16.obj",
+        "sha256": "e1ed33e8c64b2ba7ffdfd26215800fbffe1d0c1484904c43e0470cee22678358",
+        "size_bytes": 54836603,
+        "vertices": 491635,
+        "faces": 500000,
+        "finite_vertices": true,
+        "watertight": false,
+        "winding_consistent": true,
+        "is_volume": false,
+        "connected_components": 59793,
+        "euler_number": 57946,
+        "bounds": [
+          [
+            -0.732329,
+            0.0,
+            -0.958455
+          ],
+          [
+            0.733498,
+            1.231766,
+            0.948117
+          ]
+        ],
+        "extents": [
+          1.465827,
+          1.231766,
+          1.906572
+        ],
+        "units": null,
+        "material_file_declared": false
+      }
+    },
+    {
+      "object_id": "ring_017",
+      "source_object_name": "Ring 17",
+      "split": "train",
+      "capture_tier": "A_exploratory",
+      "target_class": "online_generated_paired_mesh_pseudo_ground_truth",
+      "images": {
+        "count": 5,
+        "views": [
+          "front",
+          "iso",
+          "lsv",
+          "rsv",
+          "top"
+        ],
+        "all_source_paths_exist": true
+      },
+      "mesh": {
+        "path": "dataset/STL-1/Ring 17/R17.obj",
+        "sha256": "8cfc8614e028a2603abbcbe6d3ff6a30927d2902c1ae8a5a5a39861ee52c0099",
+        "size_bytes": 54338458,
+        "vertices": 473280,
+        "faces": 500000,
+        "finite_vertices": true,
+        "watertight": false,
+        "winding_consistent": true,
+        "is_volume": false,
+        "connected_components": 56574,
+        "euler_number": 54891,
+        "bounds": [
+          [
+            -0.746139,
+            0.0,
+            -0.952754
+          ],
+          [
+            0.746353,
+            1.700965,
+            0.949436
+          ]
+        ],
+        "extents": [
+          1.492492,
+          1.700965,
+          1.90219
+        ],
+        "units": null,
+        "material_file_declared": false
+      }
+    },
+    {
+      "object_id": "ring_018",
+      "source_object_name": "Ring 18",
+      "split": "train",
+      "capture_tier": "A_exploratory",
+      "target_class": "online_generated_paired_mesh_pseudo_ground_truth",
+      "images": {
+        "count": 5,
+        "views": [
+          "front",
+          "iso",
+          "lsv",
+          "rsv",
+          "top"
+        ],
+        "all_source_paths_exist": true
+      },
+      "mesh": {
+        "path": "dataset/STL-1/Ring 18/R18.obj",
+        "sha256": "825dc4668621c4427c00a6c2f9b29107c4b77ed3549e8b31754456e92fb01938",
+        "size_bytes": 53947499,
+        "vertices": 456682,
+        "faces": 500000,
+        "finite_vertices": true,
+        "watertight": false,
+        "winding_consistent": true,
+        "is_volume": false,
+        "connected_components": 50911,
+        "euler_number": 48867,
+        "bounds": [
+          [
+            -0.709429,
+            0.0,
+            -0.945485
+          ],
+          [
+            0.708597,
+            1.281646,
+            0.948919
+          ]
+        ],
+        "extents": [
+          1.418026,
+          1.281646,
+          1.894404
+        ],
+        "units": null,
+        "material_file_declared": false
+      }
+    },
+    {
+      "object_id": "ring_019",
+      "source_object_name": "Ring 19",
+      "split": "train",
+      "capture_tier": "A_exploratory",
+      "target_class": "online_generated_paired_mesh_pseudo_ground_truth",
+      "images": {
+        "count": 5,
+        "views": [
+          "front",
+          "iso",
+          "lsv",
+          "rsv",
+          "top"
+        ],
+        "all_source_paths_exist": true
+      },
+      "mesh": {
+        "path": "dataset/STL-1/Ring 19/R19.obj",
+        "sha256": "69f11bc766833d9a7794fde432f0bdcb89137a5dbb5641575fb3584894910628",
+        "size_bytes": 53391152,
+        "vertices": 429961,
+        "faces": 500000,
+        "finite_vertices": true,
+        "watertight": false,
+        "winding_consistent": true,
+        "is_volume": false,
+        "connected_components": 42449,
+        "euler_number": 40041,
+        "bounds": [
+          [
+            -0.751176,
+            0.0,
+            -0.947729
+          ],
+          [
+            0.751251,
+            1.139388,
+            0.9485
+          ]
+        ],
+        "extents": [
+          1.502427,
+          1.139388,
+          1.896229
+        ],
+        "units": null,
+        "material_file_declared": false
+      }
+    },
+    {
+      "object_id": "ring_020",
+      "source_object_name": "Ring 20",
+      "split": "val",
+      "capture_tier": "A_exploratory",
+      "target_class": "online_generated_paired_mesh_pseudo_ground_truth",
+      "images": {
+        "count": 5,
+        "views": [
+          "front",
+          "iso",
+          "lsv",
+          "rsv",
+          "top"
+        ],
+        "all_source_paths_exist": true
+      },
+      "mesh": {
+        "path": "dataset/STL-1/Ring 20/R20.obj",
+        "sha256": "a351ef5f2483426cfa9b4bf035b654be3a921dac690e6c2f08a9ffec75ba6800",
+        "size_bytes": 53478672,
+        "vertices": 444002,
+        "faces": 500000,
+        "finite_vertices": true,
+        "watertight": false,
+        "winding_consistent": true,
+        "is_volume": false,
+        "connected_components": 45920,
+        "euler_number": 43303,
+        "bounds": [
+          [
+            -0.661139,
+            0.0,
+            -0.956751
+          ],
+          [
+            0.660975,
+            1.245795,
+            0.953914
+          ]
+        ],
+        "extents": [
+          1.322114,
+          1.245795,
+          1.910665
+        ],
+        "units": null,
+        "material_file_declared": false
+      }
+    },
+    {
+      "object_id": "ring_021",
+      "source_object_name": "Ring 21",
+      "split": "train",
+      "capture_tier": "A_exploratory",
+      "target_class": "online_generated_paired_mesh_pseudo_ground_truth",
+      "images": {
+        "count": 5,
+        "views": [
+          "front",
+          "iso",
+          "lsv",
+          "rsv",
+          "top"
+        ],
+        "all_source_paths_exist": true
+      },
+      "mesh": {
+        "path": "dataset/STL-1/Ring 21/R21.obj",
+        "sha256": "a1190dc0bc1ebde14730c31a5e322c07ee53931b35cbccf38079e0ff47109aee",
+        "size_bytes": 53641032,
+        "vertices": 444814,
+        "faces": 500000,
+        "finite_vertices": true,
+        "watertight": false,
+        "winding_consistent": true,
+        "is_volume": false,
+        "connected_components": 47081,
+        "euler_number": 44789,
+        "bounds": [
+          [
+            -0.739461,
+            0.0,
+            -0.945074
+          ],
+          [
+            0.738264,
+            1.42991,
+            0.949487
+          ]
+        ],
+        "extents": [
+          1.477725,
+          1.42991,
+          1.894561
+        ],
+        "units": null,
+        "material_file_declared": false
+      }
+    },
+    {
+      "object_id": "ring_022",
+      "source_object_name": "Ring 22",
+      "split": "train",
+      "capture_tier": "A_exploratory",
+      "target_class": "online_generated_paired_mesh_pseudo_ground_truth",
+      "images": {
+        "count": 5,
+        "views": [
+          "front",
+          "iso",
+          "lsv",
+          "rsv",
+          "top"
+        ],
+        "all_source_paths_exist": true
+      },
+      "mesh": {
+        "path": "dataset/STL-1/Ring 22/R22.obj",
+        "sha256": "283c0641bc74808743facb917009fb850f72a540b4a2fc41ce22268f96e7c9c8",
+        "size_bytes": 54853530,
+        "vertices": 512404,
+        "faces": 500000,
+        "finite_vertices": true,
+        "watertight": false,
+        "winding_consistent": true,
+        "is_volume": false,
+        "connected_components": 66998,
+        "euler_number": 65305,
+        "bounds": [
+          [
+            -0.709505,
+            0.0,
+            -0.941258
+          ],
+          [
+            0.708869,
+            1.347189,
+            0.945543
+          ]
+        ],
+        "extents": [
+          1.418374,
+          1.347189,
+          1.886801
+        ],
+        "units": null,
+        "material_file_declared": false
+      }
+    },
+    {
+      "object_id": "ring_023",
+      "source_object_name": "Ring 23",
+      "split": "test",
+      "capture_tier": "A_exploratory",
+      "target_class": "online_generated_paired_mesh_pseudo_ground_truth",
+      "images": {
+        "count": 5,
+        "views": [
+          "front",
+          "iso",
+          "lsv",
+          "rsv",
+          "top"
+        ],
+        "all_source_paths_exist": true
+      },
+      "mesh": {
+        "path": "dataset/STL-1/Ring 23/R23.obj",
+        "sha256": "ef5c1583c94edb98f18433df2b73a1b26b2d92d6a4c46a8cded51f2d455ed2fa",
+        "size_bytes": 54079683,
+        "vertices": 463458,
+        "faces": 500000,
+        "finite_vertices": true,
+        "watertight": false,
+        "winding_consistent": true,
+        "is_volume": false,
+        "connected_components": 53532,
+        "euler_number": 51532,
+        "bounds": [
+          [
+            -0.67051,
+            0.0,
+            -0.949453
+          ],
+          [
+            0.670805,
+            1.161168,
+            0.955284
+          ]
+        ],
+        "extents": [
+          1.341315,
+          1.161168,
+          1.904737
+        ],
+        "units": null,
+        "material_file_declared": false
+      }
+    },
+    {
+      "object_id": "ring_024",
+      "source_object_name": "Ring 24",
+      "split": "train",
+      "capture_tier": "A_exploratory",
+      "target_class": "online_generated_paired_mesh_pseudo_ground_truth",
+      "images": {
+        "count": 5,
+        "views": [
+          "front",
+          "iso",
+          "lsv",
+          "rsv",
+          "top"
+        ],
+        "all_source_paths_exist": true
+      },
+      "mesh": {
+        "path": "dataset/STL-1/Ring 24/R24.obj",
+        "sha256": "b09cc36b46216b180c5e3424617ce9172bd79bb6db90208ab9af1431cf40d4c0",
+        "size_bytes": 52564797,
+        "vertices": 392869,
+        "faces": 500000,
+        "finite_vertices": true,
+        "watertight": false,
+        "winding_consistent": true,
+        "is_volume": false,
+        "connected_components": 30309,
+        "euler_number": 27636,
+        "bounds": [
+          [
+            -0.727823,
+            0.0,
+            -0.948889
+          ],
+          [
+            0.727957,
+            0.852704,
+            0.946835
+          ]
+        ],
+        "extents": [
+          1.45578,
+          0.852704,
+          1.895724
+        ],
+        "units": null,
+        "material_file_declared": false
+      }
+    }
+  ]
+}
