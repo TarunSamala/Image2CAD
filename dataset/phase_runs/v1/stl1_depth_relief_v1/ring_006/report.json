@@ -1,0 +1,188 @@
+{
+  "object_id": "ring_006",
+  "split": "train",
+  "prepared_image_sha256": {
+    "front": "87013c0216b4106192ca6277d4e02247f9701ab6c8e8bd7c495b393c8f6bac59",
+    "top": "fbec01b8d6aaff28e4a612f75dbed6c9868ffd157e0a9e93d3271ef3ccf8aded",
+    "lsv": "ad6f750c0128d8f42693d60ef0a9e1307f4fd7614ef52a219aace90c2ef28766",
+    "rsv": "3ea5d8ba70b3b7e61e652e2df2e421c7b38ae188199210ba558bd0d6a0834f3b"
+  },
+  "paired_target": {
+    "path": "dataset/STL-1/Ring 6/R6.obj",
+    "sha256": "3bc5da38d1b132ba133e7cb505dbf45f3b68cb9f47a26d2cafc1ed910b079295"
+  },
+  "archived_hull_checks": {
+    "side_consensus_matches": true,
+    "voxel_count_matches": true,
+    "projection_iou_matches": true
+  },
+  "depth": {
+    "front": {
+      "edge_agreement": 0.965973,
+      "eligible": true,
+      "operation": {
+        "view": "front",
+        "direction": "high",
+        "strength": 0.06,
+        "removed_voxels": 4632,
+        "affected_columns": 3002
+      }
+    },
+    "top": {
+      "edge_agreement": 0.994885,
+      "eligible": true,
+      "operation": {
+        "view": "top",
+        "direction": "high",
+        "strength": 0.06,
+        "removed_voxels": 844,
+        "affected_columns": 805
+      }
+    }
+  },
+  "removed_voxels": 5476,
+  "surface_metrics": {
+    "baseline": {
+      "chamfer_l1_normalized": 0.05066471,
+      "predicted_to_target_mean": 0.02992227,
+      "target_to_predicted_mean": 0.02074244,
+      "hausdorff_95_normalized": 0.10226657,
+      "surface_f_scores": {
+        "1pct": {
+          "precision": 0.26444,
+          "recall": 0.26348,
+          "f_score": 0.263959
+        },
+        "2pct": {
+          "precision": 0.4931,
+          "recall": 0.5498,
+          "f_score": 0.519909
+        },
+        "5pct": {
+          "precision": 0.83716,
+          "recall": 0.96188,
+          "f_score": 0.895197
+        }
+      },
+      "normal_consistency": {
+        "mean_absolute_cosine": 0.6088313,
+        "median_absolute_cosine": 0.6734908,
+        "fraction_above_0_90": 0.22064
+      }
+    },
+    "depth_relief": {
+      "chamfer_l1_normalized": 0.048354,
+      "predicted_to_target_mean": 0.02905339,
+      "target_to_predicted_mean": 0.01930062,
+      "hausdorff_95_normalized": 0.10293269,
+      "surface_f_scores": {
+        "1pct": {
+          "precision": 0.2942,
+          "recall": 0.291,
+          "f_score": 0.292591
+        },
+        "2pct": {
+          "precision": 0.52912,
+          "recall": 0.59478,
+          "f_score": 0.560032
+        },
+        "5pct": {
+          "precision": 0.8394,
+          "recall": 0.97118,
+          "f_score": 0.900494
+        }
+      },
+      "normal_consistency": {
+        "mean_absolute_cosine": 0.6036827,
+        "median_absolute_cosine": 0.6688628,
+        "fraction_above_0_90": 0.21774
+      }
+    }
+  },
+  "alignment": {
+    "method": "24_axis_hypotheses_plus_trimmed_point_to_point_icp",
+    "iterations": 29,
+    "mean_distance_history": [
+      0.0224625,
+      0.02202958,
+      0.02174937,
+      0.02159109,
+      0.0215014,
+      0.02144612,
+      0.02140995,
+      0.02138456,
+      0.02136522,
+      0.02135072,
+      0.02133957,
+      0.02133054,
+      0.02132387,
+      0.02131856,
+      0.02131439,
+      0.02131132,
+      0.02130917,
+      0.02130746,
+      0.02130601,
+      0.02130485,
+      0.02130383,
+      0.02130319,
+      0.02130265,
+      0.02130201,
+      0.02130154,
+      0.02130124,
+      0.02130104,
+      0.02130085,
+      0.02130078
+    ],
+    "rotation_source_to_target": [
+      [
+        0.9999924473,
+        2.79102e-05,
+        -0.0038864556
+      ],
+      [
+        -0.0038862289,
+        0.0201499118,
+        -0.999789417
+      ],
+      [
+        5.04074e-05,
+        0.9997969695,
+        0.0201498681
+      ]
+    ],
+    "translation_source_to_target": [
+      -0.00024304959448711102,
+      -0.011244881892781907,
+      -0.005799373695707701
+    ],
+    "voxel_extent": 114.0,
+    "target_extent_in_obj_units": 1.8997549999999999
+  },
+  "projection_iou": {
+    "baseline": {
+      "front": 0.996992,
+      "top": 0.984321,
+      "lsv": 0.97255,
+      "rsv": 0.90145
+    },
+    "depth_relief": {
+      "front": 0.99599,
+      "top": 0.972474,
+      "lsv": 0.944658,
+      "rsv": 0.876635
+    }
+  },
+  "mesh_quality": {
+    "baseline": {
+      "watertight": true,
+      "body_count": 1,
+      "euler_number": -26
+    },
+    "depth_relief": {
+      "watertight": true,
+      "body_count": 1,
+      "euler_number": -36
+    }
+  },
+  "preview": "dataset/phase_runs/v1/stl1_depth_relief_v1/ring_006/comparison.png"
+}
