@@ -1,0 +1,95 @@
+{
+  "object_id": "ring_014",
+  "split": "train",
+  "proposal": {
+    "path": "dataset/phase_runs/v1/phase3/visual_hull/ring_014/ring_014_phase3_visual_hull_non_metric.stl",
+    "sha256": "c716a8ee9482e6eb3b17a7910c569210a4d65af4fa4e3973f60ea972e6e37524",
+    "source": "phase3_non_metric_visual_hull"
+  },
+  "paired_target": {
+    "path": "dataset/STL-1/Ring 14/R14.obj",
+    "sha256": "ccb3278c86393a7d21922eff93f3f3ed3f6efcb514e184192860c22ce43ff306",
+    "class": "online_generated_mesh_pseudo_ground_truth"
+  },
+  "sampling": {
+    "points_per_mesh": 50000
+  },
+  "alignment": {
+    "method": "24_axis_hypotheses_plus_trimmed_point_to_point_icp",
+    "iterations": 24,
+    "mean_distance_history": [
+      0.0253976,
+      0.02461856,
+      0.02400164,
+      0.02352907,
+      0.02317615,
+      0.0229252,
+      0.02276092,
+      0.02264839,
+      0.02257357,
+      0.02252326,
+      0.02249013,
+      0.0224671,
+      0.02245171,
+      0.02244159,
+      0.02243564,
+      0.02243253,
+      0.0224306,
+      0.02242869,
+      0.02242767,
+      0.02242733,
+      0.02242709,
+      0.02242689,
+      0.02242699,
+      0.02242703
+    ],
+    "rotation_source_to_target": [
+      [
+        0.9999986646,
+        -0.0014702679,
+        0.0007135872
+      ],
+      [
+        0.0007111653,
+        -0.0016471673,
+        -0.9999983905
+      ],
+      [
+        0.0014714409,
+        0.9999975626,
+        -0.0016461195
+      ]
+    ]
+  },
+  "surface_metrics": {
+    "chamfer_l1_normalized": 0.05859176,
+    "predicted_to_target_mean": 0.02922002,
+    "target_to_predicted_mean": 0.02937174,
+    "hausdorff_95_normalized": 0.0873755,
+    "surface_f_scores": {
+      "1pct": {
+        "precision": 0.25106,
+        "recall": 0.21344,
+        "f_score": 0.230727
+      },
+      "2pct": {
+        "precision": 0.45862,
+        "recall": 0.42392,
+        "f_score": 0.440588
+      },
+      "5pct": {
+        "precision": 0.83872,
+        "recall": 0.81752,
+        "f_score": 0.827984
+      }
+    }
+  },
+  "normal_consistency": {
+    "mean_absolute_cosine": 0.6473513,
+    "median_absolute_cosine": 0.7311528,
+    "fraction_above_0_90": 0.2694
+  },
+  "preview": "dataset/phase_runs/v1/stl1_paired_mesh_benchmark_v1/ring_014/aligned_surface_comparison.png",
+  "metric_scale_validated": false,
+  "manufacturing_accuracy_validated": false
+}

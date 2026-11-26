@@ -1,0 +1,79 @@
+{
+  "object_id": "ring_009",
+  "split": "train",
+  "proposal": {
+    "path": "dataset/phase_runs/v1/phase3/visual_hull/ring_009/ring_009_phase3_visual_hull_non_metric.stl",
+    "sha256": "9a5170530e91b2ef5e0017596f98b7db52edaf55ffb71742be94333e9a18983c",
+    "source": "phase3_non_metric_visual_hull"
+  },
+  "paired_target": {
+    "path": "dataset/STL-1/Ring 9/R9.obj",
+    "sha256": "5a3c54161f893dc001ccf1aed0f63e8912d8a7b331f65e26fd7833380bd0bbf2",
+    "class": "online_generated_mesh_pseudo_ground_truth"
+  },
+  "sampling": {
+    "points_per_mesh": 50000
+  },
+  "alignment": {
+    "method": "24_axis_hypotheses_plus_trimmed_point_to_point_icp",
+    "iterations": 8,
+    "mean_distance_history": [
+      0.0194439,
+      0.01937076,
+      0.01934219,
+      0.01933069,
+      0.01932596,
+      0.01932426,
+      0.0193239,
+      0.01932392
+    ],
+    "rotation_source_to_target": [
+      [
+        0.9999980847,
+        0.0012146134,
+        -0.0015347013
+      ],
+      [
+        -0.0015477623,
+        0.0108263465,
+        -0.9999401955
+      ],
+      [
+        -0.0011979256,
+        0.9999406557,
+        0.0108282057
+      ]
+    ]
+  },
+  "surface_metrics": {
+    "chamfer_l1_normalized": 0.04887318,
+    "predicted_to_target_mean": 0.02245442,
+    "target_to_predicted_mean": 0.02641876,
+    "hausdorff_95_normalized": 0.07025778,
+    "surface_f_scores": {
+      "1pct": {
+        "precision": 0.22854,
+        "recall": 0.23476,
+        "f_score": 0.231608
+      },
+      "2pct": {
+        "precision": 0.48168,
+        "recall": 0.46886,
+        "f_score": 0.475184
+      },
+      "5pct": {
+        "precision": 0.9514,
+        "recall": 0.8693,
+        "f_score": 0.908499
+      }
+    }
+  },
+  "normal_consistency": {
+    "mean_absolute_cosine": 0.7110566,
+    "median_absolute_cosine": 0.8007413,
+    "fraction_above_0_90": 0.3486
+  },
+  "preview": "dataset/phase_runs/v1/stl1_paired_mesh_benchmark_v1/ring_009/aligned_surface_comparison.png",
+  "metric_scale_validated": false,
+  "manufacturing_accuracy_validated": false
+}
