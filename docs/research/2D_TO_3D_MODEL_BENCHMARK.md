@@ -49,6 +49,65 @@ The detected GPU is an NVIDIA GeForce RTX 3050 Laptop GPU with 4 GB VRAM. At the
 
 CPU fallbacks can be recorded, but an extremely slow or memory-starved run is not a fair comparison. Large models should run on a remote 24 GB or larger GPU after the benchmark input and acceptance rules are frozen.
 
+## STL-1 Hunyuan shape pilot
+
+[The pilot module](../../pipeline/pilot_stl1_hunyuan.py) runs the pinned
+[Hunyuan3D-2 source](https://github.com/Tencent-Hunyuan/Hunyuan3D-2/tree/f8db63096c8282cb27354314d896feba5ba6ff8a)
+and [2mv Turbo weights](https://huggingface.co/tencent/Hunyuan3D-2mv/tree/3a761b539b29fe4ff64714813aa9560fd66f5de0).
+Its local loader maps checkpoint tensors and offloads individual model
+components. The shape-only 192-resolution configuration ran on the 4 GB
+laptop GPU. The weights and runtime are cached under `models/hunyuan3d_2mv/`.
+The pinned runtime adds Diffusers 0.32.2, Transformers 4.49.0, Accelerate
+1.4.0, einops 0.8.1, safetensors 0.5.3 and PyMeshLab 2023.12.post3 to the
+`image2cad-validation:phase0` image.
+
+The module's `prepare`, `generate` and `evaluate` stages store inputs,
+provenance, OBJs, renders and scores under
+`dataset/phase_runs/v1/stl1_hunyuan_pilot_v1/`. Use
+`generate --objects ring_001 ring_005 ring_004 --steps 8 --resolution 192`
+to reproduce the pilot settings with the pinned source on `PYTHONPATH`.
+Hunyuan uses front, left and right. The hull also uses top. The unused
+angled view and paired OBJ are opened during evaluation. The aligned gray
+renders, opening coverage and per-region silhouette scores help separate
+visible relief from shape and connectivity errors. The [Tencent model
+license](https://huggingface.co/tencent/Hunyuan3D-2mv/raw/main/LICENSE) applies.
+The public checkout carries the benchmark code. Hunyuan outputs, transferred
+relief meshes and comparison sheets containing either remain local.
+
+### How Hunyuan uses the input views
+
+The pinned preprocessor crops each image to its alpha foreground, rescales it
+independently, and sorts views by their assigned camera slots. The slots are
+front, left, back and right. The DINOv2 conditioner adds a positional embedding
+for each slot to the corresponding image features. The diffusion transformer
+generates the shape latent from those features. The VAE decodes a scalar field,
+and marching cubes extracts its surface. This generation path receives the
+view slots instead of measured camera intrinsics or poses.
+
+The view ablation uses the same front image, checkpoint, seed, step count and
+mesh resolution across both variants. It adds a trace of the actual
+conditioning and diffusion tensor sizes to the generation record. Reproduce
+the front-only runs with `generate --variant front-only --objects ring_001
+ring_005 ring_004 --steps 8 --resolution 192`, then `evaluate` with the same
+variant and ring IDs. Run `python -m pipeline.report_stl1_hunyuan_view_ablation`
+to compare them with the original three-view runs.
+
+### TripoSR shape and structure pilot
+
+[The TripoSR adapter](../../pipeline/pilot_stl1_triposr.py) uses the same
+prepared front view on Rings 001, 005 and 004. Its trace records 1025 image
+tokens and three learned feature planes. The shape decoder queries density
+in chunks before CPU marching cubes. The local runtime uses the published
+checkpoint and threshold, with scikit-image replacing the compiled mesh
+extractor. Use the module's `generate` and `evaluate` stages inside the
+validation image with the pinned TripoSR source on `PYTHONPATH`.
+
+[The source-image structure screen](../../pipeline/screen_stl1_generated_rings.py)
+checks the projected top outline and the main enclosed opening in a common
+hull frame, alongside mesh connectivity, winding and watertightness. It
+keeps the unused angled comparison available separately. The thresholds
+are provisional for the selected sculptural ring pilot.
+
 ## Standard experiment contract
 
 An external model writes its output to a versioned directory:
