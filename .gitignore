@@ -27,6 +27,13 @@ data/logs/local/
 hf_cache/
 models/*.pt
 models/metric_depth/
+models/hunyuan3d_2mv/
+models/triposr/
+
+# The pinned Hunyuan license restricts distribution of generated output.
+dataset/phase_runs/v1/stl1_hunyuan_pilot_v1/
+dataset/phase_runs/v1/stl1_hunyuan_relief_transfer_v1/
+dataset/phase_runs/v1/stl1_generator_structure_screen_v1/
 
 # Reproducible metric-depth tensors and model-side auxiliaries.
 # Content hashes, backend reports and visual review sheets remain versioned.
