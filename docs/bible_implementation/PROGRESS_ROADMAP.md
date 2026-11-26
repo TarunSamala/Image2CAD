@@ -336,10 +336,20 @@ whole-front coverage cannot stand in for face-detail coverage. The accepted
 isometric tracks are still unlabelled machine hypotheses, not verified 3D
 correspondences. Validation/test, Phase 5.13 gates and CAD fusion stay frozen.
 
-1. Expand the direct content review across varied training regions, including
-   cases where top view does contain recognizable target detail. Then evaluate
-   a region-specific routing rule against reviewed labels before a frozen
-   validation run. Preserve unresolved
+Phase 5.23 extends this review to eight regions across four training rings,
+including faces, shoulders and an open loop. The frozen matcher finds local
+isometric support for all seven regions judged partly recognizable there.
+For top views, it finds support on one of three recognizable shoulder
+regions and on one of four faces without recognizable top detail. Restricting
+matches to the reviewed region removes one misleading whole-front signal.
+The results support using local evidence for diagnosis. A single accepted
+track is too weak to route a region into geometry fitting. See the
+[review sheet](../../data/phase5_training_region_review_v1/training_region_review.png)
+and [per-region results](../../data/phase5_training_region_review_v1/report.json).
+
+1. Expand the reviewed training regions beyond the Phase 5.23 probe, and
+   confirm the target locations before calibrating a region-specific routing
+   rule for frozen validation. Preserve unresolved
    regions rather than treating missing tracks as physical occlusion.
 2. Develop patch-level local shape evidence on training rings and require it
    to beat the matched-control signed-relief baseline before validation.

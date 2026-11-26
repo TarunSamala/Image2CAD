@@ -1,0 +1,70 @@
+{
+  "reviewer": "assistant visual review",
+  "label_scope": "Recognizable component or motif in each image; approximate front boxes.",
+  "regions": [
+    {
+      "object_id": "ring_002",
+      "region": "central face and crown",
+      "front_bbox": [0.42, 0.23, 0.60, 0.53],
+      "top": "absent",
+      "iso": "partial",
+      "note": "The top shows the reverse/profile; the angled image shows part of the figure and crown."
+    },
+    {
+      "object_id": "ring_002",
+      "region": "right rounded shank shoulder",
+      "front_bbox": [0.73, 0.49, 0.83, 0.62],
+      "top": "partial",
+      "iso": "partial",
+      "note": "The band-to-head shoulder is visible in both target views, with a different surface facing the camera."
+    },
+    {
+      "object_id": "ring_005",
+      "region": "central face",
+      "front_bbox": [0.40, 0.36, 0.60, 0.53],
+      "top": "absent",
+      "iso": "partial",
+      "note": "The top shows the fluted edge and band. Some central face relief survives in the angled view."
+    },
+    {
+      "object_id": "ring_005",
+      "region": "right fluted shoulder",
+      "front_bbox": [0.65, 0.35, 0.81, 0.63],
+      "top": "partial",
+      "iso": "partial",
+      "note": "The junction between the fluted shoulder and the hoop is recognizable in both views."
+    },
+    {
+      "object_id": "ring_013",
+      "region": "central face and crown",
+      "front_bbox": [0.43, 0.36, 0.57, 0.53],
+      "top": "absent",
+      "iso": "partial",
+      "note": "The top shows the head profile and band. The central raised figure is partly apparent in isometric."
+    },
+    {
+      "object_id": "ring_013",
+      "region": "right shank tab",
+      "front_bbox": [0.70, 0.42, 0.79, 0.51],
+      "top": "partial",
+      "iso": "partial",
+      "note": "The tab and band-to-head junction are recognizable from the top and at an angle."
+    },
+    {
+      "object_id": "ring_019",
+      "region": "central face",
+      "front_bbox": [0.45, 0.31, 0.55, 0.46],
+      "top": "absent",
+      "iso": "partial",
+      "note": "The top shows the backing and rim. The angled image shows part of the raised figure."
+    },
+    {
+      "object_id": "ring_019",
+      "region": "lower open loop",
+      "front_bbox": [0.45, 0.63, 0.55, 0.79],
+      "top": "uncertain",
+      "iso": "uncertain",
+      "note": "The loop is clear from the front. The target views foreshorten or overlap it with the edge ornament."
+    }
+  ]
+}

@@ -1,0 +1,308 @@
+{
+  "stage": "Phase 5.23 training region routing review",
+  "split": "train",
+  "routing_probe": "Any accepted reciprocal track in the region versus anywhere in the front view.",
+  "scope": "These selected training examples measure agreement with region visibility labels. A recognizable component can still lack the same visible surface in both images.",
+  "labels_sha256": "6ba78ece8e1081583e8f2f308d131925780ba28d08e3b4d8c2c848dbdcb8a44c",
+  "region_count": 8,
+  "summary": {
+    "top": {
+      "absent_regions": 4,
+      "absent_with_local_support": 1,
+      "absent_with_whole_front_support": 2,
+      "partial_regions": 3,
+      "partial_with_local_support": 1,
+      "partial_with_whole_front_support": 1,
+      "uncertain_regions": 1
+    },
+    "iso": {
+      "partial_regions": 7,
+      "partial_with_local_support": 7,
+      "partial_with_whole_front_support": 7,
+      "uncertain_regions": 1
+    }
+  },
+  "regions": [
+    {
+      "object_id": "ring_002",
+      "region": "central face and crown",
+      "front_bbox_fraction": [
+        0.42,
+        0.23,
+        0.6,
+        0.53
+      ],
+      "front_bbox_track_pixels": [
+        205.2907,
+        130.8697,
+        315.8638,
+        269.0861
+      ],
+      "local_relief_candidates": 212,
+      "note": "The top shows the reverse/profile; the angled image shows part of the figure and crown.",
+      "source_image_hashes": {
+        "front": "b9357a148d07e593dd55d391ed01aa5f738d44cc7d74118f63e21aa767ab0094",
+        "top": "35234e235e24bac7e35698bac8e329c6748b0ba69ac925b446f11dc9c0301e50",
+        "iso": "ec6328ccbbf94348e31bf812d0873179c8bd771b332c66c2ed09525a19e7ba5c"
+      },
+      "targets": {
+        "top": {
+          "review_status": "absent",
+          "local_accepted_tracks": 0,
+          "whole_front_accepted_tracks": 0
+        },
+        "iso": {
+          "review_status": "partial",
+          "local_accepted_tracks": 126,
+          "whole_front_accepted_tracks": 363
+        }
+      }
+    },
+    {
+      "object_id": "ring_002",
+      "region": "right rounded shank shoulder",
+      "front_bbox_fraction": [
+        0.73,
+        0.49,
+        0.83,
+        0.62
+      ],
+      "front_bbox_track_pixels": [
+        395.7221,
+        250.6572,
+        457.1516,
+        310.551
+      ],
+      "local_relief_candidates": 12,
+      "note": "The band-to-head shoulder is visible in both target views, with a different surface facing the camera.",
+      "source_image_hashes": {
+        "front": "b9357a148d07e593dd55d391ed01aa5f738d44cc7d74118f63e21aa767ab0094",
+        "top": "35234e235e24bac7e35698bac8e329c6748b0ba69ac925b446f11dc9c0301e50",
+        "iso": "ec6328ccbbf94348e31bf812d0873179c8bd771b332c66c2ed09525a19e7ba5c"
+      },
+      "targets": {
+        "top": {
+          "review_status": "partial",
+          "local_accepted_tracks": 0,
+          "whole_front_accepted_tracks": 0
+        },
+        "iso": {
+          "review_status": "partial",
+          "local_accepted_tracks": 1,
+          "whole_front_accepted_tracks": 363
+        }
+      }
+    },
+    {
+      "object_id": "ring_005",
+      "region": "central face",
+      "front_bbox_fraction": [
+        0.4,
+        0.36,
+        0.6,
+        0.53
+      ],
+      "front_bbox_track_pixels": [
+        197.6635,
+        163.4468,
+        320.3365,
+        279.6537
+      ],
+      "local_relief_candidates": 240,
+      "note": "The top shows the fluted edge and band. Some central face relief survives in the angled view.",
+      "source_image_hashes": {
+        "front": "8be57546446df4a9af906a2ed595a747a27d2d5b7b2f4566f6c46363721e60d0",
+        "top": "2bb5df73457ef0656d4a09cca6c8ba2aa1479a67193c254a58925f344958f1f8",
+        "iso": "f567863e2ad6e25f325f999662fd7f170576fb052f36fbbacb96c7c4b35018a5"
+      },
+      "targets": {
+        "top": {
+          "review_status": "absent",
+          "local_accepted_tracks": 0,
+          "whole_front_accepted_tracks": 1
+        },
+        "iso": {
+          "review_status": "partial",
+          "local_accepted_tracks": 54,
+          "whole_front_accepted_tracks": 169
+        }
+      }
+    },
+    {
+      "object_id": "ring_005",
+      "region": "right fluted shoulder",
+      "front_bbox_fraction": [
+        0.65,
+        0.35,
+        0.81,
+        0.63
+      ],
+      "front_bbox_track_pixels": [
+        351.0048,
+        156.6111,
+        449.1433,
+        348.0107
+      ],
+      "local_relief_candidates": 131,
+      "note": "The junction between the fluted shoulder and the hoop is recognizable in both views.",
+      "source_image_hashes": {
+        "front": "8be57546446df4a9af906a2ed595a747a27d2d5b7b2f4566f6c46363721e60d0",
+        "top": "2bb5df73457ef0656d4a09cca6c8ba2aa1479a67193c254a58925f344958f1f8",
+        "iso": "f567863e2ad6e25f325f999662fd7f170576fb052f36fbbacb96c7c4b35018a5"
+      },
+      "targets": {
+        "top": {
+          "review_status": "partial",
+          "local_accepted_tracks": 1,
+          "whole_front_accepted_tracks": 1
+        },
+        "iso": {
+          "review_status": "partial",
+          "local_accepted_tracks": 15,
+          "whole_front_accepted_tracks": 169
+        }
+      }
+    },
+    {
+      "object_id": "ring_013",
+      "region": "central face and crown",
+      "front_bbox_fraction": [
+        0.43,
+        0.36,
+        0.57,
+        0.53
+      ],
+      "front_bbox_track_pixels": [
+        221.2788,
+        164.8442,
+        310.5014,
+        282.9772
+      ],
+      "local_relief_candidates": 167,
+      "note": "The top shows the head profile and band. The central raised figure is partly apparent in isometric.",
+      "source_image_hashes": {
+        "front": "66d88d705b6643c79188424529c343dde4da913d46d87654a8564aaeae7ab55a",
+        "top": "1b9c23e54eb8ea743158aaf1e6567cf74114bddcf50ddfc6864b817cf52a58e4",
+        "iso": "409e6a0286d9ce1ffbe6c29b76a28cf792eda5767c08b8506d21ed611057a17f"
+      },
+      "targets": {
+        "top": {
+          "review_status": "absent",
+          "local_accepted_tracks": 0,
+          "whole_front_accepted_tracks": 0
+        },
+        "iso": {
+          "review_status": "partial",
+          "local_accepted_tracks": 13,
+          "whole_front_accepted_tracks": 128
+        }
+      }
+    },
+    {
+      "object_id": "ring_013",
+      "region": "right shank tab",
+      "front_bbox_fraction": [
+        0.7,
+        0.42,
+        0.79,
+        0.51
+      ],
+      "front_bbox_track_pixels": [
+        393.351,
+        206.5382,
+        450.7084,
+        269.0792
+      ],
+      "local_relief_candidates": 28,
+      "note": "The tab and band-to-head junction are recognizable from the top and at an angle.",
+      "source_image_hashes": {
+        "front": "66d88d705b6643c79188424529c343dde4da913d46d87654a8564aaeae7ab55a",
+        "top": "1b9c23e54eb8ea743158aaf1e6567cf74114bddcf50ddfc6864b817cf52a58e4",
+        "iso": "409e6a0286d9ce1ffbe6c29b76a28cf792eda5767c08b8506d21ed611057a17f"
+      },
+      "targets": {
+        "top": {
+          "review_status": "partial",
+          "local_accepted_tracks": 0,
+          "whole_front_accepted_tracks": 0
+        },
+        "iso": {
+          "review_status": "partial",
+          "local_accepted_tracks": 18,
+          "whole_front_accepted_tracks": 128
+        }
+      }
+    },
+    {
+      "object_id": "ring_019",
+      "region": "central face",
+      "front_bbox_fraction": [
+        0.45,
+        0.31,
+        0.55,
+        0.46
+      ],
+      "front_bbox_track_pixels": [
+        205.4138,
+        142.6965,
+        312.5862,
+        235.6351
+      ],
+      "local_relief_candidates": 168,
+      "note": "The top shows the backing and rim. The angled image shows part of the raised figure.",
+      "source_image_hashes": {
+        "front": "fa34bc66499fc0e6c79102a356ac833b6ce1e991cc1e3e1e2a40b385d0ea8b26",
+        "top": "aaaf27022992563fe8fcfffbe2b18b5517b9b8a169bc6b9db0b4e41aa5ab9518",
+        "iso": "e0e9aab23812312077bd885bb4c9666cc2e5265e3f5c9a6230328d8ff2905969"
+      },
+      "targets": {
+        "top": {
+          "review_status": "absent",
+          "local_accepted_tracks": 1,
+          "whole_front_accepted_tracks": 1
+        },
+        "iso": {
+          "review_status": "partial",
+          "local_accepted_tracks": 64,
+          "whole_front_accepted_tracks": 212
+        }
+      }
+    },
+    {
+      "object_id": "ring_019",
+      "region": "lower open loop",
+      "front_bbox_fraction": [
+        0.45,
+        0.63,
+        0.55,
+        0.79
+      ],
+      "front_bbox_track_pixels": [
+        205.4138,
+        340.9655,
+        312.5862,
+        440.1
+      ],
+      "local_relief_candidates": 84,
+      "note": "The loop is clear from the front. The target views foreshorten or overlap it with the edge ornament.",
+      "source_image_hashes": {
+        "front": "fa34bc66499fc0e6c79102a356ac833b6ce1e991cc1e3e1e2a40b385d0ea8b26",
+        "top": "aaaf27022992563fe8fcfffbe2b18b5517b9b8a169bc6b9db0b4e41aa5ab9518",
+        "iso": "e0e9aab23812312077bd885bb4c9666cc2e5265e3f5c9a6230328d8ff2905969"
+      },
+      "targets": {
+        "top": {
+          "review_status": "uncertain",
+          "local_accepted_tracks": 0,
+          "whole_front_accepted_tracks": 1
+        },
+        "iso": {
+          "review_status": "uncertain",
+          "local_accepted_tracks": 8,
+          "whole_front_accepted_tracks": 212
+        }
+      }
+    }
+  ],
+  "preview": "data/phase5_training_region_review_v1/training_region_review.png"
+}
