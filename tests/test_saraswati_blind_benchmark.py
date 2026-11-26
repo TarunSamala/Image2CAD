@@ -11,9 +11,16 @@ from pipeline.run_saraswati_blind_benchmark import _foreground_mask, _surface_me
 from pipeline.refine_saraswati_blind_relief import carve_front_relief
 from pipeline.sweep_saraswati_relief import _non_regressing
 from pipeline.refine_saraswati_multiview_relief import carve_axis_relief
+from pipeline.refine_uploaded_multiview_depth import _side_correlation
 
 
 class SaraswatiBlindBenchmarkTest(unittest.TestCase):
+    def test_uploaded_side_correlation_detects_mirrored_agreement(self) -> None:
+        left = np.tile(np.linspace(0.1, 1.0, 20, dtype=np.float32), (20, 1))
+        right = np.fliplr(left)
+        mask = np.ones((20, 20), dtype=bool)
+        self.assertGreater(_side_correlation(left, mask, right, mask), 0.99)
+
     def test_axis_relief_preserves_minimum_local_thickness(self) -> None:
         volume = np.zeros((8, 8, 8), dtype=bool)
         volume[2:6, 2:6, 2:6] = True

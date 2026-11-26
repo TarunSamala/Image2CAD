@@ -237,6 +237,7 @@ def _align(source: np.ndarray, target: np.ndarray) -> tuple[np.ndarray, dict[str
         candidates.append((float(np.mean(distances)), rotation))
     _, initial_rotation = min(candidates, key=lambda item: item[0])
     aligned = source @ initial_rotation.T
+    total_rotation = initial_rotation.copy()
     iterations = []
     for _ in range(30):
         distances, indices = target_tree.query(aligned, k=1, workers=-1)
@@ -244,6 +245,7 @@ def _align(source: np.ndarray, target: np.ndarray) -> tuple[np.ndarray, dict[str
         keep = distances <= cutoff
         rotation, translation = _kabsch(aligned[keep], target[indices[keep]])
         aligned = aligned @ rotation.T + translation
+        total_rotation = rotation @ total_rotation
         mean = float(np.mean(distances[keep]))
         iterations.append(mean)
         if len(iterations) > 1 and abs(iterations[-2] - mean) < 1e-7:
@@ -252,6 +254,7 @@ def _align(source: np.ndarray, target: np.ndarray) -> tuple[np.ndarray, dict[str
         "method": "24_axis_hypotheses_plus_trimmed_point_to_point_icp",
         "iterations": len(iterations),
         "mean_distance_history": [round(value, 8) for value in iterations],
+        "rotation_source_to_target": np.round(total_rotation, 10).tolist(),
     }
 
 
