@@ -1,0 +1,409 @@
+{
+  "schema_version": "image2cad_stl1_mesh_image_pairing_v1",
+  "created_at": "2026-11-26T08:21:26.697672+00:00",
+  "method": "PCA_plus_24_axis_hypotheses_normalized_orthographic_point_projection",
+  "object_count": 24,
+  "mean_iou": 0.619243,
+  "median_iou": 0.643187,
+  "minimum_iou": 0.429756,
+  "pairing_status_counts": {
+    "front_supported": 24,
+    "manual_review": 0
+  },
+  "cross_view_geometry_status_counts": {
+    "strong": 5,
+    "review": 14,
+    "weak": 5
+  },
+  "claim_policy": {
+    "validates_pairing": "image-space screening only",
+    "validates_3d_accuracy": false,
+    "validates_manufacturing_accuracy": false
+  },
+  "objects": [
+    {
+      "object_id": "ring_001",
+      "split": "train",
+      "mesh_path": "dataset/STL-1/Ring 1/R1.obj",
+      "rotation_hypothesis": 3,
+      "mean_principal_iou": 0.71093,
+      "view_iou": {
+        "front": 0.871364,
+        "top": 0.343848,
+        "lsv": 0.828166,
+        "rsv": 0.800343
+      },
+      "audit": "dataset/phase_runs/v1/stl1_mesh_image_pairing_v1/ring_001/pairing_audit.png",
+      "pairing_status": "front_supported",
+      "cross_view_geometry_status": "strong"
+    },
+    {
+      "object_id": "ring_002",
+      "split": "train",
+      "mesh_path": "dataset/STL-1/Ring 2/R2.obj",
+      "rotation_hypothesis": 9,
+      "mean_principal_iou": 0.719721,
+      "view_iou": {
+        "front": 0.868297,
+        "top": 0.380641,
+        "lsv": 0.807394,
+        "rsv": 0.822551
+      },
+      "audit": "dataset/phase_runs/v1/stl1_mesh_image_pairing_v1/ring_002/pairing_audit.png",
+      "pairing_status": "front_supported",
+      "cross_view_geometry_status": "strong"
+    },
+    {
+      "object_id": "ring_003",
+      "split": "train",
+      "mesh_path": "dataset/STL-1/Ring 3/R3.obj",
+      "rotation_hypothesis": 9,
+      "mean_principal_iou": 0.582639,
+      "view_iou": {
+        "front": 0.86267,
+        "top": 0.272894,
+        "lsv": 0.590543,
+        "rsv": 0.604448
+      },
+      "audit": "dataset/phase_runs/v1/stl1_mesh_image_pairing_v1/ring_003/pairing_audit.png",
+      "pairing_status": "front_supported",
+      "cross_view_geometry_status": "review"
+    },
+    {
+      "object_id": "ring_004",
+      "split": "val",
+      "mesh_path": "dataset/STL-1/Ring 4/R4.obj",
+      "rotation_hypothesis": 3,
+      "mean_principal_iou": 0.64935,
+      "view_iou": {
+        "front": 0.849828,
+        "top": 0.51273,
+        "lsv": 0.612402,
+        "rsv": 0.622441
+      },
+      "audit": "dataset/phase_runs/v1/stl1_mesh_image_pairing_v1/ring_004/pairing_audit.png",
+      "pairing_status": "front_supported",
+      "cross_view_geometry_status": "review"
+    },
+    {
+      "object_id": "ring_005",
+      "split": "train",
+      "mesh_path": "dataset/STL-1/Ring 5/R5.obj",
+      "rotation_hypothesis": 3,
+      "mean_principal_iou": 0.696657,
+      "view_iou": {
+        "front": 0.873974,
+        "top": 0.392914,
+        "lsv": 0.775348,
+        "rsv": 0.74439
+      },
+      "audit": "dataset/phase_runs/v1/stl1_mesh_image_pairing_v1/ring_005/pairing_audit.png",
+      "pairing_status": "front_supported",
+      "cross_view_geometry_status": "review"
+    },
+    {
+      "object_id": "ring_006",
+      "split": "train",
+      "mesh_path": "dataset/STL-1/Ring 6/R6.obj",
+      "rotation_hypothesis": 3,
+      "mean_principal_iou": 0.637024,
+      "view_iou": {
+        "front": 0.858939,
+        "top": 0.256146,
+        "lsv": 0.736317,
+        "rsv": 0.696693
+      },
+      "audit": "dataset/phase_runs/v1/stl1_mesh_image_pairing_v1/ring_006/pairing_audit.png",
+      "pairing_status": "front_supported",
+      "cross_view_geometry_status": "review"
+    },
+    {
+      "object_id": "ring_007",
+      "split": "test",
+      "mesh_path": "dataset/STL-1/Ring 7/R7.obj",
+      "rotation_hypothesis": 14,
+      "mean_principal_iou": 0.602033,
+      "view_iou": {
+        "front": 0.907976,
+        "top": 0.283065,
+        "lsv": 0.612764,
+        "rsv": 0.604326
+      },
+      "audit": "dataset/phase_runs/v1/stl1_mesh_image_pairing_v1/ring_007/pairing_audit.png",
+      "pairing_status": "front_supported",
+      "cross_view_geometry_status": "review"
+    },
+    {
+      "object_id": "ring_008",
+      "split": "train",
+      "mesh_path": "dataset/STL-1/Ring 8/R8.obj",
+      "rotation_hypothesis": 2,
+      "mean_principal_iou": 0.669913,
+      "view_iou": {
+        "front": 0.836439,
+        "top": 0.387608,
+        "lsv": 0.728145,
+        "rsv": 0.727461
+      },
+      "audit": "dataset/phase_runs/v1/stl1_mesh_image_pairing_v1/ring_008/pairing_audit.png",
+      "pairing_status": "front_supported",
+      "cross_view_geometry_status": "review"
+    },
+    {
+      "object_id": "ring_009",
+      "split": "train",
+      "mesh_path": "dataset/STL-1/Ring 9/R9.obj",
+      "rotation_hypothesis": 10,
+      "mean_principal_iou": 0.698132,
+      "view_iou": {
+        "front": 0.857915,
+        "top": 0.353734,
+        "lsv": 0.814504,
+        "rsv": 0.766376
+      },
+      "audit": "dataset/phase_runs/v1/stl1_mesh_image_pairing_v1/ring_009/pairing_audit.png",
+      "pairing_status": "front_supported",
+      "cross_view_geometry_status": "review"
+    },
+    {
+      "object_id": "ring_010",
+      "split": "train",
+      "mesh_path": "dataset/STL-1/Ring 10/R10.obj",
+      "rotation_hypothesis": 21,
+      "mean_principal_iou": 0.429756,
+      "view_iou": {
+        "front": 0.753446,
+        "top": 0.24141,
+        "lsv": 0.358421,
+        "rsv": 0.365746
+      },
+      "audit": "dataset/phase_runs/v1/stl1_mesh_image_pairing_v1/ring_010/pairing_audit.png",
+      "pairing_status": "front_supported",
+      "cross_view_geometry_status": "weak"
+    },
+    {
+      "object_id": "ring_011",
+      "split": "train",
+      "mesh_path": "dataset/STL-1/Ring 11/R11.obj",
+      "rotation_hypothesis": 6,
+      "mean_principal_iou": 0.489288,
+      "view_iou": {
+        "front": 0.880315,
+        "top": 0.233298,
+        "lsv": 0.413727,
+        "rsv": 0.429812
+      },
+      "audit": "dataset/phase_runs/v1/stl1_mesh_image_pairing_v1/ring_011/pairing_audit.png",
+      "pairing_status": "front_supported",
+      "cross_view_geometry_status": "weak"
+    },
+    {
+      "object_id": "ring_012",
+      "split": "val",
+      "mesh_path": "dataset/STL-1/Ring 12/R12.obj",
+      "rotation_hypothesis": 2,
+      "mean_principal_iou": 0.538044,
+      "view_iou": {
+        "front": 0.862731,
+        "top": 0.339674,
+        "lsv": 0.467674,
+        "rsv": 0.482095
+      },
+      "audit": "dataset/phase_runs/v1/stl1_mesh_image_pairing_v1/ring_012/pairing_audit.png",
+      "pairing_status": "front_supported",
+      "cross_view_geometry_status": "review"
+    },
+    {
+      "object_id": "ring_013",
+      "split": "train",
+      "mesh_path": "dataset/STL-1/Ring 13/R13.obj",
+      "rotation_hypothesis": 11,
+      "mean_principal_iou": 0.674473,
+      "view_iou": {
+        "front": 0.864111,
+        "top": 0.475239,
+        "lsv": 0.67859,
+        "rsv": 0.679954
+      },
+      "audit": "dataset/phase_runs/v1/stl1_mesh_image_pairing_v1/ring_013/pairing_audit.png",
+      "pairing_status": "front_supported",
+      "cross_view_geometry_status": "review"
+    },
+    {
+      "object_id": "ring_014",
+      "split": "train",
+      "mesh_path": "dataset/STL-1/Ring 14/R14.obj",
+      "rotation_hypothesis": 3,
+      "mean_principal_iou": 0.709927,
+      "view_iou": {
+        "front": 0.893513,
+        "top": 0.411794,
+        "lsv": 0.780741,
+        "rsv": 0.75366
+      },
+      "audit": "dataset/phase_runs/v1/stl1_mesh_image_pairing_v1/ring_014/pairing_audit.png",
+      "pairing_status": "front_supported",
+      "cross_view_geometry_status": "strong"
+    },
+    {
+      "object_id": "ring_015",
+      "split": "test",
+      "mesh_path": "dataset/STL-1/Ring 15/R15.obj",
+      "rotation_hypothesis": 3,
+      "mean_principal_iou": 0.692217,
+      "view_iou": {
+        "front": 0.904038,
+        "top": 0.404141,
+        "lsv": 0.743996,
+        "rsv": 0.716694
+      },
+      "audit": "dataset/phase_runs/v1/stl1_mesh_image_pairing_v1/ring_015/pairing_audit.png",
+      "pairing_status": "front_supported",
+      "cross_view_geometry_status": "review"
+    },
+    {
+      "object_id": "ring_016",
+      "split": "train",
+      "mesh_path": "dataset/STL-1/Ring 16/R16.obj",
+      "rotation_hypothesis": 8,
+      "mean_principal_iou": 0.620557,
+      "view_iou": {
+        "front": 0.788297,
+        "top": 0.420658,
+        "lsv": 0.636799,
+        "rsv": 0.636474
+      },
+      "audit": "dataset/phase_runs/v1/stl1_mesh_image_pairing_v1/ring_016/pairing_audit.png",
+      "pairing_status": "front_supported",
+      "cross_view_geometry_status": "review"
+    },
+    {
+      "object_id": "ring_017",
+      "split": "train",
+      "mesh_path": "dataset/STL-1/Ring 17/R17.obj",
+      "rotation_hypothesis": 13,
+      "mean_principal_iou": 0.684551,
+      "view_iou": {
+        "front": 0.847257,
+        "top": 0.369209,
+        "lsv": 0.764532,
+        "rsv": 0.757207
+      },
+      "audit": "dataset/phase_runs/v1/stl1_mesh_image_pairing_v1/ring_017/pairing_audit.png",
+      "pairing_status": "front_supported",
+      "cross_view_geometry_status": "review"
+    },
+    {
+      "object_id": "ring_018",
+      "split": "train",
+      "mesh_path": "dataset/STL-1/Ring 18/R18.obj",
+      "rotation_hypothesis": 1,
+      "mean_principal_iou": 0.526108,
+      "view_iou": {
+        "front": 0.761234,
+        "top": 0.305882,
+        "lsv": 0.512034,
+        "rsv": 0.525283
+      },
+      "audit": "dataset/phase_runs/v1/stl1_mesh_image_pairing_v1/ring_018/pairing_audit.png",
+      "pairing_status": "front_supported",
+      "cross_view_geometry_status": "review"
+    },
+    {
+      "object_id": "ring_019",
+      "split": "train",
+      "mesh_path": "dataset/STL-1/Ring 19/R19.obj",
+      "rotation_hypothesis": 9,
+      "mean_principal_iou": 0.737549,
+      "view_iou": {
+        "front": 0.844923,
+        "top": 0.491384,
+        "lsv": 0.809485,
+        "rsv": 0.804406
+      },
+      "audit": "dataset/phase_runs/v1/stl1_mesh_image_pairing_v1/ring_019/pairing_audit.png",
+      "pairing_status": "front_supported",
+      "cross_view_geometry_status": "strong"
+    },
+    {
+      "object_id": "ring_020",
+      "split": "val",
+      "mesh_path": "dataset/STL-1/Ring 20/R20.obj",
+      "rotation_hypothesis": 9,
+      "mean_principal_iou": 0.497135,
+      "view_iou": {
+        "front": 0.849579,
+        "top": 0.242206,
+        "lsv": 0.449157,
+        "rsv": 0.447599
+      },
+      "audit": "dataset/phase_runs/v1/stl1_mesh_image_pairing_v1/ring_020/pairing_audit.png",
+      "pairing_status": "front_supported",
+      "cross_view_geometry_status": "weak"
+    },
+    {
+      "object_id": "ring_021",
+      "split": "train",
+      "mesh_path": "dataset/STL-1/Ring 21/R21.obj",
+      "rotation_hypothesis": 9,
+      "mean_principal_iou": 0.461831,
+      "view_iou": {
+        "front": 0.72809,
+        "top": 0.314778,
+        "lsv": 0.409545,
+        "rsv": 0.394909
+      },
+      "audit": "dataset/phase_runs/v1/stl1_mesh_image_pairing_v1/ring_021/pairing_audit.png",
+      "pairing_status": "front_supported",
+      "cross_view_geometry_status": "weak"
+    },
+    {
+      "object_id": "ring_022",
+      "split": "train",
+      "mesh_path": "dataset/STL-1/Ring 22/R22.obj",
+      "rotation_hypothesis": 10,
+      "mean_principal_iou": 0.615526,
+      "view_iou": {
+        "front": 0.816736,
+        "top": 0.341217,
+        "lsv": 0.650098,
+        "rsv": 0.654053
+      },
+      "audit": "dataset/phase_runs/v1/stl1_mesh_image_pairing_v1/ring_022/pairing_audit.png",
+      "pairing_status": "front_supported",
+      "cross_view_geometry_status": "review"
+    },
+    {
+      "object_id": "ring_023",
+      "split": "test",
+      "mesh_path": "dataset/STL-1/Ring 23/R23.obj",
+      "rotation_hypothesis": 3,
+      "mean_principal_iou": 0.485291,
+      "view_iou": {
+        "front": 0.758108,
+        "top": 0.276843,
+        "lsv": 0.456066,
+        "rsv": 0.450145
+      },
+      "audit": "dataset/phase_runs/v1/stl1_mesh_image_pairing_v1/ring_023/pairing_audit.png",
+      "pairing_status": "front_supported",
+      "cross_view_geometry_status": "weak"
+    },
+    {
+      "object_id": "ring_024",
+      "split": "train",
+      "mesh_path": "dataset/STL-1/Ring 24/R24.obj",
+      "rotation_hypothesis": 9,
+      "mean_principal_iou": 0.733184,
+      "view_iou": {
+        "front": 0.795479,
+        "top": 0.521855,
+        "lsv": 0.788932,
+        "rsv": 0.826469
+      },
+      "audit": "dataset/phase_runs/v1/stl1_mesh_image_pairing_v1/ring_024/pairing_audit.png",
+      "pairing_status": "front_supported",
+      "cross_view_geometry_status": "strong"
+    }
+  ]
+}
